@@ -1,0 +1,19 @@
+{
+  "commands": [],
+  "configuration_flash_payload_bytes": 596104,
+  "configuration_flash_payload_sha256": "705fe12513b8307c45057374a157a25d89a10cb1c819fbd01f96fa26865ee960",
+  "configuration_sha256": "9111efbd680d9531475ae561394c4c3a509e0d5d417c1d36e03c51e27a88e1a9",
+  "executed": false,
+  "hardware_boot_validated": false,
+  "limits": "configuration access is distinct from CPU debug; refresh is not power-cycle or application validation",
+  "mode": "config-sram",
+  "persistent_write_launched": false,
+  "rom_crc32": 1930024838,
+  "schema": "DRG5-PROGRAM-1",
+  "serial": "REPLACE_WITH_INSPECTED_BOARD_SERIAL",
+  "status": "plan-ready",
+  "steps": [
+    "identify FPGA",
+    "load volatile configuration"
+  ]
+}

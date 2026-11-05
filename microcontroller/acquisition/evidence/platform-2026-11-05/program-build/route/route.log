@@ -1,0 +1,587 @@
+$ /home/bluto/Desktop/dorsalGanglionProject/.release-runs/bootstrap-final-r2/oss-cad-suite/lib/ld-linux-x86-64.so.2 --inhibit-cache --inhibit-rpath '' --library-path /home/bluto/Desktop/dorsalGanglionProject/.release-runs/bootstrap-final-r2/oss-cad-suite/lib /home/bluto/Desktop/dorsalGanglionProject/.release-runs/bootstrap-final-r2/oss-cad-suite/libexec/nextpnr-ecp5 --85k --package CABGA381 --speed 6 --seed 1 --freq 27.77777777777778 --json /tmp/acq-hw-p25-20261105/program-build/route/mapped.json --lpf /tmp/acq-hw-p25-20261105/program-build/route/route.lpf --report /tmp/acq-hw-p25-20261105/program-build/route/route.json --write /tmp/acq-hw-p25-20261105/program-build/route/route-design.json --detailed-timing-report --textcfg /tmp/acq-hw-p25-20261105/program-build/route/route.config
+Info: constraining clock net 'clk25_i' to 25.00 MHz
+Info: constraining clock net 'clk_cpu' to 27.78 MHz
+
+Info: Logic utilisation before packing:
+Info:     Total LUT4s:     13188/83640    15%
+Info:         logic LUTs:  10294/83640    12%
+Info:         carry LUTs:   2654/83640     3%
+Info:           RAM LUTs:    160/10455     1%
+Info:          RAMW LUTs:     80/20910     0%
+
+Info:      Total DFFs:      3998/83640     4%
+
+Info: Packing IOs..
+Info: pin 'uart_tx_o$tr_io' constrained to Bel 'X0/Y56/PIOC'.
+Info: pin 'reset_btn_i$tr_io' constrained to Bel 'X4/Y95/PIOA'.
+Info: pin 'led_o[7]$tr_io' constrained to Bel 'X0/Y41/PIOD'.
+Info: pin 'led_o[6]$tr_io' constrained to Bel 'X0/Y38/PIOD'.
+Info: pin 'led_o[5]$tr_io' constrained to Bel 'X0/Y44/PIOD'.
+Info: pin 'led_o[4]$tr_io' constrained to Bel 'X0/Y38/PIOB'.
+Info: pin 'led_o[3]$tr_io' constrained to Bel 'X0/Y38/PIOC'.
+Info: pin 'led_o[2]$tr_io' constrained to Bel 'X0/Y38/PIOA'.
+Info: pin 'led_o[1]$tr_io' constrained to Bel 'X0/Y35/PIOD'.
+Info: pin 'led_o[0]$tr_io' constrained to Bel 'X0/Y35/PIOC'.
+Info: pin 'flash_wp_n_o$tr_io' constrained to Bel 'X9/Y95/PIOB'.
+Info: pin 'flash_mosi_o$tr_io' constrained to Bel 'X11/Y95/PIOB'.
+Info: pin 'flash_miso_i$tr_io' constrained to Bel 'X11/Y95/PIOA'.
+Info: pin 'flash_hold_n_o$tr_io' constrained to Bel 'X9/Y95/PIOA'.
+Info: pin 'flash_cs_n_o$tr_io' constrained to Bel 'X15/Y95/PIOA'.
+Info: pin 'event_btn_i$tr_io' constrained to Bel 'X4/Y95/PIOB'.
+Info: pin 'clk25_i$tr_io' constrained to Bel 'X0/Y47/PIOA'.
+Info: Packing constants..
+Info: Packing carries...
+Info: Packing LUTs...
+Info: Packing LUT5-7s...
+Info: Packing FFs...
+Info:     1859 FFs paired with LUTs.
+Info: Generating derived timing constraints...
+Info:     Input frequency of PLL 'pll.pll_i' is constrained to 25.0 MHz
+Warning:     Overriding derived constraint of 27.8 MHz on net clk_cpu with user-specified constraint of 25.0 MHz.
+Info: Promoting globals...
+Info:     promoting clock net clk_cpu to global network
+Info: Checksum: 0xd17207e5
+
+Info: Device utilisation:
+Info: 	          TRELLIS_IO:      17/    365     4%
+Info: 	                DCCA:       1/     56     1%
+Info: 	              DP16KD:      48/    208    23%
+Info: 	          MULT18X18D:       4/    156     2%
+Info: 	              ALU54B:       0/     78     0%
+Info: 	             EHXPLLL:       1/      4    25%
+Info: 	             EXTREFB:       0/      2     0%
+Info: 	                DCUA:       0/      2     0%
+Info: 	           PCSCLKDIV:       0/      2     0%
+Info: 	             IOLOGIC:       0/    224     0%
+Info: 	            SIOLOGIC:       0/    141     0%
+Info: 	                 GSR:       0/      1     0%
+Info: 	               JTAGG:       0/      1     0%
+Info: 	                OSCG:       0/      1     0%
+Info: 	               SEDGA:       0/      1     0%
+Info: 	                 DTR:       0/      1     0%
+Info: 	             USRMCLK:       1/      1   100%
+Info: 	             CLKDIVF:       0/      4     0%
+Info: 	           ECLKSYNCB:       0/     10     0%
+Info: 	             DLLDELD:       0/      8     0%
+Info: 	              DDRDLL:       0/      4     0%
+Info: 	             DQSBUFM:       0/     14     0%
+Info: 	     TRELLIS_ECLKBUF:       0/      8     0%
+Info: 	        ECLKBRIDGECS:       0/      2     0%
+Info: 	                DCSC:       0/      2     0%
+Info: 	          TRELLIS_FF:    3998/  83640     4%
+Info: 	        TRELLIS_COMB:   13584/  83640    16%
+Info: 	        TRELLIS_RAMW:      40/  10455     0%
+
+Info: Placed 18 cells based on constraints.
+Info: Creating initial analytic placement for 9527 cells, random placement wirelen = 1133240.
+Info:     at initial placer iter 0, wirelen = 6969
+Info:     at initial placer iter 1, wirelen = 6484
+Info:     at initial placer iter 2, wirelen = 6661
+Info:     at initial placer iter 3, wirelen = 6532
+Info: Running main analytical placer, max placement attempts per cell = 39134704.
+Info:     at iteration #1, type ALL: wirelen solved = 6587, spread = 159013, legal = 161438; time = 0.21s
+Info:     at iteration #2, type ALL: wirelen solved = 15974, spread = 123055, legal = 127706; time = 0.21s
+Info:     at iteration #3, type ALL: wirelen solved = 27434, spread = 113733, legal = 119260; time = 0.21s
+Info:     at iteration #4, type ALL: wirelen solved = 33225, spread = 103119, legal = 110403; time = 0.21s
+Info:     at iteration #5, type ALL: wirelen solved = 38463, spread = 97983, legal = 103357; time = 0.18s
+Info:     at iteration #6, type ALL: wirelen solved = 43354, spread = 93196, legal = 100236; time = 0.19s
+Info:     at iteration #7, type ALL: wirelen solved = 46907, spread = 89009, legal = 95110; time = 0.18s
+Info:     at iteration #8, type ALL: wirelen solved = 49827, spread = 87395, legal = 93369; time = 0.17s
+Info:     at iteration #9, type ALL: wirelen solved = 52713, spread = 84718, legal = 91956; time = 0.17s
+Info:     at iteration #10, type ALL: wirelen solved = 53935, spread = 84870, legal = 91795; time = 0.18s
+Info:     at iteration #11, type ALL: wirelen solved = 56063, spread = 83584, legal = 91187; time = 0.20s
+Info:     at iteration #12, type ALL: wirelen solved = 56333, spread = 82228, legal = 88985; time = 0.18s
+Info:     at iteration #13, type ALL: wirelen solved = 56886, spread = 82801, legal = 89171; time = 0.17s
+Info:     at iteration #14, type ALL: wirelen solved = 58533, spread = 81243, legal = 87692; time = 0.17s
+Info:     at iteration #15, type ALL: wirelen solved = 58566, spread = 81481, legal = 87271; time = 0.17s
+Info:     at iteration #16, type ALL: wirelen solved = 59775, spread = 81928, legal = 88175; time = 0.16s
+Info:     at iteration #17, type ALL: wirelen solved = 60978, spread = 80463, legal = 85896; time = 0.16s
+Info:     at iteration #18, type ALL: wirelen solved = 60572, spread = 81501, legal = 86559; time = 0.16s
+Info:     at iteration #19, type ALL: wirelen solved = 61503, spread = 79846, legal = 85269; time = 0.16s
+Info:     at iteration #20, type ALL: wirelen solved = 61271, spread = 80923, legal = 85660; time = 0.16s
+Info:     at iteration #21, type ALL: wirelen solved = 62668, spread = 79815, legal = 85081; time = 0.16s
+Info:     at iteration #22, type ALL: wirelen solved = 62363, spread = 79737, legal = 84568; time = 0.16s
+Info:     at iteration #23, type ALL: wirelen solved = 62588, spread = 79746, legal = 85106; time = 0.16s
+Info:     at iteration #24, type ALL: wirelen solved = 62818, spread = 78977, legal = 84923; time = 0.18s
+Info:     at iteration #25, type ALL: wirelen solved = 63885, spread = 78243, legal = 83968; time = 0.16s
+Info:     at iteration #26, type ALL: wirelen solved = 64046, spread = 78121, legal = 84047; time = 0.17s
+Info:     at iteration #27, type ALL: wirelen solved = 63993, spread = 78906, legal = 84050; time = 0.17s
+Info:     at iteration #28, type ALL: wirelen solved = 64593, spread = 79688, legal = 84660; time = 0.16s
+Info:     at iteration #29, type ALL: wirelen solved = 65498, spread = 80080, legal = 85019; time = 0.16s
+Info:     at iteration #30, type ALL: wirelen solved = 66248, spread = 82073, legal = 86953; time = 0.18s
+Info: HeAP Placer Time: 7.66s
+Info:   of which solving equations: 3.78s
+Info:   of which spreading cells: 1.10s
+Info:   of which strict legalisation: 0.74s
+
+Info: Running simulated annealing placer for refinement.
+Info:   at iteration #1: temp = 0.000000, timing cost = 7330, wirelen = 83968
+Info:   at iteration #5: temp = 0.000000, timing cost = 5968, wirelen = 77018
+Info:   at iteration #10: temp = 0.000000, timing cost = 5815, wirelen = 74759
+Info:   at iteration #15: temp = 0.000000, timing cost = 5763, wirelen = 74203
+Info:   at iteration #20: temp = 0.000000, timing cost = 5769, wirelen = 74002
+Info:   at iteration #25: temp = 0.000000, timing cost = 5753, wirelen = 73928
+Info:   at iteration #30: temp = 0.000000, timing cost = 5749, wirelen = 73889
+Info:   at iteration #32: temp = 0.000000, timing cost = 5744, wirelen = 73877 
+Info: SA placement time 18.71s
+
+Info: Max frequency for clock '$glbnet$clk_cpu': 20.44 MHz (FAIL at 27.78 MHz)
+
+Info: Max delay <async>                 -> posedge $glbnet$clk_cpu: 9.62 ns
+Info: Max delay posedge $glbnet$clk_cpu -> <async>                : 42.04 ns
+
+Info: Slack histogram:
+Info:  legend: * represents 33 endpoint(s)
+Info:          + represents [1,33) endpoint(s)
+Info: [-12926, -10517) |******+
+Info: [-10517,  -8108) |*************************+
+Info: [ -8108,  -5699) |******************************************+
+Info: [ -5699,  -3290) |******************************+
+Info: [ -3290,   -881) |****+
+Info: [  -881,   1528) |*+
+Info: [  1528,   3937) |***+
+Info: [  3937,   6346) |****+
+Info: [  6346,   8755) |*************+
+Info: [  8755,  11164) |***********+
+Info: [ 11164,  13573) |*******************+
+Info: [ 13573,  15982) |************+
+Info: [ 15982,  18391) |**+
+Info: [ 18391,  20800) |*+
+Info: [ 20800,  23209) |***************+
+Info: [ 23209,  25618) |*************************************************+
+Info: [ 25618,  28027) |*************************************+
+Info: [ 28027,  30436) |***************************************+
+Info: [ 30436,  32845) |********************************+
+Info: [ 32845,  35254) |************************************************************ 
+Info: Checksum: 0xb6af32c1
+Info: Routing globals...
+Info:     routing clock net $glbnet$clk_cpu using global 0
+
+Info: Routing..
+Info: Setting up routing queue.
+Info: Routing 52661 arcs.
+Info:            |   (re-)routed arcs  |   delta    | remaining|       time spent     |
+Info:    IterCnt |  w/ripup   wo/ripup |  w/r  wo/r |      arcs| batch(sec) total(sec)|
+Info:       1000 |      141        858 |  141   858 |     51849|       0.55       0.55|
+Info:       2000 |      336       1663 |  195   805 |     51112|       0.19       0.74|
+Info:       3000 |      545       2454 |  209   791 |     50561|       0.19       0.94|
+Info:       4000 |      755       3244 |  210   790 |     49934|       0.19       1.12|
+Info:       5000 |      917       4082 |  162   838 |     49281|       0.17       1.30|
+Info:       6000 |     1084       4915 |  167   833 |     48675|       0.19       1.48|
+Info:       7000 |     1315       5684 |  231   769 |     48228|       0.21       1.69|
+Info:       8000 |     1527       6472 |  212   788 |     47835|       0.22       1.91|
+Info:       9000 |     1710       7289 |  183   817 |     47308|       0.17       2.08|
+Info:      10000 |     1862       8137 |  152   848 |     46588|       0.16       2.24|
+Info:      11000 |     2042       8957 |  180   820 |     45892|       0.16       2.40|
+Info:      12000 |     2246       9753 |  204   796 |     45175|       0.19       2.59|
+Info:      13000 |     2420      10579 |  174   826 |     44488|       0.20       2.79|
+Info:      14000 |     2583      11416 |  163   837 |     43819|       0.20       2.99|
+Info:      15000 |     2767      12232 |  184   816 |     43224|       0.20       3.19|
+Info:      16000 |     2976      13023 |  209   791 |     42538|       0.21       3.39|
+Info:      17000 |     3152      13847 |  176   824 |     41820|       0.22       3.62|
+Info:      18000 |     3337      14662 |  185   815 |     41137|       0.26       3.87|
+Info:      19000 |     3534      15465 |  197   803 |     40369|       0.25       4.12|
+Info:      20000 |     3728      16271 |  194   806 |     39765|       0.26       4.38|
+Info:      21000 |     3961      17038 |  233   767 |     39055|       0.22       4.60|
+Info:      22000 |     4167      17832 |  206   794 |     38306|       0.24       4.85|
+Info:      23000 |     4367      18632 |  200   800 |     37713|       0.24       5.09|
+Info:      24000 |     4578      19421 |  211   789 |     37033|       0.24       5.33|
+Info:      25000 |     4803      20196 |  225   775 |     36383|       0.26       5.59|
+Info:      26000 |     5105      20894 |  302   698 |     35874|       0.25       5.84|
+Info:      27000 |     5321      21678 |  216   784 |     35150|       0.22       6.05|
+Info:      28000 |     5580      22419 |  259   741 |     34533|       0.28       6.33|
+Info:      29000 |     5806      23193 |  226   774 |     34045|       0.24       6.57|
+Info:      30000 |     6059      23940 |  253   747 |     33436|       0.21       6.78|
+Info:      31000 |     6347      24652 |  288   712 |     32950|       0.27       7.04|
+Info:      32000 |     6655      25344 |  308   692 |     32349|       0.22       7.27|
+Info:      33000 |     6929      26070 |  274   726 |     31729|       0.20       7.46|
+Info:      34000 |     7216      26783 |  287   713 |     31208|       0.24       7.70|
+Info:      35000 |     7495      27487 |  279   704 |     30567|       0.22       7.92|
+Info:      36000 |     7750      28201 |  255   714 |     29930|       0.23       8.14|
+Info:      37000 |     7981      28889 |  231   688 |     29259|       0.20       8.34|
+Info:      38000 |     8183      29621 |  202   732 |     28553|       0.20       8.54|
+Info:      39000 |     8340      30299 |  157   678 |     27728|       0.18       8.72|
+Info:      40000 |     8485      31006 |  145   707 |     26912|       0.17       8.89|
+Info:      41000 |     8659      31718 |  174   712 |     26107|       0.18       9.06|
+Info:      42000 |     8923      32393 |  264   675 |     25419|       0.19       9.26|
+Info:      43000 |     9139      33066 |  216   673 |     24697|       0.20       9.46|
+Info:      44000 |     9445      33714 |  306   648 |     24122|       0.20       9.66|
+Info:      45000 |     9725      34375 |  280   661 |     23461|       0.19       9.85|
+Info:      46000 |     9980      35066 |  255   691 |     22741|       0.22      10.07|
+Info:      47000 |    10223      35779 |  243   713 |     22020|       0.20      10.27|
+Info:      48000 |    10432      36547 |  209   768 |     21357|       0.23      10.51|
+Info:      49000 |    10603      37310 |  171   763 |     20701|       0.21      10.72|
+Info:      50000 |    10761      38094 |  158   784 |     19888|       0.17      10.89|
+Info:      51000 |    10875      38904 |  114   810 |     19049|       0.17      11.07|
+Info:      52000 |    11021      39677 |  146   773 |     18230|       0.20      11.27|
+Info:      53000 |    11185      40442 |  164   765 |     17503|       0.20      11.47|
+Info:      54000 |    11301      41218 |  116   776 |     16632|       0.16      11.63|
+Info:      55000 |    11456      41995 |  155   777 |     15821|       0.19      11.82|
+Info:      56000 |    11612      42723 |  156   728 |     15095|       0.25      12.07|
+Info:      57000 |    11822      43449 |  210   726 |     14450|       0.21      12.28|
+Info:      58000 |    11976      44193 |  154   744 |     13634|       0.20      12.48|
+Info:      59000 |    12155      44953 |  179   760 |     12865|       0.23      12.71|
+Info:      60000 |    12294      45713 |  139   760 |     12034|       0.23      12.94|
+Info:      61000 |    12454      46480 |  160   767 |     11251|       0.24      13.18|
+Info:      62000 |    12590      47218 |  136   738 |     10427|       0.25      13.44|
+Info:      63000 |    12702      48051 |  112   833 |      9559|       0.28      13.71|
+Info:      64000 |    12821      48828 |  119   777 |      8713|       0.25      13.96|
+Info:      65000 |    12980      49592 |  159   764 |      7939|       0.28      14.23|
+Info:      66000 |    13145      50389 |  165   797 |      7191|       0.24      14.47|
+Info:      67000 |    13316      51142 |  171   753 |      6415|       0.31      14.78|
+Info:      68000 |    13490      51934 |  174   792 |      5649|       0.32      15.10|
+Info:      69000 |    13649      52677 |  159   743 |      4898|       0.26      15.36|
+Info:      70000 |    13757      53478 |  108   801 |      4056|       0.24      15.60|
+Info:      71000 |    13872      54342 |  115   864 |      3213|       0.23      15.83|
+Info:      72000 |    14116      55095 |  244   753 |      2599|       0.36      16.19|
+Info:      73000 |    14154      55731 |   38   636 |      1647|       0.14      16.32|
+Info:      74000 |    14178      56321 |   24   590 |       676|       0.11      16.44|
+Info:      74702 |    14199      56744 |   21   423 |         0|       0.11      16.54|
+Info: Routing complete.
+Info: Router1 time 16.54s
+Info: Checksum: 0xf9e56205
+
+Info: Critical path report for clock '$glbnet$clk_cpu' (posedge -> posedge):
+Info:       type curr  total name
+Info:   clk-to-q  5.61  5.61 Source system.soc.fabric.iram.0.5.DOA0
+Info:    routing  3.90  9.51 Net system.soc.fabric.d_iram_data_q[5] (40,70) -> (12,42)
+Info:                          Sink system.soc.core.slot_q_TRELLIS_FF_Q_347_DI_PFUMX_Z_ALUT_LUT4_Z_D_LUT4_Z_C_LUT4_Z_A_L6MUX21_Z_D1_PFUMX_Z_BLUT_LUT4_Z.C
+Info:                          Defined in:
+Info:                               /home/bluto/Desktop/dorsalGanglionProject/.release-runs/bootstrap-final-r2/oss-cad-suite/lib/../share/yosys/lattice/brams_map_16kd.v:45.13-45.16
+Info:      logic  0.40  9.91 Source system.soc.core.slot_q_TRELLIS_FF_Q_347_DI_PFUMX_Z_ALUT_LUT4_Z_D_LUT4_Z_C_LUT4_Z_A_L6MUX21_Z_D1_PFUMX_Z_BLUT_LUT4_Z.OFX
+Info:    routing  0.00  9.91 Net system.soc.core.slot_q_TRELLIS_FF_Q_347_DI_PFUMX_Z_ALUT_LUT4_Z_D_LUT4_Z_C_LUT4_Z_A_L6MUX21_Z_D1 (12,42) -> (12,42)
+Info:                          Sink system.soc.core.slot_q_TRELLIS_FF_Q_347_DI_PFUMX_Z_ALUT_LUT4_Z_D_LUT4_Z_C_LUT4_Z_A_L6MUX21_Z_D1_PFUMX_Z_ALUT_LUT4_Z.FXB
+Info:                          Defined in:
+Info:                               /home/bluto/Desktop/dorsalGanglionProject/.release-runs/bootstrap-final-r2/oss-cad-suite/lib/../share/yosys/lattice/cells_map_trellis.v:141.38-141.40
+Info:      logic  0.24  10.15 Source system.soc.core.slot_q_TRELLIS_FF_Q_347_DI_PFUMX_Z_ALUT_LUT4_Z_D_LUT4_Z_C_LUT4_Z_A_L6MUX21_Z_D1_PFUMX_Z_ALUT_LUT4_Z.OFX
+Info:    routing  0.64  10.80 Net system.soc.core.slot_q_TRELLIS_FF_Q_347_DI_PFUMX_Z_ALUT_LUT4_Z_D_LUT4_Z_C_LUT4_Z_A[0] (12,42) -> (11,41)
+Info:                          Sink system.soc.core.slot_q_TRELLIS_FF_Q_347_DI_PFUMX_Z_ALUT_LUT4_Z_D_LUT4_Z_C_LUT4_Z_A_LUT4_A.A
+Info:                          Defined in:
+Info:                               /home/bluto/Desktop/dorsalGanglionProject/.release-runs/bootstrap-final-r2/oss-cad-suite/lib/../share/yosys/lattice/cells_map_trellis.v:108.23-108.24
+Info:      logic  0.24  11.03 Source system.soc.core.slot_q_TRELLIS_FF_Q_347_DI_PFUMX_Z_ALUT_LUT4_Z_D_LUT4_Z_C_LUT4_Z_A_LUT4_A.F
+Info:    routing  0.27  11.30 Net system.soc.core.slot_q_TRELLIS_FF_Q_347_DI_PFUMX_Z_ALUT_LUT4_Z_D_LUT4_Z_C_LUT4_Z_A_LUT4_A_Z[4] (11,41) -> (11,42)
+Info:                          Sink system.soc.core.fatal_q_LUT4_D_C_L6MUX21_SD_Z_L6MUX21_Z_1_D1_L6MUX21_Z_D1_PFUMX_Z_BLUT_LUT4_Z.M
+Info:                          Defined in:
+Info:                               /home/bluto/Desktop/dorsalGanglionProject/.release-runs/bootstrap-final-r2/oss-cad-suite/lib/../share/yosys/lattice/cells_map_trellis.v:108.23-108.24
+Info:      logic  0.26  11.56 Source system.soc.core.fatal_q_LUT4_D_C_L6MUX21_SD_Z_L6MUX21_Z_1_D1_L6MUX21_Z_D1_PFUMX_Z_BLUT_LUT4_Z.OFX
+Info:    routing  0.00  11.56 Net system.soc.core.fatal_q_LUT4_D_C_L6MUX21_SD_Z_L6MUX21_Z_1_D1_L6MUX21_Z_D1 (11,42) -> (11,42)
+Info:                          Sink system.soc.core.fatal_q_LUT4_D_C_L6MUX21_SD_Z_L6MUX21_Z_1_D1_L6MUX21_Z_D1_PFUMX_Z_ALUT_LUT4_Z.FXB
+Info:                          Defined in:
+Info:                               /home/bluto/Desktop/dorsalGanglionProject/.release-runs/bootstrap-final-r2/oss-cad-suite/lib/../share/yosys/lattice/cells_map_trellis.v:157.62-157.64
+Info:      logic  0.24  11.80 Source system.soc.core.fatal_q_LUT4_D_C_L6MUX21_SD_Z_L6MUX21_Z_1_D1_L6MUX21_Z_D1_PFUMX_Z_ALUT_LUT4_Z.OFX
+Info:    routing  0.00  11.80 Net system.soc.core.fatal_q_LUT4_D_C_L6MUX21_SD_Z_L6MUX21_Z_1_D1 (11,42) -> (11,42)
+Info:                          Sink system.soc.core.fatal_q_LUT4_D_C_L6MUX21_SD_Z_L6MUX21_Z_1_D1_L6MUX21_Z_D0_PFUMX_Z_ALUT_LUT4_Z.FXB
+Info:                          Defined in:
+Info:                               /home/bluto/Desktop/dorsalGanglionProject/.release-runs/bootstrap-final-r2/oss-cad-suite/lib/../share/yosys/lattice/cells_map_trellis.v:157.70-157.72
+Info:      logic  0.24  12.04 Source system.soc.core.fatal_q_LUT4_D_C_L6MUX21_SD_Z_L6MUX21_Z_1_D1_L6MUX21_Z_D0_PFUMX_Z_ALUT_LUT4_Z.OFX
+Info:    routing  1.23  13.27 Net system.soc.core.fatal_q_LUT4_D_C_L6MUX21_SD_Z[1] (11,42) -> (13,47)
+Info:                          Sink system.soc.core.slot_q_TRELLIS_FF_Q_52_DI_LUT4_Z_C_LUT4_B_Z_L6MUX21_Z_D0_L6MUX21_Z_D0_PFUMX_Z_BLUT_LUT4_Z.B
+Info:                          Defined in:
+Info:                               /home/bluto/Desktop/dorsalGanglionProject/.release-runs/bootstrap-final-r2/oss-cad-suite/lib/../share/yosys/lattice/cells_map_trellis.v:108.23-108.24
+Info:      logic  0.40  13.67 Source system.soc.core.slot_q_TRELLIS_FF_Q_52_DI_LUT4_Z_C_LUT4_B_Z_L6MUX21_Z_D0_L6MUX21_Z_D0_PFUMX_Z_BLUT_LUT4_Z.OFX
+Info:    routing  0.00  13.67 Net system.soc.core.slot_q_TRELLIS_FF_Q_52_DI_LUT4_Z_C_LUT4_B_Z_L6MUX21_Z_D0_L6MUX21_Z_D0 (13,47) -> (13,47)
+Info:                          Sink system.soc.core.slot_q_TRELLIS_FF_Q_52_DI_LUT4_Z_C_LUT4_B_Z_L6MUX21_Z_D0_L6MUX21_Z_D1_PFUMX_Z_ALUT_LUT4_Z.FXA
+Info:                          Defined in:
+Info:                               /home/bluto/Desktop/dorsalGanglionProject/.release-runs/bootstrap-final-r2/oss-cad-suite/lib/../share/yosys/lattice/cells_map_trellis.v:157.50-157.52
+Info:      logic  0.24  13.91 Source system.soc.core.slot_q_TRELLIS_FF_Q_52_DI_LUT4_Z_C_LUT4_B_Z_L6MUX21_Z_D0_L6MUX21_Z_D1_PFUMX_Z_ALUT_LUT4_Z.OFX
+Info:    routing  0.00  13.91 Net system.soc.core.slot_q_TRELLIS_FF_Q_52_DI_LUT4_Z_C_LUT4_B_Z_L6MUX21_Z_D0 (13,47) -> (13,47)
+Info:                          Sink system.soc.core.slot_q_TRELLIS_FF_Q_52_DI_LUT4_Z_C_LUT4_B_Z_L6MUX21_Z_D1_L6MUX21_Z_D0_PFUMX_Z_ALUT_LUT4_Z.FXA
+Info:                          Defined in:
+Info:                               /home/bluto/Desktop/dorsalGanglionProject/.release-runs/bootstrap-final-r2/oss-cad-suite/lib/../share/yosys/lattice/cells_map_trellis.v:157.66-157.68
+Info:      logic  0.24  14.15 Source system.soc.core.slot_q_TRELLIS_FF_Q_52_DI_LUT4_Z_C_LUT4_B_Z_L6MUX21_Z_D1_L6MUX21_Z_D0_PFUMX_Z_ALUT_LUT4_Z.OFX
+Info:    routing  1.81  15.96 Net system.soc.core.irq_drain_q_PFUMX_C0_Z_L6MUX21_SD_Z_LUT4_Z_C_LUT4_D_Z_PFUMX_ALUT_Z[5] (13,47) -> (31,44)
+Info:                          Sink system.soc.core.flush_q_LUT4_D.M
+Info:                          Defined in:
+Info:                               /home/bluto/Desktop/dorsalGanglionProject/.release-runs/bootstrap-final-r2/oss-cad-suite/lib/../share/yosys/lattice/cells_map_trellis.v:108.23-108.24
+Info:      logic  0.26  16.22 Source system.soc.core.flush_q_LUT4_D.OFX
+Info:    routing  2.65  18.87 Net system.soc.core.boundary_pc_q_TRELLIS_FF_Q_11_DI_LUT4_Z_D_LUT4_Z_C[3] (31,44) -> (19,15)
+Info:                          Sink system.soc.core.w_value_LUT4_Z_6_C_PFUMX_C0_Z_L6MUX21_D1_Z_L6MUX21_D1_Z_PFUMX_Z_ALUT_LUT4_Z.D
+Info:                          Defined in:
+Info:                               /home/bluto/Desktop/dorsalGanglionProject/.release-runs/bootstrap-final-r2/oss-cad-suite/lib/../share/yosys/lattice/cells_map_trellis.v:108.23-108.24
+Info:      logic  0.24  19.11 Source system.soc.core.w_value_LUT4_Z_6_C_PFUMX_C0_Z_L6MUX21_D1_Z_L6MUX21_D1_Z_PFUMX_Z_ALUT_LUT4_Z.F
+Info:    routing  0.00  19.11 Net system.soc.core.w_value_LUT4_Z_6_C_PFUMX_C0_Z_L6MUX21_D1_Z_L6MUX21_D1_Z_PFUMX_Z_ALUT (19,15) -> (19,15)
+Info:                          Sink system.soc.core.w_value_LUT4_Z_6_C_PFUMX_C0_Z_L6MUX21_D1_Z_L6MUX21_D1_Z_PFUMX_Z_BLUT_LUT4_Z.F1
+Info:                          Defined in:
+Info:                               /home/bluto/Desktop/dorsalGanglionProject/.release-runs/bootstrap-final-r2/oss-cad-suite/lib/../share/yosys/lattice/cells_map_trellis.v:133.22-133.24
+Info:      logic  0.17  19.27 Source system.soc.core.w_value_LUT4_Z_6_C_PFUMX_C0_Z_L6MUX21_D1_Z_L6MUX21_D1_Z_PFUMX_Z_BLUT_LUT4_Z.OFX
+Info:    routing  0.55  19.83 Net system.soc.core.w_value_LUT4_Z_6_C_PFUMX_C0_Z_L6MUX21_D1_Z_L6MUX21_D1_Z[3] (19,15) -> (19,14)
+Info:                          Sink system.soc.core.recovery_q_LUT4_C_Z_L6MUX21_Z_2_D1_L6MUX21_Z_D1_PFUMX_Z_ALUT_LUT4_Z.D
+Info:                          Defined in:
+Info:                               /home/bluto/Desktop/dorsalGanglionProject/.release-runs/bootstrap-final-r2/oss-cad-suite/lib/../share/yosys/lattice/cells_map_trellis.v:108.23-108.24
+Info:      logic  0.24  20.06 Source system.soc.core.recovery_q_LUT4_C_Z_L6MUX21_Z_2_D1_L6MUX21_Z_D1_PFUMX_Z_ALUT_LUT4_Z.F
+Info:    routing  0.00  20.06 Net system.soc.core.recovery_q_LUT4_C_Z_L6MUX21_Z_2_D1_L6MUX21_Z_D1_PFUMX_Z_ALUT (19,14) -> (19,14)
+Info:                          Sink system.soc.core.recovery_q_LUT4_C_Z_L6MUX21_Z_2_D1_L6MUX21_Z_D1_PFUMX_Z_BLUT_LUT4_Z.F1
+Info:                          Defined in:
+Info:                               /home/bluto/Desktop/dorsalGanglionProject/.release-runs/bootstrap-final-r2/oss-cad-suite/lib/../share/yosys/lattice/cells_map_trellis.v:157.46-157.48
+Info:      logic  0.17  20.23 Source system.soc.core.recovery_q_LUT4_C_Z_L6MUX21_Z_2_D1_L6MUX21_Z_D1_PFUMX_Z_BLUT_LUT4_Z.OFX
+Info:    routing  0.00  20.23 Net system.soc.core.recovery_q_LUT4_C_Z_L6MUX21_Z_2_D1_L6MUX21_Z_D1 (19,14) -> (19,14)
+Info:                          Sink system.soc.core.recovery_q_LUT4_C_Z_L6MUX21_Z_2_D1_L6MUX21_Z_D1_PFUMX_Z_ALUT_LUT4_Z.FXB
+Info:                          Defined in:
+Info:                               /home/bluto/Desktop/dorsalGanglionProject/.release-runs/bootstrap-final-r2/oss-cad-suite/lib/../share/yosys/lattice/cells_map_trellis.v:157.62-157.64
+Info:      logic  0.24  20.47 Source system.soc.core.recovery_q_LUT4_C_Z_L6MUX21_Z_2_D1_L6MUX21_Z_D1_PFUMX_Z_ALUT_LUT4_Z.OFX
+Info:    routing  0.00  20.47 Net system.soc.core.recovery_q_LUT4_C_Z_L6MUX21_Z_2_D1 (19,14) -> (19,14)
+Info:                          Sink system.soc.core.recovery_q_LUT4_C_Z_L6MUX21_Z_2_D1_L6MUX21_Z_D0_PFUMX_Z_ALUT_LUT4_Z.FXB
+Info:                          Defined in:
+Info:                               /home/bluto/Desktop/dorsalGanglionProject/.release-runs/bootstrap-final-r2/oss-cad-suite/lib/../share/yosys/lattice/cells_map_trellis.v:157.70-157.72
+Info:      logic  0.24  20.71 Source system.soc.core.recovery_q_LUT4_C_Z_L6MUX21_Z_2_D1_L6MUX21_Z_D0_PFUMX_Z_ALUT_LUT4_Z.OFX
+Info:    routing  0.76  21.48 Net system.soc.core.irq_drain_q_PFUMX_C0_Z[3] (19,14) -> (20,17)
+Info:                          Sink system.soc.core.irq_drain_q_PFUMX_C0_Z_L6MUX21_SD_D1_PFUMX_Z_ALUT_LUT4_Z.D
+Info:                          Defined in:
+Info:                               /home/bluto/Desktop/dorsalGanglionProject/.release-runs/bootstrap-final-r2/oss-cad-suite/lib/../share/yosys/lattice/cells_map_trellis.v:108.23-108.24
+Info:      logic  0.24  21.71 Source system.soc.core.irq_drain_q_PFUMX_C0_Z_L6MUX21_SD_D1_PFUMX_Z_ALUT_LUT4_Z.F
+Info:    routing  0.00  21.71 Net system.soc.core.irq_drain_q_PFUMX_C0_Z_L6MUX21_SD_D1_PFUMX_Z_ALUT (20,17) -> (20,17)
+Info:                          Sink system.soc.core.irq_drain_q_PFUMX_C0_Z_L6MUX21_SD_D1_PFUMX_Z_BLUT_LUT4_Z.F1
+Info:                          Defined in:
+Info:                               /home/bluto/Desktop/dorsalGanglionProject/.release-runs/bootstrap-final-r2/oss-cad-suite/lib/../share/yosys/lattice/cells_map_trellis.v:141.30-141.32
+Info:      logic  0.17  21.88 Source system.soc.core.irq_drain_q_PFUMX_C0_Z_L6MUX21_SD_D1_PFUMX_Z_BLUT_LUT4_Z.OFX
+Info:    routing  0.00  21.88 Net system.soc.core.irq_drain_q_PFUMX_C0_Z_L6MUX21_SD_D1 (20,17) -> (20,17)
+Info:                          Sink system.soc.core.irq_drain_q_PFUMX_C0_Z_L6MUX21_SD_D1_PFUMX_Z_ALUT_LUT4_Z.FXB
+Info:                          Defined in:
+Info:                               /home/bluto/Desktop/dorsalGanglionProject/.release-runs/bootstrap-final-r2/oss-cad-suite/lib/../share/yosys/lattice/cells_map_trellis.v:141.38-141.40
+Info:      logic  0.24  22.12 Source system.soc.core.irq_drain_q_PFUMX_C0_Z_L6MUX21_SD_D1_PFUMX_Z_ALUT_LUT4_Z.OFX
+Info:    routing  2.67  24.79 Net system.soc.core.irq_drain_q_PFUMX_C0_Z_L6MUX21_SD_Z[0] (20,17) -> (32,48)
+Info:                          Sink system.soc.core.launch_LUT4_Z_D_LUT4_D_Z_LUT4_Z_1_C_LUT4_Z.D
+Info:                          Defined in:
+Info:                               /home/bluto/Desktop/dorsalGanglionProject/.release-runs/bootstrap-final-r2/oss-cad-suite/lib/../share/yosys/lattice/cells_map_trellis.v:108.23-108.24
+Info:      logic  0.24  25.02 Source system.soc.core.launch_LUT4_Z_D_LUT4_D_Z_LUT4_Z_1_C_LUT4_Z.F
+Info:    routing  0.48  25.50 Net system.soc.core.launch_LUT4_Z_D_LUT4_D_Z_LUT4_Z_1_C[0] (32,48) -> (32,48)
+Info:                          Sink system.soc.core.launch_LUT4_Z_D_LUT4_D_Z_LUT4_Z_1_C_LUT4_D.C
+Info:                          Defined in:
+Info:                               /home/bluto/Desktop/dorsalGanglionProject/.release-runs/bootstrap-final-r2/oss-cad-suite/lib/../share/yosys/lattice/cells_map_trellis.v:108.23-108.24
+Info:      logic  0.24  25.73 Source system.soc.core.launch_LUT4_Z_D_LUT4_D_Z_LUT4_Z_1_C_LUT4_D.F
+Info:    routing  0.72  26.45 Net system.soc.core.valid_d_LUT4_Z_C_LUT4_D_Z[1] (32,48) -> (33,47)
+Info:                          Sink system.soc.core.launch_LUT4_Z_D_LUT4_D_Z_LUT4_Z_1_D_LUT4_Z_A_LUT4_A_Z_LUT4_C_Z_PFUMX_ALUT_Z_L6MUX21_Z_1_D1_L6MUX21_Z_D1_PFUMX_Z_ALUT_LUT4_Z.A
+Info:                          Defined in:
+Info:                               /home/bluto/Desktop/dorsalGanglionProject/.release-runs/bootstrap-final-r2/oss-cad-suite/lib/../share/yosys/lattice/cells_map_trellis.v:108.23-108.24
+Info:      logic  0.24  26.69 Source system.soc.core.launch_LUT4_Z_D_LUT4_D_Z_LUT4_Z_1_D_LUT4_Z_A_LUT4_A_Z_LUT4_C_Z_PFUMX_ALUT_Z_L6MUX21_Z_1_D1_L6MUX21_Z_D1_PFUMX_Z_ALUT_LUT4_Z.F
+Info:    routing  0.00  26.69 Net system.soc.core.launch_LUT4_Z_D_LUT4_D_Z_LUT4_Z_1_D_LUT4_Z_A_LUT4_A_Z_LUT4_C_Z_PFUMX_ALUT_Z_L6MUX21_Z_1_D1_L6MUX21_Z_D1_PFUMX_Z_ALUT (33,47) -> (33,47)
+Info:                          Sink system.soc.core.launch_LUT4_Z_D_LUT4_D_Z_LUT4_Z_1_D_LUT4_Z_A_LUT4_A_Z_LUT4_C_Z_PFUMX_ALUT_Z_L6MUX21_Z_1_D1_L6MUX21_Z_D1_PFUMX_Z_BLUT_LUT4_Z.F1
+Info:                          Defined in:
+Info:                               /home/bluto/Desktop/dorsalGanglionProject/.release-runs/bootstrap-final-r2/oss-cad-suite/lib/../share/yosys/lattice/cells_map_trellis.v:157.46-157.48
+Info:      logic  0.17  26.85 Source system.soc.core.launch_LUT4_Z_D_LUT4_D_Z_LUT4_Z_1_D_LUT4_Z_A_LUT4_A_Z_LUT4_C_Z_PFUMX_ALUT_Z_L6MUX21_Z_1_D1_L6MUX21_Z_D1_PFUMX_Z_BLUT_LUT4_Z.OFX
+Info:    routing  0.00  26.85 Net system.soc.core.launch_LUT4_Z_D_LUT4_D_Z_LUT4_Z_1_D_LUT4_Z_A_LUT4_A_Z_LUT4_C_Z_PFUMX_ALUT_Z_L6MUX21_Z_1_D1_L6MUX21_Z_D1 (33,47) -> (33,47)
+Info:                          Sink system.soc.core.launch_LUT4_Z_D_LUT4_D_Z_LUT4_Z_1_D_LUT4_Z_A_LUT4_A_Z_LUT4_C_Z_PFUMX_ALUT_Z_L6MUX21_Z_1_D1_L6MUX21_Z_D1_PFUMX_Z_ALUT_LUT4_Z.FXB
+Info:                          Defined in:
+Info:                               /home/bluto/Desktop/dorsalGanglionProject/.release-runs/bootstrap-final-r2/oss-cad-suite/lib/../share/yosys/lattice/cells_map_trellis.v:157.62-157.64
+Info:      logic  0.24  27.10 Source system.soc.core.launch_LUT4_Z_D_LUT4_D_Z_LUT4_Z_1_D_LUT4_Z_A_LUT4_A_Z_LUT4_C_Z_PFUMX_ALUT_Z_L6MUX21_Z_1_D1_L6MUX21_Z_D1_PFUMX_Z_ALUT_LUT4_Z.OFX
+Info:    routing  0.00  27.10 Net system.soc.core.launch_LUT4_Z_D_LUT4_D_Z_LUT4_Z_1_D_LUT4_Z_A_LUT4_A_Z_LUT4_C_Z_PFUMX_ALUT_Z_L6MUX21_Z_1_D1 (33,47) -> (33,47)
+Info:                          Sink system.soc.core.launch_LUT4_Z_D_LUT4_D_Z_LUT4_Z_1_D_LUT4_Z_A_LUT4_A_Z_LUT4_C_Z_PFUMX_ALUT_Z_L6MUX21_Z_1_D1_L6MUX21_Z_D0_PFUMX_Z_ALUT_LUT4_Z.FXB
+Info:                          Defined in:
+Info:                               /home/bluto/Desktop/dorsalGanglionProject/.release-runs/bootstrap-final-r2/oss-cad-suite/lib/../share/yosys/lattice/cells_map_trellis.v:157.70-157.72
+Info:      logic  0.24  27.34 Source system.soc.core.launch_LUT4_Z_D_LUT4_D_Z_LUT4_Z_1_D_LUT4_Z_A_LUT4_A_Z_LUT4_C_Z_PFUMX_ALUT_Z_L6MUX21_Z_1_D1_L6MUX21_Z_D0_PFUMX_Z_ALUT_LUT4_Z.OFX
+Info:    routing  0.77  28.11 Net system.soc.core.launch_LUT4_Z_D_LUT4_D_Z_LUT4_Z_1_D_LUT4_Z_A_LUT4_A_Z_LUT4_B_Z_LUT4_Z_D[0] (33,47) -> (33,42)
+Info:                          Sink system.soc.frontend.fetch.guard.want_i_LUT4_Z_C_LUT4_Z_B_LUT4_C_Z_L6MUX21_Z_D1_L6MUX21_Z_D1_PFUMX_Z_ALUT_LUT4_Z.B
+Info:                          Defined in:
+Info:                               /home/bluto/Desktop/dorsalGanglionProject/.release-runs/bootstrap-final-r2/oss-cad-suite/lib/../share/yosys/lattice/cells_map_trellis.v:108.23-108.24
+Info:      logic  0.24  28.34 Source system.soc.frontend.fetch.guard.want_i_LUT4_Z_C_LUT4_Z_B_LUT4_C_Z_L6MUX21_Z_D1_L6MUX21_Z_D1_PFUMX_Z_ALUT_LUT4_Z.F
+Info:    routing  0.00  28.34 Net system.soc.frontend.fetch.guard.want_i_LUT4_Z_C_LUT4_Z_B_LUT4_C_Z_L6MUX21_Z_D1_L6MUX21_Z_D1_PFUMX_Z_ALUT (33,42) -> (33,42)
+Info:                          Sink system.soc.frontend.fetch.guard.want_i_LUT4_Z_C_LUT4_Z_B_LUT4_C_Z_L6MUX21_Z_D1_L6MUX21_Z_D1_PFUMX_Z_BLUT_LUT4_Z.F1
+Info:                          Defined in:
+Info:                               /home/bluto/Desktop/dorsalGanglionProject/.release-runs/bootstrap-final-r2/oss-cad-suite/lib/../share/yosys/lattice/cells_map_trellis.v:157.46-157.48
+Info:      logic  0.17  28.51 Source system.soc.frontend.fetch.guard.want_i_LUT4_Z_C_LUT4_Z_B_LUT4_C_Z_L6MUX21_Z_D1_L6MUX21_Z_D1_PFUMX_Z_BLUT_LUT4_Z.OFX
+Info:    routing  0.00  28.51 Net system.soc.frontend.fetch.guard.want_i_LUT4_Z_C_LUT4_Z_B_LUT4_C_Z_L6MUX21_Z_D1_L6MUX21_Z_D1 (33,42) -> (33,42)
+Info:                          Sink system.soc.frontend.fetch.guard.want_i_LUT4_Z_C_LUT4_Z_B_LUT4_C_Z_L6MUX21_Z_D1_L6MUX21_Z_D1_PFUMX_Z_ALUT_LUT4_Z.FXB
+Info:                          Defined in:
+Info:                               /home/bluto/Desktop/dorsalGanglionProject/.release-runs/bootstrap-final-r2/oss-cad-suite/lib/../share/yosys/lattice/cells_map_trellis.v:157.62-157.64
+Info:      logic  0.24  28.75 Source system.soc.frontend.fetch.guard.want_i_LUT4_Z_C_LUT4_Z_B_LUT4_C_Z_L6MUX21_Z_D1_L6MUX21_Z_D1_PFUMX_Z_ALUT_LUT4_Z.OFX
+Info:    routing  0.00  28.75 Net system.soc.frontend.fetch.guard.want_i_LUT4_Z_C_LUT4_Z_B_LUT4_C_Z_L6MUX21_Z_D1 (33,42) -> (33,42)
+Info:                          Sink system.soc.frontend.fetch.guard.want_i_LUT4_Z_C_LUT4_Z_B_LUT4_C_Z_L6MUX21_Z_D1_L6MUX21_Z_D0_PFUMX_Z_ALUT_LUT4_Z.FXB
+Info:                          Defined in:
+Info:                               /home/bluto/Desktop/dorsalGanglionProject/.release-runs/bootstrap-final-r2/oss-cad-suite/lib/../share/yosys/lattice/cells_map_trellis.v:157.70-157.72
+Info:      logic  0.24  28.99 Source system.soc.frontend.fetch.guard.want_i_LUT4_Z_C_LUT4_Z_B_LUT4_C_Z_L6MUX21_Z_D1_L6MUX21_Z_D0_PFUMX_Z_ALUT_LUT4_Z.OFX
+Info:    routing  2.46  31.45 Net system.soc.fabric.i_memory_select_q_LUT4_D_Z_LUT4_B_Z_LUT4_Z_B[3] (33,42) -> (13,30)
+Info:                          Sink system.soc.fabric.i_memory_select_q_LUT4_D_Z_LUT4_B_Z_LUT4_Z.D
+Info:                          Defined in:
+Info:                               /home/bluto/Desktop/dorsalGanglionProject/.release-runs/bootstrap-final-r2/oss-cad-suite/lib/../share/yosys/lattice/cells_map_trellis.v:108.23-108.24
+Info:      logic  0.24  31.69 Source system.soc.fabric.i_memory_select_q_LUT4_D_Z_LUT4_B_Z_LUT4_Z.F
+Info:    routing  1.99  33.67 Net system.soc.fabric.i_memory_select_q_LUT4_D_1_Z_LUT4_B_Z[5] (13,30) -> (5,14)
+Info:                          Sink system.soc.frontend.fetch.buffer.base_q[0]_TRELLIS_FF_Q_CE_LUT4_Z.C
+Info:                          Defined in:
+Info:                               /home/bluto/Desktop/dorsalGanglionProject/.release-runs/bootstrap-final-r2/oss-cad-suite/lib/../share/yosys/lattice/cells_map_trellis.v:108.23-108.24
+Info:      logic  0.24  33.91 Source system.soc.frontend.fetch.buffer.base_q[0]_TRELLIS_FF_Q_CE_LUT4_Z.F
+Info:    routing  1.12  35.03 Net system.soc.frontend.fetch.buffer.base_q[0]_TRELLIS_FF_Q_CE (5,14) -> (2,9)
+Info:                          Sink system.soc.frontend.fetch.buffer.base_q[0]_TRELLIS_FF_Q_5.CE
+Info:      setup  0.00  35.03 Source system.soc.frontend.fetch.buffer.base_q[0]_TRELLIS_FF_Q_5.CE
+Info: 13.01 ns logic, 22.02 ns routing
+
+Info: Critical path report for cross-domain path '<async>' -> 'posedge $glbnet$clk_cpu':
+Info:       type curr  total name
+Info:     source  0.00  0.00 Source reset_btn_i$tr_io.O
+Info:    routing  5.68  5.68 Net reset_btn_i$TRELLIS_IO_IN (4,95) -> (4,6)
+Info:                          Sink reset_async_LUT4_Z.C
+Info:                          Defined in:
+Info:                               inputs/microcontroller/synth/fpga/drg5_ulx3s_programmable.sv:7.24
+Info:      logic  0.24  5.92 Source reset_async_LUT4_Z.F
+Info:    routing  0.85  6.76 Net reset_async (4,6) -> (5,8)
+Info:                          Sink reset_TRELLIS_FF_Q.LSR
+Info:                          Defined in:
+Info:                               inputs/microcontroller/synth/fpga/drg5_ulx3s_programmable.sv:11.26
+Info:      setup  0.42  7.19 Source reset_TRELLIS_FF_Q.LSR
+Info: 0.66 ns logic, 6.53 ns routing
+
+Info: Critical path report for cross-domain path 'posedge $glbnet$clk_cpu' -> '<async>':
+Info:       type curr  total name
+Info:   clk-to-q  5.61  5.61 Source system.soc.fabric.iram.0.5.DOA0
+Info:    routing  3.90  9.51 Net system.soc.fabric.d_iram_data_q[5] (40,70) -> (12,42)
+Info:                          Sink system.soc.core.slot_q_TRELLIS_FF_Q_347_DI_PFUMX_Z_ALUT_LUT4_Z_D_LUT4_Z_C_LUT4_Z_A_L6MUX21_Z_D1_PFUMX_Z_BLUT_LUT4_Z.C
+Info:                          Defined in:
+Info:                               /home/bluto/Desktop/dorsalGanglionProject/.release-runs/bootstrap-final-r2/oss-cad-suite/lib/../share/yosys/lattice/brams_map_16kd.v:45.13-45.16
+Info:      logic  0.40  9.91 Source system.soc.core.slot_q_TRELLIS_FF_Q_347_DI_PFUMX_Z_ALUT_LUT4_Z_D_LUT4_Z_C_LUT4_Z_A_L6MUX21_Z_D1_PFUMX_Z_BLUT_LUT4_Z.OFX
+Info:    routing  0.00  9.91 Net system.soc.core.slot_q_TRELLIS_FF_Q_347_DI_PFUMX_Z_ALUT_LUT4_Z_D_LUT4_Z_C_LUT4_Z_A_L6MUX21_Z_D1 (12,42) -> (12,42)
+Info:                          Sink system.soc.core.slot_q_TRELLIS_FF_Q_347_DI_PFUMX_Z_ALUT_LUT4_Z_D_LUT4_Z_C_LUT4_Z_A_L6MUX21_Z_D1_PFUMX_Z_ALUT_LUT4_Z.FXB
+Info:                          Defined in:
+Info:                               /home/bluto/Desktop/dorsalGanglionProject/.release-runs/bootstrap-final-r2/oss-cad-suite/lib/../share/yosys/lattice/cells_map_trellis.v:141.38-141.40
+Info:      logic  0.24  10.15 Source system.soc.core.slot_q_TRELLIS_FF_Q_347_DI_PFUMX_Z_ALUT_LUT4_Z_D_LUT4_Z_C_LUT4_Z_A_L6MUX21_Z_D1_PFUMX_Z_ALUT_LUT4_Z.OFX
+Info:    routing  0.64  10.80 Net system.soc.core.slot_q_TRELLIS_FF_Q_347_DI_PFUMX_Z_ALUT_LUT4_Z_D_LUT4_Z_C_LUT4_Z_A[0] (12,42) -> (11,41)
+Info:                          Sink system.soc.core.slot_q_TRELLIS_FF_Q_347_DI_PFUMX_Z_ALUT_LUT4_Z_D_LUT4_Z_C_LUT4_Z_A_LUT4_A.A
+Info:                          Defined in:
+Info:                               /home/bluto/Desktop/dorsalGanglionProject/.release-runs/bootstrap-final-r2/oss-cad-suite/lib/../share/yosys/lattice/cells_map_trellis.v:108.23-108.24
+Info:      logic  0.24  11.03 Source system.soc.core.slot_q_TRELLIS_FF_Q_347_DI_PFUMX_Z_ALUT_LUT4_Z_D_LUT4_Z_C_LUT4_Z_A_LUT4_A.F
+Info:    routing  0.27  11.30 Net system.soc.core.slot_q_TRELLIS_FF_Q_347_DI_PFUMX_Z_ALUT_LUT4_Z_D_LUT4_Z_C_LUT4_Z_A_LUT4_A_Z[4] (11,41) -> (11,42)
+Info:                          Sink system.soc.core.fatal_q_LUT4_D_C_L6MUX21_SD_Z_L6MUX21_Z_1_D1_L6MUX21_Z_D1_PFUMX_Z_BLUT_LUT4_Z.M
+Info:                          Defined in:
+Info:                               /home/bluto/Desktop/dorsalGanglionProject/.release-runs/bootstrap-final-r2/oss-cad-suite/lib/../share/yosys/lattice/cells_map_trellis.v:108.23-108.24
+Info:      logic  0.26  11.56 Source system.soc.core.fatal_q_LUT4_D_C_L6MUX21_SD_Z_L6MUX21_Z_1_D1_L6MUX21_Z_D1_PFUMX_Z_BLUT_LUT4_Z.OFX
+Info:    routing  0.00  11.56 Net system.soc.core.fatal_q_LUT4_D_C_L6MUX21_SD_Z_L6MUX21_Z_1_D1_L6MUX21_Z_D1 (11,42) -> (11,42)
+Info:                          Sink system.soc.core.fatal_q_LUT4_D_C_L6MUX21_SD_Z_L6MUX21_Z_1_D1_L6MUX21_Z_D1_PFUMX_Z_ALUT_LUT4_Z.FXB
+Info:                          Defined in:
+Info:                               /home/bluto/Desktop/dorsalGanglionProject/.release-runs/bootstrap-final-r2/oss-cad-suite/lib/../share/yosys/lattice/cells_map_trellis.v:157.62-157.64
+Info:      logic  0.24  11.80 Source system.soc.core.fatal_q_LUT4_D_C_L6MUX21_SD_Z_L6MUX21_Z_1_D1_L6MUX21_Z_D1_PFUMX_Z_ALUT_LUT4_Z.OFX
+Info:    routing  0.00  11.80 Net system.soc.core.fatal_q_LUT4_D_C_L6MUX21_SD_Z_L6MUX21_Z_1_D1 (11,42) -> (11,42)
+Info:                          Sink system.soc.core.fatal_q_LUT4_D_C_L6MUX21_SD_Z_L6MUX21_Z_1_D1_L6MUX21_Z_D0_PFUMX_Z_ALUT_LUT4_Z.FXB
+Info:                          Defined in:
+Info:                               /home/bluto/Desktop/dorsalGanglionProject/.release-runs/bootstrap-final-r2/oss-cad-suite/lib/../share/yosys/lattice/cells_map_trellis.v:157.70-157.72
+Info:      logic  0.24  12.04 Source system.soc.core.fatal_q_LUT4_D_C_L6MUX21_SD_Z_L6MUX21_Z_1_D1_L6MUX21_Z_D0_PFUMX_Z_ALUT_LUT4_Z.OFX
+Info:    routing  1.23  13.27 Net system.soc.core.fatal_q_LUT4_D_C_L6MUX21_SD_Z[1] (11,42) -> (13,47)
+Info:                          Sink system.soc.core.slot_q_TRELLIS_FF_Q_52_DI_LUT4_Z_C_LUT4_B_Z_L6MUX21_Z_D0_L6MUX21_Z_D0_PFUMX_Z_BLUT_LUT4_Z.B
+Info:                          Defined in:
+Info:                               /home/bluto/Desktop/dorsalGanglionProject/.release-runs/bootstrap-final-r2/oss-cad-suite/lib/../share/yosys/lattice/cells_map_trellis.v:108.23-108.24
+Info:      logic  0.40  13.67 Source system.soc.core.slot_q_TRELLIS_FF_Q_52_DI_LUT4_Z_C_LUT4_B_Z_L6MUX21_Z_D0_L6MUX21_Z_D0_PFUMX_Z_BLUT_LUT4_Z.OFX
+Info:    routing  0.00  13.67 Net system.soc.core.slot_q_TRELLIS_FF_Q_52_DI_LUT4_Z_C_LUT4_B_Z_L6MUX21_Z_D0_L6MUX21_Z_D0 (13,47) -> (13,47)
+Info:                          Sink system.soc.core.slot_q_TRELLIS_FF_Q_52_DI_LUT4_Z_C_LUT4_B_Z_L6MUX21_Z_D0_L6MUX21_Z_D1_PFUMX_Z_ALUT_LUT4_Z.FXA
+Info:                          Defined in:
+Info:                               /home/bluto/Desktop/dorsalGanglionProject/.release-runs/bootstrap-final-r2/oss-cad-suite/lib/../share/yosys/lattice/cells_map_trellis.v:157.50-157.52
+Info:      logic  0.24  13.91 Source system.soc.core.slot_q_TRELLIS_FF_Q_52_DI_LUT4_Z_C_LUT4_B_Z_L6MUX21_Z_D0_L6MUX21_Z_D1_PFUMX_Z_ALUT_LUT4_Z.OFX
+Info:    routing  0.00  13.91 Net system.soc.core.slot_q_TRELLIS_FF_Q_52_DI_LUT4_Z_C_LUT4_B_Z_L6MUX21_Z_D0 (13,47) -> (13,47)
+Info:                          Sink system.soc.core.slot_q_TRELLIS_FF_Q_52_DI_LUT4_Z_C_LUT4_B_Z_L6MUX21_Z_D1_L6MUX21_Z_D0_PFUMX_Z_ALUT_LUT4_Z.FXA
+Info:                          Defined in:
+Info:                               /home/bluto/Desktop/dorsalGanglionProject/.release-runs/bootstrap-final-r2/oss-cad-suite/lib/../share/yosys/lattice/cells_map_trellis.v:157.66-157.68
+Info:      logic  0.24  14.15 Source system.soc.core.slot_q_TRELLIS_FF_Q_52_DI_LUT4_Z_C_LUT4_B_Z_L6MUX21_Z_D1_L6MUX21_Z_D0_PFUMX_Z_ALUT_LUT4_Z.OFX
+Info:    routing  1.81  15.96 Net system.soc.core.irq_drain_q_PFUMX_C0_Z_L6MUX21_SD_Z_LUT4_Z_C_LUT4_D_Z_PFUMX_ALUT_Z[5] (13,47) -> (31,44)
+Info:                          Sink system.soc.core.flush_q_LUT4_D.M
+Info:                          Defined in:
+Info:                               /home/bluto/Desktop/dorsalGanglionProject/.release-runs/bootstrap-final-r2/oss-cad-suite/lib/../share/yosys/lattice/cells_map_trellis.v:108.23-108.24
+Info:      logic  0.26  16.22 Source system.soc.core.flush_q_LUT4_D.OFX
+Info:    routing  2.65  18.87 Net system.soc.core.boundary_pc_q_TRELLIS_FF_Q_11_DI_LUT4_Z_D_LUT4_Z_C[3] (31,44) -> (19,15)
+Info:                          Sink system.soc.core.w_value_LUT4_Z_6_C_PFUMX_C0_Z_L6MUX21_D1_Z_L6MUX21_D1_Z_PFUMX_Z_ALUT_LUT4_Z.D
+Info:                          Defined in:
+Info:                               /home/bluto/Desktop/dorsalGanglionProject/.release-runs/bootstrap-final-r2/oss-cad-suite/lib/../share/yosys/lattice/cells_map_trellis.v:108.23-108.24
+Info:      logic  0.24  19.11 Source system.soc.core.w_value_LUT4_Z_6_C_PFUMX_C0_Z_L6MUX21_D1_Z_L6MUX21_D1_Z_PFUMX_Z_ALUT_LUT4_Z.F
+Info:    routing  0.00  19.11 Net system.soc.core.w_value_LUT4_Z_6_C_PFUMX_C0_Z_L6MUX21_D1_Z_L6MUX21_D1_Z_PFUMX_Z_ALUT (19,15) -> (19,15)
+Info:                          Sink system.soc.core.w_value_LUT4_Z_6_C_PFUMX_C0_Z_L6MUX21_D1_Z_L6MUX21_D1_Z_PFUMX_Z_BLUT_LUT4_Z.F1
+Info:                          Defined in:
+Info:                               /home/bluto/Desktop/dorsalGanglionProject/.release-runs/bootstrap-final-r2/oss-cad-suite/lib/../share/yosys/lattice/cells_map_trellis.v:133.22-133.24
+Info:      logic  0.17  19.27 Source system.soc.core.w_value_LUT4_Z_6_C_PFUMX_C0_Z_L6MUX21_D1_Z_L6MUX21_D1_Z_PFUMX_Z_BLUT_LUT4_Z.OFX
+Info:    routing  0.55  19.83 Net system.soc.core.w_value_LUT4_Z_6_C_PFUMX_C0_Z_L6MUX21_D1_Z_L6MUX21_D1_Z[3] (19,15) -> (19,14)
+Info:                          Sink system.soc.core.recovery_q_LUT4_C_Z_L6MUX21_Z_2_D1_L6MUX21_Z_D1_PFUMX_Z_ALUT_LUT4_Z.D
+Info:                          Defined in:
+Info:                               /home/bluto/Desktop/dorsalGanglionProject/.release-runs/bootstrap-final-r2/oss-cad-suite/lib/../share/yosys/lattice/cells_map_trellis.v:108.23-108.24
+Info:      logic  0.24  20.06 Source system.soc.core.recovery_q_LUT4_C_Z_L6MUX21_Z_2_D1_L6MUX21_Z_D1_PFUMX_Z_ALUT_LUT4_Z.F
+Info:    routing  0.00  20.06 Net system.soc.core.recovery_q_LUT4_C_Z_L6MUX21_Z_2_D1_L6MUX21_Z_D1_PFUMX_Z_ALUT (19,14) -> (19,14)
+Info:                          Sink system.soc.core.recovery_q_LUT4_C_Z_L6MUX21_Z_2_D1_L6MUX21_Z_D1_PFUMX_Z_BLUT_LUT4_Z.F1
+Info:                          Defined in:
+Info:                               /home/bluto/Desktop/dorsalGanglionProject/.release-runs/bootstrap-final-r2/oss-cad-suite/lib/../share/yosys/lattice/cells_map_trellis.v:157.46-157.48
+Info:      logic  0.17  20.23 Source system.soc.core.recovery_q_LUT4_C_Z_L6MUX21_Z_2_D1_L6MUX21_Z_D1_PFUMX_Z_BLUT_LUT4_Z.OFX
+Info:    routing  0.00  20.23 Net system.soc.core.recovery_q_LUT4_C_Z_L6MUX21_Z_2_D1_L6MUX21_Z_D1 (19,14) -> (19,14)
+Info:                          Sink system.soc.core.recovery_q_LUT4_C_Z_L6MUX21_Z_2_D1_L6MUX21_Z_D1_PFUMX_Z_ALUT_LUT4_Z.FXB
+Info:                          Defined in:
+Info:                               /home/bluto/Desktop/dorsalGanglionProject/.release-runs/bootstrap-final-r2/oss-cad-suite/lib/../share/yosys/lattice/cells_map_trellis.v:157.62-157.64
+Info:      logic  0.24  20.47 Source system.soc.core.recovery_q_LUT4_C_Z_L6MUX21_Z_2_D1_L6MUX21_Z_D1_PFUMX_Z_ALUT_LUT4_Z.OFX
+Info:    routing  0.00  20.47 Net system.soc.core.recovery_q_LUT4_C_Z_L6MUX21_Z_2_D1 (19,14) -> (19,14)
+Info:                          Sink system.soc.core.recovery_q_LUT4_C_Z_L6MUX21_Z_2_D1_L6MUX21_Z_D0_PFUMX_Z_ALUT_LUT4_Z.FXB
+Info:                          Defined in:
+Info:                               /home/bluto/Desktop/dorsalGanglionProject/.release-runs/bootstrap-final-r2/oss-cad-suite/lib/../share/yosys/lattice/cells_map_trellis.v:157.70-157.72
+Info:      logic  0.24  20.71 Source system.soc.core.recovery_q_LUT4_C_Z_L6MUX21_Z_2_D1_L6MUX21_Z_D0_PFUMX_Z_ALUT_LUT4_Z.OFX
+Info:    routing  0.76  21.48 Net system.soc.core.irq_drain_q_PFUMX_C0_Z[3] (19,14) -> (20,17)
+Info:                          Sink system.soc.core.irq_drain_q_PFUMX_C0_Z_L6MUX21_SD_D1_PFUMX_Z_ALUT_LUT4_Z.D
+Info:                          Defined in:
+Info:                               /home/bluto/Desktop/dorsalGanglionProject/.release-runs/bootstrap-final-r2/oss-cad-suite/lib/../share/yosys/lattice/cells_map_trellis.v:108.23-108.24
+Info:      logic  0.24  21.71 Source system.soc.core.irq_drain_q_PFUMX_C0_Z_L6MUX21_SD_D1_PFUMX_Z_ALUT_LUT4_Z.F
+Info:    routing  0.00  21.71 Net system.soc.core.irq_drain_q_PFUMX_C0_Z_L6MUX21_SD_D1_PFUMX_Z_ALUT (20,17) -> (20,17)
+Info:                          Sink system.soc.core.irq_drain_q_PFUMX_C0_Z_L6MUX21_SD_D1_PFUMX_Z_BLUT_LUT4_Z.F1
+Info:                          Defined in:
+Info:                               /home/bluto/Desktop/dorsalGanglionProject/.release-runs/bootstrap-final-r2/oss-cad-suite/lib/../share/yosys/lattice/cells_map_trellis.v:141.30-141.32
+Info:      logic  0.17  21.88 Source system.soc.core.irq_drain_q_PFUMX_C0_Z_L6MUX21_SD_D1_PFUMX_Z_BLUT_LUT4_Z.OFX
+Info:    routing  0.00  21.88 Net system.soc.core.irq_drain_q_PFUMX_C0_Z_L6MUX21_SD_D1 (20,17) -> (20,17)
+Info:                          Sink system.soc.core.irq_drain_q_PFUMX_C0_Z_L6MUX21_SD_D1_PFUMX_Z_ALUT_LUT4_Z.FXB
+Info:                          Defined in:
+Info:                               /home/bluto/Desktop/dorsalGanglionProject/.release-runs/bootstrap-final-r2/oss-cad-suite/lib/../share/yosys/lattice/cells_map_trellis.v:141.38-141.40
+Info:      logic  0.24  22.12 Source system.soc.core.irq_drain_q_PFUMX_C0_Z_L6MUX21_SD_D1_PFUMX_Z_ALUT_LUT4_Z.OFX
+Info:    routing  1.61  23.72 Net system.soc.core.irq_drain_q_PFUMX_C0_Z_L6MUX21_SD_Z[0] (20,17) -> (8,23)
+Info:                          Sink system.soc.core.irq_drain_q_PFUMX_C0_Z_L6MUX21_SD_Z_LUT4_C.C
+Info:                          Defined in:
+Info:                               /home/bluto/Desktop/dorsalGanglionProject/.release-runs/bootstrap-final-r2/oss-cad-suite/lib/../share/yosys/lattice/cells_map_trellis.v:108.23-108.24
+Info:      logic  0.24  23.96 Source system.soc.core.irq_drain_q_PFUMX_C0_Z_L6MUX21_SD_Z_LUT4_C.F
+Info:    routing  1.08  25.04 Net system.soc.core.irq_drain_q_PFUMX_C0_Z_L6MUX21_SD_Z_LUT4_C_Z[1] (8,23) -> (14,20)
+Info:                          Sink system.soc.frontend.fetch.fatal_q_L6MUX21_SD_D0_PFUMX_Z_ALUT_LUT4_Z.C
+Info:                          Defined in:
+Info:                               /home/bluto/Desktop/dorsalGanglionProject/.release-runs/bootstrap-final-r2/oss-cad-suite/lib/../share/yosys/lattice/cells_map_trellis.v:108.23-108.24
+Info:      logic  0.24  25.27 Source system.soc.frontend.fetch.fatal_q_L6MUX21_SD_D0_PFUMX_Z_ALUT_LUT4_Z.F
+Info:    routing  0.00  25.27 Net system.soc.frontend.fetch.fatal_q_L6MUX21_SD_D0_PFUMX_Z_ALUT (14,20) -> (14,20)
+Info:                          Sink system.soc.frontend.fetch.fatal_q_L6MUX21_SD_D0_PFUMX_Z_BLUT_LUT4_Z.F1
+Info:                          Defined in:
+Info:                               /home/bluto/Desktop/dorsalGanglionProject/.release-runs/bootstrap-final-r2/oss-cad-suite/lib/../share/yosys/lattice/cells_map_trellis.v:141.22-141.24
+Info:      logic  0.17  25.44 Source system.soc.frontend.fetch.fatal_q_L6MUX21_SD_D0_PFUMX_Z_BLUT_LUT4_Z.OFX
+Info:    routing  0.00  25.44 Net system.soc.frontend.fetch.fatal_q_L6MUX21_SD_D0 (14,20) -> (14,20)
+Info:                          Sink system.soc.frontend.fetch.fatal_q_L6MUX21_SD_D1_PFUMX_Z_ALUT_LUT4_Z.FXA
+Info:                          Defined in:
+Info:                               /home/bluto/Desktop/dorsalGanglionProject/.release-runs/bootstrap-final-r2/oss-cad-suite/lib/../share/yosys/lattice/cells_map_trellis.v:141.34-141.36
+Info:      logic  0.24  25.68 Source system.soc.frontend.fetch.fatal_q_L6MUX21_SD_D1_PFUMX_Z_ALUT_LUT4_Z.OFX
+Info:    routing  1.15  26.83 Net system.soc.frontend.fetch.fatal_q_L6MUX21_SD_Z[0] (14,20) -> (13,26)
+Info:                          Sink fatal_LUT4_Z.D
+Info:                          Defined in:
+Info:                               /home/bluto/Desktop/dorsalGanglionProject/.release-runs/bootstrap-final-r2/oss-cad-suite/lib/../share/yosys/lattice/cells_map_trellis.v:108.23-108.24
+Info:      logic  0.24  27.07 Source fatal_LUT4_Z.F
+Info:    routing  2.41  29.47 Net fatal (13,26) -> (3,40)
+Info:                          Sink led_o_LUT4_Z_3.B
+Info:                          Defined in:
+Info:                               inputs/microcontroller/rtl/drg5_boot_soc.sv:37.16
+Info:      logic  0.24  29.71 Source led_o_LUT4_Z_3.F
+Info:    routing  0.93  30.64 Net led_o[3]$TRELLIS_IO_OUT (3,40) -> (0,38)
+Info:                          Sink led_o[3]$tr_io.I
+Info:                          Defined in:
+Info:                               inputs/microcontroller/rtl/drg5_programmable_system.sv:16.22
+Info: 11.64 ns logic, 19.00 ns routing
+
+Info: Max frequency for clock '$glbnet$clk_cpu': 28.55 MHz (PASS at 27.78 MHz)
+
+Info: Max delay <async>                 -> posedge $glbnet$clk_cpu: 7.19 ns
+Info: Max delay posedge $glbnet$clk_cpu -> <async>                : 30.64 ns
+
+Info: Slack histogram:
+Info:  legend: * represents 31 endpoint(s)
+Info:          + represents [1,31) endpoint(s)
+Info: [   974,   2676) |*************+
+Info: [  2676,   4378) |*************************************+
+Info: [  4378,   6080) |***************************************************+
+Info: [  6080,   7782) |**********+
+Info: [  7782,   9484) |*****+
+Info: [  9484,  11186) |**+
+Info: [ 11186,  12888) |***********+
+Info: [ 12888,  14590) |**********+
+Info: [ 14590,  16292) |**********+
+Info: [ 16292,  17994) |***************+
+Info: [ 17994,  19696) |******************+
+Info: [ 19696,  21398) |****+
+Info: [ 21398,  23100) |*+
+Info: [ 23100,  24802) |*+
+Info: [ 24802,  26504) |****+
+Info: [ 26504,  28206) |*********************************************+
+Info: [ 28206,  29908) |******************************************************+
+Info: [ 29908,  31610) |*********************************************+
+Info: [ 31610,  33312) |****************************************+
+Info: [ 33312,  35014) |************************************************************ 
+
+1 warning, 0 errors
+
+Info: Program finished normally.

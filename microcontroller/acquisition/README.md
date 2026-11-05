@@ -4,6 +4,8 @@ The acquisition engine will turn each scheduled eight-channel ADC conversion int
 
 The **[ACQ-R1 contract](contract.md)** now freezes the first implementation's supported ADC tuple, configuration/command rejection, epochs, timing, validity, record format and all stop outcomes. The **[ADC profile](adc-profile.md)** fixes register bytes, serial edges, CRC conventions and startup. The **[review record](review.md)** records corrections and verification. These definitions are normative targets; the complete engine is not implemented by this commit.
 
+The [board qualification](board-qualification.md) traces the documented ADC nets, power/reference selection and ownership. J1–J8 are the positive/negative connectors for channels 1–4, not eight independent channel sockets. The [electrical and Ubuntu qualification](qualification.md) separates fresh executable tool checks from physical gates. The user confirmed that no board is available; physical assembly inspection, rail/continuity measurements and programming remain unperformed.
+
 ## Table of contents
 
 | Section |
@@ -11,6 +13,8 @@ The **[ACQ-R1 contract](contract.md)** now freezes the first implementation's su
 | [First implementation contract](contract.md) |
 | [ADC profile](adc-profile.md) |
 | [Definition review](review.md) |
+| [Board qualification](board-qualification.md) |
+| [Electrical and Ubuntu qualification](qualification.md) |
 | [Acquisition boundary](#acquisition-boundary) |
 | [Acquisition data path](#acquisition-data-path) |
 | [Acquisition control plane](#acquisition-control-plane) |
@@ -271,7 +275,7 @@ flowchart TB
     REG --> IDLE["Transaction idle<br/>retain lease until quiesce / mode restoration"]
     POST --> IDLE
     TIMING["20 MHz: 25 ns half-cycle<br/>3.3 V ADC tDOUT ≤15.7 ns<br/>remaining 9.3 ns must cover board + I/O"] -.-> SHIFT
-    VOLT["R1 requires VDRIVE 3.1–3.6 V<br/>other voltage profiles rejected"] -.-> TIMING
+    VOLT["R1 direct interface: VDRIVE / VCCIO 3.135–3.465 V<br/>paired rails / sequencing / overshoot qualified"] -.-> TIMING
 ```
 
 ## ACQ-05 · Pin lease transitions

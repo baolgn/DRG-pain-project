@@ -1,0 +1,354 @@
+Archive member included to satisfy reference by file (symbol)
+
+/tmp/acq-hw-p25-20261105/firmware/libdrg5rt.a(runtime.o)
+                              /tmp/acq-hw-p25-20261105/firmware/main.o (memcpy)
+
+Discarded input sections
+
+ .text          0x00000000        0x0 /tmp/acq-hw-p25-20261105/firmware/start.o
+ .data          0x00000000        0x0 /tmp/acq-hw-p25-20261105/firmware/start.o
+ .bss           0x00000000        0x0 /tmp/acq-hw-p25-20261105/firmware/start.o
+ .text          0x00000000        0x0 /tmp/acq-hw-p25-20261105/firmware/trap.o
+ .data          0x00000000        0x0 /tmp/acq-hw-p25-20261105/firmware/trap.o
+ .bss           0x00000000        0x0 /tmp/acq-hw-p25-20261105/firmware/trap.o
+ .text          0x00000000        0x0 /tmp/acq-hw-p25-20261105/firmware/probes.o
+ .data          0x00000000        0x0 /tmp/acq-hw-p25-20261105/firmware/probes.o
+ .bss           0x00000000        0x0 /tmp/acq-hw-p25-20261105/firmware/probes.o
+ .group         0x00000000        0xc /tmp/acq-hw-p25-20261105/firmware/main.o
+ .group         0x00000000        0xc /tmp/acq-hw-p25-20261105/firmware/main.o
+ .group         0x00000000        0xc /tmp/acq-hw-p25-20261105/firmware/main.o
+ .group         0x00000000        0xc /tmp/acq-hw-p25-20261105/firmware/main.o
+ .text          0x00000000        0x0 /tmp/acq-hw-p25-20261105/firmware/main.o
+ .data          0x00000000        0x0 /tmp/acq-hw-p25-20261105/firmware/main.o
+ .bss           0x00000000        0x0 /tmp/acq-hw-p25-20261105/firmware/main.o
+ .text.output_char
+                0x00000000       0x16 /tmp/acq-hw-p25-20261105/firmware/main.o
+ .comment       0x00000000       0x34 /tmp/acq-hw-p25-20261105/firmware/main.o
+ .note.GNU-stack
+                0x00000000        0x0 /tmp/acq-hw-p25-20261105/firmware/main.o
+ .group         0x00000000        0xc /tmp/acq-hw-p25-20261105/firmware/libdrg5rt.a(runtime.o)
+ .group         0x00000000        0xc /tmp/acq-hw-p25-20261105/firmware/libdrg5rt.a(runtime.o)
+ .group         0x00000000        0xc /tmp/acq-hw-p25-20261105/firmware/libdrg5rt.a(runtime.o)
+ .group         0x00000000        0xc /tmp/acq-hw-p25-20261105/firmware/libdrg5rt.a(runtime.o)
+ .text          0x00000000        0x0 /tmp/acq-hw-p25-20261105/firmware/libdrg5rt.a(runtime.o)
+ .data          0x00000000        0x0 /tmp/acq-hw-p25-20261105/firmware/libdrg5rt.a(runtime.o)
+ .bss           0x00000000        0x0 /tmp/acq-hw-p25-20261105/firmware/libdrg5rt.a(runtime.o)
+ .text.__udivsi3
+                0x00000000       0x46 /tmp/acq-hw-p25-20261105/firmware/libdrg5rt.a(runtime.o)
+ .debug_macro   0x00000000      0x84a /tmp/acq-hw-p25-20261105/firmware/libdrg5rt.a(runtime.o)
+ .debug_macro   0x00000000      0x523 /tmp/acq-hw-p25-20261105/firmware/libdrg5rt.a(runtime.o)
+ .debug_macro   0x00000000      0x1a5 /tmp/acq-hw-p25-20261105/firmware/libdrg5rt.a(runtime.o)
+ .debug_macro   0x00000000       0x3a /tmp/acq-hw-p25-20261105/firmware/libdrg5rt.a(runtime.o)
+ .comment       0x00000000       0x34 /tmp/acq-hw-p25-20261105/firmware/libdrg5rt.a(runtime.o)
+ .note.GNU-stack
+                0x00000000        0x0 /tmp/acq-hw-p25-20261105/firmware/libdrg5rt.a(runtime.o)
+
+Memory Configuration
+
+Name             Origin             Length             Attributes
+ROM              0x00000000         0x00002000         xr
+IRAM             0x00010000         0x00010000         xrw
+DRAM             0x20000000         0x00008000         rw
+*default*        0x00000000         0xffffffff
+
+Linker script and memory map
+
+LOAD /tmp/acq-hw-p25-20261105/firmware/start.o
+LOAD /tmp/acq-hw-p25-20261105/firmware/trap.o
+LOAD /tmp/acq-hw-p25-20261105/firmware/probes.o
+LOAD /tmp/acq-hw-p25-20261105/firmware/main.o
+LOAD /tmp/acq-hw-p25-20261105/firmware/libdrg5rt.a
+
+.boot           0x00000000       0x34
+ *(.text.boot)
+ .text.boot     0x00000000       0x34 /tmp/acq-hw-p25-20261105/firmware/start.o
+                0x00000000                _start
+
+.text           0x00010000     0x11e8
+ FILL mask 0x01000100
+                0x00010000                        __text_start = .
+ *(.text.startup.entry)
+ .text.startup.entry
+                0x00010000       0x8c /tmp/acq-hw-p25-20261105/firmware/start.o
+                0x00010000                _start_iram
+                0x00010078                startup_complete
+ *(.text.trap)
+ .text.trap     0x0001008c       0xc0 /tmp/acq-hw-p25-20261105/firmware/trap.o
+                0x0001008c                trap_entry
+ *(.text .text.*)
+ .text.faults   0x0001014c       0x3c /tmp/acq-hw-p25-20261105/firmware/probes.o
+                0x0001014c                fault_ecall
+                0x00010150                resume_ecall
+                0x00010154                fault_ebreak
+                0x00010158                resume_ebreak
+                0x0001015c                fault_illegal
+                0x00010160                resume_illegal
+                0x00010164                fault_misload
+                0x00010168                resume_misload
+                0x0001016c                fault_misstore
+                0x00010170                resume_misstore
+                0x00010174                fault_load
+                0x00010178                resume_load
+                0x0001017c                fault_store
+                0x00010180                resume_store
+                0x00010184                fault_compressed
+                0x00010186                resume_compressed
+ .text.irq_probe
+                0x00010188      0x1f4 /tmp/acq-hw-p25-20261105/firmware/probes.o
+                0x00010188                irq_register_probe
+ .text.recursive_sum
+                0x0001037c       0x72 /tmp/acq-hw-p25-20261105/firmware/main.o
+ .text.sort.constprop.0
+                0x000103ee       0x3c /tmp/acq-hw-p25-20261105/firmware/main.o
+ .text.firmware_finish
+                0x0001042a       0xa2 /tmp/acq-hw-p25-20261105/firmware/main.o
+                0x0001042a                firmware_finish
+ .text.check    0x000104cc       0x26 /tmp/acq-hw-p25-20261105/firmware/main.o
+ .text.recover  0x000104f2       0x60 /tmp/acq-hw-p25-20261105/firmware/main.o
+ .text.await_count
+                0x00010552       0x2a /tmp/acq-hw-p25-20261105/firmware/main.o
+ .text.trap_dispatch
+                0x0001057c      0x198 /tmp/acq-hw-p25-20261105/firmware/main.o
+                0x0001057c                trap_dispatch
+ .text.startup.main
+                0x00010714      0x8d4 /tmp/acq-hw-p25-20261105/firmware/main.o
+                0x00010714                main
+ .text.memcpy   0x00010fe8       0x26 /tmp/acq-hw-p25-20261105/firmware/libdrg5rt.a(runtime.o)
+                0x00010fe8                memcpy
+ .text.memset   0x0001100e       0x22 /tmp/acq-hw-p25-20261105/firmware/libdrg5rt.a(runtime.o)
+                0x0001100e                memset
+ .text.memcmp   0x00011030       0x38 /tmp/acq-hw-p25-20261105/firmware/libdrg5rt.a(runtime.o)
+                0x00011030                memcmp
+ .text.runtime_udiv
+                0x00011068       0x46 /tmp/acq-hw-p25-20261105/firmware/libdrg5rt.a(runtime.o)
+                0x00011068                runtime_udiv
+ .text.__umodsi3
+                0x000110ae       0x3c /tmp/acq-hw-p25-20261105/firmware/libdrg5rt.a(runtime.o)
+                0x000110ae                __umodsi3
+ .text.__divsi3
+                0x000110ea       0x74 /tmp/acq-hw-p25-20261105/firmware/libdrg5rt.a(runtime.o)
+                0x000110ea                __divsi3
+ .text.__modsi3
+                0x0001115e       0x58 /tmp/acq-hw-p25-20261105/firmware/libdrg5rt.a(runtime.o)
+                0x0001115e                __modsi3
+ .text.__mulsi3
+                0x000111b6       0x32 /tmp/acq-hw-p25-20261105/firmware/libdrg5rt.a(runtime.o)
+                0x000111b6                __mulsi3
+                0x000111e8                        . = ALIGN (0x4)
+                0x000111e8                        __text_end = .
+
+.rodata         0x000111e8       0x6c
+ *(.rodata .rodata.* .srodata .srodata.*)
+ .rodata.firmware_finish.str1.4
+                0x000111e8       0x28 /tmp/acq-hw-p25-20261105/firmware/main.o
+ .rodata        0x00011210       0x44 /tmp/acq-hw-p25-20261105/firmware/main.o
+                0x00011254                        . = ALIGN (0x4)
+
+.rela.dyn       0x00011254        0x0
+ .rela.text.boot
+                0x00011254        0x0 /tmp/acq-hw-p25-20261105/firmware/start.o
+ .rela.text.startup.entry
+                0x00011254        0x0 /tmp/acq-hw-p25-20261105/firmware/start.o
+ .rela.text.trap
+                0x00011254        0x0 /tmp/acq-hw-p25-20261105/firmware/start.o
+ .rela.text.trap_dispatch
+                0x00011254        0x0 /tmp/acq-hw-p25-20261105/firmware/start.o
+ .rela.text.startup.main
+                0x00011254        0x0 /tmp/acq-hw-p25-20261105/firmware/start.o
+
+.data           0x20000000       0x2c load address 0x00011254
+                0x20000000                        __data_start = .
+ *(.data .data.* .sdata .sdata.*)
+ .data.unsigned_right
+                0x20000000        0x4 /tmp/acq-hw-p25-20261105/firmware/main.o
+                0x20000000                unsigned_right
+ .data.unsigned_left
+                0x20000004        0x4 /tmp/acq-hw-p25-20261105/firmware/main.o
+                0x20000004                unsigned_left
+ .data.signed_right
+                0x20000008        0x4 /tmp/acq-hw-p25-20261105/firmware/main.o
+                0x20000008                signed_right
+ .data.signed_left
+                0x2000000c        0x4 /tmp/acq-hw-p25-20261105/firmware/main.o
+                0x2000000c                signed_left
+ .data.initialized_bytes
+                0x20000010        0x7 /tmp/acq-hw-p25-20261105/firmware/main.o
+                0x20000010                initialized_bytes
+ *fill*         0x20000017        0x1 
+ .data.initialized_words
+                0x20000018       0x14 /tmp/acq-hw-p25-20261105/firmware/main.o
+                0x20000018                initialized_words
+                0x2000002c                        . = ALIGN (0x4)
+                0x2000002c                        __data_end = .
+                0x00011254                        __data_load = LOADADDR (.data)
+                0x20000800                        __global_pointer$ = (__data_start + 0x800)
+
+.bss            0x2000002c       0xd4 load address 0x00011280
+                0x2000002c                        __bss_start = .
+ *(.bss .bss.* .sbss .sbss.* COMMON)
+ .bss.failure_reason
+                0x2000002c        0x4 /tmp/acq-hw-p25-20261105/firmware/main.o
+ .bss.expected_armed
+                0x20000030        0x4 /tmp/acq-hw-p25-20261105/firmware/main.o
+ .bss.expected_mtval
+                0x20000034        0x4 /tmp/acq-hw-p25-20261105/firmware/main.o
+ .bss.expected_resume
+                0x20000038        0x4 /tmp/acq-hw-p25-20261105/firmware/main.o
+ .bss.expected_pc
+                0x2000003c        0x4 /tmp/acq-hw-p25-20261105/firmware/main.o
+ .bss.expected_cause
+                0x20000040        0x4 /tmp/acq-hw-p25-20261105/firmware/main.o
+ .bss.zero_words
+                0x20000044       0x94 /tmp/acq-hw-p25-20261105/firmware/main.o
+                0x20000044                zero_words
+ .bss.stack_low_water
+                0x200000d8        0x4 /tmp/acq-hw-p25-20261105/firmware/main.o
+                0x200000d8                stack_low_water
+ .bss.exception_count
+                0x200000dc        0x4 /tmp/acq-hw-p25-20261105/firmware/main.o
+                0x200000dc                exception_count
+ .bss.pin_count
+                0x200000e0        0x4 /tmp/acq-hw-p25-20261105/firmware/main.o
+                0x200000e0                pin_count
+ .bss.ext_count
+                0x200000e4        0x4 /tmp/acq-hw-p25-20261105/firmware/main.o
+                0x200000e4                ext_count
+ .bss.timer_count
+                0x200000e8        0x4 /tmp/acq-hw-p25-20261105/firmware/main.o
+                0x200000e8                timer_count
+ .bss.sw_count  0x200000ec        0x4 /tmp/acq-hw-p25-20261105/firmware/main.o
+                0x200000ec                sw_count
+ .bss.fw_signature
+                0x200000f0        0x4 /tmp/acq-hw-p25-20261105/firmware/main.o
+                0x200000f0                fw_signature
+ .bss.fw_checks
+                0x200000f4        0x4 /tmp/acq-hw-p25-20261105/firmware/main.o
+                0x200000f4                fw_checks
+ .bss.fw_phase  0x200000f8        0x4 /tmp/acq-hw-p25-20261105/firmware/main.o
+                0x200000f8                fw_phase
+ .bss.boot_initialized
+                0x200000fc        0x4 /tmp/acq-hw-p25-20261105/firmware/main.o
+                0x200000fc                boot_initialized
+                0x20000100                        . = ALIGN (0x4)
+                0x20000100                        __bss_end = .
+                0x20008000                        __stack_top = (ORIGIN (DRAM) + LENGTH (DRAM))
+                0x20007000                        __stack_bottom = (__stack_top - 0x1000)
+                0x20006ff0                        __stack_guard = (__stack_bottom - 0x10)
+                0x20000100                        __heap_start = __bss_end
+                0x20006ff0                        __heap_end = __stack_guard
+
+.riscv.attributes
+                0x00000000       0x4f
+ *(.riscv.attributes)
+ .riscv.attributes
+                0x00000000       0x4f /tmp/acq-hw-p25-20261105/firmware/start.o
+ .riscv.attributes
+                0x0000004f       0x4f /tmp/acq-hw-p25-20261105/firmware/trap.o
+ .riscv.attributes
+                0x0000009e       0x4f /tmp/acq-hw-p25-20261105/firmware/probes.o
+ .riscv.attributes
+                0x000000ed       0x4f /tmp/acq-hw-p25-20261105/firmware/main.o
+ .riscv.attributes
+                0x0000013c       0x4b /tmp/acq-hw-p25-20261105/firmware/libdrg5rt.a(runtime.o)
+
+/DISCARD/
+ *(.comment .note.GNU-stack .eh_frame .eh_frame.*)
+                0x00000001                        ASSERT ((SIZEOF (.boot) <= LENGTH (ROM)), boot ROM overflow)
+                0x00000001                        ASSERT (((__data_load + SIZEOF (.data)) <= (ORIGIN (IRAM) + LENGTH (IRAM))), IRAM overflow)
+                0x00000001                        ASSERT ((__bss_end <= __stack_guard), data overlaps stack guard)
+                0x00000001                        ASSERT (((__stack_top & 0xf) == 0x0), stack alignment)
+                0x00000001                        ASSERT (((trap_entry & 0x3) == 0x0), direct trap alignment)
+OUTPUT(/tmp/acq-hw-p25-20261105/firmware/firmware.elf elf32-littleriscv)
+
+.debug_line     0x00000000     0x25cd
+ .debug_line    0x00000000      0x126 /tmp/acq-hw-p25-20261105/firmware/start.o
+ .debug_line    0x00000126      0x22e /tmp/acq-hw-p25-20261105/firmware/trap.o
+ .debug_line    0x00000354      0x42d /tmp/acq-hw-p25-20261105/firmware/probes.o
+ .debug_line    0x00000781     0x161b /tmp/acq-hw-p25-20261105/firmware/main.o
+ .debug_line    0x00001d9c      0x831 /tmp/acq-hw-p25-20261105/firmware/libdrg5rt.a(runtime.o)
+
+.debug_line_str
+                0x00000000      0x1fe
+ .debug_line_str
+                0x00000000      0x1fe /tmp/acq-hw-p25-20261105/firmware/start.o
+                                 0x83 (size before relaxing)
+ .debug_line_str
+                0x000001fe        0x0 /tmp/acq-hw-p25-20261105/firmware/trap.o
+                                 0x82 (size before relaxing)
+ .debug_line_str
+                0x000001fe        0x0 /tmp/acq-hw-p25-20261105/firmware/probes.o
+                                 0x84 (size before relaxing)
+ .debug_line_str
+                0x000001fe        0x0 /tmp/acq-hw-p25-20261105/firmware/main.o
+                                0x199 (size before relaxing)
+ .debug_line_str
+                0x000001fe        0x0 /tmp/acq-hw-p25-20261105/firmware/libdrg5rt.a(runtime.o)
+                                0x19f (size before relaxing)
+
+.debug_info     0x00000000     0x1df5
+ .debug_info    0x00000000       0x3c /tmp/acq-hw-p25-20261105/firmware/start.o
+ .debug_info    0x0000003c       0x33 /tmp/acq-hw-p25-20261105/firmware/trap.o
+ .debug_info    0x0000006f       0x92 /tmp/acq-hw-p25-20261105/firmware/probes.o
+ .debug_info    0x00000101     0x1655 /tmp/acq-hw-p25-20261105/firmware/main.o
+ .debug_info    0x00001756      0x69f /tmp/acq-hw-p25-20261105/firmware/libdrg5rt.a(runtime.o)
+
+.debug_abbrev   0x00000000      0x75d
+ .debug_abbrev  0x00000000       0x26 /tmp/acq-hw-p25-20261105/firmware/start.o
+ .debug_abbrev  0x00000026       0x28 /tmp/acq-hw-p25-20261105/firmware/trap.o
+ .debug_abbrev  0x0000004e       0x26 /tmp/acq-hw-p25-20261105/firmware/probes.o
+ .debug_abbrev  0x00000074      0x54a /tmp/acq-hw-p25-20261105/firmware/main.o
+ .debug_abbrev  0x000005be      0x19f /tmp/acq-hw-p25-20261105/firmware/libdrg5rt.a(runtime.o)
+
+.debug_aranges  0x00000000      0x130
+ .debug_aranges
+                0x00000000       0x28 /tmp/acq-hw-p25-20261105/firmware/start.o
+ .debug_aranges
+                0x00000028       0x20 /tmp/acq-hw-p25-20261105/firmware/trap.o
+ .debug_aranges
+                0x00000048       0x28 /tmp/acq-hw-p25-20261105/firmware/probes.o
+ .debug_aranges
+                0x00000070       0x60 /tmp/acq-hw-p25-20261105/firmware/main.o
+ .debug_aranges
+                0x000000d0       0x60 /tmp/acq-hw-p25-20261105/firmware/libdrg5rt.a(runtime.o)
+
+.debug_str      0x00000000     0x4268
+ .debug_str     0x00000000     0x4268 /tmp/acq-hw-p25-20261105/firmware/start.o
+                                 0xa2 (size before relaxing)
+ .debug_str     0x00004268        0x0 /tmp/acq-hw-p25-20261105/firmware/trap.o
+                                 0x99 (size before relaxing)
+ .debug_str     0x00004268        0x0 /tmp/acq-hw-p25-20261105/firmware/probes.o
+                                0x10f (size before relaxing)
+ .debug_str     0x00004268        0x0 /tmp/acq-hw-p25-20261105/firmware/main.o
+                               0x4583 (size before relaxing)
+ .debug_str     0x00004268        0x0 /tmp/acq-hw-p25-20261105/firmware/libdrg5rt.a(runtime.o)
+                               0x41a4 (size before relaxing)
+
+.debug_rnglists
+                0x00000000      0x321
+ .debug_rnglists
+                0x00000000       0x1a /tmp/acq-hw-p25-20261105/firmware/start.o
+ .debug_rnglists
+                0x0000001a       0x1a /tmp/acq-hw-p25-20261105/firmware/probes.o
+ .debug_rnglists
+                0x00000034      0x1cf /tmp/acq-hw-p25-20261105/firmware/main.o
+ .debug_rnglists
+                0x00000203      0x11e /tmp/acq-hw-p25-20261105/firmware/libdrg5rt.a(runtime.o)
+
+.debug_loclists
+                0x00000000      0xd46
+ .debug_loclists
+                0x00000000      0x754 /tmp/acq-hw-p25-20261105/firmware/main.o
+ .debug_loclists
+                0x00000754      0x5f2 /tmp/acq-hw-p25-20261105/firmware/libdrg5rt.a(runtime.o)
+
+.debug_macro    0x00000000      0xfc4
+ .debug_macro   0x00000000       0x3c /tmp/acq-hw-p25-20261105/firmware/main.o
+ .debug_macro   0x0000003c      0x84a /tmp/acq-hw-p25-20261105/firmware/main.o
+ .debug_macro   0x00000886      0x523 /tmp/acq-hw-p25-20261105/firmware/main.o
+ .debug_macro   0x00000da9      0x1a5 /tmp/acq-hw-p25-20261105/firmware/main.o
+ .debug_macro   0x00000f4e       0x3a /tmp/acq-hw-p25-20261105/firmware/main.o
+ .debug_macro   0x00000f88       0x3c /tmp/acq-hw-p25-20261105/firmware/libdrg5rt.a(runtime.o)
+
+.debug_frame    0x00000000      0x30c
+ .debug_frame   0x00000000      0x168 /tmp/acq-hw-p25-20261105/firmware/main.o
+ .debug_frame   0x00000168      0x1a4 /tmp/acq-hw-p25-20261105/firmware/libdrg5rt.a(runtime.o)

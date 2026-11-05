@@ -1,0 +1,69 @@
+{
+  "profile": "P25-SPI-BOOT-1",
+  "hardware_tested": false,
+  "status": "routed-and-packed-hardware-unverified",
+  "source_sha256": {
+    "microcontroller/synth/run_programmable.py": "3cf10c0111cac2df1fd22eba29c28278830bd8566b84b80dfe6f6652f4a8310a",
+    "microcontroller/programming/image.py": "69e7420ba79fba693bb86fdb5efcc78f7355c7ad0e67cb33837785e9bb9aaf68",
+    "microcontroller/programming/boot-rom.hex": "b120fb201f9e2d4470e4b7f8e9d80a26c7e1c08c945a996ba9afb04c77aa1770",
+    "microcontroller/tests/audit_firmware.py": "86f218b3b184c266068ac9f3a922b4ff48c145f28de21119b172f4570aab33ed",
+    "microcontroller/tests/run_decompress.py": "aa02e1b83382be69c9404f0d797bd4c3397688a1937d28155753a9debf9e00d8"
+  },
+  "firmware_tool_sha256": {
+    "/tmp/drg5-arch-tools/gcc/xpack-riscv-none-elf-gcc-15.2.0-1/bin/riscv-none-elf-readelf": "c2d6bfe196d7d2ccda84c88abe5e6893cd2bc87402a2c8c4a75f64ad20198b73"
+  },
+  "firmware": {
+    "manifest_sha256": "fc00de902f9f625f58af7599d6f042348f87598e3fd8a46621183ef94ea09cb9",
+    "elf_sha256": "378109d6b746bcfe80fd445cdb172783d44237cee76214b3590a62ac92e3d71c",
+    "ISA_audit": {
+      "file": "/tmp/acq-hw-p25-20261105/program-build/firmware/firmware.elf",
+      "profile": "imc",
+      "isa": "rv32i2p1_m2p0_c2p0_zicsr2p0_zifencei2p0_zmmul1p0_zca1p0",
+      "elf_flags": 1,
+      "instructions": {
+        "Zicsr": 24,
+        "I": 757,
+        "C": 732,
+        "Sm": 6,
+        "deliberate_illegal": 1,
+        "M": 5
+      },
+      "intentional_exceptions": [
+        {
+          "section": ".text",
+          "address": 65884,
+          "encoding": 4294967295
+        }
+      ],
+      "attributes": "Attribute Section: riscv\nFile Attributes\n  Tag_RISCV_stack_align: 16-bytes\n  Tag_RISCV_arch: \"rv32i2p1_m2p0_c2p0_zicsr2p0_zifencei2p0_zmmul1p0_zca1p0\"\n  Tag_RISCV_priv_spec: 1\n  Tag_RISCV_priv_spec_minor: 13\n"
+    }
+  },
+  "rom_byte_sha256": "ada6dda5a9c97670c226d04390773f3a3ad6ab62ed2681f1785342778501eb7f",
+  "rom_crc32": 1930024838,
+  "route_command": [
+    "/home/bluto/miniconda3/bin/python3",
+    "/home/bluto/Desktop/DRG-pain-project-publication/microcontroller/synth/run_fpga.py",
+    "--tools",
+    "/home/bluto/Desktop/dorsalGanglionProject/.release-runs/bootstrap-final-r2/oss-cad-suite",
+    "--firmware",
+    "/tmp/acq-hw-p25-20261105/program-build/firmware",
+    "--board",
+    "/home/bluto/Desktop/DRG-pain-project-publication/microcontroller/synth/fpga/drg5_ulx3s_programmable.sv",
+    "--lpf",
+    "/home/bluto/Desktop/DRG-pain-project-publication/microcontroller/synth/fpga/drg5_ulx3s_programmable.lpf",
+    "--top",
+    "drg5_ulx3s_programmable",
+    "--stage",
+    "2",
+    "--mhz",
+    "25",
+    "--guard-percent",
+    "10",
+    "--seed",
+    "1",
+    "--output",
+    "/tmp/acq-hw-p25-20261105/program-build/route"
+  ],
+  "route_exit": 0,
+  "bitstream_sha256": "9111efbd680d9531475ae561394c4c3a509e0d5d417c1d36e03c51e27a88e1a9"
+}

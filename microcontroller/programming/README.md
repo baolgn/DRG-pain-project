@@ -12,6 +12,8 @@
 
 This directory separates FPGA configuration from CPU firmware. A configuration bitstream defines the hardware and boot ROM; an application bank supplies instruction-memory contents for that compatible boot design. The current programming contract names ULX3S v3.1.7 D&M, LFE5U-85F-6BG381C and W25Q128JVSIQ. Those source constants do not establish the identity or readiness of an attached board.
 
+The [current qualification](../acquisition/qualification.md) records the user-confirmed absence of a board. A fresh build or a successful host-only programming plan cannot replace assembly inspection, IDCODE/readback checks and observed physical operation. The ADC evaluation board also needs its separate [electrical review](../acquisition/board-qualification.md) before any adapter is connected.
+
 ## Instructions
 
 [image.py](image.py) validates a completed `imc` firmware build and creates a bank file using the canonical [boot-rom.hex](boot-rom.hex). It checks ELF and image provenance, ROM compatibility, sizes, entry points, CRCs and generation fields. This operation writes host files only. Obtain the exact input paths from the new [firmware build](../firmware/README.md), then inspect the image builder's interface:

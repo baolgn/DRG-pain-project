@@ -2,6 +2,8 @@
 
 Reviewed 2026-11-05 against baseline commit `f46110aafafa6e7ae68029486fd64a05e9b9f5ad`. The deliverables are the [behavior contract](contract.md), [ADC profile](adc-profile.md), reconciled [architecture guide](README.md) and comment-only source edits. This review concerns definition completeness and source-comment consistency. It does not report an implemented acquisition engine or a passed hardware qualification.
 
+The definition evidence below belongs to commit `584743d`; its recorded document hashes preserve that revision. The subsequent [board qualification](board-qualification.md) tightens the initial VDRIVE allowance to the direct ECP5 interface's 3.135–3.465 V envelope and adds paired-rail/sequencing requirements. The old definition-check files are retained unchanged, not relabeled as measurements of a board or the revised electrical profile.
+
 ## Revisions and findings
 
 The final text incorporates the following substantive reviews of working drafts. These are recorded review activities within one requested commit, not claims of seven released implementations. Three adversarial passes by an independent reviewer were included; the third found no remaining must-fix semantic contradiction.

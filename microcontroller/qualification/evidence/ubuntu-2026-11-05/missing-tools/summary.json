@@ -1,0 +1,32 @@
+{
+  "schema": "DRG5-UBUNTU-TOOLS-1",
+  "status": "failed",
+  "target": {
+    "board": "ULX3S v3.1.7 D&M",
+    "part": "LFE5U-85F-6BG381C",
+    "density": "85k",
+    "package": "CABGA381",
+    "speed": "6"
+  },
+  "host": {
+    "os_release": "PRETTY_NAME=\"Ubuntu 26.04.1 LTS\"\nNAME=\"Ubuntu\"\nVERSION_ID=\"26.04\"\nVERSION=\"26.04.1 LTS (Resolute Raccoon)\"\nVERSION_CODENAME=resolute\nID=ubuntu\nID_LIKE=debian\nHOME_URL=\"https://www.ubuntu.com/\"\nSUPPORT_URL=\"https://help.ubuntu.com/\"\nBUG_REPORT_URL=\"https://bugs.launchpad.net/ubuntu/\"\nPRIVACY_POLICY_URL=\"https://www.ubuntu.com/legal/terms-and-policies/privacy-policy\"\nUBUNTU_CODENAME=resolute\nLOGO=ubuntu-logo\n",
+    "machine": "x86_64",
+    "python": "3.13.13"
+  },
+  "source_sha256": {
+    "run.py": "af1553ec196e842e432c8b3f5551804ebb78c9838842fa3fb516ae07c14583f5",
+    "smoke_core.sv": "59d5f07335feb58edf004c37c09d6618d80c89b1d22fb1e50fdfcce999616738",
+    "smoke_tb.sv": "17c8bbb1711ac82e568ad6a113dd1db2b6d16aaae451885a28af598f048490f3",
+    "smoke_top.sv": "0bfaf553b3ef2a11c5192f9826c82ed95ee6bfba8170738fa26ee9a398174749",
+    "smoke.lpf": "9af0c393a2b17ccd761b61257a0b7c0095305351dd8be0ea5c4a65bd44809b9e",
+    "formal.sv": "726e87e5784abbb512f021f0cc2ad9c6756e91afc1da50b6fe7ac489e59c64ee",
+    "waveform.tcl": "922922dadd7947084d35ea1df56080bd916236949b917c1fa877e6895adb701f"
+  },
+  "commands": [],
+  "hardware_programming_performed": false,
+  "physical_target_verified": false,
+  "complete_acquisition_qualified": false,
+  "error": "FileNotFoundError(2, 'No such file or directory')",
+  "source_stable": true,
+  "artifacts_sha256": {}
+}

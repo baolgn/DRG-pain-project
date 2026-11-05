@@ -1,0 +1,2 @@
+$ /home/bluto/Desktop/dorsalGanglionProject/.release-runs/bootstrap-final-r2/oss-cad-suite/lib/ld-linux-x86-64.so.2 --inhibit-cache --inhibit-rpath '' --library-path /home/bluto/Desktop/dorsalGanglionProject/.release-runs/bootstrap-final-r2/oss-cad-suite/lib /home/bluto/Desktop/dorsalGanglionProject/.release-runs/bootstrap-final-r2/oss-cad-suite/libexec/nextpnr-ecp5 --version
+"nextpnr-ecp5" -- Next Generation Place and Route (Version nextpnr-0.9-87-g858177d1)

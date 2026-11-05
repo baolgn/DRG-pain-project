@@ -1,0 +1,2 @@
+$ /tmp/drg5-arch-tools/gcc/xpack-riscv-none-elf-gcc-15.2.0-1/bin/riscv-none-elf-gcc -print-prog-name=ld
+/home/bluto/Desktop/dorsalGanglionProject/.release-runs/bootstrap-final-r2/arch/gcc/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/../../../../riscv-none-elf/bin/ld

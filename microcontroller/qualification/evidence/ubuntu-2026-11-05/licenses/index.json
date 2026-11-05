@@ -1,0 +1,98 @@
+{
+  "scope": "selected tool license/provenance notices, not whole-project license clearance",
+  "records": [
+    {
+      "component": "verilator",
+      "file": "LICENSE.verilator",
+      "sha256": "904d2311b78897a2457e1f16085865775503e4ed85da5c099a006a01d4ecd444",
+      "source_pins": [
+        [
+          "https://github.com/verilator/verilator",
+          "e9dd6eaaf0dcecaf39942afda32cb2f243f8ded6"
+        ]
+      ]
+    },
+    {
+      "component": "yosys",
+      "file": "LICENSE.yosys",
+      "sha256": "08c828ebc4efe76ff0c8974514a2b62400d7f9c517f0491feee1ba21641ef585",
+      "source_pins": [
+        [
+          "https://github.com/YosysHQ/yosys",
+          "687a36af388ec45018ab4bec8993f4c4daa5ccac"
+        ]
+      ]
+    },
+    {
+      "component": "nextpnr",
+      "file": "LICENSE.nextpnr",
+      "sha256": "f216ef5c1ef2925c568d319a5b886aa1ecddf6b5bd22100faf820c25562e4fca",
+      "source_pins": [
+        [
+          "https://github.com/YosysHQ/nextpnr",
+          "858177d136dc897202c7a36c62a1af27cce6fcbe"
+        ]
+      ]
+    },
+    {
+      "component": "prjtrellis",
+      "file": "LICENSE.prjtrellis",
+      "sha256": "08d7cdb77bdba4fb26de6239c54e01d22818a243095bc913a64c990d349465c2",
+      "source_pins": [
+        [
+          "https://github.com/YosysHQ/prjtrellis",
+          "73bd411731808d80ead650bbc9840d9e02911e9e"
+        ]
+      ]
+    },
+    {
+      "component": "sby",
+      "file": "LICENSE.sby",
+      "sha256": "48c1c32431aeeb9b6fa57628b6b9aa4512cb3a35b2dd86be4814f81e8c9ce2ba",
+      "source_pins": [
+        [
+          "https://github.com/YosysHQ/sby",
+          "4dabe8ab323ae87d53afd680c84449410c084041"
+        ]
+      ]
+    },
+    {
+      "component": "gtkwave",
+      "file": "LICENSE.gtkwave",
+      "sha256": "0c841c69ba95bd818aab42ad5520559a2b079ff638ec3ca542d1fb38fe00fbf4",
+      "source_pins": [
+        [
+          "https://github.com/gtkwave/gtkwave",
+          "10cfae614ed8be80b5bb64e8c2194e7dffcd297a"
+        ]
+      ]
+    },
+    {
+      "component": "openfpgaloader",
+      "file": "LICENSE.openfpgaloader",
+      "sha256": "e87d0a3e1abeff89d2f8cd018f6d67667a70fec4e21a67d6866ae31ae257d895",
+      "source_pins": [
+        [
+          "https://github.com/trabucayre/openFPGALoader",
+          "3ae5e5e4a5f055d12f6079616cb1ec1d67bf30f1"
+        ]
+      ]
+    },
+    {
+      "component": "z3",
+      "file": "LICENSE.z3",
+      "sha256": "67eb1623627785506a7333051c486ef7623e07dc89549ae0c91d97e7c15a2281",
+      "source_pins": [
+        [
+          "https://github.com/Z3Prover/z3",
+          "76182c7e663d68e8a29eda36442cded9c5eabec1"
+        ]
+      ]
+    },
+    {
+      "component": "trellis-database",
+      "file": "COPYING.trellis-database",
+      "sha256": "a2010f343487d3f7618affe54f789f5487602331c0a8d03f49e9a7c547cf0499"
+    }
+  ]
+}

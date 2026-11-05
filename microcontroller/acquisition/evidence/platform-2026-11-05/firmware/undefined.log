@@ -1,0 +1,1 @@
+$ /tmp/drg5-arch-tools/gcc/xpack-riscv-none-elf-gcc-15.2.0-1/bin/riscv-none-elf-nm -u /tmp/acq-hw-p25-20261105/firmware/firmware.elf

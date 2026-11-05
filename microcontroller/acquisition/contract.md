@@ -1,6 +1,6 @@
 # First acquisition implementation contract
 
-Contract **ACQ-R1, revision 1**, 2026-11-05. MUST, MUST NOT and REJECT are normative. This is the implementation target, not a claim that the complete engine exists. [The implementation boundary](#existing-implementation-and-release-gates) identifies the current synthetic guard. The older [architecture diagrams](README.md) provide context; this contract and its [ADC profile](adc-profile.md) decide ACQ-R1 behavior where a diagram shows alternatives.
+Contract **ACQ-R1, revision 2**, 2026-11-05. MUST, MUST NOT and REJECT are normative. Revision 2 narrows the direct electrical interface's voltage envelope and requires paired-rail/sequencing qualification; the record format remains version 1. This is the implementation target, not a claim that the complete engine exists. [The implementation boundary](#existing-implementation-and-release-gates) identifies the current synthetic guard. The older [architecture diagrams](README.md) provide context; this contract and its [ADC profile](adc-profile.md) decide ACQ-R1 behavior where a diagram shows alternatives.
 
 ## Contents
 
@@ -32,7 +32,7 @@ ACQ-R1 supports exactly the following recording tuple, as a whole. There is no n
 | Conversion | Normal power, simultaneous channels, oversampling and padding off; internal conversion clock; external CONVST from scheduler |
 | Serial | One DOUTA lane; MSB first; sample18/status8 pairs in V1 through V8 order, then CRC16; 224 bits per conversion |
 | Serial clock | 20 MHz nominal, idle high, falling-edge capture; SDI zero during conversion-data reads |
-| Acquisition clock | Independent qualified 80 MHz nominal, fixed throughout an epoch; VDRIVE nominal 3.3 V with qualified operating range in the ADC profile |
+| Acquisition clock | Independent qualified 80 MHz nominal, fixed throughout an epoch; direct-interface VDRIVE and ECP5 VCCIO 3.135–3.465 V with paired-rail, sequencing and pin-limit qualification in the ADC profile |
 | Cadence | Exactly 1600 acquisition ticks per slot: nominal 20 µs and 50 kSPS **per channel** |
 | Recording mode | External analog inputs; interface test, diagnostic mux, open-circuit detection and ADC self-test acquisition are service-only or disabled as specified in the profile |
 | Data path | Mandatory raw retention; 48-byte records, up to 256 records/block, 64-byte header; no decimation, channel suppression or DSP substitution |

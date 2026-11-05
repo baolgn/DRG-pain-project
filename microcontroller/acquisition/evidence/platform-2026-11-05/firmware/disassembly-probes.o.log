@@ -1,0 +1,264 @@
+$ /tmp/drg5-arch-tools/gcc/xpack-riscv-none-elf-gcc-15.2.0-1/bin/riscv-none-elf-objdump -d -M no-aliases,numeric /tmp/acq-hw-p25-20261105/firmware/probes.o
+
+/tmp/acq-hw-p25-20261105/firmware/probes.o:     file format elf32-littleriscv
+
+
+Disassembly of section .text.faults:
+
+00000000 <fault_ecall>:
+   0:	00000073          	ecall
+
+00000004 <resume_ecall>:
+   4:	00008067          	jalr	x0,0(x1)
+
+00000008 <fault_ebreak>:
+   8:	00100073          	ebreak
+
+0000000c <resume_ebreak>:
+   c:	00008067          	jalr	x0,0(x1)
+
+00000010 <fault_illegal>:
+  10:	ffffffff          	.word	0xffffffff
+
+00000014 <resume_illegal>:
+  14:	00008067          	jalr	x0,0(x1)
+
+00000018 <fault_misload>:
+  18:	00052583          	lw	x11,0(x10)
+
+0000001c <resume_misload>:
+  1c:	00008067          	jalr	x0,0(x1)
+
+00000020 <fault_misstore>:
+  20:	00b52023          	sw	x11,0(x10)
+
+00000024 <resume_misstore>:
+  24:	00008067          	jalr	x0,0(x1)
+
+00000028 <fault_load>:
+  28:	00052003          	lw	x0,0(x10)
+
+0000002c <resume_load>:
+  2c:	00008067          	jalr	x0,0(x1)
+
+00000030 <fault_store>:
+  30:	00b52023          	sw	x11,0(x10)
+
+00000034 <resume_store>:
+  34:	00008067          	jalr	x0,0(x1)
+
+00000038 <fault_compressed>:
+  38:	9002                	c.ebreak
+
+0000003a <resume_compressed>:
+  3a:	8082                	c.jr	x1
+
+Disassembly of section .text.irq_probe:
+
+00000000 <irq_register_probe>:
+   0:	7111                	c.addi16sp	x2,-256
+   2:	c206                	c.swsp	x1,4(x2)
+   4:	c60e                	c.swsp	x3,12(x2)
+   6:	c812                	c.swsp	x4,16(x2)
+   8:	ca16                	c.swsp	x5,20(x2)
+   a:	cc1a                	c.swsp	x6,24(x2)
+   c:	ce1e                	c.swsp	x7,28(x2)
+   e:	d022                	c.swsp	x8,32(x2)
+  10:	d226                	c.swsp	x9,36(x2)
+  12:	d42a                	c.swsp	x10,40(x2)
+  14:	d62e                	c.swsp	x11,44(x2)
+  16:	d832                	c.swsp	x12,48(x2)
+  18:	da36                	c.swsp	x13,52(x2)
+  1a:	dc3a                	c.swsp	x14,56(x2)
+  1c:	de3e                	c.swsp	x15,60(x2)
+  1e:	c0c2                	c.swsp	x16,64(x2)
+  20:	c2c6                	c.swsp	x17,68(x2)
+  22:	c4ca                	c.swsp	x18,72(x2)
+  24:	c6ce                	c.swsp	x19,76(x2)
+  26:	c8d2                	c.swsp	x20,80(x2)
+  28:	cad6                	c.swsp	x21,84(x2)
+  2a:	ccda                	c.swsp	x22,88(x2)
+  2c:	cede                	c.swsp	x23,92(x2)
+  2e:	d0e2                	c.swsp	x24,96(x2)
+  30:	d2e6                	c.swsp	x25,100(x2)
+  32:	d4ea                	c.swsp	x26,104(x2)
+  34:	d6ee                	c.swsp	x27,108(x2)
+  36:	d8f2                	c.swsp	x28,112(x2)
+  38:	daf6                	c.swsp	x29,116(x2)
+  3a:	dcfa                	c.swsp	x30,120(x2)
+  3c:	defe                	c.swsp	x31,124(x2)
+  3e:	10010293          	addi	x5,x2,256
+  42:	c416                	c.swsp	x5,8(x2)
+  44:	400012b7          	lui	x5,0x40001
+  48:	02c1                	c.addi	x5,16 # 40001010 <resume_compressed+0x40000fd6>
+  4a:	4305                	c.li	x6,1
+  4c:	0062a023          	sw	x6,0(x5)
+  50:	123400b7          	lui	x1,0x12340
+  54:	0085                	c.addi	x1,1 # 12340001 <resume_compressed+0x1233ffc7>
+  56:	123401b7          	lui	x3,0x12340
+  5a:	018d                	c.addi	x3,3 # 12340003 <resume_compressed+0x1233ffc9>
+  5c:	12340237          	lui	x4,0x12340
+  60:	0211                	c.addi	x4,4 # 12340004 <resume_compressed+0x1233ffca>
+  62:	123402b7          	lui	x5,0x12340
+  66:	0295                	c.addi	x5,5 # 12340005 <resume_compressed+0x1233ffcb>
+  68:	12340337          	lui	x6,0x12340
+  6c:	0319                	c.addi	x6,6 # 12340006 <resume_compressed+0x1233ffcc>
+  6e:	123403b7          	lui	x7,0x12340
+  72:	039d                	c.addi	x7,7 # 12340007 <resume_compressed+0x1233ffcd>
+  74:	12340437          	lui	x8,0x12340
+  78:	0421                	c.addi	x8,8 # 12340008 <resume_compressed+0x1233ffce>
+  7a:	123404b7          	lui	x9,0x12340
+  7e:	04a5                	c.addi	x9,9 # 12340009 <resume_compressed+0x1233ffcf>
+  80:	12340537          	lui	x10,0x12340
+  84:	0529                	c.addi	x10,10 # 1234000a <resume_compressed+0x1233ffd0>
+  86:	123405b7          	lui	x11,0x12340
+  8a:	05ad                	c.addi	x11,11 # 1234000b <resume_compressed+0x1233ffd1>
+  8c:	12340637          	lui	x12,0x12340
+  90:	0631                	c.addi	x12,12 # 1234000c <resume_compressed+0x1233ffd2>
+  92:	123406b7          	lui	x13,0x12340
+  96:	06b5                	c.addi	x13,13 # 1234000d <resume_compressed+0x1233ffd3>
+  98:	12340737          	lui	x14,0x12340
+  9c:	0739                	c.addi	x14,14 # 1234000e <resume_compressed+0x1233ffd4>
+  9e:	123407b7          	lui	x15,0x12340
+  a2:	07bd                	c.addi	x15,15 # 1234000f <resume_compressed+0x1233ffd5>
+  a4:	12340837          	lui	x16,0x12340
+  a8:	0841                	c.addi	x16,16 # 12340010 <resume_compressed+0x1233ffd6>
+  aa:	123408b7          	lui	x17,0x12340
+  ae:	08c5                	c.addi	x17,17 # 12340011 <resume_compressed+0x1233ffd7>
+  b0:	12340937          	lui	x18,0x12340
+  b4:	0949                	c.addi	x18,18 # 12340012 <resume_compressed+0x1233ffd8>
+  b6:	123409b7          	lui	x19,0x12340
+  ba:	09cd                	c.addi	x19,19 # 12340013 <resume_compressed+0x1233ffd9>
+  bc:	12340a37          	lui	x20,0x12340
+  c0:	0a51                	c.addi	x20,20 # 12340014 <resume_compressed+0x1233ffda>
+  c2:	12340ab7          	lui	x21,0x12340
+  c6:	0ad5                	c.addi	x21,21 # 12340015 <resume_compressed+0x1233ffdb>
+  c8:	12340b37          	lui	x22,0x12340
+  cc:	0b59                	c.addi	x22,22 # 12340016 <resume_compressed+0x1233ffdc>
+  ce:	12340bb7          	lui	x23,0x12340
+  d2:	0bdd                	c.addi	x23,23 # 12340017 <resume_compressed+0x1233ffdd>
+  d4:	12340c37          	lui	x24,0x12340
+  d8:	0c61                	c.addi	x24,24 # 12340018 <resume_compressed+0x1233ffde>
+  da:	12340cb7          	lui	x25,0x12340
+  de:	0ce5                	c.addi	x25,25 # 12340019 <resume_compressed+0x1233ffdf>
+  e0:	12340d37          	lui	x26,0x12340
+  e4:	0d69                	c.addi	x26,26 # 1234001a <resume_compressed+0x1233ffe0>
+  e6:	12340db7          	lui	x27,0x12340
+  ea:	0ded                	c.addi	x27,27 # 1234001b <resume_compressed+0x1233ffe1>
+  ec:	12340e37          	lui	x28,0x12340
+  f0:	0e71                	c.addi	x28,28 # 1234001c <resume_compressed+0x1233ffe2>
+  f2:	12340eb7          	lui	x29,0x12340
+  f6:	0ef5                	c.addi	x29,29 # 1234001d <resume_compressed+0x1233ffe3>
+  f8:	12340f37          	lui	x30,0x12340
+  fc:	0f79                	c.addi	x30,30 # 1234001e <resume_compressed+0x1233ffe4>
+  fe:	12340fb7          	lui	x31,0x12340
+ 102:	0ffd                	c.addi	x31,31 # 1234001f <resume_compressed+0x1233ffe5>
+ 104:	30046073          	csrrsi	x0,mstatus,8
+ 108:	0001                	c.addi	x0,0
+ 10a:	0001                	c.addi	x0,0
+ 10c:	0001                	c.addi	x0,0
+ 10e:	0001                	c.addi	x0,0
+ 110:	0001                	c.addi	x0,0
+ 112:	0001                	c.addi	x0,0
+ 114:	0001                	c.addi	x0,0
+ 116:	0001                	c.addi	x0,0
+ 118:	0001                	c.addi	x0,0
+ 11a:	0001                	c.addi	x0,0
+ 11c:	0001                	c.addi	x0,0
+ 11e:	0001                	c.addi	x0,0
+ 120:	0001                	c.addi	x0,0
+ 122:	0001                	c.addi	x0,0
+ 124:	0001                	c.addi	x0,0
+ 126:	0001                	c.addi	x0,0
+ 128:	0001                	c.addi	x0,0
+ 12a:	0001                	c.addi	x0,0
+ 12c:	0001                	c.addi	x0,0
+ 12e:	0001                	c.addi	x0,0
+ 130:	0001                	c.addi	x0,0
+ 132:	0001                	c.addi	x0,0
+ 134:	0001                	c.addi	x0,0
+ 136:	0001                	c.addi	x0,0
+ 138:	30047073          	csrrci	x0,mstatus,8
+ 13c:	c306                	c.swsp	x1,132(x2)
+ 13e:	c50a                	c.swsp	x2,136(x2)
+ 140:	c70e                	c.swsp	x3,140(x2)
+ 142:	c912                	c.swsp	x4,144(x2)
+ 144:	cb16                	c.swsp	x5,148(x2)
+ 146:	cd1a                	c.swsp	x6,152(x2)
+ 148:	cf1e                	c.swsp	x7,156(x2)
+ 14a:	d122                	c.swsp	x8,160(x2)
+ 14c:	d326                	c.swsp	x9,164(x2)
+ 14e:	d52a                	c.swsp	x10,168(x2)
+ 150:	d72e                	c.swsp	x11,172(x2)
+ 152:	d932                	c.swsp	x12,176(x2)
+ 154:	db36                	c.swsp	x13,180(x2)
+ 156:	dd3a                	c.swsp	x14,184(x2)
+ 158:	df3e                	c.swsp	x15,188(x2)
+ 15a:	c1c2                	c.swsp	x16,192(x2)
+ 15c:	c3c6                	c.swsp	x17,196(x2)
+ 15e:	c5ca                	c.swsp	x18,200(x2)
+ 160:	c7ce                	c.swsp	x19,204(x2)
+ 162:	c9d2                	c.swsp	x20,208(x2)
+ 164:	cbd6                	c.swsp	x21,212(x2)
+ 166:	cdda                	c.swsp	x22,216(x2)
+ 168:	cfde                	c.swsp	x23,220(x2)
+ 16a:	d1e2                	c.swsp	x24,224(x2)
+ 16c:	d3e6                	c.swsp	x25,228(x2)
+ 16e:	d5ea                	c.swsp	x26,232(x2)
+ 170:	d7ee                	c.swsp	x27,236(x2)
+ 172:	d9f2                	c.swsp	x28,240(x2)
+ 174:	dbf6                	c.swsp	x29,244(x2)
+ 176:	ddfa                	c.swsp	x30,248(x2)
+ 178:	dffe                	c.swsp	x31,252(x2)
+ 17a:	4505                	c.li	x10,1
+ 17c:	08410293          	addi	x5,x2,132
+ 180:	12340337          	lui	x6,0x12340
+ 184:	0305                	c.addi	x6,1 # 12340001 <resume_compressed+0x1233ffc7>
+ 186:	4385                	c.li	x7,1
+ 188:	4e09                	c.li	x28,2
+ 18a:	01c38663          	beq	x7,x28,196 <irq_register_probe+0x196>
+ 18e:	0002ae03          	lw	x28,0(x5)
+ 192:	026e1063          	bne	x28,x6,1b2 <irq_register_probe+0x1b2>
+ 196:	0291                	c.addi	x5,4
+ 198:	0305                	c.addi	x6,1
+ 19a:	0385                	c.addi	x7,1
+ 19c:	02000e13          	addi	x28,x0,32
+ 1a0:	ffc3e4e3          	bltu	x7,x28,188 <irq_register_probe+0x188>
+ 1a4:	42aa                	c.lwsp	x5,136(x2)
+ 1a6:	10028293          	addi	x5,x5,256
+ 1aa:	4322                	c.lwsp	x6,8(x2)
+ 1ac:	00629363          	bne	x5,x6,1b2 <irq_register_probe+0x1b2>
+ 1b0:	a011                	c.j	1b4 <irq_register_probe+0x1b4>
+ 1b2:	4501                	c.li	x10,0
+ 1b4:	4092                	c.lwsp	x1,4(x2)
+ 1b6:	41b2                	c.lwsp	x3,12(x2)
+ 1b8:	4242                	c.lwsp	x4,16(x2)
+ 1ba:	42d2                	c.lwsp	x5,20(x2)
+ 1bc:	4362                	c.lwsp	x6,24(x2)
+ 1be:	43f2                	c.lwsp	x7,28(x2)
+ 1c0:	5402                	c.lwsp	x8,32(x2)
+ 1c2:	5492                	c.lwsp	x9,36(x2)
+ 1c4:	55b2                	c.lwsp	x11,44(x2)
+ 1c6:	5642                	c.lwsp	x12,48(x2)
+ 1c8:	56d2                	c.lwsp	x13,52(x2)
+ 1ca:	5762                	c.lwsp	x14,56(x2)
+ 1cc:	57f2                	c.lwsp	x15,60(x2)
+ 1ce:	4806                	c.lwsp	x16,64(x2)
+ 1d0:	4896                	c.lwsp	x17,68(x2)
+ 1d2:	4926                	c.lwsp	x18,72(x2)
+ 1d4:	49b6                	c.lwsp	x19,76(x2)
+ 1d6:	4a46                	c.lwsp	x20,80(x2)
+ 1d8:	4ad6                	c.lwsp	x21,84(x2)
+ 1da:	4b66                	c.lwsp	x22,88(x2)
+ 1dc:	4bf6                	c.lwsp	x23,92(x2)
+ 1de:	5c06                	c.lwsp	x24,96(x2)
+ 1e0:	5c96                	c.lwsp	x25,100(x2)
+ 1e2:	5d26                	c.lwsp	x26,104(x2)
+ 1e4:	5db6                	c.lwsp	x27,108(x2)
+ 1e6:	5e46                	c.lwsp	x28,112(x2)
+ 1e8:	5ed6                	c.lwsp	x29,116(x2)
+ 1ea:	5f66                	c.lwsp	x30,120(x2)
+ 1ec:	5ff6                	c.lwsp	x31,124(x2)
+ 1ee:	4122                	c.lwsp	x2,8(x2)
+ 1f0:	8082                	c.jr	x1
+ 1f2:	0001                	c.addi	x0,0

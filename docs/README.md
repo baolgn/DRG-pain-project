@@ -52,6 +52,7 @@ This check exercises one digital component without accessing hardware. The [test
 | [Microcontroller overview](../microcontroller/README.md) | Maps the implemented CPU, local platform and supporting software to the proposed recording system. |
 | [Acquisition](../microcontroller/acquisition/README.md) | Separates the implemented guard from the proposed ADC interface, recording format and DMA path. |
 | [Acquisition contract](../microcontroller/acquisition/contract.md) | Freezes the initial ADC profile, epochs, cadence, validity, records, commands and closure outcomes. |
+| [Electrical and Ubuntu qualification](../microcontroller/acquisition/qualification.md) | Reviews evaluation-board routing and power ownership, runs exact-device tool checks, and identifies unperformed physical gates. |
 | [Memory](../microcontroller/memory/README.md) | Describes local storage and the proposed shared-memory ownership and service contracts. |
 | [Signal processing](../microcontroller/signal-processing/README.md) | Distinguishes the diagnostic arithmetic workload from planned calibrated analysis. |
 | [Hardware references](../datasheets/README.md) | Identifies the manufacturer documents used for electrical and interface design. |

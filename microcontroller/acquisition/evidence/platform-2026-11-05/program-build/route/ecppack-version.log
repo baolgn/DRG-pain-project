@@ -1,0 +1,29 @@
+$ /home/bluto/Desktop/dorsalGanglionProject/.release-runs/bootstrap-final-r2/oss-cad-suite/lib/ld-linux-x86-64.so.2 --inhibit-cache --inhibit-rpath '' --library-path /home/bluto/Desktop/dorsalGanglionProject/.release-runs/bootstrap-final-r2/oss-cad-suite/lib /home/bluto/Desktop/dorsalGanglionProject/.release-runs/bootstrap-final-r2/oss-cad-suite/libexec/ecppack --help
+Error: input file is mandatory.
+
+Project Trellis - Open Source Tools for ECP5 FPGAs
+Version 1.4-76-g73bd411
+/home/bluto/Desktop/dorsalGanglionProject/.release-runs/bootstrap-final-r2/oss-cad-suite/libexec/ecppack: ECP5 bitstream packer
+
+Copyright (C) 2018 gatecat <gatecat@ds0.me>
+
+Usage: /home/bluto/Desktop/dorsalGanglionProject/.release-runs/bootstrap-final-r2/oss-cad-suite/libexec/ecppack input.config [output.bit] [options]
+Allowed options:
+  -h [ --help ]         show help
+  -v [ --verbose ]      verbose output
+  --db arg              Trellis database folder location
+  --usercode arg        USERCODE to set in bitstream
+  --idcode arg          IDCODE to override in bitstream
+  --freq arg            config frequency in MHz
+  --svf arg             output SVF file
+  --svf-rowsize arg     SVF row size in bits (default 8000)
+  --compress            compress bitstream to reduce size
+  --spimode arg         SPI Mode to use (fast-read, dual-spi, qspi)
+  --background          enable background reconfiguration in bitstream
+  --delta arg           create a delta partial bitstream given a reference 
+                        config
+  --bootaddr arg        set next BOOTADDR in bitstream and enable multi-boot
+  --input arg           input textual configuration
+  --bit arg             output bitstream file
+  --version             show current version and exit
+
