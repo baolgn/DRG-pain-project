@@ -4,6 +4,8 @@ Development dates follow the project schedule. Verification results retain the e
 
 ## 2026-11-05
 
+The [ACQ-R1 acquisition contract](microcontroller/acquisition/contract.md) now defines one supported ADC configuration, atomic rejection of unsupported combinations, fixed-grid sampling, channel order, timestamp and record validity, configuration epochs, missing conversions, CPU duties, and exact or uncertain stop/restart outcomes. The [ADC profile](microcontroller/acquisition/adc-profile.md) fixes the register image, startup, serial edges and CRC convention. The [review](microcontroller/acquisition/review.md) records repeated corrections and independent definition checks. Thirty-seven comments were added across nine active source/build files without changing executable tokens. The complete physical acquisition engine remains unimplemented and unqualified.
+
 The [project README](README.md) now introduces the complete DRG recording and analysis scope, with installation instructions and linked sections for the microcontroller, development documentation and hardware references. Every README includes a table of contents, and the component guides retain the architecture diagrams. Evidence checksum manifests update only the README entries affected by navigation changes; captured test data and recorded execution-source hashes remain unchanged.
 
 The project documentation now separates the implemented CPU, local platform, firmware, programming tools, and verification runners from the proposed recording and analysis system. The [microcontroller README](microcontroller/README.md) provides implementation tables and execution flows. Host instructions distinguish the Linux development environment from unverified Windows and macOS workflows.

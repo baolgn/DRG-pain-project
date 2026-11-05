@@ -20,6 +20,7 @@ extern void fault_misload(uint32_t), resume_misload(void);
 extern void fault_misstore(uint32_t), resume_misstore(void);
 extern void fault_load(uint32_t), resume_load(void);
 extern void fault_store(uint32_t), resume_store(void);
+/* reference the compressed probe only in a build that implements C. */
 #if FW_COMPRESSED
 extern void fault_compressed(uint32_t), resume_compressed(void);
 #endif
@@ -292,6 +293,7 @@ static void test_exceptions(void) {
     recover(fault_misstore, resume_misstore, 6, 0x20000001u, 0x20000001u);
     recover(fault_load, resume_load, 5, 0x4000000cu, 0x4000000cu);
     recover(fault_store, resume_store, 7, 0x4000000cu, 0x4000000cu);
+    /* verify two-byte breakpoint recovery only in the compressed profile. */
 #if FW_COMPRESSED
     recover(fault_compressed, resume_compressed, 3, 0, (uintptr_t)fault_compressed);
 #endif

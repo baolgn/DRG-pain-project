@@ -51,6 +51,7 @@ This check exercises one digital component without accessing hardware. The [test
 | [Development workflow](pre-coding-workflow.md) | Defines source assumptions, budgets and integration gates before complete acquisition and board implementation. |
 | [Microcontroller overview](../microcontroller/README.md) | Maps the implemented CPU, local platform and supporting software to the proposed recording system. |
 | [Acquisition](../microcontroller/acquisition/README.md) | Separates the implemented guard from the proposed ADC interface, recording format and DMA path. |
+| [Acquisition contract](../microcontroller/acquisition/contract.md) | Freezes the initial ADC profile, epochs, cadence, validity, records, commands and closure outcomes. |
 | [Memory](../microcontroller/memory/README.md) | Describes local storage and the proposed shared-memory ownership and service contracts. |
 | [Signal processing](../microcontroller/signal-processing/README.md) | Distinguishes the diagnostic arithmetic workload from planned calibrated analysis. |
 | [Hardware references](../datasheets/README.md) | Identifies the manufacturer documents used for electrical and interface design. |

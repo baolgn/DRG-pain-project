@@ -23,6 +23,7 @@ SECTIONS {
         /* build.py selects supported instruction padding for the active profile. */
 #if FW_COMPRESSED
         FILL(0x01000100)
+        /* use full-width NOP padding when compressed instructions are disabled. */
 #else
         FILL(0x13000000)
 #endif

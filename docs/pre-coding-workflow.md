@@ -2,6 +2,8 @@
 
 This workflow connects the implemented CPU platform to the proposed eight-channel DRG signal processor. The repository contains CPU and local-platform RTL, a synthetic acquisition guard, compiled diagnostic firmware and verification sources. The full ADC interface, external working-memory system, host archive and neural-analysis chain remain proposed. The [microcontroller overview](../microcontroller/README.md) identifies the implementation, while the [acquisition](../microcontroller/acquisition/README.md), [memory](../microcontroller/memory/README.md) and [signal-processing](../microcontroller/signal-processing/README.md) component documents separate current behavior from future modules.
 
+The [ACQ-R1 contract](../microcontroller/acquisition/contract.md) and [ADC profile](../microcontroller/acquisition/adc-profile.md) now freeze the first implementation's modes, epochs and visible outcomes. These requirements supersede earlier open choices; their hardware gates remain unqualified.
+
 The initial electrical target uses synthetic extracellular signals. Cultured DRG neurons provide a provisional biological target, and the physical recording connection remains undecided. No physical ADC connection or documented neural-sample output from an Abbott system forms part of the implemented path. Biological recording protocols, biomarker validation and therapeutic modulation remain outside this workflow.
 
 ## Requirements and source boundary

@@ -9,6 +9,7 @@ trap_entry:
     sw t0, 0(sp)
     sw t1, 4(sp)
     sw t2, 8(sp)
+    /* distinguish external, timer and software interrupt causes before the ecall path. */
     csrr t0, mcause
     li t1, 0x8000000b
     li t2, 0x40000000
@@ -19,6 +20,7 @@ trap_entry:
     beq t0, t1, software_irq
     li t1, 11
     bne t0, t1, unexpected_trap
+    /* advance a machine ecall by four bytes and report recovery to the fixture. */
     csrr t0, mepc
     addi t0, t0, 4
     csrw mepc, t0

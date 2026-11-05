@@ -1,0 +1,33 @@
+{
+  "schema": "DRG5-ACQUISITION-FINAL-CHECK-1",
+  "status": "passed",
+  "review_date": "2026-11-05",
+  "baseline_commit": "f46110aafafa6e7ae68029486fd64a05e9b9f5ad",
+  "local_links_checked": 147,
+  "bound_hashes_verified_including_duplicate_report_entries": 412,
+  "active_python_files_compiled": 93,
+  "comment_only_code_files": [
+    "microcontroller/firmware/link.ld",
+    "microcontroller/firmware/main.c",
+    "microcontroller/firmware/probes.S",
+    "microcontroller/firmware/start.S",
+    "microcontroller/firmware/synthetic/trap.S",
+    "microcontroller/firmware/trap.S",
+    "microcontroller/synth/drg5_rf_ulx3s.lpf",
+    "microcontroller/tests/acquisition_guard_sim.cpp",
+    "microcontroller/verification/act4/link.ld"
+  ],
+  "definition_checks_passed": 61,
+  "whitespace_check": "git diff --check passed",
+  "hardware_tests_run": false,
+  "scope": "definitions, links, source identity and syntax only; no functional code change",
+  "document_sha256": {
+    "CHANGELOG.md": "c4df438636f587042e444751de01b7841c3cd54f2e4a6a5d5f090d2b43c58386",
+    "docs/README.md": "9c984fbe9f562aa4cbdf9cd05f2cbab9ecd02af23d5c5a3947cbf742738e326f",
+    "docs/pre-coding-workflow.md": "bf50638157aebe2e766973cf263bb07383eac88559595f8c2cf36f6f62f64623",
+    "microcontroller/acquisition/README.md": "5f2d4fb5cb18e045877c81ff67f7e863ff2fcd0718a46be9305dee7318c82560",
+    "microcontroller/acquisition/contract.md": "5f3b207801e4ca67af4e9ef80a283f4e09f31efbc722c695295dbc99a71babff",
+    "microcontroller/acquisition/adc-profile.md": "a040141e651659f2286291b019d3231f5716ec9a517615e6854bf8241b15ace9",
+    "microcontroller/acquisition/review.md": "0f4c24adcfc0b2497c1d924f50274eba977fcea1eee31b1d67b057c120bc8129"
+  }
+}

@@ -10,6 +10,7 @@
 .type fault_ecall,@function
 fault_ecall:
     ecall
+/* return to C after the handler selects the explicit recovery PC. */
 resume_ecall:
     ret
 .size fault_ecall, .-fault_ecall
@@ -20,6 +21,7 @@ resume_ecall:
 .type fault_ebreak,@function
 fault_ebreak:
     ebreak
+/* return only after breakpoint recovery redirects execution here. */
 resume_ebreak:
     ret
 .size fault_ebreak, .-fault_ebreak
@@ -30,6 +32,7 @@ resume_ebreak:
 .type fault_illegal,@function
 fault_illegal:
     .word 0xffffffff
+/* resume beyond the deliberately unsupported instruction encoding. */
 resume_illegal:
     ret
 .size fault_illegal, .-fault_illegal
@@ -40,6 +43,7 @@ resume_illegal:
 .type fault_misload,@function
 fault_misload:
     lw a1, 0(a0)
+/* return after the misaligned load has trapped without a register write. */
 resume_misload:
     ret
 .size fault_misload, .-fault_misload
@@ -50,6 +54,7 @@ resume_misload:
 .type fault_misstore,@function
 fault_misstore:
     sw a1, 0(a0)
+/* return after the misaligned store has trapped without a memory write. */
 resume_misstore:
     ret
 .size fault_misstore, .-fault_misstore
@@ -60,6 +65,7 @@ resume_misstore:
 .type fault_load,@function
 fault_load:
     lw zero, 0(a0)
+/* resume after the rejected read even though its destination is x0. */
 resume_load:
     ret
 .size fault_load, .-fault_load
@@ -70,11 +76,13 @@ resume_load:
 .type fault_store,@function
 fault_store:
     sw a1, 0(a0)
+/* resume after the rejected write leaves device state unchanged. */
 resume_store:
     ret
 .size fault_store, .-fault_store
 .option pop
 
+/* omit the two-byte probe when the selected ISA excludes C. */
 #if FW_COMPRESSED
 /* a compressed fault tests recovery from a two-byte instruction. */
 .balign 2
@@ -82,6 +90,7 @@ resume_store:
 .type fault_compressed,@function
 fault_compressed:
     c.ebreak
+/* use the explicit two-byte recovery address rather than a fixed increment. */
 resume_compressed:
     ret
 .size fault_compressed, .-fault_compressed
@@ -126,6 +135,7 @@ irq_register_probe:
     sw x31, 124(sp)
     addi t0, sp, 256
     sw t0, 8(sp)
+    /* pend the software interrupt while machine interrupts remain masked. */
     li t0, 0x40001010
     li t1, 1
     sw t1, 0(t0)
@@ -160,6 +170,7 @@ irq_register_probe:
     li x29, 0x1234001d
     li x30, 0x1234001e
     li x31, 0x1234001f
+    /* expose the pending interrupt only after every canary is installed. */
     csrsi mstatus, 8
     /* enough independent instructions separate eligibility from the mask write. */
     .rept 24
@@ -208,6 +219,7 @@ irq_register_probe:
     beq t2, t3, 2f
     lw t3, 0(t0)
     bne t3, t1, 4f
+    /* advance the canary and capture pointers, including the separately checked SP. */
 2:
     addi t0, t0, 4
     addi t1, t1, 1
