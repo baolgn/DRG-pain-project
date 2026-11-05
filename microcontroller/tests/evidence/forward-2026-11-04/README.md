@@ -1,5 +1,13 @@
 # Independent forwarding selector evidence
 
+## Table of contents
+
+| Section |
+| --- |
+| [Evidence record](#evidence-record) |
+
+## Evidence record
+
 `drg5_forward` is a combinational selector for two register operands. It does not decode instructions, determine producer completion, own pipeline tokens, read a register file or authorize architectural effects. The caller supplies source indices/use flags/RF values and three producer descriptors ordered from newest X through M to oldest W.
 
 Each producer has independent valid, write and ready bits, a five-bit destination and a 32-bit value. `producer_rd_i[14:0]` and `producer_value_i[95:0]` use flattened packed lanes: the low five/32 bits are X, the middle bits M, and the high bits W. The three control vectors use the same index ordering.

@@ -1,5 +1,13 @@
 # Observation adapter qualification
 
+## Table of contents
+
+| Section |
+| --- |
+| [Evidence record](#evidence-record) |
+
+## Evidence record
+
 Final revision 03 passes **18 schedules, 792 sampled edges and 2,373 checks**, plus four required detector failures. The six elaborations cover default 64-bit identities; separate sequence, epoch and normal-retirement exhaustion; simultaneous sequence/retirement exhaustion; and simultaneous exhaustion of all three. Each runs seeds 0, 1 and 305419896.
 
 This is an adapter transport and identity test. It supplies deliberately changing pre-edge inputs and independently changing post-edge output values, including arbitrary synthetic events that need not be a legal CPU program. The entire **3,147-bit observe_t payload** is compared while valid. Real instruction semantics and counter behavior are checked by the separate counter-bank and frontend-execution fixtures.

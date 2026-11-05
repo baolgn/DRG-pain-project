@@ -1,5 +1,13 @@
 # Fetch-to-control verification bridge
 
+## Table of contents
+
+| Section |
+| --- |
+| [Evidence record](#evidence-record) |
+
+## Evidence record
+
 This non-C fixture connects the existing instruction manager and assembly buffer to `OP_CONTROL` packets using the original fetched PC, raw bytes, byte-valid mask, original length and fetch-fault metadata. Control's registered redirect feeds fetch's restart input. This is a verification bridge, not production frontend integration or a complete CPU.
 
 An independent 8 KiB word RAM responder owns one offered/accepted record. It records immutable address/tag/parcel fields at first observation of valid, samples RAM only at actual acceptance, and independently schedules the later response. No acceptance or completion is inferred from DUT internal state. Redirect revocation also applies when the responder first observes an already-presented offer on that edge. Source publication, data memory, interrupts and debug are outside this fixture.

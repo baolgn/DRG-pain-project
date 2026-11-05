@@ -1,5 +1,13 @@
 # Verification orchestration
 
+## Table of contents
+
+| Section |
+| --- |
+| [Purpose](#purpose) |
+| [Instructions](#instructions) |
+| [Implementation](#implementation) |
+
 ## Purpose
 
 This directory coordinates checks across the CPU, platform, reference model and evidence ledger. It distinguishes a fresh execution against current source from replay of an existing capture and from an audit of a complete campaign. The public source and selected captured records do not constitute a fully qualified CPU release.

@@ -7,6 +7,14 @@ capacity also passed generic Yosys synthesis, structural checks and latch reject
 without a warning waiver. This is component qualification; CPU admission, WFI
 execution, firmware saving, CDC, FPGA routing and real acquisition remain separate.
 
+## Table of contents
+
+| Section |
+| --- |
+| [Exact component contract](#exact-component-contract) |
+| [Requirement-to-test matrix](#requirement-to-test-matrix) |
+| [Actual review and revisions](#actual-review-and-revisions) |
+
 `summary.json` records source SHA-256 values, tool entrypoint hashes, exact versions,
 PASS terminals and expected negative failures. `sources/` contains that source set.
 Full commands and outputs are retained in the logs; `build.log` includes the strict

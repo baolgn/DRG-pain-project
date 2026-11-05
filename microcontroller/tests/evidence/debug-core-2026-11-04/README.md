@@ -1,5 +1,13 @@
 # CPU debug qualification, 4 November 2026
 
+## Table of contents
+
+| Section |
+| --- |
+| [Evidence record](#evidence-record) |
+
+## Evidence record
+
 The final matrix checks the Debug 1.0 CPU controls through public halt/resume and abstract-register ports. Four C/diagnostic configurations each pass seeds 0, 1 and 305419896. Each run executes twenty directed scenarios with seeded request-acceptance and response delays. The [summary](summary.json) binds exact sources and commands; [aggregate](aggregate.json) separates simulation totals from detector calibration.
 
 Coverage includes all GPRs and x0, selected machine/debug CSRs and illegal accesses, DCSR masks, DPC alignment, reset-halt including release-edge requests, ordered halt during exposed reads/stores and division, reset drainage, normal resume without repeated MMIO, branch/JAL/JALR steps, compressed and halfword-aligned wide packets, trap-then-halt before the handler, deferred target-fetch faults, WFI, masked pending interrupts, EBREAK/C.EBREAK routing, cause priority and counter writes/rollover/freeze. Counter expectations evolve separately from observed storage. Explicit scenario instruction/trap totals check each step, while independent bus accounting checks effects at acceptance.

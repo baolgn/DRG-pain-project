@@ -1,5 +1,13 @@
 # ACT4 architectural-test integration
 
+## Table of contents
+
+| Section |
+| --- |
+| [Purpose](#purpose) |
+| [Instructions](#instructions) |
+| [Implementation](#implementation) |
+
 ## Purpose
 
 This adapter coordinates ACT4 test generation, Sail reference signatures and execution on the DRG5 RTL platform. Its target enables C, M, interrupts, Zifencei and writable instruction RAM while disabling debug. It does not certify the final debug system or extend a test result to another configuration. The complete earlier campaign is not distributed with this publication, and architectural qualification remains open.

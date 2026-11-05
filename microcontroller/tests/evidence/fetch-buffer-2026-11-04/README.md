@@ -1,5 +1,13 @@
 # Fetch assembly buffer evidence
 
+## Table of contents
+
+| Section |
+| --- |
+| [Evidence record](#evidence-record) |
+
+## Evidence record
+
 The focused behavioral test covers the independent `drg5_fetch_buffer` component. The positive run passed **622,653 edges, 1,015,909 checks and 196,608 prefix cases**: every 16-bit prefix in the default non-C configuration and at both halfword positions with `C_FETCH=1`. The latter enables instruction framing only; no compressed decoder or C ISA implementation is claimed.
 
 Directed checks cover held output, sequential slot rotation, address wrap, required-parcel faults and partial raw bytes, unsupported-length parking, stale/overlapping fills, reset held across fills, and redirect coincident with fill and output readiness. The raw observation-corruption control fails the intended packet-value comparator. This checks the checker; it is not an RTL mutation or formal completeness result. Independent manager tests cover external request ownership and malformed bus replies.

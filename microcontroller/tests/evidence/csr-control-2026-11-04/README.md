@@ -2,6 +2,12 @@
 
 This evidence qualifies the `OP_MACHINE` raw32 packet-entry prototype, not a complete CPU or the future B1/F configurations. The default `misa` remains RV32I; `mimpid` remains zero. `C_ENABLED=1` checks the parameterized `mepc` alignment path only, without claiming a compressed decoder or C-enabled ISA image. Architectural interrupt delivery, architectural debug, WFI, FENCE.I, production frontend integration, ACT4/Sail conformance, routing, timing and board programming are outside this result.
 
+## Table of contents
+
+| Section |
+| --- |
+| [Genuine review history](#genuine-review-history) |
+
 The fixture independently decodes supplied instruction bits, reconstructs operand intent, maintains GPR definedness and machine state, and compares the complete terminal packet and trace. It computes CSR read/write permission and suppression from encoded indices, not source values, and models dynamic CSR values from its own pre-edge state. Every accepted identity must have exactly one stage owner. A separate target ledger checks each accepted MMIO effect; memory completion must already be registered before the retirement edge begins.
 
 The directed corpus covers six CSR forms, x0 versus nonzero zero-valued register sources, discarded destinations, source/destination aliasing, read-only and absent addresses, writable constant CSRs, WARL/WLRL values, counters and inhibit timing, held dynamic reads, nested ECALL/EBREAK traps, MRET alignment, returned-target faults, supplied earlier fetch faults, malformed SYSTEM instructions, pending flushes, delayed or rejected older MMIO, reset and fatal containment. Random cases supplement this corpus with an explicit 32-bit LCG and three retained seeds.

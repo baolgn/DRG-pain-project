@@ -1,5 +1,13 @@
 # Real-fetch interrupt boundary qualification
 
+## Table of contents
+
+| Section |
+| --- |
+| [Evidence record](#evidence-record) |
+
+## Evidence record
+
 The actual `drg5_fetch` manager and `drg5_control` machine decoder passed offered
 and accepted I-owner interrupt scenarios under separately elaborated four-edge and
 32-edge request deadlines. The ordinary mepc comparator rejected its deliberate

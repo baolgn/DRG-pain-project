@@ -2,6 +2,15 @@
 
 The final result is recorded in `summary.json` and `aggregate.json`. This fixture executes raw instruction bytes through the production frontend, decoder and five-stage controller. It compares the two machine counters at every clock edge against a separate clock and architectural execution ledger. The terminal instruction oracle uses program metadata constructed before execution; it does not infer expected results from the DUT's decoder or retirement flags.
 
+## Table of contents
+
+| Section |
+| --- |
+| [Reproduction and scope](#reproduction-and-scope) |
+| [Requirement-to-test matrix](#requirement-to-test-matrix) |
+| [Trace format and replay](#trace-format-and-replay) |
+| [Review and revision record](#review-and-revision-record) |
+
 Final revision 10 passed 12 configuration/seed runs containing 216 programs, 138,817 checked clock edges and 6,880,296 assertions. Independent execution records contain 5,727 successful retirements, including 171 compressed instructions, plus 216 synchronous traps and 12 interrupt entries. All three runtime and five offline negative controls failed at their intended detectors. These totals include only the final positive matrix, not earlier revisions or deliberately corrupted runs.
 
 This is finite simulation evidence for machine counters and their execution trace. It does not qualify Zicntr, integrated architectural debug, ACT4/Sail conformance, FPGA timing, programming or acquisition service deadlines. The core has no architectural debug entry interface; its CSR bank's debug hooks remain tied low. Separate counter-bank evidence tests those hooks, including debug-entry precedence and stopped counters.

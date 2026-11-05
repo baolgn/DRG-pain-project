@@ -1,5 +1,13 @@
 # Release preparation and acceptance planning
 
+## Table of contents
+
+| Section |
+| --- |
+| [Purpose](#purpose) |
+| [Instructions](#instructions) |
+| [Implementation](#implementation) |
+
 ## Purpose
 
 These tools prepare isolated acceptance runs, install tools from an explicit dependency manifest, and package the distributed source and documentation with byte-level verification. Packaging is an integrity operation. Its manifests deliberately keep `overall_system_pass` false; a reproducible archive does not establish CPU or board qualification.

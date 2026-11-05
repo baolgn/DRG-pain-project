@@ -2,6 +2,38 @@
 
 The acquisition engine will turn each scheduled eight-channel ADC conversion into a timestamped record, retain invalid intervals and move completed blocks into protected memory. The current implementation provides the digital slot, record and stop guard in [drg5_acquisition_guard.sv](../rtl/drg5_acquisition_guard.sv). It accepts synthetic completed frames and reports record ownership through ready/valid handshakes. It does not drive ADC pins, capture a serial frame or implement the external FIFO, capture DMA, ring or host transport.
 
+## Table of contents
+
+| Section |
+| --- |
+| [Acquisition boundary](#acquisition-boundary) |
+| [Acquisition data path](#acquisition-data-path) |
+| [Acquisition control plane](#acquisition-control-plane) |
+| [Acquisition clocks, crossings and reset](#acquisition-clocks-crossings-and-reset) |
+| [ACQ-01 · Control and register bank](#acq-01--control-and-register-bank) |
+| [ACQ-02 · Power and startup](#acq-02--power-and-startup) |
+| [ACQ-02 · Configuration and service sequence](#acq-02--configuration-and-service-sequence) |
+| [ACQ-03 · Timebase and scheduled slots](#acq-03--timebase-and-scheduled-slots) |
+| [Acquisition baseline timing budget](#acquisition-baseline-timing-budget) |
+| [ACQ-04 · Conversion monitor](#acq-04--conversion-monitor) |
+| [ACQ-05 · Serial ownership and capture](#acq-05--serial-ownership-and-capture) |
+| [ACQ-05 · Pin lease transitions](#acq-05--pin-lease-transitions) |
+| [ACQ-05 · Pipelined register access](#acq-05--pipelined-register-access) |
+| [ACQ-06 · Frame decoder and status](#acq-06--frame-decoder-and-status) |
+| [ACQ-06 · CRC qualification gate](#acq-06--crc-qualification-gate) |
+| [ACQ-07 · Record and validity assembler](#acq-07--record-and-validity-assembler) |
+| [Acquisition records and blocks](#acquisition-records-and-blocks) |
+| [ACQ-08 · Elastic capture FIFO](#acq-08--elastic-capture-fifo) |
+| [ACQ-08 · Ordered epoch closure](#acq-08--ordered-epoch-closure) |
+| [ACQ-09 · Block assembler and capture DMA](#acq-09--block-assembler-and-capture-dma) |
+| [ACQ-09 · Ring ownership](#acq-09--ring-ownership) |
+| [ACQ-10 · Fault and event recorder](#acq-10--fault-and-event-recorder) |
+| [Acquisition controlled stop and tail accounting](#acquisition-controlled-stop-and-tail-accounting) |
+| [ACQ-11 · Interrupts and coalescing](#acq-11--interrupts-and-coalescing) |
+| [ACQ-12 · Analog controls and configuration epochs](#acq-12--analog-controls-and-configuration-epochs) |
+| [Reserved timestamped event input](#reserved-timestamped-event-input) |
+| [Acquisition verification and release gates](#acquisition-verification-and-release-gates) |
+
 The physical recording connection remains undecided. Cultured DRG neurons provide the provisional extracellular target; the initial electrical qualification uses synthetic sources. The proposed analog path combines the [INA819](../../datasheets/ina819.pdf), [OPA2140](../../datasheets/opa2140.pdf) and [AD7606C-18](../../datasheets/ad7606c-18.pdf). The [evaluation-board guide](../../datasheets/eval-ad7606c-fmcz-ug-1870.pdf), [schematic](../../datasheets/eval-ad7606c18fmcz-schematic.pdf) and [layout](../../datasheets/eval-ad7606c18fmcz-layout.pdf) define board constraints. The implementation includes no physical ADC connection or biological recording, and the source interface does not identify a documented neural-sample output from an Abbott system.
 
 | Area | Current implementation or verification boundary | Proposed extension |

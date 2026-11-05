@@ -2,6 +2,18 @@
 
 DRG5 is a custom RISC-V microcontroller implementation intended to support a future dorsal root ganglion signal processor. The current source provides a five-stage CPU, local memories and peripherals, firmware, simulation and formal verification tools, and FPGA programming support. The complete ADC acquisition engine, recording memory subsystem and biological signal-processing chain remain development targets. Extracellular cultures provide the starting assumption for the eventual recording source; the electrical connection and recording protocol remain unresolved.
 
+## Table of contents
+
+| Section |
+| --- |
+| [CPU](#cpu) |
+| [Acquisition](#acquisition) |
+| [Memory](#memory) |
+| [Signal processing](#signal-processing) |
+| [Firmware](#firmware) |
+| [Programming and debug](#programming-and-debug) |
+| [Verification and tools](#verification-and-tools) |
+
 The intended system keeps acquisition timing independent of CPU execution. That separation is required to preserve sample timing when software stalls or enters an interrupt handler, and to retain timing and stop evidence when debug requests a controlled recording stop. The current acquisition supervisor exercises this boundary with synthetic inputs. It does not contain an AD7606C-18 serial receiver or a complete recording DMA engine.
 
 | Area | Current implementation | Detailed description |
@@ -179,4 +191,4 @@ flowchart TB
     LOG --> REVIEW["Assess scope, assumptions and missing gates"]
 ```
 
-The broader campaign and release helpers may require external tools or input archives that are not included in this checkout. Their command definitions and prerequisites must be checked before execution. A missing input is an unavailable check, rather than a passing result. The [architecture index](architectural-diagrams.md) links the subsystem diagrams, and the [development workflow](../docs/pre-coding-workflow.md) describes the remaining design work.
+The broader campaign and release helpers may require external tools or input archives that are not included in this checkout. Their command definitions and prerequisites must be checked before execution. A missing input is an unavailable check, rather than a passing result. The [CPU](rtl/README.md), [acquisition](acquisition/README.md), [memory](memory/README.md) and [signal-processing](signal-processing/README.md) guides contain the subsystem diagrams. The [development workflow](../docs/pre-coding-workflow.md) describes the remaining design work.

@@ -1,5 +1,13 @@
 # Bounded controller and fetch formal checks
 
+## Table of contents
+
+| Section |
+| --- |
+| [Purpose](#purpose) |
+| [Instructions](#instructions) |
+| [Implementation](#implementation) |
+
 ## Purpose
 
 These runners check production controller and fetch RTL under explicit harness assumptions. They retain positive properties, reachability witnesses and deliberately failing controls. The checks do not establish unbounded whole-core correctness, complete ISA conformance or unrestricted pipeline liveness.

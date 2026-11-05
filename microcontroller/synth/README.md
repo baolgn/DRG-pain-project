@@ -1,5 +1,13 @@
 # FPGA synthesis and implementation checks
 
+## Table of contents
+
+| Section |
+| --- |
+| [Purpose](#purpose) |
+| [Instructions](#instructions) |
+| [Implementation](#implementation) |
+
 ## Purpose
 
 The synthesis tools measure whether the implemented RTL maps and routes for the selected ECP5 target. They generate reports and optional bitstreams; they do not program a board. A successful mapping establishes a particular source/tool result, while successful routing and packing remain hardware-unverified results.

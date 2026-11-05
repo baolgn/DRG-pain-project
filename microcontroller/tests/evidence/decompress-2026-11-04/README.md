@@ -2,6 +2,12 @@
 
 Qualified 4 November 2026 against the pinned [C extension, version 2.0, ISA release v20260120](https://docs.riscv.org/reference/isa/v20260120/unpriv/c-st-ext.html). The component implements the integer RV32C forms. F, D, RV64-only forms, unsupported custom instructions and reserved encodings are illegal. Existing HINT encodings, including the custom-use HINT space, execute as ignored no-ops.
 
+## Table of contents
+
+| Section |
+| --- |
+| [Review revisions](#review-revisions) |
+
 `drg5_decompress` accepts one 16-bit `instr_i` and combinationally returns `expanded_o[31:0]`, `legal_o`, `hint_o` and `class_o[1:0]`. Class 0 is illegal, class 1 is an ordinary instruction, class 2 is HINT and class 3 is a noncompressed prefix with low bits `11`. Canonical `C.NOP` (`0x0001`) is ordinary. All HINTs expand to `ADDI x0,x0,0`; illegal and wide inputs expand to zero and are not legal. The surrounding pipeline must preserve original bits and instruction length separately; an expanded JAL/JALR must still use the original two-byte length for its link.
 
 The Python oracle enumerates legal semantic instructions by their destination/source registers and signed or unsigned immediate ranges, then *encodes* each halfword through independent immediate scatter tables. It does not decode the halfword through the RTL's quadrant/funct3 decision tree. Overlapping legal encodings are rejected. All remaining halfwords are either illegal or wide according to their low two bits. Cardinalities also match an independently derived format count.

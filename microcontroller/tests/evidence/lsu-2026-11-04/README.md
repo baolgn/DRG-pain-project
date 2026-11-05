@@ -1,5 +1,13 @@
 # Independent data-access helper evidence
 
+## Table of contents
+
+| Section |
+| --- |
+| [Evidence record](#evidence-record) |
+
+## Evidence record
+
 `drg5_lsu` is a combinational permission and byte-lane helper. It does not decode instructions, own bus requests, interpret response status, retire instructions, implement a timer or publish modified code.
 
 Inputs are the 32-bit effective byte address, unshifted store source, lane-positioned response data, size (0 byte, 1 halfword, 2 word), direction and load signedness. Outputs are permission, misalignment, exception cause, lane-positioned write data, write strobes and extended load value. Every input combination has a defined two-state result. Byte accesses permit any lane, halfwords require even addresses and words require four-byte alignment. Misalignment reports load/store cause 4/6 before region denial cause 5/7. Size 3 reports access cause 5/7 with misalignment false; instruction decoding must independently reject unsupported encoded widths as cause 2.

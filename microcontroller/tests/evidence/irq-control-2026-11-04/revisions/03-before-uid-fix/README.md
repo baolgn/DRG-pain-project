@@ -1,5 +1,13 @@
 # IRQ/WFI integration qualification
 
+## Table of contents
+
+| Section |
+| --- |
+| [Evidence record](#evidence-record) |
+
+## Evidence record
+
 `summary.json` binds each passing run to exact source hashes, the Verilator version, full commands and the final source snapshot. `c0/` and `c1/` retain complete compilation, simulation and calibrated failure logs. C1 changes alignment configuration only; the tested instruction stream remains raw RV32I/Zicsr. This is not ACT4/Sail or complete-core qualification.
 
 The testbench independently maintains instruction identities, admission ownership, GPR/CSR state, counters, continuation PCs, interrupt events, physical bus ownership and target effects. Interrupt entry is a separate event; it does not fabricate an instruction retirement. An accepted read of x0 increments a device counter, so an extra effect can fail even when the retired load value is unchanged. Platform pending levels, time, compare, software interrupts and block counts are checked against independently maintained state. The platform and CPU execute on every test clock; CPU idle never gates the timer or the acquisition-clock monitor.

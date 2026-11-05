@@ -1,5 +1,13 @@
 # Encoded base execution and forwarding evidence
 
+## Table of contents
+
+| Section |
+| --- |
+| [Evidence record](#evidence-record) |
+
+## Evidence record
+
 This evidence qualifies raw RV32I execution through the packet prototype and compares its architectural behavior with diagnostic scheduling, conservative overlap and forwarding. It does not qualify a production CPU top, a complete B0 milestone, Sail comparison or ACT4 execution. The instruction producer is an immutable testbench program adapter; instruction-access faults are supplied by that adapter.
 
 The final run passed nine positive executions: three configurations × schedule seeds `0`, `1` and `305419896`. It also passed five calibrated negative controls. Across positive runs, 477 scenario executions covered 13,266 checked edges, 1,252,295 comparisons, 2,520 normal retirements, 297 trap dispositions and 252 physical memory offers/replies. Each run executes 53 scenarios, 280 normal retirements, 33 traps and 28 physical memory transactions. Qualified cold-reset bootstrap edges are separate from checked-edge counts.

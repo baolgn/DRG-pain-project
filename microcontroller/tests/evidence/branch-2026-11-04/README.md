@@ -1,5 +1,13 @@
 # Independent branch unit evidence
 
+## Table of contents
+
+| Section |
+| --- |
+| [Evidence record](#evidence-record) |
+
+## Evidence record
+
 `drg5_branch` is a combinational decoded-operation unit. It implements BEQ, BNE, BLT, BGE, BLTU, BGEU, JAL and JALR calculations; it does not decode instruction bits, read/write a register file, publish a redirect, retire an instruction or implement traps.
 
 The inputs are 32-bit PC, captured rs1/rs2 values and decoded immediate; four-bit kind (JAL=5, JALR=6, conditional=7); three-bit conditional funct3 and original byte length. The outputs are valid, taken, misaligned and 32-bit target, next PC and link. The default `C_ENABLED=0` accepts length 4. Setting it to 1 additionally accepts original length 2 for future decoded micro-operations; no compressed decoder or C ISA qualification is claimed.

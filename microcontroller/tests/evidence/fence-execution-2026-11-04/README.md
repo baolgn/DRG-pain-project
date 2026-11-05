@@ -2,6 +2,16 @@
 
 This fixture connects the production frontend, fetch engine, compressed buffer and controller to one shared executable-memory model. It independently compares original instruction bytes, lengths, PC sequence, register results, trap state, physical bus effects and instruction ownership. `summary.json` is produced only after all configured profiles, seeds, detector calibrations and unchanged-source checks pass. A smoke record alone does not qualify the full matrix.
 
+## Table of contents
+
+| Section |
+| --- |
+| [Qualified result](#qualified-result) |
+| [Assumptions and limits](#assumptions-and-limits) |
+| [Requirement-to-test matrix](#requirement-to-test-matrix) |
+| [Detector calibration](#detector-calibration) |
+| [Revisions and reassessment](#revisions-and-reassessment) |
+
 The test runner is `microcontroller/tests/run_fence_execution.py`; the testbench is `microcontroller/tests/drg5_fence_execution_tb.sv`. Run `make -C microcontroller/tests fence-execution` with the project's qualified Verilator path, or invoke the runner with `--verilator` and `--build`. The runner retains exact commands, tool output and source SHA-256 values. `+seed=0`, `+seed=1` and `+seed=305419896` drive local reproducible generators. `+debug_owners` adds edge-by-edge physical-owner observations.
 
 ## Qualified result

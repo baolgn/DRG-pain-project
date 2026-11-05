@@ -2,6 +2,15 @@
 
 Final revision **04** passes three reproducible schedules, each checking C-disabled and C-enabled CSR banks concurrently: **64,827 public clock edges and 777,978 checks**. Every recorded input edge is independently replayed in Python, in addition to the SystemVerilog event-ledger comparison. Five deliberate observation corruptions reach their expected ordinary comparators. Two seven-assertion inductive proofs pass; a counter-expectation mutation produces the required failed proof. Both banks pass strict lint, driver/no-latch checks and native ECP5 synthesis.
 
+## Table of contents
+
+| Section |
+| --- |
+| [Scope and event model](#scope-and-event-model) |
+| [Requirement-to-test matrix](#requirement-to-test-matrix) |
+| [Proof and structural checks](#proof-and-structural-checks) |
+| [Actual revisions and reassessment](#actual-revisions-and-reassessment) |
+
 [summary.json](summary.json) records exact commands, source hashes, simulator/proof outcomes and mapping counts. [aggregate.json](aggregate.json) records totals and their scope. The complete source, seed logs, compressed CSV ledgers, proof logs and compressed mapped netlists remain in [revisions/04-qualification](revisions/04-qualification/). Earlier attempts are retained separately.
 
 ## Scope and event model

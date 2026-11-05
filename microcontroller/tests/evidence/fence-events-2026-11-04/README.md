@@ -1,5 +1,13 @@
 # FENCE.I event-composition evidence
 
+## Table of contents
+
+| Section |
+| --- |
+| [Evidence record](#evidence-record) |
+
+## Evidence record
+
 Final qualification revision 07 passes both C-disabled and C-enabled controllers with M, IRQ and Zifencei enabled. The two deterministic runs execute **34 cases, 2,104 checks and 682 clock edges**. Exact commands, input sources and tool output are retained in `revisions/07-qualification`; `summary.json` binds the current files to those results.
 
 The fixture sends real raw FENCE.I and DIV instructions through OP_MACHINE. Synthetic CSR packets establish interrupt state without adding an unrelated firmware prologue. The fence packet deliberately contains false operand/destination annotations; production raw decode must replace them. This is a packet-level event fixture: `fetch_busy_i` models a surviving instruction transaction. The separate [execution fixture](../fence-execution-2026-11-04/README.md) checks actual frontend requests, invalidation and stale responses.

@@ -1,5 +1,13 @@
 # Complete debug-wrapper qualification, 4 November 2026
 
+## Table of contents
+
+| Section |
+| --- |
+| [Evidence record](#evidence-record) |
+
+## Evidence record
+
 The final revision exercises the actual JTAG transport, Debug Module, CPU, frontend and wrapper guards. Debug operations enter only through public JTAG pins. Independent synchronous instruction, CPU-data and SBA targets retain their own descriptors and count effects at acceptance. No hierarchical DMI injection or internal-state modification is used.
 
 Revision 07 passes all three seeds: **33 scenarios, 5,123 fabric edges and 29,481 checks**. It observes 12 actual reset episodes, 306 instruction responses, six CPU-data effects/responses and 21 SBA effects/responses. The [aggregate](aggregate.json) and [summary](summary.json) retain exact counts, source identities and commands. Three production-copy mutations separately defeat the acquisition write guard, running-code write guard and short-reset request latch; each fails the ordinary named checker. Positive and expected-failure results remain distinct.

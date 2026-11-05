@@ -1,5 +1,13 @@
 # RV32M unit qualification, 2026-11-04
 
+## Table of contents
+
+| Section |
+| --- |
+| [Evidence record](#evidence-record) |
+
+## Evidence record
+
 The standalone unit passes the three seeded runs, five detector calibrations, strict Verilator build, and ECP5 synthesis recorded in `summary.json`. This is component evidence; pipeline dependency, exception, and interrupt ordering require the separate integrated-core tests.
 
 The instruction definitions are pinned to the [official M extension, version 2.0, ISA publication v20260120](https://docs.riscv.org/reference/isa/v20260120/unpriv/m-st-ext.html). The unit accepts the instruction's `funct3` value as `op_i`:

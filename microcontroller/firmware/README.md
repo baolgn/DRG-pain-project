@@ -1,5 +1,13 @@
 # Firmware
 
+## Table of contents
+
+| Section |
+| --- |
+| [Purpose](#purpose) |
+| [Instructions](#instructions) |
+| [Implementation](#implementation) |
+
 ## Purpose
 
 This directory contains freestanding firmware for the local DRG5 CPU platform. The application exercises startup, traps, interrupts and memory behavior; it does not acquire biological signals or control a stimulator. The separate [synthetic workload](synthetic/README.md) exercises the CPU alongside modeled acquisition traffic.
