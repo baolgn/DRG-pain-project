@@ -42,3 +42,7 @@ Unknown input/format combinations have explicit rejection or fault behavior. A r
 The comment scope is all active first-party coding/build files. Historical checksum-bound source snapshots, third-party archives and generated outputs remain historical evidence. Rewriting their comments would change the bytes underlying old results rather than improve current code. The lexical audit cannot prove prose truth or concision; manual review supplements it, especially assembly, linker and single-statement control blocks. Existing historical evidence remains applicable to its original source hashes.
 
 The final definition review found no unresolved semantic defect within the declared ACQ-R1 scope. Physical ADC capture, the full control/MMIO binding, external FIFO/DMA/memory, host persistence and independent-supervisor behavior still require implementation and the explicit release gates in the contract. No hardware test, new RTL qualification or end-to-end recording pass is implied by the 61 definition checks.
+
+## Subsequent timing review
+
+ACQ-R1 revision 3 adds the [timing budget](timing-budget.md) and its separate [review evidence](evidence/timing-2026-11-05/review.json). It distinguishes the exact 1068-tick completion from the conservative 1072-tick allocation, retains the 1120-tick deadline, and adds tolerance, external min/max paths, bounded service/storage waits and independent supervision. The earlier evidence above remains tied to its original revision; it is not a validation of these new requirements. Physical timing closure is still pending.

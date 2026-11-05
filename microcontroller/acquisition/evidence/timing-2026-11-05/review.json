@@ -1,0 +1,208 @@
+{
+  "schema": "DRG5-TIMING-REVIEW-1",
+  "date": "2026-11-05",
+  "baseline_commit": "486e434bc66245e2ec74efa1016b3f30b9dd0d00",
+  "contract_revision": 3,
+  "result": "allocated-arithmetic-and-wait-coverage-pass-physical-unqualified",
+  "physical_timing_qualified": false,
+  "complete_acquisition_qualified": false,
+  "state_machine_implemented": false,
+  "hardware_available": false,
+  "review_passes": [
+    {
+      "pass": 1,
+      "focus": "manufacturer requirements",
+      "findings": [
+        "separate no-OS 0.5-0.65 us conversion from controller 2 us watchdog",
+        "retain 224-bit frame and mode-2 edges",
+        "charge 20 pF timing applicability and all setup/hold requirements"
+      ]
+    },
+    {
+      "pass": 2,
+      "focus": "proposed deadline and exact edges",
+      "findings": [
+        "reject 13 us for the full accepted BUSY window",
+        "exact worst-case 1068 ticks versus conservative 1072",
+        "retain inclusive 1120-tick deadline with tolerance-aware margin"
+      ]
+    },
+    {
+      "pass": 3,
+      "focus": "external paths and source cross-check",
+      "findings": [
+        "allocate FPGA output/input, both routes, translator delays and clock uncertainty",
+        "check first-bit, repeated setup, hold, SDI, CS turnaround and delivered pulse/period distortion separately",
+        "correct STBY U4 pin7 and PAR/SER SEL pin6 using datasheet and schematic"
+      ]
+    },
+    {
+      "pass": 4,
+      "focus": "arithmetic coverage",
+      "findings": [
+        "r1 enumerated only ticks 20..160; r2 enumerates 0..160 as conservative superset rather than redefining legal BUSY history",
+        "align CS-high turnaround with complete physical path",
+        "reject unsupported nonzero translator allocation even when its arithmetic would fit"
+      ]
+    },
+    {
+      "pass": 5,
+      "focus": "startup, command and retained waits",
+      "findings": [
+        "bound all configuration phases and register request count",
+        "separate passive supervised acknowledgement/lease dwell from active processing",
+        "preserve original frame timer during stop and cancellation"
+      ]
+    },
+    {
+      "pass": 6,
+      "focus": "independent supervision",
+      "findings": [
+        "place memory/control watchdogs outside target clock domains",
+        "specify independent analog permit watchdog for stopped supervisor reference",
+        "state single-clock-failure containment scope and missing hardware release gates"
+      ]
+    },
+    {
+      "pass": 7,
+      "focus": "FIFO and storage service",
+      "findings": [
+        "add bounded FIFO-to-builder transfers and normal-service margins",
+        "include arrival latency variation; bound peak FIFO occupancy 181 below 192",
+        "bind all queues to 514-record maximum tail and prohibit hidden extra owners"
+      ]
+    },
+    {
+      "pass": 8,
+      "focus": "drain omission and analog recovery",
+      "findings": [
+        "r3 omitted newly explicit internal movement from drain; r4 conservatively charges all 514 transfers without overlap",
+        "require runtime analog recovery plus observation<=249 ms and action<=250 ms",
+        "final drain 7.694052805 ms fits earliest watchdog with 2.204957294 ms margin"
+      ]
+    },
+    {
+      "pass": 9,
+      "focus": "independent final review",
+      "findings": [
+        "ADC/pin reviewer found no material defect in sources, edge/path equations or load applicability",
+        "lifecycle reviewer confirmed corrected drain and analog margins and found no remaining semantic must-fix issue",
+        "root independently recomputed core scalars, source hashes, Python syntax and document links"
+      ]
+    }
+  ],
+  "calculation_attempts": [
+    {
+      "attempt": 1,
+      "evidence": "microcontroller/acquisition/evidence/timing-2026-11-05/arithmetic.json",
+      "source_sha256": "814a70ece03de1584507ebf1d85fe61dd8275b5451b1fe1d084cfe0e03c0d585",
+      "scope": "historical calculation revision; only r4 is current"
+    },
+    {
+      "attempt": 2,
+      "evidence": "microcontroller/acquisition/evidence/timing-2026-11-05/arithmetic-r2.json",
+      "source_sha256": "747705eda422a058489dc726e30b1db6bbfd676710c7d39262b6de98adeae1b3",
+      "scope": "historical calculation revision; only r4 is current"
+    },
+    {
+      "attempt": 3,
+      "evidence": "microcontroller/acquisition/evidence/timing-2026-11-05/arithmetic-r3.json",
+      "source_sha256": "b0803c43cea5d8e5cda5195b491141371b3ee3affad91ed086f79064ceb47a68",
+      "scope": "historical calculation revision; only r4 is current"
+    },
+    {
+      "attempt": 4,
+      "evidence": "microcontroller/acquisition/evidence/timing-2026-11-05/arithmetic-r4.json",
+      "source_sha256": "a094562e96390b9e9aebb72ac3a151eafc8bbd589c4bcc60839e8c3050dd6a01",
+      "scope": "historical calculation revision; only r4 is current"
+    }
+  ],
+  "final_calculation": {
+    "file": "arithmetic-r4.json",
+    "sha256": "7738a7ba3f805ec1aac2dd4803107d01e213334630dc8e54bf369ae0fba3f31b",
+    "positive_time_margins": 39,
+    "fall_position_superset": 161,
+    "capture_edges_checked": 36064,
+    "fifo_peak_records": 181,
+    "fifo_margin_records": 11,
+    "negative_controls": [
+      {
+        "file": "arithmetic-negative-translator-r4.json",
+        "mode": "python3 -O",
+        "expected_exit_code": 2,
+        "actual_exit_code": 2,
+        "error": "nonpositive timing margin: dout_setup"
+      },
+      {
+        "file": "arithmetic-unsupported-translator-r4.json",
+        "mode": "python3 -O",
+        "expected_exit_code": 2,
+        "actual_exit_code": 2,
+        "error": "direct profile requires zero translator allocation"
+      }
+    ]
+  },
+  "additional_manual_checks": {
+    "runtime_analog_recovery_work_max_ms": 249,
+    "runtime_analog_fault_action_max_ms": 250,
+    "normal_margin_ms": 1,
+    "adc_pdf_visual_pages": [
+      9,
+      10,
+      12,
+      15
+    ],
+    "schematic_visual_sheet": 2,
+    "direct_and_source_pdf_hashes_match": true
+  },
+  "comment_audit": {
+    "file": "comments.json",
+    "sha256": "1a1f2045f23b986271e52fed6b01b0de22c69185aa488cf523ff5177aad9059c",
+    "active_files": 213,
+    "comment_blocks": 6947,
+    "python_files_syntax_checked": 95,
+    "all_reported_findings_empty": true,
+    "manual_scope": "new checker functions, control blocks, timeout and negative-control comments; existing active code unchanged"
+  },
+  "repository_checks": {
+    "tracked_code_behavior_unchanged": true,
+    "only_new_active_code": "microcontroller/acquisition/check_timing.py",
+    "historical_evidence_unchanged": true,
+    "local_document_file_links_checked": 166,
+    "tracked_diff_whitespace": "passed"
+  },
+  "documentation_sha256": {
+    "CHANGELOG.md": "ed14d28ecab3ebe6a6e6d2a6051159295f7c9077c65e76a1b0ff84f76c8cafb0",
+    "docs/README.md": "7e901f382f23a6d9c63a6ca8932548a6e45b98fe762825561fa08b745382c6e5",
+    "microcontroller/acquisition/README.md": "8b73db47cf3dc6b17d29b98a61c09aa41e0eafe21225f31c4191a0c3cfd89493",
+    "microcontroller/acquisition/adc-profile.md": "41a10a40879205343019476436b641e66f2008bf80e0a5ab97f76957a1c062d3",
+    "microcontroller/acquisition/board-qualification.md": "a50cb7eb0a40bde7ed953754dca9d50a793693333727f5e24b7bd6818bd7df41",
+    "microcontroller/acquisition/contract.md": "481d39a40b75962bb76661d029c581a38f6507c2c22f24fb1cec95cfc9824ac0",
+    "microcontroller/acquisition/review.md": "bebd56a6790ead0c90b21a5d0a5d12ad7f119fa5120982c7314918c42eb36a83",
+    "microcontroller/acquisition/timing-budget.md": "113d9eb982944d506d9b6df4b56e86c2d3cce40ffc52496d6e1991d17f5d6a37"
+  },
+  "retained_sha256": {
+    "arithmetic-negative-translator-r2.json": "35a4accd61321cde3781f53f03dd39da8b955b8c7bb4a4edf00f61dc22aea727",
+    "arithmetic-negative-translator-r3.json": "5dd3f13fad689e8c274f4fb1789c0e48c60876221073b77bfbaf04fd6d73a8cc",
+    "arithmetic-negative-translator-r4.json": "f35bb2f8222a4f1e5898a8fa903f2b8e7d2b554aefb41dbd4a6e58a29a82c7c9",
+    "arithmetic-negative-translator.json": "a3d387e3c377fc4388f8d0232325a6b777d476ee234a371b7728f95070869bf4",
+    "arithmetic-r2.json": "8fa50301452ad8a478f3cd997b4655bd0d0c4f3f24d0b2a3b89cffe437418325",
+    "arithmetic-r3.json": "2364581d47ede537d6d9acc81d5c1847874d723c8eab78a8cfd0765c5f40de38",
+    "arithmetic-r4.json": "7738a7ba3f805ec1aac2dd4803107d01e213334630dc8e54bf369ae0fba3f31b",
+    "arithmetic-unsupported-translator-r4.json": "3330ef73c08ee6a79c7033e5dad40875eac75e67975895d0a01ad1c7366ee27b",
+    "arithmetic.json": "5b16b33c56cbf2c51f39b77c00b7c1637e63231d835bcdeb9a10587d012ade04",
+    "comments.json": "1a1f2045f23b986271e52fed6b01b0de22c69185aa488cf523ff5177aad9059c",
+    "sources-r1/check_timing.py": "814a70ece03de1584507ebf1d85fe61dd8275b5451b1fe1d084cfe0e03c0d585",
+    "sources-r2/check_timing.py": "747705eda422a058489dc726e30b1db6bbfd676710c7d39262b6de98adeae1b3",
+    "sources-r3/check_timing.py": "b0803c43cea5d8e5cda5195b491141371b3ee3affad91ed086f79064ceb47a68",
+    "sources-r4/check_timing.py": "a094562e96390b9e9aebb72ac3a151eafc8bbd589c4bcc60839e8c3050dd6a01"
+  },
+  "open_release_gates": [
+    "inspected assembly and approved adapter/pin map",
+    "acquisition receiver routing and composed I/O min/max closure",
+    "clock calibration, jitter, CDC/MTBF and physical pin captures",
+    "actual translator/load and supply/isolation qualification",
+    "independent logical-clock and analog-permit supervisor implementation and fault injection",
+    "sustained memory/transport service and positively confirmed containment"
+  ]
+}

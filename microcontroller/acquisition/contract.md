@@ -1,6 +1,6 @@
 # First acquisition implementation contract
 
-Contract **ACQ-R1, revision 2**, 2026-11-05. MUST, MUST NOT and REJECT are normative. Revision 2 narrows the direct electrical interface's voltage envelope and requires paired-rail/sequencing qualification; the record format remains version 1. This is the implementation target, not a claim that the complete engine exists. [The implementation boundary](#existing-implementation-and-release-gates) identifies the current synthetic guard. The older [architecture diagrams](README.md) provide context; this contract and its [ADC profile](adc-profile.md) decide ACQ-R1 behavior where a diagram shows alternatives.
+Contract **ACQ-R1, revision 3**, 2026-11-05. MUST, MUST NOT and REJECT are normative. Revision 3 adds the [timing budget](timing-budget.md): clock/path allocations, bounded service/storage waits and independent supervision. It retains the nominal 14 µs read deadline and rejects the proposed 13 µs limit for the full admitted BUSY window. Revision 2's electrical restrictions remain; the record format is still version 1. This is the implementation target, not a claim that the complete engine exists. [The implementation boundary](#existing-implementation-and-release-gates) identifies the current synthetic guard. This contract, its [ADC profile](adc-profile.md) and timing budget decide ACQ-R1 behavior where older architecture diagrams show alternatives.
 
 ## Contents
 
@@ -32,7 +32,7 @@ ACQ-R1 supports exactly the following recording tuple, as a whole. There is no n
 | Conversion | Normal power, simultaneous channels, oversampling and padding off; internal conversion clock; external CONVST from scheduler |
 | Serial | One DOUTA lane; MSB first; sample18/status8 pairs in V1 through V8 order, then CRC16; 224 bits per conversion |
 | Serial clock | 20 MHz nominal, idle high, falling-edge capture; SDI zero during conversion-data reads |
-| Acquisition clock | Independent qualified 80 MHz nominal, fixed throughout an epoch; direct-interface VDRIVE and ECP5 VCCIO 3.135–3.465 V with paired-rail, sequencing and pin-limit qualification in the ADC profile |
+| Acquisition clock | Independent qualified 80 MHz nominal, ±100 ppm including environmental drift, fixed throughout an epoch; separate jitter/skew and supervisor requirements in the timing budget; direct-interface VDRIVE and ECP5 VCCIO 3.135–3.465 V with paired-rail, sequencing and pin-limit qualification |
 | Cadence | Exactly 1600 acquisition ticks per slot: nominal 20 µs and 50 kSPS **per channel** |
 | Recording mode | External analog inputs; interface test, diagnostic mux, open-circuit detection and ADC self-test acquisition are service-only or disabled as specified in the profile |
 | Data path | Mandatory raw retention; 48-byte records, up to 256 records/block, 64-byte header; no decimation, channel suppression or DSP substitution |
@@ -44,6 +44,8 @@ Physical qualification is a required capability, initially false. A build with a
 ## Configuration and commands
 
 An immutable configuration descriptor contains the complete tuple, exact ADC image, board/FPGA/firmware identities, ADC ID, physical pin/reference settings, channel-to-connector map, source identity, analog-chain revision and measured gain/filter/calibration identities, clock identity and frequency/tolerance calibration, marker-to-pin delay and uncertainty, analog settling/recovery qualification, and the bounded memory/closure service qualification. Unknown required fields mean `UNQUALIFIED`, never a default that implies measurement. For synthetic qualification the source is explicitly synthetic.
+
+Revision 3 requires every phase/path/service limit in the [timing budget](timing-budget.md), including the independent supervisor, ≤250 ms analog-settling admission, guaranteed capture bandwidth and bounded transaction/publication latency. Reject a descriptor that exceeds any allocation or lacks its qualification evidence. A bounded timeout supplies a defined failure outcome; it does not establish successful service or physical qualification.
 
 Each descriptor receives a session-local, monotonically allocated nonzero 64-bit `config_id`, mapped to the immutable descriptor and its SHA-256 digest. A distinct descriptor cannot reuse an ID. Digital configuration and physical qualification are separate: successful register readback does not establish analog settling. ACQ-R1 admits only prequalified static analog configurations. An analog change is made while stopped and requalified; an unannounced change during capture is a fault.
 
@@ -99,7 +101,7 @@ The archive key is `(recording_session_id, epoch_id, slot_index)`. A new recorde
 | Requested rate or timebase change | Unsupported ACQ-R1 values are rejected without changing an epoch. A future supported change must close first; no in-epoch changes. |
 | Actual oscillator/PLL/reference-clock change, relock, loss, tick correction or discontinuity | End epoch with timing fault. New timebase ID and measured model required; do not extrapolate across the gap. |
 | Gain, filter, coupling, reference, range, source/channel wiring, calibration or analog power change | End epoch before an intentional physical change. Unannounced changes revoke analog validity and fault-close; a descriptor edit alone cannot assert the hardware is settled. |
-| Settling or recoverable overload within the same qualified analog configuration | May remain in epoch only with a qualified bounded recovery policy and per-slot invalid interval. Timeout, unknown onset or changed transfer/timing model ends epoch. |
+| Settling or recoverable overload within the same qualified analog configuration | May remain in epoch only with qualified recovery/observation ≤249 ms from known onset, independent timeout/fault action by 250 ms, and per-slot invalid interval. Timeout, unknown onset or changed transfer/timing model ends epoch. |
 
 If a fault discovered late may affect earlier samples, publish an immutable epoch quality amendment containing the affected inclusive slot range, cause and uncertainty. If onset is unknown, it covers the whole epoch. Consumers apply amendments on top of record flags; raw published blocks are not rewritten. An archive missing the terminal record or a required amendment stream is `INCOMPLETE`, never certified valid. Qualification cannot depend on a monitor that does not physically exist.
 
@@ -111,7 +113,7 @@ The record timestamp is the **scheduled CONVST rising-edge marker**, not BUSY fa
 
 The descriptor stores the rational calibrated tick frequency, calibration uncertainty and qualification limits. Nominal elapsed time is `(T-first_tick)/80,000,000` seconds; calibrated elapsed time uses the frozen rational frequency. Absolute/UTC mapping is absent unless a separate mapping with uncertainty is archived. A new calibration applied to timing interpretation requires a new epoch/timebase model, never a retroactive tick rewrite.
 
-CONVST is high for 8 ticks (100 ns nominal) and then low. At most one conversion is active; read only after its matched BUSY rise and fall. Rise must be observed by trigger+20 ticks; fall by trigger+160 ticks; complete serial frame and checks by trigger+1120 ticks. Deadlines include synchronization. A matching event at the deadline is on time; an event after it is late. A slot is never shifted to wait for BUSY, memory, CPU or host. No catch-up pulses, timestamp relabeling, repeated samples or rate throttling are allowed. The [ADC profile](adc-profile.md) defines the serial edges and qualification margins.
+CONVST is high for 8 ticks (100 ns nominal) and then low. At most one conversion is active; read only after its matched BUSY rise and fall. Rise must be observed by trigger+20 ticks; fall by trigger+160 ticks; complete serial frame, checks and stable staged record by trigger+1120 ticks. These are nominal tick-domain deadlines including synchronization; at ±100 ppm, 1120 ticks spans 13.998600–14.001400 µs. Independent hard wall-time limits are separately allocated in the [timing budget](timing-budget.md). A matching event at the deadline is on time; an event after it is late. A slot is never shifted to wait for BUSY, memory, CPU or host. No catch-up pulses, timestamp relabeling, repeated samples or rate throttling are allowed. The [ADC profile](adc-profile.md) defines serial edges; the timing budget defines their composed qualification margins and bounded downstream handoff.
 
 ## Conversion outcomes and validity
 
@@ -227,7 +229,7 @@ The CPU does not generate cadence, timestamp on IRQ arrival, hide invalid sample
 
 ## Existing implementation and release gates
 
-The existing [drg5_acquisition_guard.sv](../rtl/drg5_acquisition_guard.sv) supplies synthetic slot/record/stop accounting only. Its states IDLE/RUN/STOPPING/DRAIN/SEALED are internal prototype states, not the full control API above. It admits the logical 80 MHz/1600-tick profile, accepts synthetic completion metadata, keeps ticks/counters through CPU reset and debug halt, and requires an external closure attestation. It does **not** configure an ADC, sample BUSY/DOUTA, implement this record/header encoding, validate session/descriptor metadata, enforce the 14 µs physical-frame deadline, implement memory/host persistence, or prove independent clock-loss recovery. Its 1600-tick synthetic frame timeout remains a documented integration gap. Diagnostic 48-byte fixture payloads are not ACQ-R1 records.
+The existing [drg5_acquisition_guard.sv](../rtl/drg5_acquisition_guard.sv) supplies synthetic slot/record/stop accounting only. Its states IDLE/RUN/STOPPING/DRAIN/SEALED are internal prototype states, not the full control API above. It admits the logical 80 MHz/1600-tick profile, accepts synthetic completion metadata, keeps ticks/counters through CPU reset and debug halt, and requires an external closure attestation. It does **not** configure an ADC, sample BUSY/DOUTA, implement this record/header encoding, validate session/descriptor metadata, enforce the 1120-tick frame deadline, implement memory/host persistence, or prove independent clock-loss recovery. Its 1600-tick synthetic frame timeout remains a documented integration gap. Diagnostic 48-byte fixture payloads are not ACQ-R1 records.
 
 No new hardware behavior is claimed by this definition commit. An implementation may advertise `ACQ-R1_AVAILABLE` only after all of these gates pass for the exact build/board:
 
@@ -235,7 +237,7 @@ No new hardware behavior is claimed by this definition commit. An implementation
 | --- | --- |
 | Profile admission | Accept exactly the tuple; mutate every field and combined invalid fields; reject atomically with unchanged pins/config/epoch, including during RUN |
 | ADC startup/framing | Exact image/readback/device ID; reset timing; initial two-lane to one-lane and register CRC transitions; independent known-pattern/status/CRC vectors, signed18 limits and all channel positions |
-| Timing | Measured clock tolerance, marker/aperture delay, CONVST/BUSY/CS/SCLK/DOUTA setup/hold and input constraints; every worst-case path meets slot/deadline bounds |
+| Timing | All timing-budget allocations demonstrated: measured clock tolerance, marker/aperture delay, CONVST/BUSY/CS/SCLK/DOUTA/SDI setup/hold, load, routing/translation, CDC and independent supervision; every worst-case path meets its deadline with margin |
 | Lifecycle | Every command/state cell, simultaneous causes, stop-on-due, zero-slot epoch, exact-deadline result, stale/duplicate result, CPU reset/debug halt, normal and abrupt reset/clock/power recovery |
 | Validity | Missing/truncated/CRC/status/rail/settling outcomes; unknown analog onset and quality amendments; no missing zero interpreted as measurement |
 | Storage/closure | No premature publication or owned overwrite; partial/full/zero-record closure, counter/ID/event overflow, DMA timeout with late writes and quarantine, exact accounting identities and incomplete archive recovery |

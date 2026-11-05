@@ -4,6 +4,8 @@ The acquisition engine will turn each scheduled eight-channel ADC conversion int
 
 The **[ACQ-R1 contract](contract.md)** now freezes the first implementation's supported ADC tuple, configuration/command rejection, epochs, timing, validity, record format and all stop outcomes. The **[ADC profile](adc-profile.md)** fixes register bytes, serial edges, CRC conventions and startup. The **[review record](review.md)** records corrections and verification. These definitions are normative targets; the complete engine is not implemented by this commit.
 
+The **[timing budget](timing-budget.md)** separates ADC limits from controller choices before state-machine design. Revision 3 retains the nominal 14 µs read deadline because 13 µs cannot cover the entire accepted 2 µs BUSY-fall window. It allocates clock tolerance, FPGA/board capture paths, bounded service/storage waits and independent supervision; arithmetic passes do not establish physical timing closure.
+
 The [board qualification](board-qualification.md) traces the documented ADC nets, power/reference selection and ownership. J1–J8 are the positive/negative connectors for channels 1–4, not eight independent channel sockets. The [electrical and Ubuntu qualification](qualification.md) separates fresh executable tool checks from physical gates. The user confirmed that no board is available; physical assembly inspection, rail/continuity measurements and programming remain unperformed.
 
 ## Table of contents
@@ -12,6 +14,7 @@ The [board qualification](board-qualification.md) traces the documented ADC nets
 | --- |
 | [First implementation contract](contract.md) |
 | [ADC profile](adc-profile.md) |
+| [Timing budget](timing-budget.md) |
 | [Definition review](review.md) |
 | [Board qualification](board-qualification.md) |
 | [Electrical and Ubuntu qualification](qualification.md) |
@@ -166,8 +169,8 @@ flowchart TB
     SETTLE --> CONFIG["Configure / read back / interface test"]
     CONFIG -->|"all configuration / test checks pass"| READY["READY · analog validity separate"]
     CONFIG -->|"failure"| BAD
-    BAD["Qualification loss / timeout<br/>bounded retry budget exhausted"] --> FAULT["FAULT · acquisition inhibited"]
-    MON["Qualified supervisor monitors<br/>all startup / active states"] -->|"loss / deadline / exhausted retries"| BAD
+    BAD["Qualification loss / timeout<br/>no automatic retry"] --> FAULT["FAULT · acquisition inhibited"]
+    MON["Qualified supervisor monitors<br/>all startup / active states"] -->|"loss / deadline"| BAD
     FAULT -->|"explicit retry / requalification"| OFF
     PART["Reset contract<br/>partial: 55–2000 ns, then ≥50 ns<br/>2 µs < pulse < 3.2 µs undefined<br/>either reset ends epoch"] -.-> RESET
 ```
@@ -187,7 +190,7 @@ flowchart TB
     TEST -->|"pass; transfer complete"| EXIT["Re-enter registers; disable test<br/>read/log STATUS, verify reset flag cleared<br/>verify image; zero write → ADC-data mode"]
     EXIT --> RELEASE["Release service ownership<br/>new epoch / scheduled arm boundary"]
     DIAG["Diagnostic service: capture reset evidence<br/>STATUS read clears RESET_DETECT<br/>error bits require W1C"] -.-> OWN
-    ERROR["Readback / framing / test failure"] --> STOP["Bounded retry or FAULT<br/>no valid recording release"]
+    ERROR["Readback / framing / test failure"] --> STOP["FAULT · no automatic retry<br/>no valid recording release"]
     IMAGE -->|"failure"| ERROR
     CRC -->|"failure"| ERROR
     FRAME -->|"failure"| ERROR
@@ -225,12 +228,12 @@ flowchart TB
 ```mermaid
 %%{init: {"theme":"neutral","themeVariables":{"fontFamily":"Arial,sans-serif","fontSize":"14px"},"flowchart":{"htmlLabels":true,"minNodeWidth":0,"wrappingWidth":240,"nodeSpacing":28,"rankSpacing":32,"curve":"linear"}}}%%
 flowchart LR
-    T0["t = 0: scheduled CONVST↑<br/>100 ns high proposed"] --> BUSY["Normal conversion 0.5–0.65 µs<br/>then BUSY synchronization"]
+    T0["t = 0: scheduled CONVST↑<br/>8 ticks / 100 ns high nominal"] --> BUSY["Normal conversion 0.5–0.65 µs<br/>then BUSY synchronization"]
     BUSY --> READ["Read only after matched BUSY↓<br/>224 clocks / 20 MHz = 11.2 µs"]
-    READ --> DONE["R1 read completion deadline ≤14 µs<br/>includes CS guards / synchronization"]
-    DONE --> NEXT["Next slot at 20 µs<br/>1600 acquisition-clock ticks"]
-    LIMIT["ADC no-OS limits<br/>acquisition ≥0.35 µs; cycle ≥1 µs<br/>CONVST high / low each ≥10 ns"] -.-> BUSY
-    WATCH["Separate watchdogs from trigger<br/>BUSY rise 250 ns; fall 2 µs proposed"] -.-> BUSY
+    READ --> DONE["R1 read completion deadline: 1120 ticks<br/>14 µs nominal, including guards / synchronization"]
+    DONE --> NEXT["Next slot at 20 µs nominal<br/>1600 acquisition-clock ticks"]
+    LIMIT["ADC no-OS limits<br/>acquisition ≥0.35 µs<br/>CONVST high / low each ≥10 ns"] -.-> BUSY
+    WATCH["Separate watchdogs from trigger<br/>BUSY rise 20 ticks; fall 160 ticks"] -.-> BUSY
     GATE["Proposed budgets require board closure<br/>clock tolerance / I/O delays included"] -.-> DONE
 ```
 
@@ -239,8 +242,8 @@ flowchart LR
 ```mermaid
 %%{init: {"theme":"neutral","themeVariables":{"fontFamily":"Arial,sans-serif","fontSize":"14px"},"flowchart":{"htmlLabels":true,"minNodeWidth":0,"wrappingWidth":240,"nodeSpacing":28,"rankSpacing":32,"curve":"linear"}}}%%
 flowchart TB
-    IDLE["Idle · no outstanding conversion"] -->|"accepted on-time trigger + slot tag"| RISE["Expect synchronized BUSY rise<br/>deadline from trigger: 250 ns proposed"]
-    RISE -->|"matched rise"| FALL["Expect synchronized BUSY fall<br/>deadline from trigger: 2 µs proposed"]
+    IDLE["Idle · no outstanding conversion"] -->|"accepted on-time trigger + slot tag"| RISE["Expect synchronized BUSY rise<br/>deadline from trigger: 20 ticks"]
+    RISE -->|"matched rise"| FALL["Expect synchronized BUSY fall<br/>deadline from trigger: 160 ticks"]
     FALL -->|"matched fall"| READY["One conversion-ready token<br/>retain trigger / slot / epoch"]
     READY -->|"capture accepted"| IDLE
     RISE -->|"missing / invalid edge"| BAD["Report event; revoke readiness<br/>lost sync → quiesce / requalify"]

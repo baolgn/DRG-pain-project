@@ -1,0 +1,18 @@
+{
+  "schema": "DRG5-ACQUISITION-TIMING-1",
+  "source_sha256": {
+    "microcontroller/acquisition/check_timing.py": "814a70ece03de1584507ebf1d85fe61dd8275b5451b1fe1d084cfe0e03c0d585",
+    "datasheets/ad7606c-18.pdf": "73b8892ab44ca4291b8c145df3e0d5d1abee2149c962be3a88e381c3e3e4f007"
+  },
+  "physical_timing_qualified": false,
+  "complete_acquisition_qualified": false,
+  "limits": [
+    "allocated requirements only; no FPGA I/O or board measurements",
+    "synchronizer allowance requires CDC and MTBF qualification, not an absolute metastability bound",
+    "ADC serial limits require the stated voltage and load conditions",
+    "supervisor, memory service and transport allocations remain unimplemented or unqualified"
+  ],
+  "status": "arithmetic-failed",
+  "error": "nonpositive timing margin: dout_setup",
+  "extra_translator_ns": "3"
+}
