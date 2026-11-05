@@ -1,0 +1,2151 @@
+ARCH case=1 index=0 pc=00000100 raw=00000013 trap=0 cause=0 tval=00000000 rdwrite=0 rd=0 value=00000000 next=00000104
+ARCH case=1 index=1 pc=00000104 raw=000000b7 trap=0 cause=0 tval=00000000 rdwrite=1 rd=1 value=00000000 next=00000108
+ARCH case=1 index=2 pc=00000108 raw=ffe08093 trap=0 cause=0 tval=00000000 rdwrite=1 rd=1 value=fffffffe next=0000010c
+ARCH case=1 index=3 pc=0000010c raw=00000137 trap=0 cause=0 tval=00000000 rdwrite=1 rd=2 value=00000000 next=00000110
+ARCH case=1 index=4 pc=00000110 raw=02110113 trap=0 cause=0 tval=00000000 rdwrite=1 rd=2 value=00000021 next=00000114
+ARCH case=1 index=5 pc=00000114 raw=800001b7 trap=0 cause=0 tval=00000000 rdwrite=1 rd=3 value=80000000 next=00000118
+ARCH case=1 index=6 pc=00000118 raw=00018193 trap=0 cause=0 tval=00000000 rdwrite=1 rd=3 value=80000000 next=0000011c
+ARCH case=1 index=7 pc=0000011c raw=80000237 trap=0 cause=0 tval=00000000 rdwrite=1 rd=4 value=80000000 next=00000120
+ARCH case=1 index=8 pc=00000120 raw=fff20213 trap=0 cause=0 tval=00000000 rdwrite=1 rd=4 value=7fffffff next=00000124
+ARCH case=1 index=9 pc=00000124 raw=00208433 trap=0 cause=0 tval=00000000 rdwrite=1 rd=8 value=0000001f next=00000128
+ARCH case=1 index=10 pc=00000128 raw=002094b3 trap=0 cause=0 tval=00000000 rdwrite=1 rd=9 value=fffffffc next=0000012c
+ARCH case=1 index=11 pc=0000012c raw=0020a533 trap=0 cause=0 tval=00000000 rdwrite=1 rd=10 value=00000001 next=00000130
+ARCH case=1 index=12 pc=00000130 raw=0020b5b3 trap=0 cause=0 tval=00000000 rdwrite=1 rd=11 value=00000000 next=00000134
+ARCH case=1 index=13 pc=00000134 raw=0020c633 trap=0 cause=0 tval=00000000 rdwrite=1 rd=12 value=ffffffdf next=00000138
+ARCH case=1 index=14 pc=00000138 raw=0020d6b3 trap=0 cause=0 tval=00000000 rdwrite=1 rd=13 value=7fffffff next=0000013c
+ARCH case=1 index=15 pc=0000013c raw=0020e733 trap=0 cause=0 tval=00000000 rdwrite=1 rd=14 value=ffffffff next=00000140
+ARCH case=1 index=16 pc=00000140 raw=0020f7b3 trap=0 cause=0 tval=00000000 rdwrite=1 rd=15 value=00000020 next=00000144
+ARCH case=1 index=17 pc=00000144 raw=40418833 trap=0 cause=0 tval=00000000 rdwrite=1 rd=16 value=00000001 next=00000148
+ARCH case=1 index=18 pc=00000148 raw=4021d8b3 trap=0 cause=0 tval=00000000 rdwrite=1 rd=17 value=c0000000 next=0000014c
+ARCH case=1 index=19 pc=0000014c raw=fff20913 trap=0 cause=0 tval=00000000 rdwrite=1 rd=18 value=7ffffffe next=00000150
+ARCH case=1 index=20 pc=00000150 raw=01f19993 trap=0 cause=0 tval=00000000 rdwrite=1 rd=19 value=00000000 next=00000154
+ARCH case=1 index=21 pc=00000154 raw=fff22a13 trap=0 cause=0 tval=00000000 rdwrite=1 rd=20 value=00000000 next=00000158
+ARCH case=1 index=22 pc=00000158 raw=fff23a93 trap=0 cause=0 tval=00000000 rdwrite=1 rd=21 value=00000001 next=0000015c
+ARCH case=1 index=23 pc=0000015c raw=fff24b13 trap=0 cause=0 tval=00000000 rdwrite=1 rd=22 value=80000000 next=00000160
+ARCH case=1 index=24 pc=00000160 raw=01f1db93 trap=0 cause=0 tval=00000000 rdwrite=1 rd=23 value=00000001 next=00000164
+ARCH case=1 index=25 pc=00000164 raw=fff26c13 trap=0 cause=0 tval=00000000 rdwrite=1 rd=24 value=ffffffff next=00000168
+ARCH case=1 index=26 pc=00000168 raw=fff27c93 trap=0 cause=0 tval=00000000 rdwrite=1 rd=25 value=7fffffff next=0000016c
+ARCH case=1 index=27 pc=0000016c raw=41f1dd13 trap=0 cause=0 tval=00000000 rdwrite=1 rd=26 value=ffffffff next=00000170
+ARCH case=1 index=28 pc=00000170 raw=00001297 trap=0 cause=0 tval=00000000 rdwrite=1 rd=5 value=00001170 next=00000174
+ARCH case=1 index=29 pc=00000174 raw=00128293 trap=0 cause=0 tval=00000000 rdwrite=1 rd=5 value=00001171 next=00000178
+ARCH case=1 index=30 pc=00000178 raw=00728293 trap=0 cause=0 tval=00000000 rdwrite=1 rd=5 value=00001178 next=0000017c
+ARCH case=1 index=31 pc=0000017c raw=00728293 trap=0 cause=0 tval=00000000 rdwrite=1 rd=5 value=0000117f next=00000180
+ARCH case=1 index=32 pc=00000180 raw=00728293 trap=0 cause=0 tval=00000000 rdwrite=1 rd=5 value=00001186 next=00000184
+ARCH case=1 index=33 pc=00000184 raw=00728293 trap=0 cause=0 tval=00000000 rdwrite=1 rd=5 value=0000118d next=00000188
+ARCH case=1 index=34 pc=00000188 raw=00728293 trap=0 cause=0 tval=00000000 rdwrite=1 rd=5 value=00001194 next=0000018c
+ARCH case=1 index=35 pc=0000018c raw=00728293 trap=0 cause=0 tval=00000000 rdwrite=1 rd=5 value=0000119b next=00000190
+ARCH case=1 index=36 pc=00000190 raw=00728293 trap=0 cause=0 tval=00000000 rdwrite=1 rd=5 value=000011a2 next=00000194
+ARCH case=1 index=37 pc=00000194 raw=00728293 trap=0 cause=0 tval=00000000 rdwrite=1 rd=5 value=000011a9 next=00000198
+ARCH case=1 index=38 pc=00000198 raw=00728293 trap=0 cause=0 tval=00000000 rdwrite=1 rd=5 value=000011b0 next=0000019c
+ARCH case=1 index=39 pc=0000019c raw=00728293 trap=0 cause=0 tval=00000000 rdwrite=1 rd=5 value=000011b7 next=000001a0
+ARCH case=1 index=40 pc=000001a0 raw=00728293 trap=0 cause=0 tval=00000000 rdwrite=1 rd=5 value=000011be next=000001a4
+ARCH case=1 index=41 pc=000001a4 raw=00728293 trap=0 cause=0 tval=00000000 rdwrite=1 rd=5 value=000011c5 next=000001a8
+ARCH case=1 index=42 pc=000001a8 raw=00208033 trap=0 cause=0 tval=00000000 rdwrite=0 rd=0 value=00000000 next=000001ac
+ARCH case=1 index=43 pc=000001ac raw=01128013 trap=0 cause=0 tval=00000000 rdwrite=0 rd=0 value=00000000 next=000001b0
+ARCH case=1 index=44 pc=000001b0 raw=5510106f trap=0 cause=0 tval=00000000 rdwrite=0 rd=0 value=00000000 next=00001f00
+FINAL case=1 reg=0 defined=1 value=00000000
+FINAL case=1 reg=1 defined=1 value=fffffffe
+FINAL case=1 reg=2 defined=1 value=00000021
+FINAL case=1 reg=3 defined=1 value=80000000
+FINAL case=1 reg=4 defined=1 value=7fffffff
+FINAL case=1 reg=5 defined=1 value=000011c5
+FINAL case=1 reg=6 defined=0 value=00000000
+FINAL case=1 reg=7 defined=0 value=00000000
+FINAL case=1 reg=8 defined=1 value=0000001f
+FINAL case=1 reg=9 defined=1 value=fffffffc
+FINAL case=1 reg=10 defined=1 value=00000001
+FINAL case=1 reg=11 defined=1 value=00000000
+FINAL case=1 reg=12 defined=1 value=ffffffdf
+FINAL case=1 reg=13 defined=1 value=7fffffff
+FINAL case=1 reg=14 defined=1 value=ffffffff
+FINAL case=1 reg=15 defined=1 value=00000020
+FINAL case=1 reg=16 defined=1 value=00000001
+FINAL case=1 reg=17 defined=1 value=c0000000
+FINAL case=1 reg=18 defined=1 value=7ffffffe
+FINAL case=1 reg=19 defined=1 value=00000000
+FINAL case=1 reg=20 defined=1 value=00000000
+FINAL case=1 reg=21 defined=1 value=00000001
+FINAL case=1 reg=22 defined=1 value=80000000
+FINAL case=1 reg=23 defined=1 value=00000001
+FINAL case=1 reg=24 defined=1 value=ffffffff
+FINAL case=1 reg=25 defined=1 value=7fffffff
+FINAL case=1 reg=26 defined=1 value=ffffffff
+FINAL case=1 reg=27 defined=0 value=00000000
+FINAL case=1 reg=28 defined=0 value=00000000
+FINAL case=1 reg=29 defined=0 value=00000000
+FINAL case=1 reg=30 defined=0 value=00000000
+FINAL case=1 reg=31 defined=0 value=00000000
+CASE case=1 instructions=45 cycles=86 hold_observed=0
+ARCH case=2 index=0 pc=00000100 raw=200000b7 trap=0 cause=0 tval=00000000 rdwrite=1 rd=1 value=20000000 next=00000104
+ARCH case=2 index=1 pc=00000104 raw=00008093 trap=0 cause=0 tval=00000000 rdwrite=1 rd=1 value=20000000 next=00000108
+ARCH case=2 index=2 pc=00000108 raw=89abd137 trap=0 cause=0 tval=00000000 rdwrite=1 rd=2 value=89abd000 next=0000010c
+ARCH case=2 index=3 pc=0000010c raw=def10113 trap=0 cause=0 tval=00000000 rdwrite=1 rd=2 value=89abcdef next=00000110
+SCHEDULE case=2 ordinal=4 accept_extra=2 response_edges=5
+EFFECT case=2 pc=00000110 write=1 address=20000010 size=2 lanes=f wdata=89abcdef status=0 rdata=00000000 reads=0 writes=0 last=00000000
+SERVICE case=2 ordinal=4 offer=102 accepted=105 reply_due=110
+ARCH case=2 index=4 pc=00000110 raw=0020a823 trap=0 cause=0 tval=00000000 rdwrite=0 rd=0 value=00000000 next=00000114
+SCHEDULE case=2 ordinal=5 accept_extra=1 response_edges=3
+EFFECT case=2 pc=00000114 write=1 address=20000016 size=1 lanes=c wdata=cdef0000 status=0 rdata=00000000 reads=0 writes=0 last=00000000
+SERVICE case=2 ordinal=5 offer=112 accepted=114 reply_due=117
+ARCH case=2 index=5 pc=00000114 raw=00209b23 trap=0 cause=0 tval=00000000 rdwrite=0 rd=0 value=00000000 next=00000118
+SCHEDULE case=2 ordinal=6 accept_extra=3 response_edges=1
+EFFECT case=2 pc=00000118 write=1 address=20000019 size=0 lanes=2 wdata=0000ef00 status=0 rdata=00000000 reads=0 writes=0 last=00000000
+SERVICE case=2 ordinal=6 offer=119 accepted=123 reply_due=124
+ARCH case=2 index=6 pc=00000118 raw=00208ca3 trap=0 cause=0 tval=00000000 rdwrite=0 rd=0 value=00000000 next=0000011c
+SCHEDULE case=2 ordinal=7 accept_extra=1 response_edges=5
+EFFECT case=2 pc=0000011c write=0 address=20000010 size=0 lanes=0 wdata=00000000 status=0 rdata=000000ef reads=0 writes=0 last=00000000
+SERVICE case=2 ordinal=7 offer=126 accepted=128 reply_due=133
+ARCH case=2 index=7 pc=0000011c raw=01008183 trap=0 cause=0 tval=00000000 rdwrite=1 rd=3 value=ffffffef next=00000120
+SCHEDULE case=2 ordinal=8 accept_extra=0 response_edges=3
+EFFECT case=2 pc=00000120 write=0 address=20000010 size=0 lanes=0 wdata=00000000 status=0 rdata=000000ef reads=0 writes=0 last=00000000
+SERVICE case=2 ordinal=8 offer=135 accepted=136 reply_due=139
+ARCH case=2 index=8 pc=00000120 raw=0100c203 trap=0 cause=0 tval=00000000 rdwrite=1 rd=4 value=000000ef next=00000124
+SCHEDULE case=2 ordinal=9 accept_extra=1 response_edges=3
+EFFECT case=2 pc=00000124 write=0 address=20000012 size=1 lanes=0 wdata=00000000 status=0 rdata=89ab0000 reads=0 writes=0 last=00000000
+SERVICE case=2 ordinal=9 offer=141 accepted=143 reply_due=146
+ARCH case=2 index=9 pc=00000124 raw=01209283 trap=0 cause=0 tval=00000000 rdwrite=1 rd=5 value=ffff89ab next=00000128
+SCHEDULE case=2 ordinal=10 accept_extra=2 response_edges=3
+EFFECT case=2 pc=00000128 write=0 address=20000012 size=1 lanes=0 wdata=00000000 status=0 rdata=89ab0000 reads=0 writes=0 last=00000000
+SERVICE case=2 ordinal=10 offer=148 accepted=151 reply_due=154
+ARCH case=2 index=10 pc=00000128 raw=0120d303 trap=0 cause=0 tval=00000000 rdwrite=1 rd=6 value=000089ab next=0000012c
+SCHEDULE case=2 ordinal=11 accept_extra=3 response_edges=3
+EFFECT case=2 pc=0000012c write=0 address=20000010 size=2 lanes=0 wdata=00000000 status=0 rdata=89abcdef reads=0 writes=0 last=00000000
+SERVICE case=2 ordinal=11 offer=156 accepted=160 reply_due=163
+ARCH case=2 index=11 pc=0000012c raw=0100a383 trap=0 cause=0 tval=00000000 rdwrite=1 rd=7 value=89abcdef next=00000130
+ARCH case=2 index=12 pc=00000130 raw=40000437 trap=0 cause=0 tval=00000000 rdwrite=1 rd=8 value=40000000 next=00000134
+ARCH case=2 index=13 pc=00000134 raw=00040413 trap=0 cause=0 tval=00000000 rdwrite=1 rd=8 value=40000000 next=00000138
+SCHEDULE case=2 ordinal=14 accept_extra=3 response_edges=5
+EFFECT case=2 pc=00000138 write=0 address=40000000 size=2 lanes=0 wdata=00000000 status=0 rdata=00000000 reads=1 writes=0 last=00000000
+SERVICE case=2 ordinal=14 offer=171 accepted=175 reply_due=180
+ARCH case=2 index=14 pc=00000138 raw=00042003 trap=0 cause=0 tval=00000000 rdwrite=0 rd=0 value=00000000 next=0000013c
+SCHEDULE case=2 ordinal=15 accept_extra=1 response_edges=1
+EFFECT case=2 pc=0000013c write=0 address=40000000 size=2 lanes=0 wdata=00000000 status=0 rdata=00000001 reads=2 writes=0 last=00000000
+SERVICE case=2 ordinal=15 offer=182 accepted=184 reply_due=185
+ARCH case=2 index=15 pc=0000013c raw=00042483 trap=0 cause=0 tval=00000000 rdwrite=1 rd=9 value=00000001 next=00000140
+ARCH case=2 index=16 pc=00000140 raw=ffff8f8f trap=0 cause=0 tval=00000000 rdwrite=0 rd=0 value=00000000 next=00000144
+SCHEDULE case=2 ordinal=17 accept_extra=3 response_edges=5
+EFFECT case=2 pc=00000144 write=1 address=40000004 size=2 lanes=f wdata=89abcdef status=0 rdata=00000000 reads=2 writes=1 last=89abcdef
+SERVICE case=2 ordinal=17 offer=194 accepted=198 reply_due=203
+ARCH case=2 index=17 pc=00000144 raw=00742223 trap=0 cause=0 tval=00000000 rdwrite=0 rd=0 value=00000000 next=00000148
+ARCH case=2 index=18 pc=00000148 raw=0000000f trap=0 cause=0 tval=00000000 rdwrite=0 rd=0 value=00000000 next=0000014c
+SCHEDULE case=2 ordinal=19 accept_extra=1 response_edges=5
+EFFECT case=2 pc=0000014c write=0 address=40000008 size=2 lanes=0 wdata=00000000 status=0 rdata=00000002 reads=2 writes=1 last=89abcdef
+SERVICE case=2 ordinal=19 offer=212 accepted=214 reply_due=219
+ARCH case=2 index=19 pc=0000014c raw=00842503 trap=0 cause=0 tval=00000000 rdwrite=1 rd=10 value=00000002 next=00000150
+SCHEDULE case=2 ordinal=20 accept_extra=1 response_edges=1
+EFFECT case=2 pc=00000150 write=0 address=4000000c size=2 lanes=0 wdata=00000000 status=0 rdata=00000001 reads=2 writes=1 last=89abcdef
+SERVICE case=2 ordinal=20 offer=221 accepted=223 reply_due=224
+ARCH case=2 index=20 pc=00000150 raw=00c42583 trap=0 cause=0 tval=00000000 rdwrite=1 rd=11 value=00000001 next=00000154
+SCHEDULE case=2 ordinal=21 accept_extra=3 response_edges=4
+EFFECT case=2 pc=00000154 write=0 address=40000010 size=2 lanes=0 wdata=00000000 status=0 rdata=89abcdef reads=2 writes=1 last=89abcdef
+SERVICE case=2 ordinal=21 offer=226 accepted=230 reply_due=234
+ARCH case=2 index=21 pc=00000154 raw=01042603 trap=0 cause=0 tval=00000000 rdwrite=1 rd=12 value=89abcdef next=00000158
+ARCH case=2 index=22 pc=00000158 raw=5a90106f trap=0 cause=0 tval=00000000 rdwrite=0 rd=0 value=00000000 next=00001f00
+FINAL case=2 reg=0 defined=1 value=00000000
+FINAL case=2 reg=1 defined=1 value=20000000
+FINAL case=2 reg=2 defined=1 value=89abcdef
+FINAL case=2 reg=3 defined=1 value=ffffffef
+FINAL case=2 reg=4 defined=1 value=000000ef
+FINAL case=2 reg=5 defined=1 value=ffff89ab
+FINAL case=2 reg=6 defined=1 value=000089ab
+FINAL case=2 reg=7 defined=1 value=89abcdef
+FINAL case=2 reg=8 defined=1 value=40000000
+FINAL case=2 reg=9 defined=1 value=00000001
+FINAL case=2 reg=10 defined=1 value=00000002
+FINAL case=2 reg=11 defined=1 value=00000001
+FINAL case=2 reg=12 defined=1 value=89abcdef
+FINAL case=2 reg=13 defined=0 value=00000000
+FINAL case=2 reg=14 defined=0 value=00000000
+FINAL case=2 reg=15 defined=0 value=00000000
+FINAL case=2 reg=16 defined=0 value=00000000
+FINAL case=2 reg=17 defined=0 value=00000000
+FINAL case=2 reg=18 defined=0 value=00000000
+FINAL case=2 reg=19 defined=0 value=00000000
+FINAL case=2 reg=20 defined=0 value=00000000
+FINAL case=2 reg=21 defined=0 value=00000000
+FINAL case=2 reg=22 defined=0 value=00000000
+FINAL case=2 reg=23 defined=0 value=00000000
+FINAL case=2 reg=24 defined=0 value=00000000
+FINAL case=2 reg=25 defined=0 value=00000000
+FINAL case=2 reg=26 defined=0 value=00000000
+FINAL case=2 reg=27 defined=0 value=00000000
+FINAL case=2 reg=28 defined=0 value=00000000
+FINAL case=2 reg=29 defined=0 value=00000000
+FINAL case=2 reg=30 defined=0 value=00000000
+FINAL case=2 reg=31 defined=0 value=00000000
+CASE case=2 instructions=23 cycles=151 hold_observed=0
+ARCH case=3 index=0 pc=00000100 raw=000000b7 trap=0 cause=0 tval=00000000 rdwrite=1 rd=1 value=00000000 next=00000104
+ARCH case=3 index=1 pc=00000104 raw=00708093 trap=0 cause=0 tval=00000000 rdwrite=1 rd=1 value=00000007 next=00000108
+ARCH case=3 index=2 pc=00000108 raw=00000137 trap=0 cause=0 tval=00000000 rdwrite=1 rd=2 value=00000000 next=0000010c
+ARCH case=3 index=3 pc=0000010c raw=00710113 trap=0 cause=0 tval=00000000 rdwrite=1 rd=2 value=00000007 next=00000110
+ARCH case=3 index=4 pc=00000110 raw=00208463 trap=0 cause=0 tval=00000000 rdwrite=0 rd=0 value=00000000 next=00000118
+ARCH case=3 index=5 pc=00000118 raw=0080026f trap=0 cause=0 tval=00000000 rdwrite=1 rd=4 value=0000011c next=00000120
+ARCH case=3 index=6 pc=00000120 raw=000002b7 trap=0 cause=0 tval=00000000 rdwrite=1 rd=5 value=00000000 next=00000124
+ARCH case=3 index=7 pc=00000124 raw=13128293 trap=0 cause=0 tval=00000000 rdwrite=1 rd=5 value=00000131 next=00000128
+ARCH case=3 index=8 pc=00000128 raw=000282e7 trap=0 cause=0 tval=00000000 rdwrite=1 rd=5 value=0000012c next=00000130
+ARCH case=3 index=9 pc=00000130 raw=5d10106f trap=0 cause=0 tval=00000000 rdwrite=0 rd=0 value=00000000 next=00001f00
+FINAL case=3 reg=0 defined=1 value=00000000
+FINAL case=3 reg=1 defined=1 value=00000007
+FINAL case=3 reg=2 defined=1 value=00000007
+FINAL case=3 reg=3 defined=0 value=00000000
+FINAL case=3 reg=4 defined=1 value=0000011c
+FINAL case=3 reg=5 defined=1 value=0000012c
+FINAL case=3 reg=6 defined=0 value=00000000
+FINAL case=3 reg=7 defined=0 value=00000000
+FINAL case=3 reg=8 defined=0 value=00000000
+FINAL case=3 reg=9 defined=0 value=00000000
+FINAL case=3 reg=10 defined=0 value=00000000
+FINAL case=3 reg=11 defined=0 value=00000000
+FINAL case=3 reg=12 defined=0 value=00000000
+FINAL case=3 reg=13 defined=0 value=00000000
+FINAL case=3 reg=14 defined=0 value=00000000
+FINAL case=3 reg=15 defined=0 value=00000000
+FINAL case=3 reg=16 defined=0 value=00000000
+FINAL case=3 reg=17 defined=0 value=00000000
+FINAL case=3 reg=18 defined=0 value=00000000
+FINAL case=3 reg=19 defined=0 value=00000000
+FINAL case=3 reg=20 defined=0 value=00000000
+FINAL case=3 reg=21 defined=0 value=00000000
+FINAL case=3 reg=22 defined=0 value=00000000
+FINAL case=3 reg=23 defined=0 value=00000000
+FINAL case=3 reg=24 defined=0 value=00000000
+FINAL case=3 reg=25 defined=0 value=00000000
+FINAL case=3 reg=26 defined=0 value=00000000
+FINAL case=3 reg=27 defined=0 value=00000000
+FINAL case=3 reg=28 defined=0 value=00000000
+FINAL case=3 reg=29 defined=0 value=00000000
+FINAL case=3 reg=30 defined=0 value=00000000
+FINAL case=3 reg=31 defined=0 value=00000000
+CASE case=3 instructions=10 cycles=41 hold_observed=0
+ARCH case=4 index=0 pc=00000100 raw=800000b7 trap=0 cause=0 tval=00000000 rdwrite=1 rd=1 value=80000000 next=00000104
+ARCH case=4 index=1 pc=00000104 raw=00008093 trap=0 cause=0 tval=00000000 rdwrite=1 rd=1 value=80000000 next=00000108
+ARCH case=4 index=2 pc=00000108 raw=80000137 trap=0 cause=0 tval=00000000 rdwrite=1 rd=2 value=80000000 next=0000010c
+ARCH case=4 index=3 pc=0000010c raw=fff10113 trap=0 cause=0 tval=00000000 rdwrite=1 rd=2 value=7fffffff next=00000110
+ARCH case=4 index=4 pc=00000110 raw=00208463 trap=0 cause=0 tval=00000000 rdwrite=0 rd=0 value=00000000 next=00000114
+ARCH case=4 index=5 pc=00000114 raw=00100193 trap=0 cause=0 tval=00000000 rdwrite=1 rd=3 value=00000001 next=00000118
+ARCH case=4 index=6 pc=00000118 raw=0080026f trap=0 cause=0 tval=00000000 rdwrite=1 rd=4 value=0000011c next=00000120
+ARCH case=4 index=7 pc=00000120 raw=000002b7 trap=0 cause=0 tval=00000000 rdwrite=1 rd=5 value=00000000 next=00000124
+ARCH case=4 index=8 pc=00000124 raw=13128293 trap=0 cause=0 tval=00000000 rdwrite=1 rd=5 value=00000131 next=00000128
+ARCH case=4 index=9 pc=00000128 raw=000282e7 trap=0 cause=0 tval=00000000 rdwrite=1 rd=5 value=0000012c next=00000130
+ARCH case=4 index=10 pc=00000130 raw=5d10106f trap=0 cause=0 tval=00000000 rdwrite=0 rd=0 value=00000000 next=00001f00
+FINAL case=4 reg=0 defined=1 value=00000000
+FINAL case=4 reg=1 defined=1 value=80000000
+FINAL case=4 reg=2 defined=1 value=7fffffff
+FINAL case=4 reg=3 defined=1 value=00000001
+FINAL case=4 reg=4 defined=1 value=0000011c
+FINAL case=4 reg=5 defined=1 value=0000012c
+FINAL case=4 reg=6 defined=0 value=00000000
+FINAL case=4 reg=7 defined=0 value=00000000
+FINAL case=4 reg=8 defined=0 value=00000000
+FINAL case=4 reg=9 defined=0 value=00000000
+FINAL case=4 reg=10 defined=0 value=00000000
+FINAL case=4 reg=11 defined=0 value=00000000
+FINAL case=4 reg=12 defined=0 value=00000000
+FINAL case=4 reg=13 defined=0 value=00000000
+FINAL case=4 reg=14 defined=0 value=00000000
+FINAL case=4 reg=15 defined=0 value=00000000
+FINAL case=4 reg=16 defined=0 value=00000000
+FINAL case=4 reg=17 defined=0 value=00000000
+FINAL case=4 reg=18 defined=0 value=00000000
+FINAL case=4 reg=19 defined=0 value=00000000
+FINAL case=4 reg=20 defined=0 value=00000000
+FINAL case=4 reg=21 defined=0 value=00000000
+FINAL case=4 reg=22 defined=0 value=00000000
+FINAL case=4 reg=23 defined=0 value=00000000
+FINAL case=4 reg=24 defined=0 value=00000000
+FINAL case=4 reg=25 defined=0 value=00000000
+FINAL case=4 reg=26 defined=0 value=00000000
+FINAL case=4 reg=27 defined=0 value=00000000
+FINAL case=4 reg=28 defined=0 value=00000000
+FINAL case=4 reg=29 defined=0 value=00000000
+FINAL case=4 reg=30 defined=0 value=00000000
+FINAL case=4 reg=31 defined=0 value=00000000
+CASE case=4 instructions=11 cycles=37 hold_observed=0
+ARCH case=5 index=0 pc=00000100 raw=000000b7 trap=0 cause=0 tval=00000000 rdwrite=1 rd=1 value=00000000 next=00000104
+ARCH case=5 index=1 pc=00000104 raw=00708093 trap=0 cause=0 tval=00000000 rdwrite=1 rd=1 value=00000007 next=00000108
+ARCH case=5 index=2 pc=00000108 raw=00000137 trap=0 cause=0 tval=00000000 rdwrite=1 rd=2 value=00000000 next=0000010c
+ARCH case=5 index=3 pc=0000010c raw=00710113 trap=0 cause=0 tval=00000000 rdwrite=1 rd=2 value=00000007 next=00000110
+ARCH case=5 index=4 pc=00000110 raw=00209463 trap=0 cause=0 tval=00000000 rdwrite=0 rd=0 value=00000000 next=00000114
+ARCH case=5 index=5 pc=00000114 raw=00100193 trap=0 cause=0 tval=00000000 rdwrite=1 rd=3 value=00000001 next=00000118
+ARCH case=5 index=6 pc=00000118 raw=0080026f trap=0 cause=0 tval=00000000 rdwrite=1 rd=4 value=0000011c next=00000120
+ARCH case=5 index=7 pc=00000120 raw=000002b7 trap=0 cause=0 tval=00000000 rdwrite=1 rd=5 value=00000000 next=00000124
+ARCH case=5 index=8 pc=00000124 raw=13128293 trap=0 cause=0 tval=00000000 rdwrite=1 rd=5 value=00000131 next=00000128
+ARCH case=5 index=9 pc=00000128 raw=000282e7 trap=0 cause=0 tval=00000000 rdwrite=1 rd=5 value=0000012c next=00000130
+ARCH case=5 index=10 pc=00000130 raw=5d10106f trap=0 cause=0 tval=00000000 rdwrite=0 rd=0 value=00000000 next=00001f00
+FINAL case=5 reg=0 defined=1 value=00000000
+FINAL case=5 reg=1 defined=1 value=00000007
+FINAL case=5 reg=2 defined=1 value=00000007
+FINAL case=5 reg=3 defined=1 value=00000001
+FINAL case=5 reg=4 defined=1 value=0000011c
+FINAL case=5 reg=5 defined=1 value=0000012c
+FINAL case=5 reg=6 defined=0 value=00000000
+FINAL case=5 reg=7 defined=0 value=00000000
+FINAL case=5 reg=8 defined=0 value=00000000
+FINAL case=5 reg=9 defined=0 value=00000000
+FINAL case=5 reg=10 defined=0 value=00000000
+FINAL case=5 reg=11 defined=0 value=00000000
+FINAL case=5 reg=12 defined=0 value=00000000
+FINAL case=5 reg=13 defined=0 value=00000000
+FINAL case=5 reg=14 defined=0 value=00000000
+FINAL case=5 reg=15 defined=0 value=00000000
+FINAL case=5 reg=16 defined=0 value=00000000
+FINAL case=5 reg=17 defined=0 value=00000000
+FINAL case=5 reg=18 defined=0 value=00000000
+FINAL case=5 reg=19 defined=0 value=00000000
+FINAL case=5 reg=20 defined=0 value=00000000
+FINAL case=5 reg=21 defined=0 value=00000000
+FINAL case=5 reg=22 defined=0 value=00000000
+FINAL case=5 reg=23 defined=0 value=00000000
+FINAL case=5 reg=24 defined=0 value=00000000
+FINAL case=5 reg=25 defined=0 value=00000000
+FINAL case=5 reg=26 defined=0 value=00000000
+FINAL case=5 reg=27 defined=0 value=00000000
+FINAL case=5 reg=28 defined=0 value=00000000
+FINAL case=5 reg=29 defined=0 value=00000000
+FINAL case=5 reg=30 defined=0 value=00000000
+FINAL case=5 reg=31 defined=0 value=00000000
+CASE case=5 instructions=11 cycles=37 hold_observed=0
+ARCH case=6 index=0 pc=00000100 raw=800000b7 trap=0 cause=0 tval=00000000 rdwrite=1 rd=1 value=80000000 next=00000104
+ARCH case=6 index=1 pc=00000104 raw=00008093 trap=0 cause=0 tval=00000000 rdwrite=1 rd=1 value=80000000 next=00000108
+ARCH case=6 index=2 pc=00000108 raw=80000137 trap=0 cause=0 tval=00000000 rdwrite=1 rd=2 value=80000000 next=0000010c
+ARCH case=6 index=3 pc=0000010c raw=fff10113 trap=0 cause=0 tval=00000000 rdwrite=1 rd=2 value=7fffffff next=00000110
+ARCH case=6 index=4 pc=00000110 raw=00209463 trap=0 cause=0 tval=00000000 rdwrite=0 rd=0 value=00000000 next=00000118
+ARCH case=6 index=5 pc=00000118 raw=0080026f trap=0 cause=0 tval=00000000 rdwrite=1 rd=4 value=0000011c next=00000120
+ARCH case=6 index=6 pc=00000120 raw=000002b7 trap=0 cause=0 tval=00000000 rdwrite=1 rd=5 value=00000000 next=00000124
+ARCH case=6 index=7 pc=00000124 raw=13128293 trap=0 cause=0 tval=00000000 rdwrite=1 rd=5 value=00000131 next=00000128
+ARCH case=6 index=8 pc=00000128 raw=000282e7 trap=0 cause=0 tval=00000000 rdwrite=1 rd=5 value=0000012c next=00000130
+ARCH case=6 index=9 pc=00000130 raw=5d10106f trap=0 cause=0 tval=00000000 rdwrite=0 rd=0 value=00000000 next=00001f00
+FINAL case=6 reg=0 defined=1 value=00000000
+FINAL case=6 reg=1 defined=1 value=80000000
+FINAL case=6 reg=2 defined=1 value=7fffffff
+FINAL case=6 reg=3 defined=0 value=00000000
+FINAL case=6 reg=4 defined=1 value=0000011c
+FINAL case=6 reg=5 defined=1 value=0000012c
+FINAL case=6 reg=6 defined=0 value=00000000
+FINAL case=6 reg=7 defined=0 value=00000000
+FINAL case=6 reg=8 defined=0 value=00000000
+FINAL case=6 reg=9 defined=0 value=00000000
+FINAL case=6 reg=10 defined=0 value=00000000
+FINAL case=6 reg=11 defined=0 value=00000000
+FINAL case=6 reg=12 defined=0 value=00000000
+FINAL case=6 reg=13 defined=0 value=00000000
+FINAL case=6 reg=14 defined=0 value=00000000
+FINAL case=6 reg=15 defined=0 value=00000000
+FINAL case=6 reg=16 defined=0 value=00000000
+FINAL case=6 reg=17 defined=0 value=00000000
+FINAL case=6 reg=18 defined=0 value=00000000
+FINAL case=6 reg=19 defined=0 value=00000000
+FINAL case=6 reg=20 defined=0 value=00000000
+FINAL case=6 reg=21 defined=0 value=00000000
+FINAL case=6 reg=22 defined=0 value=00000000
+FINAL case=6 reg=23 defined=0 value=00000000
+FINAL case=6 reg=24 defined=0 value=00000000
+FINAL case=6 reg=25 defined=0 value=00000000
+FINAL case=6 reg=26 defined=0 value=00000000
+FINAL case=6 reg=27 defined=0 value=00000000
+FINAL case=6 reg=28 defined=0 value=00000000
+FINAL case=6 reg=29 defined=0 value=00000000
+FINAL case=6 reg=30 defined=0 value=00000000
+FINAL case=6 reg=31 defined=0 value=00000000
+CASE case=6 instructions=10 cycles=41 hold_observed=0
+ARCH case=7 index=0 pc=00000100 raw=000000b7 trap=0 cause=0 tval=00000000 rdwrite=1 rd=1 value=00000000 next=00000104
+ARCH case=7 index=1 pc=00000104 raw=00708093 trap=0 cause=0 tval=00000000 rdwrite=1 rd=1 value=00000007 next=00000108
+ARCH case=7 index=2 pc=00000108 raw=00000137 trap=0 cause=0 tval=00000000 rdwrite=1 rd=2 value=00000000 next=0000010c
+ARCH case=7 index=3 pc=0000010c raw=00710113 trap=0 cause=0 tval=00000000 rdwrite=1 rd=2 value=00000007 next=00000110
+ARCH case=7 index=4 pc=00000110 raw=0020c463 trap=0 cause=0 tval=00000000 rdwrite=0 rd=0 value=00000000 next=00000114
+ARCH case=7 index=5 pc=00000114 raw=00100193 trap=0 cause=0 tval=00000000 rdwrite=1 rd=3 value=00000001 next=00000118
+ARCH case=7 index=6 pc=00000118 raw=0080026f trap=0 cause=0 tval=00000000 rdwrite=1 rd=4 value=0000011c next=00000120
+ARCH case=7 index=7 pc=00000120 raw=000002b7 trap=0 cause=0 tval=00000000 rdwrite=1 rd=5 value=00000000 next=00000124
+ARCH case=7 index=8 pc=00000124 raw=13128293 trap=0 cause=0 tval=00000000 rdwrite=1 rd=5 value=00000131 next=00000128
+ARCH case=7 index=9 pc=00000128 raw=000282e7 trap=0 cause=0 tval=00000000 rdwrite=1 rd=5 value=0000012c next=00000130
+ARCH case=7 index=10 pc=00000130 raw=5d10106f trap=0 cause=0 tval=00000000 rdwrite=0 rd=0 value=00000000 next=00001f00
+FINAL case=7 reg=0 defined=1 value=00000000
+FINAL case=7 reg=1 defined=1 value=00000007
+FINAL case=7 reg=2 defined=1 value=00000007
+FINAL case=7 reg=3 defined=1 value=00000001
+FINAL case=7 reg=4 defined=1 value=0000011c
+FINAL case=7 reg=5 defined=1 value=0000012c
+FINAL case=7 reg=6 defined=0 value=00000000
+FINAL case=7 reg=7 defined=0 value=00000000
+FINAL case=7 reg=8 defined=0 value=00000000
+FINAL case=7 reg=9 defined=0 value=00000000
+FINAL case=7 reg=10 defined=0 value=00000000
+FINAL case=7 reg=11 defined=0 value=00000000
+FINAL case=7 reg=12 defined=0 value=00000000
+FINAL case=7 reg=13 defined=0 value=00000000
+FINAL case=7 reg=14 defined=0 value=00000000
+FINAL case=7 reg=15 defined=0 value=00000000
+FINAL case=7 reg=16 defined=0 value=00000000
+FINAL case=7 reg=17 defined=0 value=00000000
+FINAL case=7 reg=18 defined=0 value=00000000
+FINAL case=7 reg=19 defined=0 value=00000000
+FINAL case=7 reg=20 defined=0 value=00000000
+FINAL case=7 reg=21 defined=0 value=00000000
+FINAL case=7 reg=22 defined=0 value=00000000
+FINAL case=7 reg=23 defined=0 value=00000000
+FINAL case=7 reg=24 defined=0 value=00000000
+FINAL case=7 reg=25 defined=0 value=00000000
+FINAL case=7 reg=26 defined=0 value=00000000
+FINAL case=7 reg=27 defined=0 value=00000000
+FINAL case=7 reg=28 defined=0 value=00000000
+FINAL case=7 reg=29 defined=0 value=00000000
+FINAL case=7 reg=30 defined=0 value=00000000
+FINAL case=7 reg=31 defined=0 value=00000000
+CASE case=7 instructions=11 cycles=37 hold_observed=0
+ARCH case=8 index=0 pc=00000100 raw=800000b7 trap=0 cause=0 tval=00000000 rdwrite=1 rd=1 value=80000000 next=00000104
+ARCH case=8 index=1 pc=00000104 raw=00008093 trap=0 cause=0 tval=00000000 rdwrite=1 rd=1 value=80000000 next=00000108
+ARCH case=8 index=2 pc=00000108 raw=80000137 trap=0 cause=0 tval=00000000 rdwrite=1 rd=2 value=80000000 next=0000010c
+ARCH case=8 index=3 pc=0000010c raw=fff10113 trap=0 cause=0 tval=00000000 rdwrite=1 rd=2 value=7fffffff next=00000110
+ARCH case=8 index=4 pc=00000110 raw=0020c463 trap=0 cause=0 tval=00000000 rdwrite=0 rd=0 value=00000000 next=00000118
+ARCH case=8 index=5 pc=00000118 raw=0080026f trap=0 cause=0 tval=00000000 rdwrite=1 rd=4 value=0000011c next=00000120
+ARCH case=8 index=6 pc=00000120 raw=000002b7 trap=0 cause=0 tval=00000000 rdwrite=1 rd=5 value=00000000 next=00000124
+ARCH case=8 index=7 pc=00000124 raw=13128293 trap=0 cause=0 tval=00000000 rdwrite=1 rd=5 value=00000131 next=00000128
+ARCH case=8 index=8 pc=00000128 raw=000282e7 trap=0 cause=0 tval=00000000 rdwrite=1 rd=5 value=0000012c next=00000130
+ARCH case=8 index=9 pc=00000130 raw=5d10106f trap=0 cause=0 tval=00000000 rdwrite=0 rd=0 value=00000000 next=00001f00
+FINAL case=8 reg=0 defined=1 value=00000000
+FINAL case=8 reg=1 defined=1 value=80000000
+FINAL case=8 reg=2 defined=1 value=7fffffff
+FINAL case=8 reg=3 defined=0 value=00000000
+FINAL case=8 reg=4 defined=1 value=0000011c
+FINAL case=8 reg=5 defined=1 value=0000012c
+FINAL case=8 reg=6 defined=0 value=00000000
+FINAL case=8 reg=7 defined=0 value=00000000
+FINAL case=8 reg=8 defined=0 value=00000000
+FINAL case=8 reg=9 defined=0 value=00000000
+FINAL case=8 reg=10 defined=0 value=00000000
+FINAL case=8 reg=11 defined=0 value=00000000
+FINAL case=8 reg=12 defined=0 value=00000000
+FINAL case=8 reg=13 defined=0 value=00000000
+FINAL case=8 reg=14 defined=0 value=00000000
+FINAL case=8 reg=15 defined=0 value=00000000
+FINAL case=8 reg=16 defined=0 value=00000000
+FINAL case=8 reg=17 defined=0 value=00000000
+FINAL case=8 reg=18 defined=0 value=00000000
+FINAL case=8 reg=19 defined=0 value=00000000
+FINAL case=8 reg=20 defined=0 value=00000000
+FINAL case=8 reg=21 defined=0 value=00000000
+FINAL case=8 reg=22 defined=0 value=00000000
+FINAL case=8 reg=23 defined=0 value=00000000
+FINAL case=8 reg=24 defined=0 value=00000000
+FINAL case=8 reg=25 defined=0 value=00000000
+FINAL case=8 reg=26 defined=0 value=00000000
+FINAL case=8 reg=27 defined=0 value=00000000
+FINAL case=8 reg=28 defined=0 value=00000000
+FINAL case=8 reg=29 defined=0 value=00000000
+FINAL case=8 reg=30 defined=0 value=00000000
+FINAL case=8 reg=31 defined=0 value=00000000
+CASE case=8 instructions=10 cycles=41 hold_observed=0
+ARCH case=9 index=0 pc=00000100 raw=000000b7 trap=0 cause=0 tval=00000000 rdwrite=1 rd=1 value=00000000 next=00000104
+ARCH case=9 index=1 pc=00000104 raw=00708093 trap=0 cause=0 tval=00000000 rdwrite=1 rd=1 value=00000007 next=00000108
+ARCH case=9 index=2 pc=00000108 raw=00000137 trap=0 cause=0 tval=00000000 rdwrite=1 rd=2 value=00000000 next=0000010c
+ARCH case=9 index=3 pc=0000010c raw=00710113 trap=0 cause=0 tval=00000000 rdwrite=1 rd=2 value=00000007 next=00000110
+ARCH case=9 index=4 pc=00000110 raw=0020d463 trap=0 cause=0 tval=00000000 rdwrite=0 rd=0 value=00000000 next=00000118
+ARCH case=9 index=5 pc=00000118 raw=0080026f trap=0 cause=0 tval=00000000 rdwrite=1 rd=4 value=0000011c next=00000120
+ARCH case=9 index=6 pc=00000120 raw=000002b7 trap=0 cause=0 tval=00000000 rdwrite=1 rd=5 value=00000000 next=00000124
+ARCH case=9 index=7 pc=00000124 raw=13128293 trap=0 cause=0 tval=00000000 rdwrite=1 rd=5 value=00000131 next=00000128
+ARCH case=9 index=8 pc=00000128 raw=000282e7 trap=0 cause=0 tval=00000000 rdwrite=1 rd=5 value=0000012c next=00000130
+ARCH case=9 index=9 pc=00000130 raw=5d10106f trap=0 cause=0 tval=00000000 rdwrite=0 rd=0 value=00000000 next=00001f00
+FINAL case=9 reg=0 defined=1 value=00000000
+FINAL case=9 reg=1 defined=1 value=00000007
+FINAL case=9 reg=2 defined=1 value=00000007
+FINAL case=9 reg=3 defined=0 value=00000000
+FINAL case=9 reg=4 defined=1 value=0000011c
+FINAL case=9 reg=5 defined=1 value=0000012c
+FINAL case=9 reg=6 defined=0 value=00000000
+FINAL case=9 reg=7 defined=0 value=00000000
+FINAL case=9 reg=8 defined=0 value=00000000
+FINAL case=9 reg=9 defined=0 value=00000000
+FINAL case=9 reg=10 defined=0 value=00000000
+FINAL case=9 reg=11 defined=0 value=00000000
+FINAL case=9 reg=12 defined=0 value=00000000
+FINAL case=9 reg=13 defined=0 value=00000000
+FINAL case=9 reg=14 defined=0 value=00000000
+FINAL case=9 reg=15 defined=0 value=00000000
+FINAL case=9 reg=16 defined=0 value=00000000
+FINAL case=9 reg=17 defined=0 value=00000000
+FINAL case=9 reg=18 defined=0 value=00000000
+FINAL case=9 reg=19 defined=0 value=00000000
+FINAL case=9 reg=20 defined=0 value=00000000
+FINAL case=9 reg=21 defined=0 value=00000000
+FINAL case=9 reg=22 defined=0 value=00000000
+FINAL case=9 reg=23 defined=0 value=00000000
+FINAL case=9 reg=24 defined=0 value=00000000
+FINAL case=9 reg=25 defined=0 value=00000000
+FINAL case=9 reg=26 defined=0 value=00000000
+FINAL case=9 reg=27 defined=0 value=00000000
+FINAL case=9 reg=28 defined=0 value=00000000
+FINAL case=9 reg=29 defined=0 value=00000000
+FINAL case=9 reg=30 defined=0 value=00000000
+FINAL case=9 reg=31 defined=0 value=00000000
+CASE case=9 instructions=10 cycles=41 hold_observed=0
+ARCH case=10 index=0 pc=00000100 raw=800000b7 trap=0 cause=0 tval=00000000 rdwrite=1 rd=1 value=80000000 next=00000104
+ARCH case=10 index=1 pc=00000104 raw=00008093 trap=0 cause=0 tval=00000000 rdwrite=1 rd=1 value=80000000 next=00000108
+ARCH case=10 index=2 pc=00000108 raw=80000137 trap=0 cause=0 tval=00000000 rdwrite=1 rd=2 value=80000000 next=0000010c
+ARCH case=10 index=3 pc=0000010c raw=fff10113 trap=0 cause=0 tval=00000000 rdwrite=1 rd=2 value=7fffffff next=00000110
+ARCH case=10 index=4 pc=00000110 raw=0020d463 trap=0 cause=0 tval=00000000 rdwrite=0 rd=0 value=00000000 next=00000114
+ARCH case=10 index=5 pc=00000114 raw=00100193 trap=0 cause=0 tval=00000000 rdwrite=1 rd=3 value=00000001 next=00000118
+ARCH case=10 index=6 pc=00000118 raw=0080026f trap=0 cause=0 tval=00000000 rdwrite=1 rd=4 value=0000011c next=00000120
+ARCH case=10 index=7 pc=00000120 raw=000002b7 trap=0 cause=0 tval=00000000 rdwrite=1 rd=5 value=00000000 next=00000124
+ARCH case=10 index=8 pc=00000124 raw=13128293 trap=0 cause=0 tval=00000000 rdwrite=1 rd=5 value=00000131 next=00000128
+ARCH case=10 index=9 pc=00000128 raw=000282e7 trap=0 cause=0 tval=00000000 rdwrite=1 rd=5 value=0000012c next=00000130
+ARCH case=10 index=10 pc=00000130 raw=5d10106f trap=0 cause=0 tval=00000000 rdwrite=0 rd=0 value=00000000 next=00001f00
+FINAL case=10 reg=0 defined=1 value=00000000
+FINAL case=10 reg=1 defined=1 value=80000000
+FINAL case=10 reg=2 defined=1 value=7fffffff
+FINAL case=10 reg=3 defined=1 value=00000001
+FINAL case=10 reg=4 defined=1 value=0000011c
+FINAL case=10 reg=5 defined=1 value=0000012c
+FINAL case=10 reg=6 defined=0 value=00000000
+FINAL case=10 reg=7 defined=0 value=00000000
+FINAL case=10 reg=8 defined=0 value=00000000
+FINAL case=10 reg=9 defined=0 value=00000000
+FINAL case=10 reg=10 defined=0 value=00000000
+FINAL case=10 reg=11 defined=0 value=00000000
+FINAL case=10 reg=12 defined=0 value=00000000
+FINAL case=10 reg=13 defined=0 value=00000000
+FINAL case=10 reg=14 defined=0 value=00000000
+FINAL case=10 reg=15 defined=0 value=00000000
+FINAL case=10 reg=16 defined=0 value=00000000
+FINAL case=10 reg=17 defined=0 value=00000000
+FINAL case=10 reg=18 defined=0 value=00000000
+FINAL case=10 reg=19 defined=0 value=00000000
+FINAL case=10 reg=20 defined=0 value=00000000
+FINAL case=10 reg=21 defined=0 value=00000000
+FINAL case=10 reg=22 defined=0 value=00000000
+FINAL case=10 reg=23 defined=0 value=00000000
+FINAL case=10 reg=24 defined=0 value=00000000
+FINAL case=10 reg=25 defined=0 value=00000000
+FINAL case=10 reg=26 defined=0 value=00000000
+FINAL case=10 reg=27 defined=0 value=00000000
+FINAL case=10 reg=28 defined=0 value=00000000
+FINAL case=10 reg=29 defined=0 value=00000000
+FINAL case=10 reg=30 defined=0 value=00000000
+FINAL case=10 reg=31 defined=0 value=00000000
+CASE case=10 instructions=11 cycles=37 hold_observed=0
+ARCH case=11 index=0 pc=00000100 raw=000000b7 trap=0 cause=0 tval=00000000 rdwrite=1 rd=1 value=00000000 next=00000104
+ARCH case=11 index=1 pc=00000104 raw=00708093 trap=0 cause=0 tval=00000000 rdwrite=1 rd=1 value=00000007 next=00000108
+ARCH case=11 index=2 pc=00000108 raw=00000137 trap=0 cause=0 tval=00000000 rdwrite=1 rd=2 value=00000000 next=0000010c
+ARCH case=11 index=3 pc=0000010c raw=00710113 trap=0 cause=0 tval=00000000 rdwrite=1 rd=2 value=00000007 next=00000110
+ARCH case=11 index=4 pc=00000110 raw=0020e463 trap=0 cause=0 tval=00000000 rdwrite=0 rd=0 value=00000000 next=00000114
+ARCH case=11 index=5 pc=00000114 raw=00100193 trap=0 cause=0 tval=00000000 rdwrite=1 rd=3 value=00000001 next=00000118
+ARCH case=11 index=6 pc=00000118 raw=0080026f trap=0 cause=0 tval=00000000 rdwrite=1 rd=4 value=0000011c next=00000120
+ARCH case=11 index=7 pc=00000120 raw=000002b7 trap=0 cause=0 tval=00000000 rdwrite=1 rd=5 value=00000000 next=00000124
+ARCH case=11 index=8 pc=00000124 raw=13128293 trap=0 cause=0 tval=00000000 rdwrite=1 rd=5 value=00000131 next=00000128
+ARCH case=11 index=9 pc=00000128 raw=000282e7 trap=0 cause=0 tval=00000000 rdwrite=1 rd=5 value=0000012c next=00000130
+ARCH case=11 index=10 pc=00000130 raw=5d10106f trap=0 cause=0 tval=00000000 rdwrite=0 rd=0 value=00000000 next=00001f00
+FINAL case=11 reg=0 defined=1 value=00000000
+FINAL case=11 reg=1 defined=1 value=00000007
+FINAL case=11 reg=2 defined=1 value=00000007
+FINAL case=11 reg=3 defined=1 value=00000001
+FINAL case=11 reg=4 defined=1 value=0000011c
+FINAL case=11 reg=5 defined=1 value=0000012c
+FINAL case=11 reg=6 defined=0 value=00000000
+FINAL case=11 reg=7 defined=0 value=00000000
+FINAL case=11 reg=8 defined=0 value=00000000
+FINAL case=11 reg=9 defined=0 value=00000000
+FINAL case=11 reg=10 defined=0 value=00000000
+FINAL case=11 reg=11 defined=0 value=00000000
+FINAL case=11 reg=12 defined=0 value=00000000
+FINAL case=11 reg=13 defined=0 value=00000000
+FINAL case=11 reg=14 defined=0 value=00000000
+FINAL case=11 reg=15 defined=0 value=00000000
+FINAL case=11 reg=16 defined=0 value=00000000
+FINAL case=11 reg=17 defined=0 value=00000000
+FINAL case=11 reg=18 defined=0 value=00000000
+FINAL case=11 reg=19 defined=0 value=00000000
+FINAL case=11 reg=20 defined=0 value=00000000
+FINAL case=11 reg=21 defined=0 value=00000000
+FINAL case=11 reg=22 defined=0 value=00000000
+FINAL case=11 reg=23 defined=0 value=00000000
+FINAL case=11 reg=24 defined=0 value=00000000
+FINAL case=11 reg=25 defined=0 value=00000000
+FINAL case=11 reg=26 defined=0 value=00000000
+FINAL case=11 reg=27 defined=0 value=00000000
+FINAL case=11 reg=28 defined=0 value=00000000
+FINAL case=11 reg=29 defined=0 value=00000000
+FINAL case=11 reg=30 defined=0 value=00000000
+FINAL case=11 reg=31 defined=0 value=00000000
+CASE case=11 instructions=11 cycles=37 hold_observed=0
+ARCH case=12 index=0 pc=00000100 raw=800000b7 trap=0 cause=0 tval=00000000 rdwrite=1 rd=1 value=80000000 next=00000104
+ARCH case=12 index=1 pc=00000104 raw=fff08093 trap=0 cause=0 tval=00000000 rdwrite=1 rd=1 value=7fffffff next=00000108
+ARCH case=12 index=2 pc=00000108 raw=80000137 trap=0 cause=0 tval=00000000 rdwrite=1 rd=2 value=80000000 next=0000010c
+ARCH case=12 index=3 pc=0000010c raw=00010113 trap=0 cause=0 tval=00000000 rdwrite=1 rd=2 value=80000000 next=00000110
+ARCH case=12 index=4 pc=00000110 raw=0020e463 trap=0 cause=0 tval=00000000 rdwrite=0 rd=0 value=00000000 next=00000118
+ARCH case=12 index=5 pc=00000118 raw=0080026f trap=0 cause=0 tval=00000000 rdwrite=1 rd=4 value=0000011c next=00000120
+ARCH case=12 index=6 pc=00000120 raw=000002b7 trap=0 cause=0 tval=00000000 rdwrite=1 rd=5 value=00000000 next=00000124
+ARCH case=12 index=7 pc=00000124 raw=13128293 trap=0 cause=0 tval=00000000 rdwrite=1 rd=5 value=00000131 next=00000128
+ARCH case=12 index=8 pc=00000128 raw=000282e7 trap=0 cause=0 tval=00000000 rdwrite=1 rd=5 value=0000012c next=00000130
+ARCH case=12 index=9 pc=00000130 raw=5d10106f trap=0 cause=0 tval=00000000 rdwrite=0 rd=0 value=00000000 next=00001f00
+FINAL case=12 reg=0 defined=1 value=00000000
+FINAL case=12 reg=1 defined=1 value=7fffffff
+FINAL case=12 reg=2 defined=1 value=80000000
+FINAL case=12 reg=3 defined=0 value=00000000
+FINAL case=12 reg=4 defined=1 value=0000011c
+FINAL case=12 reg=5 defined=1 value=0000012c
+FINAL case=12 reg=6 defined=0 value=00000000
+FINAL case=12 reg=7 defined=0 value=00000000
+FINAL case=12 reg=8 defined=0 value=00000000
+FINAL case=12 reg=9 defined=0 value=00000000
+FINAL case=12 reg=10 defined=0 value=00000000
+FINAL case=12 reg=11 defined=0 value=00000000
+FINAL case=12 reg=12 defined=0 value=00000000
+FINAL case=12 reg=13 defined=0 value=00000000
+FINAL case=12 reg=14 defined=0 value=00000000
+FINAL case=12 reg=15 defined=0 value=00000000
+FINAL case=12 reg=16 defined=0 value=00000000
+FINAL case=12 reg=17 defined=0 value=00000000
+FINAL case=12 reg=18 defined=0 value=00000000
+FINAL case=12 reg=19 defined=0 value=00000000
+FINAL case=12 reg=20 defined=0 value=00000000
+FINAL case=12 reg=21 defined=0 value=00000000
+FINAL case=12 reg=22 defined=0 value=00000000
+FINAL case=12 reg=23 defined=0 value=00000000
+FINAL case=12 reg=24 defined=0 value=00000000
+FINAL case=12 reg=25 defined=0 value=00000000
+FINAL case=12 reg=26 defined=0 value=00000000
+FINAL case=12 reg=27 defined=0 value=00000000
+FINAL case=12 reg=28 defined=0 value=00000000
+FINAL case=12 reg=29 defined=0 value=00000000
+FINAL case=12 reg=30 defined=0 value=00000000
+FINAL case=12 reg=31 defined=0 value=00000000
+CASE case=12 instructions=10 cycles=41 hold_observed=0
+ARCH case=13 index=0 pc=00000100 raw=000000b7 trap=0 cause=0 tval=00000000 rdwrite=1 rd=1 value=00000000 next=00000104
+ARCH case=13 index=1 pc=00000104 raw=00708093 trap=0 cause=0 tval=00000000 rdwrite=1 rd=1 value=00000007 next=00000108
+ARCH case=13 index=2 pc=00000108 raw=00000137 trap=0 cause=0 tval=00000000 rdwrite=1 rd=2 value=00000000 next=0000010c
+ARCH case=13 index=3 pc=0000010c raw=00710113 trap=0 cause=0 tval=00000000 rdwrite=1 rd=2 value=00000007 next=00000110
+ARCH case=13 index=4 pc=00000110 raw=0020f463 trap=0 cause=0 tval=00000000 rdwrite=0 rd=0 value=00000000 next=00000118
+ARCH case=13 index=5 pc=00000118 raw=0080026f trap=0 cause=0 tval=00000000 rdwrite=1 rd=4 value=0000011c next=00000120
+ARCH case=13 index=6 pc=00000120 raw=000002b7 trap=0 cause=0 tval=00000000 rdwrite=1 rd=5 value=00000000 next=00000124
+ARCH case=13 index=7 pc=00000124 raw=13128293 trap=0 cause=0 tval=00000000 rdwrite=1 rd=5 value=00000131 next=00000128
+ARCH case=13 index=8 pc=00000128 raw=000282e7 trap=0 cause=0 tval=00000000 rdwrite=1 rd=5 value=0000012c next=00000130
+ARCH case=13 index=9 pc=00000130 raw=5d10106f trap=0 cause=0 tval=00000000 rdwrite=0 rd=0 value=00000000 next=00001f00
+FINAL case=13 reg=0 defined=1 value=00000000
+FINAL case=13 reg=1 defined=1 value=00000007
+FINAL case=13 reg=2 defined=1 value=00000007
+FINAL case=13 reg=3 defined=0 value=00000000
+FINAL case=13 reg=4 defined=1 value=0000011c
+FINAL case=13 reg=5 defined=1 value=0000012c
+FINAL case=13 reg=6 defined=0 value=00000000
+FINAL case=13 reg=7 defined=0 value=00000000
+FINAL case=13 reg=8 defined=0 value=00000000
+FINAL case=13 reg=9 defined=0 value=00000000
+FINAL case=13 reg=10 defined=0 value=00000000
+FINAL case=13 reg=11 defined=0 value=00000000
+FINAL case=13 reg=12 defined=0 value=00000000
+FINAL case=13 reg=13 defined=0 value=00000000
+FINAL case=13 reg=14 defined=0 value=00000000
+FINAL case=13 reg=15 defined=0 value=00000000
+FINAL case=13 reg=16 defined=0 value=00000000
+FINAL case=13 reg=17 defined=0 value=00000000
+FINAL case=13 reg=18 defined=0 value=00000000
+FINAL case=13 reg=19 defined=0 value=00000000
+FINAL case=13 reg=20 defined=0 value=00000000
+FINAL case=13 reg=21 defined=0 value=00000000
+FINAL case=13 reg=22 defined=0 value=00000000
+FINAL case=13 reg=23 defined=0 value=00000000
+FINAL case=13 reg=24 defined=0 value=00000000
+FINAL case=13 reg=25 defined=0 value=00000000
+FINAL case=13 reg=26 defined=0 value=00000000
+FINAL case=13 reg=27 defined=0 value=00000000
+FINAL case=13 reg=28 defined=0 value=00000000
+FINAL case=13 reg=29 defined=0 value=00000000
+FINAL case=13 reg=30 defined=0 value=00000000
+FINAL case=13 reg=31 defined=0 value=00000000
+CASE case=13 instructions=10 cycles=41 hold_observed=0
+ARCH case=14 index=0 pc=00000100 raw=800000b7 trap=0 cause=0 tval=00000000 rdwrite=1 rd=1 value=80000000 next=00000104
+ARCH case=14 index=1 pc=00000104 raw=fff08093 trap=0 cause=0 tval=00000000 rdwrite=1 rd=1 value=7fffffff next=00000108
+ARCH case=14 index=2 pc=00000108 raw=80000137 trap=0 cause=0 tval=00000000 rdwrite=1 rd=2 value=80000000 next=0000010c
+ARCH case=14 index=3 pc=0000010c raw=00010113 trap=0 cause=0 tval=00000000 rdwrite=1 rd=2 value=80000000 next=00000110
+ARCH case=14 index=4 pc=00000110 raw=0020f463 trap=0 cause=0 tval=00000000 rdwrite=0 rd=0 value=00000000 next=00000114
+ARCH case=14 index=5 pc=00000114 raw=00100193 trap=0 cause=0 tval=00000000 rdwrite=1 rd=3 value=00000001 next=00000118
+ARCH case=14 index=6 pc=00000118 raw=0080026f trap=0 cause=0 tval=00000000 rdwrite=1 rd=4 value=0000011c next=00000120
+ARCH case=14 index=7 pc=00000120 raw=000002b7 trap=0 cause=0 tval=00000000 rdwrite=1 rd=5 value=00000000 next=00000124
+ARCH case=14 index=8 pc=00000124 raw=13128293 trap=0 cause=0 tval=00000000 rdwrite=1 rd=5 value=00000131 next=00000128
+ARCH case=14 index=9 pc=00000128 raw=000282e7 trap=0 cause=0 tval=00000000 rdwrite=1 rd=5 value=0000012c next=00000130
+ARCH case=14 index=10 pc=00000130 raw=5d10106f trap=0 cause=0 tval=00000000 rdwrite=0 rd=0 value=00000000 next=00001f00
+FINAL case=14 reg=0 defined=1 value=00000000
+FINAL case=14 reg=1 defined=1 value=7fffffff
+FINAL case=14 reg=2 defined=1 value=80000000
+FINAL case=14 reg=3 defined=1 value=00000001
+FINAL case=14 reg=4 defined=1 value=0000011c
+FINAL case=14 reg=5 defined=1 value=0000012c
+FINAL case=14 reg=6 defined=0 value=00000000
+FINAL case=14 reg=7 defined=0 value=00000000
+FINAL case=14 reg=8 defined=0 value=00000000
+FINAL case=14 reg=9 defined=0 value=00000000
+FINAL case=14 reg=10 defined=0 value=00000000
+FINAL case=14 reg=11 defined=0 value=00000000
+FINAL case=14 reg=12 defined=0 value=00000000
+FINAL case=14 reg=13 defined=0 value=00000000
+FINAL case=14 reg=14 defined=0 value=00000000
+FINAL case=14 reg=15 defined=0 value=00000000
+FINAL case=14 reg=16 defined=0 value=00000000
+FINAL case=14 reg=17 defined=0 value=00000000
+FINAL case=14 reg=18 defined=0 value=00000000
+FINAL case=14 reg=19 defined=0 value=00000000
+FINAL case=14 reg=20 defined=0 value=00000000
+FINAL case=14 reg=21 defined=0 value=00000000
+FINAL case=14 reg=22 defined=0 value=00000000
+FINAL case=14 reg=23 defined=0 value=00000000
+FINAL case=14 reg=24 defined=0 value=00000000
+FINAL case=14 reg=25 defined=0 value=00000000
+FINAL case=14 reg=26 defined=0 value=00000000
+FINAL case=14 reg=27 defined=0 value=00000000
+FINAL case=14 reg=28 defined=0 value=00000000
+FINAL case=14 reg=29 defined=0 value=00000000
+FINAL case=14 reg=30 defined=0 value=00000000
+FINAL case=14 reg=31 defined=0 value=00000000
+CASE case=14 instructions=11 cycles=37 hold_observed=0
+ARCH case=15 index=0 pc=00000100 raw=00000093 trap=0 cause=0 tval=00000000 rdwrite=1 rd=1 value=00000000 next=00000104
+ARCH case=15 index=1 pc=00000104 raw=00c0006f trap=0 cause=0 tval=00000000 rdwrite=0 rd=0 value=00000000 next=00000110
+ARCH case=15 index=2 pc=00000110 raw=fe008ce3 trap=0 cause=0 tval=00000000 rdwrite=0 rd=0 value=00000000 next=00000108
+ARCH case=15 index=3 pc=00000108 raw=00100093 trap=0 cause=0 tval=00000000 rdwrite=1 rd=1 value=00000001 next=0000010c
+ARCH case=15 index=4 pc=0000010c raw=0040006f trap=0 cause=0 tval=00000000 rdwrite=0 rd=0 value=00000000 next=00000110
+ARCH case=15 index=5 pc=00000110 raw=fe008ce3 trap=0 cause=0 tval=00000000 rdwrite=0 rd=0 value=00000000 next=00000114
+ARCH case=15 index=6 pc=00000114 raw=5ed0106f trap=0 cause=0 tval=00000000 rdwrite=0 rd=0 value=00000000 next=00001f00
+FINAL case=15 reg=0 defined=1 value=00000000
+FINAL case=15 reg=1 defined=1 value=00000001
+FINAL case=15 reg=2 defined=0 value=00000000
+FINAL case=15 reg=3 defined=0 value=00000000
+FINAL case=15 reg=4 defined=0 value=00000000
+FINAL case=15 reg=5 defined=0 value=00000000
+FINAL case=15 reg=6 defined=0 value=00000000
+FINAL case=15 reg=7 defined=0 value=00000000
+FINAL case=15 reg=8 defined=0 value=00000000
+FINAL case=15 reg=9 defined=0 value=00000000
+FINAL case=15 reg=10 defined=0 value=00000000
+FINAL case=15 reg=11 defined=0 value=00000000
+FINAL case=15 reg=12 defined=0 value=00000000
+FINAL case=15 reg=13 defined=0 value=00000000
+FINAL case=15 reg=14 defined=0 value=00000000
+FINAL case=15 reg=15 defined=0 value=00000000
+FINAL case=15 reg=16 defined=0 value=00000000
+FINAL case=15 reg=17 defined=0 value=00000000
+FINAL case=15 reg=18 defined=0 value=00000000
+FINAL case=15 reg=19 defined=0 value=00000000
+FINAL case=15 reg=20 defined=0 value=00000000
+FINAL case=15 reg=21 defined=0 value=00000000
+FINAL case=15 reg=22 defined=0 value=00000000
+FINAL case=15 reg=23 defined=0 value=00000000
+FINAL case=15 reg=24 defined=0 value=00000000
+FINAL case=15 reg=25 defined=0 value=00000000
+FINAL case=15 reg=26 defined=0 value=00000000
+FINAL case=15 reg=27 defined=0 value=00000000
+FINAL case=15 reg=28 defined=0 value=00000000
+FINAL case=15 reg=29 defined=0 value=00000000
+FINAL case=15 reg=30 defined=0 value=00000000
+FINAL case=15 reg=31 defined=0 value=00000000
+CASE case=15 instructions=7 cycles=28 hold_observed=0
+ARCH case=16 index=0 pc=00000100 raw=000000b7 trap=0 cause=0 tval=00000000 rdwrite=1 rd=1 value=00000000 next=00000104
+ARCH case=16 index=1 pc=00000104 raw=07b08093 trap=0 cause=0 tval=00000000 rdwrite=1 rd=1 value=0000007b next=00000108
+ARCH case=16 index=2 pc=00000108 raw=00108133 trap=0 cause=0 tval=00000000 rdwrite=1 rd=2 value=000000f6 next=0000010c
+ARCH case=16 index=3 pc=0000010c raw=00110193 trap=0 cause=0 tval=00000000 rdwrite=1 rd=3 value=000000f7 next=00000110
+ARCH case=16 index=4 pc=00000110 raw=5f10106f trap=0 cause=0 tval=00000000 rdwrite=0 rd=0 value=00000000 next=00001f00
+FINAL case=16 reg=0 defined=1 value=00000000
+FINAL case=16 reg=1 defined=1 value=0000007b
+FINAL case=16 reg=2 defined=1 value=000000f6
+FINAL case=16 reg=3 defined=1 value=000000f7
+FINAL case=16 reg=4 defined=0 value=00000000
+FINAL case=16 reg=5 defined=0 value=00000000
+FINAL case=16 reg=6 defined=0 value=00000000
+FINAL case=16 reg=7 defined=0 value=00000000
+FINAL case=16 reg=8 defined=0 value=00000000
+FINAL case=16 reg=9 defined=0 value=00000000
+FINAL case=16 reg=10 defined=0 value=00000000
+FINAL case=16 reg=11 defined=0 value=00000000
+FINAL case=16 reg=12 defined=0 value=00000000
+FINAL case=16 reg=13 defined=0 value=00000000
+FINAL case=16 reg=14 defined=0 value=00000000
+FINAL case=16 reg=15 defined=0 value=00000000
+FINAL case=16 reg=16 defined=0 value=00000000
+FINAL case=16 reg=17 defined=0 value=00000000
+FINAL case=16 reg=18 defined=0 value=00000000
+FINAL case=16 reg=19 defined=0 value=00000000
+FINAL case=16 reg=20 defined=0 value=00000000
+FINAL case=16 reg=21 defined=0 value=00000000
+FINAL case=16 reg=22 defined=0 value=00000000
+FINAL case=16 reg=23 defined=0 value=00000000
+FINAL case=16 reg=24 defined=0 value=00000000
+FINAL case=16 reg=25 defined=0 value=00000000
+FINAL case=16 reg=26 defined=0 value=00000000
+FINAL case=16 reg=27 defined=0 value=00000000
+FINAL case=16 reg=28 defined=0 value=00000000
+FINAL case=16 reg=29 defined=0 value=00000000
+FINAL case=16 reg=30 defined=0 value=00000000
+FINAL case=16 reg=31 defined=0 value=00000000
+CASE case=16 instructions=5 cycles=29 hold_observed=1
+ARCH case=17 index=0 pc=00000100 raw=200000b7 trap=0 cause=0 tval=00000000 rdwrite=1 rd=1 value=20000000 next=00000104
+ARCH case=17 index=1 pc=00000104 raw=00008093 trap=0 cause=0 tval=00000000 rdwrite=1 rd=1 value=20000000 next=00000108
+ARCH case=17 index=2 pc=00000108 raw=20000137 trap=0 cause=0 tval=00000000 rdwrite=1 rd=2 value=20000000 next=0000010c
+ARCH case=17 index=3 pc=0000010c raw=00010113 trap=0 cause=0 tval=00000000 rdwrite=1 rd=2 value=20000000 next=00000110
+ARCH case=17 index=4 pc=00000110 raw=00700293 trap=0 cause=0 tval=00000000 rdwrite=1 rd=5 value=00000007 next=00000114
+SCHEDULE case=17 ordinal=5 accept_extra=3 response_edges=3
+EFFECT case=17 pc=00000114 write=0 address=20000000 size=2 lanes=0 wdata=00000000 status=0 rdata=20000040 reads=0 writes=0 last=00000000
+SERVICE case=17 ordinal=5 offer=777 accepted=781 reply_due=784
+ARCH case=17 index=5 pc=00000114 raw=0000a283 trap=0 cause=0 tval=00000000 rdwrite=1 rd=5 value=20000040 next=00000118
+ARCH case=17 index=6 pc=00000118 raw=00128313 trap=0 cause=0 tval=00000000 rdwrite=1 rd=6 value=20000041 next=0000011c
+ARCH case=17 index=7 pc=0000011c raw=00100393 trap=0 cause=0 tval=00000000 rdwrite=1 rd=7 value=00000001 next=00000120
+ARCH case=17 index=8 pc=00000120 raw=5e10106f trap=0 cause=0 tval=00000000 rdwrite=0 rd=0 value=00000000 next=00001f00
+FINAL case=17 reg=0 defined=1 value=00000000
+FINAL case=17 reg=1 defined=1 value=20000000
+FINAL case=17 reg=2 defined=1 value=20000000
+FINAL case=17 reg=3 defined=0 value=00000000
+FINAL case=17 reg=4 defined=0 value=00000000
+FINAL case=17 reg=5 defined=1 value=20000040
+FINAL case=17 reg=6 defined=1 value=20000041
+FINAL case=17 reg=7 defined=1 value=00000001
+FINAL case=17 reg=8 defined=0 value=00000000
+FINAL case=17 reg=9 defined=0 value=00000000
+FINAL case=17 reg=10 defined=0 value=00000000
+FINAL case=17 reg=11 defined=0 value=00000000
+FINAL case=17 reg=12 defined=0 value=00000000
+FINAL case=17 reg=13 defined=0 value=00000000
+FINAL case=17 reg=14 defined=0 value=00000000
+FINAL case=17 reg=15 defined=0 value=00000000
+FINAL case=17 reg=16 defined=0 value=00000000
+FINAL case=17 reg=17 defined=0 value=00000000
+FINAL case=17 reg=18 defined=0 value=00000000
+FINAL case=17 reg=19 defined=0 value=00000000
+FINAL case=17 reg=20 defined=0 value=00000000
+FINAL case=17 reg=21 defined=0 value=00000000
+FINAL case=17 reg=22 defined=0 value=00000000
+FINAL case=17 reg=23 defined=0 value=00000000
+FINAL case=17 reg=24 defined=0 value=00000000
+FINAL case=17 reg=25 defined=0 value=00000000
+FINAL case=17 reg=26 defined=0 value=00000000
+FINAL case=17 reg=27 defined=0 value=00000000
+FINAL case=17 reg=28 defined=0 value=00000000
+FINAL case=17 reg=29 defined=0 value=00000000
+FINAL case=17 reg=30 defined=0 value=00000000
+FINAL case=17 reg=31 defined=0 value=00000000
+CASE case=17 instructions=9 cycles=29 hold_observed=0
+ARCH case=18 index=0 pc=00000100 raw=500010b7 trap=0 cause=0 tval=00000000 rdwrite=1 rd=1 value=50001000 next=00000104
+ARCH case=18 index=1 pc=00000104 raw=00008093 trap=0 cause=0 tval=00000000 rdwrite=1 rd=1 value=50001000 next=00000108
+ARCH case=18 index=2 pc=00000108 raw=20000137 trap=0 cause=0 tval=00000000 rdwrite=1 rd=2 value=20000000 next=0000010c
+ARCH case=18 index=3 pc=0000010c raw=00010113 trap=0 cause=0 tval=00000000 rdwrite=1 rd=2 value=20000000 next=00000110
+ARCH case=18 index=4 pc=00000110 raw=00700293 trap=0 cause=0 tval=00000000 rdwrite=1 rd=5 value=00000007 next=00000114
+SCHEDULE case=18 ordinal=5 accept_extra=1 response_edges=3
+EFFECT case=18 pc=00000114 write=0 address=50001000 size=2 lanes=0 wdata=00000000 status=1 rdata=00000000 reads=0 writes=0 last=00000000
+SERVICE case=18 ordinal=5 offer=806 accepted=808 reply_due=811
+ARCH case=18 index=5 pc=00000114 raw=0000a283 trap=1 cause=5 tval=50001000 rdwrite=0 rd=0 value=00000000 next=00000000
+FINAL case=18 reg=0 defined=1 value=00000000
+FINAL case=18 reg=1 defined=1 value=50001000
+FINAL case=18 reg=2 defined=1 value=20000000
+FINAL case=18 reg=3 defined=0 value=00000000
+FINAL case=18 reg=4 defined=0 value=00000000
+FINAL case=18 reg=5 defined=1 value=00000007
+FINAL case=18 reg=6 defined=0 value=00000000
+FINAL case=18 reg=7 defined=0 value=00000000
+FINAL case=18 reg=8 defined=0 value=00000000
+FINAL case=18 reg=9 defined=0 value=00000000
+FINAL case=18 reg=10 defined=0 value=00000000
+FINAL case=18 reg=11 defined=0 value=00000000
+FINAL case=18 reg=12 defined=0 value=00000000
+FINAL case=18 reg=13 defined=0 value=00000000
+FINAL case=18 reg=14 defined=0 value=00000000
+FINAL case=18 reg=15 defined=0 value=00000000
+FINAL case=18 reg=16 defined=0 value=00000000
+FINAL case=18 reg=17 defined=0 value=00000000
+FINAL case=18 reg=18 defined=0 value=00000000
+FINAL case=18 reg=19 defined=0 value=00000000
+FINAL case=18 reg=20 defined=0 value=00000000
+FINAL case=18 reg=21 defined=0 value=00000000
+FINAL case=18 reg=22 defined=0 value=00000000
+FINAL case=18 reg=23 defined=0 value=00000000
+FINAL case=18 reg=24 defined=0 value=00000000
+FINAL case=18 reg=25 defined=0 value=00000000
+FINAL case=18 reg=26 defined=0 value=00000000
+FINAL case=18 reg=27 defined=0 value=00000000
+FINAL case=18 reg=28 defined=0 value=00000000
+FINAL case=18 reg=29 defined=0 value=00000000
+FINAL case=18 reg=30 defined=0 value=00000000
+FINAL case=18 reg=31 defined=0 value=00000000
+CASE case=18 instructions=6 cycles=22 hold_observed=0
+ARCH case=19 index=0 pc=00000100 raw=200000b7 trap=0 cause=0 tval=00000000 rdwrite=1 rd=1 value=20000000 next=00000104
+ARCH case=19 index=1 pc=00000104 raw=00008093 trap=0 cause=0 tval=00000000 rdwrite=1 rd=1 value=20000000 next=00000108
+ARCH case=19 index=2 pc=00000108 raw=20000137 trap=0 cause=0 tval=00000000 rdwrite=1 rd=2 value=20000000 next=0000010c
+ARCH case=19 index=3 pc=0000010c raw=00010113 trap=0 cause=0 tval=00000000 rdwrite=1 rd=2 value=20000000 next=00000110
+ARCH case=19 index=4 pc=00000110 raw=00700293 trap=0 cause=0 tval=00000000 rdwrite=1 rd=5 value=00000007 next=00000114
+SCHEDULE case=19 ordinal=5 accept_extra=2 response_edges=2
+EFFECT case=19 pc=00000114 write=0 address=20000000 size=2 lanes=0 wdata=00000000 status=0 rdata=20000040 reads=0 writes=0 last=00000000
+SERVICE case=19 ordinal=5 offer=828 accepted=831 reply_due=833
+ARCH case=19 index=5 pc=00000114 raw=0000a283 trap=0 cause=0 tval=00000000 rdwrite=1 rd=5 value=20000040 next=00000118
+ARCH case=19 index=6 pc=00000118 raw=00029463 trap=0 cause=0 tval=00000000 rdwrite=0 rd=0 value=00000000 next=00000120
+ARCH case=19 index=7 pc=00000120 raw=5e10106f trap=0 cause=0 tval=00000000 rdwrite=0 rd=0 value=00000000 next=00001f00
+FINAL case=19 reg=0 defined=1 value=00000000
+FINAL case=19 reg=1 defined=1 value=20000000
+FINAL case=19 reg=2 defined=1 value=20000000
+FINAL case=19 reg=3 defined=0 value=00000000
+FINAL case=19 reg=4 defined=0 value=00000000
+FINAL case=19 reg=5 defined=1 value=20000040
+FINAL case=19 reg=6 defined=0 value=00000000
+FINAL case=19 reg=7 defined=0 value=00000000
+FINAL case=19 reg=8 defined=0 value=00000000
+FINAL case=19 reg=9 defined=0 value=00000000
+FINAL case=19 reg=10 defined=0 value=00000000
+FINAL case=19 reg=11 defined=0 value=00000000
+FINAL case=19 reg=12 defined=0 value=00000000
+FINAL case=19 reg=13 defined=0 value=00000000
+FINAL case=19 reg=14 defined=0 value=00000000
+FINAL case=19 reg=15 defined=0 value=00000000
+FINAL case=19 reg=16 defined=0 value=00000000
+FINAL case=19 reg=17 defined=0 value=00000000
+FINAL case=19 reg=18 defined=0 value=00000000
+FINAL case=19 reg=19 defined=0 value=00000000
+FINAL case=19 reg=20 defined=0 value=00000000
+FINAL case=19 reg=21 defined=0 value=00000000
+FINAL case=19 reg=22 defined=0 value=00000000
+FINAL case=19 reg=23 defined=0 value=00000000
+FINAL case=19 reg=24 defined=0 value=00000000
+FINAL case=19 reg=25 defined=0 value=00000000
+FINAL case=19 reg=26 defined=0 value=00000000
+FINAL case=19 reg=27 defined=0 value=00000000
+FINAL case=19 reg=28 defined=0 value=00000000
+FINAL case=19 reg=29 defined=0 value=00000000
+FINAL case=19 reg=30 defined=0 value=00000000
+FINAL case=19 reg=31 defined=0 value=00000000
+CASE case=19 instructions=8 cycles=31 hold_observed=0
+ARCH case=20 index=0 pc=00000100 raw=500010b7 trap=0 cause=0 tval=00000000 rdwrite=1 rd=1 value=50001000 next=00000104
+ARCH case=20 index=1 pc=00000104 raw=00008093 trap=0 cause=0 tval=00000000 rdwrite=1 rd=1 value=50001000 next=00000108
+ARCH case=20 index=2 pc=00000108 raw=20000137 trap=0 cause=0 tval=00000000 rdwrite=1 rd=2 value=20000000 next=0000010c
+ARCH case=20 index=3 pc=0000010c raw=00010113 trap=0 cause=0 tval=00000000 rdwrite=1 rd=2 value=20000000 next=00000110
+ARCH case=20 index=4 pc=00000110 raw=00700293 trap=0 cause=0 tval=00000000 rdwrite=1 rd=5 value=00000007 next=00000114
+SCHEDULE case=20 ordinal=5 accept_extra=0 response_edges=1
+EFFECT case=20 pc=00000114 write=0 address=50001000 size=2 lanes=0 wdata=00000000 status=1 rdata=00000000 reads=0 writes=0 last=00000000
+SERVICE case=20 ordinal=5 offer=859 accepted=860 reply_due=861
+ARCH case=20 index=5 pc=00000114 raw=0000a283 trap=1 cause=5 tval=50001000 rdwrite=0 rd=0 value=00000000 next=00000000
+FINAL case=20 reg=0 defined=1 value=00000000
+FINAL case=20 reg=1 defined=1 value=50001000
+FINAL case=20 reg=2 defined=1 value=20000000
+FINAL case=20 reg=3 defined=0 value=00000000
+FINAL case=20 reg=4 defined=0 value=00000000
+FINAL case=20 reg=5 defined=1 value=00000007
+FINAL case=20 reg=6 defined=0 value=00000000
+FINAL case=20 reg=7 defined=0 value=00000000
+FINAL case=20 reg=8 defined=0 value=00000000
+FINAL case=20 reg=9 defined=0 value=00000000
+FINAL case=20 reg=10 defined=0 value=00000000
+FINAL case=20 reg=11 defined=0 value=00000000
+FINAL case=20 reg=12 defined=0 value=00000000
+FINAL case=20 reg=13 defined=0 value=00000000
+FINAL case=20 reg=14 defined=0 value=00000000
+FINAL case=20 reg=15 defined=0 value=00000000
+FINAL case=20 reg=16 defined=0 value=00000000
+FINAL case=20 reg=17 defined=0 value=00000000
+FINAL case=20 reg=18 defined=0 value=00000000
+FINAL case=20 reg=19 defined=0 value=00000000
+FINAL case=20 reg=20 defined=0 value=00000000
+FINAL case=20 reg=21 defined=0 value=00000000
+FINAL case=20 reg=22 defined=0 value=00000000
+FINAL case=20 reg=23 defined=0 value=00000000
+FINAL case=20 reg=24 defined=0 value=00000000
+FINAL case=20 reg=25 defined=0 value=00000000
+FINAL case=20 reg=26 defined=0 value=00000000
+FINAL case=20 reg=27 defined=0 value=00000000
+FINAL case=20 reg=28 defined=0 value=00000000
+FINAL case=20 reg=29 defined=0 value=00000000
+FINAL case=20 reg=30 defined=0 value=00000000
+FINAL case=20 reg=31 defined=0 value=00000000
+CASE case=20 instructions=6 cycles=19 hold_observed=0
+ARCH case=21 index=0 pc=00000100 raw=200000b7 trap=0 cause=0 tval=00000000 rdwrite=1 rd=1 value=20000000 next=00000104
+ARCH case=21 index=1 pc=00000104 raw=00008093 trap=0 cause=0 tval=00000000 rdwrite=1 rd=1 value=20000000 next=00000108
+ARCH case=21 index=2 pc=00000108 raw=20000137 trap=0 cause=0 tval=00000000 rdwrite=1 rd=2 value=20000000 next=0000010c
+ARCH case=21 index=3 pc=0000010c raw=00010113 trap=0 cause=0 tval=00000000 rdwrite=1 rd=2 value=20000000 next=00000110
+ARCH case=21 index=4 pc=00000110 raw=00700293 trap=0 cause=0 tval=00000000 rdwrite=1 rd=5 value=00000007 next=00000114
+SCHEDULE case=21 ordinal=5 accept_extra=2 response_edges=5
+EFFECT case=21 pc=00000114 write=0 address=20000000 size=2 lanes=0 wdata=00000000 status=0 rdata=20000040 reads=0 writes=0 last=00000000
+SERVICE case=21 ordinal=5 offer=878 accepted=881 reply_due=886
+ARCH case=21 index=5 pc=00000114 raw=0000a283 trap=0 cause=0 tval=00000000 rdwrite=1 rd=5 value=20000040 next=00000118
+SCHEDULE case=21 ordinal=6 accept_extra=2 response_edges=2
+EFFECT case=21 pc=00000118 write=0 address=20000040 size=2 lanes=0 wdata=00000000 status=0 rdata=9a5308c1 reads=0 writes=0 last=00000000
+SERVICE case=21 ordinal=6 offer=890 accepted=893 reply_due=895
+ARCH case=21 index=6 pc=00000118 raw=0002a303 trap=0 cause=0 tval=00000000 rdwrite=1 rd=6 value=9a5308c1 next=0000011c
+ARCH case=21 index=7 pc=0000011c raw=00100393 trap=0 cause=0 tval=00000000 rdwrite=1 rd=7 value=00000001 next=00000120
+ARCH case=21 index=8 pc=00000120 raw=5e10106f trap=0 cause=0 tval=00000000 rdwrite=0 rd=0 value=00000000 next=00001f00
+FINAL case=21 reg=0 defined=1 value=00000000
+FINAL case=21 reg=1 defined=1 value=20000000
+FINAL case=21 reg=2 defined=1 value=20000000
+FINAL case=21 reg=3 defined=0 value=00000000
+FINAL case=21 reg=4 defined=0 value=00000000
+FINAL case=21 reg=5 defined=1 value=20000040
+FINAL case=21 reg=6 defined=1 value=9a5308c1
+FINAL case=21 reg=7 defined=1 value=00000001
+FINAL case=21 reg=8 defined=0 value=00000000
+FINAL case=21 reg=9 defined=0 value=00000000
+FINAL case=21 reg=10 defined=0 value=00000000
+FINAL case=21 reg=11 defined=0 value=00000000
+FINAL case=21 reg=12 defined=0 value=00000000
+FINAL case=21 reg=13 defined=0 value=00000000
+FINAL case=21 reg=14 defined=0 value=00000000
+FINAL case=21 reg=15 defined=0 value=00000000
+FINAL case=21 reg=16 defined=0 value=00000000
+FINAL case=21 reg=17 defined=0 value=00000000
+FINAL case=21 reg=18 defined=0 value=00000000
+FINAL case=21 reg=19 defined=0 value=00000000
+FINAL case=21 reg=20 defined=0 value=00000000
+FINAL case=21 reg=21 defined=0 value=00000000
+FINAL case=21 reg=22 defined=0 value=00000000
+FINAL case=21 reg=23 defined=0 value=00000000
+FINAL case=21 reg=24 defined=0 value=00000000
+FINAL case=21 reg=25 defined=0 value=00000000
+FINAL case=21 reg=26 defined=0 value=00000000
+FINAL case=21 reg=27 defined=0 value=00000000
+FINAL case=21 reg=28 defined=0 value=00000000
+FINAL case=21 reg=29 defined=0 value=00000000
+FINAL case=21 reg=30 defined=0 value=00000000
+FINAL case=21 reg=31 defined=0 value=00000000
+CASE case=21 instructions=9 cycles=36 hold_observed=0
+ARCH case=22 index=0 pc=00000100 raw=500010b7 trap=0 cause=0 tval=00000000 rdwrite=1 rd=1 value=50001000 next=00000104
+ARCH case=22 index=1 pc=00000104 raw=00008093 trap=0 cause=0 tval=00000000 rdwrite=1 rd=1 value=50001000 next=00000108
+ARCH case=22 index=2 pc=00000108 raw=20000137 trap=0 cause=0 tval=00000000 rdwrite=1 rd=2 value=20000000 next=0000010c
+ARCH case=22 index=3 pc=0000010c raw=00010113 trap=0 cause=0 tval=00000000 rdwrite=1 rd=2 value=20000000 next=00000110
+ARCH case=22 index=4 pc=00000110 raw=00700293 trap=0 cause=0 tval=00000000 rdwrite=1 rd=5 value=00000007 next=00000114
+SCHEDULE case=22 ordinal=5 accept_extra=0 response_edges=4
+EFFECT case=22 pc=00000114 write=0 address=50001000 size=2 lanes=0 wdata=00000000 status=1 rdata=00000000 reads=0 writes=0 last=00000000
+SERVICE case=22 ordinal=5 offer=914 accepted=915 reply_due=919
+ARCH case=22 index=5 pc=00000114 raw=0000a283 trap=1 cause=5 tval=50001000 rdwrite=0 rd=0 value=00000000 next=00000000
+FINAL case=22 reg=0 defined=1 value=00000000
+FINAL case=22 reg=1 defined=1 value=50001000
+FINAL case=22 reg=2 defined=1 value=20000000
+FINAL case=22 reg=3 defined=0 value=00000000
+FINAL case=22 reg=4 defined=0 value=00000000
+FINAL case=22 reg=5 defined=1 value=00000007
+FINAL case=22 reg=6 defined=0 value=00000000
+FINAL case=22 reg=7 defined=0 value=00000000
+FINAL case=22 reg=8 defined=0 value=00000000
+FINAL case=22 reg=9 defined=0 value=00000000
+FINAL case=22 reg=10 defined=0 value=00000000
+FINAL case=22 reg=11 defined=0 value=00000000
+FINAL case=22 reg=12 defined=0 value=00000000
+FINAL case=22 reg=13 defined=0 value=00000000
+FINAL case=22 reg=14 defined=0 value=00000000
+FINAL case=22 reg=15 defined=0 value=00000000
+FINAL case=22 reg=16 defined=0 value=00000000
+FINAL case=22 reg=17 defined=0 value=00000000
+FINAL case=22 reg=18 defined=0 value=00000000
+FINAL case=22 reg=19 defined=0 value=00000000
+FINAL case=22 reg=20 defined=0 value=00000000
+FINAL case=22 reg=21 defined=0 value=00000000
+FINAL case=22 reg=22 defined=0 value=00000000
+FINAL case=22 reg=23 defined=0 value=00000000
+FINAL case=22 reg=24 defined=0 value=00000000
+FINAL case=22 reg=25 defined=0 value=00000000
+FINAL case=22 reg=26 defined=0 value=00000000
+FINAL case=22 reg=27 defined=0 value=00000000
+FINAL case=22 reg=28 defined=0 value=00000000
+FINAL case=22 reg=29 defined=0 value=00000000
+FINAL case=22 reg=30 defined=0 value=00000000
+FINAL case=22 reg=31 defined=0 value=00000000
+CASE case=22 instructions=6 cycles=22 hold_observed=0
+ARCH case=23 index=0 pc=00000100 raw=200000b7 trap=0 cause=0 tval=00000000 rdwrite=1 rd=1 value=20000000 next=00000104
+ARCH case=23 index=1 pc=00000104 raw=00008093 trap=0 cause=0 tval=00000000 rdwrite=1 rd=1 value=20000000 next=00000108
+ARCH case=23 index=2 pc=00000108 raw=20000137 trap=0 cause=0 tval=00000000 rdwrite=1 rd=2 value=20000000 next=0000010c
+ARCH case=23 index=3 pc=0000010c raw=00010113 trap=0 cause=0 tval=00000000 rdwrite=1 rd=2 value=20000000 next=00000110
+ARCH case=23 index=4 pc=00000110 raw=00700293 trap=0 cause=0 tval=00000000 rdwrite=1 rd=5 value=00000007 next=00000114
+SCHEDULE case=23 ordinal=5 accept_extra=2 response_edges=4
+EFFECT case=23 pc=00000114 write=0 address=20000000 size=2 lanes=0 wdata=00000000 status=0 rdata=20000040 reads=0 writes=0 last=00000000
+SERVICE case=23 ordinal=5 offer=936 accepted=939 reply_due=943
+ARCH case=23 index=5 pc=00000114 raw=0000a283 trap=0 cause=0 tval=00000000 rdwrite=1 rd=5 value=20000040 next=00000118
+SCHEDULE case=23 ordinal=6 accept_extra=2 response_edges=1
+EFFECT case=23 pc=00000118 write=1 address=20000020 size=2 lanes=f wdata=20000040 status=0 rdata=00000000 reads=0 writes=0 last=00000000
+SERVICE case=23 ordinal=6 offer=947 accepted=950 reply_due=951
+ARCH case=23 index=6 pc=00000118 raw=02512023 trap=0 cause=0 tval=00000000 rdwrite=0 rd=0 value=00000000 next=0000011c
+ARCH case=23 index=7 pc=0000011c raw=00100393 trap=0 cause=0 tval=00000000 rdwrite=1 rd=7 value=00000001 next=00000120
+ARCH case=23 index=8 pc=00000120 raw=5e10106f trap=0 cause=0 tval=00000000 rdwrite=0 rd=0 value=00000000 next=00001f00
+FINAL case=23 reg=0 defined=1 value=00000000
+FINAL case=23 reg=1 defined=1 value=20000000
+FINAL case=23 reg=2 defined=1 value=20000000
+FINAL case=23 reg=3 defined=0 value=00000000
+FINAL case=23 reg=4 defined=0 value=00000000
+FINAL case=23 reg=5 defined=1 value=20000040
+FINAL case=23 reg=6 defined=0 value=00000000
+FINAL case=23 reg=7 defined=1 value=00000001
+FINAL case=23 reg=8 defined=0 value=00000000
+FINAL case=23 reg=9 defined=0 value=00000000
+FINAL case=23 reg=10 defined=0 value=00000000
+FINAL case=23 reg=11 defined=0 value=00000000
+FINAL case=23 reg=12 defined=0 value=00000000
+FINAL case=23 reg=13 defined=0 value=00000000
+FINAL case=23 reg=14 defined=0 value=00000000
+FINAL case=23 reg=15 defined=0 value=00000000
+FINAL case=23 reg=16 defined=0 value=00000000
+FINAL case=23 reg=17 defined=0 value=00000000
+FINAL case=23 reg=18 defined=0 value=00000000
+FINAL case=23 reg=19 defined=0 value=00000000
+FINAL case=23 reg=20 defined=0 value=00000000
+FINAL case=23 reg=21 defined=0 value=00000000
+FINAL case=23 reg=22 defined=0 value=00000000
+FINAL case=23 reg=23 defined=0 value=00000000
+FINAL case=23 reg=24 defined=0 value=00000000
+FINAL case=23 reg=25 defined=0 value=00000000
+FINAL case=23 reg=26 defined=0 value=00000000
+FINAL case=23 reg=27 defined=0 value=00000000
+FINAL case=23 reg=28 defined=0 value=00000000
+FINAL case=23 reg=29 defined=0 value=00000000
+FINAL case=23 reg=30 defined=0 value=00000000
+FINAL case=23 reg=31 defined=0 value=00000000
+CASE case=23 instructions=9 cycles=34 hold_observed=0
+ARCH case=24 index=0 pc=00000100 raw=500010b7 trap=0 cause=0 tval=00000000 rdwrite=1 rd=1 value=50001000 next=00000104
+ARCH case=24 index=1 pc=00000104 raw=00008093 trap=0 cause=0 tval=00000000 rdwrite=1 rd=1 value=50001000 next=00000108
+ARCH case=24 index=2 pc=00000108 raw=20000137 trap=0 cause=0 tval=00000000 rdwrite=1 rd=2 value=20000000 next=0000010c
+ARCH case=24 index=3 pc=0000010c raw=00010113 trap=0 cause=0 tval=00000000 rdwrite=1 rd=2 value=20000000 next=00000110
+ARCH case=24 index=4 pc=00000110 raw=00700293 trap=0 cause=0 tval=00000000 rdwrite=1 rd=5 value=00000007 next=00000114
+SCHEDULE case=24 ordinal=5 accept_extra=0 response_edges=3
+EFFECT case=24 pc=00000114 write=0 address=50001000 size=2 lanes=0 wdata=00000000 status=1 rdata=00000000 reads=0 writes=0 last=00000000
+SERVICE case=24 ordinal=5 offer=970 accepted=971 reply_due=974
+ARCH case=24 index=5 pc=00000114 raw=0000a283 trap=1 cause=5 tval=50001000 rdwrite=0 rd=0 value=00000000 next=00000000
+FINAL case=24 reg=0 defined=1 value=00000000
+FINAL case=24 reg=1 defined=1 value=50001000
+FINAL case=24 reg=2 defined=1 value=20000000
+FINAL case=24 reg=3 defined=0 value=00000000
+FINAL case=24 reg=4 defined=0 value=00000000
+FINAL case=24 reg=5 defined=1 value=00000007
+FINAL case=24 reg=6 defined=0 value=00000000
+FINAL case=24 reg=7 defined=0 value=00000000
+FINAL case=24 reg=8 defined=0 value=00000000
+FINAL case=24 reg=9 defined=0 value=00000000
+FINAL case=24 reg=10 defined=0 value=00000000
+FINAL case=24 reg=11 defined=0 value=00000000
+FINAL case=24 reg=12 defined=0 value=00000000
+FINAL case=24 reg=13 defined=0 value=00000000
+FINAL case=24 reg=14 defined=0 value=00000000
+FINAL case=24 reg=15 defined=0 value=00000000
+FINAL case=24 reg=16 defined=0 value=00000000
+FINAL case=24 reg=17 defined=0 value=00000000
+FINAL case=24 reg=18 defined=0 value=00000000
+FINAL case=24 reg=19 defined=0 value=00000000
+FINAL case=24 reg=20 defined=0 value=00000000
+FINAL case=24 reg=21 defined=0 value=00000000
+FINAL case=24 reg=22 defined=0 value=00000000
+FINAL case=24 reg=23 defined=0 value=00000000
+FINAL case=24 reg=24 defined=0 value=00000000
+FINAL case=24 reg=25 defined=0 value=00000000
+FINAL case=24 reg=26 defined=0 value=00000000
+FINAL case=24 reg=27 defined=0 value=00000000
+FINAL case=24 reg=28 defined=0 value=00000000
+FINAL case=24 reg=29 defined=0 value=00000000
+FINAL case=24 reg=30 defined=0 value=00000000
+FINAL case=24 reg=31 defined=0 value=00000000
+CASE case=24 instructions=6 cycles=21 hold_observed=0
+ARCH case=25 index=0 pc=00000100 raw=02000033 trap=1 cause=2 tval=00000000 rdwrite=0 rd=0 value=00000000 next=00000000
+FINAL case=25 reg=0 defined=1 value=00000000
+FINAL case=25 reg=1 defined=0 value=00000000
+FINAL case=25 reg=2 defined=0 value=00000000
+FINAL case=25 reg=3 defined=0 value=00000000
+FINAL case=25 reg=4 defined=0 value=00000000
+FINAL case=25 reg=5 defined=0 value=00000000
+FINAL case=25 reg=6 defined=0 value=00000000
+FINAL case=25 reg=7 defined=0 value=00000000
+FINAL case=25 reg=8 defined=0 value=00000000
+FINAL case=25 reg=9 defined=0 value=00000000
+FINAL case=25 reg=10 defined=0 value=00000000
+FINAL case=25 reg=11 defined=0 value=00000000
+FINAL case=25 reg=12 defined=0 value=00000000
+FINAL case=25 reg=13 defined=0 value=00000000
+FINAL case=25 reg=14 defined=0 value=00000000
+FINAL case=25 reg=15 defined=0 value=00000000
+FINAL case=25 reg=16 defined=0 value=00000000
+FINAL case=25 reg=17 defined=0 value=00000000
+FINAL case=25 reg=18 defined=0 value=00000000
+FINAL case=25 reg=19 defined=0 value=00000000
+FINAL case=25 reg=20 defined=0 value=00000000
+FINAL case=25 reg=21 defined=0 value=00000000
+FINAL case=25 reg=22 defined=0 value=00000000
+FINAL case=25 reg=23 defined=0 value=00000000
+FINAL case=25 reg=24 defined=0 value=00000000
+FINAL case=25 reg=25 defined=0 value=00000000
+FINAL case=25 reg=26 defined=0 value=00000000
+FINAL case=25 reg=27 defined=0 value=00000000
+FINAL case=25 reg=28 defined=0 value=00000000
+FINAL case=25 reg=29 defined=0 value=00000000
+FINAL case=25 reg=30 defined=0 value=00000000
+FINAL case=25 reg=31 defined=0 value=00000000
+CASE case=25 instructions=1 cycles=7 hold_observed=0
+ARCH case=26 index=0 pc=00000100 raw=30001073 trap=1 cause=2 tval=00000000 rdwrite=0 rd=0 value=00000000 next=00000000
+FINAL case=26 reg=0 defined=1 value=00000000
+FINAL case=26 reg=1 defined=0 value=00000000
+FINAL case=26 reg=2 defined=0 value=00000000
+FINAL case=26 reg=3 defined=0 value=00000000
+FINAL case=26 reg=4 defined=0 value=00000000
+FINAL case=26 reg=5 defined=0 value=00000000
+FINAL case=26 reg=6 defined=0 value=00000000
+FINAL case=26 reg=7 defined=0 value=00000000
+FINAL case=26 reg=8 defined=0 value=00000000
+FINAL case=26 reg=9 defined=0 value=00000000
+FINAL case=26 reg=10 defined=0 value=00000000
+FINAL case=26 reg=11 defined=0 value=00000000
+FINAL case=26 reg=12 defined=0 value=00000000
+FINAL case=26 reg=13 defined=0 value=00000000
+FINAL case=26 reg=14 defined=0 value=00000000
+FINAL case=26 reg=15 defined=0 value=00000000
+FINAL case=26 reg=16 defined=0 value=00000000
+FINAL case=26 reg=17 defined=0 value=00000000
+FINAL case=26 reg=18 defined=0 value=00000000
+FINAL case=26 reg=19 defined=0 value=00000000
+FINAL case=26 reg=20 defined=0 value=00000000
+FINAL case=26 reg=21 defined=0 value=00000000
+FINAL case=26 reg=22 defined=0 value=00000000
+FINAL case=26 reg=23 defined=0 value=00000000
+FINAL case=26 reg=24 defined=0 value=00000000
+FINAL case=26 reg=25 defined=0 value=00000000
+FINAL case=26 reg=26 defined=0 value=00000000
+FINAL case=26 reg=27 defined=0 value=00000000
+FINAL case=26 reg=28 defined=0 value=00000000
+FINAL case=26 reg=29 defined=0 value=00000000
+FINAL case=26 reg=30 defined=0 value=00000000
+FINAL case=26 reg=31 defined=0 value=00000000
+CASE case=26 instructions=1 cycles=7 hold_observed=0
+ARCH case=27 index=0 pc=00000100 raw=30200073 trap=1 cause=2 tval=00000000 rdwrite=0 rd=0 value=00000000 next=00000000
+FINAL case=27 reg=0 defined=1 value=00000000
+FINAL case=27 reg=1 defined=0 value=00000000
+FINAL case=27 reg=2 defined=0 value=00000000
+FINAL case=27 reg=3 defined=0 value=00000000
+FINAL case=27 reg=4 defined=0 value=00000000
+FINAL case=27 reg=5 defined=0 value=00000000
+FINAL case=27 reg=6 defined=0 value=00000000
+FINAL case=27 reg=7 defined=0 value=00000000
+FINAL case=27 reg=8 defined=0 value=00000000
+FINAL case=27 reg=9 defined=0 value=00000000
+FINAL case=27 reg=10 defined=0 value=00000000
+FINAL case=27 reg=11 defined=0 value=00000000
+FINAL case=27 reg=12 defined=0 value=00000000
+FINAL case=27 reg=13 defined=0 value=00000000
+FINAL case=27 reg=14 defined=0 value=00000000
+FINAL case=27 reg=15 defined=0 value=00000000
+FINAL case=27 reg=16 defined=0 value=00000000
+FINAL case=27 reg=17 defined=0 value=00000000
+FINAL case=27 reg=18 defined=0 value=00000000
+FINAL case=27 reg=19 defined=0 value=00000000
+FINAL case=27 reg=20 defined=0 value=00000000
+FINAL case=27 reg=21 defined=0 value=00000000
+FINAL case=27 reg=22 defined=0 value=00000000
+FINAL case=27 reg=23 defined=0 value=00000000
+FINAL case=27 reg=24 defined=0 value=00000000
+FINAL case=27 reg=25 defined=0 value=00000000
+FINAL case=27 reg=26 defined=0 value=00000000
+FINAL case=27 reg=27 defined=0 value=00000000
+FINAL case=27 reg=28 defined=0 value=00000000
+FINAL case=27 reg=29 defined=0 value=00000000
+FINAL case=27 reg=30 defined=0 value=00000000
+FINAL case=27 reg=31 defined=0 value=00000000
+CASE case=27 instructions=1 cycles=7 hold_observed=0
+ARCH case=28 index=0 pc=00000100 raw=10500073 trap=1 cause=2 tval=00000000 rdwrite=0 rd=0 value=00000000 next=00000000
+FINAL case=28 reg=0 defined=1 value=00000000
+FINAL case=28 reg=1 defined=0 value=00000000
+FINAL case=28 reg=2 defined=0 value=00000000
+FINAL case=28 reg=3 defined=0 value=00000000
+FINAL case=28 reg=4 defined=0 value=00000000
+FINAL case=28 reg=5 defined=0 value=00000000
+FINAL case=28 reg=6 defined=0 value=00000000
+FINAL case=28 reg=7 defined=0 value=00000000
+FINAL case=28 reg=8 defined=0 value=00000000
+FINAL case=28 reg=9 defined=0 value=00000000
+FINAL case=28 reg=10 defined=0 value=00000000
+FINAL case=28 reg=11 defined=0 value=00000000
+FINAL case=28 reg=12 defined=0 value=00000000
+FINAL case=28 reg=13 defined=0 value=00000000
+FINAL case=28 reg=14 defined=0 value=00000000
+FINAL case=28 reg=15 defined=0 value=00000000
+FINAL case=28 reg=16 defined=0 value=00000000
+FINAL case=28 reg=17 defined=0 value=00000000
+FINAL case=28 reg=18 defined=0 value=00000000
+FINAL case=28 reg=19 defined=0 value=00000000
+FINAL case=28 reg=20 defined=0 value=00000000
+FINAL case=28 reg=21 defined=0 value=00000000
+FINAL case=28 reg=22 defined=0 value=00000000
+FINAL case=28 reg=23 defined=0 value=00000000
+FINAL case=28 reg=24 defined=0 value=00000000
+FINAL case=28 reg=25 defined=0 value=00000000
+FINAL case=28 reg=26 defined=0 value=00000000
+FINAL case=28 reg=27 defined=0 value=00000000
+FINAL case=28 reg=28 defined=0 value=00000000
+FINAL case=28 reg=29 defined=0 value=00000000
+FINAL case=28 reg=30 defined=0 value=00000000
+FINAL case=28 reg=31 defined=0 value=00000000
+CASE case=28 instructions=1 cycles=7 hold_observed=0
+ARCH case=29 index=0 pc=00000100 raw=0000100f trap=1 cause=2 tval=00000000 rdwrite=0 rd=0 value=00000000 next=00000000
+FINAL case=29 reg=0 defined=1 value=00000000
+FINAL case=29 reg=1 defined=0 value=00000000
+FINAL case=29 reg=2 defined=0 value=00000000
+FINAL case=29 reg=3 defined=0 value=00000000
+FINAL case=29 reg=4 defined=0 value=00000000
+FINAL case=29 reg=5 defined=0 value=00000000
+FINAL case=29 reg=6 defined=0 value=00000000
+FINAL case=29 reg=7 defined=0 value=00000000
+FINAL case=29 reg=8 defined=0 value=00000000
+FINAL case=29 reg=9 defined=0 value=00000000
+FINAL case=29 reg=10 defined=0 value=00000000
+FINAL case=29 reg=11 defined=0 value=00000000
+FINAL case=29 reg=12 defined=0 value=00000000
+FINAL case=29 reg=13 defined=0 value=00000000
+FINAL case=29 reg=14 defined=0 value=00000000
+FINAL case=29 reg=15 defined=0 value=00000000
+FINAL case=29 reg=16 defined=0 value=00000000
+FINAL case=29 reg=17 defined=0 value=00000000
+FINAL case=29 reg=18 defined=0 value=00000000
+FINAL case=29 reg=19 defined=0 value=00000000
+FINAL case=29 reg=20 defined=0 value=00000000
+FINAL case=29 reg=21 defined=0 value=00000000
+FINAL case=29 reg=22 defined=0 value=00000000
+FINAL case=29 reg=23 defined=0 value=00000000
+FINAL case=29 reg=24 defined=0 value=00000000
+FINAL case=29 reg=25 defined=0 value=00000000
+FINAL case=29 reg=26 defined=0 value=00000000
+FINAL case=29 reg=27 defined=0 value=00000000
+FINAL case=29 reg=28 defined=0 value=00000000
+FINAL case=29 reg=29 defined=0 value=00000000
+FINAL case=29 reg=30 defined=0 value=00000000
+FINAL case=29 reg=31 defined=0 value=00000000
+CASE case=29 instructions=1 cycles=7 hold_observed=0
+ARCH case=30 index=0 pc=00000100 raw=00000001 trap=1 cause=2 tval=00000000 rdwrite=0 rd=0 value=00000000 next=00000000
+FINAL case=30 reg=0 defined=1 value=00000000
+FINAL case=30 reg=1 defined=0 value=00000000
+FINAL case=30 reg=2 defined=0 value=00000000
+FINAL case=30 reg=3 defined=0 value=00000000
+FINAL case=30 reg=4 defined=0 value=00000000
+FINAL case=30 reg=5 defined=0 value=00000000
+FINAL case=30 reg=6 defined=0 value=00000000
+FINAL case=30 reg=7 defined=0 value=00000000
+FINAL case=30 reg=8 defined=0 value=00000000
+FINAL case=30 reg=9 defined=0 value=00000000
+FINAL case=30 reg=10 defined=0 value=00000000
+FINAL case=30 reg=11 defined=0 value=00000000
+FINAL case=30 reg=12 defined=0 value=00000000
+FINAL case=30 reg=13 defined=0 value=00000000
+FINAL case=30 reg=14 defined=0 value=00000000
+FINAL case=30 reg=15 defined=0 value=00000000
+FINAL case=30 reg=16 defined=0 value=00000000
+FINAL case=30 reg=17 defined=0 value=00000000
+FINAL case=30 reg=18 defined=0 value=00000000
+FINAL case=30 reg=19 defined=0 value=00000000
+FINAL case=30 reg=20 defined=0 value=00000000
+FINAL case=30 reg=21 defined=0 value=00000000
+FINAL case=30 reg=22 defined=0 value=00000000
+FINAL case=30 reg=23 defined=0 value=00000000
+FINAL case=30 reg=24 defined=0 value=00000000
+FINAL case=30 reg=25 defined=0 value=00000000
+FINAL case=30 reg=26 defined=0 value=00000000
+FINAL case=30 reg=27 defined=0 value=00000000
+FINAL case=30 reg=28 defined=0 value=00000000
+FINAL case=30 reg=29 defined=0 value=00000000
+FINAL case=30 reg=30 defined=0 value=00000000
+FINAL case=30 reg=31 defined=0 value=00000000
+CASE case=30 instructions=1 cycles=7 hold_observed=0
+ARCH case=31 index=0 pc=00000100 raw=0000001f trap=1 cause=2 tval=00000000 rdwrite=0 rd=0 value=00000000 next=00000000
+FINAL case=31 reg=0 defined=1 value=00000000
+FINAL case=31 reg=1 defined=0 value=00000000
+FINAL case=31 reg=2 defined=0 value=00000000
+FINAL case=31 reg=3 defined=0 value=00000000
+FINAL case=31 reg=4 defined=0 value=00000000
+FINAL case=31 reg=5 defined=0 value=00000000
+FINAL case=31 reg=6 defined=0 value=00000000
+FINAL case=31 reg=7 defined=0 value=00000000
+FINAL case=31 reg=8 defined=0 value=00000000
+FINAL case=31 reg=9 defined=0 value=00000000
+FINAL case=31 reg=10 defined=0 value=00000000
+FINAL case=31 reg=11 defined=0 value=00000000
+FINAL case=31 reg=12 defined=0 value=00000000
+FINAL case=31 reg=13 defined=0 value=00000000
+FINAL case=31 reg=14 defined=0 value=00000000
+FINAL case=31 reg=15 defined=0 value=00000000
+FINAL case=31 reg=16 defined=0 value=00000000
+FINAL case=31 reg=17 defined=0 value=00000000
+FINAL case=31 reg=18 defined=0 value=00000000
+FINAL case=31 reg=19 defined=0 value=00000000
+FINAL case=31 reg=20 defined=0 value=00000000
+FINAL case=31 reg=21 defined=0 value=00000000
+FINAL case=31 reg=22 defined=0 value=00000000
+FINAL case=31 reg=23 defined=0 value=00000000
+FINAL case=31 reg=24 defined=0 value=00000000
+FINAL case=31 reg=25 defined=0 value=00000000
+FINAL case=31 reg=26 defined=0 value=00000000
+FINAL case=31 reg=27 defined=0 value=00000000
+FINAL case=31 reg=28 defined=0 value=00000000
+FINAL case=31 reg=29 defined=0 value=00000000
+FINAL case=31 reg=30 defined=0 value=00000000
+FINAL case=31 reg=31 defined=0 value=00000000
+CASE case=31 instructions=1 cycles=7 hold_observed=0
+ARCH case=32 index=0 pc=00000100 raw=02001013 trap=1 cause=2 tval=00000000 rdwrite=0 rd=0 value=00000000 next=00000000
+FINAL case=32 reg=0 defined=1 value=00000000
+FINAL case=32 reg=1 defined=0 value=00000000
+FINAL case=32 reg=2 defined=0 value=00000000
+FINAL case=32 reg=3 defined=0 value=00000000
+FINAL case=32 reg=4 defined=0 value=00000000
+FINAL case=32 reg=5 defined=0 value=00000000
+FINAL case=32 reg=6 defined=0 value=00000000
+FINAL case=32 reg=7 defined=0 value=00000000
+FINAL case=32 reg=8 defined=0 value=00000000
+FINAL case=32 reg=9 defined=0 value=00000000
+FINAL case=32 reg=10 defined=0 value=00000000
+FINAL case=32 reg=11 defined=0 value=00000000
+FINAL case=32 reg=12 defined=0 value=00000000
+FINAL case=32 reg=13 defined=0 value=00000000
+FINAL case=32 reg=14 defined=0 value=00000000
+FINAL case=32 reg=15 defined=0 value=00000000
+FINAL case=32 reg=16 defined=0 value=00000000
+FINAL case=32 reg=17 defined=0 value=00000000
+FINAL case=32 reg=18 defined=0 value=00000000
+FINAL case=32 reg=19 defined=0 value=00000000
+FINAL case=32 reg=20 defined=0 value=00000000
+FINAL case=32 reg=21 defined=0 value=00000000
+FINAL case=32 reg=22 defined=0 value=00000000
+FINAL case=32 reg=23 defined=0 value=00000000
+FINAL case=32 reg=24 defined=0 value=00000000
+FINAL case=32 reg=25 defined=0 value=00000000
+FINAL case=32 reg=26 defined=0 value=00000000
+FINAL case=32 reg=27 defined=0 value=00000000
+FINAL case=32 reg=28 defined=0 value=00000000
+FINAL case=32 reg=29 defined=0 value=00000000
+FINAL case=32 reg=30 defined=0 value=00000000
+FINAL case=32 reg=31 defined=0 value=00000000
+CASE case=32 instructions=1 cycles=7 hold_observed=0
+ARCH case=33 index=0 pc=00000100 raw=40001033 trap=1 cause=2 tval=00000000 rdwrite=0 rd=0 value=00000000 next=00000000
+FINAL case=33 reg=0 defined=1 value=00000000
+FINAL case=33 reg=1 defined=0 value=00000000
+FINAL case=33 reg=2 defined=0 value=00000000
+FINAL case=33 reg=3 defined=0 value=00000000
+FINAL case=33 reg=4 defined=0 value=00000000
+FINAL case=33 reg=5 defined=0 value=00000000
+FINAL case=33 reg=6 defined=0 value=00000000
+FINAL case=33 reg=7 defined=0 value=00000000
+FINAL case=33 reg=8 defined=0 value=00000000
+FINAL case=33 reg=9 defined=0 value=00000000
+FINAL case=33 reg=10 defined=0 value=00000000
+FINAL case=33 reg=11 defined=0 value=00000000
+FINAL case=33 reg=12 defined=0 value=00000000
+FINAL case=33 reg=13 defined=0 value=00000000
+FINAL case=33 reg=14 defined=0 value=00000000
+FINAL case=33 reg=15 defined=0 value=00000000
+FINAL case=33 reg=16 defined=0 value=00000000
+FINAL case=33 reg=17 defined=0 value=00000000
+FINAL case=33 reg=18 defined=0 value=00000000
+FINAL case=33 reg=19 defined=0 value=00000000
+FINAL case=33 reg=20 defined=0 value=00000000
+FINAL case=33 reg=21 defined=0 value=00000000
+FINAL case=33 reg=22 defined=0 value=00000000
+FINAL case=33 reg=23 defined=0 value=00000000
+FINAL case=33 reg=24 defined=0 value=00000000
+FINAL case=33 reg=25 defined=0 value=00000000
+FINAL case=33 reg=26 defined=0 value=00000000
+FINAL case=33 reg=27 defined=0 value=00000000
+FINAL case=33 reg=28 defined=0 value=00000000
+FINAL case=33 reg=29 defined=0 value=00000000
+FINAL case=33 reg=30 defined=0 value=00000000
+FINAL case=33 reg=31 defined=0 value=00000000
+CASE case=33 instructions=1 cycles=7 hold_observed=0
+ARCH case=34 index=0 pc=00000100 raw=00003003 trap=1 cause=2 tval=00000000 rdwrite=0 rd=0 value=00000000 next=00000000
+FINAL case=34 reg=0 defined=1 value=00000000
+FINAL case=34 reg=1 defined=0 value=00000000
+FINAL case=34 reg=2 defined=0 value=00000000
+FINAL case=34 reg=3 defined=0 value=00000000
+FINAL case=34 reg=4 defined=0 value=00000000
+FINAL case=34 reg=5 defined=0 value=00000000
+FINAL case=34 reg=6 defined=0 value=00000000
+FINAL case=34 reg=7 defined=0 value=00000000
+FINAL case=34 reg=8 defined=0 value=00000000
+FINAL case=34 reg=9 defined=0 value=00000000
+FINAL case=34 reg=10 defined=0 value=00000000
+FINAL case=34 reg=11 defined=0 value=00000000
+FINAL case=34 reg=12 defined=0 value=00000000
+FINAL case=34 reg=13 defined=0 value=00000000
+FINAL case=34 reg=14 defined=0 value=00000000
+FINAL case=34 reg=15 defined=0 value=00000000
+FINAL case=34 reg=16 defined=0 value=00000000
+FINAL case=34 reg=17 defined=0 value=00000000
+FINAL case=34 reg=18 defined=0 value=00000000
+FINAL case=34 reg=19 defined=0 value=00000000
+FINAL case=34 reg=20 defined=0 value=00000000
+FINAL case=34 reg=21 defined=0 value=00000000
+FINAL case=34 reg=22 defined=0 value=00000000
+FINAL case=34 reg=23 defined=0 value=00000000
+FINAL case=34 reg=24 defined=0 value=00000000
+FINAL case=34 reg=25 defined=0 value=00000000
+FINAL case=34 reg=26 defined=0 value=00000000
+FINAL case=34 reg=27 defined=0 value=00000000
+FINAL case=34 reg=28 defined=0 value=00000000
+FINAL case=34 reg=29 defined=0 value=00000000
+FINAL case=34 reg=30 defined=0 value=00000000
+FINAL case=34 reg=31 defined=0 value=00000000
+CASE case=34 instructions=1 cycles=7 hold_observed=0
+ARCH case=35 index=0 pc=00000100 raw=00003023 trap=1 cause=2 tval=00000000 rdwrite=0 rd=0 value=00000000 next=00000000
+FINAL case=35 reg=0 defined=1 value=00000000
+FINAL case=35 reg=1 defined=0 value=00000000
+FINAL case=35 reg=2 defined=0 value=00000000
+FINAL case=35 reg=3 defined=0 value=00000000
+FINAL case=35 reg=4 defined=0 value=00000000
+FINAL case=35 reg=5 defined=0 value=00000000
+FINAL case=35 reg=6 defined=0 value=00000000
+FINAL case=35 reg=7 defined=0 value=00000000
+FINAL case=35 reg=8 defined=0 value=00000000
+FINAL case=35 reg=9 defined=0 value=00000000
+FINAL case=35 reg=10 defined=0 value=00000000
+FINAL case=35 reg=11 defined=0 value=00000000
+FINAL case=35 reg=12 defined=0 value=00000000
+FINAL case=35 reg=13 defined=0 value=00000000
+FINAL case=35 reg=14 defined=0 value=00000000
+FINAL case=35 reg=15 defined=0 value=00000000
+FINAL case=35 reg=16 defined=0 value=00000000
+FINAL case=35 reg=17 defined=0 value=00000000
+FINAL case=35 reg=18 defined=0 value=00000000
+FINAL case=35 reg=19 defined=0 value=00000000
+FINAL case=35 reg=20 defined=0 value=00000000
+FINAL case=35 reg=21 defined=0 value=00000000
+FINAL case=35 reg=22 defined=0 value=00000000
+FINAL case=35 reg=23 defined=0 value=00000000
+FINAL case=35 reg=24 defined=0 value=00000000
+FINAL case=35 reg=25 defined=0 value=00000000
+FINAL case=35 reg=26 defined=0 value=00000000
+FINAL case=35 reg=27 defined=0 value=00000000
+FINAL case=35 reg=28 defined=0 value=00000000
+FINAL case=35 reg=29 defined=0 value=00000000
+FINAL case=35 reg=30 defined=0 value=00000000
+FINAL case=35 reg=31 defined=0 value=00000000
+CASE case=35 instructions=1 cycles=7 hold_observed=0
+ARCH case=36 index=0 pc=00000100 raw=00000073 trap=1 cause=11 tval=00000000 rdwrite=0 rd=0 value=00000000 next=00000000
+FINAL case=36 reg=0 defined=1 value=00000000
+FINAL case=36 reg=1 defined=0 value=00000000
+FINAL case=36 reg=2 defined=0 value=00000000
+FINAL case=36 reg=3 defined=0 value=00000000
+FINAL case=36 reg=4 defined=0 value=00000000
+FINAL case=36 reg=5 defined=0 value=00000000
+FINAL case=36 reg=6 defined=0 value=00000000
+FINAL case=36 reg=7 defined=0 value=00000000
+FINAL case=36 reg=8 defined=0 value=00000000
+FINAL case=36 reg=9 defined=0 value=00000000
+FINAL case=36 reg=10 defined=0 value=00000000
+FINAL case=36 reg=11 defined=0 value=00000000
+FINAL case=36 reg=12 defined=0 value=00000000
+FINAL case=36 reg=13 defined=0 value=00000000
+FINAL case=36 reg=14 defined=0 value=00000000
+FINAL case=36 reg=15 defined=0 value=00000000
+FINAL case=36 reg=16 defined=0 value=00000000
+FINAL case=36 reg=17 defined=0 value=00000000
+FINAL case=36 reg=18 defined=0 value=00000000
+FINAL case=36 reg=19 defined=0 value=00000000
+FINAL case=36 reg=20 defined=0 value=00000000
+FINAL case=36 reg=21 defined=0 value=00000000
+FINAL case=36 reg=22 defined=0 value=00000000
+FINAL case=36 reg=23 defined=0 value=00000000
+FINAL case=36 reg=24 defined=0 value=00000000
+FINAL case=36 reg=25 defined=0 value=00000000
+FINAL case=36 reg=26 defined=0 value=00000000
+FINAL case=36 reg=27 defined=0 value=00000000
+FINAL case=36 reg=28 defined=0 value=00000000
+FINAL case=36 reg=29 defined=0 value=00000000
+FINAL case=36 reg=30 defined=0 value=00000000
+FINAL case=36 reg=31 defined=0 value=00000000
+CASE case=36 instructions=1 cycles=8 hold_observed=0
+ARCH case=37 index=0 pc=00000100 raw=00100073 trap=1 cause=3 tval=00000100 rdwrite=0 rd=0 value=00000000 next=00000000
+FINAL case=37 reg=0 defined=1 value=00000000
+FINAL case=37 reg=1 defined=0 value=00000000
+FINAL case=37 reg=2 defined=0 value=00000000
+FINAL case=37 reg=3 defined=0 value=00000000
+FINAL case=37 reg=4 defined=0 value=00000000
+FINAL case=37 reg=5 defined=0 value=00000000
+FINAL case=37 reg=6 defined=0 value=00000000
+FINAL case=37 reg=7 defined=0 value=00000000
+FINAL case=37 reg=8 defined=0 value=00000000
+FINAL case=37 reg=9 defined=0 value=00000000
+FINAL case=37 reg=10 defined=0 value=00000000
+FINAL case=37 reg=11 defined=0 value=00000000
+FINAL case=37 reg=12 defined=0 value=00000000
+FINAL case=37 reg=13 defined=0 value=00000000
+FINAL case=37 reg=14 defined=0 value=00000000
+FINAL case=37 reg=15 defined=0 value=00000000
+FINAL case=37 reg=16 defined=0 value=00000000
+FINAL case=37 reg=17 defined=0 value=00000000
+FINAL case=37 reg=18 defined=0 value=00000000
+FINAL case=37 reg=19 defined=0 value=00000000
+FINAL case=37 reg=20 defined=0 value=00000000
+FINAL case=37 reg=21 defined=0 value=00000000
+FINAL case=37 reg=22 defined=0 value=00000000
+FINAL case=37 reg=23 defined=0 value=00000000
+FINAL case=37 reg=24 defined=0 value=00000000
+FINAL case=37 reg=25 defined=0 value=00000000
+FINAL case=37 reg=26 defined=0 value=00000000
+FINAL case=37 reg=27 defined=0 value=00000000
+FINAL case=37 reg=28 defined=0 value=00000000
+FINAL case=37 reg=29 defined=0 value=00000000
+FINAL case=37 reg=30 defined=0 value=00000000
+FINAL case=37 reg=31 defined=0 value=00000000
+CASE case=37 instructions=1 cycles=8 hold_observed=0
+ARCH case=38 index=0 pc=00000100 raw=00000013 trap=1 cause=2 tval=00000000 rdwrite=0 rd=0 value=00000000 next=00000000
+FINAL case=38 reg=0 defined=1 value=00000000
+FINAL case=38 reg=1 defined=0 value=00000000
+FINAL case=38 reg=2 defined=0 value=00000000
+FINAL case=38 reg=3 defined=0 value=00000000
+FINAL case=38 reg=4 defined=0 value=00000000
+FINAL case=38 reg=5 defined=0 value=00000000
+FINAL case=38 reg=6 defined=0 value=00000000
+FINAL case=38 reg=7 defined=0 value=00000000
+FINAL case=38 reg=8 defined=0 value=00000000
+FINAL case=38 reg=9 defined=0 value=00000000
+FINAL case=38 reg=10 defined=0 value=00000000
+FINAL case=38 reg=11 defined=0 value=00000000
+FINAL case=38 reg=12 defined=0 value=00000000
+FINAL case=38 reg=13 defined=0 value=00000000
+FINAL case=38 reg=14 defined=0 value=00000000
+FINAL case=38 reg=15 defined=0 value=00000000
+FINAL case=38 reg=16 defined=0 value=00000000
+FINAL case=38 reg=17 defined=0 value=00000000
+FINAL case=38 reg=18 defined=0 value=00000000
+FINAL case=38 reg=19 defined=0 value=00000000
+FINAL case=38 reg=20 defined=0 value=00000000
+FINAL case=38 reg=21 defined=0 value=00000000
+FINAL case=38 reg=22 defined=0 value=00000000
+FINAL case=38 reg=23 defined=0 value=00000000
+FINAL case=38 reg=24 defined=0 value=00000000
+FINAL case=38 reg=25 defined=0 value=00000000
+FINAL case=38 reg=26 defined=0 value=00000000
+FINAL case=38 reg=27 defined=0 value=00000000
+FINAL case=38 reg=28 defined=0 value=00000000
+FINAL case=38 reg=29 defined=0 value=00000000
+FINAL case=38 reg=30 defined=0 value=00000000
+FINAL case=38 reg=31 defined=0 value=00000000
+CASE case=38 instructions=1 cycles=7 hold_observed=0
+ARCH case=39 index=0 pc=00000100 raw=ffffffff trap=1 cause=1 tval=00000102 rdwrite=0 rd=0 value=00000000 next=00000000
+FINAL case=39 reg=0 defined=1 value=00000000
+FINAL case=39 reg=1 defined=0 value=00000000
+FINAL case=39 reg=2 defined=0 value=00000000
+FINAL case=39 reg=3 defined=0 value=00000000
+FINAL case=39 reg=4 defined=0 value=00000000
+FINAL case=39 reg=5 defined=0 value=00000000
+FINAL case=39 reg=6 defined=0 value=00000000
+FINAL case=39 reg=7 defined=0 value=00000000
+FINAL case=39 reg=8 defined=0 value=00000000
+FINAL case=39 reg=9 defined=0 value=00000000
+FINAL case=39 reg=10 defined=0 value=00000000
+FINAL case=39 reg=11 defined=0 value=00000000
+FINAL case=39 reg=12 defined=0 value=00000000
+FINAL case=39 reg=13 defined=0 value=00000000
+FINAL case=39 reg=14 defined=0 value=00000000
+FINAL case=39 reg=15 defined=0 value=00000000
+FINAL case=39 reg=16 defined=0 value=00000000
+FINAL case=39 reg=17 defined=0 value=00000000
+FINAL case=39 reg=18 defined=0 value=00000000
+FINAL case=39 reg=19 defined=0 value=00000000
+FINAL case=39 reg=20 defined=0 value=00000000
+FINAL case=39 reg=21 defined=0 value=00000000
+FINAL case=39 reg=22 defined=0 value=00000000
+FINAL case=39 reg=23 defined=0 value=00000000
+FINAL case=39 reg=24 defined=0 value=00000000
+FINAL case=39 reg=25 defined=0 value=00000000
+FINAL case=39 reg=26 defined=0 value=00000000
+FINAL case=39 reg=27 defined=0 value=00000000
+FINAL case=39 reg=28 defined=0 value=00000000
+FINAL case=39 reg=29 defined=0 value=00000000
+FINAL case=39 reg=30 defined=0 value=00000000
+FINAL case=39 reg=31 defined=0 value=00000000
+CASE case=39 instructions=1 cycles=7 hold_observed=0
+ARCH case=40 index=0 pc=00000100 raw=00000013 trap=1 cause=2 tval=00000000 rdwrite=0 rd=0 value=00000000 next=00000000
+FINAL case=40 reg=0 defined=1 value=00000000
+FINAL case=40 reg=1 defined=0 value=00000000
+FINAL case=40 reg=2 defined=0 value=00000000
+FINAL case=40 reg=3 defined=0 value=00000000
+FINAL case=40 reg=4 defined=0 value=00000000
+FINAL case=40 reg=5 defined=0 value=00000000
+FINAL case=40 reg=6 defined=0 value=00000000
+FINAL case=40 reg=7 defined=0 value=00000000
+FINAL case=40 reg=8 defined=0 value=00000000
+FINAL case=40 reg=9 defined=0 value=00000000
+FINAL case=40 reg=10 defined=0 value=00000000
+FINAL case=40 reg=11 defined=0 value=00000000
+FINAL case=40 reg=12 defined=0 value=00000000
+FINAL case=40 reg=13 defined=0 value=00000000
+FINAL case=40 reg=14 defined=0 value=00000000
+FINAL case=40 reg=15 defined=0 value=00000000
+FINAL case=40 reg=16 defined=0 value=00000000
+FINAL case=40 reg=17 defined=0 value=00000000
+FINAL case=40 reg=18 defined=0 value=00000000
+FINAL case=40 reg=19 defined=0 value=00000000
+FINAL case=40 reg=20 defined=0 value=00000000
+FINAL case=40 reg=21 defined=0 value=00000000
+FINAL case=40 reg=22 defined=0 value=00000000
+FINAL case=40 reg=23 defined=0 value=00000000
+FINAL case=40 reg=24 defined=0 value=00000000
+FINAL case=40 reg=25 defined=0 value=00000000
+FINAL case=40 reg=26 defined=0 value=00000000
+FINAL case=40 reg=27 defined=0 value=00000000
+FINAL case=40 reg=28 defined=0 value=00000000
+FINAL case=40 reg=29 defined=0 value=00000000
+FINAL case=40 reg=30 defined=0 value=00000000
+FINAL case=40 reg=31 defined=0 value=00000000
+CASE case=40 instructions=1 cycles=7 hold_observed=0
+ARCH case=41 index=0 pc=00000100 raw=00000013 trap=1 cause=2 tval=00000000 rdwrite=0 rd=0 value=00000000 next=00000000
+FINAL case=41 reg=0 defined=1 value=00000000
+FINAL case=41 reg=1 defined=0 value=00000000
+FINAL case=41 reg=2 defined=0 value=00000000
+FINAL case=41 reg=3 defined=0 value=00000000
+FINAL case=41 reg=4 defined=0 value=00000000
+FINAL case=41 reg=5 defined=0 value=00000000
+FINAL case=41 reg=6 defined=0 value=00000000
+FINAL case=41 reg=7 defined=0 value=00000000
+FINAL case=41 reg=8 defined=0 value=00000000
+FINAL case=41 reg=9 defined=0 value=00000000
+FINAL case=41 reg=10 defined=0 value=00000000
+FINAL case=41 reg=11 defined=0 value=00000000
+FINAL case=41 reg=12 defined=0 value=00000000
+FINAL case=41 reg=13 defined=0 value=00000000
+FINAL case=41 reg=14 defined=0 value=00000000
+FINAL case=41 reg=15 defined=0 value=00000000
+FINAL case=41 reg=16 defined=0 value=00000000
+FINAL case=41 reg=17 defined=0 value=00000000
+FINAL case=41 reg=18 defined=0 value=00000000
+FINAL case=41 reg=19 defined=0 value=00000000
+FINAL case=41 reg=20 defined=0 value=00000000
+FINAL case=41 reg=21 defined=0 value=00000000
+FINAL case=41 reg=22 defined=0 value=00000000
+FINAL case=41 reg=23 defined=0 value=00000000
+FINAL case=41 reg=24 defined=0 value=00000000
+FINAL case=41 reg=25 defined=0 value=00000000
+FINAL case=41 reg=26 defined=0 value=00000000
+FINAL case=41 reg=27 defined=0 value=00000000
+FINAL case=41 reg=28 defined=0 value=00000000
+FINAL case=41 reg=29 defined=0 value=00000000
+FINAL case=41 reg=30 defined=0 value=00000000
+FINAL case=41 reg=31 defined=0 value=00000000
+CASE case=41 instructions=1 cycles=7 hold_observed=0
+ARCH case=42 index=0 pc=00000100 raw=00000013 trap=1 cause=0 tval=00000102 rdwrite=0 rd=0 value=00000000 next=00000000
+FINAL case=42 reg=0 defined=1 value=00000000
+FINAL case=42 reg=1 defined=0 value=00000000
+FINAL case=42 reg=2 defined=0 value=00000000
+FINAL case=42 reg=3 defined=0 value=00000000
+FINAL case=42 reg=4 defined=0 value=00000000
+FINAL case=42 reg=5 defined=0 value=00000000
+FINAL case=42 reg=6 defined=0 value=00000000
+FINAL case=42 reg=7 defined=0 value=00000000
+FINAL case=42 reg=8 defined=0 value=00000000
+FINAL case=42 reg=9 defined=0 value=00000000
+FINAL case=42 reg=10 defined=0 value=00000000
+FINAL case=42 reg=11 defined=0 value=00000000
+FINAL case=42 reg=12 defined=0 value=00000000
+FINAL case=42 reg=13 defined=0 value=00000000
+FINAL case=42 reg=14 defined=0 value=00000000
+FINAL case=42 reg=15 defined=0 value=00000000
+FINAL case=42 reg=16 defined=0 value=00000000
+FINAL case=42 reg=17 defined=0 value=00000000
+FINAL case=42 reg=18 defined=0 value=00000000
+FINAL case=42 reg=19 defined=0 value=00000000
+FINAL case=42 reg=20 defined=0 value=00000000
+FINAL case=42 reg=21 defined=0 value=00000000
+FINAL case=42 reg=22 defined=0 value=00000000
+FINAL case=42 reg=23 defined=0 value=00000000
+FINAL case=42 reg=24 defined=0 value=00000000
+FINAL case=42 reg=25 defined=0 value=00000000
+FINAL case=42 reg=26 defined=0 value=00000000
+FINAL case=42 reg=27 defined=0 value=00000000
+FINAL case=42 reg=28 defined=0 value=00000000
+FINAL case=42 reg=29 defined=0 value=00000000
+FINAL case=42 reg=30 defined=0 value=00000000
+FINAL case=42 reg=31 defined=0 value=00000000
+CASE case=42 instructions=1 cycles=7 hold_observed=0
+ARCH case=43 index=0 pc=00000100 raw=200000b7 trap=0 cause=0 tval=00000000 rdwrite=1 rd=1 value=20000000 next=00000104
+ARCH case=43 index=1 pc=00000104 raw=00108093 trap=0 cause=0 tval=00000000 rdwrite=1 rd=1 value=20000001 next=00000108
+ARCH case=43 index=2 pc=00000108 raw=0000a003 trap=1 cause=4 tval=20000001 rdwrite=0 rd=0 value=00000000 next=00000000
+FINAL case=43 reg=0 defined=1 value=00000000
+FINAL case=43 reg=1 defined=1 value=20000001
+FINAL case=43 reg=2 defined=0 value=00000000
+FINAL case=43 reg=3 defined=0 value=00000000
+FINAL case=43 reg=4 defined=0 value=00000000
+FINAL case=43 reg=5 defined=0 value=00000000
+FINAL case=43 reg=6 defined=0 value=00000000
+FINAL case=43 reg=7 defined=0 value=00000000
+FINAL case=43 reg=8 defined=0 value=00000000
+FINAL case=43 reg=9 defined=0 value=00000000
+FINAL case=43 reg=10 defined=0 value=00000000
+FINAL case=43 reg=11 defined=0 value=00000000
+FINAL case=43 reg=12 defined=0 value=00000000
+FINAL case=43 reg=13 defined=0 value=00000000
+FINAL case=43 reg=14 defined=0 value=00000000
+FINAL case=43 reg=15 defined=0 value=00000000
+FINAL case=43 reg=16 defined=0 value=00000000
+FINAL case=43 reg=17 defined=0 value=00000000
+FINAL case=43 reg=18 defined=0 value=00000000
+FINAL case=43 reg=19 defined=0 value=00000000
+FINAL case=43 reg=20 defined=0 value=00000000
+FINAL case=43 reg=21 defined=0 value=00000000
+FINAL case=43 reg=22 defined=0 value=00000000
+FINAL case=43 reg=23 defined=0 value=00000000
+FINAL case=43 reg=24 defined=0 value=00000000
+FINAL case=43 reg=25 defined=0 value=00000000
+FINAL case=43 reg=26 defined=0 value=00000000
+FINAL case=43 reg=27 defined=0 value=00000000
+FINAL case=43 reg=28 defined=0 value=00000000
+FINAL case=43 reg=29 defined=0 value=00000000
+FINAL case=43 reg=30 defined=0 value=00000000
+FINAL case=43 reg=31 defined=0 value=00000000
+CASE case=43 instructions=3 cycles=13 hold_observed=0
+ARCH case=44 index=0 pc=00000100 raw=200000b7 trap=0 cause=0 tval=00000000 rdwrite=1 rd=1 value=20000000 next=00000104
+ARCH case=44 index=1 pc=00000104 raw=00108093 trap=0 cause=0 tval=00000000 rdwrite=1 rd=1 value=20000001 next=00000108
+ARCH case=44 index=2 pc=00000108 raw=0000a023 trap=1 cause=6 tval=20000001 rdwrite=0 rd=0 value=00000000 next=00000000
+FINAL case=44 reg=0 defined=1 value=00000000
+FINAL case=44 reg=1 defined=1 value=20000001
+FINAL case=44 reg=2 defined=0 value=00000000
+FINAL case=44 reg=3 defined=0 value=00000000
+FINAL case=44 reg=4 defined=0 value=00000000
+FINAL case=44 reg=5 defined=0 value=00000000
+FINAL case=44 reg=6 defined=0 value=00000000
+FINAL case=44 reg=7 defined=0 value=00000000
+FINAL case=44 reg=8 defined=0 value=00000000
+FINAL case=44 reg=9 defined=0 value=00000000
+FINAL case=44 reg=10 defined=0 value=00000000
+FINAL case=44 reg=11 defined=0 value=00000000
+FINAL case=44 reg=12 defined=0 value=00000000
+FINAL case=44 reg=13 defined=0 value=00000000
+FINAL case=44 reg=14 defined=0 value=00000000
+FINAL case=44 reg=15 defined=0 value=00000000
+FINAL case=44 reg=16 defined=0 value=00000000
+FINAL case=44 reg=17 defined=0 value=00000000
+FINAL case=44 reg=18 defined=0 value=00000000
+FINAL case=44 reg=19 defined=0 value=00000000
+FINAL case=44 reg=20 defined=0 value=00000000
+FINAL case=44 reg=21 defined=0 value=00000000
+FINAL case=44 reg=22 defined=0 value=00000000
+FINAL case=44 reg=23 defined=0 value=00000000
+FINAL case=44 reg=24 defined=0 value=00000000
+FINAL case=44 reg=25 defined=0 value=00000000
+FINAL case=44 reg=26 defined=0 value=00000000
+FINAL case=44 reg=27 defined=0 value=00000000
+FINAL case=44 reg=28 defined=0 value=00000000
+FINAL case=44 reg=29 defined=0 value=00000000
+FINAL case=44 reg=30 defined=0 value=00000000
+FINAL case=44 reg=31 defined=0 value=00000000
+CASE case=44 instructions=3 cycles=13 hold_observed=0
+ARCH case=45 index=0 pc=00000100 raw=400010b7 trap=0 cause=0 tval=00000000 rdwrite=1 rd=1 value=40001000 next=00000104
+ARCH case=45 index=1 pc=00000104 raw=00008093 trap=0 cause=0 tval=00000000 rdwrite=1 rd=1 value=40001000 next=00000108
+ARCH case=45 index=2 pc=00000108 raw=0000a003 trap=1 cause=5 tval=40001000 rdwrite=0 rd=0 value=00000000 next=00000000
+FINAL case=45 reg=0 defined=1 value=00000000
+FINAL case=45 reg=1 defined=1 value=40001000
+FINAL case=45 reg=2 defined=0 value=00000000
+FINAL case=45 reg=3 defined=0 value=00000000
+FINAL case=45 reg=4 defined=0 value=00000000
+FINAL case=45 reg=5 defined=0 value=00000000
+FINAL case=45 reg=6 defined=0 value=00000000
+FINAL case=45 reg=7 defined=0 value=00000000
+FINAL case=45 reg=8 defined=0 value=00000000
+FINAL case=45 reg=9 defined=0 value=00000000
+FINAL case=45 reg=10 defined=0 value=00000000
+FINAL case=45 reg=11 defined=0 value=00000000
+FINAL case=45 reg=12 defined=0 value=00000000
+FINAL case=45 reg=13 defined=0 value=00000000
+FINAL case=45 reg=14 defined=0 value=00000000
+FINAL case=45 reg=15 defined=0 value=00000000
+FINAL case=45 reg=16 defined=0 value=00000000
+FINAL case=45 reg=17 defined=0 value=00000000
+FINAL case=45 reg=18 defined=0 value=00000000
+FINAL case=45 reg=19 defined=0 value=00000000
+FINAL case=45 reg=20 defined=0 value=00000000
+FINAL case=45 reg=21 defined=0 value=00000000
+FINAL case=45 reg=22 defined=0 value=00000000
+FINAL case=45 reg=23 defined=0 value=00000000
+FINAL case=45 reg=24 defined=0 value=00000000
+FINAL case=45 reg=25 defined=0 value=00000000
+FINAL case=45 reg=26 defined=0 value=00000000
+FINAL case=45 reg=27 defined=0 value=00000000
+FINAL case=45 reg=28 defined=0 value=00000000
+FINAL case=45 reg=29 defined=0 value=00000000
+FINAL case=45 reg=30 defined=0 value=00000000
+FINAL case=45 reg=31 defined=0 value=00000000
+CASE case=45 instructions=3 cycles=13 hold_observed=0
+ARCH case=46 index=0 pc=00000100 raw=400010b7 trap=0 cause=0 tval=00000000 rdwrite=1 rd=1 value=40001000 next=00000104
+ARCH case=46 index=1 pc=00000104 raw=00008093 trap=0 cause=0 tval=00000000 rdwrite=1 rd=1 value=40001000 next=00000108
+ARCH case=46 index=2 pc=00000108 raw=0000a023 trap=1 cause=7 tval=40001000 rdwrite=0 rd=0 value=00000000 next=00000000
+FINAL case=46 reg=0 defined=1 value=00000000
+FINAL case=46 reg=1 defined=1 value=40001000
+FINAL case=46 reg=2 defined=0 value=00000000
+FINAL case=46 reg=3 defined=0 value=00000000
+FINAL case=46 reg=4 defined=0 value=00000000
+FINAL case=46 reg=5 defined=0 value=00000000
+FINAL case=46 reg=6 defined=0 value=00000000
+FINAL case=46 reg=7 defined=0 value=00000000
+FINAL case=46 reg=8 defined=0 value=00000000
+FINAL case=46 reg=9 defined=0 value=00000000
+FINAL case=46 reg=10 defined=0 value=00000000
+FINAL case=46 reg=11 defined=0 value=00000000
+FINAL case=46 reg=12 defined=0 value=00000000
+FINAL case=46 reg=13 defined=0 value=00000000
+FINAL case=46 reg=14 defined=0 value=00000000
+FINAL case=46 reg=15 defined=0 value=00000000
+FINAL case=46 reg=16 defined=0 value=00000000
+FINAL case=46 reg=17 defined=0 value=00000000
+FINAL case=46 reg=18 defined=0 value=00000000
+FINAL case=46 reg=19 defined=0 value=00000000
+FINAL case=46 reg=20 defined=0 value=00000000
+FINAL case=46 reg=21 defined=0 value=00000000
+FINAL case=46 reg=22 defined=0 value=00000000
+FINAL case=46 reg=23 defined=0 value=00000000
+FINAL case=46 reg=24 defined=0 value=00000000
+FINAL case=46 reg=25 defined=0 value=00000000
+FINAL case=46 reg=26 defined=0 value=00000000
+FINAL case=46 reg=27 defined=0 value=00000000
+FINAL case=46 reg=28 defined=0 value=00000000
+FINAL case=46 reg=29 defined=0 value=00000000
+FINAL case=46 reg=30 defined=0 value=00000000
+FINAL case=46 reg=31 defined=0 value=00000000
+CASE case=46 instructions=3 cycles=13 hold_observed=0
+ARCH case=47 index=0 pc=00000100 raw=400000b7 trap=0 cause=0 tval=00000000 rdwrite=1 rd=1 value=40000000 next=00000104
+ARCH case=47 index=1 pc=00000104 raw=00008093 trap=0 cause=0 tval=00000000 rdwrite=1 rd=1 value=40000000 next=00000108
+SCHEDULE case=47 ordinal=2 accept_extra=3 response_edges=5
+EFFECT case=47 pc=00000108 write=0 address=40000004 size=2 lanes=0 wdata=00000000 status=1 rdata=00000000 reads=0 writes=0 last=00000000
+SERVICE case=47 ordinal=2 offer=1168 accepted=1172 reply_due=1177
+ARCH case=47 index=2 pc=00000108 raw=0040a003 trap=1 cause=5 tval=40000004 rdwrite=0 rd=0 value=00000000 next=00000000
+FINAL case=47 reg=0 defined=1 value=00000000
+FINAL case=47 reg=1 defined=1 value=40000000
+FINAL case=47 reg=2 defined=0 value=00000000
+FINAL case=47 reg=3 defined=0 value=00000000
+FINAL case=47 reg=4 defined=0 value=00000000
+FINAL case=47 reg=5 defined=0 value=00000000
+FINAL case=47 reg=6 defined=0 value=00000000
+FINAL case=47 reg=7 defined=0 value=00000000
+FINAL case=47 reg=8 defined=0 value=00000000
+FINAL case=47 reg=9 defined=0 value=00000000
+FINAL case=47 reg=10 defined=0 value=00000000
+FINAL case=47 reg=11 defined=0 value=00000000
+FINAL case=47 reg=12 defined=0 value=00000000
+FINAL case=47 reg=13 defined=0 value=00000000
+FINAL case=47 reg=14 defined=0 value=00000000
+FINAL case=47 reg=15 defined=0 value=00000000
+FINAL case=47 reg=16 defined=0 value=00000000
+FINAL case=47 reg=17 defined=0 value=00000000
+FINAL case=47 reg=18 defined=0 value=00000000
+FINAL case=47 reg=19 defined=0 value=00000000
+FINAL case=47 reg=20 defined=0 value=00000000
+FINAL case=47 reg=21 defined=0 value=00000000
+FINAL case=47 reg=22 defined=0 value=00000000
+FINAL case=47 reg=23 defined=0 value=00000000
+FINAL case=47 reg=24 defined=0 value=00000000
+FINAL case=47 reg=25 defined=0 value=00000000
+FINAL case=47 reg=26 defined=0 value=00000000
+FINAL case=47 reg=27 defined=0 value=00000000
+FINAL case=47 reg=28 defined=0 value=00000000
+FINAL case=47 reg=29 defined=0 value=00000000
+FINAL case=47 reg=30 defined=0 value=00000000
+FINAL case=47 reg=31 defined=0 value=00000000
+CASE case=47 instructions=3 cycles=23 hold_observed=0
+ARCH case=48 index=0 pc=00000100 raw=400000b7 trap=0 cause=0 tval=00000000 rdwrite=1 rd=1 value=40000000 next=00000104
+ARCH case=48 index=1 pc=00000104 raw=00008093 trap=0 cause=0 tval=00000000 rdwrite=1 rd=1 value=40000000 next=00000108
+SCHEDULE case=48 ordinal=2 accept_extra=1 response_edges=4
+EFFECT case=48 pc=00000108 write=1 address=40000000 size=2 lanes=f wdata=00000000 status=1 rdata=00000000 reads=0 writes=0 last=00000000
+SERVICE case=48 ordinal=2 offer=1191 accepted=1193 reply_due=1197
+ARCH case=48 index=2 pc=00000108 raw=0000a023 trap=1 cause=7 tval=40000000 rdwrite=0 rd=0 value=00000000 next=00000000
+FINAL case=48 reg=0 defined=1 value=00000000
+FINAL case=48 reg=1 defined=1 value=40000000
+FINAL case=48 reg=2 defined=0 value=00000000
+FINAL case=48 reg=3 defined=0 value=00000000
+FINAL case=48 reg=4 defined=0 value=00000000
+FINAL case=48 reg=5 defined=0 value=00000000
+FINAL case=48 reg=6 defined=0 value=00000000
+FINAL case=48 reg=7 defined=0 value=00000000
+FINAL case=48 reg=8 defined=0 value=00000000
+FINAL case=48 reg=9 defined=0 value=00000000
+FINAL case=48 reg=10 defined=0 value=00000000
+FINAL case=48 reg=11 defined=0 value=00000000
+FINAL case=48 reg=12 defined=0 value=00000000
+FINAL case=48 reg=13 defined=0 value=00000000
+FINAL case=48 reg=14 defined=0 value=00000000
+FINAL case=48 reg=15 defined=0 value=00000000
+FINAL case=48 reg=16 defined=0 value=00000000
+FINAL case=48 reg=17 defined=0 value=00000000
+FINAL case=48 reg=18 defined=0 value=00000000
+FINAL case=48 reg=19 defined=0 value=00000000
+FINAL case=48 reg=20 defined=0 value=00000000
+FINAL case=48 reg=21 defined=0 value=00000000
+FINAL case=48 reg=22 defined=0 value=00000000
+FINAL case=48 reg=23 defined=0 value=00000000
+FINAL case=48 reg=24 defined=0 value=00000000
+FINAL case=48 reg=25 defined=0 value=00000000
+FINAL case=48 reg=26 defined=0 value=00000000
+FINAL case=48 reg=27 defined=0 value=00000000
+FINAL case=48 reg=28 defined=0 value=00000000
+FINAL case=48 reg=29 defined=0 value=00000000
+FINAL case=48 reg=30 defined=0 value=00000000
+FINAL case=48 reg=31 defined=0 value=00000000
+CASE case=48 instructions=3 cycles=20 hold_observed=0
+ARCH case=49 index=0 pc=00000100 raw=400000b7 trap=0 cause=0 tval=00000000 rdwrite=1 rd=1 value=40000000 next=00000104
+ARCH case=49 index=1 pc=00000104 raw=00008093 trap=0 cause=0 tval=00000000 rdwrite=1 rd=1 value=40000000 next=00000108
+SCHEDULE case=49 ordinal=2 accept_extra=3 response_edges=3
+EFFECT case=49 pc=00000108 write=0 address=40000004 size=2 lanes=0 wdata=00000000 status=1 rdata=00000000 reads=0 writes=0 last=00000000
+SERVICE case=49 ordinal=2 offer=1211 accepted=1215 reply_due=1218
+ARCH case=49 index=2 pc=00000108 raw=0040a003 trap=1 cause=5 tval=40000004 rdwrite=0 rd=0 value=00000000 next=00000000
+FINAL case=49 reg=0 defined=1 value=00000000
+FINAL case=49 reg=1 defined=1 value=40000000
+FINAL case=49 reg=2 defined=0 value=00000000
+FINAL case=49 reg=3 defined=0 value=00000000
+FINAL case=49 reg=4 defined=0 value=00000000
+FINAL case=49 reg=5 defined=0 value=00000000
+FINAL case=49 reg=6 defined=0 value=00000000
+FINAL case=49 reg=7 defined=0 value=00000000
+FINAL case=49 reg=8 defined=0 value=00000000
+FINAL case=49 reg=9 defined=0 value=00000000
+FINAL case=49 reg=10 defined=0 value=00000000
+FINAL case=49 reg=11 defined=0 value=00000000
+FINAL case=49 reg=12 defined=0 value=00000000
+FINAL case=49 reg=13 defined=0 value=00000000
+FINAL case=49 reg=14 defined=0 value=00000000
+FINAL case=49 reg=15 defined=0 value=00000000
+FINAL case=49 reg=16 defined=0 value=00000000
+FINAL case=49 reg=17 defined=0 value=00000000
+FINAL case=49 reg=18 defined=0 value=00000000
+FINAL case=49 reg=19 defined=0 value=00000000
+FINAL case=49 reg=20 defined=0 value=00000000
+FINAL case=49 reg=21 defined=0 value=00000000
+FINAL case=49 reg=22 defined=0 value=00000000
+FINAL case=49 reg=23 defined=0 value=00000000
+FINAL case=49 reg=24 defined=0 value=00000000
+FINAL case=49 reg=25 defined=0 value=00000000
+FINAL case=49 reg=26 defined=0 value=00000000
+FINAL case=49 reg=27 defined=0 value=00000000
+FINAL case=49 reg=28 defined=0 value=00000000
+FINAL case=49 reg=29 defined=0 value=00000000
+FINAL case=49 reg=30 defined=0 value=00000000
+FINAL case=49 reg=31 defined=0 value=00000000
+CASE case=49 instructions=3 cycles=21 hold_observed=0
+ARCH case=50 index=0 pc=00000100 raw=400000b7 trap=0 cause=0 tval=00000000 rdwrite=1 rd=1 value=40000000 next=00000104
+ARCH case=50 index=1 pc=00000104 raw=00008093 trap=0 cause=0 tval=00000000 rdwrite=1 rd=1 value=40000000 next=00000108
+SCHEDULE case=50 ordinal=2 accept_extra=1 response_edges=3
+EFFECT case=50 pc=00000108 write=1 address=40000018 size=2 lanes=f wdata=00000000 status=1 rdata=00000000 reads=0 writes=0 last=00000000
+SERVICE case=50 ordinal=2 offer=1232 accepted=1234 reply_due=1237
+ARCH case=50 index=2 pc=00000108 raw=0000ac23 trap=1 cause=7 tval=40000018 rdwrite=0 rd=0 value=00000000 next=00000000
+FINAL case=50 reg=0 defined=1 value=00000000
+FINAL case=50 reg=1 defined=1 value=40000000
+FINAL case=50 reg=2 defined=0 value=00000000
+FINAL case=50 reg=3 defined=0 value=00000000
+FINAL case=50 reg=4 defined=0 value=00000000
+FINAL case=50 reg=5 defined=0 value=00000000
+FINAL case=50 reg=6 defined=0 value=00000000
+FINAL case=50 reg=7 defined=0 value=00000000
+FINAL case=50 reg=8 defined=0 value=00000000
+FINAL case=50 reg=9 defined=0 value=00000000
+FINAL case=50 reg=10 defined=0 value=00000000
+FINAL case=50 reg=11 defined=0 value=00000000
+FINAL case=50 reg=12 defined=0 value=00000000
+FINAL case=50 reg=13 defined=0 value=00000000
+FINAL case=50 reg=14 defined=0 value=00000000
+FINAL case=50 reg=15 defined=0 value=00000000
+FINAL case=50 reg=16 defined=0 value=00000000
+FINAL case=50 reg=17 defined=0 value=00000000
+FINAL case=50 reg=18 defined=0 value=00000000
+FINAL case=50 reg=19 defined=0 value=00000000
+FINAL case=50 reg=20 defined=0 value=00000000
+FINAL case=50 reg=21 defined=0 value=00000000
+FINAL case=50 reg=22 defined=0 value=00000000
+FINAL case=50 reg=23 defined=0 value=00000000
+FINAL case=50 reg=24 defined=0 value=00000000
+FINAL case=50 reg=25 defined=0 value=00000000
+FINAL case=50 reg=26 defined=0 value=00000000
+FINAL case=50 reg=27 defined=0 value=00000000
+FINAL case=50 reg=28 defined=0 value=00000000
+FINAL case=50 reg=29 defined=0 value=00000000
+FINAL case=50 reg=30 defined=0 value=00000000
+FINAL case=50 reg=31 defined=0 value=00000000
+CASE case=50 instructions=3 cycles=19 hold_observed=0
+ARCH case=51 index=0 pc=00000100 raw=002000ef trap=1 cause=0 tval=00000102 rdwrite=0 rd=0 value=00000000 next=00000000
+FINAL case=51 reg=0 defined=1 value=00000000
+FINAL case=51 reg=1 defined=0 value=00000000
+FINAL case=51 reg=2 defined=0 value=00000000
+FINAL case=51 reg=3 defined=0 value=00000000
+FINAL case=51 reg=4 defined=0 value=00000000
+FINAL case=51 reg=5 defined=0 value=00000000
+FINAL case=51 reg=6 defined=0 value=00000000
+FINAL case=51 reg=7 defined=0 value=00000000
+FINAL case=51 reg=8 defined=0 value=00000000
+FINAL case=51 reg=9 defined=0 value=00000000
+FINAL case=51 reg=10 defined=0 value=00000000
+FINAL case=51 reg=11 defined=0 value=00000000
+FINAL case=51 reg=12 defined=0 value=00000000
+FINAL case=51 reg=13 defined=0 value=00000000
+FINAL case=51 reg=14 defined=0 value=00000000
+FINAL case=51 reg=15 defined=0 value=00000000
+FINAL case=51 reg=16 defined=0 value=00000000
+FINAL case=51 reg=17 defined=0 value=00000000
+FINAL case=51 reg=18 defined=0 value=00000000
+FINAL case=51 reg=19 defined=0 value=00000000
+FINAL case=51 reg=20 defined=0 value=00000000
+FINAL case=51 reg=21 defined=0 value=00000000
+FINAL case=51 reg=22 defined=0 value=00000000
+FINAL case=51 reg=23 defined=0 value=00000000
+FINAL case=51 reg=24 defined=0 value=00000000
+FINAL case=51 reg=25 defined=0 value=00000000
+FINAL case=51 reg=26 defined=0 value=00000000
+FINAL case=51 reg=27 defined=0 value=00000000
+FINAL case=51 reg=28 defined=0 value=00000000
+FINAL case=51 reg=29 defined=0 value=00000000
+FINAL case=51 reg=30 defined=0 value=00000000
+FINAL case=51 reg=31 defined=0 value=00000000
+CASE case=51 instructions=1 cycles=7 hold_observed=0
+ARCH case=52 index=0 pc=00000100 raw=701010ef trap=0 cause=0 tval=00000000 rdwrite=1 rd=1 value=00000104 next=00002000
+ARCH case=52 index=1 pc=00002000 raw=00000000 trap=1 cause=1 tval=00002000 rdwrite=0 rd=0 value=00000000 next=00000000
+FINAL case=52 reg=0 defined=1 value=00000000
+FINAL case=52 reg=1 defined=1 value=00000104
+FINAL case=52 reg=2 defined=0 value=00000000
+FINAL case=52 reg=3 defined=0 value=00000000
+FINAL case=52 reg=4 defined=0 value=00000000
+FINAL case=52 reg=5 defined=0 value=00000000
+FINAL case=52 reg=6 defined=0 value=00000000
+FINAL case=52 reg=7 defined=0 value=00000000
+FINAL case=52 reg=8 defined=0 value=00000000
+FINAL case=52 reg=9 defined=0 value=00000000
+FINAL case=52 reg=10 defined=0 value=00000000
+FINAL case=52 reg=11 defined=0 value=00000000
+FINAL case=52 reg=12 defined=0 value=00000000
+FINAL case=52 reg=13 defined=0 value=00000000
+FINAL case=52 reg=14 defined=0 value=00000000
+FINAL case=52 reg=15 defined=0 value=00000000
+FINAL case=52 reg=16 defined=0 value=00000000
+FINAL case=52 reg=17 defined=0 value=00000000
+FINAL case=52 reg=18 defined=0 value=00000000
+FINAL case=52 reg=19 defined=0 value=00000000
+FINAL case=52 reg=20 defined=0 value=00000000
+FINAL case=52 reg=21 defined=0 value=00000000
+FINAL case=52 reg=22 defined=0 value=00000000
+FINAL case=52 reg=23 defined=0 value=00000000
+FINAL case=52 reg=24 defined=0 value=00000000
+FINAL case=52 reg=25 defined=0 value=00000000
+FINAL case=52 reg=26 defined=0 value=00000000
+FINAL case=52 reg=27 defined=0 value=00000000
+FINAL case=52 reg=28 defined=0 value=00000000
+FINAL case=52 reg=29 defined=0 value=00000000
+FINAL case=52 reg=30 defined=0 value=00000000
+FINAL case=52 reg=31 defined=0 value=00000000
+CASE case=52 instructions=2 cycles=13 hold_observed=0
+ARCH case=53 index=0 pc=00000100 raw=000000b7 trap=0 cause=0 tval=00000000 rdwrite=1 rd=1 value=00000000 next=00000104
+ARCH case=53 index=1 pc=00000104 raw=10308093 trap=0 cause=0 tval=00000000 rdwrite=1 rd=1 value=00000103 next=00000108
+ARCH case=53 index=2 pc=00000108 raw=000080e7 trap=1 cause=0 tval=00000102 rdwrite=0 rd=0 value=00000000 next=00000000
+FINAL case=53 reg=0 defined=1 value=00000000
+FINAL case=53 reg=1 defined=1 value=00000103
+FINAL case=53 reg=2 defined=0 value=00000000
+FINAL case=53 reg=3 defined=0 value=00000000
+FINAL case=53 reg=4 defined=0 value=00000000
+FINAL case=53 reg=5 defined=0 value=00000000
+FINAL case=53 reg=6 defined=0 value=00000000
+FINAL case=53 reg=7 defined=0 value=00000000
+FINAL case=53 reg=8 defined=0 value=00000000
+FINAL case=53 reg=9 defined=0 value=00000000
+FINAL case=53 reg=10 defined=0 value=00000000
+FINAL case=53 reg=11 defined=0 value=00000000
+FINAL case=53 reg=12 defined=0 value=00000000
+FINAL case=53 reg=13 defined=0 value=00000000
+FINAL case=53 reg=14 defined=0 value=00000000
+FINAL case=53 reg=15 defined=0 value=00000000
+FINAL case=53 reg=16 defined=0 value=00000000
+FINAL case=53 reg=17 defined=0 value=00000000
+FINAL case=53 reg=18 defined=0 value=00000000
+FINAL case=53 reg=19 defined=0 value=00000000
+FINAL case=53 reg=20 defined=0 value=00000000
+FINAL case=53 reg=21 defined=0 value=00000000
+FINAL case=53 reg=22 defined=0 value=00000000
+FINAL case=53 reg=23 defined=0 value=00000000
+FINAL case=53 reg=24 defined=0 value=00000000
+FINAL case=53 reg=25 defined=0 value=00000000
+FINAL case=53 reg=26 defined=0 value=00000000
+FINAL case=53 reg=27 defined=0 value=00000000
+FINAL case=53 reg=28 defined=0 value=00000000
+FINAL case=53 reg=29 defined=0 value=00000000
+FINAL case=53 reg=30 defined=0 value=00000000
+FINAL case=53 reg=31 defined=0 value=00000000
+CASE case=53 instructions=3 cycles=13 hold_observed=0
+PASS base diagnostic=0 forwarding=0 seed=0 cases=53 cycles=1272 checks=132493 retired=280 traps=33 offers=28 replies=28 stalls=337 x=0 m=0 w=126 held_w=0 load_m=0 masked=8 masked_alu=2 masked_branch=2 masked_address=2 masked_store=2 nop=1 barrier_edges=48 preparation=4
+- microcontroller/tests/drg5_base_tb.sv:1361: Verilog $finish
+- S i m u l a t i o n   R e p o r t: Verilator 5.047 devel
+- Verilator: $finish at 46ns; walltime 0.193 s; speed 238.416 ns/s
+- Verilator: cpu 0.193 s on 1 threads; allocated 13 MB

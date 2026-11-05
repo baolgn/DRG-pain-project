@@ -1,0 +1,13 @@
+{
+  "status": "passed",
+  "positive_runs": 18,
+  "negative_controls": 4,
+  "totals": {
+    "edges": 792,
+    "checks": 2373,
+    "valid": 249,
+    "lost": 507
+  },
+  "record_bits": 3147,
+  "scope": "synthetic adapter payload/phase/overflow transport, not architectural programs"
+}

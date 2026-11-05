@@ -1,0 +1,7 @@
+$ /tmp/drg5-control-tools-20260301/oss-cad-suite/bin/verilator --binary --timing --assert -Wall -j 2 --top-module drg5_muldiv_tb --Mdir /tmp/drg5-muldiv-unit/obj microcontroller/rtl/drg5_muldiv.sv microcontroller/tests/drg5_muldiv_tb.sv
+make: Entering directory '/tmp/drg5-muldiv-unit/obj'
+make: Nothing to be done for 'default'.
+make: Leaving directory '/tmp/drg5-muldiv-unit/obj'
+- V e r i l a t i o n   R e p o r t: Verilator 5.047 devel rev v5.046-19-ge9dd6eaaf (mod)
+- Verilator: Built from 0.000 MB sources in 0 modules, into 0.000 MB in 0 C++ files needing 0.000 MB
+- Verilator: Walltime 0.008 s (elab=0.000, cvt=0.000, bld=0.007); cpu 0.001 s on 2 threads; allocated 19.152 MB

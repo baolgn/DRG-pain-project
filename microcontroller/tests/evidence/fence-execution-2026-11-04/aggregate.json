@@ -1,0 +1,49 @@
+{
+  "status": "passed",
+  "final_revision": "09-qualification",
+  "profiles": 6,
+  "seeds": [
+    0,
+    1,
+    305419896
+  ],
+  "positive_runs": 18,
+  "calibrated_expected_failures": 5,
+  "positive_marker_totals": {
+    "cases": 5826,
+    "checks": 23544765,
+    "retired": 46330,
+    "fences": 9912,
+    "fencei": 504,
+    "code_writes": 105,
+    "old_snapshots": 84,
+    "buffered_old": 777,
+    "old_offers": 10,
+    "old_accepted": 43,
+    "stale": 3502,
+    "old_errors": 18,
+    "same_edge_drops": 9,
+    "held_fences": 8064,
+    "dma_completed": 12,
+    "dma_reads": 47,
+    "early_examples": 12,
+    "reads": 9947,
+    "writes": 5055,
+    "killed": 110
+  },
+  "bus_conservation": {
+    "asserted_in_every_positive_run": true,
+    "condition": "I offers == I acceptances == I responses and D offers == D acceptances == D responses",
+    "exact_transaction_totals": "not exposed by final markers; not inferred or estimated",
+    "physical_effect_totals": {
+      "successful_reads": 9947,
+      "successful_writes": 5055
+    },
+    "physical_effect_condition": "each case compares physical reads/writes and MMIO effects independently against permitted retirements"
+  },
+  "limits": [
+    "finite simulation; no production latency claim from maximum I or D acceptance-wait observations",
+    "counts are summed across separately reset cases and elaborations",
+    "successful effect counts exclude guaranteed no-effect rejected transactions"
+  ]
+}

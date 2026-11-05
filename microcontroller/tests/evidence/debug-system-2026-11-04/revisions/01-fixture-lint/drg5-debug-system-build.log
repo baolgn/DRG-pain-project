@@ -1,0 +1,27 @@
+%Warning-UNUSEDSIGNAL: microcontroller/tests/drg5_debug_system_tb.sv:10:29: Bits of signal are not used: 'debug_dcsr_o'[31:9,5:0]
+                                                                          : ... note: In instance 'drg5_debug_system_tb'
+   10 |   logic [31:0] debug_dpc_o, debug_dcsr_o;
+      |                             ^~~~~~~~~~~~
+                       ... For warning description see https://verilator.org/warn/UNUSEDSIGNAL?v=5.047
+                       ... Use "/* verilator lint_off UNUSEDSIGNAL */" and lint_on around source to disable this message.
+%Warning-UNUSEDSIGNAL: microcontroller/tests/drg5_debug_system_tb.sv:41:29: Bits of signal are not used: 'trace_o'[697:0]
+                                                                          : ... note: In instance 'drg5_debug_system_tb'
+   41 |   drg5_control_pkg::trace_t trace_o;
+      |                             ^~~~~~~
+%Warning-UNUSEDSIGNAL: microcontroller/tests/drg5_debug_system_tb.sv:203:18: Bits of function variable are not used: 'status'[31:13,11,7:0]
+                                                                           : ... note: In instance 'drg5_debug_system_tb'
+  203 |     logic [31:0] status;
+      |                  ^~~~~~
+%Warning-UNUSEDSIGNAL: microcontroller/tests/drg5_debug_system_tb.sv:211:26: Bits of function variable are not used: 'status'[31:13,11,7:0]
+                                                                           : ... note: In instance 'drg5_debug_system_tb'
+  211 |     logic [31:0] result, status;
+      |                          ^~~~~~
+%Warning-UNUSEDSIGNAL: microcontroller/tests/drg5_debug_system_tb.sv:247:18: Bits of function variable are not used: 'status'[31:22,20:15,11:0]
+                                                                           : ... note: In instance 'drg5_debug_system_tb'
+  247 |     logic [31:0] status;
+      |                  ^~~~~~
+%Warning-UNUSEDSIGNAL: microcontroller/tests/drg5_debug_system_tb.sv:284:18: Bits of signal are not used: 'status'[31:14,11:0]
+                                                                           : ... note: In instance 'drg5_debug_system_tb'
+  284 |     logic [31:0] status;
+      |                  ^~~~~~
+%Error: Exiting due to 6 warning(s)

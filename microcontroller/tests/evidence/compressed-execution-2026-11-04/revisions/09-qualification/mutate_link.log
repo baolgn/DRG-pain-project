@@ -1,0 +1,37 @@
+$ /tmp/drg5-c-execution-final/c1-m1-d0-f1/Vdrg5_compressed_execution_tb +verilator+seed+1 +seed=1 +mutate_link
+C_EXEC_FAILURE label=architectural register result seed=1 case=5 edge=5989 arch_pc=0000008a I=1/1/0000008c D=0/0/20000194
+C_HISTORY age=0 pc=0000008a raw=00002219 stages=00000
+C_HISTORY age=1 pc=00000084 raw=00000437 stages=00000
+C_HISTORY age=2 pc=00000084 raw=00000437 stages=00000
+C_HISTORY age=3 pc=00000084 raw=00000437 stages=00000
+C_HISTORY age=4 pc=00000084 raw=00000437 stages=00000
+C_HISTORY age=5 pc=00000084 raw=00000437 stages=00000
+C_HISTORY age=6 pc=00000084 raw=20000437 stages=00000
+C_HISTORY age=7 pc=00000084 raw=20000437 stages=00001
+C_HISTORY age=8 pc=00000084 raw=20000437 stages=00010
+C_HISTORY age=9 pc=00000084 raw=20000437 stages=00100
+C_HISTORY age=10 pc=00000084 raw=20000437 stages=01000
+C_HISTORY age=11 pc=00000084 raw=20000437 stages=10000
+C_HISTORY age=12 pc=00000084 raw=20000437 stages=00000
+C_HISTORY age=13 pc=00000084 raw=20000437 stages=00000
+C_HISTORY age=14 pc=00000088 raw=00000001 stages=00000
+C_HISTORY age=15 pc=00000088 raw=00000001 stages=00001
+C_HISTORY age=16 pc=00000088 raw=00000001 stages=00010
+C_HISTORY age=17 pc=00000088 raw=00000001 stages=00100
+C_HISTORY age=18 pc=00000088 raw=00000001 stages=01000
+C_HISTORY age=19 pc=00000088 raw=00000001 stages=10000
+C_HISTORY age=20 pc=00000088 raw=00000001 stages=00000
+C_HISTORY age=21 pc=00000088 raw=00000001 stages=00000
+C_HISTORY age=22 pc=00000088 raw=00000001 stages=00000
+C_HISTORY age=23 pc=00000088 raw=00000001 stages=00000
+C_HISTORY age=24 pc=00000088 raw=00000001 stages=00000
+C_HISTORY age=25 pc=00000088 raw=00000001 stages=00000
+C_HISTORY age=26 pc=0000008a raw=00002219 stages=00000
+C_HISTORY age=27 pc=0000008a raw=00002219 stages=00001
+C_HISTORY age=28 pc=0000008a raw=00002219 stages=00010
+C_HISTORY age=29 pc=0000008a raw=00002219 stages=00100
+C_HISTORY age=30 pc=0000008a raw=00002219 stages=01000
+C_HISTORY age=31 pc=0000008a raw=00002219 stages=10000
+[23955] %Fatal: drg5_compressed_execution_tb.sv:139: Assertion failed in drg5_compressed_execution_tb.check: C_EXEC_CHECK_FAILED architectural register result
+%Error: microcontroller/tests/drg5_compressed_execution_tb.sv:139: Verilog $stop
+Aborting...

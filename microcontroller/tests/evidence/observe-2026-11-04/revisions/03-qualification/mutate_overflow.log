@@ -1,0 +1,4 @@
+$ /tmp/drg5-observe/p1/Vdrg5_observe_tb +verilator+seed+1 +seed=1 +mutate_overflow
+[36] %Fatal: drg5_observe_tb.sv:64: Assertion failed in drg5_observe_tb.check: OBSERVE_FAIL profile=1 seed=1 edge=9: capture loss policy
+%Error: microcontroller/tests/drg5_observe_tb.sv:64: Verilog $stop
+Aborting...

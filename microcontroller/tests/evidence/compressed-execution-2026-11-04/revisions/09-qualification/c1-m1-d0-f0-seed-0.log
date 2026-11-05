@@ -1,0 +1,6 @@
+$ /tmp/drg5-c-execution-final/c1-m1-d0-f0/Vdrg5_compressed_execution_tb +verilator+seed+1 +seed=0
+C_EXEC_PASS C=1 M=1 diagnostic=0 forwarding=0 seed=0 cases=84 edges=35746 checks=1014282 retired=1724 traps=85 killed=8 compressed=328 straddled=27 hints=62 links=15 branches=37 first_faults=4 second_faults=4 stale=93 I_offers=3390 I_accepts=3390 I_replies=3390 D_offers=109 D_accepts=109 D_replies=109 reads=50 writes=54 holds=25881 max_I_accept=18 max_D_accept=9 IRQ=1 idle=1 pending=5 simultaneous_discard=1 late_C_wait=24 program_digest=9c4792d4b7555ca3 retirement_digest=1a68cafc451967f2 effect_digest=95bfae5614e44196
+- microcontroller/tests/drg5_compressed_execution_tb.sv:1020: Verilog $finish
+- S i m u l a t i o n   R e p o r t: Verilator 5.047 devel
+- Verilator: $finish at 143ns; walltime 0.904 s; speed 158.186 ns/s
+- Verilator: cpu 0.904 s on 1 threads; allocated 11 MB

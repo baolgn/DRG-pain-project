@@ -1,0 +1,167 @@
+# exact prototype ISA and machine parameters; implied Zca and Zmmul are explicit.
+$schema: config_schema.json#
+description: DRG5 prototype, M-only RV32IMC_Zicsr_Zifencei, direct traps, 
+  natural alignment
+implemented_extensions:
+- name: I
+  version: = 2.1
+- name: M
+  version: = 2.0
+- name: C
+  version: = 2.0
+- name: Zicsr
+  version: = 2.0
+- name: Zifencei
+  version: = 2.0
+- name: Zmmul
+  version: = 1.0.0
+- name: Zca
+  version: = 1.0.0
+- name: Sm
+  version: = 1.13.0
+kind: architecture configuration
+name: drg5-rv32imc
+params:
+  CONFIG_PTR_ADDRESS: 0
+  COUNTINHIBIT_EN:
+  - true
+  - false
+  - true
+  - false
+  - false
+  - false
+  - false
+  - false
+  - false
+  - false
+  - false
+  - false
+  - false
+  - false
+  - false
+  - false
+  - false
+  - false
+  - false
+  - false
+  - false
+  - false
+  - false
+  - false
+  - false
+  - false
+  - false
+  - false
+  - false
+  - false
+  - false
+  - false
+  HPM_COUNTER_EN:
+  - false
+  - false
+  - false
+  - false
+  - false
+  - false
+  - false
+  - false
+  - false
+  - false
+  - false
+  - false
+  - false
+  - false
+  - false
+  - false
+  - false
+  - false
+  - false
+  - false
+  - false
+  - false
+  - false
+  - false
+  - false
+  - false
+  - false
+  - false
+  - false
+  - false
+  - false
+  - false
+  MARCHID_IMPLEMENTED: false
+  MCOUNTENABLE_EN:
+  - false
+  - false
+  - false
+  - false
+  - false
+  - false
+  - false
+  - false
+  - false
+  - false
+  - false
+  - false
+  - false
+  - false
+  - false
+  - false
+  - false
+  - false
+  - false
+  - false
+  - false
+  - false
+  - false
+  - false
+  - false
+  - false
+  - false
+  - false
+  - false
+  - false
+  - false
+  - false
+  MCOUNTINHIBIT_IMPLEMENTED: true
+  MEI_INTR_IMPL: true
+  MIMPID_IMPLEMENTED: false
+  MISALIGNED_LDST: false
+  MISALIGNED_LDST_EXCEPTION_PRIORITY: high
+  MISA_CSR_IMPLEMENTED: true
+  MSI_INTR_IMPL: true
+  MTI_INTR_IMPL: true
+  MTVAL_WIDTH: 32
+  MTVEC_ACCESS: rw
+  MTVEC_BASE_ALIGNMENT_DIRECT: 4
+  MTVEC_ILLEGAL_WRITE_BEHAVIOR: custom
+  MTVEC_MODES:
+  - 0
+  MUTABLE_MISA_C: false
+  MUTABLE_MISA_M: false
+  MXLEN: 32
+  M_MODE_ENDIANNESS: little
+  NON_STANDARD_EXTENSION_IMPLEMENTED: false
+  NUM_PMP_ENTRIES: 0
+  PHYS_ADDR_WIDTH: 32
+  PMA_GRANULARITY: 2
+  PRECISE_SYNCHRONOUS_EXCEPTIONS: true
+  REPORT_ENCODING_IN_MTVAL_ON_ILLEGAL_INSTRUCTION: false
+  REPORT_VA_IN_MTVAL_ON_BREAKPOINT: true
+  REPORT_VA_IN_MTVAL_ON_INSTRUCTION_ACCESS_FAULT: true
+  REPORT_VA_IN_MTVAL_ON_INSTRUCTION_MISALIGNED: true
+  REPORT_VA_IN_MTVAL_ON_LOAD_ACCESS_FAULT: true
+  REPORT_VA_IN_MTVAL_ON_LOAD_MISALIGNED: true
+  REPORT_VA_IN_MTVAL_ON_STORE_AMO_ACCESS_FAULT: true
+  REPORT_VA_IN_MTVAL_ON_STORE_AMO_MISALIGNED: true
+  TRAP_ON_EBREAK: true
+  TRAP_ON_ECALL_FROM_M: true
+  TRAP_ON_ILLEGAL_WLRL: false
+  TRAP_ON_RESERVED_INSTRUCTION: true
+  TRAP_ON_UNIMPLEMENTED_CSR: true
+  TRAP_ON_UNIMPLEMENTED_INSTRUCTION: true
+  VENDOR_ID_BANK: 0
+  VENDOR_ID_OFFSET: 0
+  WFI_FINITE: false
+  WFI_U_MODE: false
+type: fully configured

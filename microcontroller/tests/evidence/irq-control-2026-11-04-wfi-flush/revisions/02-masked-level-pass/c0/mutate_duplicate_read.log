@@ -1,0 +1,4 @@
+$ /tmp/drg5-irq-control-wfi-flush/c0/Vdrg5_irq_control_tb +verilator+seed+1 +seed=1 +mutate_duplicate_read
+[18624] %Fatal: drg5_irq_control_tb.sv:95: Assertion failed in drg5_irq_control_tb.check: seed=1 case=73 edge=4656 pc=00000100 owner=0 accepted=0 age=7 response=10: load x0 effect missing or repeated during IRQ drain
+%Error: microcontroller/tests/drg5_irq_control_tb.sv:95: Verilog $stop
+Aborting...

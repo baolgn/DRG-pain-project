@@ -1,0 +1,106 @@
+{
+  "limits": [
+    "finite seeded reference simulation; no all-input sequential arithmetic proof",
+    "technology synthesis only; no placed timing, route, or board-programming claim",
+    "no architectural debug interface or halt latency claim"
+  ],
+  "results": {
+    "detector-busy-start": {
+      "exit": 1,
+      "expected_terminal": "arithmetic start while busy"
+    },
+    "detector-hold": {
+      "exit": 1,
+      "expected_terminal": "MULDIV_CHECK_FAILED held result"
+    },
+    "detector-latency": {
+      "exit": 1,
+      "expected_terminal": "MULDIV_CHECK_FAILED completion latency"
+    },
+    "detector-result": {
+      "exit": 1,
+      "expected_terminal": "MULDIV_CHECK_FAILED arithmetic result"
+    },
+    "detector-uid": {
+      "exit": 1,
+      "expected_terminal": "MULDIV_CHECK_FAILED result identity"
+    },
+    "mapping": {
+      "cells": {
+        "CCU2C": 163,
+        "L6MUX21": 3,
+        "LUT4": 582,
+        "MULT18X18D": 4,
+        "PFUMX": 108,
+        "TRELLIS_FF": 464
+      },
+      "netlist_sha256": "870e8c4e06ec3527dffe2adb6465395fb8b03151e7191f21634b0b5c288fba84"
+    },
+    "seed-0": {
+      "cases": 67742,
+      "checks": 4131480,
+      "div_latency": 33,
+      "early_ready": 50334,
+      "edges": 1628437,
+      "exit": 0,
+      "held": 237287,
+      "mul_latency": 2,
+      "resets": 156,
+      "seed": 0,
+      "terminal": "MULDIV_PASS seed=0 cases=67742 checks=4131480 edges=1628437 resets=156 held=237287 early_ready=50334 mul_latency=2 div_latency=33"
+    },
+    "seed-1": {
+      "cases": 67742,
+      "checks": 4131489,
+      "div_latency": 33,
+      "early_ready": 17566,
+      "edges": 1628446,
+      "exit": 0,
+      "held": 237296,
+      "mul_latency": 2,
+      "resets": 156,
+      "seed": 1,
+      "terminal": "MULDIV_PASS seed=1 cases=67742 checks=4131489 edges=1628446 resets=156 held=237296 early_ready=17566 mul_latency=2 div_latency=33"
+    },
+    "seed-305419896": {
+      "cases": 67742,
+      "checks": 4131480,
+      "div_latency": 33,
+      "early_ready": 17566,
+      "edges": 1628437,
+      "exit": 0,
+      "held": 237287,
+      "mul_latency": 2,
+      "resets": 156,
+      "seed": 305419896,
+      "terminal": "MULDIV_PASS seed=305419896 cases=67742 checks=4131480 edges=1628437 resets=156 held=237287 early_ready=17566 mul_latency=2 div_latency=33"
+    }
+  },
+  "scope": "standalone RV32M 2.0 unit; pipeline ordering and interrupt entry are separate",
+  "source_sha256": {
+    "microcontroller/rtl/drg5_muldiv.sv": "7eeed33bc060b11260c453c583cfe1936c8e76e6dfc9f437e92f4345e6d9911a",
+    "microcontroller/tests/drg5_muldiv_tb.sv": "c5d844288f037f4fd9e4e1a11b1d201688a4eff942b396e74735baed893ab071",
+    "microcontroller/tests/run_muldiv.py": "9b5fe80588d4d774c974e55a9ddb8c1d13dbd2c9e798f4b04191e724064f34c6"
+  },
+  "specification": "https://docs.riscv.org/reference/isa/v20260120/unpriv/m-st-ext.html",
+  "timing": {
+    "assumptions": [
+      "atomic start while idle; no request-acceptance wait",
+      "clock runs continuously; no clock gating",
+      "held result persists until ready; consumer delay is additional",
+      "only cold reset cancels the owned arithmetic job"
+    ],
+    "ceilings": {
+      "divide": 36,
+      "multiply": 4
+    },
+    "unit_start_to_valid_edges": {
+      "divide": 33,
+      "multiply": 2
+    }
+  },
+  "versions": {
+    "verilator": "Verilator 5.047 devel rev v5.046-19-ge9dd6eaaf (mod)",
+    "yosys": "Yosys 0.62+112 (git sha1 687a36af3, clang++ 18.1.8 -fPIC -O3)"
+  }
+}

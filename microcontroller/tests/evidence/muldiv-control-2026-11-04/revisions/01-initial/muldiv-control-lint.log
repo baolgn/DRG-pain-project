@@ -1,0 +1,7 @@
+%Warning-UNUSEDSIGNAL: microcontroller/tests/drg5_muldiv_control_tb.sv:106:45: Bits of function variable are not used: 'signed_product'[31:0]
+                                                                             : ... note: In instance 'drg5_muldiv_control_tb'
+  106 |     logic signed [63:0] a_signed, b_signed, signed_product;
+      |                                             ^~~~~~~~~~~~~~
+                       ... For warning description see https://verilator.org/warn/UNUSEDSIGNAL?v=5.047
+                       ... Use "/* verilator lint_off UNUSEDSIGNAL */" and lint_on around source to disable this message.
+%Error: Exiting due to 1 warning(s)

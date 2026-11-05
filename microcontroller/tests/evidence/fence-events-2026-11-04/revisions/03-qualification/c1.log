@@ -1,0 +1,6 @@
+$ /tmp/drg5-fence-events/c1/Vdrg5_fence_events_tb +verilator+seed+1
+FENCE_EVENTS_PASS C=1 cases=16 checks=856 cycles=295 retired=7 fences=1 traps=2 kills=14 irqs=2 flush_cases=6 reset_cases=6 irq_before=1 irq_after=1 older_faults=1 base_rejects=1
+- microcontroller/tests/drg5_fence_events_tb.sv:274: Verilog $finish
+- S i m u l a t i o n   R e p o r t: Verilator 5.047 devel
+- Verilator: $finish at 1ns; walltime 0.004 s; speed 338.390 ns/s
+- Verilator: cpu 0.004 s on 1 threads; allocated 9 MB

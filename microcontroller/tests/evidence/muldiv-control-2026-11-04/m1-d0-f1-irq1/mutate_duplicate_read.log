@@ -1,0 +1,10 @@
+$ /tmp/drg5-muldiv-control-final-r4/m1-d0-f1-irq1/Vdrg5_muldiv_control_tb +verilator+seed+1 +seed=1 +mutate_duplicate_read
+M_FAILURE job_owned=0 job_uid=54 start=20536 op=4 expected=00000000 unit_busy=0 unit_valid=0 unit_uid=54 unit_result=00000000
+M_STAGE stage=0 valid=0 uid=0 pc=00000000 raw=00000000 admitted=0 issued=0 done=0 result=00000000
+M_STAGE stage=1 valid=0 uid=0 pc=00000000 raw=00000000 admitted=0 issued=0 done=0 result=00000000
+M_STAGE stage=2 valid=0 uid=0 pc=00000000 raw=00000000 admitted=0 issued=0 done=0 result=00000000
+M_STAGE stage=3 valid=0 uid=0 pc=00000000 raw=00000000 admitted=0 issued=0 done=0 result=00000000
+M_STAGE stage=4 valid=0 uid=0 pc=00000000 raw=00000000 admitted=0 issued=0 done=0 result=00000000
+[82688] %Fatal: drg5_muldiv_control_tb.sv:148: Assertion failed in drg5_muldiv_control_tb.check: seed=1 case=291 edge=20672 pc=00000100 owner=0 accepted=0 age=126 response=0: M MMIO read effect missing or repeated
+%Error: microcontroller/tests/drg5_muldiv_control_tb.sv:148: Verilog $stop
+Aborting...

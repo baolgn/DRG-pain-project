@@ -1,0 +1,63 @@
+{
+  "configurations": {
+    "0": {
+      "C_FETCH": 0,
+      "cells": {
+        "CCU2C": 45,
+        "L6MUX21": 149,
+        "LUT4": 899,
+        "PFUMX": 239,
+        "TRELLIS_FF": 301
+      },
+      "mapped_netlist_sha256": "297ed2c32f7cc4c43e6436eb8848a4b2c6c0b29aa3b008daf59b70be14a2766d"
+    },
+    "1": {
+      "C_FETCH": 1,
+      "cells": {
+        "CCU2C": 62,
+        "L6MUX21": 142,
+        "LUT4": 915,
+        "PFUMX": 262,
+        "TRELLIS_FF": 302
+      },
+      "mapped_netlist_sha256": "91149e332daf8b8dfac9d0e2d4119f0ce244ef9847bde50dc6c7eb2ac1154231"
+    }
+  },
+  "evidence_sha256": {
+    "build.log": "951e979789ad955bf8640bafc5be4a19062df64c54da02ac1140d3870f2b716a",
+    "c0-synth.log": "04bb59d6a9d64a9c295ddce9d736e71ddc3389e04c8aec6cbe16a13d9e26003e",
+    "c1-synth.log": "452888bd2826c2b9898623476a83730d0a3cd193734e86c64517ce2dca04032d",
+    "positive.log": "3f38d1f51f351efe2a0eaed3c7e14ce91d82206bdf24832c8c4c95f6b013092c",
+    "raw_detector.log": "6620bf3d86d0046bcfbbd2d00909f30139f89c8a6e9555ce0c649053644c9da7",
+    "results.json": "a0d083dd35a3c5ad4142db1b05e7d8410ed073d0cdbde4ecb8c8630bad0feba0"
+  },
+  "scope": "standalone fetch assembly, no C decode or complete CPU claim",
+  "test_results": {
+    "results": {
+      "positive": {
+        "exit": 0,
+        "expected_result": true
+      },
+      "raw_detector": {
+        "exit": 1,
+        "expected_result": true
+      }
+    },
+    "runner_sha256": "bc76b250a5181bd857ddc40e27a002c44c01e9b60e2df58dc6d696d91e387c50",
+    "sources": {
+      "rtl/drg5_fetch_buffer.sv": "a2a5dc5b6236751bc3df70c48eedc229b40a9e79c2adb7e0969c4355fa2b5844",
+      "tests/drg5_fetch_buffer_tb.sv": "44386812adbfa26b0d7dd7609bc13df53177b12eb7c0965fd1a7efc76691e76b"
+    },
+    "version": "Verilator 5.047 devel rev v5.046-19-ge9dd6eaaf (mod)"
+  },
+  "tools": {
+    "verilator": {
+      "path": "/tmp/drg5-control-tools-20260301/oss-cad-suite/libexec/verilator_bin",
+      "sha256": "6b6b60384cc154f29e308f0aed8a83cb49d24b8ab0ad501f8fd5d8b14d3b538d"
+    },
+    "yosys": {
+      "path": "/tmp/drg5-control-tools/oss-cad-suite/libexec/yosys",
+      "sha256": "d3f9cc84a6fc75d0052f63cd7f8c812f5a9169722c82ca4014521dce4de8eace"
+    }
+  }
+}

@@ -1,0 +1,6 @@
+$ /tmp/drg5-csr-control-v1/c0/Vdrg5_csr_control_tb +verilator+seed+1 +seed=0
+PASS csr-control C=0 seed=0 cases=177 cycles=6034 checks=1097390 retired=780 traps=77 reads=150 writes=166 read_suppressed=126 write_suppressed=110 prepared=344 returns=2 offers=10 replies=10 flushes=10 aborts=5 resets=183 fatal=2 cycle_rollovers=1 instret_rollovers=1 dynamic_reads=6
+- microcontroller/tests/drg5_csr_control_tb.sv:1345: Verilog $finish
+- S i m u l a t i o n   R e p o r t: Verilator 5.047 devel
+- Verilator: $finish at 217ns; walltime 0.886 s; speed 245.098 ns/s
+- Verilator: cpu 0.886 s on 1 threads; allocated 87 MB

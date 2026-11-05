@@ -1,0 +1,162 @@
+{
+  "scope": "control-flow packet prototype event integration; not a complete CPU or ISA-conformance result",
+  "verilator": "Verilator 5.047 devel rev v5.046-19-ge9dd6eaaf (mod)",
+  "source_sha256": {
+    "microcontroller/rtl/drg5_control_pkg.sv": "b28d145f554f65cdb4eb9bc66a52243e732e75f44d28bc4a3cf4ead342ec68af",
+    "microcontroller/rtl/drg5_decoder.sv": "0b42ead92fd911fd1a2ed4295145b4ac476ad2933b3e2dcb4cdde95d899d52b3",
+    "microcontroller/rtl/drg5_immediate.sv": "0178ee6a01e4c5361d149a425b5da5502ef2906b8c3ee9246800bd5bc93a080b",
+    "microcontroller/rtl/drg5_branch.sv": "81fb7fbc54c4c64236738d289fa8fc5a64bd6373efbd66ac2da33086e8d8728e",
+    "microcontroller/rtl/drg5_control.sv": "96ca9c62140e7279e8f61be5ee6d5ad4dea4a15d6a3daa17bc07704a30d43236",
+    "microcontroller/tests/drg5_control_events_tb.sv": "fee29d8a2c57f19bcaf1e94c5a620d5c25d66647c834551641161d829b311c7b",
+    "microcontroller/rtl/drg5_datapath_defs.svh": "1247c7ee5185c32bcd41a1d72a08c9926e34ff5abe25e2ece8e6c2f9df21042e",
+    "microcontroller/tests/run_control_events.py": "1295f7c959550525a0d8eaf9dd67b69275c974f2adc203990aa6f0d14c8c9380",
+    "microcontroller/tests/Makefile": "e6cc8c96075b3a9c32398b8a5f561cf9a5e36c786a8844c5fd8afb29c162d93a"
+  },
+  "results": [
+    {
+      "configuration": "c0",
+      "build_command": [
+        "/tmp/drg5-control-tools-20260301/oss-cad-suite/bin/verilator",
+        "--binary",
+        "--timing",
+        "--assert",
+        "-Wall",
+        "-j",
+        "2",
+        "-CFLAGS",
+        "-O0",
+        "-Imicrocontroller/rtl",
+        "--top-module",
+        "drg5_control_events_tb",
+        "--Mdir",
+        "/tmp/drg5-control-events-final-v2/c0",
+        "-GC_ENABLED=0",
+        "microcontroller/rtl/drg5_control_pkg.sv",
+        "microcontroller/rtl/drg5_decoder.sv",
+        "microcontroller/rtl/drg5_immediate.sv",
+        "microcontroller/rtl/drg5_branch.sv",
+        "microcontroller/rtl/drg5_control.sv",
+        "microcontroller/tests/drg5_control_events_tb.sv"
+      ],
+      "run_command": [
+        "/tmp/drg5-control-events-final-v2/c0/Vdrg5_control_events_tb",
+        "+verilator+seed+1"
+      ],
+      "exit_code": 0,
+      "result": "PASS control-events C=0 cases=11 cycles=279 checks=47931 terminals=29 traps=3 kills=7 flushes=7 flush_redirects=4 aborts=3 resets=13 loads=4 responses=4 normal_W=2 fault_W=1 load_flush=4 held_reset=1 mepc_MRET=1 dual_CSR_bypass=2"
+    },
+    {
+      "configuration": "c1",
+      "build_command": [
+        "/tmp/drg5-control-tools-20260301/oss-cad-suite/bin/verilator",
+        "--binary",
+        "--timing",
+        "--assert",
+        "-Wall",
+        "-j",
+        "2",
+        "-CFLAGS",
+        "-O0",
+        "-Imicrocontroller/rtl",
+        "--top-module",
+        "drg5_control_events_tb",
+        "--Mdir",
+        "/tmp/drg5-control-events-final-v2/c1",
+        "-GC_ENABLED=1",
+        "microcontroller/rtl/drg5_control_pkg.sv",
+        "microcontroller/rtl/drg5_decoder.sv",
+        "microcontroller/rtl/drg5_immediate.sv",
+        "microcontroller/rtl/drg5_branch.sv",
+        "microcontroller/rtl/drg5_control.sv",
+        "microcontroller/tests/drg5_control_events_tb.sv"
+      ],
+      "run_command": [
+        "/tmp/drg5-control-events-final-v2/c1/Vdrg5_control_events_tb",
+        "+verilator+seed+1"
+      ],
+      "exit_code": 0,
+      "result": "PASS control-events C=1 cases=11 cycles=279 checks=47931 terminals=29 traps=3 kills=7 flushes=7 flush_redirects=4 aborts=3 resets=13 loads=4 responses=4 normal_W=2 fault_W=1 load_flush=4 held_reset=1 mepc_MRET=1 dual_CSR_bypass=2"
+    },
+    {
+      "configuration": "c0",
+      "negative_control": "mutate_kill",
+      "command": [
+        "/tmp/drg5-control-events-final-v2/c0/Vdrg5_control_events_tb",
+        "+verilator+seed+1",
+        "+mutate_kill"
+      ],
+      "exit_code": 1,
+      "detector": "unjustified or missing event squash",
+      "first_error": "[260] %Fatal: drg5_control_events_tb.sv:69: Assertion failed in drg5_control_events_tb.check: case=1 C=0 cycle=9 pc=00000100: unjustified or missing event squash"
+    },
+    {
+      "configuration": "c0",
+      "negative_control": "mutate_abort",
+      "command": [
+        "/tmp/drg5-control-events-final-v2/c0/Vdrg5_control_events_tb",
+        "+verilator+seed+1",
+        "+mutate_abort"
+      ],
+      "exit_code": 1,
+      "detector": "missing or spurious flush abort",
+      "first_error": "[2060] %Fatal: drg5_control_events_tb.sv:69: Assertion failed in drg5_control_events_tb.check: case=3 C=0 cycle=59 pc=00000104: missing or spurious flush abort"
+    },
+    {
+      "configuration": "c0",
+      "negative_control": "mutate_return",
+      "command": [
+        "/tmp/drg5-control-events-final-v2/c0/Vdrg5_control_events_tb",
+        "+verilator+seed+1",
+        "+mutate_return"
+      ],
+      "exit_code": 1,
+      "detector": "wrong terminal continuation",
+      "first_error": "[8108] %Fatal: drg5_control_events_tb.sv:69: Assertion failed in drg5_control_events_tb.check: case=9 C=0 cycle=227 pc=0000010c: wrong terminal continuation"
+    },
+    {
+      "configuration": "c1",
+      "negative_control": "mutate_kill",
+      "command": [
+        "/tmp/drg5-control-events-final-v2/c1/Vdrg5_control_events_tb",
+        "+verilator+seed+1",
+        "+mutate_kill"
+      ],
+      "exit_code": 1,
+      "detector": "unjustified or missing event squash",
+      "first_error": "[260] %Fatal: drg5_control_events_tb.sv:69: Assertion failed in drg5_control_events_tb.check: case=1 C=1 cycle=9 pc=00000100: unjustified or missing event squash"
+    },
+    {
+      "configuration": "c1",
+      "negative_control": "mutate_abort",
+      "command": [
+        "/tmp/drg5-control-events-final-v2/c1/Vdrg5_control_events_tb",
+        "+verilator+seed+1",
+        "+mutate_abort"
+      ],
+      "exit_code": 1,
+      "detector": "missing or spurious flush abort",
+      "first_error": "[2060] %Fatal: drg5_control_events_tb.sv:69: Assertion failed in drg5_control_events_tb.check: case=3 C=1 cycle=59 pc=00000104: missing or spurious flush abort"
+    },
+    {
+      "configuration": "c1",
+      "negative_control": "mutate_return",
+      "command": [
+        "/tmp/drg5-control-events-final-v2/c1/Vdrg5_control_events_tb",
+        "+verilator+seed+1",
+        "+mutate_return"
+      ],
+      "exit_code": 1,
+      "detector": "wrong terminal continuation",
+      "first_error": "[8108] %Fatal: drg5_control_events_tb.sv:69: Assertion failed in drg5_control_events_tb.check: case=9 C=1 cycle=227 pc=0000010c: wrong terminal continuation"
+    }
+  ],
+  "status": "passed",
+  "negative_control_types": 3,
+  "negative_control_runs_passed": 6,
+  "limits": [
+    "CSR, MRET, ordinary result and load operations are explicit synthetic packets",
+    "real branch/JAL decode and execution are exercised; no production CPU top or C decoder is claimed",
+    "C0 held-fault case uses a taken misaligned JAL; C1 uses an illegal branch encoding",
+    "detector controls corrupt observed output fields, not implementation RTL"
+  ]
+}

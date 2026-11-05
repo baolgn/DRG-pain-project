@@ -1,0 +1,4 @@
+$ /tmp/drg5-irq-platform-20261104/obj/Vdrg5_irq_platform_tb +verilator+seed+1 +seed=1 +mutate_timer
+[4] %Fatal: drg5_irq_platform_tb.sv:45: Assertion failed in drg5_irq_platform_tb.check: edge=2 profile=0 seed=1 reset=0 command=1 write=1 addr=40001000 data=ffffffff size=2 strobe=f events=00000000 block=0: timer edge mismatch
+%Error: microcontroller/tests/drg5_irq_platform_tb.sv:45: Verilog $stop
+Aborting...

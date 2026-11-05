@@ -1,0 +1,3 @@
+[84] %Fatal: drg5_base_tb.sv:86: Assertion failed in drg5_base_tb.check: case=1 seed=1 diag=0 forwarding=1 cycle=3 cursor=0: unauthorized kill detector
+%Error: microcontroller/tests/drg5_base_tb.sv:86: Verilog $stop
+Aborting...

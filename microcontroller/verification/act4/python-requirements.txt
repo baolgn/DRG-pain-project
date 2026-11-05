@@ -1,0 +1,15 @@
+# Python dependencies; install ACT4 packages from the verified archive separately.
+annotated-doc==0.0.5
+annotated-types==0.8.0
+markdown-it-py==4.2.0
+mdurl==0.1.2
+pydantic==2.14.2
+pydantic_core==2.50.2
+Pygments==2.21.0
+pyjson5==2.0.1
+rich==15.0.0
+ruamel.yaml==0.19.1
+shellingham==1.5.4
+typer==0.27.3
+typing-inspection==0.4.5
+typing_extensions==4.16.0

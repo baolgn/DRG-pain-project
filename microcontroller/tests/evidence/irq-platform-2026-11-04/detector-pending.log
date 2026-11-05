@@ -1,0 +1,4 @@
+$ /tmp/drg5-irq-platform-20261104/obj/Vdrg5_irq_platform_tb +verilator+seed+1 +seed=1 +mutate_pending
+[36] %Fatal: drg5_irq_platform_tb.sv:45: Assertion failed in drg5_irq_platform_tb.check: edge=18 profile=0 seed=1 reset=0 command=0 write=0 addr=00000000 data=00000000 size=2 strobe=0 events=00000001 block=0: external pending mismatch
+%Error: microcontroller/tests/drg5_irq_platform_tb.sv:45: Verilog $stop
+Aborting...

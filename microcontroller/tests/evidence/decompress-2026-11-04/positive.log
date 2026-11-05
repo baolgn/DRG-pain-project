@@ -1,0 +1,6 @@
+$ /tmp/drg5-decompress-tests/obj/Vdrg5_decompress_tb +verilator+seed+1 +oracle=/tmp/drg5-decompress-tests/oracle.hex
+DECOMPRESS_PASS encodings=65536 passes=2 checks=524289 illegal=20329 ordinary=28461 hints=362 wide=16384
+- microcontroller/tests/drg5_decompress_tb.sv:62: Verilog $finish
+- S i m u l a t i o n   R e p o r t: Verilator 5.047 devel
+- Verilator: $finish at 131ns; walltime 0.023 s; speed 5.715 us/s
+- Verilator: cpu 0.023 s on 1 threads; allocated 7 MB

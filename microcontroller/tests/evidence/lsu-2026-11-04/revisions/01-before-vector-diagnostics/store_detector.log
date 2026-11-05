@@ -1,0 +1,4 @@
+$ /tmp/drg5-lsu-final/obj/Vdrg5_lsu_tb +verilator+seed+1 +mutate_store
+[10273] %Fatal: drg5_lsu_tb.sv:61: Assertion failed in drg5_lsu_tb.check: LSU_CHECK_FAILED store lanes profile=2 addr=00010000 size=0 write=1 signed=0
+%Error: /home/bluto/Desktop/dorsalGanglionProject/microcontroller/tests/drg5_lsu_tb.sv:61: Verilog $stop
+Aborting...

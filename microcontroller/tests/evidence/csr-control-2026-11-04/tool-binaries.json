@@ -1,0 +1,15 @@
+{
+  "verilator": {
+    "path": "/tmp/drg5-control-tools-20260301/oss-cad-suite/libexec/verilator_bin",
+    "sha256": "6b6b60384cc154f29e308f0aed8a83cb49d24b8ab0ad501f8fd5d8b14d3b538d"
+  },
+  "host-c++": {
+    "path": "/usr/bin/x86_64-linux-gnu-g++-15",
+    "sha256": "e6718f7e0c7d057c3ff77b550c603da9bc4030e3ede3c053705acce1293dbe4d",
+    "version": "g++ (Ubuntu 15.2.0-16ubuntu1) 15.2.0"
+  },
+  "oss-cad-suite": {
+    "release": "2026-03-01",
+    "archive_sha256": "3558d8cf5b88ba224cf8bae872f83bed11cffdde163b130412e20352029c85f1"
+  }
+}

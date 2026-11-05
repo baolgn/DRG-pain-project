@@ -1,0 +1,5 @@
+$ /tmp/drg5-control-fetch-final/obj/Vdrg5_control_fetch_tb +verilator+seed+1 +mutate_stale_drop
+CONTROL_FETCH_CASE_PASS case=0 offers=4 accepted=4 completed=4 heldW=5 stale_errors=0 accepted_redirect=0 offered_redirect=0
+[192] %Fatal: drg5_control_fetch_tb.sv:122: Assertion failed in drg5_control_fetch_tb.check: CONTROL_FETCH_CHECK_FAILED live versus stale reply disposition case=1 edge=96
+%Error: /home/bluto/Desktop/dorsalGanglionProject/microcontroller/tests/drg5_control_fetch_tb.sv:122: Verilog $stop
+Aborting...

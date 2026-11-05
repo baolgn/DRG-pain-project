@@ -1,0 +1,24 @@
+{
+  "results": {
+    "bypass_detector": {
+      "exit": 1,
+      "expected_result": true
+    },
+    "positive": {
+      "exit": 0,
+      "expected_result": true
+    },
+    "x0_detector": {
+      "exit": 1,
+      "expected_result": true
+    }
+  },
+  "sources": {
+    "rtl/drg5_regfile.sv": "126dd570ac7bc69ec35f04313ce65c015d1f441e629b3772d4d49004db59472a",
+    "synth/drg5_rf_bram.sv": "a42fa0268fe2e3110a4bfe8f904dc26cdefef38a8feb56aca7fd6fad729cc53a",
+    "synth/drg5_rf_distributed.sv": "f47036ea90fe6b4de66984b6a14a489a35cbfff7d6a20f703e286f0147264e72",
+    "synth/drg5_rf_ff.sv": "a73b71d85b52d5847b47ff0b86182ca1bbd3afc65bb4dd30507719ee3bcdd6c5",
+    "tests/drg5_regfile_tb.sv": "9ec55e901d5e4b08ef12ea6969505cc204b2c901babeb1f226f6728b7a215b8f"
+  },
+  "version": "Verilator 5.047 devel rev v5.046-19-ge9dd6eaaf (mod)"
+}

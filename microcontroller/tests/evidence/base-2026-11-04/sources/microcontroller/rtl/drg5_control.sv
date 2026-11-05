@@ -1,0 +1,927 @@
+`include "drg5_datapath_defs.svh"
+
+/* execute checked base instructions; commit only the oldest W token. */
+module drg5_control #(
+  parameter bit DIAGNOSTIC = 1'b1,
+  parameter bit FORWARDING = 1'b1,
+  parameter bit C_ENABLED = 1'b0,
+  parameter bit TEST_REGIONS = 1'b0,
+  parameter bit IRAM_WRITE = 1'b0,
+  parameter bit TIMER_ENABLED = 1'b0,
+  parameter integer D_MAX_WAIT_CYCLES = 128
+) (
+  input logic clk_i,
+  input logic cold_reset_i, isolated_i, hart_reset_i,
+  input logic [4:0] hold_i,
+  input logic in_valid_i,
+  output logic in_ready_o,
+  input drg5_control_pkg::packet_t in_packet_i,
+  input logic flush_valid_i,
+  output logic flush_ready_o,
+  input logic [31:0] flush_pc_i,
+  output logic flush_aborted_o,
+  output logic redirect_valid_o,
+  output logic [31:0] redirect_pc_o,
+  output logic d_req_valid_o,
+  input logic d_req_ready_i,
+  output logic [31:0] d_req_addr_o, d_req_wdata_o,
+  output logic d_req_write_o,
+  output logic [1:0] d_req_size_o,
+  output logic [3:0] d_req_wstrb_o,
+  output logic [31:0] d_req_tag_o,
+  input logic d_rsp_valid_i,
+  output logic d_rsp_ready_o,
+  input logic [31:0] d_rsp_tag_i, d_rsp_rdata_i,
+  input logic [1:0] d_rsp_status_i,
+  output logic mem_launch_o, mem_busy_o, fatal_o,
+  output drg5_control_pkg::fatal_record_t fatal_record_o,
+  output logic [4:0] stage_valid_o,
+  output drg5_control_pkg::token_t stage_token_o [0:4],
+  output logic [3:0] transfer_o,
+  output logic [4:0] kill_valid_o,
+  output logic [63:0] kill_uid_o [0:4],
+  output drg5_control_pkg::trace_t trace_o,
+  input logic [4:0] inspect_reg_i,
+  output logic [31:0] inspect_value_o,
+  output logic inspect_defined_o,
+  output logic [31:0] mstatus_o, mtvec_o, mscratch_o,
+  output logic [31:0] mepc_o, mcause_o, mtval_o
+);
+  import drg5_control_pkg::*;
+  localparam int F = 0, D = 1, X = 2, M = 3, W = 4;
+  localparam int D_AGE_BITS = D_MAX_WAIT_CYCLES < 2 ? 1 : $clog2(D_MAX_WAIT_CYCLES + 1);
+  /* retain unsafe completed transactions until isolation. */
+  typedef enum logic [1:0] {BUS_FREE, BUS_OFFER, BUS_WAIT, BUS_RECOVER} bus_state_t;
+  token_t slot_q [0:4], slot_d [0:4];
+  logic [4:0] valid_q, valid_d, kill;
+  logic [31:0] regs_q [0:31];
+  logic [31:0] defined_q;
+  logic [63:0] uid_q, order_q;
+  logic recovery_q, flush_q;
+  logic [31:0] flush_pc_q;
+  bus_state_t bus_q;
+  token_t owner_q;
+  logic [31:0] tag_q;
+  logic orphan_q;
+  logic fatal_q, fatal_now, bus_timeout, bad_payload, uid_exhausted;
+  logic [D_AGE_BITS-1:0] bus_age_q;
+  logic [31:0] owner_lane_mask;
+  logic [3:0] owner_byte_mask;
+  logic flush_accept, flush_active, protect_m, protect_w;
+  logic w_done, w_fault, w_redirect, csr_known;
+  logic [31:0] w_cause, w_tval, w_value, w_next;
+  logic [31:0] csr_old, csr_new;
+  logic bus_accept, bus_complete, bus_bad, bus_deliver;
+  logic launch, tag_exhausted, mem_local_fault, unused_mem_misaligned, mem_allowed;
+  logic [31:0] mem_cause, load_value;
+  logic [31:0] d_word, d_immediate, d_rs1_value, d_rs2_value;
+  logic [3:0] d_kind;
+  logic [2:0] d_imm_kind, d_cond;
+  logic [4:0] d_rs1, d_rs2, d_rd;
+  logic d_legal, d_rs1_used, d_rs2_used, d_rd_write, d_imm_valid;
+  logic d_control_ok, d_memory_ok, d_base_ok, d_execute_ok, d_hazard, w_gpr_write;
+  logic [3:0] d_alu_op;
+  logic d_a_pc, d_b_imm, d_load_signed;
+  logic [1:0] d_mem_size;
+  logic x_cf_valid, x_cf_taken, x_cf_misaligned;
+  logic [31:0] x_cf_target, x_cf_next, x_cf_link;
+  logic [49:0] unused_owner_control;
+  logic x_mem_allowed, unused_x_misaligned;
+  logic [31:0] x_mem_addr, x_mem_cause, x_mem_wdata;
+  logic [31:0] unused_x_load, unused_m_wdata, unused_m_load;
+  logic [31:0] unused_owner_cause, unused_owner_wdata;
+  logic [3:0] unused_x_strobe, unused_m_strobe, unused_owner_strobe;
+  logic unused_owner_allowed, unused_owner_misaligned;
+  logic [31:0] x_alu_a, x_alu_b, x_alu_value;
+  logic x_alu_valid, unused_x_eq, unused_x_lt, unused_x_ltu;
+  logic [2:0] producer_valid, producer_write, producer_ready;
+  logic [14:0] producer_rd;
+  logic [95:0] producer_value;
+  logic [1:0] unused_rs1_select, unused_rs2_select;
+  logic unused_rs1_match, unused_rs2_match;
+  logic [4:0] barrier, barrier_older;
+
+  /* a deadline is inclusive and must contain at least one sampling edge. */
+  initial begin
+    assert (D_MAX_WAIT_CYCLES >= 1) else $fatal(1, "invalid data deadline");
+  end
+
+  /* validate original bytes independently of the optional decoded C micro-op. */
+  function automatic logic control_width_ok(input logic [2:0] length,
+      input logic [3:0] raw_valid, input logic expanded_valid, short_original);
+    return (length == 4 && raw_valid == 4'hf && !expanded_valid) ||
+           (C_ENABLED && length == 2 && raw_valid == 4'h3 && expanded_valid && short_original);
+  endfunction
+
+  /* only operation classes with an actual GPR destination create dependencies. */
+  function automatic logic writer(input op_t op, input logic rd_write, input logic [4:0] rd);
+    return rd_write && rd != 0 &&
+        (op == OP_RESULT || op == OP_LOAD || op == OP_CSR || op == OP_REDIRECT || op == OP_CONTROL);
+  endfunction
+
+  /* recognize base barriers before D normalization without trusting supplied execution fields. */
+  function automatic logic serializing(input logic base_serial, input op_t op,
+      input logic fault, input logic [2:0] length, input logic [3:0] raw_valid,
+      input logic expanded_valid, input logic [31:0] raw);
+    return base_serial || op == OP_FENCE ||
+        (op == OP_BASE && !fault && length == 4 && raw_valid == 4'hf && !expanded_valid &&
+         ((raw[6:0] == 7'h0f && raw[14:12] == 0) ||
+          raw == 32'h00000073 || raw == 32'h00100073));
+  endfunction
+
+  /* memory owners never consume the token's control-flow metadata. */
+  assign unused_owner_control = {owner_q.alu_decoded, owner_q.alu_a_pc, owner_q.alu_b_imm,
+                                  owner_q.alu_op, owner_q.base_serial, owner_q.serial_ready,
+                                  owner_q.mem_decoded, owner_q.cf_kind, owner_q.cf_cond,
+                                  owner_q.cf_imm, owner_q.cf_taken};
+  /* decode control/data instructions from their encoding, never supplied operand flags. */
+  assign d_word = slot_q[D].p.length == 2 ? slot_q[D].p.expanded : slot_q[D].p.raw;
+  drg5_decoder control_decode (
+    .instr_i(d_word), .legal_o(d_legal), .kind_o(d_kind), .alu_op_o(d_alu_op),
+    .imm_kind_o(d_imm_kind), .rs1_used_o(d_rs1_used), .rs2_used_o(d_rs2_used),
+    .rd_write_o(d_rd_write), .rs1_o(d_rs1), .rs2_o(d_rs2), .rd_o(d_rd),
+    .a_pc_o(d_a_pc), .b_imm_o(d_b_imm), .branch_cond_o(d_cond),
+    .mem_size_o(d_mem_size), .load_signed_o(d_load_signed)
+  );
+  /* generate B/J control offsets and signed I/S data or JALR immediates. */
+  drg5_immediate control_immediate (
+    .instr_i(d_word), .kind_i(d_imm_kind), .value_o(d_immediate), .valid_o(d_imm_valid)
+  );
+  assign d_control_ok = control_width_ok(slot_q[D].p.length, slot_q[D].p.raw_valid,
+      slot_q[D].p.expanded_valid, slot_q[D].p.raw[31:16] == 0 && slot_q[D].p.raw[1:0] != 3) &&
+      d_legal && d_imm_valid &&
+      (d_kind == `DRG5_KIND_BRANCH || d_kind == `DRG5_KIND_JAL || d_kind == `DRG5_KIND_JALR);
+  /* memory execution initially accepts complete original 32-bit instructions only. */
+  assign d_memory_ok = slot_q[D].p.length == 4 && slot_q[D].p.raw_valid == 4'hf &&
+      !slot_q[D].p.expanded_valid && d_legal && d_imm_valid &&
+      (d_kind == `DRG5_KIND_LOAD || d_kind == `DRG5_KIND_STORE);
+  /* the complete base entry rejects extensions and short expanded instructions. */
+  assign d_base_ok = slot_q[D].p.length == 4 && slot_q[D].p.raw_valid == 4'hf &&
+      !slot_q[D].p.expanded_valid && d_legal && d_imm_valid;
+  assign d_execute_ok = (slot_q[D].p.op == OP_CONTROL && d_control_ok) ||
+                         (slot_q[D].p.op == OP_MEMORY && d_memory_ok) ||
+                         (slot_q[D].p.op == OP_BASE && d_base_ok);
+  assign w_gpr_write = w_done && !w_fault &&
+      writer(slot_q[W].p.op, slot_q[W].p.rd_write, slot_q[W].p.rd);
+
+  /* supply producer identity independently of readiness so a newer fault cannot expose an old value. */
+  always_comb begin
+    producer_valid = 0;
+    producer_write = 0;
+    producer_ready = 0;
+    producer_rd = 0;
+    producer_value = 0;
+    /* packed lanes are ordered newest X, then M, then oldest W. */
+    for (int stage = X; stage <= W; stage++) begin
+      producer_valid[stage-X] = valid_q[stage];
+      producer_write[stage-X] = writer(slot_q[stage].p.op, slot_q[stage].p.rd_write, slot_q[stage].p.rd);
+      producer_rd[5*(stage-X) +: 5] = slot_q[stage].p.rd;
+      producer_value[32*(stage-X) +: 32] = slot_q[stage].p.result;
+    end
+    /* X arithmetic and link values are complete; a load has no result yet. */
+    if (!slot_q[X].p.fault) begin
+      /* malformed diagnostic result packets must wait for their precise fault. */
+      if (slot_q[X].p.op == OP_RESULT && slot_q[X].p.length == 4 && slot_q[X].p.raw_valid == 4'hf) begin
+        producer_ready[0] = !slot_q[X].alu_decoded || x_alu_valid;
+        producer_value[0 +: 32] = slot_q[X].alu_decoded ? x_alu_value : slot_q[X].p.result;
+      end
+      /* a misaligned control target cannot supply its suppressed link. */
+      if (slot_q[X].p.op == OP_CONTROL) begin
+        producer_ready[0] = x_cf_valid && !x_cf_misaligned;
+        producer_value[0 +: 32] = x_cf_link;
+      end
+    end
+    /* load results become sources only after a captured successful response. */
+    if (!slot_q[M].p.fault) begin
+      producer_ready[1] = ((slot_q[M].p.op == OP_RESULT || slot_q[M].p.op == OP_LOAD) &&
+                           slot_q[M].p.length == 4 && slot_q[M].p.raw_valid == 4'hf &&
+                           (slot_q[M].p.op != OP_LOAD || slot_q[M].mem_done)) ||
+                          slot_q[M].p.op == OP_CONTROL;
+    end
+    /* a held oldest W value is stable; conservative mode waits for its actual commit. */
+    producer_ready[2] = FORWARDING ? !w_fault : w_gpr_write;
+    producer_value[64 +: 32] = w_value;
+  end
+
+  /* capture each operand from its nearest matching producer or stall on that producer. */
+  drg5_forward #(.FORWARDING(FORWARDING)) operand_forward (
+    .rs1_i(d_rs1), .rs2_i(d_rs2),
+    .rs1_used_i(valid_q[D] && !slot_q[D].p.fault && d_execute_ok && d_rs1_used),
+    .rs2_used_i(valid_q[D] && !slot_q[D].p.fault && d_execute_ok && d_rs2_used),
+    .rs1_rf_value_i(regs_q[d_rs1]), .rs2_rf_value_i(regs_q[d_rs2]),
+    .producer_valid_i(producer_valid), .producer_write_i(producer_write),
+    .producer_ready_i(producer_ready), .producer_rd_i(producer_rd), .producer_value_i(producer_value),
+    .rs1_value_o(d_rs1_value), .rs2_value_o(d_rs2_value), .hazard_o(d_hazard),
+    .rs1_select_o(unused_rs1_select), .rs2_select_o(unused_rs2_select),
+    .rs1_match_o(unused_rs1_match), .rs2_match_o(unused_rs2_match)
+  );
+
+  /* barriers hold only younger work and block input through their terminal edge. */
+  always_comb begin
+    barrier = 0;
+    barrier_older = 0;
+    /* every stage can identify its own barrier before normalized execution. */
+    for (int stage = F; stage <= W; stage++) begin
+      barrier[stage] = valid_q[stage] && serializing(slot_q[stage].base_serial, slot_q[stage].p.op,
+          slot_q[stage].p.fault, slot_q[stage].p.length, slot_q[stage].p.raw_valid,
+          slot_q[stage].p.expanded_valid, slot_q[stage].p.raw);
+    end
+    /* an instruction never blocks its own progress. */
+    for (int stage = F; stage < W; stage++) begin
+      /* all higher stages contain older instructions in this in-order pipeline. */
+      for (int older = stage + 1; older <= W; older++) begin
+        barrier_older[stage] |= barrier[older];
+      end
+    end
+  end
+
+  /* ALU operands use the same captured sources as branches, addresses and store data. */
+  assign x_alu_a = slot_q[X].alu_a_pc ? slot_q[X].p.pc : slot_q[X].p.rs1_value;
+  assign x_alu_b = slot_q[X].alu_b_imm ? slot_q[X].cf_imm : slot_q[X].p.rs2_value;
+  drg5_alu execute_alu (
+    .a_i(x_alu_a), .b_i(x_alu_b), .op_i(slot_q[X].alu_op),
+    .result_o(x_alu_value), .valid_o(x_alu_valid), .eq_o(unused_x_eq),
+    .lt_signed_o(unused_x_lt), .lt_unsigned_o(unused_x_ltu)
+  );
+
+  /* held X operands produce a stable candidate without publishing a redirect. */
+  drg5_branch #(.C_ENABLED(C_ENABLED)) control_branch (
+    .pc_i(slot_q[X].p.pc), .rs1_i(slot_q[X].p.rs1_value), .rs2_i(slot_q[X].p.rs2_value),
+    .imm_i(slot_q[X].cf_imm), .kind_i(slot_q[X].cf_kind), .cond_i(slot_q[X].cf_cond),
+    .length_i(slot_q[X].p.length), .valid_o(x_cf_valid), .taken_o(x_cf_taken),
+    .misaligned_o(x_cf_misaligned), .target_o(x_cf_target), .next_pc_o(x_cf_next), .link_o(x_cf_link)
+  );
+
+  /* X forms the effective address modulo XLEN and checks it before any bus ownership. */
+  assign x_mem_addr = slot_q[X].p.rs1_value + slot_q[X].cf_imm;
+  drg5_lsu #(.TEST_REGIONS(TEST_REGIONS), .IRAM_WRITE(IRAM_WRITE),
+              .TIMER_ENABLED(TIMER_ENABLED)) execute_memory (
+    .addr_i(x_mem_addr), .store_value_i(slot_q[X].p.rs2_value), .rsp_data_i(32'b0),
+    .size_i(slot_q[X].p.mem_size), .write_i(slot_q[X].p.op == OP_STORE),
+    .signed_i(slot_q[X].p.mem_signed), .allowed_o(x_mem_allowed),
+    .misaligned_o(unused_x_misaligned), .cause_o(x_mem_cause), .wdata_o(x_mem_wdata),
+    .wstrb_o(unused_x_strobe), .load_value_o(unused_x_load)
+  );
+
+  /* M also checks diagnostic memory packets before granting a first-valid request. */
+  drg5_lsu #(.TEST_REGIONS(TEST_REGIONS), .IRAM_WRITE(IRAM_WRITE),
+              .TIMER_ENABLED(TIMER_ENABLED)) permit_memory (
+    .addr_i(slot_q[M].p.mem_addr), .store_value_i(32'b0), .rsp_data_i(32'b0),
+    .size_i(slot_q[M].p.mem_size), .write_i(slot_q[M].p.op == OP_STORE),
+    .signed_i(slot_q[M].p.mem_signed), .allowed_o(mem_allowed),
+    .misaligned_o(unused_mem_misaligned), .cause_o(mem_cause), .wdata_o(unused_m_wdata),
+    .wstrb_o(unused_m_strobe), .load_value_o(unused_m_load)
+  );
+
+  /* only the immutable response owner selects and extends returned load lanes. */
+  drg5_lsu #(.TEST_REGIONS(TEST_REGIONS), .IRAM_WRITE(IRAM_WRITE),
+              .TIMER_ENABLED(TIMER_ENABLED)) complete_memory (
+    .addr_i(owner_q.p.mem_addr), .store_value_i(32'b0), .rsp_data_i(d_rsp_rdata_i),
+    .size_i(owner_q.p.mem_size), .write_i(owner_q.p.op == OP_STORE),
+    .signed_i(owner_q.p.mem_signed), .allowed_o(unused_owner_allowed),
+    .misaligned_o(unused_owner_misaligned), .cause_o(unused_owner_cause),
+    .wdata_o(unused_owner_wdata), .wstrb_o(unused_owner_strobe), .load_value_o(load_value)
+  );
+
+  /* form exact requested lanes for strobes, canonical responses and fault evidence. */
+  always_comb begin
+    /* unsupported widths never own a request. */
+    case (owner_q.p.mem_size)
+      0: owner_byte_mask = 4'b0001 << owner_q.p.mem_addr[1:0];
+      1: owner_byte_mask = 4'b0011 << owner_q.p.mem_addr[1:0];
+      2: owner_byte_mask = 4'b1111;
+      default: owner_byte_mask = 0;
+    endcase
+    owner_lane_mask = 0;
+    /* expand byte enables without shifting the effective address a second time. */
+    for (int lane = 0; lane < 4; lane++) begin
+      owner_lane_mask[8*lane +: 8] = {8{owner_byte_mask[lane]}};
+    end
+    d_req_wstrb_o = d_req_write_o ? owner_byte_mask : 4'b0;
+    bad_payload = (d_rsp_status_i != 0 || d_req_write_o) ? d_rsp_rdata_i != 0 :
+                  (d_rsp_rdata_i & ~owner_lane_mask) != 0;
+  end
+
+  /* expose immutable manager state until acceptance and through response. */
+  assign d_req_valid_o = bus_q == BUS_OFFER;
+  assign d_req_addr_o = owner_q.p.mem_addr;
+  assign d_req_wdata_o = d_req_write_o ? owner_q.p.mem_wdata & owner_lane_mask : 32'b0;
+  assign d_req_write_o = owner_q.p.op == OP_STORE;
+  assign d_req_size_o = owner_q.p.mem_size;
+  assign d_req_tag_o = tag_q;
+  assign d_rsp_ready_o = !cold_reset_i;
+  assign mem_busy_o = bus_q != BUS_FREE;
+  assign mem_launch_o = launch;
+  assign stage_valid_o = valid_q;
+  assign stage_token_o = slot_q;
+  assign inspect_value_o = inspect_reg_i == 0 ? 32'b0 : regs_q[inspect_reg_i];
+  assign inspect_defined_o = defined_q[inspect_reg_i];
+  assign flush_ready_o = !flush_q && !hart_reset_i && !cold_reset_i &&
+                         !recovery_q && !fatal_now;
+  assign flush_accept = flush_valid_i && flush_ready_o;
+  assign flush_active = flush_q || flush_accept;
+  assign protect_m = valid_q[M] && slot_q[M].mem_issued;
+  assign protect_w = valid_q[W] && (slot_q[W].mem_issued || w_fault);
+  assign bus_accept = d_req_valid_o && d_req_ready_i;
+  assign bus_complete = d_rsp_valid_i && d_rsp_ready_o &&
+      d_rsp_tag_i == tag_q && (bus_q == BUS_WAIT || bus_accept);
+  assign bus_bad = d_rsp_valid_i && d_rsp_ready_o &&
+      (!bus_complete || d_rsp_status_i[1] || bad_payload);
+  /* the final allowed edge accepts a matching reply; later replies remain recovery-only. */
+  assign bus_timeout = (bus_q == BUS_OFFER || bus_q == BUS_WAIT) &&
+      !bus_complete && bus_age_q == D_AGE_BITS'(D_MAX_WAIT_CYCLES - 1) && !cold_reset_i;
+  /* publish sticky status only after the sampling edge; contain same-edge effects internally. */
+  assign fatal_now = fatal_q || bus_bad || bus_timeout;
+  assign fatal_o = fatal_q;
+  assign uid_exhausted = in_valid_i && uid_q == 64'hffffffffffffffff && valid_q == 0 &&
+      bus_q == BUS_FREE && !hart_reset_i && !flush_active && !recovery_q;
+  assign bus_deliver = bus_complete && !d_rsp_status_i[1] && !orphan_q &&
+      !hart_reset_i && !fatal_now && valid_q[M] &&
+      slot_q[M].uid == owner_q.uid;
+
+  /* prepare CSR values and faults without changing architectural storage. */
+  always_comb begin
+    csr_known = 1'b1;
+    /* select the small trap-state CSR subset; all others are illegal. */
+    case (slot_q[W].p.csr_addr)
+      12'h300: csr_old = mstatus_o;
+      12'h305: csr_old = mtvec_o;
+      12'h340: csr_old = mscratch_o;
+      12'h341: csr_old = mepc_o;
+      12'h342: csr_old = mcause_o;
+      12'h343: csr_old = mtval_o;
+      /* reject addresses outside the initial trap-state subset. */
+      default: begin
+        csr_old = 0;
+        csr_known = 1'b0;
+      end
+    endcase
+    /* apply the supplied CSR operation at the eventual retirement edge. */
+    case (slot_q[W].p.csr_op)
+      CSR_WRITE: csr_new = slot_q[W].p.csr_source;
+      CSR_SET: csr_new = csr_old | slot_q[W].p.csr_source;
+      CSR_CLEAR: csr_new = csr_old & ~slot_q[W].p.csr_source;
+      default: csr_new = csr_old;
+    endcase
+    /* keep MPP fixed and align direct trap and return addresses. */
+    case (slot_q[W].p.csr_addr)
+      12'h300: csr_new = (csr_new & 32'h88) | 32'h1800;
+      12'h305: csr_new = csr_new & 32'hfffffffc;
+      12'h341: csr_new = csr_new & (C_ENABLED ? 32'hfffffffe : 32'hfffffffc);
+      /* ordinary CSR values need no alignment mask. */
+      default: begin end
+    endcase
+    w_fault = slot_q[W].p.fault;
+    w_cause = slot_q[W].p.cause;
+    w_tval = slot_q[W].p.mtval;
+    w_value = slot_q[W].p.result;
+    w_next = slot_q[W].p.next_pc;
+    w_redirect = slot_q[W].p.op == OP_REDIRECT ||
+                 (slot_q[W].p.op == OP_CONTROL && slot_q[W].cf_taken);
+    /* preserve an earlier fault before checking the supplied operation. */
+    if (!w_fault) begin
+      /* reject incomplete encoding, unsupported operations and CSR addresses. */
+      if ((slot_q[W].p.op == OP_CONTROL ?
+           !control_width_ok(slot_q[W].p.length, slot_q[W].p.raw_valid, slot_q[W].p.expanded_valid,
+                             slot_q[W].p.raw[31:16] == 0 && slot_q[W].p.raw[1:0] != 3) :
+           (slot_q[W].p.length != 4 || slot_q[W].p.raw_valid != 4'hf)) ||
+          slot_q[W].p.op > OP_FENCE ||
+          (slot_q[W].p.op == OP_CSR && !csr_known)) begin
+        w_fault = 1'b1;
+        w_cause = 2;
+        w_tval = 0;
+      /* execute only a well-formed supplied operation. */
+      end else begin
+        /* form synchronous exceptions and the serialized return target. */
+        case (slot_q[W].p.op)
+          OP_CSR: w_value = slot_q[W].p.csr_read ? csr_old : 32'b0;
+          /* prepare the return without changing architectural state. */
+          OP_MRET: begin
+            w_next = mepc_o;
+            w_redirect = 1'b1;
+          end
+          /* retain the machine-call exception convention. */
+          OP_ECALL: begin
+            w_fault = 1'b1;
+            w_cause = 11;
+            w_tval = 0;
+          end
+          /* debug routing is absent from this prototype. */
+          OP_EBREAK: begin
+            w_fault = 1'b1;
+            w_cause = 3;
+            w_tval = slot_q[W].p.pc;
+          end
+          /* validate the supplied target before redirecting. */
+          OP_REDIRECT: begin
+            /* the diagnostic redirect follows the active alignment setting. */
+            if (w_next[0] || (!C_ENABLED && w_next[1])) begin
+              w_fault = 1'b1;
+              w_cause = 0;
+              w_tval = w_next;
+            end
+          end
+          /* ordinary result and memory packets need no W operation. */
+          default: begin end
+        endcase
+      end
+    end
+  end
+
+  /* a held ordered fault stays owned until it can trap, even during flush. */
+  assign w_done = valid_q[W] && !hold_i[W] && !cold_reset_i &&
+      !hart_reset_i && !fatal_now &&
+      (!barrier[W] || (slot_q[W].serial_ready && bus_q == BUS_FREE)) &&
+      (!flush_active || protect_w);
+
+  /* compute stage movement, ordered launch permission and explicit kills. */
+  always_comb begin
+    valid_d = valid_q;
+    slot_d = slot_q;
+    kill = 0;
+    transfer_o = 0;
+    launch = 0;
+    tag_exhausted = 0;
+    in_ready_o = 0;
+    mem_local_fault = !mem_allowed ||
+                      slot_q[M].p.length != 4 || slot_q[M].p.raw_valid != 4'hf;
+    /* a reset aborts instructions while the separate manager survives. */
+    if (hart_reset_i || cold_reset_i) begin
+      kill = valid_q;
+    /* fatal recovery freezes slots until explicit reset-abort. */
+    end else if (!fatal_now) begin
+      /* a precise W redirect kills all younger tokens before any launch. */
+      if (w_done && (w_fault || w_redirect)) begin
+        kill = valid_q & 5'b01111;
+      /* retain irreversible memory work and an ordered W fault. */
+      end else if (flush_active) begin
+        kill = valid_q;
+        kill[M] = valid_q[M] && !protect_m;
+        kill[W] = valid_q[W] && !protect_w;
+      end
+      /* release W only for its single architectural disposition. */
+      if (w_done) begin
+        valid_d[W] = 0;
+      end
+      /* prepare an ordered base barrier without changing architectural state. */
+      if (valid_q[W] && barrier[W] && !slot_q[W].serial_ready && !hold_i[W] &&
+          !kill[W] && bus_q == BUS_FREE) begin
+        slot_d[W].serial_ready = 1;
+      end
+      /* a completed M token moves independently of response capture. */
+      if (valid_q[M] && !hold_i[M] && !kill[M] && !barrier_older[M] && !valid_d[W] &&
+          (slot_q[M].p.fault ||
+           (slot_q[M].p.op != OP_LOAD && slot_q[M].p.op != OP_STORE) ||
+           slot_q[M].mem_done)) begin
+        slot_d[W] = slot_q[M];
+        valid_d[W] = 1;
+        valid_d[M] = 0;
+        transfer_o[M] = 1;
+      end
+      /* grant effects only when all older work has successfully retired. */
+      if (valid_q[M] && !hold_i[M] && !kill[M] && !flush_active && !barrier_older[M] &&
+          !slot_q[M].p.fault && !slot_q[M].mem_issued &&
+          (slot_q[M].p.op == OP_LOAD || slot_q[M].p.op == OP_STORE) &&
+          (!valid_q[W] || (w_done && !w_fault && !w_redirect))) begin
+        /* local failures never create a request owner. */
+        if (mem_local_fault) begin
+          slot_d[M].p.fault = 1;
+          /* malformed metadata precedes address and width checks. */
+          if (slot_q[M].p.length != 4 || slot_q[M].p.raw_valid != 4'hf) begin
+            slot_d[M].p.cause = 2;
+            slot_d[M].p.mtval = 0;
+          /* report the first local address or width fault. */
+          end else begin
+            slot_d[M].p.cause = mem_cause;
+            slot_d[M].p.mtval = slot_q[M].p.mem_addr;
+          end
+        /* an empty manager can reserve one eligible request. */
+        end else if (bus_q == BUS_FREE && !recovery_q) begin
+          /* exhaustion applies only to an otherwise-permitted new request. */
+          if (tag_q == 32'hffffffff) begin
+            tag_exhausted = !valid_q[W];
+          /* first valid follows this irrevocable reservation. */
+          end else begin
+            launch = 1;
+            slot_d[M].mem_issued = 1;
+          end
+        end
+      end
+      /* walk backward so a vacated slot can accept one different token. */
+      for (int i = X; i >= F; i--) begin
+        /* holds stop transfer, while kills dominate replacement. */
+        if (valid_q[i] && !hold_i[i] && !kill[i] && !valid_d[i+1] &&
+            !barrier_older[i] &&
+            !flush_active && !(w_done && (w_fault || w_redirect)) &&
+            !(i == D && d_hazard)) begin
+          slot_d[i+1] = slot_q[i];
+          valid_d[i+1] = 1;
+          valid_d[i] = 0;
+          transfer_o[i] = 1;
+          /* D captures real sources once for each decoded instruction. */
+          if (i == D && (slot_q[D].p.op == OP_CONTROL || slot_q[D].p.op == OP_MEMORY ||
+                         slot_q[D].p.op == OP_BASE)) begin
+            slot_d[X].p.rs1_used = 0;
+            slot_d[X].p.rs2_used = 0;
+            slot_d[X].p.rs1 = 0;
+            slot_d[X].p.rs2 = 0;
+            slot_d[X].p.rs1_value = 0;
+            slot_d[X].p.rs2_value = 0;
+            slot_d[X].p.rd = 0;
+            slot_d[X].p.rd_write = 0;
+            slot_d[X].p.result = 0;
+            slot_d[X].p.next_pc = 0;
+            /* raw base instructions never inherit synthetic memory or CSR intent. */
+            if (slot_q[D].p.op == OP_BASE) begin
+              slot_d[X].p.mem_addr = 0;
+              slot_d[X].p.mem_wdata = 0;
+              slot_d[X].p.mem_size = 0;
+              slot_d[X].p.mem_signed = 0;
+              slot_d[X].p.csr_addr = 0;
+              slot_d[X].p.csr_op = CSR_READ;
+              slot_d[X].p.csr_read = 0;
+              slot_d[X].p.csr_write = 0;
+              slot_d[X].p.csr_source = 0;
+            end
+            /* an existing fetch fault wins before decode or operand use. */
+            if (!slot_q[D].p.fault) begin
+              /* unsupported encodings produce a precise illegal-instruction token. */
+              if (!d_execute_ok) begin
+                slot_d[X].p.fault = 1;
+                slot_d[X].p.cause = 2;
+                slot_d[X].p.mtval = 0;
+              end
+              /* capture sources once before any later destination write. */
+              else begin
+                slot_d[X].p.rs1_used = d_rs1_used;
+                slot_d[X].p.rs2_used = d_rs2_used;
+                slot_d[X].p.rs1 = d_rs1;
+                slot_d[X].p.rs2 = d_rs2;
+                slot_d[X].p.rs1_value = d_rs1_used ? d_rs1_value : 32'b0;
+                slot_d[X].p.rs2_value = d_rs2_used ? d_rs2_value : 32'b0;
+                slot_d[X].p.rd = d_rd;
+                slot_d[X].p.rd_write = d_rd_write;
+                slot_d[X].cf_imm = d_immediate;
+                /* normal base execution starts with no supplied result or fault annotation. */
+                if (slot_q[D].p.op == OP_BASE) begin
+                  slot_d[X].p.next_pc = slot_q[D].p.pc + 32'd4;
+                  slot_d[X].p.cause = 0;
+                  slot_d[X].p.mtval = 0;
+                end
+                /* normalized memory operations retain their original encoded identity. */
+                if (d_kind == `DRG5_KIND_LOAD || d_kind == `DRG5_KIND_STORE) begin
+                  slot_d[X].p.op = d_kind == `DRG5_KIND_STORE ? OP_STORE : OP_LOAD;
+                  slot_d[X].p.mem_addr = 0;
+                  slot_d[X].p.mem_wdata = 0;
+                  slot_d[X].p.mem_size = d_mem_size;
+                  slot_d[X].p.mem_signed = d_load_signed;
+                  slot_d[X].mem_decoded = 1;
+                end
+                /* control transfers retain decoded comparisons and length-aware links. */
+                else if (d_kind == `DRG5_KIND_BRANCH || d_kind == `DRG5_KIND_JAL ||
+                         d_kind == `DRG5_KIND_JALR) begin
+                  slot_d[X].p.op = OP_CONTROL;
+                  slot_d[X].cf_kind = d_kind;
+                  slot_d[X].cf_cond = d_cond;
+                end
+                /* arithmetic instructions execute through the independently checked ALU. */
+                else if (d_kind == `DRG5_KIND_REG || d_kind == `DRG5_KIND_IMM ||
+                         d_kind == `DRG5_KIND_LUI || d_kind == `DRG5_KIND_AUIPC) begin
+                  slot_d[X].p.op = OP_RESULT;
+                  slot_d[X].alu_decoded = 1;
+                  slot_d[X].alu_op = d_alu_op;
+                  slot_d[X].alu_a_pc = d_a_pc;
+                  slot_d[X].alu_b_imm = d_b_imm;
+                end
+                /* base fences and environment instructions act only at ordered W. */
+                else begin
+                  slot_d[X].base_serial = 1;
+                  /* all legal remaining decoder kinds have one precise disposition. */
+                  case (d_kind)
+                    `DRG5_KIND_FENCE: slot_d[X].p.op = OP_FENCE;
+                    `DRG5_KIND_ECALL: slot_d[X].p.op = OP_ECALL;
+                    `DRG5_KIND_EBREAK: slot_d[X].p.op = OP_EBREAK;
+                    /* a future unsupported kind cannot silently become an ordinary result. */
+                    default: begin
+                      slot_d[X].p.fault = 1;
+                      slot_d[X].p.cause = 2;
+                      slot_d[X].p.mtval = 0;
+                    end
+                  endcase
+                end
+              end
+            end
+          end
+          /* latch an ALU result only when X transfers its owned instruction. */
+          if (i == X && slot_q[X].alu_decoded && !slot_q[X].p.fault) begin
+            slot_d[M].p.result = x_alu_value;
+            /* decoder and ALU disagreement is contained as an illegal instruction. */
+            if (!x_alu_valid) begin
+              slot_d[M].p.fault = 1;
+              slot_d[M].p.cause = 2;
+              slot_d[M].p.mtval = 0;
+            end
+          end
+          /* X records one result; only the older-ordered W disposition may act. */
+          if (i == X && slot_q[X].p.op == OP_CONTROL && !slot_q[X].p.fault) begin
+            slot_d[M].cf_taken = x_cf_taken;
+            slot_d[M].p.next_pc = x_cf_next;
+            slot_d[M].p.result = slot_q[X].cf_kind == `DRG5_KIND_BRANCH ? 32'b0 : x_cf_link;
+            /* malformed control metadata is an illegal instruction. */
+            if (!x_cf_valid) begin
+              slot_d[M].p.fault = 1;
+              slot_d[M].p.cause = 2;
+              slot_d[M].p.mtval = 0;
+            end
+            /* a taken alignment fault traps on the source instruction, without link commit. */
+            else if (x_cf_misaligned) begin
+              slot_d[M].p.fault = 1;
+              slot_d[M].p.cause = 0;
+              slot_d[M].p.mtval = x_cf_target;
+            end
+          end
+          /* X computes address and lanes once; M grants effects only after older success. */
+          if (i == X && slot_q[X].mem_decoded && !slot_q[X].p.fault) begin
+            slot_d[M].p.mem_addr = x_mem_addr;
+            slot_d[M].p.mem_wdata = x_mem_wdata;
+            slot_d[M].p.next_pc = slot_q[X].p.pc + 32'd4;
+            /* local faults have no bus owner, including a load whose destination is x0. */
+            if (!x_mem_allowed) begin
+              slot_d[M].p.fault = 1;
+              slot_d[M].p.cause = x_mem_cause;
+              slot_d[M].p.mtval = x_mem_addr;
+            end
+          end
+        end
+      end
+      in_ready_o = !valid_d[F] && !flush_active && !recovery_q && !(|barrier) &&
+          uid_q != 64'hffffffffffffffff &&
+          !(w_done && (w_fault || w_redirect)) &&
+          (!DIAGNOSTIC || (valid_q == 0 && bus_q == BUS_FREE));
+      /* allocate a fresh identity only for an actual input transfer. */
+      if (in_valid_i && in_ready_o) begin
+        slot_d[F] = '0;
+        slot_d[F].p = in_packet_i;
+        slot_d[F].uid = uid_q;
+        valid_d[F] = 1;
+      end
+    end
+    /* response delivery updates only its still-owned M token. */
+    if (bus_deliver && !kill[M]) begin
+      slot_d[M].mem_done = 1;
+      /* access errors suppress normal writeback and retain the fault address. */
+      if (d_rsp_status_i == 1) begin
+        slot_d[M].p.fault = 1;
+        slot_d[M].p.cause = owner_q.p.op == OP_LOAD ? 32'd5 : 32'd7;
+        slot_d[M].p.mtval = owner_q.p.mem_addr;
+      /* stores have no register result to replace. */
+      end else if (owner_q.p.op == OP_LOAD) begin
+        slot_d[M].p.result = load_value;
+      end
+    end
+    /* zero dead storage so stale fields cannot masquerade as live state. */
+    for (int i = F; i <= W; i++) begin
+      /* explicit kills also defeat a same-edge incoming replacement. */
+      if (kill[i]) begin
+        valid_d[i] = 0;
+      end
+      /* an invalid slot owns no residual packet. */
+      if (!valid_d[i]) begin
+        slot_d[i] = '0;
+      end
+    end
+  end
+
+  /* retain data obligations across hart reset; cold reset requires isolation. */
+  always_ff @(posedge clk_i) begin
+    /* only the platform may destroy a live manager at qualified cold reset. */
+    if (cold_reset_i) begin
+      assert ((!fatal_now && bus_q == BUS_FREE) || isolated_i)
+        else $fatal(1, "cold reset without transaction isolation");
+      bus_q <= BUS_FREE;
+      owner_q <= '0;
+      tag_q <= 0;
+      orphan_q <= 0;
+      bus_age_q <= 0;
+      fatal_q <= 0;
+      fatal_record_o <= '0;
+    /* hart reset leaves this manager clocked and owned. */
+    end else begin
+      /* retain fatal state until coordinated cold recovery. */
+      if (!fatal_q && (bus_bad || bus_timeout || tag_exhausted || uid_exhausted)) begin
+        fatal_q <= 1;
+        fatal_record_o <= '0;
+        fatal_record_o.valid <= 1;
+        fatal_record_o.reason <= bus_bad ?
+            ((bus_complete && d_rsp_status_i == 2 && !bad_payload) ? 3'd2 : 3'd1) :
+            bus_timeout ? 3'd3 : tag_exhausted ? 3'd4 : 3'd5;
+        /* the snapshot records exposure and same-edge acceptance/completion, not later drainage. */
+        if (bus_q != BUS_FREE) begin
+          fatal_record_o.owned <= 1;
+          fatal_record_o.accepted <= bus_q != BUS_OFFER || bus_accept;
+          fatal_record_o.responded <= bus_complete || owner_q.mem_done;
+          fatal_record_o.uid <= owner_q.uid;
+          fatal_record_o.pc <= owner_q.p.pc;
+          fatal_record_o.addr <= owner_q.p.mem_addr;
+          fatal_record_o.wdata <= d_req_wdata_o;
+          fatal_record_o.tag <= tag_q;
+          fatal_record_o.size <= owner_q.p.mem_size;
+          fatal_record_o.wstrb <= d_req_wstrb_o;
+          fatal_record_o.write <= owner_q.p.op == OP_STORE;
+        end
+        /* exhausted tags identify the checked candidate, which never owned a bus request. */
+        else if (!bus_bad && !bus_timeout && tag_exhausted) begin
+          fatal_record_o.uid <= slot_q[M].uid;
+          fatal_record_o.pc <= slot_q[M].p.pc;
+          fatal_record_o.addr <= slot_q[M].p.mem_addr;
+          fatal_record_o.size <= slot_q[M].p.mem_size;
+          fatal_record_o.write <= slot_q[M].p.op == OP_STORE;
+        end
+        /* exhausted instruction identity records the still-unaccepted producer input. */
+        else if (!bus_bad && !bus_timeout && uid_exhausted) begin
+          fatal_record_o.uid <= uid_q;
+          fatal_record_o.pc <= in_packet_i.pc;
+        end
+      end
+      /* age includes stalled acceptance and saturates without rearming after containment. */
+      if ((bus_q == BUS_OFFER || bus_q == BUS_WAIT) && !bus_complete && !fatal_q &&
+          bus_age_q != D_AGE_BITS'(D_MAX_WAIT_CYCLES - 1)) begin
+        bus_age_q <= bus_age_q + 1'b1;
+      end
+      /* an architectural reset removes only the instruction reference. */
+      if (hart_reset_i && bus_q != BUS_FREE) begin
+        orphan_q <= 1;
+      end
+      /* launch reserves the descriptor before first request-valid appears. */
+      if (launch) begin
+        bus_q <= BUS_OFFER;
+        owner_q <= slot_q[M];
+        owner_q.mem_issued <= 1;
+        owner_q.mem_done <= 0;
+        tag_q <= tag_q + 1;
+        orphan_q <= 0;
+        bus_age_q <= 0;
+      end
+      /* an accepted request is never presented a second time. */
+      if (bus_accept) begin
+        bus_q <= BUS_WAIT;
+      end
+      /* uncertain or already-fatal outcomes retain a recovery owner. */
+      if (bus_complete) begin
+        bus_q <= fatal_now ? BUS_RECOVER : BUS_FREE;
+        owner_q.mem_done <= 1;
+        orphan_q <= 0;
+      end
+    end
+  end
+
+  /* commit GPR/CSR/trap state only at W; trace never backpressures execution. */
+  always_ff @(posedge clk_i) begin
+    valid_q <= valid_d;
+    slot_q <= slot_d;
+    trace_o <= '0;
+    redirect_valid_o <= 0;
+    flush_aborted_o <= 0;
+    kill_valid_o <= kill;
+    /* report each killed identity before its slot is cleared. */
+    for (int i = F; i <= W; i++) begin
+      kill_uid_o[i] <= kill[i] ? slot_q[i].uid : 64'b0;
+    end
+    /* reset architectural validity without promising reset GPR values. */
+    if (cold_reset_i || hart_reset_i) begin
+      defined_q <= 32'b1;
+      mstatus_o <= 32'h1800;
+      mtvec_o <= 0;
+      mscratch_o <= 0;
+      mepc_o <= 0;
+      mcause_o <= 0;
+      mtval_o <= 0;
+      recovery_q <= 1;
+      flush_q <= 0;
+      flush_pc_q <= 0;
+      redirect_pc_o <= 0;
+      flush_aborted_o <= flush_q;
+      /* hart reset preserves observation identities and request tags. */
+      if (cold_reset_i) begin
+        uid_q <= 0;
+        order_q <= 0;
+      end
+    /* resume execution only after reset drainage. */
+    end else begin
+      /* leave recovery only after every old data obligation has drained. */
+      if (recovery_q && bus_q == BUS_FREE && !fatal_now) begin
+        recovery_q <= 0;
+      end
+      /* input identity allocation is independent of later squashes. */
+      if (in_valid_i && in_ready_o) begin
+        uid_q <= uid_q + 1;
+      end
+      /* latch one external flush while irreversible work drains. */
+      if (flush_accept) begin
+        flush_q <= 1;
+        flush_pc_q <= flush_pc_i;
+      end
+      /* a flush redirects only after its protected instruction terminates. */
+      if (flush_active && !protect_m && (!protect_w || w_done) &&
+          bus_q == BUS_FREE && !fatal_now) begin
+        flush_q <= 0;
+        redirect_valid_o <= 1;
+        redirect_pc_o <= flush_q ? flush_pc_q : flush_pc_i;
+      end
+      /* exactly one terminal record accompanies each W disposition. */
+      if (w_done) begin
+        trace_o.valid <= 1;
+        trace_o.trap <= w_fault;
+        trace_o.uid <= slot_q[W].uid;
+        trace_o.order <= order_q;
+        trace_o.packet <= slot_q[W].p;
+        trace_o.packet.fault <= w_fault;
+        trace_o.packet.cause <= w_fault ? w_cause : 32'b0;
+        trace_o.packet.mtval <= w_fault ? w_tval : 32'b0;
+        trace_o.next_pc <= w_fault ? mtvec_o : w_next;
+        order_q <= order_q + 1;
+        /* precise faults suppress both normal CSR and GPR writes. */
+        if (w_fault) begin
+          mepc_o <= slot_q[W].p.pc & (C_ENABLED ? 32'hfffffffe : 32'hfffffffc);
+          mcause_o <= w_cause;
+          mtval_o <= w_tval;
+          mstatus_o <= 32'h1800 | (mstatus_o[3] ? 32'h80 : 32'b0);
+          redirect_valid_o <= 1;
+          redirect_pc_o <= mtvec_o;
+          flush_q <= 0;
+          flush_aborted_o <= flush_active;
+        /* successful retirement applies permitted writes once. */
+        end else begin
+          /* discard x0 writes while preserving the instruction's effects. */
+          if (w_gpr_write) begin
+            regs_q[slot_q[W].p.rd] <= w_value;
+            defined_q[slot_q[W].p.rd] <= 1;
+            trace_o.rd_write <= 1;
+            trace_o.rd <= slot_q[W].p.rd;
+            trace_o.value <= w_value;
+          end
+          /* a CSR update shares the normal retirement edge. */
+          if (slot_q[W].p.op == OP_CSR && slot_q[W].p.csr_write) begin
+            trace_o.csr_write <= 1;
+            trace_o.csr_old <= csr_old;
+            trace_o.csr_new <= csr_new;
+            /* unsupported addresses already became precise faults. */
+            case (slot_q[W].p.csr_addr)
+              12'h300: mstatus_o <= csr_new;
+              12'h305: mtvec_o <= csr_new;
+              12'h340: mscratch_o <= csr_new;
+              12'h341: mepc_o <= csr_new;
+              12'h342: mcause_o <= csr_new;
+              12'h343: mtval_o <= csr_new;
+              /* illegal addresses cannot reach normal retirement. */
+              default: begin end
+            endcase
+          end
+          /* MRET restores interrupt state without implementing interrupts yet. */
+          if (slot_q[W].p.op == OP_MRET) begin
+            mstatus_o <= 32'h1880 | (mstatus_o[7] ? 32'h8 : 32'b0);
+          end
+          /* resolved branch/return redirects occur at retirement in this prototype. */
+          if (w_redirect) begin
+            redirect_valid_o <= 1;
+            redirect_pc_o <= w_next;
+          end
+        end
+      end
+    end
+  end
+
+  /* assert local ownership invariants independently of the test scoreboard. */
+  always_ff @(posedge clk_i) begin
+    /* reset-qualified startup establishes all observation state. */
+    if (!cold_reset_i && !hart_reset_i && !recovery_q) begin
+      assert ($countones(valid_d) + $countones(kill) + int'(w_done) ==
+              $countones(valid_q) + int'(in_valid_i && in_ready_o))
+        else $fatal(1, "instruction conservation failed");
+      assert (bus_q == BUS_FREE || (owner_q.mem_issued &&
+              (bus_q == BUS_RECOVER || !owner_q.mem_done)))
+        else $fatal(1, "invalid manager ownership");
+      assert (!DIAGNOSTIC || $countones(valid_q) <= 1)
+        else $fatal(1, "diagnostic occupancy exceeded");
+      assert (!(launch && (flush_active || fatal_now || slot_q[M].p.fault)))
+        else $fatal(1, "unpermitted memory launch");
+      assert (!(w_done && kill[W]))
+        else $fatal(1, "killed instruction retired");
+      /* stage ownership is unique even with simultaneous replacement. */
+      for (int i = F; i <= W; i++) begin
+        /* compare only pairs of live slots. */
+        for (int j = i + 1; j <= W; j++) begin
+          assert (!(valid_q[i] && valid_q[j] && slot_q[i].uid == slot_q[j].uid))
+            else $fatal(1, "duplicate instruction owner");
+        end
+      end
+    end
+  end
+
+  /* a stalled offer survives hart reset and keeps every bus field stable. */
+  assert property (@(posedge clk_i) disable iff (cold_reset_i)
+      d_req_valid_o && !d_req_ready_i |=>
+      d_req_valid_o && $stable({d_req_addr_o, d_req_wdata_o,
+          d_req_write_o, d_req_size_o, d_req_wstrb_o, d_req_tag_o}))
+    else $fatal(1, "owned request changed before acceptance");
+endmodule

@@ -1,0 +1,38 @@
+%Warning-WIDTHTRUNC: microcontroller/tests/drg5_debug_core_tb.sv:283:57: Logical operator LOGNOT expects 1 bit on the LHS, but LHS's VARREF 'stage_valid_o' generates 5 bits.
+                                                                       : ... note: In instance 'drg5_debug_core_tb'
+  283 |     check(debug_dpc_o == 0 && debug_dcsr_o[8:6] == 5 && !stage_valid_o,
+      |                                                         ^
+                     ... For warning description see https://verilator.org/warn/WIDTHTRUNC?v=5.047
+                     ... Use "/* verilator lint_off WIDTHTRUNC */" and lint_on around source to disable this message.
+%Warning-UNUSEDSIGNAL: microcontroller/tests/drg5_debug_core_tb.sv:6:27: Signal is not used: 'entry_pending_o'
+                                                                       : ... note: In instance 'drg5_debug_core_tb'
+    6 |   logic fetch_busy_i = 0, entry_pending_o, idle_o, irq_valid_o;
+      |                           ^~~~~~~~~~~~~~~
+                       ... For warning description see https://verilator.org/warn/UNUSEDSIGNAL?v=5.047
+                       ... Use "/* verilator lint_off UNUSEDSIGNAL */" and lint_on around source to disable this message.
+%Warning-UNUSEDSIGNAL: microcontroller/tests/drg5_debug_core_tb.sv:20:9: Signal is not used: 'mem_launch_o'
+                                                                       : ... note: In instance 'drg5_debug_core_tb'
+   20 |   logic mem_launch_o, mem_busy_o, fatal_o;
+      |         ^~~~~~~~~~~~
+%Warning-UNUSEDSIGNAL: microcontroller/tests/drg5_debug_core_tb.sv:26:11: Bits of signal are not used: 'trace_o'[697:0]
+                                                                        : ... note: In instance 'drg5_debug_core_tb'
+   26 |   trace_t trace_o;
+      |           ^~~~~~~
+%Warning-UNUSEDSIGNAL: microcontroller/tests/drg5_debug_core_tb.sv:30:16: Bits of signal are not used: 'mstatus_o'[31:4,2:0]
+                                                                        : ... note: In instance 'drg5_debug_core_tb'
+   30 |   logic [31:0] mstatus_o, mtvec_o, mscratch_o, mepc_o, mcause_o, mtval_o;
+      |                ^~~~~~~~~
+%Warning-UNUSEDSIGNAL: microcontroller/tests/drg5_debug_core_tb.sv:30:27: Signal is not used: 'mtvec_o'
+                                                                        : ... note: In instance 'drg5_debug_core_tb'
+   30 |   logic [31:0] mstatus_o, mtvec_o, mscratch_o, mepc_o, mcause_o, mtval_o;
+      |                           ^~~~~~~
+%Warning-UNUSEDSIGNAL: microcontroller/tests/drg5_debug_core_tb.sv:246:18: Function variable is not used: 'ignored'
+                                                                         : ... note: In instance 'drg5_debug_core_tb'
+  246 |     logic [31:0] ignored;
+      |                  ^~~~~~~
+%Warning-UNUSEDSIGNAL: microcontroller/tests/drg5_debug_core_tb.sv:314:18: Signal is not used: 'ignored'
+                                                                         : ... note: In instance 'drg5_debug_core_tb'
+  314 |     logic [31:0] ignored;
+      |                  ^~~~~~~
+%Error: Can't write file: /tmp/drg5-debug-core/c1d0/Vdrg5_debug_core_tb__Syms__Slow.cpp
+        ... See the manual at https://verilator.org/verilator_doc.html?v=5.047 for more assistance.

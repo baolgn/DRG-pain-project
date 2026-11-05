@@ -1,0 +1,4 @@
+$ /tmp/drg5-irq-control-final/c0/Vdrg5_irq_control_tb +verilator+seed+1 +seed=1 +mutate_counter
+[20951] %Fatal: drg5_irq_control_tb.sv:95: Assertion failed in drg5_irq_control_tb.check: seed=1 case=80 edge=5238 pc=00000034 owner=0 accepted=0 age=0 response=11: independent IRQ counter mismatch
+%Error: microcontroller/tests/drg5_irq_control_tb.sv:95: Verilog $stop
+Aborting...

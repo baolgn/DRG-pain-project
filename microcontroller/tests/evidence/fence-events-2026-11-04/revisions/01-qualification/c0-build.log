@@ -1,0 +1,12 @@
+$ /tmp/drg5-control-tools-20260301/oss-cad-suite/bin/verilator --binary --timing --assert -Wall -j 2 -CFLAGS -O0 -Imicrocontroller/rtl --top-module drg5_fence_events_tb -GC_ENABLED=0 --Mdir /tmp/drg5-fence-events/c0 microcontroller/rtl/drg5_control_pkg.sv microcontroller/rtl/drg5_alu.sv microcontroller/rtl/drg5_branch.sv microcontroller/rtl/drg5_control.sv microcontroller/rtl/drg5_csr.sv microcontroller/rtl/drg5_decoder.sv microcontroller/rtl/drg5_decompress.sv microcontroller/rtl/drg5_fetch.sv microcontroller/rtl/drg5_fetch_buffer.sv microcontroller/rtl/drg5_fetch_guard.sv microcontroller/rtl/drg5_forward.sv microcontroller/rtl/drg5_frontend.sv microcontroller/rtl/drg5_immediate.sv microcontroller/rtl/drg5_irq_platform.sv microcontroller/rtl/drg5_lsu.sv microcontroller/rtl/drg5_muldiv.sv microcontroller/rtl/drg5_regfile.sv microcontroller/rtl/drg5_shifter.sv microcontroller/tests/drg5_fence_events_tb.sv
+%Warning-UNUSEDSIGNAL: microcontroller/tests/drg5_fence_events_tb.sv:25:11: Bits of signal are not used: 'trace_o'[134:98,63:0]
+                                                                          : ... note: In instance 'drg5_fence_events_tb'
+   25 |   trace_t trace_o;
+      |           ^~~~~~~
+                       ... For warning description see https://verilator.org/warn/UNUSEDSIGNAL?v=5.047
+                       ... Use "/* verilator lint_off UNUSEDSIGNAL */" and lint_on around source to disable this message.
+%Warning-UNUSEDSIGNAL: microcontroller/tests/drg5_fence_events_tb.sv:164:40: Bits of function variable are not used: 'stage'[31:3]
+                                                                           : ... note: In instance 'drg5_fence_events_tb'
+  164 |   task automatic await_stage(input int stage);
+      |                                        ^~~~~
+%Error: Exiting due to 2 warning(s)

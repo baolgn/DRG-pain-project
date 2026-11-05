@@ -1,0 +1,7 @@
+Traceback (most recent call last):
+  File "/home/bluto/Desktop/dorsalGanglionProject/microcontroller/tests/run_irq_control.py", line 144, in <module>
+    main()
+    ~~~~^^
+  File "/home/bluto/Desktop/dorsalGanglionProject/microcontroller/tests/run_irq_control.py", line 77, in main
+    raise RuntimeError(f"C{compressed} seed {seed} failed: {log}")
+RuntimeError: C0 seed 0 failed: /tmp/drg5-irq-control-wfi-flush/c0/seed-0.log

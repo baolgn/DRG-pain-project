@@ -1,0 +1,4 @@
+$ /tmp/drg5-debug-core/final/c0-d1/Vdrg5_debug_core_tb +verilator+seed+1 +seed=1 +mutate_counter
+[15] %Fatal: drg5_debug_core_tb.sv:69: Assertion failed in drg5_debug_core_tb.check: debug-core seed=1 case=1 edge=5 dpc=00000000: independent debug counter mismatch
+%Error: microcontroller/tests/drg5_debug_core_tb.sv:69: Verilog $stop
+Aborting...

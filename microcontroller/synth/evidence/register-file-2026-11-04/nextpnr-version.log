@@ -1,0 +1,2 @@
+$ /tmp/drg5-control-tools/oss-cad-suite/lib/ld-linux-x86-64.so.2 --inhibit-cache --inhibit-rpath  --library-path /tmp/drg5-control-tools/oss-cad-suite/lib /tmp/drg5-control-tools/oss-cad-suite/libexec/nextpnr-ecp5 --version
+"nextpnr-ecp5" -- Next Generation Place and Route (Version nextpnr-0.9-51-g58e3b858)

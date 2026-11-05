@@ -1,0 +1,362 @@
+$ /tmp/drg5-control-tools/oss-cad-suite/bin/yosys -Q -T -p read_verilog -formal -I/home/bluto/Desktop/dorsalGanglionProject/microcontroller/rtl -sv /home/bluto/Desktop/dorsalGanglionProject/microcontroller/rtl/drg5_branch.sv /home/bluto/Desktop/dorsalGanglionProject/microcontroller/tests/drg5_branch_formal.sv; chparam -set C_ENABLED 0 -set MUTATE_LINK 0 drg5_branch_formal; prep -top drg5_branch_formal -flatten; chformal -lower; check -assert; select -assert-count 6 t:$assert; select -assert-none t:$assume; sat -verify -prove-asserts -set-def-inputs -show-inputs -timeout 45
+
+-- Running command `read_verilog -formal -I/home/bluto/Desktop/dorsalGanglionProject/microcontroller/rtl -sv /home/bluto/Desktop/dorsalGanglionProject/microcontroller/rtl/drg5_branch.sv /home/bluto/Desktop/dorsalGanglionProject/microcontroller/tests/drg5_branch_formal.sv; chparam -set C_ENABLED 0 -set MUTATE_LINK 0 drg5_branch_formal; prep -top drg5_branch_formal -flatten; chformal -lower; check -assert; select -assert-count 6 t:$assert; select -assert-none t:$assume; sat -verify -prove-asserts -set-def-inputs -show-inputs -timeout 45' --
+
+1. Executing Verilog-2005 frontend: /home/bluto/Desktop/dorsalGanglionProject/microcontroller/rtl/drg5_branch.sv
+Parsing formal SystemVerilog input from `/home/bluto/Desktop/dorsalGanglionProject/microcontroller/rtl/drg5_branch.sv' to AST representation.
+Generating RTLIL representation for module `\drg5_branch'.
+Successfully finished Verilog frontend.
+
+2. Executing Verilog-2005 frontend: /home/bluto/Desktop/dorsalGanglionProject/microcontroller/tests/drg5_branch_formal.sv
+Parsing formal SystemVerilog input from `/home/bluto/Desktop/dorsalGanglionProject/microcontroller/tests/drg5_branch_formal.sv' to AST representation.
+Generating RTLIL representation for module `\drg5_branch_formal'.
+Successfully finished Verilog frontend.
+Parameter \C_ENABLED = 0
+Parameter \MUTATE_LINK = 0
+
+3. Executing AST frontend in derive mode using pre-parsed AST for module `\drg5_branch_formal'.
+Parameter \C_ENABLED = 0
+Parameter \MUTATE_LINK = 0
+Generating RTLIL representation for module `$paramod$ec6db991ada1faabed17ab8426f473a7a040d2a3\drg5_branch_formal'.
+
+4. Executing PREP pass.
+
+4.1. Executing HIERARCHY pass (managing design hierarchy).
+
+4.1.1. Analyzing design hierarchy..
+Top module:  \drg5_branch_formal
+Used module:     \drg5_branch
+Parameter \C_ENABLED = 0
+
+4.1.2. Executing AST frontend in derive mode using pre-parsed AST for module `\drg5_branch'.
+Parameter \C_ENABLED = 0
+Generating RTLIL representation for module `$paramod\drg5_branch\C_ENABLED=32'00000000000000000000000000000000'.
+
+4.1.3. Analyzing design hierarchy..
+Top module:  \drg5_branch_formal
+Used module:     $paramod\drg5_branch\C_ENABLED=32'00000000000000000000000000000000
+
+4.1.4. Analyzing design hierarchy..
+Top module:  \drg5_branch_formal
+Used module:     $paramod\drg5_branch\C_ENABLED=32'00000000000000000000000000000000
+Removing unused module `\drg5_branch'.
+Removed 1 unused modules.
+Module drg5_branch_formal directly or indirectly contains formal properties -> setting "keep" attribute.
+
+4.2. Executing PROC pass (convert processes to netlists).
+
+4.2.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+4.2.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Marked 2 switch rules as full_case in process $proc$/home/bluto/Desktop/dorsalGanglionProject/microcontroller/tests/drg5_branch_formal.sv:21$80 in module drg5_branch_formal.
+Marked 2 switch rules as full_case in process $proc$/home/bluto/Desktop/dorsalGanglionProject/microcontroller/rtl/drg5_branch.sv:33$136 in module $paramod\drg5_branch\C_ENABLED=32'00000000000000000000000000000000.
+Marked 1 switch rules as full_case in process $proc$/home/bluto/Desktop/dorsalGanglionProject/microcontroller/rtl/drg5_branch.sv:16$127 in module $paramod\drg5_branch\C_ENABLED=32'00000000000000000000000000000000.
+Removed a total of 0 dead cases.
+
+4.2.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 6 redundant assignments.
+Promoted 27 assignments to connections.
+
+4.2.4. Executing PROC_INIT pass (extract init attributes).
+
+4.2.5. Executing PROC_ARST pass (detect async resets in processes).
+
+4.2.6. Executing PROC_ROM pass (convert switches to ROMs).
+Converted 0 switches.
+<suppressed ~5 debug messages>
+
+4.2.7. Executing PROC_MUX pass (convert decision trees to multiplexers).
+Creating decoders for process `\drg5_branch_formal.$proc$/home/bluto/Desktop/dorsalGanglionProject/microcontroller/tests/drg5_branch_formal.sv:21$80'.
+     1/6: $1\expected_fault[0:0]
+     2/6: $1\expected_next[31:0]
+     3/6: $1\expected_target[31:0]
+     4/6: $1\expected_link[31:0]
+     5/6: $1\expected_taken[0:0]
+     6/6: $1\comparison[0:0]
+Creating decoders for process `$paramod\drg5_branch\C_ENABLED=32'00000000000000000000000000000000.$proc$/home/bluto/Desktop/dorsalGanglionProject/microcontroller/rtl/drg5_branch.sv:33$136'.
+     1/6: $2\target_o[31:0]
+     2/6: $1\misaligned_o[0:0]
+     3/6: $1\next_pc_o[31:0]
+     4/6: $1\target_o[31:0]
+     5/6: $1\taken_o[0:0]
+     6/6: $1\link_o[31:0]
+Creating decoders for process `$paramod\drg5_branch\C_ENABLED=32'00000000000000000000000000000000.$proc$/home/bluto/Desktop/dorsalGanglionProject/microcontroller/rtl/drg5_branch.sv:16$127'.
+     1/2: $1\condition_taken[0:0]
+     2/2: $1\condition_valid[0:0]
+
+4.2.8. Executing PROC_DLATCH pass (convert process syncs to latches).
+No latch inferred for signal `\drg5_branch_formal.\expected_valid' from process `\drg5_branch_formal.$proc$/home/bluto/Desktop/dorsalGanglionProject/microcontroller/tests/drg5_branch_formal.sv:21$80'.
+No latch inferred for signal `\drg5_branch_formal.\expected_taken' from process `\drg5_branch_formal.$proc$/home/bluto/Desktop/dorsalGanglionProject/microcontroller/tests/drg5_branch_formal.sv:21$80'.
+No latch inferred for signal `\drg5_branch_formal.\expected_fault' from process `\drg5_branch_formal.$proc$/home/bluto/Desktop/dorsalGanglionProject/microcontroller/tests/drg5_branch_formal.sv:21$80'.
+No latch inferred for signal `\drg5_branch_formal.\comparison' from process `\drg5_branch_formal.$proc$/home/bluto/Desktop/dorsalGanglionProject/microcontroller/tests/drg5_branch_formal.sv:21$80'.
+No latch inferred for signal `\drg5_branch_formal.\valid_condition' from process `\drg5_branch_formal.$proc$/home/bluto/Desktop/dorsalGanglionProject/microcontroller/tests/drg5_branch_formal.sv:21$80'.
+No latch inferred for signal `\drg5_branch_formal.\expected_target' from process `\drg5_branch_formal.$proc$/home/bluto/Desktop/dorsalGanglionProject/microcontroller/tests/drg5_branch_formal.sv:21$80'.
+No latch inferred for signal `\drg5_branch_formal.\expected_link' from process `\drg5_branch_formal.$proc$/home/bluto/Desktop/dorsalGanglionProject/microcontroller/tests/drg5_branch_formal.sv:21$80'.
+No latch inferred for signal `\drg5_branch_formal.\expected_next' from process `\drg5_branch_formal.$proc$/home/bluto/Desktop/dorsalGanglionProject/microcontroller/tests/drg5_branch_formal.sv:21$80'.
+No latch inferred for signal `\drg5_branch_formal.\signed_difference' from process `\drg5_branch_formal.$proc$/home/bluto/Desktop/dorsalGanglionProject/microcontroller/tests/drg5_branch_formal.sv:21$80'.
+No latch inferred for signal `\drg5_branch_formal.\relative_sum' from process `\drg5_branch_formal.$proc$/home/bluto/Desktop/dorsalGanglionProject/microcontroller/tests/drg5_branch_formal.sv:21$80'.
+No latch inferred for signal `\drg5_branch_formal.\indirect_sum' from process `\drg5_branch_formal.$proc$/home/bluto/Desktop/dorsalGanglionProject/microcontroller/tests/drg5_branch_formal.sv:21$80'.
+No latch inferred for signal `\drg5_branch_formal.\sequential_sum' from process `\drg5_branch_formal.$proc$/home/bluto/Desktop/dorsalGanglionProject/microcontroller/tests/drg5_branch_formal.sv:21$80'.
+No latch inferred for signal `$paramod\drg5_branch\C_ENABLED=32'00000000000000000000000000000000.\valid_o' from process `$paramod\drg5_branch\C_ENABLED=32'00000000000000000000000000000000.$proc$/home/bluto/Desktop/dorsalGanglionProject/microcontroller/rtl/drg5_branch.sv:33$136'.
+No latch inferred for signal `$paramod\drg5_branch\C_ENABLED=32'00000000000000000000000000000000.\taken_o' from process `$paramod\drg5_branch\C_ENABLED=32'00000000000000000000000000000000.$proc$/home/bluto/Desktop/dorsalGanglionProject/microcontroller/rtl/drg5_branch.sv:33$136'.
+No latch inferred for signal `$paramod\drg5_branch\C_ENABLED=32'00000000000000000000000000000000.\misaligned_o' from process `$paramod\drg5_branch\C_ENABLED=32'00000000000000000000000000000000.$proc$/home/bluto/Desktop/dorsalGanglionProject/microcontroller/rtl/drg5_branch.sv:33$136'.
+No latch inferred for signal `$paramod\drg5_branch\C_ENABLED=32'00000000000000000000000000000000.\target_o' from process `$paramod\drg5_branch\C_ENABLED=32'00000000000000000000000000000000.$proc$/home/bluto/Desktop/dorsalGanglionProject/microcontroller/rtl/drg5_branch.sv:33$136'.
+No latch inferred for signal `$paramod\drg5_branch\C_ENABLED=32'00000000000000000000000000000000.\next_pc_o' from process `$paramod\drg5_branch\C_ENABLED=32'00000000000000000000000000000000.$proc$/home/bluto/Desktop/dorsalGanglionProject/microcontroller/rtl/drg5_branch.sv:33$136'.
+No latch inferred for signal `$paramod\drg5_branch\C_ENABLED=32'00000000000000000000000000000000.\link_o' from process `$paramod\drg5_branch\C_ENABLED=32'00000000000000000000000000000000.$proc$/home/bluto/Desktop/dorsalGanglionProject/microcontroller/rtl/drg5_branch.sv:33$136'.
+No latch inferred for signal `$paramod\drg5_branch\C_ENABLED=32'00000000000000000000000000000000.\condition_valid' from process `$paramod\drg5_branch\C_ENABLED=32'00000000000000000000000000000000.$proc$/home/bluto/Desktop/dorsalGanglionProject/microcontroller/rtl/drg5_branch.sv:16$127'.
+No latch inferred for signal `$paramod\drg5_branch\C_ENABLED=32'00000000000000000000000000000000.\condition_taken' from process `$paramod\drg5_branch\C_ENABLED=32'00000000000000000000000000000000.$proc$/home/bluto/Desktop/dorsalGanglionProject/microcontroller/rtl/drg5_branch.sv:16$127'.
+No latch inferred for signal `$paramod\drg5_branch\C_ENABLED=32'00000000000000000000000000000000.\less_signed' from process `$paramod\drg5_branch\C_ENABLED=32'00000000000000000000000000000000.$proc$/home/bluto/Desktop/dorsalGanglionProject/microcontroller/rtl/drg5_branch.sv:16$127'.
+
+4.2.9. Executing PROC_DFF pass (convert process syncs to FFs).
+
+4.2.10. Executing PROC_MEMWR pass (convert process memory writes to cells).
+
+4.2.11. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Found and cleaned up 2 empty switches in `\drg5_branch_formal.$proc$/home/bluto/Desktop/dorsalGanglionProject/microcontroller/tests/drg5_branch_formal.sv:21$80'.
+Removing empty process `drg5_branch_formal.$proc$/home/bluto/Desktop/dorsalGanglionProject/microcontroller/tests/drg5_branch_formal.sv:21$80'.
+Found and cleaned up 2 empty switches in `$paramod\drg5_branch\C_ENABLED=32'00000000000000000000000000000000.$proc$/home/bluto/Desktop/dorsalGanglionProject/microcontroller/rtl/drg5_branch.sv:33$136'.
+Removing empty process `$paramod\drg5_branch\C_ENABLED=32'00000000000000000000000000000000.$proc$/home/bluto/Desktop/dorsalGanglionProject/microcontroller/rtl/drg5_branch.sv:33$136'.
+Found and cleaned up 1 empty switch in `$paramod\drg5_branch\C_ENABLED=32'00000000000000000000000000000000.$proc$/home/bluto/Desktop/dorsalGanglionProject/microcontroller/rtl/drg5_branch.sv:16$127'.
+Removing empty process `$paramod\drg5_branch\C_ENABLED=32'00000000000000000000000000000000.$proc$/home/bluto/Desktop/dorsalGanglionProject/microcontroller/rtl/drg5_branch.sv:16$127'.
+Cleaned up 5 empty switches.
+
+4.2.12. Executing OPT_EXPR pass (perform const folding).
+Optimizing module drg5_branch_formal.
+<suppressed ~5 debug messages>
+Optimizing module $paramod\drg5_branch\C_ENABLED=32'00000000000000000000000000000000.
+<suppressed ~6 debug messages>
+
+4.3. Executing FLATTEN pass (flatten design).
+Deleting now unused module $paramod\drg5_branch\C_ENABLED=32'00000000000000000000000000000000.
+<suppressed ~1 debug messages>
+
+4.4. Executing FUTURE pass.
+
+4.5. Executing OPT_EXPR pass (perform const folding).
+Optimizing module drg5_branch_formal.
+
+4.6. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \drg5_branch_formal..
+Removed 1 unused cells and 81 unused wires.
+<suppressed ~3 debug messages>
+
+4.7. Executing CHECK pass (checking for obvious problems).
+Checking module drg5_branch_formal...
+Found and reported 0 problems.
+
+4.8. Executing OPT pass (performing simple optimizations).
+
+4.8.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module drg5_branch_formal.
+
+4.8.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\drg5_branch_formal'.
+Computing hashes of 103 cells of `\drg5_branch_formal'.
+Finding duplicate cells in `\drg5_branch_formal'.
+Computing hashes of 83 cells of `\drg5_branch_formal'.
+Finding duplicate cells in `\drg5_branch_formal'.
+Computing hashes of 82 cells of `\drg5_branch_formal'.
+Finding duplicate cells in `\drg5_branch_formal'.
+<suppressed ~63 debug messages>
+Removed a total of 21 cells.
+
+4.8.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \drg5_branch_formal..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~36 debug messages>
+
+4.8.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \drg5_branch_formal.
+    New ctrl vector for $pmux cell $flatten\dut.$procmux$212: $auto$opt_reduce.cc:137:opt_pmux$221
+  Optimizing cells in module \drg5_branch_formal.
+Performed a total of 1 changes.
+
+4.8.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\drg5_branch_formal'.
+Computing hashes of 83 cells of `\drg5_branch_formal'.
+Finding duplicate cells in `\drg5_branch_formal'.
+Removed a total of 0 cells.
+
+4.8.6. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \drg5_branch_formal..
+Removed 0 unused cells and 21 unused wires.
+<suppressed ~1 debug messages>
+
+4.8.7. Executing OPT_EXPR pass (perform const folding).
+Optimizing module drg5_branch_formal.
+
+4.8.8. Rerunning OPT passes. (Maybe there is more to do..)
+
+4.8.9. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \drg5_branch_formal..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~36 debug messages>
+
+4.8.10. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \drg5_branch_formal.
+Performed a total of 0 changes.
+
+4.8.11. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\drg5_branch_formal'.
+Computing hashes of 83 cells of `\drg5_branch_formal'.
+Finding duplicate cells in `\drg5_branch_formal'.
+Removed a total of 0 cells.
+
+4.8.12. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \drg5_branch_formal..
+
+4.8.13. Executing OPT_EXPR pass (perform const folding).
+Optimizing module drg5_branch_formal.
+
+4.8.14. Finished fast OPT passes. (There is nothing left to do.)
+
+4.9. Executing WREDUCE pass (reducing word size of cells).
+Removed top 29 bits (of 32) from port B of cell drg5_branch_formal.$mod$/home/bluto/Desktop/dorsalGanglionProject/microcontroller/tests/drg5_branch_formal.sv:51$111 ($mod).
+Converting cell drg5_branch_formal.$sub$/home/bluto/Desktop/dorsalGanglionProject/microcontroller/tests/drg5_branch_formal.sv:22$81 ($sub) from unsigned to signed.
+Removed top 1 bits (of 33) from port A of cell drg5_branch_formal.$sub$/home/bluto/Desktop/dorsalGanglionProject/microcontroller/tests/drg5_branch_formal.sv:22$81 ($sub).
+Removed top 1 bits (of 33) from port B of cell drg5_branch_formal.$sub$/home/bluto/Desktop/dorsalGanglionProject/microcontroller/tests/drg5_branch_formal.sv:22$81 ($sub).
+Removed top 1 bits (of 33) from port A of cell drg5_branch_formal.$add$/home/bluto/Desktop/dorsalGanglionProject/microcontroller/tests/drg5_branch_formal.sv:23$82 ($add).
+Removed top 1 bits (of 33) from port B of cell drg5_branch_formal.$add$/home/bluto/Desktop/dorsalGanglionProject/microcontroller/tests/drg5_branch_formal.sv:23$82 ($add).
+Removed top 1 bits (of 33) from port Y of cell drg5_branch_formal.$add$/home/bluto/Desktop/dorsalGanglionProject/microcontroller/tests/drg5_branch_formal.sv:23$82 ($add).
+Removed top 1 bits (of 33) from port A of cell drg5_branch_formal.$add$/home/bluto/Desktop/dorsalGanglionProject/microcontroller/tests/drg5_branch_formal.sv:24$83 ($add).
+Removed top 1 bits (of 33) from port B of cell drg5_branch_formal.$add$/home/bluto/Desktop/dorsalGanglionProject/microcontroller/tests/drg5_branch_formal.sv:24$83 ($add).
+Removed top 1 bits (of 33) from port Y of cell drg5_branch_formal.$add$/home/bluto/Desktop/dorsalGanglionProject/microcontroller/tests/drg5_branch_formal.sv:24$83 ($add).
+Removed top 1 bits (of 33) from port A of cell drg5_branch_formal.$add$/home/bluto/Desktop/dorsalGanglionProject/microcontroller/tests/drg5_branch_formal.sv:25$84 ($add).
+Removed top 30 bits (of 33) from port B of cell drg5_branch_formal.$add$/home/bluto/Desktop/dorsalGanglionProject/microcontroller/tests/drg5_branch_formal.sv:25$84 ($add).
+Removed top 1 bits (of 33) from port Y of cell drg5_branch_formal.$add$/home/bluto/Desktop/dorsalGanglionProject/microcontroller/tests/drg5_branch_formal.sv:25$84 ($add).
+Removed top 1 bits (of 3) from port B of cell drg5_branch_formal.$ne$/home/bluto/Desktop/dorsalGanglionProject/microcontroller/tests/drg5_branch_formal.sv:26$85 ($ne).
+Removed top 1 bits (of 3) from port B of cell drg5_branch_formal.$ne$/home/bluto/Desktop/dorsalGanglionProject/microcontroller/tests/drg5_branch_formal.sv:26$86 ($ne).
+Removed top 31 bits (of 32) from port B of cell drg5_branch_formal.$lt$/home/bluto/Desktop/dorsalGanglionProject/microcontroller/tests/drg5_branch_formal.sv:32$90 ($lt).
+Removed top 31 bits (of 32) from port B of cell drg5_branch_formal.$ge$/home/bluto/Desktop/dorsalGanglionProject/microcontroller/tests/drg5_branch_formal.sv:33$91 ($ge).
+Removed top 1 bits (of 33) from port A of cell drg5_branch_formal.$lt$/home/bluto/Desktop/dorsalGanglionProject/microcontroller/tests/drg5_branch_formal.sv:34$92 ($lt).
+Removed top 1 bits (of 33) from port B of cell drg5_branch_formal.$lt$/home/bluto/Desktop/dorsalGanglionProject/microcontroller/tests/drg5_branch_formal.sv:34$92 ($lt).
+Removed top 1 bits (of 33) from port A of cell drg5_branch_formal.$ge$/home/bluto/Desktop/dorsalGanglionProject/microcontroller/tests/drg5_branch_formal.sv:35$93 ($ge).
+Removed top 1 bits (of 33) from port B of cell drg5_branch_formal.$ge$/home/bluto/Desktop/dorsalGanglionProject/microcontroller/tests/drg5_branch_formal.sv:35$93 ($ge).
+Removed top 1 bits (of 3) from port B of cell drg5_branch_formal.$eq$/home/bluto/Desktop/dorsalGanglionProject/microcontroller/tests/drg5_branch_formal.sv:38$95 ($eq).
+Removed top 1 bits (of 4) from port B of cell drg5_branch_formal.$eq$/home/bluto/Desktop/dorsalGanglionProject/microcontroller/tests/drg5_branch_formal.sv:39$98 ($eq).
+Removed top 1 bits (of 4) from port B of cell drg5_branch_formal.$eq$/home/bluto/Desktop/dorsalGanglionProject/microcontroller/tests/drg5_branch_formal.sv:39$99 ($eq).
+Removed top 1 bits (of 4) from port B of cell drg5_branch_formal.$eq$/home/bluto/Desktop/dorsalGanglionProject/microcontroller/tests/drg5_branch_formal.sv:39$101 ($eq).
+Removed top 31 bits (of 32) from mux cell drg5_branch_formal.$ternary$/home/bluto/Desktop/dorsalGanglionProject/microcontroller/tests/drg5_branch_formal.sv:47$107 ($mux).
+Removed top 2 bits (of 3) from port B of cell drg5_branch_formal.$flatten\dut.$procmux$209_CMP0 ($eq).
+Removed top 1 bits (of 4) from port B of cell drg5_branch_formal.$flatten\dut.$ne$/home/bluto/Desktop/dorsalGanglionProject/microcontroller/rtl/drg5_branch.sv:45$149 ($ne).
+Removed top 29 bits (of 32) from port B of cell drg5_branch_formal.$flatten\dut.$add$/home/bluto/Desktop/dorsalGanglionProject/microcontroller/rtl/drg5_branch.sv:44$148 ($add).
+Removed top 31 bits (of 32) from wire drg5_branch_formal.$ternary$/home/bluto/Desktop/dorsalGanglionProject/microcontroller/tests/drg5_branch_formal.sv:47$107_Y.
+Removed top 1 bits (of 33) from wire drg5_branch_formal.indirect_sum.
+Removed top 9 bits (of 33) from wire drg5_branch_formal.relative_sum.
+Removed top 1 bits (of 33) from wire drg5_branch_formal.sequential_sum.
+Removed top 27 bits (of 32) from wire drg5_branch_formal.target_o.
+
+4.10. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \drg5_branch_formal..
+Removed 0 unused cells and 4 unused wires.
+<suppressed ~1 debug messages>
+
+4.11. Executing MEMORY_COLLECT pass (generating $mem cells).
+
+4.12. Executing OPT pass (performing simple optimizations).
+
+4.12.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module drg5_branch_formal.
+
+4.12.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\drg5_branch_formal'.
+Computing hashes of 83 cells of `\drg5_branch_formal'.
+Finding duplicate cells in `\drg5_branch_formal'.
+Computing hashes of 78 cells of `\drg5_branch_formal'.
+Finding duplicate cells in `\drg5_branch_formal'.
+Computing hashes of 77 cells of `\drg5_branch_formal'.
+Finding duplicate cells in `\drg5_branch_formal'.
+<suppressed ~18 debug messages>
+Removed a total of 6 cells.
+
+4.12.3. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \drg5_branch_formal..
+Removed 0 unused cells and 6 unused wires.
+<suppressed ~1 debug messages>
+
+4.12.4. Finished fast OPT passes.
+
+4.13. Printing statistics.
+
+=== drg5_branch_formal ===
+
+        +----------Local Count, excluding submodules.
+        | 
+       91 wires
+      940 wire bits
+       41 public wires
+      672 public wire bits
+        7 ports
+      138 port bits
+       77 cells
+        3   $add
+        6   $check
+       17   $eq
+        2   $ge
+        8   $logic_and
+        3   $logic_not
+        6   $logic_or
+        2   $lt
+        1   $mod
+       17   $mux
+        5   $ne
+        2   $pmux
+        2   $reduce_bool
+        1   $reduce_or
+        1   $scopeinfo
+        1   $sub
+
+4.14. Executing CHECK pass (checking for obvious problems).
+Checking module drg5_branch_formal...
+Found and reported 0 problems.
+
+5. Executing CHECK pass (checking for obvious problems).
+Checking module drg5_branch_formal...
+Found and reported 0 problems.
+
+6. Executing SAT pass (solving SAT problems in the circuit).
+
+Setting up SAT problem:
+Final constraint equation: { } = { }
+Import def constraint for this timestep: \cond_i
+Import def constraint for this timestep: \length_i
+Import def constraint for this timestep: \kind_i
+Import def constraint for this timestep: \pc_i
+Import def constraint for this timestep: \rs1_i
+Import def constraint for this timestep: \rs2_i
+Import def constraint for this timestep: \imm_i
+Imported 89 cells to SAT database.
+Import proof for assert: $eq$/home/bluto/Desktop/dorsalGanglionProject/microcontroller/tests/drg5_branch_formal.sv:59$126_Y when 1'1.
+Import proof for assert: $eq$/home/bluto/Desktop/dorsalGanglionProject/microcontroller/tests/drg5_branch_formal.sv:58$123_Y when 1'1.
+Import proof for assert: $eq$/home/bluto/Desktop/dorsalGanglionProject/microcontroller/tests/drg5_branch_formal.sv:57$121_Y when 1'1.
+Import proof for assert: $eq$/home/bluto/Desktop/dorsalGanglionProject/microcontroller/tests/drg5_branch_formal.sv:56$119_Y when 1'1.
+Import proof for assert: $eq$/home/bluto/Desktop/dorsalGanglionProject/microcontroller/tests/drg5_branch_formal.sv:55$117_Y when 1'1.
+Import proof for assert: $eq$/home/bluto/Desktop/dorsalGanglionProject/microcontroller/tests/drg5_branch_formal.sv:54$115_Y when 1'1.
+Import show expression: \cond_i
+Import show expression: \imm_i
+Import show expression: \kind_i
+Import show expression: \length_i
+Import show expression: \pc_i
+Import show expression: \rs1_i
+Import show expression: \rs2_i
+
+Solving problem with 21985 variables and 62517 clauses..
+SAT proof finished - no model found: SUCCESS!
+
+                  /$$$$$$      /$$$$$$$$     /$$$$$$$    
+                 /$$__  $$    | $$_____/    | $$__  $$   
+                | $$  \ $$    | $$          | $$  \ $$   
+                | $$  | $$    | $$$$$       | $$  | $$   
+                | $$  | $$    | $$__/       | $$  | $$   
+                | $$/$$ $$    | $$          | $$  | $$   
+                |  $$$$$$/ /$$| $$$$$$$$ /$$| $$$$$$$//$$
+                 \____ $$$|__/|________/|__/|_______/|__/
+                       \__/                              
+

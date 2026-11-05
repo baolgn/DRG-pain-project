@@ -1,0 +1,49 @@
+{
+  "status": "passed",
+  "final_revision": "revisions/04-qualification",
+  "positive_simulations": 3,
+  "concurrent_banks_per_simulation": 2,
+  "seeds": [
+    0,
+    1,
+    305419896
+  ],
+  "totals": {
+    "edges": 64827,
+    "checks": 777978,
+    "records": 4266,
+    "compressed": 18,
+    "stalls": 60,
+    "traps": 54,
+    "irqs": 3,
+    "debug": 29892,
+    "halt": 3,
+    "resume": 9,
+    "step": 3,
+    "ebreak_debug": 29795,
+    "writes": 5260,
+    "debug_writes": 655,
+    "cycle_carries": 204,
+    "instret_carries": 219,
+    "cycle_wraps": 9,
+    "instret_wraps": 12,
+    "retries": 6,
+    "coherent_reads": 12,
+    "aliases": 10082,
+    "random_active_clocks": 12641,
+    "random_retirements": 3224,
+    "ledger": 377624
+  },
+  "detector_expected_failures": 5,
+  "inductive_proofs": 2,
+  "formal_detector_expected_failures": 1,
+  "assertions_per_proof": 7,
+  "caller_assumptions_per_proof": 2,
+  "native_mappings": 2,
+  "independent_replay": "every public input edge is replayed in Python; both SV banks match the independent SV ledger; CSV records observed C0 values",
+  "limits": [
+    "normalized bank controls; synthetic event labels are not proof of actual compressed execution or a debug FSM",
+    "counts are sums over three separately reset schedules; C banks are simultaneous rather than separately clocked runs",
+    "cases marker denotes four directed phase milestones, not an exhaustive instruction count"
+  ]
+}

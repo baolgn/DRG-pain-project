@@ -1,0 +1,4 @@
+$ /tmp/drg5-irq-platform-20261104/obj/Vdrg5_irq_platform_tb +verilator+seed+1 +seed=1 +mutate_read
+[13] %Fatal: drg5_irq_platform_tb.sv:45: Assertion failed in drg5_irq_platform_tb.check: edge=6 profile=0 seed=1 reset=0 command=1 write=0 addr=40001004 data=00000000 size=2 strobe=0 events=00000000 block=0: MMIO read snapshot mismatch
+%Error: microcontroller/tests/drg5_irq_platform_tb.sv:45: Verilog $stop
+Aborting...

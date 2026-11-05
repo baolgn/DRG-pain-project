@@ -1,0 +1,4 @@
+$ /tmp/drg5-decompress-tests/obj/Vdrg5_decompress_tb +verilator+seed+1 +oracle=/tmp/drg5-decompress-tests/oracle.hex +mutate_expansion
+[65] %Fatal: drg5_decompress_tb.sv:23: Assertion failed in drg5_decompress_tb.check: DECOMPRESS_CHECK_FAILED expansion instr=0040 got=100510413 expected=100410413
+%Error: microcontroller/tests/drg5_decompress_tb.sv:23: Verilog $stop
+Aborting...

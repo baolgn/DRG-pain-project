@@ -1,0 +1,22 @@
+{
+  "microcontroller/rtl/drg5_control_pkg.sv": "fda063ce363184082c36ff0985af2828f4bc9a6b17da107266e734e32791c288",
+  "microcontroller/rtl/drg5_immediate.sv": "0178ee6a01e4c5361d149a425b5da5502ef2906b8c3ee9246800bd5bc93a080b",
+  "microcontroller/rtl/drg5_decoder.sv": "0b42ead92fd911fd1a2ed4295145b4ac476ad2933b3e2dcb4cdde95d899d52b3",
+  "microcontroller/rtl/drg5_branch.sv": "81fb7fbc54c4c64236738d289fa8fc5a64bd6373efbd66ac2da33086e8d8728e",
+  "microcontroller/rtl/drg5_lsu.sv": "eeac7f5f8d92e4e35030b716e85aabede593afe1d5ca3175e79b9e3e5c83d926",
+  "microcontroller/rtl/drg5_shifter.sv": "0f0bda6a6fc80dc60e23f0058bfac2db2986e03480d95781ead91758dc4e2223",
+  "microcontroller/rtl/drg5_alu.sv": "c1ed60c799186e4185c516049ad99d046dd9ab134afa88b57089f27408fce199",
+  "microcontroller/rtl/drg5_forward.sv": "6c88614a024cb1df85bdb4926a4d4bef9bacbc84af803bcbb7cf1b93d150e444",
+  "microcontroller/rtl/drg5_decompress.sv": "844d6c0b0dbdde6a02c7de346fbb61408ffe2e384d50b82027d9922a8e89372e",
+  "microcontroller/rtl/drg5_fetch_guard.sv": "3bda4702a4a9eb14fb859820af1098dcc2910926c6700e486b7c2f7ce5a0acbe",
+  "microcontroller/rtl/drg5_fetch_buffer.sv": "a2a5dc5b6236751bc3df70c48eedc229b40a9e79c2adb7e0969c4355fa2b5844",
+  "microcontroller/rtl/drg5_fetch.sv": "bc8a999d9e4b7761238306b8edb00b70fc1854f3070d593657a1fef9580e7247",
+  "microcontroller/rtl/drg5_frontend.sv": "7333cd008e2e63bd91d4b08f5ca323cd594efdab8c19d65603759505a3823e16",
+  "microcontroller/rtl/drg5_csr.sv": "964076aa378ef7c483103af939852587cc8f839fdcde85809e7998b65f61ee5f",
+  "microcontroller/rtl/drg5_muldiv.sv": "7eeed33bc060b11260c453c583cfe1936c8e76e6dfc9f437e92f4345e6d9911a",
+  "microcontroller/rtl/drg5_control.sv": "497b62f6990ba096859acef3f7cc3a3cc36cdb373c9b1e7fc64453e62766d9d1",
+  "microcontroller/tests/drg5_compressed_execution_tb.sv": "8d71dc9990fb39fdc01b6b0aee199dff122f869dfb78eb7940daf58a34822895",
+  "microcontroller/rtl/drg5_datapath_defs.svh": "1247c7ee5185c32bcd41a1d72a08c9926e34ff5abe25e2ece8e6c2f9df21042e",
+  "microcontroller/tests/run_compressed_execution.py": "20e1a3351e0cf4e83b20fea2c9d85c05830007cd25225ec77545e3150fd96654",
+  "microcontroller/tests/Makefile": "1f163d8d84ece9db0eefde7a1e610444cd13b3deb8ab2a3afda7961a5e22ea95"
+}

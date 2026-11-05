@@ -1,0 +1,209 @@
+{
+  "status": "passed",
+  "smoke": false,
+  "source_sha256": {
+    "microcontroller/rtl/drg5_csr.sv": "964076aa378ef7c483103af939852587cc8f839fdcde85809e7998b65f61ee5f",
+    "microcontroller/tests/drg5_counters_tb.sv": "6f9b826a7c3a4bacb153d64b07daf8218c2e8b1c2b233533955159e4129bebf4",
+    "microcontroller/tests/drg5_csr_formal.sv": "d0365683745ed5c6e38370baf281944dbe77ca9163663d758b854f056c9ff44a",
+    "microcontroller/tests/run_counters.py": "9982b5c7a45fd08d4d25c88bece678f927bbd196ce89234495ff7c15cd564b73"
+  },
+  "revision": "revisions/02-qualification",
+  "results": [
+    {
+      "seed": 0,
+      "command": [
+        "/tmp/drg5-counters/obj/Vdrg5_counters_tb",
+        "+verilator+seed+1",
+        "+seed=0",
+        "+ledger=/home/bluto/Desktop/dorsalGanglionProject/microcontroller/tests/evidence/counters-2026-11-04/revisions/02-qualification/seed-0.csv"
+      ],
+      "terminal": "COUNTERS_PASS seed=0 profiles=2 cases=4 edges=21296 checks=255569 records=1109 compressed=6 stalls=20 traps=18 irqs=1 debug=49 halt=1 resume=3 step=1 ebreak_debug=10033 writes=1236 debug_writes=8 cycle_carries=68 instret_carries=73 cycle_wraps=3 instret_wraps=4 retries=2 coherent_reads=4 aliases=1639 ledger=f29c95eabc610684",
+      "exit_code": 0,
+      "python_replay": {
+        "edges": 21296,
+        "final_mcycle": 0,
+        "final_minstret": 0,
+        "compressed_ledger_sha256": "2b04c94472faf44736303b86aa45d7daba90d1340728c596d47a3db442763638"
+      }
+    },
+    {
+      "seed": 1,
+      "command": [
+        "/tmp/drg5-counters/obj/Vdrg5_counters_tb",
+        "+verilator+seed+1",
+        "+seed=1",
+        "+ledger=/home/bluto/Desktop/dorsalGanglionProject/microcontroller/tests/evidence/counters-2026-11-04/revisions/02-qualification/seed-1.csv"
+      ],
+      "terminal": "COUNTERS_PASS seed=1 profiles=2 cases=4 edges=21296 checks=255569 records=1109 compressed=6 stalls=20 traps=18 irqs=1 debug=10053 halt=1 resume=3 step=1 ebreak_debug=33 writes=1209 debug_writes=204 cycle_carries=68 instret_carries=73 cycle_wraps=3 instret_wraps=4 retries=2 coherent_reads=4 aliases=1677 ledger=d88bf336bc610684",
+      "exit_code": 0,
+      "python_replay": {
+        "edges": 21296,
+        "final_mcycle": 0,
+        "final_minstret": 0,
+        "compressed_ledger_sha256": "3166b5e177ddd8a7c6f8069dc94b0ebbefbca680c9112d386c2e217ef3b0d5f3"
+      }
+    },
+    {
+      "seed": 305419896,
+      "command": [
+        "/tmp/drg5-counters/obj/Vdrg5_counters_tb",
+        "+verilator+seed+1",
+        "+seed=305419896",
+        "+ledger=/home/bluto/Desktop/dorsalGanglionProject/microcontroller/tests/evidence/counters-2026-11-04/revisions/02-qualification/seed-305419896.csv"
+      ],
+      "terminal": "COUNTERS_PASS seed=305419896 profiles=2 cases=4 edges=21296 checks=255569 records=1109 compressed=6 stalls=20 traps=18 irqs=1 debug=49 halt=1 resume=3 step=1 ebreak_debug=10033 writes=1217 debug_writes=8 cycle_carries=68 instret_carries=73 cycle_wraps=3 instret_wraps=4 retries=2 coherent_reads=4 aliases=1701 ledger=f29c95eabc610684",
+      "exit_code": 0,
+      "python_replay": {
+        "edges": 21296,
+        "final_mcycle": 0,
+        "final_minstret": 0,
+        "compressed_ledger_sha256": "4d60e338d8e6f14b312ec2ed9cc2c5a84ab676eb23e651a3fb9e02cef0bdb088"
+      }
+    },
+    {
+      "negative_control": "mutate_carry",
+      "command": [
+        "/tmp/drg5-counters/obj/Vdrg5_counters_tb",
+        "+verilator+seed+1",
+        "+seed=1",
+        "+mutate_carry"
+      ],
+      "exit_code": 1,
+      "detector": "COUNTER_CHECK_FAILED cycle ledger"
+    },
+    {
+      "negative_control": "mutate_debug",
+      "command": [
+        "/tmp/drg5-counters/obj/Vdrg5_counters_tb",
+        "+verilator+seed+1",
+        "+seed=1",
+        "+mutate_debug"
+      ],
+      "exit_code": 1,
+      "detector": "COUNTER_CHECK_FAILED cycle ledger"
+    },
+    {
+      "negative_control": "mutate_trap",
+      "command": [
+        "/tmp/drg5-counters/obj/Vdrg5_counters_tb",
+        "+verilator+seed+1",
+        "+seed=1",
+        "+mutate_trap"
+      ],
+      "exit_code": 1,
+      "detector": "COUNTER_CHECK_FAILED retirement ledger"
+    },
+    {
+      "negative_control": "mutate_write",
+      "command": [
+        "/tmp/drg5-counters/obj/Vdrg5_counters_tb",
+        "+verilator+seed+1",
+        "+seed=1",
+        "+mutate_write"
+      ],
+      "exit_code": 1,
+      "detector": "COUNTER_CHECK_FAILED retirement ledger"
+    },
+    {
+      "negative_control": "mutate_suppression",
+      "command": [
+        "/tmp/drg5-counters/obj/Vdrg5_counters_tb",
+        "+verilator+seed+1",
+        "+seed=1",
+        "+mutate_suppression"
+      ],
+      "exit_code": 1,
+      "detector": "COUNTER_CHECK_FAILED suppressed or pre-retirement read"
+    }
+  ],
+  "proofs": [
+    {
+      "name": "proof-c0",
+      "command": [
+        "/tmp/drg5-control-tools-20260301/oss-cad-suite/bin/yosys",
+        "-Q",
+        "-T",
+        "-p",
+        "read_verilog -formal -sv -D SYNTHESIS microcontroller/rtl/drg5_csr.sv microcontroller/tests/drg5_csr_formal.sv; chparam -set C_ENABLED 0 -set MUTATE_COUNTER 0 drg5_csr_formal; prep -top drg5_csr_formal -flatten; async2sync; chformal -lower; check -assert; select -assert-count 7 t:$assert; select -assert-count 2 t:$assume; sat -seq 4 -tempinduct -prove-asserts -set-assumes -verify -show-inputs -timeout 90"
+      ],
+      "exit_code": 0,
+      "expected_terminal_seen": true
+    },
+    {
+      "name": "proof-c1",
+      "command": [
+        "/tmp/drg5-control-tools-20260301/oss-cad-suite/bin/yosys",
+        "-Q",
+        "-T",
+        "-p",
+        "read_verilog -formal -sv -D SYNTHESIS microcontroller/rtl/drg5_csr.sv microcontroller/tests/drg5_csr_formal.sv; chparam -set C_ENABLED 1 -set MUTATE_COUNTER 0 drg5_csr_formal; prep -top drg5_csr_formal -flatten; async2sync; chformal -lower; check -assert; select -assert-count 7 t:$assert; select -assert-count 2 t:$assume; sat -seq 4 -tempinduct -prove-asserts -set-assumes -verify -show-inputs -timeout 90"
+      ],
+      "exit_code": 0,
+      "expected_terminal_seen": true
+    },
+    {
+      "name": "proof-c1-negative",
+      "command": [
+        "/tmp/drg5-control-tools-20260301/oss-cad-suite/bin/yosys",
+        "-Q",
+        "-T",
+        "-p",
+        "read_verilog -formal -sv -D SYNTHESIS microcontroller/rtl/drg5_csr.sv microcontroller/tests/drg5_csr_formal.sv; chparam -set C_ENABLED 1 -set MUTATE_COUNTER 1 drg5_csr_formal; prep -top drg5_csr_formal -flatten; async2sync; chformal -lower; check -assert; select -assert-count 7 t:$assert; select -assert-count 2 t:$assume; sat -seq 4 -tempinduct -prove-asserts -set-assumes -verify -show-inputs -timeout 90"
+      ],
+      "exit_code": 1,
+      "expected_terminal_seen": true
+    }
+  ],
+  "structural": [
+    {
+      "c_enabled": 0,
+      "command": [
+        "/tmp/drg5-control-tools-20260301/oss-cad-suite/bin/yosys",
+        "-Q",
+        "-T",
+        "-p",
+        "read_verilog -sv -D SYNTHESIS microcontroller/rtl/drg5_csr.sv; chparam -set C_ENABLED 0 drg5_csr; hierarchy -check -top drg5_csr; proc; opt; check -assert; select -assert-none t:$dlatch t:$adlatch; synth_ecp5 -noabc9 -top drg5_csr -json /tmp/drg5-counters/map-c0.json; check -assert; stat"
+      ],
+      "cells": {
+        "CCU2C": 116,
+        "L6MUX21": 825,
+        "LUT4": 3507,
+        "PFUMX": 1477,
+        "TRELLIS_FF": 384
+      },
+      "netlist_sha256": "6051f5dbbdca31fd40b2aaeb7aa05d957504efc52163e10eb945d769c2ccf161"
+    },
+    {
+      "c_enabled": 1,
+      "command": [
+        "/tmp/drg5-control-tools-20260301/oss-cad-suite/bin/yosys",
+        "-Q",
+        "-T",
+        "-p",
+        "read_verilog -sv -D SYNTHESIS microcontroller/rtl/drg5_csr.sv; chparam -set C_ENABLED 1 drg5_csr; hierarchy -check -top drg5_csr; proc; opt; check -assert; select -assert-none t:$dlatch t:$adlatch; synth_ecp5 -noabc9 -top drg5_csr -json /tmp/drg5-counters/map-c1.json; check -assert; stat"
+      ],
+      "cells": {
+        "CCU2C": 116,
+        "L6MUX21": 499,
+        "LUT4": 2755,
+        "PFUMX": 1113,
+        "TRELLIS_FF": 384
+      },
+      "netlist_sha256": "fc7ec928466ba850bfca369055af8cf5076c6effa038fc6f9832a584de8fb8df"
+    }
+  ],
+  "versions": {
+    "verilator": "Verilator 5.047 devel rev v5.046-19-ge9dd6eaaf (mod)",
+    "yosys": "Yosys 0.62+112 (git sha1 687a36af3, clang++ 18.1.8 -fPIC -O3)"
+  },
+  "scope": "normalized machine CSR bank counter behavior; both C settings; synthetic execution/debug event records",
+  "formal_assumptions": [
+    "first clock resets bank",
+    "non-reset trap cause belongs to implemented caller contract"
+  ],
+  "limits": [
+    "no architectural debug controller or halt/step execution qualification",
+    "encoded pipeline CSR suppression and real compressed retirement are separate integration checks",
+    "native component mapping is not whole-core routing or clock qualification"
+  ]
+}

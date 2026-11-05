@@ -1,0 +1,4 @@
+$ /tmp/drg5-branch-final/obj/Vdrg5_branch_tb +verilator+seed+1 +mutate_target
+[1] %Fatal: drg5_branch_tb.sv:29: Assertion failed in drg5_branch_tb.check: BRANCH_CHECK_FAILED target pc=00000100 a=80000001 b=00000000 imm=00000002 kind= 6 cond=3 len=4
+%Error: /home/bluto/Desktop/dorsalGanglionProject/microcontroller/tests/drg5_branch_tb.sv:29: Verilog $stop
+Aborting...

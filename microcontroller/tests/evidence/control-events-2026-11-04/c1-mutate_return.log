@@ -1,0 +1,3 @@
+[8108] %Fatal: drg5_control_events_tb.sv:69: Assertion failed in drg5_control_events_tb.check: case=9 C=1 cycle=227 pc=0000010c: wrong terminal continuation
+%Error: microcontroller/tests/drg5_control_events_tb.sv:69: Verilog $stop
+Aborting...

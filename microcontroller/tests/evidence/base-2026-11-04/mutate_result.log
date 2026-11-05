@@ -1,0 +1,4 @@
+ARCH case=1 index=0 pc=00000100 raw=00000013 trap=0 cause=0 tval=00000000 rdwrite=0 rd=0 value=00000000 next=00000104
+[264] %Fatal: drg5_base_tb.sv:86: Assertion failed in drg5_base_tb.check: case=1 seed=1 diag=0 forwarding=1 cycle=8 cursor=1: architectural disposition mismatch
+%Error: microcontroller/tests/drg5_base_tb.sv:86: Verilog $stop
+Aborting...

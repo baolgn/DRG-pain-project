@@ -1,0 +1,391 @@
+$ /tmp/drg5-control-tools/oss-cad-suite/bin/yosys -Q -T -p read_verilog -formal -sv /home/bluto/Desktop/dorsalGanglionProject/microcontroller/rtl/drg5_forward.sv /home/bluto/Desktop/dorsalGanglionProject/microcontroller/tests/drg5_forward_formal.sv; chparam -set FORWARDING 1 -set MUTATE_HAZARD 1 drg5_forward_formal; prep -top drg5_forward_formal -flatten; chformal -lower; check -assert; select -assert-count 7 t:$assert; select -assert-none t:$assume; sat -verify -prove-asserts -set-def-inputs -show-inputs -timeout 45
+
+-- Running command `read_verilog -formal -sv /home/bluto/Desktop/dorsalGanglionProject/microcontroller/rtl/drg5_forward.sv /home/bluto/Desktop/dorsalGanglionProject/microcontroller/tests/drg5_forward_formal.sv; chparam -set FORWARDING 1 -set MUTATE_HAZARD 1 drg5_forward_formal; prep -top drg5_forward_formal -flatten; chformal -lower; check -assert; select -assert-count 7 t:$assert; select -assert-none t:$assume; sat -verify -prove-asserts -set-def-inputs -show-inputs -timeout 45' --
+
+1. Executing Verilog-2005 frontend: /home/bluto/Desktop/dorsalGanglionProject/microcontroller/rtl/drg5_forward.sv
+Parsing formal SystemVerilog input from `/home/bluto/Desktop/dorsalGanglionProject/microcontroller/rtl/drg5_forward.sv' to AST representation.
+Generating RTLIL representation for module `\drg5_forward'.
+Successfully finished Verilog frontend.
+
+2. Executing Verilog-2005 frontend: /home/bluto/Desktop/dorsalGanglionProject/microcontroller/tests/drg5_forward_formal.sv
+Parsing formal SystemVerilog input from `/home/bluto/Desktop/dorsalGanglionProject/microcontroller/tests/drg5_forward_formal.sv' to AST representation.
+Generating RTLIL representation for module `\drg5_forward_formal'.
+Successfully finished Verilog frontend.
+Parameter \FORWARDING = 1
+Parameter \MUTATE_HAZARD = 1
+
+3. Executing AST frontend in derive mode using pre-parsed AST for module `\drg5_forward_formal'.
+Parameter \FORWARDING = 1
+Parameter \MUTATE_HAZARD = 1
+Generating RTLIL representation for module `$paramod$229542829c2baa540b693c19f1edec518b0c0cc4\drg5_forward_formal'.
+
+4. Executing PREP pass.
+
+4.1. Executing HIERARCHY pass (managing design hierarchy).
+
+4.1.1. Analyzing design hierarchy..
+Top module:  \drg5_forward_formal
+Used module:     \drg5_forward
+Parameter \FORWARDING = 1
+
+4.1.2. Executing AST frontend in derive mode using pre-parsed AST for module `\drg5_forward'.
+Parameter \FORWARDING = 1
+Generating RTLIL representation for module `$paramod\drg5_forward\FORWARDING=32'00000000000000000000000000000001'.
+
+4.1.3. Analyzing design hierarchy..
+Top module:  \drg5_forward_formal
+Used module:     $paramod\drg5_forward\FORWARDING=32'00000000000000000000000000000001
+
+4.1.4. Analyzing design hierarchy..
+Top module:  \drg5_forward_formal
+Used module:     $paramod\drg5_forward\FORWARDING=32'00000000000000000000000000000001
+Removing unused module `\drg5_forward'.
+Removed 1 unused modules.
+Module drg5_forward_formal directly or indirectly contains formal properties -> setting "keep" attribute.
+
+4.2. Executing PROC pass (convert processes to netlists).
+
+4.2.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+4.2.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Marked 9 switch rules as full_case in process $proc$/home/bluto/Desktop/dorsalGanglionProject/microcontroller/rtl/drg5_forward.sv:19$233 in module $paramod\drg5_forward\FORWARDING=32'00000000000000000000000000000001.
+Removed a total of 0 dead cases.
+
+4.2.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 7 redundant assignments.
+Promoted 16 assignments to connections.
+
+4.2.4. Executing PROC_INIT pass (extract init attributes).
+
+4.2.5. Executing PROC_ARST pass (detect async resets in processes).
+
+4.2.6. Executing PROC_ROM pass (convert switches to ROMs).
+Converted 0 switches.
+<suppressed ~9 debug messages>
+
+4.2.7. Executing PROC_MUX pass (convert decision trees to multiplexers).
+Creating decoders for process `\drg5_forward_formal.$proc$/home/bluto/Desktop/dorsalGanglionProject/microcontroller/tests/drg5_forward_formal.sv:50$215'.
+Creating decoders for process `$paramod\drg5_forward\FORWARDING=32'00000000000000000000000000000001.$proc$/home/bluto/Desktop/dorsalGanglionProject/microcontroller/rtl/drg5_forward.sv:19$233'.
+     1/45: $9\hazard_o[0:0]
+     2/45: $6\rs2_value_o[31:0]
+     3/45: $6\rs2_select_o[1:0]
+     4/45: $6\rs2_match_o[0:0]
+     5/45: $8\hazard_o[0:0]
+     6/45: $6\rs1_value_o[31:0]
+     7/45: $6\rs1_select_o[1:0]
+     8/45: $6\rs1_match_o[0:0]
+     9/45: $5\rs2_match_o[0:0]
+    10/45: $5\rs2_select_o[1:0]
+    11/45: $7\hazard_o[0:0]
+    12/45: $5\rs2_value_o[31:0]
+    13/45: $5\rs1_match_o[0:0]
+    14/45: $5\rs1_select_o[1:0]
+    15/45: $5\rs1_value_o[31:0]
+    16/45: $6\hazard_o[0:0]
+    17/45: $4\rs2_value_o[31:0]
+    18/45: $4\rs2_select_o[1:0]
+    19/45: $4\rs2_match_o[0:0]
+    20/45: $5\hazard_o[0:0]
+    21/45: $4\rs1_value_o[31:0]
+    22/45: $4\rs1_select_o[1:0]
+    23/45: $4\rs1_match_o[0:0]
+    24/45: $3\rs2_match_o[0:0]
+    25/45: $3\rs2_select_o[1:0]
+    26/45: $4\hazard_o[0:0]
+    27/45: $3\rs2_value_o[31:0]
+    28/45: $3\rs1_match_o[0:0]
+    29/45: $3\rs1_select_o[1:0]
+    30/45: $3\rs1_value_o[31:0]
+    31/45: $3\hazard_o[0:0]
+    32/45: $2\rs2_value_o[31:0]
+    33/45: $2\rs2_select_o[1:0]
+    34/45: $2\rs2_match_o[0:0]
+    35/45: $2\hazard_o[0:0]
+    36/45: $2\rs1_value_o[31:0]
+    37/45: $2\rs1_select_o[1:0]
+    38/45: $2\rs1_match_o[0:0]
+    39/45: $1\rs2_match_o[0:0]
+    40/45: $1\rs2_select_o[1:0]
+    41/45: $1\hazard_o[0:0]
+    42/45: $1\rs2_value_o[31:0]
+    43/45: $1\rs1_match_o[0:0]
+    44/45: $1\rs1_select_o[1:0]
+    45/45: $1\rs1_value_o[31:0]
+
+4.2.8. Executing PROC_DLATCH pass (convert process syncs to latches).
+No latch inferred for signal `$paramod\drg5_forward\FORWARDING=32'00000000000000000000000000000001.\rs1_value_o' from process `$paramod\drg5_forward\FORWARDING=32'00000000000000000000000000000001.$proc$/home/bluto/Desktop/dorsalGanglionProject/microcontroller/rtl/drg5_forward.sv:19$233'.
+No latch inferred for signal `$paramod\drg5_forward\FORWARDING=32'00000000000000000000000000000001.\rs2_value_o' from process `$paramod\drg5_forward\FORWARDING=32'00000000000000000000000000000001.$proc$/home/bluto/Desktop/dorsalGanglionProject/microcontroller/rtl/drg5_forward.sv:19$233'.
+No latch inferred for signal `$paramod\drg5_forward\FORWARDING=32'00000000000000000000000000000001.\hazard_o' from process `$paramod\drg5_forward\FORWARDING=32'00000000000000000000000000000001.$proc$/home/bluto/Desktop/dorsalGanglionProject/microcontroller/rtl/drg5_forward.sv:19$233'.
+No latch inferred for signal `$paramod\drg5_forward\FORWARDING=32'00000000000000000000000000000001.\rs1_select_o' from process `$paramod\drg5_forward\FORWARDING=32'00000000000000000000000000000001.$proc$/home/bluto/Desktop/dorsalGanglionProject/microcontroller/rtl/drg5_forward.sv:19$233'.
+No latch inferred for signal `$paramod\drg5_forward\FORWARDING=32'00000000000000000000000000000001.\rs2_select_o' from process `$paramod\drg5_forward\FORWARDING=32'00000000000000000000000000000001.$proc$/home/bluto/Desktop/dorsalGanglionProject/microcontroller/rtl/drg5_forward.sv:19$233'.
+No latch inferred for signal `$paramod\drg5_forward\FORWARDING=32'00000000000000000000000000000001.\rs1_match_o' from process `$paramod\drg5_forward\FORWARDING=32'00000000000000000000000000000001.$proc$/home/bluto/Desktop/dorsalGanglionProject/microcontroller/rtl/drg5_forward.sv:19$233'.
+No latch inferred for signal `$paramod\drg5_forward\FORWARDING=32'00000000000000000000000000000001.\rs2_match_o' from process `$paramod\drg5_forward\FORWARDING=32'00000000000000000000000000000001.$proc$/home/bluto/Desktop/dorsalGanglionProject/microcontroller/rtl/drg5_forward.sv:19$233'.
+No latch inferred for signal `$paramod\drg5_forward\FORWARDING=32'00000000000000000000000000000001.\available' from process `$paramod\drg5_forward\FORWARDING=32'00000000000000000000000000000001.$proc$/home/bluto/Desktop/dorsalGanglionProject/microcontroller/rtl/drg5_forward.sv:19$233'.
+No latch inferred for signal `$paramod\drg5_forward\FORWARDING=32'00000000000000000000000000000001.$fordecl_block$1.producer' from process `$paramod\drg5_forward\FORWARDING=32'00000000000000000000000000000001.$proc$/home/bluto/Desktop/dorsalGanglionProject/microcontroller/rtl/drg5_forward.sv:19$233'.
+
+4.2.9. Executing PROC_DFF pass (convert process syncs to FFs).
+
+4.2.10. Executing PROC_MEMWR pass (convert process memory writes to cells).
+
+4.2.11. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Removing empty process `drg5_forward_formal.$proc$/home/bluto/Desktop/dorsalGanglionProject/microcontroller/tests/drg5_forward_formal.sv:50$215'.
+Found and cleaned up 9 empty switches in `$paramod\drg5_forward\FORWARDING=32'00000000000000000000000000000001.$proc$/home/bluto/Desktop/dorsalGanglionProject/microcontroller/rtl/drg5_forward.sv:19$233'.
+Removing empty process `$paramod\drg5_forward\FORWARDING=32'00000000000000000000000000000001.$proc$/home/bluto/Desktop/dorsalGanglionProject/microcontroller/rtl/drg5_forward.sv:19$233'.
+Cleaned up 9 empty switches.
+
+4.2.12. Executing OPT_EXPR pass (perform const folding).
+Optimizing module drg5_forward_formal.
+<suppressed ~8 debug messages>
+Optimizing module $paramod\drg5_forward\FORWARDING=32'00000000000000000000000000000001.
+<suppressed ~19 debug messages>
+
+4.3. Executing FLATTEN pass (flatten design).
+Deleting now unused module $paramod\drg5_forward\FORWARDING=32'00000000000000000000000000000001.
+<suppressed ~1 debug messages>
+
+4.4. Executing FUTURE pass.
+
+4.5. Executing OPT_EXPR pass (perform const folding).
+Optimizing module drg5_forward_formal.
+
+4.6. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \drg5_forward_formal..
+Removed 0 unused cells and 158 unused wires.
+<suppressed ~1 debug messages>
+
+4.7. Executing CHECK pass (checking for obvious problems).
+Checking module drg5_forward_formal...
+Found and reported 0 problems.
+
+4.8. Executing OPT pass (performing simple optimizations).
+
+4.8.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module drg5_forward_formal.
+
+4.8.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\drg5_forward_formal'.
+Computing hashes of 210 cells of `\drg5_forward_formal'.
+Finding duplicate cells in `\drg5_forward_formal'.
+Computing hashes of 191 cells of `\drg5_forward_formal'.
+Finding duplicate cells in `\drg5_forward_formal'.
+Computing hashes of 181 cells of `\drg5_forward_formal'.
+Finding duplicate cells in `\drg5_forward_formal'.
+<suppressed ~87 debug messages>
+Removed a total of 29 cells.
+
+4.8.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \drg5_forward_formal..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+    dead port 2/2 on $mux $flatten\dut.$procmux$311.
+    dead port 2/2 on $mux $flatten\dut.$procmux$317.
+    dead port 2/2 on $mux $flatten\dut.$procmux$323.
+    dead port 2/2 on $mux $flatten\dut.$procmux$329.
+    dead port 2/2 on $mux $flatten\dut.$procmux$341.
+    dead port 2/2 on $mux $flatten\dut.$procmux$347.
+    dead port 2/2 on $mux $flatten\dut.$procmux$353.
+    dead port 2/2 on $mux $flatten\dut.$procmux$380.
+    dead port 2/2 on $mux $flatten\dut.$procmux$386.
+    dead port 2/2 on $mux $flatten\dut.$procmux$392.
+    dead port 2/2 on $mux $flatten\dut.$procmux$398.
+    dead port 2/2 on $mux $flatten\dut.$procmux$410.
+    dead port 2/2 on $mux $flatten\dut.$procmux$416.
+    dead port 2/2 on $mux $flatten\dut.$procmux$422.
+    dead port 2/2 on $mux $flatten\dut.$procmux$449.
+    dead port 2/2 on $mux $flatten\dut.$procmux$455.
+    dead port 2/2 on $mux $flatten\dut.$procmux$461.
+    dead port 2/2 on $mux $flatten\dut.$procmux$467.
+    dead port 2/2 on $mux $flatten\dut.$procmux$479.
+    dead port 2/2 on $mux $flatten\dut.$procmux$485.
+    dead port 2/2 on $mux $flatten\dut.$procmux$491.
+Removed 21 multiplexer ports.
+<suppressed ~243 debug messages>
+
+4.8.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \drg5_forward_formal.
+Performed a total of 0 changes.
+
+4.8.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\drg5_forward_formal'.
+Computing hashes of 160 cells of `\drg5_forward_formal'.
+Finding duplicate cells in `\drg5_forward_formal'.
+Computing hashes of 157 cells of `\drg5_forward_formal'.
+Finding duplicate cells in `\drg5_forward_formal'.
+<suppressed ~9 debug messages>
+Removed a total of 3 cells.
+
+4.8.6. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \drg5_forward_formal..
+Removed 0 unused cells and 53 unused wires.
+<suppressed ~1 debug messages>
+
+4.8.7. Executing OPT_EXPR pass (perform const folding).
+Optimizing module drg5_forward_formal.
+
+4.8.8. Rerunning OPT passes. (Maybe there is more to do..)
+
+4.8.9. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \drg5_forward_formal..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~196 debug messages>
+
+4.8.10. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \drg5_forward_formal.
+Performed a total of 0 changes.
+
+4.8.11. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\drg5_forward_formal'.
+Computing hashes of 157 cells of `\drg5_forward_formal'.
+Finding duplicate cells in `\drg5_forward_formal'.
+Removed a total of 0 cells.
+
+4.8.12. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \drg5_forward_formal..
+
+4.8.13. Executing OPT_EXPR pass (perform const folding).
+Optimizing module drg5_forward_formal.
+
+4.8.14. Finished fast OPT passes. (There is nothing left to do.)
+
+4.9. Executing WREDUCE pass (reducing word size of cells).
+Removed top 1 bits (of 2) from port A of cell drg5_forward_formal.$add$/home/bluto/Desktop/dorsalGanglionProject/microcontroller/tests/drg5_forward_formal.sv:35$179 ($add).
+Removed top 1 bits (of 2) from port A of cell drg5_forward_formal.$add$/home/bluto/Desktop/dorsalGanglionProject/microcontroller/tests/drg5_forward_formal.sv:36$181 ($add).
+Removed top 1 bits (of 2) from mux cell drg5_forward_formal.$flatten\dut.$procmux$483 ($mux).
+Removed top 1 bits (of 2) from mux cell drg5_forward_formal.$flatten\dut.$procmux$459 ($mux).
+Removed top 1 bits (of 2) from mux cell drg5_forward_formal.$flatten\dut.$procmux$497 ($mux).
+Removed top 1 bits (of 2) from mux cell drg5_forward_formal.$flatten\dut.$procmux$509 ($mux).
+Removed top 1 bits (of 2) from wire drg5_forward_formal.$flatten\dut.$1\rs1_select_o[1:0].
+Removed top 1 bits (of 2) from wire drg5_forward_formal.$flatten\dut.$2\rs1_select_o[1:0].
+Removed top 1 bits (of 2) from wire drg5_forward_formal.$flatten\dut.$2\rs2_select_o[1:0].
+
+4.10. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \drg5_forward_formal..
+Removed 0 unused cells and 3 unused wires.
+<suppressed ~1 debug messages>
+
+4.11. Executing MEMORY_COLLECT pass (generating $mem cells).
+
+4.12. Executing OPT pass (performing simple optimizations).
+
+4.12.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module drg5_forward_formal.
+
+4.12.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\drg5_forward_formal'.
+Computing hashes of 157 cells of `\drg5_forward_formal'.
+Finding duplicate cells in `\drg5_forward_formal'.
+Computing hashes of 155 cells of `\drg5_forward_formal'.
+Finding duplicate cells in `\drg5_forward_formal'.
+Computing hashes of 153 cells of `\drg5_forward_formal'.
+Finding duplicate cells in `\drg5_forward_formal'.
+<suppressed ~12 debug messages>
+Removed a total of 4 cells.
+
+4.12.3. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \drg5_forward_formal..
+Removed 0 unused cells and 4 unused wires.
+<suppressed ~1 debug messages>
+
+4.12.4. Finished fast OPT passes.
+
+4.13. Printing statistics.
+
+=== drg5_forward_formal ===
+
+        +----------Local Count, excluding submodules.
+        | 
+      176 wires
+     1608 wire bits
+       48 public wires
+      622 public wire bits
+       11 ports
+      196 port bits
+      153 cells
+        4   $add
+       16   $and
+        7   $check
+       13   $eq
+       26   $logic_and
+       13   $logic_not
+        5   $logic_or
+       49   $mux
+        2   $not
+        7   $or
+        5   $reduce_bool
+        5   $reduce_or
+        1   $scopeinfo
+
+4.14. Executing CHECK pass (checking for obvious problems).
+Checking module drg5_forward_formal...
+Found and reported 0 problems.
+
+5. Executing CHECK pass (checking for obvious problems).
+Checking module drg5_forward_formal...
+Found and reported 0 problems.
+
+6. Executing SAT pass (solving SAT problems in the circuit).
+
+Setting up SAT problem:
+Final constraint equation: { } = { }
+Import def constraint for this timestep: \rs1_used_i
+Import def constraint for this timestep: \rs2_used_i
+Import def constraint for this timestep: \producer_valid_i
+Import def constraint for this timestep: \producer_write_i
+Import def constraint for this timestep: \producer_ready_i
+Import def constraint for this timestep: \rs1_i
+Import def constraint for this timestep: \rs2_i
+Import def constraint for this timestep: \producer_rd_i
+Import def constraint for this timestep: \rs1_rf_value_i
+Import def constraint for this timestep: \rs2_rf_value_i
+Import def constraint for this timestep: \producer_value_i
+Imported 167 cells to SAT database.
+Import proof for assert: $eq$/home/bluto/Desktop/dorsalGanglionProject/microcontroller/tests/drg5_forward_formal.sv:57$232_Y when 1'1.
+Import proof for assert: $eq$/home/bluto/Desktop/dorsalGanglionProject/microcontroller/tests/drg5_forward_formal.sv:56$229_Y when 1'1.
+Import proof for assert: $eq$/home/bluto/Desktop/dorsalGanglionProject/microcontroller/tests/drg5_forward_formal.sv:55$226_Y when 1'1.
+Import proof for assert: $eq$/home/bluto/Desktop/dorsalGanglionProject/microcontroller/tests/drg5_forward_formal.sv:54$223_Y when 1'1.
+Import proof for assert: $eq$/home/bluto/Desktop/dorsalGanglionProject/microcontroller/tests/drg5_forward_formal.sv:53$221_Y when 1'1.
+Import proof for assert: $eq$/home/bluto/Desktop/dorsalGanglionProject/microcontroller/tests/drg5_forward_formal.sv:52$219_Y when 1'1.
+Import proof for assert: $eq$/home/bluto/Desktop/dorsalGanglionProject/microcontroller/tests/drg5_forward_formal.sv:51$217_Y when 1'1.
+Import show expression: \producer_rd_i
+Import show expression: \producer_ready_i
+Import show expression: \producer_valid_i
+Import show expression: \producer_value_i
+Import show expression: \producer_write_i
+Import show expression: \rs1_i
+Import show expression: \rs1_rf_value_i
+Import show expression: \rs1_used_i
+Import show expression: \rs2_i
+Import show expression: \rs2_rf_value_i
+Import show expression: \rs2_used_i
+
+Solving problem with 26528 variables and 72063 clauses..
+SAT proof finished - model found: FAIL!
+
+   ______                   ___       ___       _ _            _ _ 
+  (_____ \                 / __)     / __)     (_) |          | | |
+   _____) )___ ___   ___ _| |__    _| |__ _____ _| | _____  __| | |
+  |  ____/ ___) _ \ / _ (_   __)  (_   __|____ | | || ___ |/ _  |_|
+  | |   | |  | |_| | |_| || |       | |  / ___ | | || ____( (_| |_ 
+  |_|   |_|   \___/ \___/ |_|       |_|  \_____|_|\_)_____)\____|_|
+
+
+  Signal Name                    Dec       Hex                                                                                                 Bin
+  ---------------------- ----------- --------- ---------------------------------------------------------------------------------------------------
+  \producer_rd_i               32511      7eff                                                                                     111111011111111
+  \producer_ready_i                7         7                                                                                                 111
+  \producer_valid_i                7         7                                                                                                 111
+  \producer_value_i               --        --    000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+  \producer_write_i                7         7                                                                                                 111
+  \rs1_i                           0         0                                                                                               00000
+  \rs1_rf_value_i                  0         0                                                                    00000000000000000000000000000000
+  \rs1_used_i                      0         0                                                                                                   0
+  \rs2_i                           0         0                                                                                               00000
+  \rs2_rf_value_i                  0         0                                                                    00000000000000000000000000000000
+  \rs2_used_i                      0         0                                                                                                   0
+
+ERROR: Called with -verify and proof did fail!

@@ -1,0 +1,484 @@
+{
+  "scope": "decoded memory integration and target-effect qualification of the packet prototype; not full CPU conformance",
+  "verilator": "Verilator 5.047 devel rev v5.046-19-ge9dd6eaaf (mod)",
+  "source_sha256": {
+    "microcontroller/rtl/drg5_control_pkg.sv": "a0cfa356d1fc6978ea805b19b50fb800d601e11a7c27eadee9521e7edb05f0d6",
+    "microcontroller/rtl/drg5_decoder.sv": "0b42ead92fd911fd1a2ed4295145b4ac476ad2933b3e2dcb4cdde95d899d52b3",
+    "microcontroller/rtl/drg5_immediate.sv": "0178ee6a01e4c5361d149a425b5da5502ef2906b8c3ee9246800bd5bc93a080b",
+    "microcontroller/rtl/drg5_branch.sv": "81fb7fbc54c4c64236738d289fa8fc5a64bd6373efbd66ac2da33086e8d8728e",
+    "microcontroller/rtl/drg5_lsu.sv": "eeac7f5f8d92e4e35030b716e85aabede593afe1d5ca3175e79b9e3e5c83d926",
+    "microcontroller/rtl/drg5_control.sv": "d019143cf71172855e2cb4b126e587a135566cc4a3e88701e5e77cdef6a92900",
+    "microcontroller/tests/drg5_memory_tb.sv": "6db74caff8213f00827f576550942215c1c5b0d80ad40ede4e9fd75e1f6df41e",
+    "microcontroller/rtl/drg5_datapath_defs.svh": "1247c7ee5185c32bcd41a1d72a08c9926e34ff5abe25e2ece8e6c2f9df21042e",
+    "microcontroller/tests/run_memory.py": "686c856c0b7122c20d5376ce7d40260581ed03aa5f983038c75d5ac7ad66d1de",
+    "microcontroller/tests/Makefile": "693d6d22406e13bcc5801339757bb4d7c0e96ae5b38029bf23ae4937bdc81626"
+  },
+  "status": "passed",
+  "positive_runs": 8,
+  "negative_control_types": 5,
+  "negative_control_runs_passed": 10,
+  "accept_extra_bins": [
+    0,
+    1,
+    2,
+    3
+  ],
+  "response_edge_bins": [
+    1,
+    2,
+    3,
+    4,
+    5
+  ],
+  "schedule": {
+    "generator": "LCG32: state=(1664525*state+1013904223) modulo 2^32; every u32 seed including zero is valid",
+    "seed_argument": "+seed; independent from +verilator+seed+1",
+    "ordinary_acceptance": "offer registered at L; absent directed holds, acceptance at L+accept_extra+1",
+    "ordinary_response": "registered target capture at acceptance A; reply at A+response_edges, with response_edges in 1..5",
+    "overrides": "directed hold/reset/error scripts can delay or inject events; actual ACCEPT/RESPONSE rows are retained",
+    "minimum_deadline": "separate N=1 compatibility fixture tests same-edge acceptance/response and first-edge timeouts"
+  },
+  "limits": [
+    "non-memory/control operations remain explicitly synthetic packets",
+    "enabled timer aperture is a plain register target used to qualify guard forwarding, not a timer/IRQ implementation",
+    "main profiles enable test error windows; diagnostic-default uses all default control parameters",
+    "tag/UID exhaustion remains separately source-reviewed; this finite integration run does not exhaust 32/64-bit identities",
+    "negative controls corrupt observations or a target counter; they do not mutate production RTL"
+  ],
+  "results": [
+    {
+      "configuration": "minimum",
+      "seed": 1,
+      "build_command": [
+        "/tmp/drg5-control-tools-20260301/oss-cad-suite/bin/verilator",
+        "--binary",
+        "--timing",
+        "--assert",
+        "-Wall",
+        "-j",
+        "2",
+        "-CFLAGS",
+        "-O0",
+        "-Imicrocontroller/rtl",
+        "--top-module",
+        "drg5_memory_tb",
+        "--Mdir",
+        "/tmp/drg5-memory-final-v2/minimum",
+        "-GPROFILE=0",
+        "-GMAX_WAIT=1",
+        "-GSCENARIO=1",
+        "microcontroller/rtl/drg5_control_pkg.sv",
+        "microcontroller/rtl/drg5_decoder.sv",
+        "microcontroller/rtl/drg5_immediate.sv",
+        "microcontroller/rtl/drg5_branch.sv",
+        "microcontroller/rtl/drg5_lsu.sv",
+        "microcontroller/rtl/drg5_control.sv",
+        "microcontroller/tests/drg5_memory_tb.sv"
+      ],
+      "run_command": [
+        "/tmp/drg5-memory-final-v2/minimum/Vdrg5_memory_tb",
+        "+verilator+seed+1",
+        "+seed=1"
+      ],
+      "exit_code": 0,
+      "result": "PASS memory profile=0 scenario=1 deadline=1 seed=1 cases=3 cycles=52 checks=402339 terminals=4 traps=0 kills=2 offers=3 replies=3 decoded=0 rejects=0 fatal_cases=2 resets=8 effects=1 max_accept_delay=2 max_response_delay=3 flushes=0 flush_redirects=0 aborts=0 bypasses=3 reset_cases=0 dependency_stalls=6 nearest_stalls=0 memory_flush=0 invalid=0",
+      "schedule_rows": 9
+    },
+    {
+      "configuration": "base",
+      "seed": 0,
+      "build_command": [
+        "/tmp/drg5-control-tools-20260301/oss-cad-suite/bin/verilator",
+        "--binary",
+        "--timing",
+        "--assert",
+        "-Wall",
+        "-j",
+        "2",
+        "-CFLAGS",
+        "-O0",
+        "-Imicrocontroller/rtl",
+        "--top-module",
+        "drg5_memory_tb",
+        "--Mdir",
+        "/tmp/drg5-memory-final-v2/base",
+        "-GPROFILE=0",
+        "-GMAX_WAIT=128",
+        "-GSCENARIO=0",
+        "microcontroller/rtl/drg5_control_pkg.sv",
+        "microcontroller/rtl/drg5_decoder.sv",
+        "microcontroller/rtl/drg5_immediate.sv",
+        "microcontroller/rtl/drg5_branch.sv",
+        "microcontroller/rtl/drg5_lsu.sv",
+        "microcontroller/rtl/drg5_control.sv",
+        "microcontroller/tests/drg5_memory_tb.sv"
+      ],
+      "run_command": [
+        "/tmp/drg5-memory-final-v2/base/Vdrg5_memory_tb",
+        "+verilator+seed+1",
+        "+seed=0"
+      ],
+      "exit_code": 0,
+      "result": "PASS memory profile=0 scenario=0 deadline=128 seed=0 cases=142 cycles=3410 checks=15060124 terminals=321 traps=29 kills=24 offers=126 replies=126 decoded=105 rejects=22 fatal_cases=17 resets=180 effects=18 max_accept_delay=3 max_response_delay=5 flushes=4 flush_redirects=4 aborts=0 bypasses=134 reset_cases=3 dependency_stalls=345 nearest_stalls=108 memory_flush=4 invalid=6",
+      "schedule_rows": 382
+    },
+    {
+      "configuration": "base",
+      "seed": 1,
+      "build_command": [
+        "/tmp/drg5-control-tools-20260301/oss-cad-suite/bin/verilator",
+        "--binary",
+        "--timing",
+        "--assert",
+        "-Wall",
+        "-j",
+        "2",
+        "-CFLAGS",
+        "-O0",
+        "-Imicrocontroller/rtl",
+        "--top-module",
+        "drg5_memory_tb",
+        "--Mdir",
+        "/tmp/drg5-memory-final-v2/base",
+        "-GPROFILE=0",
+        "-GMAX_WAIT=128",
+        "-GSCENARIO=0",
+        "microcontroller/rtl/drg5_control_pkg.sv",
+        "microcontroller/rtl/drg5_decoder.sv",
+        "microcontroller/rtl/drg5_immediate.sv",
+        "microcontroller/rtl/drg5_branch.sv",
+        "microcontroller/rtl/drg5_lsu.sv",
+        "microcontroller/rtl/drg5_control.sv",
+        "microcontroller/tests/drg5_memory_tb.sv"
+      ],
+      "run_command": [
+        "/tmp/drg5-memory-final-v2/base/Vdrg5_memory_tb",
+        "+verilator+seed+1",
+        "+seed=1"
+      ],
+      "exit_code": 0,
+      "result": "PASS memory profile=0 scenario=0 deadline=128 seed=1 cases=142 cycles=3285 checks=15037907 terminals=321 traps=29 kills=24 offers=126 replies=126 decoded=105 rejects=22 fatal_cases=17 resets=180 effects=18 max_accept_delay=2 max_response_delay=5 flushes=4 flush_redirects=4 aborts=0 bypasses=134 reset_cases=3 dependency_stalls=342 nearest_stalls=108 memory_flush=4 invalid=6",
+      "schedule_rows": 382
+    },
+    {
+      "configuration": "base",
+      "seed": 305419896,
+      "build_command": [
+        "/tmp/drg5-control-tools-20260301/oss-cad-suite/bin/verilator",
+        "--binary",
+        "--timing",
+        "--assert",
+        "-Wall",
+        "-j",
+        "2",
+        "-CFLAGS",
+        "-O0",
+        "-Imicrocontroller/rtl",
+        "--top-module",
+        "drg5_memory_tb",
+        "--Mdir",
+        "/tmp/drg5-memory-final-v2/base",
+        "-GPROFILE=0",
+        "-GMAX_WAIT=128",
+        "-GSCENARIO=0",
+        "microcontroller/rtl/drg5_control_pkg.sv",
+        "microcontroller/rtl/drg5_decoder.sv",
+        "microcontroller/rtl/drg5_immediate.sv",
+        "microcontroller/rtl/drg5_branch.sv",
+        "microcontroller/rtl/drg5_lsu.sv",
+        "microcontroller/rtl/drg5_control.sv",
+        "microcontroller/tests/drg5_memory_tb.sv"
+      ],
+      "run_command": [
+        "/tmp/drg5-memory-final-v2/base/Vdrg5_memory_tb",
+        "+verilator+seed+1",
+        "+seed=305419896"
+      ],
+      "exit_code": 0,
+      "result": "PASS memory profile=0 scenario=0 deadline=128 seed=305419896 cases=142 cycles=3403 checks=15058865 terminals=321 traps=29 kills=24 offers=126 replies=126 decoded=105 rejects=22 fatal_cases=17 resets=180 effects=18 max_accept_delay=3 max_response_delay=5 flushes=4 flush_redirects=4 aborts=0 bypasses=134 reset_cases=3 dependency_stalls=349 nearest_stalls=108 memory_flush=4 invalid=6",
+      "schedule_rows": 382
+    },
+    {
+      "configuration": "enabled",
+      "seed": 0,
+      "build_command": [
+        "/tmp/drg5-control-tools-20260301/oss-cad-suite/bin/verilator",
+        "--binary",
+        "--timing",
+        "--assert",
+        "-Wall",
+        "-j",
+        "2",
+        "-CFLAGS",
+        "-O0",
+        "-Imicrocontroller/rtl",
+        "--top-module",
+        "drg5_memory_tb",
+        "--Mdir",
+        "/tmp/drg5-memory-final-v2/enabled",
+        "-GPROFILE=1",
+        "-GMAX_WAIT=128",
+        "-GSCENARIO=0",
+        "microcontroller/rtl/drg5_control_pkg.sv",
+        "microcontroller/rtl/drg5_decoder.sv",
+        "microcontroller/rtl/drg5_immediate.sv",
+        "microcontroller/rtl/drg5_branch.sv",
+        "microcontroller/rtl/drg5_lsu.sv",
+        "microcontroller/rtl/drg5_control.sv",
+        "microcontroller/tests/drg5_memory_tb.sv"
+      ],
+      "run_command": [
+        "/tmp/drg5-memory-final-v2/enabled/Vdrg5_memory_tb",
+        "+verilator+seed+1",
+        "+seed=0"
+      ],
+      "exit_code": 0,
+      "result": "PASS memory profile=1 scenario=0 deadline=128 seed=0 cases=142 cycles=3424 checks=15062630 terminals=321 traps=26 kills=24 offers=129 replies=129 decoded=105 rejects=19 fatal_cases=17 resets=180 effects=18 max_accept_delay=3 max_response_delay=5 flushes=4 flush_redirects=4 aborts=0 bypasses=134 reset_cases=3 dependency_stalls=350 nearest_stalls=108 memory_flush=4 invalid=6",
+      "schedule_rows": 391
+    },
+    {
+      "configuration": "enabled",
+      "seed": 1,
+      "build_command": [
+        "/tmp/drg5-control-tools-20260301/oss-cad-suite/bin/verilator",
+        "--binary",
+        "--timing",
+        "--assert",
+        "-Wall",
+        "-j",
+        "2",
+        "-CFLAGS",
+        "-O0",
+        "-Imicrocontroller/rtl",
+        "--top-module",
+        "drg5_memory_tb",
+        "--Mdir",
+        "/tmp/drg5-memory-final-v2/enabled",
+        "-GPROFILE=1",
+        "-GMAX_WAIT=128",
+        "-GSCENARIO=0",
+        "microcontroller/rtl/drg5_control_pkg.sv",
+        "microcontroller/rtl/drg5_decoder.sv",
+        "microcontroller/rtl/drg5_immediate.sv",
+        "microcontroller/rtl/drg5_branch.sv",
+        "microcontroller/rtl/drg5_lsu.sv",
+        "microcontroller/rtl/drg5_control.sv",
+        "microcontroller/tests/drg5_memory_tb.sv"
+      ],
+      "run_command": [
+        "/tmp/drg5-memory-final-v2/enabled/Vdrg5_memory_tb",
+        "+verilator+seed+1",
+        "+seed=1"
+      ],
+      "exit_code": 0,
+      "result": "PASS memory profile=1 scenario=0 deadline=128 seed=1 cases=142 cycles=3289 checks=15038645 terminals=321 traps=26 kills=24 offers=129 replies=129 decoded=105 rejects=19 fatal_cases=17 resets=180 effects=18 max_accept_delay=2 max_response_delay=5 flushes=4 flush_redirects=4 aborts=0 bypasses=134 reset_cases=3 dependency_stalls=346 nearest_stalls=108 memory_flush=4 invalid=6",
+      "schedule_rows": 391
+    },
+    {
+      "configuration": "enabled",
+      "seed": 305419896,
+      "build_command": [
+        "/tmp/drg5-control-tools-20260301/oss-cad-suite/bin/verilator",
+        "--binary",
+        "--timing",
+        "--assert",
+        "-Wall",
+        "-j",
+        "2",
+        "-CFLAGS",
+        "-O0",
+        "-Imicrocontroller/rtl",
+        "--top-module",
+        "drg5_memory_tb",
+        "--Mdir",
+        "/tmp/drg5-memory-final-v2/enabled",
+        "-GPROFILE=1",
+        "-GMAX_WAIT=128",
+        "-GSCENARIO=0",
+        "microcontroller/rtl/drg5_control_pkg.sv",
+        "microcontroller/rtl/drg5_decoder.sv",
+        "microcontroller/rtl/drg5_immediate.sv",
+        "microcontroller/rtl/drg5_branch.sv",
+        "microcontroller/rtl/drg5_lsu.sv",
+        "microcontroller/rtl/drg5_control.sv",
+        "microcontroller/tests/drg5_memory_tb.sv"
+      ],
+      "run_command": [
+        "/tmp/drg5-memory-final-v2/enabled/Vdrg5_memory_tb",
+        "+verilator+seed+1",
+        "+seed=305419896"
+      ],
+      "exit_code": 0,
+      "result": "PASS memory profile=1 scenario=0 deadline=128 seed=305419896 cases=142 cycles=3432 checks=15064047 terminals=321 traps=26 kills=24 offers=129 replies=129 decoded=105 rejects=19 fatal_cases=17 resets=180 effects=18 max_accept_delay=3 max_response_delay=5 flushes=4 flush_redirects=4 aborts=0 bypasses=134 reset_cases=3 dependency_stalls=347 nearest_stalls=108 memory_flush=4 invalid=6",
+      "schedule_rows": 391
+    },
+    {
+      "configuration": "diagnostic-default",
+      "seed": 1,
+      "build_command": [
+        "/tmp/drg5-control-tools-20260301/oss-cad-suite/bin/verilator",
+        "--binary",
+        "--timing",
+        "--assert",
+        "-Wall",
+        "-j",
+        "2",
+        "-CFLAGS",
+        "-O0",
+        "-Imicrocontroller/rtl",
+        "--top-module",
+        "drg5_memory_tb",
+        "--Mdir",
+        "/tmp/drg5-memory-final-v2/diagnostic-default",
+        "-GPROFILE=0",
+        "-GMAX_WAIT=128",
+        "-GSCENARIO=2",
+        "microcontroller/rtl/drg5_control_pkg.sv",
+        "microcontroller/rtl/drg5_decoder.sv",
+        "microcontroller/rtl/drg5_immediate.sv",
+        "microcontroller/rtl/drg5_branch.sv",
+        "microcontroller/rtl/drg5_lsu.sv",
+        "microcontroller/rtl/drg5_control.sv",
+        "microcontroller/tests/drg5_memory_tb.sv"
+      ],
+      "run_command": [
+        "/tmp/drg5-memory-final-v2/diagnostic-default/Vdrg5_memory_tb",
+        "+verilator+seed+1",
+        "+seed=1"
+      ],
+      "exit_code": 0,
+      "result": "PASS memory profile=0 scenario=2 deadline=128 seed=1 cases=14 cycles=303 checks=1528422 terminals=32 traps=4 kills=0 offers=10 replies=10 decoded=14 rejects=4 fatal_cases=0 resets=15 effects=1 max_accept_delay=2 max_response_delay=5 flushes=0 flush_redirects=0 aborts=0 bypasses=0 reset_cases=0 dependency_stalls=0 nearest_stalls=0 memory_flush=0 invalid=0",
+      "schedule_rows": 30
+    },
+    {
+      "configuration": "base",
+      "negative_control": "mutate_orphan",
+      "command": [
+        "/tmp/drg5-memory-final-v2/base/Vdrg5_memory_tb",
+        "+verilator+seed+1",
+        "+seed=1",
+        "+mutate_orphan"
+      ],
+      "exit_code": 1,
+      "detector": "physical request owner disappeared or appeared without permission",
+      "first_error": "[78] %Fatal: drg5_memory_tb.sv:89: Assertion failed in drg5_memory_tb.check: case=1 profile=0 scenario=0 seed=1 cycle=3 pc=00000100: physical request owner disappeared or appeared without permission"
+    },
+    {
+      "configuration": "base",
+      "negative_control": "mutate_lane",
+      "command": [
+        "/tmp/drg5-memory-final-v2/base/Vdrg5_memory_tb",
+        "+verilator+seed+1",
+        "+seed=1",
+        "+mutate_lane"
+      ],
+      "exit_code": 1,
+      "detector": "owned request descriptor changed",
+      "first_error": "[3858] %Fatal: drg5_memory_tb.sv:89: Assertion failed in drg5_memory_tb.check: case=9 profile=0 scenario=0 seed=1 cycle=108 pc=00000108: owned request descriptor changed"
+    },
+    {
+      "configuration": "base",
+      "negative_control": "mutate_effect",
+      "command": [
+        "/tmp/drg5-memory-final-v2/base/Vdrg5_memory_tb",
+        "+verilator+seed+1",
+        "+seed=1",
+        "+mutate_effect"
+      ],
+      "exit_code": 1,
+      "detector": "physical device effect differs from independent intent",
+      "first_error": "[38528] %Fatal: drg5_memory_tb.sv:89: Assertion failed in drg5_memory_tb.check: case=64 profile=0 scenario=0 seed=1 cycle=1072 pc=00000104: physical device effect differs from independent intent"
+    },
+    {
+      "configuration": "base",
+      "negative_control": "mutate_load",
+      "command": [
+        "/tmp/drg5-memory-final-v2/base/Vdrg5_memory_tb",
+        "+verilator+seed+1",
+        "+seed=1",
+        "+mutate_load"
+      ],
+      "exit_code": 1,
+      "detector": "unexpected architectural GPR effect",
+      "first_error": "[2708] %Fatal: drg5_memory_tb.sv:89: Assertion failed in drg5_memory_tb.check: case=7 profile=0 scenario=0 seed=1 cycle=77 pc=00000104: unexpected architectural GPR effect"
+    },
+    {
+      "configuration": "base",
+      "negative_control": "mutate_deadline",
+      "command": [
+        "/tmp/drg5-memory-final-v2/base/Vdrg5_memory_tb",
+        "+verilator+seed+1",
+        "+seed=1",
+        "+mutate_deadline"
+      ],
+      "exit_code": 1,
+      "detector": "fatal exposure snapshot mismatch",
+      "first_error": "[59948] %Fatal: drg5_memory_tb.sv:89: Assertion failed in drg5_memory_tb.check: case=78 profile=0 scenario=0 seed=1 cycle=1667 pc=00000104: fatal exposure snapshot mismatch"
+    },
+    {
+      "configuration": "enabled",
+      "negative_control": "mutate_orphan",
+      "command": [
+        "/tmp/drg5-memory-final-v2/enabled/Vdrg5_memory_tb",
+        "+verilator+seed+1",
+        "+seed=1",
+        "+mutate_orphan"
+      ],
+      "exit_code": 1,
+      "detector": "physical request owner disappeared or appeared without permission",
+      "first_error": "[78] %Fatal: drg5_memory_tb.sv:89: Assertion failed in drg5_memory_tb.check: case=1 profile=1 scenario=0 seed=1 cycle=3 pc=00000100: physical request owner disappeared or appeared without permission"
+    },
+    {
+      "configuration": "enabled",
+      "negative_control": "mutate_lane",
+      "command": [
+        "/tmp/drg5-memory-final-v2/enabled/Vdrg5_memory_tb",
+        "+verilator+seed+1",
+        "+seed=1",
+        "+mutate_lane"
+      ],
+      "exit_code": 1,
+      "detector": "owned request descriptor changed",
+      "first_error": "[3858] %Fatal: drg5_memory_tb.sv:89: Assertion failed in drg5_memory_tb.check: case=9 profile=1 scenario=0 seed=1 cycle=108 pc=00000108: owned request descriptor changed"
+    },
+    {
+      "configuration": "enabled",
+      "negative_control": "mutate_effect",
+      "command": [
+        "/tmp/drg5-memory-final-v2/enabled/Vdrg5_memory_tb",
+        "+verilator+seed+1",
+        "+seed=1",
+        "+mutate_effect"
+      ],
+      "exit_code": 1,
+      "detector": "physical device effect differs from independent intent",
+      "first_error": "[39140] %Fatal: drg5_memory_tb.sv:89: Assertion failed in drg5_memory_tb.check: case=64 profile=1 scenario=0 seed=1 cycle=1089 pc=00000104: physical device effect differs from independent intent"
+    },
+    {
+      "configuration": "enabled",
+      "negative_control": "mutate_load",
+      "command": [
+        "/tmp/drg5-memory-final-v2/enabled/Vdrg5_memory_tb",
+        "+verilator+seed+1",
+        "+seed=1",
+        "+mutate_load"
+      ],
+      "exit_code": 1,
+      "detector": "unexpected architectural GPR effect",
+      "first_error": "[2708] %Fatal: drg5_memory_tb.sv:89: Assertion failed in drg5_memory_tb.check: case=7 profile=1 scenario=0 seed=1 cycle=77 pc=00000104: unexpected architectural GPR effect"
+    },
+    {
+      "configuration": "enabled",
+      "negative_control": "mutate_deadline",
+      "command": [
+        "/tmp/drg5-memory-final-v2/enabled/Vdrg5_memory_tb",
+        "+verilator+seed+1",
+        "+seed=1",
+        "+mutate_deadline"
+      ],
+      "exit_code": 1,
+      "detector": "fatal exposure snapshot mismatch",
+      "first_error": "[60344] %Fatal: drg5_memory_tb.sv:89: Assertion failed in drg5_memory_tb.check: case=78 profile=1 scenario=0 seed=1 cycle=1678 pc=00000104: fatal exposure snapshot mismatch"
+    }
+  ]
+}

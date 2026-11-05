@@ -1,0 +1,4 @@
+$ /tmp/drg5-fence-events/c0/Vdrg5_fence_events_tb +verilator+seed+1
+[880] %Fatal: drg5_fence_events_tb.sv:60: Assertion failed in drg5_fence_events_tb.check: FENCE_EVENT_FAIL C=0 case=13 cycle=216 stages=10000: IRQ precedes unadmitted fence
+%Error: microcontroller/tests/drg5_fence_events_tb.sv:60: Verilog $stop
+Aborting...

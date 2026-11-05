@@ -1,0 +1,4 @@
+$ /tmp/drg5-lsu-final-v2/obj/Vdrg5_lsu_tb +verilator+seed+1 +mutate_sign
+[2065] %Fatal: drg5_lsu_tb.sv:61: Assertion failed in drg5_lsu_tb.check: LSU_CHECK_FAILED load extension sample=2064 profile=0 addr=00000000 size=0 write=0 signed=1 store=ffff8000 rsp=00000000
+%Error: /home/bluto/Desktop/dorsalGanglionProject/microcontroller/tests/drg5_lsu_tb.sv:61: Verilog $stop
+Aborting...

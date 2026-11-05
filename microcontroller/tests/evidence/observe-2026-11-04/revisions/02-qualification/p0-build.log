@@ -1,0 +1,8 @@
+$ /tmp/drg5-control-tools-20260301/oss-cad-suite/bin/verilator --binary --timing --assert -Wall -j 2 -CFLAGS -O0 --top-module drg5_observe_tb -GPROFILE=0 --Mdir /tmp/drg5-observe/p0 microcontroller/rtl/drg5_control_pkg.sv microcontroller/rtl/drg5_observe.sv microcontroller/tests/drg5_observe_tb.sv
+%Warning-WIDTHTRUNC: microcontroller/tests/drg5_observe_tb.sv:71:48: Logical operator LOGNOT expects 1 bit on the LHS, but LHS's MODDIVS generates 32 bits.
+                                                                   : ... note: In instance 'drg5_observe_tb'
+   71 |     cold_reset_i=0; hart_reset_i=PROFILE==5?1'(!(edges%2)):PROFILE==2?1'(edges%2):1'(edges%11==0); isolated_i=1;
+      |                                                ^
+                     ... For warning description see https://verilator.org/warn/WIDTHTRUNC?v=5.047
+                     ... Use "/* verilator lint_off WIDTHTRUNC */" and lint_on around source to disable this message.
+%Error: Exiting due to 1 warning(s)

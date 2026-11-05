@@ -1,0 +1,4 @@
+$ /tmp/drg5-forward-final/obj/Vdrg5_forward_tb +verilator+seed+1 +mutate_stall
+[38146] %Fatal: drg5_forward_tb.sv:42: Assertion failed in drg5_forward_tb.check: FORWARD_CHECK_FAILED hazard sample=38145 mode=0 ids=1,0 used=10 rf=12345678,87654321 valid=001 write=001 ready=000 rd=0001 values=fedcba987654321089abcdef expected=00000001 observed=00000000
+%Error: /home/bluto/Desktop/dorsalGanglionProject/microcontroller/tests/drg5_forward_tb.sv:42: Verilog $stop
+Aborting...

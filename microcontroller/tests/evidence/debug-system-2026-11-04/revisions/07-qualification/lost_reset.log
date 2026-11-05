@@ -1,0 +1,3 @@
+[18630] %Fatal: drg5_debug_system_tb.sv:70: Assertion failed in drg5_debug_system_tb.check: SYSTEM_CHECK seed=1 case=3 cycle=678 I=0 D=0 S=0: short ndmreset request lost
+%Error: microcontroller/tests/drg5_debug_system_tb.sv:70: Verilog $stop
+Aborting...

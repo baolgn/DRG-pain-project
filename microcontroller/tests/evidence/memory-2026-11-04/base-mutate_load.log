@@ -1,0 +1,6 @@
+SCHEDULE profile=0 scenario=0 seed=1 cycle=71 uid=1 pc=00000104 tag=1 address=20000000 write=0 size=0 accept_extra=0 response_edges=3
+ACCEPT profile=0 scenario=0 seed=1 cycle=72 uid=1 tag=1 address=20000000 data=00000000 lanes=0 status=0 read_count=0 write_count=0
+RESPONSE profile=0 scenario=0 seed=1 cycle=75 tag=1 status=0 data=00000001 matching=1 contained=0
+[2708] %Fatal: drg5_memory_tb.sv:89: Assertion failed in drg5_memory_tb.check: case=7 profile=0 scenario=0 seed=1 cycle=77 pc=00000104: unexpected architectural GPR effect
+%Error: microcontroller/tests/drg5_memory_tb.sv:89: Verilog $stop
+Aborting...

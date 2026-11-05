@@ -1,0 +1,61 @@
+{
+  "assumptions": [
+    "I4 profile: each instruction transaction completes within four exposed edges",
+    "I32 profile: independent acceptance/response stress; not an F80 timing claim",
+    "synchronous instruction RAM; data-store response one edge after acceptance",
+    "retained external interrupt level; CPU and platform clock continue",
+    "raw instruction bytes enter the real machine decoder through a verification bridge"
+  ],
+  "limits": [
+    "no formal proof, physical FPGA timing or architectural debug qualification",
+    "this M-disabled fixture does not exercise the separate arithmetic implementation",
+    "handler-D is the first handler instruction entering decode, not a full register-save sequence"
+  ],
+  "results": {
+    "I32": {
+      "cases": [
+        "IRQ_FETCH_CASE limit=32 case=0 ",
+        "IRQ_FETCH_CASE limit=32 case=1 ",
+        "WFI_FETCH_CASE limit=32 case=2 ",
+        "WFI_FETCH_CASE limit=32 case=3 ",
+        "WFI_FETCH_CASE limit=32 case=4 ",
+        "WFI_FETCH_CASE limit=32 case=5 "
+      ],
+      "exit": 0,
+      "terminal": "IRQ_FETCH_PASS limit=32 cases=2 checks=4016 max_entry=21 max_handler_D=28 max_I=22"
+    },
+    "I4": {
+      "cases": [
+        "IRQ_FETCH_CASE limit=4 case=0 ",
+        "IRQ_FETCH_CASE limit=4 case=1 ",
+        "WFI_FETCH_CASE limit=4 case=2 "
+      ],
+      "exit": 0,
+      "terminal": "IRQ_FETCH_PASS limit=4 cases=2 checks=1775 max_entry=3 max_handler_D=10 max_I=4"
+    },
+    "detector": {
+      "exit": 1,
+      "terminal": "[186] %Fatal: drg5_irq_fetch_tb.sv:156: Assertion failed in drg5_irq_fetch_tb.check: IRQ_FETCH_CHECK_FAILED precise IRQ boundary and trap state limit=4 case=0 edge=93 pc=0000003c owner=0 accepted=0 addr=00000040 tag=00000010 age=1"
+    }
+  },
+  "scope": "M_ENABLED=0, IRQ_ENABLED=1, non-C verification fetch/control bridge; no production frontend qualification",
+  "source_sha256": {
+    "microcontroller/rtl/drg5_alu.sv": "c1ed60c799186e4185c516049ad99d046dd9ab134afa88b57089f27408fce199",
+    "microcontroller/rtl/drg5_branch.sv": "81fb7fbc54c4c64236738d289fa8fc5a64bd6373efbd66ac2da33086e8d8728e",
+    "microcontroller/rtl/drg5_control.sv": "60b9ae0ee07af7a14c0aa366e25b76edd7c9cc0616e39c00ba0b620e934780dd",
+    "microcontroller/rtl/drg5_control_pkg.sv": "0784951b642e11e775c1b7435e5516792220f5d41b6b63c4db624b7557d999e9",
+    "microcontroller/rtl/drg5_csr.sv": "964076aa378ef7c483103af939852587cc8f839fdcde85809e7998b65f61ee5f",
+    "microcontroller/rtl/drg5_datapath_defs.svh": "1247c7ee5185c32bcd41a1d72a08c9926e34ff5abe25e2ece8e6c2f9df21042e",
+    "microcontroller/rtl/drg5_decoder.sv": "0b42ead92fd911fd1a2ed4295145b4ac476ad2933b3e2dcb4cdde95d899d52b3",
+    "microcontroller/rtl/drg5_fetch.sv": "bc8a999d9e4b7761238306b8edb00b70fc1854f3070d593657a1fef9580e7247",
+    "microcontroller/rtl/drg5_fetch_buffer.sv": "a2a5dc5b6236751bc3df70c48eedc229b40a9e79c2adb7e0969c4355fa2b5844",
+    "microcontroller/rtl/drg5_fetch_guard.sv": "3bda4702a4a9eb14fb859820af1098dcc2910926c6700e486b7c2f7ce5a0acbe",
+    "microcontroller/rtl/drg5_forward.sv": "6c88614a024cb1df85bdb4926a4d4bef9bacbc84af803bcbb7cf1b93d150e444",
+    "microcontroller/rtl/drg5_immediate.sv": "0178ee6a01e4c5361d149a425b5da5502ef2906b8c3ee9246800bd5bc93a080b",
+    "microcontroller/rtl/drg5_lsu.sv": "eeac7f5f8d92e4e35030b716e85aabede593afe1d5ca3175e79b9e3e5c83d926",
+    "microcontroller/rtl/drg5_shifter.sv": "0f0bda6a6fc80dc60e23f0058bfac2db2986e03480d95781ead91758dc4e2223",
+    "microcontroller/tests/drg5_irq_fetch_tb.sv": "8ea4ec594593b5935a1b6af861a009e6bd45f9af481a0577927af9c3cd73c133",
+    "microcontroller/tests/run_irq_fetch.py": "2876ebad2cc837db96c3b638b9e402dc4fc6dd6e769b876576f273b930013377"
+  },
+  "version": "Verilator 5.047 devel rev v5.046-19-ge9dd6eaaf (mod)"
+}

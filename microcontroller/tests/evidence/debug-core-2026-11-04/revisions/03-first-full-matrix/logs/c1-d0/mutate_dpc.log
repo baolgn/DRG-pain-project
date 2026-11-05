@@ -1,0 +1,4 @@
+$ /tmp/drg5-debug-core/final/c1-d0/Vdrg5_debug_core_tb +verilator+seed+1 +seed=1 +mutate_dpc
+[595] %Fatal: drg5_debug_core_tb.sv:69: Assertion failed in drg5_debug_core_tb.check: debug-core seed=1 case=2 edge=153 dpc=00000004: step continuation mismatch
+%Error: microcontroller/tests/drg5_debug_core_tb.sv:69: Verilog $stop
+Aborting...

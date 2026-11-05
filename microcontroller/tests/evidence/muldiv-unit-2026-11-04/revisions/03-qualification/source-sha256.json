@@ -1,0 +1,5 @@
+{
+  "microcontroller/rtl/drg5_muldiv.sv": "7eeed33bc060b11260c453c583cfe1936c8e76e6dfc9f437e92f4345e6d9911a",
+  "microcontroller/tests/drg5_muldiv_tb.sv": "c5d844288f037f4fd9e4e1a11b1d201688a4eff942b396e74735baed893ab071",
+  "microcontroller/tests/run_muldiv.py": "9b5fe80588d4d774c974e55a9ddb8c1d13dbd2c9e798f4b04191e724064f34c6"
+}

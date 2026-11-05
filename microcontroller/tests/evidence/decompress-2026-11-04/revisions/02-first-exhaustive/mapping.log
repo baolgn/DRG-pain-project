@@ -1,0 +1,7 @@
+$ /tmp/drg5-control-tools-20260301/oss-cad-suite/bin/yosys -Q -T -p read_verilog -sv microcontroller/rtl/drg5_decompress.sv; hierarchy -check -top drg5_decompress; proc; opt; check -assert; select -assert-none t:$dlatch t:$adlatch; synth_ecp5 -top drg5_decompress; check -assert; stat; write_json /tmp/drg5-decompress-tests/decompress.json
+
+-- Running command `read_verilog -sv microcontroller/rtl/drg5_decompress.sv; hierarchy -check -top drg5_decompress; proc; opt; check -assert; select -assert-none t:$dlatch t:$adlatch; synth_ecp5 -top drg5_decompress; check -assert; stat; write_json /tmp/drg5-decompress-tests/decompress.json' --
+
+1. Executing Verilog-2005 frontend: microcontroller/rtl/drg5_decompress.sv
+Parsing SystemVerilog input from `microcontroller/rtl/drg5_decompress.sv' to AST representation.
+microcontroller/rtl/drg5_decompress.sv:17: ERROR: syntax error, unexpected '{'

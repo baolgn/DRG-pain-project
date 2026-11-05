@@ -1,0 +1,30 @@
+$ /tmp/drg5-control-tools-20260301/oss-cad-suite/bin/verilator --binary --timing --assert -Wall -j 2 -CFLAGS -O0 -Imicrocontroller/rtl --top-module drg5_counter_execution_tb -GC_ENABLED=1 -GDIAGNOSTIC=0 -GFORWARDING=1 --Mdir /tmp/drg5-counter-execution/c1-d0-f1 microcontroller/rtl/drg5_control_pkg.sv microcontroller/rtl/drg5_alu.sv microcontroller/rtl/drg5_branch.sv microcontroller/rtl/drg5_control.sv microcontroller/rtl/drg5_csr.sv microcontroller/rtl/drg5_decoder.sv microcontroller/rtl/drg5_decompress.sv microcontroller/rtl/drg5_fetch.sv microcontroller/rtl/drg5_fetch_buffer.sv microcontroller/rtl/drg5_fetch_guard.sv microcontroller/rtl/drg5_forward.sv microcontroller/rtl/drg5_frontend.sv microcontroller/rtl/drg5_immediate.sv microcontroller/rtl/drg5_irq_platform.sv microcontroller/rtl/drg5_lsu.sv microcontroller/rtl/drg5_muldiv.sv microcontroller/rtl/drg5_observe.sv microcontroller/rtl/drg5_regfile.sv microcontroller/rtl/drg5_shifter.sv microcontroller/tests/drg5_counter_execution_tb.sv
+%Warning-PINMISSING: microcontroller/tests/drg5_counter_execution_tb.sv:98:16: Instance has missing pin: 'i_fatal_i'
+   98 |   drg5_observe observer (
+      |                ^~~~~~~~
+                     microcontroller/rtl/drg5_observe.sv:39:55: ... Location of port declaration
+   39 |   input logic i_rsp_valid_i, i_rsp_ready_i, i_drop_i, i_fatal_i,
+      |                                                       ^~~~~~~~~
+                     ... For warning description see https://verilator.org/warn/PINMISSING?v=5.047
+                     ... Use "/* verilator lint_off PINMISSING */" and lint_on around source to disable this message.
+%Warning-PINMISSING: microcontroller/tests/drg5_counter_execution_tb.sv:98:16: Instance has missing pin: 'i_fatal_reason_i'
+   98 |   drg5_observe observer (
+      |                ^~~~~~~~
+                     microcontroller/rtl/drg5_observe.sv:40:21: ... Location of port declaration
+   40 |   input logic [2:0] i_fatal_reason_i,
+      |                     ^~~~~~~~~~~~~~~~
+%Warning-UNUSEDSIGNAL: microcontroller/tests/drg5_counter_execution_tb.sv:198:9: Bits of function variable are not used: 'index'[31:12]
+                                                                               : ... note: In instance 'drg5_counter_execution_tb'
+  198 |     int index;
+      |         ^~~~~
+                       ... For warning description see https://verilator.org/warn/UNUSEDSIGNAL?v=5.047
+                       ... Use "/* verilator lint_off UNUSEDSIGNAL */" and lint_on around source to disable this message.
+%Warning-UNUSEDSIGNAL: microcontroller/tests/drg5_counter_execution_tb.sv:248:9: Bits of function variable are not used: 'index'[31:12]
+                                                                               : ... note: In instance 'drg5_counter_execution_tb'
+  248 |     int index, id, owners;
+      |         ^~~~~
+%Warning-UNUSEDSIGNAL: microcontroller/tests/drg5_counter_execution_tb.sv:613:9: Bits of function variable are not used: 'index'[31:12]
+                                                                               : ... note: In instance 'drg5_counter_execution_tb'
+  613 |     int index;
+      |         ^~~~~
+%Error: Exiting due to 5 warning(s)

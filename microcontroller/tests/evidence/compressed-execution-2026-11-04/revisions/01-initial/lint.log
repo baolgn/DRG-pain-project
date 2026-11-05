@@ -1,0 +1,99 @@
+%Warning-PINMISSING: microcontroller/tests/drg5_compressed_execution_tb.sv:63:82: Instance has missing pin: 'insn_generation_o'
+   63 |   drg5_frontend #(.C_ENABLED(C_ENABLED), .MAX_WAIT_CYCLES(64), .TEST_REGIONS(1)) frontend (
+      |                                                                                  ^~~~~~~~
+                     microcontroller/rtl/drg5_frontend.sv:25:31: ... Location of port declaration
+   25 |   output logic [GEN_BITS-1:0] insn_generation_o,
+      |                               ^~~~~~~~~~~~~~~~~
+                     ... For warning description see https://verilator.org/warn/PINMISSING?v=5.047
+                     ... Use "/* verilator lint_off PINMISSING */" and lint_on around source to disable this message.
+%Warning-UNUSEDSIGNAL: microcontroller/tests/drg5_compressed_execution_tb.sv:23:7: Signal is not used: 'defined_ref'
+                                                                                 : ... note: In instance 'drg5_compressed_execution_tb'
+   23 |   bit defined_ref [0:31];
+      |       ^~~~~~~~~~~
+                       ... For warning description see https://verilator.org/warn/UNUSEDSIGNAL?v=5.047
+                       ... Use "/* verilator lint_off UNUSEDSIGNAL */" and lint_on around source to disable this message.
+%Warning-UNUSEDSIGNAL: microcontroller/tests/drg5_compressed_execution_tb.sv:37:21: Signal is not used: 'fetch_discard'
+                                                                                  : ... note: In instance 'drg5_compressed_execution_tb'
+   37 |   logic fetch_busy, fetch_discard, fetch_fatal, fetch_launch, fetch_accept, fetch_complete, fetch_drop;
+      |                     ^~~~~~~~~~~~~
+%Warning-UNUSEDSIGNAL: microcontroller/tests/drg5_compressed_execution_tb.sv:44:9: Signal is not used: 'mem_launch_o'
+                                                                                 : ... note: In instance 'drg5_compressed_execution_tb'
+   44 |   logic mem_launch_o, mem_busy_o, fatal_o;
+      |         ^~~~~~~~~~~~
+%Warning-UNUSEDSIGNAL: microcontroller/tests/drg5_compressed_execution_tb.sv:45:18: Bits of signal are not used: 'fatal_record_o'[204:0]
+                                                                                  : ... note: In instance 'drg5_compressed_execution_tb'
+   45 |   fatal_record_t fatal_record_o;
+      |                  ^~~~~~~~~~~~~~
+%Warning-UNUSEDSIGNAL: microcontroller/tests/drg5_compressed_execution_tb.sv:50:11: Bits of signal are not used: 'trace_o'[65:0]
+                                                                                  : ... note: In instance 'drg5_compressed_execution_tb'
+   50 |   trace_t trace_o;
+      |           ^~~~~~~
+%Warning-UNUSEDSIGNAL: microcontroller/tests/drg5_compressed_execution_tb.sv:105:27: Signal is not used: 'previous_i_addr'
+                                                                                   : ... note: In instance 'drg5_compressed_execution_tb'
+  105 |   logic [31:0] arch_pc=0, previous_i_addr=0;
+      |                           ^~~~~~~~~~~~~~~
+%Warning-UNUSEDSIGNAL: microcontroller/tests/drg5_compressed_execution_tb.sv:132:57: Bits of function variable are not used: 'address'[15:13,0]
+                                                                                   : ... note: In instance 'drg5_compressed_execution_tb'
+  132 |   function automatic int image_index(input logic [31:0] address);
+      |                                                         ^~~~~~~
+%Warning-UNUSEDSIGNAL: microcontroller/tests/drg5_compressed_execution_tb.sv:148:51: Bits of function variable are not used: 'opcode'[31:7]
+                                                                                   : ... note: In instance 'drg5_compressed_execution_tb'
+  148 |   function automatic logic [31:0] enc_i(input int opcode, rd, rs1, funct3, input logic [31:0] imm);
+      |                                                   ^~~~~~
+%Warning-UNUSEDSIGNAL: microcontroller/tests/drg5_compressed_execution_tb.sv:148:59: Bits of function variable are not used: 'rd'[31:5]
+                                                                                   : ... note: In instance 'drg5_compressed_execution_tb'
+  148 |   function automatic logic [31:0] enc_i(input int opcode, rd, rs1, funct3, input logic [31:0] imm);
+      |                                                           ^~
+%Warning-UNUSEDSIGNAL: microcontroller/tests/drg5_compressed_execution_tb.sv:148:63: Bits of function variable are not used: 'rs1'[31:5]
+                                                                                   : ... note: In instance 'drg5_compressed_execution_tb'
+  148 |   function automatic logic [31:0] enc_i(input int opcode, rd, rs1, funct3, input logic [31:0] imm);
+      |                                                               ^~~
+%Warning-UNUSEDSIGNAL: microcontroller/tests/drg5_compressed_execution_tb.sv:148:68: Bits of function variable are not used: 'funct3'[31:3]
+                                                                                   : ... note: In instance 'drg5_compressed_execution_tb'
+  148 |   function automatic logic [31:0] enc_i(input int opcode, rd, rs1, funct3, input logic [31:0] imm);
+      |                                                                    ^~~~~~
+%Warning-UNUSEDSIGNAL: microcontroller/tests/drg5_compressed_execution_tb.sv:148:95: Bits of function variable are not used: 'imm'[31:12]
+                                                                                   : ... note: In instance 'drg5_compressed_execution_tb'
+  148 |   function automatic logic [31:0] enc_i(input int opcode, rd, rs1, funct3, input logic [31:0] imm);
+      |                                                                                               ^~~
+%Warning-UNUSEDSIGNAL: microcontroller/tests/drg5_compressed_execution_tb.sv:152:51: Bits of function variable are not used: 'rs1'[31:5]
+                                                                                   : ... note: In instance 'drg5_compressed_execution_tb'
+  152 |   function automatic logic [31:0] enc_b(input int rs1, rs2, funct3, input logic [31:0] imm);
+      |                                                   ^~~
+%Warning-UNUSEDSIGNAL: microcontroller/tests/drg5_compressed_execution_tb.sv:152:56: Bits of function variable are not used: 'rs2'[31:5]
+                                                                                   : ... note: In instance 'drg5_compressed_execution_tb'
+  152 |   function automatic logic [31:0] enc_b(input int rs1, rs2, funct3, input logic [31:0] imm);
+      |                                                        ^~~
+%Warning-UNUSEDSIGNAL: microcontroller/tests/drg5_compressed_execution_tb.sv:152:61: Bits of function variable are not used: 'funct3'[31:3]
+                                                                                   : ... note: In instance 'drg5_compressed_execution_tb'
+  152 |   function automatic logic [31:0] enc_b(input int rs1, rs2, funct3, input logic [31:0] imm);
+      |                                                             ^~~~~~
+%Warning-UNUSEDSIGNAL: microcontroller/tests/drg5_compressed_execution_tb.sv:152:88: Bits of function variable are not used: 'imm'[31:13,0]
+                                                                                   : ... note: In instance 'drg5_compressed_execution_tb'
+  152 |   function automatic logic [31:0] enc_b(input int rs1, rs2, funct3, input logic [31:0] imm);
+      |                                                                                        ^~~
+%Warning-UNUSEDSIGNAL: microcontroller/tests/drg5_compressed_execution_tb.sv:156:51: Bits of function variable are not used: 'rd'[31:5]
+                                                                                   : ... note: In instance 'drg5_compressed_execution_tb'
+  156 |   function automatic logic [31:0] enc_j(input int rd, input logic [31:0] imm);
+      |                                                   ^~
+%Warning-UNUSEDSIGNAL: microcontroller/tests/drg5_compressed_execution_tb.sv:156:74: Bits of function variable are not used: 'imm'[31:21,0]
+                                                                                   : ... note: In instance 'drg5_compressed_execution_tb'
+  156 |   function automatic logic [31:0] enc_j(input int rd, input logic [31:0] imm);
+      |                                                                          ^~~
+%Warning-UNUSEDSIGNAL: microcontroller/tests/drg5_compressed_execution_tb.sv:160:90: Bits of function variable are not used: 'imm'[31:18]
+                                                                                   : ... note: In instance 'drg5_compressed_execution_tb'
+  160 |   function automatic logic [15:0] enc_c(input int kind, rd, rs1, rs2, input logic [31:0] imm);
+      |                                                                                          ^~~
+%Warning-UNUSEDSIGNAL: microcontroller/tests/drg5_compressed_execution_tb.sv:261:9: Bits of signal are not used: 'index'[31:12]
+                                                                                  : ... note: In instance 'drg5_compressed_execution_tb'
+  261 |     int index, id, count;
+      |         ^~~~~
+%Warning-UNUSEDSIGNAL: microcontroller/tests/drg5_compressed_execution_tb.sv:704:9: Bits of function variable are not used: 'index'[31:12]
+                                                                                  : ... note: In instance 'drg5_compressed_execution_tb'
+  704 |     int index;
+      |         ^~~~~
+%Warning-UNUSEDSIGNAL: microcontroller/tests/drg5_compressed_execution_tb.sv:726:9: Bits of function variable are not used: 'index'[31:12]
+                                                                                  : ... note: In instance 'drg5_compressed_execution_tb'
+  726 |     int index;
+      |         ^~~~~
+%Error: Exiting due to 23 warning(s)

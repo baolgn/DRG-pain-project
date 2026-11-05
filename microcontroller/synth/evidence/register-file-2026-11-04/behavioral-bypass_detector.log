@@ -1,0 +1,3 @@
+[7] %Fatal: drg5_regfile_tb.sv:30: Assertion failed in drg5_regfile_tb.require: RF_CHECK_FAILED async read1 value or bypass edge=1
+%Error: /home/bluto/Desktop/dorsalGanglionProject/microcontroller/tests/drg5_regfile_tb.sv:30: Verilog $stop
+Aborting...

@@ -1,0 +1,6 @@
+$ /tmp/drg5-branch-final/obj/Vdrg5_branch_tb +verilator+seed+1
+BRANCH_PASS cases=1789474 checks=21605111
+- /home/bluto/Desktop/dorsalGanglionProject/microcontroller/tests/drg5_branch_tb.sv:141: Verilog $finish
+- S i m u l a t i o n   R e p o r t: Verilator 5.047 devel
+- Verilator: $finish at 2us; walltime 0.146 s; speed 12.222 us/s
+- Verilator: cpu 0.146 s on 1 threads; allocated 7 MB

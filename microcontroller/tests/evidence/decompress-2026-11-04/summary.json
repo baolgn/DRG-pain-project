@@ -1,0 +1,79 @@
+{
+  "scope": "all RV32C2.0 integer halfwords; F/D/Zc/custom instructions absent; HINTs ignored",
+  "spec": "https://docs.riscv.org/reference/isa/v20260120/unpriv/c-st-ext.html",
+  "sources": {
+    "microcontroller/rtl/drg5_decompress.sv": "844d6c0b0dbdde6a02c7de346fbb61408ffe2e384d50b82027d9922a8e89372e",
+    "microcontroller/tests/drg5_decompress_tb.sv": "f13dd455b850fc8e32618da2e02fe1869a3473aa7787adaffed0be1c488dc277",
+    "microcontroller/tests/run_decompress.py": "aa02e1b83382be69c9404f0d797bd4c3397688a1937d28155753a9debf9e00d8"
+  },
+  "classes": {
+    "0": 20329,
+    "1": 28461,
+    "2": 362,
+    "3": 16384
+  },
+  "families": {
+    "C.ADD": 992,
+    "C.ADDI": 1984,
+    "C.ADDI16SP": 63,
+    "C.ADDI4SPN": 2040,
+    "C.AND": 64,
+    "C.ANDI": 512,
+    "C.BEQZ": 2048,
+    "C.BNEZ": 2048,
+    "C.EBREAK": 1,
+    "C.J": 2048,
+    "C.JAL": 2048,
+    "C.JALR": 31,
+    "C.JR": 31,
+    "C.LI": 2048,
+    "C.LUI": 1953,
+    "C.LW": 2048,
+    "C.LWSP": 1984,
+    "C.MV": 992,
+    "C.NOP": 64,
+    "C.OR": 64,
+    "C.SLLI": 1024,
+    "C.SRAI": 256,
+    "C.SRLI": 256,
+    "C.SUB": 64,
+    "C.SW": 2048,
+    "C.SWSP": 2048,
+    "C.XOR": 64,
+    "illegal": 20329,
+    "wide": 16384
+  },
+  "oracle_sha256": "840bcf5ae4f5d1f704e84eb36aa3c595ab2b7100b8ec922738bac5890aabc87e",
+  "runs": {
+    "positive": {
+      "exit": 0,
+      "expected": "DECOMPRESS_PASS",
+      "pass": true
+    },
+    "class": {
+      "exit": 1,
+      "expected": "classification",
+      "pass": true
+    },
+    "expansion": {
+      "exit": 1,
+      "expected": "expansion",
+      "pass": true
+    },
+    "hint": {
+      "exit": 1,
+      "expected": "HINT flag",
+      "pass": true
+    }
+  },
+  "cells": {
+    "L6MUX21": 22,
+    "LUT4": 274,
+    "PFUMX": 77
+  },
+  "verilator": "Verilator 5.047 devel rev v5.046-19-ge9dd6eaaf (mod)",
+  "yosys": "Yosys 0.62+112 (git sha1 687a36af3, clang++ 18.1.8 -fPIC -O3)",
+  "limits": [
+    "component simulation and synthesis only; no routing or ACT4/Sail claim"
+  ]
+}

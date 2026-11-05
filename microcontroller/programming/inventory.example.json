@@ -1,0 +1,11 @@
+{
+  "schema": "DRG5-BOARD-INVENTORY-1",
+  "board": "ULX3S v3.1.7 D&M",
+  "part": "LFE5U-85F-6BG381C",
+  "flash_part": "W25Q128JVSIQ",
+  "flash_jedec_id": "0xef4018",
+  "layout": "DRG5-FLASH-1",
+  "ftdi_serial": "REPLACE_WITH_INSPECTED_BOARD_SERIAL",
+  "physical_inspection_verified": false,
+  "inspection_note": "record board revision, FPGA marking, flash marking and USB serial after physical inspection"
+}

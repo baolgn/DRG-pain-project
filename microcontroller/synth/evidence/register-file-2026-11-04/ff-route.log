@@ -1,0 +1,277 @@
+$ /tmp/drg5-control-tools/oss-cad-suite/lib/ld-linux-x86-64.so.2 --inhibit-cache --inhibit-rpath  --library-path /tmp/drg5-control-tools/oss-cad-suite/lib /tmp/drg5-control-tools/oss-cad-suite/libexec/nextpnr-ecp5 --85k --package CABGA381 --speed 6 --seed 1 --freq 80 --json /tmp/drg5-rf-map/ff/harness.json --lpf /home/bluto/Desktop/dorsalGanglionProject/microcontroller/synth/drg5_rf_ulx3s.lpf --report /home/bluto/Desktop/dorsalGanglionProject/microcontroller/synth/evidence/register-file-2026-11-04/ff-route.json --textcfg /tmp/drg5-rf-map/ff/route.config
+Info: constraining clock net 'clk25_i' to 25.00 MHz
+
+Info: Logic utilisation before packing:
+Info:     Total LUT4s:      2446/83640     2%
+Info:         logic LUTs:   2440/83640     2%
+Info:         carry LUTs:      6/83640     0%
+Info:           RAM LUTs:      0/10455     0%
+Info:          RAMW LUTs:      0/20910     0%
+
+Info:      Total DFFs:      1105/83640     1%
+
+Info: Packing IOs..
+Info: pin 'serial_i$tr_io' constrained to Bel 'X4/Y95/PIOA'.
+Info: pin 'led_o[7]$tr_io' constrained to Bel 'X0/Y41/PIOD'.
+Info: pin 'led_o[6]$tr_io' constrained to Bel 'X0/Y38/PIOD'.
+Info: pin 'led_o[5]$tr_io' constrained to Bel 'X0/Y44/PIOD'.
+Info: pin 'led_o[4]$tr_io' constrained to Bel 'X0/Y38/PIOB'.
+Info: pin 'led_o[3]$tr_io' constrained to Bel 'X0/Y38/PIOC'.
+Info: pin 'led_o[2]$tr_io' constrained to Bel 'X0/Y38/PIOA'.
+Info: pin 'led_o[1]$tr_io' constrained to Bel 'X0/Y35/PIOD'.
+Info: pin 'led_o[0]$tr_io' constrained to Bel 'X0/Y35/PIOC'.
+Info: pin 'clk25_i$tr_io' constrained to Bel 'X0/Y47/PIOA'.
+Info: Packing constants..
+Info: Packing carries...
+Info: Packing LUTs...
+Info: Packing LUT5-7s...
+Info: Packing FFs...
+Info:     43 FFs paired with LUTs.
+Info: Generating derived timing constraints...
+Info:     Input frequency of PLL 'pll.pll_i' is constrained to 25.0 MHz
+Info:     Derived frequency constraint of 80.0 MHz for net clk80
+Info: Promoting globals...
+Info:     promoting clock net clk80 to global network
+Info: Checksum: 0xdb6b77b3
+
+Info: Device utilisation:
+Info: 	          TRELLIS_IO:      10/    365     2%
+Info: 	                DCCA:       1/     56     1%
+Info: 	              DP16KD:       0/    208     0%
+Info: 	          MULT18X18D:       0/    156     0%
+Info: 	              ALU54B:       0/     78     0%
+Info: 	             EHXPLLL:       1/      4    25%
+Info: 	             EXTREFB:       0/      2     0%
+Info: 	                DCUA:       0/      2     0%
+Info: 	           PCSCLKDIV:       0/      2     0%
+Info: 	             IOLOGIC:       0/    224     0%
+Info: 	            SIOLOGIC:       0/    141     0%
+Info: 	                 GSR:       0/      1     0%
+Info: 	               JTAGG:       0/      1     0%
+Info: 	                OSCG:       0/      1     0%
+Info: 	               SEDGA:       0/      1     0%
+Info: 	                 DTR:       0/      1     0%
+Info: 	             USRMCLK:       0/      1     0%
+Info: 	             CLKDIVF:       0/      4     0%
+Info: 	           ECLKSYNCB:       0/     10     0%
+Info: 	             DLLDELD:       0/      8     0%
+Info: 	              DDRDLL:       0/      4     0%
+Info: 	             DQSBUFM:       0/     14     0%
+Info: 	     TRELLIS_ECLKBUF:       0/      8     0%
+Info: 	        ECLKBRIDGECS:       0/      2     0%
+Info: 	                DCSC:       0/      2     0%
+Info: 	          TRELLIS_FF:    1105/  83640     1%
+Info: 	        TRELLIS_COMB:    2452/  83640     2%
+Info: 	        TRELLIS_RAMW:       0/  10455     0%
+
+Info: Placed 11 cells based on constraints.
+Info: Creating initial analytic placement for 2875 cells, random placement wirelen = 259681.
+Info:     at initial placer iter 0, wirelen = 319
+Info:     at initial placer iter 1, wirelen = 377
+Info:     at initial placer iter 2, wirelen = 271
+Info:     at initial placer iter 3, wirelen = 341
+Info: Running main analytical placer, max placement attempts per cell = 1592220.
+Info:     at iteration #1, type ALL: wirelen solved = 271, spread = 11022, legal = 11598; time = 0.04s
+Info:     at iteration #2, type ALL: wirelen solved = 1916, spread = 7440, legal = 8059; time = 0.03s
+Info:     at iteration #3, type ALL: wirelen solved = 2789, spread = 7336, legal = 7744; time = 0.03s
+Info:     at iteration #4, type ALL: wirelen solved = 3131, spread = 6998, legal = 7657; time = 0.03s
+Info:     at iteration #5, type ALL: wirelen solved = 3396, spread = 6692, legal = 7323; time = 0.03s
+Info:     at iteration #6, type ALL: wirelen solved = 3713, spread = 6558, legal = 7251; time = 0.03s
+Info:     at iteration #7, type ALL: wirelen solved = 3739, spread = 6292, legal = 6817; time = 0.03s
+Info:     at iteration #8, type ALL: wirelen solved = 3870, spread = 6058, legal = 6921; time = 0.03s
+Info:     at iteration #9, type ALL: wirelen solved = 3965, spread = 6264, legal = 6896; time = 0.03s
+Info:     at iteration #10, type ALL: wirelen solved = 4106, spread = 6115, legal = 6758; time = 0.03s
+Info:     at iteration #11, type ALL: wirelen solved = 4128, spread = 6011, legal = 6776; time = 0.03s
+Info:     at iteration #12, type ALL: wirelen solved = 4157, spread = 6024, legal = 6719; time = 0.03s
+Info:     at iteration #13, type ALL: wirelen solved = 4207, spread = 5840, legal = 6559; time = 0.03s
+Info:     at iteration #14, type ALL: wirelen solved = 4239, spread = 6127, legal = 6786; time = 0.03s
+Info:     at iteration #15, type ALL: wirelen solved = 4503, spread = 6385, legal = 6917; time = 0.03s
+Info:     at iteration #16, type ALL: wirelen solved = 4706, spread = 6364, legal = 6926; time = 0.03s
+Info:     at iteration #17, type ALL: wirelen solved = 4743, spread = 5944, legal = 6474; time = 0.03s
+Info:     at iteration #18, type ALL: wirelen solved = 4593, spread = 5902, legal = 6464; time = 0.03s
+Info:     at iteration #19, type ALL: wirelen solved = 4577, spread = 5854, legal = 6413; time = 0.03s
+Info:     at iteration #20, type ALL: wirelen solved = 4599, spread = 5874, legal = 6436; time = 0.03s
+Info:     at iteration #21, type ALL: wirelen solved = 4631, spread = 5853, legal = 6305; time = 0.03s
+Info:     at iteration #22, type ALL: wirelen solved = 4628, spread = 5819, legal = 6269; time = 0.03s
+Info:     at iteration #23, type ALL: wirelen solved = 4621, spread = 5797, legal = 6181; time = 0.03s
+Info:     at iteration #24, type ALL: wirelen solved = 4639, spread = 6206, legal = 6570; time = 0.03s
+Info:     at iteration #25, type ALL: wirelen solved = 4832, spread = 6047, legal = 6514; time = 0.03s
+Info:     at iteration #26, type ALL: wirelen solved = 4735, spread = 6052, legal = 6549; time = 0.03s
+Info:     at iteration #27, type ALL: wirelen solved = 4737, spread = 6024, legal = 6525; time = 0.03s
+Info:     at iteration #28, type ALL: wirelen solved = 4763, spread = 5914, legal = 6568; time = 0.03s
+Info: HeAP Placer Time: 1.13s
+Info:   of which solving equations: 0.70s
+Info:   of which spreading cells: 0.16s
+Info:   of which strict legalisation: 0.06s
+
+Info: Running simulated annealing placer for refinement.
+Info:   at iteration #1: temp = 0.000000, timing cost = 774, wirelen = 6181
+Info:   at iteration #5: temp = 0.000000, timing cost = 1055, wirelen = 5353
+Info:   at iteration #10: temp = 0.000000, timing cost = 934, wirelen = 5134
+Info:   at iteration #15: temp = 0.000000, timing cost = 918, wirelen = 4972
+Info:   at iteration #20: temp = 0.000000, timing cost = 929, wirelen = 4874
+Info:   at iteration #25: temp = 0.000000, timing cost = 823, wirelen = 4833
+Info:   at iteration #28: temp = 0.000000, timing cost = 928, wirelen = 4823 
+Info: SA placement time 1.53s
+
+Info: Max frequency for clock '$glbnet$clk80': 90.75 MHz (PASS at 80.00 MHz)
+
+Info: Max delay <async>               -> posedge $glbnet$clk80: 8.72 ns
+Info: Max delay posedge $glbnet$clk80 -> <async>              : 6.76 ns
+
+Info: Slack histogram:
+Info:  legend: * represents 6 endpoint(s)
+Info:          + represents [1,6) endpoint(s)
+Info: [  1481,   1982) |+
+Info: [  1982,   2483) |+
+Info: [  2483,   2984) |+
+Info: [  2984,   3485) |*+
+Info: [  3485,   3986) |+
+Info: [  3986,   4487) |*+
+Info: [  4487,   4988) |**+
+Info: [  4988,   5489) |********************+
+Info: [  5489,   5990) |******************************+
+Info: [  5990,   6491) |**************************************+
+Info: [  6491,   6992) |*************************************+
+Info: [  6992,   7493) |*************+
+Info: [  7493,   7994) |**+
+Info: [  7994,   8495) |***+
+Info: [  8495,   8996) |***+
+Info: [  8996,   9497) |*****+
+Info: [  9497,   9998) |****************+
+Info: [  9998,  10499) |*************************************************+
+Info: [ 10499,  11000) |************************************************************ 
+Info: [ 11000,  11501) |********************************+
+Info: Checksum: 0x6e550e14
+Info: Routing globals...
+Info:     routing clock net $glbnet$clk80 using global 0
+
+Info: Routing..
+Info: Setting up routing queue.
+Info: Routing 11960 arcs.
+Info:            |   (re-)routed arcs  |   delta    | remaining|       time spent     |
+Info:    IterCnt |  w/ripup   wo/ripup |  w/r  wo/r |      arcs| batch(sec) total(sec)|
+Info:       1000 |      222        777 |  222   777 |     11409|       0.17       0.17|
+Info:       2000 |      423       1576 |  201   799 |     11015|       0.14       0.30|
+Info:       3000 |      629       2370 |  206   794 |     10335|       0.13       0.43|
+Info:       4000 |      797       3202 |  168   832 |      9664|       0.13       0.56|
+Info:       5000 |      965       4034 |  168   832 |      8973|       0.12       0.68|
+Info:       6000 |     1099       4900 |  134   866 |      8209|       0.13       0.81|
+Info:       7000 |     1271       5728 |  172   828 |      7556|       0.14       0.95|
+Info:       8000 |     1508       6491 |  237   763 |      6865|       0.14       1.08|
+Info:       9000 |     1903       7096 |  395   605 |      6779|       0.16       1.24|
+Info:      10000 |     2170       7829 |  267   733 |      6418|       0.15       1.39|
+Info:      11000 |     2482       8510 |  312   681 |      5828|       0.14       1.53|
+Info:      12000 |     2808       9135 |  326   625 |      5290|       0.14       1.67|
+Info:      13000 |     3115       9716 |  307   581 |      4703|       0.12       1.78|
+Info:      14000 |     3420      10333 |  305   617 |      4239|       0.13       1.91|
+Info:      15000 |     3753      10946 |  333   613 |      3705|       0.14       2.05|
+Info:      16000 |     4119      11526 |  366   580 |      3127|       0.15       2.20|
+Info:      17000 |     4393      12246 |  274   720 |      3016|       0.19       2.39|
+Info:      18000 |     4760      12869 |  367   623 |      2638|       0.17       2.56|
+Info:      19000 |     5138      13484 |  378   615 |      2035|       0.16       2.72|
+Info:      20000 |     5569      14052 |  431   568 |      1533|       0.16       2.88|
+Info:      21000 |     5952      14669 |  383   617 |      1000|       0.19       3.07|
+Info:      22000 |     6289      15332 |  337   663 |       473|       0.21       3.27|
+Info:      22552 |     6359      15754 |   70   422 |         0|       0.17       3.44|
+Info: Routing complete.
+Info: Router1 time 3.44s
+Info: Checksum: 0xdbced6cc
+
+Info: Critical path report for clock '$glbnet$clk80' (posedge -> posedge):
+Info:       type curr  total name
+Info:   clk-to-q  0.52  0.52 Source state_q_TRELLIS_FF_Q_41.Q
+Info:    routing  1.27  1.79 Net read1_addr[0] (11,9) -> (12,6)
+Info:                          Sink ff_case.rf.write_valid_i_LUT4_C_Z_PFUMX_C0_Z_LUT4_Z_2_B_LUT4_Z_2_C_LUT4_Z.D
+Info:                          Defined in:
+Info:                               /home/bluto/Desktop/dorsalGanglionProject/microcontroller/synth/drg5_rf_map.sv:9.16-9.23
+Info:      logic  0.24  2.03 Source ff_case.rf.write_valid_i_LUT4_C_Z_PFUMX_C0_Z_LUT4_Z_2_B_LUT4_Z_2_C_LUT4_Z.F
+Info:    routing  0.89  2.91 Net ff_case.rf.write_valid_i_LUT4_C_Z_PFUMX_C0_Z_LUT4_Z_2_B_LUT4_Z_2_C[2] (12,6) -> (12,7)
+Info:                          Sink ff_case.rf.write_valid_i_LUT4_C_Z_PFUMX_C0_Z_LUT4_Z_2_B_LUT4_Z_2.C
+Info:                          Defined in:
+Info:                               /tmp/drg5-control-tools/oss-cad-suite/lib/../share/yosys/lattice/cells_map_trellis.v:108.23-108.24
+Info:      logic  0.24  3.15 Source ff_case.rf.write_valid_i_LUT4_C_Z_PFUMX_C0_Z_LUT4_Z_2_B_LUT4_Z_2.F
+Info:    routing  0.62  3.77 Net ff_case.rf.write_valid_i_LUT4_C_Z_PFUMX_C0_Z_LUT4_Z_2_B[3] (12,7) -> (12,7)
+Info:                          Sink ff_case.rf.write_valid_i_LUT4_C_Z_PFUMX_C0_Z_LUT4_Z_2.D
+Info:                          Defined in:
+Info:                               /tmp/drg5-control-tools/oss-cad-suite/lib/../share/yosys/lattice/cells_map_trellis.v:108.23-108.24
+Info:      logic  0.24  4.01 Source ff_case.rf.write_valid_i_LUT4_C_Z_PFUMX_C0_Z_LUT4_Z_2.F
+Info:    routing  0.46  4.47 Net ff_case.rf.write_valid_i_LUT4_C_Z_PFUMX_C0_Z[4] (12,7) -> (11,7)
+Info:                          Sink ff_case.rf.write_valid_i_LUT4_C_Z_PFUMX_C0_Z_LUT4_B_22.M
+Info:                          Defined in:
+Info:                               /tmp/drg5-control-tools/oss-cad-suite/lib/../share/yosys/lattice/cells_map_trellis.v:108.23-108.24
+Info:      logic  0.26  4.72 Source ff_case.rf.write_valid_i_LUT4_C_Z_PFUMX_C0_Z_LUT4_B_22.OFX
+Info:    routing  2.41  7.14 Net ff_case.rf.write_valid_i_LUT4_C_Z_PFUMX_C0_Z_LUT4_D_11_Z[5] (11,7) -> (4,24)
+Info:                          Sink ff_case.rf.write_valid_i_LUT4_C_Z_PFUMX_C0_Z_LUT4_C_30.M
+Info:                          Defined in:
+Info:                               /tmp/drg5-control-tools/oss-cad-suite/lib/../share/yosys/lattice/cells_map_trellis.v:108.23-108.24
+Info:      logic  0.26  7.39 Source ff_case.rf.write_valid_i_LUT4_C_Z_PFUMX_C0_Z_LUT4_C_30.OFX
+Info:    routing  0.00  7.39 Net ff_case.rf.write_valid_i_LUT4_C_Z_PFUMX_C0_Z_LUT4_C_31_Z_PFUMX_ALUT_Z_L6MUX21_D0_Z (4,24) -> (4,24)
+Info:                          Sink ff_case.rf.write_valid_i_LUT4_C_Z_PFUMX_C0_Z_LUT4_C_31.FXB
+Info:                          Defined in:
+Info:                               /tmp/drg5-control-tools/oss-cad-suite/lib/../share/yosys/lattice/cells_map_trellis.v:157.70-157.72
+Info:      logic  0.24  7.63 Source ff_case.rf.write_valid_i_LUT4_C_Z_PFUMX_C0_Z_LUT4_C_31.OFX
+Info:    routing  0.63  8.27 Net ff_case.rf.write_valid_i_LUT4_C_Z_PFUMX_C0_Z_LUT4_C_31_Z_PFUMX_ALUT_Z_L6MUX21_D0_Z_L6MUX21_D1_Z[4] (4,24) -> (4,25)
+Info:                          Sink checksum_q_TRELLIS_FF_Q_DI_PFUMX_Z_5_BLUT_LUT4_Z.M
+Info:                          Defined in:
+Info:                               /tmp/drg5-control-tools/oss-cad-suite/lib/../share/yosys/lattice/cells_map_trellis.v:108.23-108.24
+Info:      logic  0.26  8.52 Source checksum_q_TRELLIS_FF_Q_DI_PFUMX_Z_5_BLUT_LUT4_Z.OFX
+Info:    routing  0.67  9.19 Net checksum_q_TRELLIS_FF_Q_DI[15] (4,25) -> (4,24)
+Info:                          Sink checksum_q_TRELLIS_FF_Q_16.M
+Info:      setup  0.00  9.19 Source checksum_q_TRELLIS_FF_Q_16.M
+Info: 2.24 ns logic, 6.94 ns routing
+
+Info: Critical path report for cross-domain path '<async>' -> 'posedge $glbnet$clk80':
+Info:       type curr  total name
+Info:     source  0.00  0.00 Source serial_i$tr_io.O
+Info:    routing  6.07  6.07 Net serial_i$TRELLIS_IO_IN (4,95) -> (9,7)
+Info:                          Sink state_q_TRELLIS_FF_Q_47.M
+Info:                          Defined in:
+Info:                               /home/bluto/Desktop/dorsalGanglionProject/microcontroller/synth/drg5_rf_map.sv:5.24-5.32
+Info:      setup  0.00  6.07 Source state_q_TRELLIS_FF_Q_47.M
+Info: 0.00 ns logic, 6.07 ns routing
+
+Info: Critical path report for cross-domain path 'posedge $glbnet$clk80' -> '<async>':
+Info:       type curr  total name
+Info:   clk-to-q  0.52  0.52 Source checksum_q_TRELLIS_FF_Q_28.Q
+Info:    routing  2.30  2.82 Net checksum_q[3] (14,9) -> (12,19)
+Info:                          Sink led_o_LUT4_Z_4.D
+Info:                          Defined in:
+Info:                               /tmp/drg5-control-tools/oss-cad-suite/lib/../share/yosys/lattice/cells_map_trellis.v:108.23-108.24
+Info:      logic  0.24  3.06 Source led_o_LUT4_Z_4.F
+Info:    routing  2.71  5.77 Net led_o[3]$TRELLIS_IO_OUT (12,19) -> (0,38)
+Info:                          Sink led_o[3]$tr_io.I
+Info:                          Defined in:
+Info:                               /home/bluto/Desktop/dorsalGanglionProject/microcontroller/synth/drg5_rf_map.sv:6.22-6.27
+Info: 0.76 ns logic, 5.01 ns routing
+
+Info: Max frequency for clock '$glbnet$clk80': 108.85 MHz (PASS at 80.00 MHz)
+
+Info: Max delay <async>               -> posedge $glbnet$clk80: 6.07 ns
+Info: Max delay posedge $glbnet$clk80 -> <async>              : 5.77 ns
+
+Info: Slack histogram:
+Info:  legend: * represents 9 endpoint(s)
+Info:          + represents [1,9) endpoint(s)
+Info: [  3313,   3726) |+
+Info: [  3726,   4139) |+
+Info: [  4139,   4552) |*+
+Info: [  4552,   4965) |+
+Info: [  4965,   5378) |+
+Info: [  5378,   5791) |***+
+Info: [  5791,   6204) |******************+
+Info: [  6204,   6617) |**************************+
+Info: [  6617,   7030) |******************************+
+Info: [  7030,   7443) |*****************+
+Info: [  7443,   7856) |****+
+Info: [  7856,   8269) |**+
+Info: [  8269,   8682) |*+
+Info: [  8682,   9095) |*+
+Info: [  9095,   9508) |**+
+Info: [  9508,   9921) |**+
+Info: [  9921,  10334) |***********+
+Info: [ 10334,  10747) |************************************************************ 
+Info: [ 10747,  11160) |*******************************+
+Info: [ 11160,  11573) |********+
+
+Info: Program finished normally.

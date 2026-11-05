@@ -1,0 +1,6 @@
+$ /tmp/drg5-irq-fetch-reaudit/obj-4/Vdrg5_irq_fetch_tb +verilator+seed+1
+IRQ_FETCH_CASE limit=4 case=0 entry=2 handler_D=9 I_max=3 waiting=2 offers=21 accepts=21 replies=21
+IRQ_FETCH_CASE limit=4 case=1 entry=3 handler_D=10 I_max=4 waiting=3 offers=21 accepts=21 replies=21
+[644] %Fatal: drg5_irq_fetch_tb.sv:156: Assertion failed in drg5_irq_fetch_tb.check: IRQ_FETCH_CHECK_FAILED WFI retirement vetoes first fetch launch limit=4 case=2 edge=322 pc=00000040 owner=0 accepted=0 addr=00000040 tag=00000010 age=0
+%Error: microcontroller/tests/drg5_irq_fetch_tb.sv:156: Verilog $stop
+Aborting...

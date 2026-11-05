@@ -1,0 +1,21 @@
+$ /tmp/drg5-counters/obj/Vdrg5_counters_tb +verilator+seed+1 +seed=0 +ledger=/home/bluto/Desktop/dorsalGanglionProject/microcontroller/tests/evidence/counters-2026-11-04/revisions/03-qualification/seed-0.csv
+COUNTER_CHECK_FAILED random active counter coverage seed=0 case=4 edge=21296 event=14 addr=c82 op=0 source=a1f6bdb1 read=1 write=1 commit=0 trap=1 retire=0 debug=0 ebreak=0
+HISTORY slot=0 event=14 cycle=0000000000000000 instret=0000000000000000
+HISTORY slot=1 event=14 cycle=0000000000000000 instret=0000000000000000
+HISTORY slot=2 event=14 cycle=0000000000000000 instret=0000000000000000
+HISTORY slot=3 event=14 cycle=0000000000000000 instret=0000000000000000
+HISTORY slot=4 event=14 cycle=0000000000000000 instret=0000000000000000
+HISTORY slot=5 event=14 cycle=0000000000000000 instret=0000000000000000
+HISTORY slot=6 event=14 cycle=0000000000000000 instret=0000000000000000
+HISTORY slot=7 event=14 cycle=0000000000000000 instret=0000000000000000
+HISTORY slot=8 event=14 cycle=0000000000000000 instret=0000000000000000
+HISTORY slot=9 event=14 cycle=0000000000000000 instret=0000000000000000
+HISTORY slot=10 event=14 cycle=0000000000000000 instret=0000000000000000
+HISTORY slot=11 event=14 cycle=0000000000000000 instret=0000000000000000
+HISTORY slot=12 event=14 cycle=0000000000000000 instret=0000000000000000
+HISTORY slot=13 event=14 cycle=0000000000000000 instret=0000000000000000
+HISTORY slot=14 event=14 cycle=0000000000000000 instret=0000000000000000
+HISTORY slot=15 event=14 cycle=0000000000000000 instret=0000000000000000
+[63888] %Fatal: drg5_counters_tb.sv:65: Assertion failed in drg5_counters_tb.check: counter event ledger mismatch
+%Error: microcontroller/tests/drg5_counters_tb.sv:65: Verilog $stop
+Aborting...

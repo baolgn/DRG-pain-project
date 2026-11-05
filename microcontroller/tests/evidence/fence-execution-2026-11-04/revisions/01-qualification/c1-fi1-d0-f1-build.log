@@ -1,0 +1,40 @@
+$ /tmp/drg5-control-tools-20260301/oss-cad-suite/bin/verilator --binary --timing --assert -Wall -j 2 -CFLAGS -O0 -Imicrocontroller/rtl --top-module drg5_fence_execution_tb -GC_ENABLED=1 -GZIFENCEI_ENABLED=1 -GDIAGNOSTIC=0 -GFORWARDING=1 --Mdir /tmp/drg5-fence-execution/c1-fi1-d0-f1 microcontroller/rtl/drg5_control_pkg.sv microcontroller/rtl/drg5_immediate.sv microcontroller/rtl/drg5_decoder.sv microcontroller/rtl/drg5_branch.sv microcontroller/rtl/drg5_lsu.sv microcontroller/rtl/drg5_shifter.sv microcontroller/rtl/drg5_alu.sv microcontroller/rtl/drg5_forward.sv microcontroller/rtl/drg5_decompress.sv microcontroller/rtl/drg5_fetch_guard.sv microcontroller/rtl/drg5_fetch_buffer.sv microcontroller/rtl/drg5_fetch.sv microcontroller/rtl/drg5_frontend.sv microcontroller/rtl/drg5_csr.sv microcontroller/rtl/drg5_muldiv.sv microcontroller/rtl/drg5_control.sv microcontroller/tests/drg5_fence_execution_tb.sv
+%Warning-UNUSEDSIGNAL: microcontroller/tests/drg5_fence_execution_tb.sv:105:37: Signal is not used: 'dma_start_edge'
+                                                                              : ... note: In instance 'drg5_fence_execution_tb'
+  105 |   int old_offers=0, old_accepted=0, dma_start_edge=0;
+      |                                     ^~~~~~~~~~~~~~
+                       ... For warning description see https://verilator.org/warn/UNUSEDSIGNAL?v=5.047
+                       ... Use "/* verilator lint_off UNUSEDSIGNAL */" and lint_on around source to disable this message.
+%Warning-UNUSEDSIGNAL: microcontroller/tests/drg5_fence_execution_tb.sv:106:21: Signal is not used: 'delay_after_fence'
+                                                                              : ... note: In instance 'drg5_fence_execution_tb'
+  106 |   bit hold_fence=0, delay_after_fence=0, dma_enabled=0, dma_done=0, dma_early=0;
+      |                     ^~~~~~~~~~~~~~~~~
+%Warning-UNUSEDSIGNAL: microcontroller/tests/drg5_fence_execution_tb.sv:109:16: Signal is not used: 'last_fence_next'
+                                                                              : ... note: In instance 'drg5_fence_execution_tb'
+  109 |   logic [31:0] last_fence_next=0;
+      |                ^~~~~~~~~~~~~~~
+%Warning-UNUSEDSIGNAL: microcontroller/tests/drg5_fence_execution_tb.sv:110:7: Signal is not used: 'patch_length'
+                                                                             : ... note: In instance 'drg5_fence_execution_tb'
+  110 |   int patch_length=0, i_image_epoch=0, image_epoch=0;
+      |       ^~~~~~~~~~~~
+%Warning-UNUSEDSIGNAL: microcontroller/tests/drg5_fence_execution_tb.sv:111:23: Signal is not used: 'expect_old_buffer'
+                                                                              : ... note: In instance 'drg5_fence_execution_tb'
+  111 |   bit expect_fence=0, expect_old_buffer=0, expect_old_reply=0, reject_store=0;
+      |                       ^~~~~~~~~~~~~~~~~
+%Warning-UNUSEDSIGNAL: microcontroller/tests/drg5_fence_execution_tb.sv:111:44: Signal is not used: 'expect_old_reply'
+                                                                              : ... note: In instance 'drg5_fence_execution_tb'
+  111 |   bit expect_fence=0, expect_old_buffer=0, expect_old_reply=0, reject_store=0;
+      |                                            ^~~~~~~~~~~~~~~~
+%Warning-UNUSEDSIGNAL: microcontroller/tests/drg5_fence_execution_tb.sv:111:64: Signal is not used: 'reject_store'
+                                                                              : ... note: In instance 'drg5_fence_execution_tb'
+  111 |   bit expect_fence=0, expect_old_buffer=0, expect_old_reply=0, reject_store=0;
+      |                                                                ^~~~~~~~~~~~
+%Warning-UNUSEDSIGNAL: microcontroller/tests/drg5_fence_execution_tb.sv:123:52: Bits of signal are not used: 'enable_ref'[31:12,10:0]
+                                                                              : ... note: In instance 'drg5_fence_execution_tb'
+  123 |   logic [31:0] arch_pc=0, vector_ref=0, epc_ref=0, enable_ref=0;
+      |                                                    ^~~~~~~~~~
+%Warning-UNUSEDSIGNAL: microcontroller/tests/drg5_fence_execution_tb.sv:757:49: Bits of function variable are not used: 'size'[31:3]
+                                                                              : ... note: In instance 'drg5_fence_execution_tb'
+  757 |   task automatic emit_store(input int rs1, rs2, size, input logic [31:0] offset);
+      |                                                 ^~~~
+%Error: Exiting due to 9 warning(s)

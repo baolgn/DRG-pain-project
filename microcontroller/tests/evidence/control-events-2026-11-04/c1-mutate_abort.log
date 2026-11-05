@@ -1,0 +1,3 @@
+[2060] %Fatal: drg5_control_events_tb.sv:69: Assertion failed in drg5_control_events_tb.check: case=3 C=1 cycle=59 pc=00000104: missing or spurious flush abort
+%Error: microcontroller/tests/drg5_control_events_tb.sv:69: Verilog $stop
+Aborting...

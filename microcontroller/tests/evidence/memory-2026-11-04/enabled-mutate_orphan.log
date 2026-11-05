@@ -1,0 +1,3 @@
+[78] %Fatal: drg5_memory_tb.sv:89: Assertion failed in drg5_memory_tb.check: case=1 profile=1 scenario=0 seed=1 cycle=3 pc=00000100: physical request owner disappeared or appeared without permission
+%Error: microcontroller/tests/drg5_memory_tb.sv:89: Verilog $stop
+Aborting...

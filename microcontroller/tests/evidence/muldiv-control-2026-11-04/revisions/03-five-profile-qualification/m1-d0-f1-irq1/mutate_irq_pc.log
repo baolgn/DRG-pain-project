@@ -1,0 +1,4 @@
+$ /tmp/drg5-muldiv-control-final/m1-d0-f1-irq1/Vdrg5_muldiv_control_tb +verilator+seed+1 +seed=1 +mutate_irq_pc
+[64539] %Fatal: drg5_muldiv_control_tb.sv:139: Assertion failed in drg5_muldiv_control_tb.check: seed=1 case=252 edge=16135 pc=00000044 owner=0 accepted=0 age=0 response=47: independent IRQ PC/cause mismatch
+%Error: microcontroller/tests/drg5_muldiv_control_tb.sv:139: Verilog $stop
+Aborting...

@@ -1,0 +1,126 @@
+{
+  "status": "passed",
+  "revision": 10,
+  "positive_executions": 12,
+  "runtime_negative_controls": 3,
+  "offline_negative_controls": 5,
+  "totals": {
+    "cases": 216,
+    "edges": 138817,
+    "checks": 6880296,
+    "retired": 5727,
+    "traps": 216,
+    "compressed": 171,
+    "IRQ": 12,
+    "idle": 144,
+    "csr_reads": 3744,
+    "csr_writes": 3168,
+    "inhibit_writes": 240,
+    "suppressed": 1056,
+    "nonzero_index_zero_writes": 768,
+    "cycle_rollovers": 24,
+    "instret_rollovers": 24,
+    "cycle_wraps": 12,
+    "instret_wraps": 12,
+    "holds": 52773,
+    "divide_waits": 2040,
+    "I": 10563,
+    "D": 60
+  },
+  "packed_bits": 3147,
+  "schema_leaf_fields": 149,
+  "all_profiles_seeds_cover_every_timing_bin": true,
+  "all_current_source_hashes_match": true,
+  "capture_hashes": [
+    {
+      "profile": "c1-d0-f1",
+      "seed": 0,
+      "path": "revisions/10-qualification/c1-d0-f1-seed-0.trace.jsonl.gz",
+      "gzip_archive_sha256": "47df6f21fb1a034ae66d948c9bf25f63f8ceb9d2c9ce780075fa69bd1fed16b3",
+      "uncompressed_jsonl_sha256": "f5508f23338db6e4c27abba0e356eafc264ef6f6033284cb9cf670ac07ab48f4"
+    },
+    {
+      "profile": "c1-d0-f1",
+      "seed": 1,
+      "path": "revisions/10-qualification/c1-d0-f1-seed-1.trace.jsonl.gz",
+      "gzip_archive_sha256": "7a6b7dcac7669a06c115e2f762bca387efa4d97860080602ba982677e3eeff1e",
+      "uncompressed_jsonl_sha256": "005b5d5134bee2780a00b33e296874d762f93e1f884447c484b7c002d10869a8"
+    },
+    {
+      "profile": "c1-d0-f1",
+      "seed": 305419896,
+      "path": "revisions/10-qualification/c1-d0-f1-seed-305419896.trace.jsonl.gz",
+      "gzip_archive_sha256": "f37f682b23f5741e81729a1c394c8d491546ff6ad878b8e87f40a8e5fe8b6202",
+      "uncompressed_jsonl_sha256": "9c6acbbb11a463e9fa2fc6bdb18c8a8eacaff34b18116316a3382f40dfe0d831"
+    },
+    {
+      "profile": "c1-d0-f0",
+      "seed": 0,
+      "path": "revisions/10-qualification/c1-d0-f0-seed-0.trace.jsonl.gz",
+      "gzip_archive_sha256": "0a6d7e99f5675babcfb8fd5a9c0534b0378f566af0f1c0c21ee2a079053522d2",
+      "uncompressed_jsonl_sha256": "1c6e75dcbafad9d70e28b791116f0596426f0366f0baface818b6f440cfbf904"
+    },
+    {
+      "profile": "c1-d0-f0",
+      "seed": 1,
+      "path": "revisions/10-qualification/c1-d0-f0-seed-1.trace.jsonl.gz",
+      "gzip_archive_sha256": "8f266d63175be6dab7d37f7ff31ebb5108608ad7a9089c7f322e5f811519e4da",
+      "uncompressed_jsonl_sha256": "755dc2a7767bc782e7daab82d2ea41127ce67530a8e51ad369b13ad0b2ec4bd4"
+    },
+    {
+      "profile": "c1-d0-f0",
+      "seed": 305419896,
+      "path": "revisions/10-qualification/c1-d0-f0-seed-305419896.trace.jsonl.gz",
+      "gzip_archive_sha256": "dda20cd582851c283586d295e86b024204e9989f53e471292848036906ea8c97",
+      "uncompressed_jsonl_sha256": "ac1401600d4b66ebb2a7c92a9cddac30b1d4dfa6750e0388c0421174bcabc87e"
+    },
+    {
+      "profile": "c1-d1-f1",
+      "seed": 0,
+      "path": "revisions/10-qualification/c1-d1-f1-seed-0.trace.jsonl.gz",
+      "gzip_archive_sha256": "4b74d352f83bf6e0432cfb67541cc036f80ac12d7299322d5f780fbf39309d92",
+      "uncompressed_jsonl_sha256": "c1078357293e52e2de7ad2b9edfe5e3671857c3611b05cde9449c04add4aca35"
+    },
+    {
+      "profile": "c1-d1-f1",
+      "seed": 1,
+      "path": "revisions/10-qualification/c1-d1-f1-seed-1.trace.jsonl.gz",
+      "gzip_archive_sha256": "dfb77420c1261cefe16591af934f7dc6783d9b3b4596bc138f43f0ad7c9bc2a8",
+      "uncompressed_jsonl_sha256": "aa485fd67373493d7925b698922d3053911e1c8f5eef3d26d605e8fc862582e6"
+    },
+    {
+      "profile": "c1-d1-f1",
+      "seed": 305419896,
+      "path": "revisions/10-qualification/c1-d1-f1-seed-305419896.trace.jsonl.gz",
+      "gzip_archive_sha256": "c4152b0dd4d82c293309cf384b4303dec6ca07db26396026a656c3442c49ce41",
+      "uncompressed_jsonl_sha256": "76712ed23df58ca194b002e5ebe2686698127746a8b5134a7e8bb746cdccdc25"
+    },
+    {
+      "profile": "c0-d0-f1",
+      "seed": 0,
+      "path": "revisions/10-qualification/c0-d0-f1-seed-0.trace.jsonl.gz",
+      "gzip_archive_sha256": "a054e891deb4259e14278ae4306c8fd4dbe9f78abfa9b0289ef472d0b4ca9a9e",
+      "uncompressed_jsonl_sha256": "1d601b37ff72574a6675e2fe23862a9a45b5ff13b87e596725a9e20326cc5e80"
+    },
+    {
+      "profile": "c0-d0-f1",
+      "seed": 1,
+      "path": "revisions/10-qualification/c0-d0-f1-seed-1.trace.jsonl.gz",
+      "gzip_archive_sha256": "f35aeee3d9631f365afca541f4c0387d9639352da4dedf50cc9f48ec4e37f16c",
+      "uncompressed_jsonl_sha256": "d0a15759dbc40d7b3d7efb37e023cdd15344bc0c882c0534504f6caa622e47f1"
+    },
+    {
+      "profile": "c0-d0-f1",
+      "seed": 305419896,
+      "path": "revisions/10-qualification/c0-d0-f1-seed-305419896.trace.jsonl.gz",
+      "gzip_archive_sha256": "eb19fff90e080be5f377e691d4c953107f2e71aba31edb402202bfd7bff838a9",
+      "uncompressed_jsonl_sha256": "6abbf734fa11ffc1b6a865ddf7521a671bc00c53bacf603d4a91e161504aa0e2"
+    }
+  ],
+  "counting_notes": [
+    "totals include only final positive executions, not prior attempts or injected failures",
+    "fixture csr_writes counts four machine-counter half addresses; inhibit_writes is separate",
+    "offline counter_csr_writes includes machine-counter halves and mcountinhibit",
+    "retired is independent successful execution, not the final writable/inhibitable minstret value"
+  ]
+}

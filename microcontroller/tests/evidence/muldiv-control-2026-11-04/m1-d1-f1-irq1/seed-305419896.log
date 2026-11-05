@@ -1,0 +1,6 @@
+$ /tmp/drg5-muldiv-control-final-r4/m1-d1-f1-irq1/Vdrg5_muldiv_control_tb +verilator+seed+1 +seed=305419896
+PASS muldiv-control M=1 diagnostic=1 forwarding=1 IRQ=1 seed=305419896 cases=285 edges=24263 checks=12799109 retired=2147 traps=3 interrupts=36 kills=70 starts=360 finishes=359 discarded=68 cancelled=1 arithmetic=291 ops=ff held=180 dependent=0 alu=0 branch=0 address=0 store=0 mul_latency=2 div_latency=33 mul_capture=3 div_capture=34 mul_transfer=4 div_transfer=35 mul_retire=6 div_retire=37 older_ready_alias=0 offers=2 replies=2 effects=2 sleeps=0 wakes=0 saves=1 entry_max=38 handler_max=0 saved_max=0 service_max=2 ack_max=0 return_max=0 admissions=2219
+- microcontroller/tests/drg5_muldiv_control_tb.sv:1132: Verilog $finish
+- S i m u l a t i o n   R e p o r t: Verilator 5.047 devel
+- Verilator: $finish at 97ns; walltime 3.123 s; speed 31.075 ns/s
+- Verilator: cpu 3.123 s on 1 threads; allocated 10 MB

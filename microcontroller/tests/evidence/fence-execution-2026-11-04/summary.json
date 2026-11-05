@@ -1,0 +1,337 @@
+{
+  "status": "passed",
+  "scope": "real frontend and packet controller; finite instruction synchronization simulation",
+  "profiles": [
+    [
+      1,
+      1,
+      0,
+      1
+    ],
+    [
+      1,
+      1,
+      0,
+      0
+    ],
+    [
+      1,
+      1,
+      1,
+      1
+    ],
+    [
+      0,
+      1,
+      0,
+      1
+    ],
+    [
+      1,
+      0,
+      0,
+      1
+    ],
+    [
+      0,
+      0,
+      0,
+      1
+    ]
+  ],
+  "seeds": [
+    0,
+    1,
+    305419896
+  ],
+  "smoke": false,
+  "results": [
+    {
+      "profile": "c1-fi1-d0-f1",
+      "seed": 0,
+      "command": [
+        "/tmp/drg5-fence-execution/c1-fi1-d0-f1/Vdrg5_fence_execution_tb",
+        "+verilator+seed+1",
+        "+seed=0"
+      ],
+      "exit_code": 0,
+      "terminal": "FENCE_EXEC_PASS C=1 FI=1 diagnostic=0 forwarding=1 seed=0 cases=329 checks=1411699 retired=2633 fences=551 fencei=43 code_writes=10 old_snapshots=10 buffered_old=111 old_offers=1 old_accepted=5 stale=267 old_errors=2 same_edge_drops=1 held_fences=492 dma_completed=1 dma_reads=3 early_examples=1 reads=553 writes=285 killed=1 max_i_wait=70 max_d_wait=7 program_digest=55e25acecfb29fbf retirement_digest=506a18f9d9192b37 effect_digest=57e6bee0c4482ffd"
+    },
+    {
+      "profile": "c1-fi1-d0-f1",
+      "seed": 1,
+      "command": [
+        "/tmp/drg5-fence-execution/c1-fi1-d0-f1/Vdrg5_fence_execution_tb",
+        "+verilator+seed+1",
+        "+seed=1"
+      ],
+      "exit_code": 0,
+      "terminal": "FENCE_EXEC_PASS C=1 FI=1 diagnostic=0 forwarding=1 seed=1 cases=329 checks=1408594 retired=2633 fences=551 fencei=43 code_writes=10 old_snapshots=10 buffered_old=111 old_offers=1 old_accepted=5 stale=287 old_errors=2 same_edge_drops=1 held_fences=492 dma_completed=1 dma_reads=3 early_examples=1 reads=553 writes=285 killed=1 max_i_wait=70 max_d_wait=7 program_digest=55e25acecfb29fbf retirement_digest=506a18f9d9192b37 effect_digest=57e6bee0c4482ffd"
+    },
+    {
+      "profile": "c1-fi1-d0-f1",
+      "seed": 305419896,
+      "command": [
+        "/tmp/drg5-fence-execution/c1-fi1-d0-f1/Vdrg5_fence_execution_tb",
+        "+verilator+seed+1",
+        "+seed=305419896"
+      ],
+      "exit_code": 0,
+      "terminal": "FENCE_EXEC_PASS C=1 FI=1 diagnostic=0 forwarding=1 seed=305419896 cases=329 checks=1411287 retired=2633 fences=551 fencei=43 code_writes=10 old_snapshots=10 buffered_old=111 old_offers=1 old_accepted=5 stale=251 old_errors=2 same_edge_drops=1 held_fences=492 dma_completed=1 dma_reads=3 early_examples=1 reads=553 writes=285 killed=1 max_i_wait=70 max_d_wait=7 program_digest=55e25acecfb29fbf retirement_digest=506a18f9d9192b37 effect_digest=57e6bee0c4482ffd"
+    },
+    {
+      "profile": "c1-fi1-d0-f0",
+      "seed": 0,
+      "command": [
+        "/tmp/drg5-fence-execution/c1-fi1-d0-f0/Vdrg5_fence_execution_tb",
+        "+verilator+seed+1",
+        "+seed=0"
+      ],
+      "exit_code": 0,
+      "terminal": "FENCE_EXEC_PASS C=1 FI=1 diagnostic=0 forwarding=0 seed=0 cases=329 checks=1411699 retired=2633 fences=551 fencei=43 code_writes=10 old_snapshots=10 buffered_old=111 old_offers=1 old_accepted=5 stale=267 old_errors=2 same_edge_drops=1 held_fences=492 dma_completed=1 dma_reads=3 early_examples=1 reads=553 writes=285 killed=1 max_i_wait=70 max_d_wait=7 program_digest=55e25acecfb29fbf retirement_digest=506a18f9d9192b37 effect_digest=57e6bee0c4482ffd"
+    },
+    {
+      "profile": "c1-fi1-d0-f0",
+      "seed": 1,
+      "command": [
+        "/tmp/drg5-fence-execution/c1-fi1-d0-f0/Vdrg5_fence_execution_tb",
+        "+verilator+seed+1",
+        "+seed=1"
+      ],
+      "exit_code": 0,
+      "terminal": "FENCE_EXEC_PASS C=1 FI=1 diagnostic=0 forwarding=0 seed=1 cases=329 checks=1408594 retired=2633 fences=551 fencei=43 code_writes=10 old_snapshots=10 buffered_old=111 old_offers=1 old_accepted=5 stale=287 old_errors=2 same_edge_drops=1 held_fences=492 dma_completed=1 dma_reads=3 early_examples=1 reads=553 writes=285 killed=1 max_i_wait=70 max_d_wait=7 program_digest=55e25acecfb29fbf retirement_digest=506a18f9d9192b37 effect_digest=57e6bee0c4482ffd"
+    },
+    {
+      "profile": "c1-fi1-d0-f0",
+      "seed": 305419896,
+      "command": [
+        "/tmp/drg5-fence-execution/c1-fi1-d0-f0/Vdrg5_fence_execution_tb",
+        "+verilator+seed+1",
+        "+seed=305419896"
+      ],
+      "exit_code": 0,
+      "terminal": "FENCE_EXEC_PASS C=1 FI=1 diagnostic=0 forwarding=0 seed=305419896 cases=329 checks=1411287 retired=2633 fences=551 fencei=43 code_writes=10 old_snapshots=10 buffered_old=111 old_offers=1 old_accepted=5 stale=251 old_errors=2 same_edge_drops=1 held_fences=492 dma_completed=1 dma_reads=3 early_examples=1 reads=553 writes=285 killed=1 max_i_wait=70 max_d_wait=7 program_digest=55e25acecfb29fbf retirement_digest=506a18f9d9192b37 effect_digest=57e6bee0c4482ffd"
+    },
+    {
+      "profile": "c1-fi1-d1-f1",
+      "seed": 0,
+      "command": [
+        "/tmp/drg5-fence-execution/c1-fi1-d1-f1/Vdrg5_fence_execution_tb",
+        "+verilator+seed+1",
+        "+seed=0"
+      ],
+      "exit_code": 0,
+      "terminal": "FENCE_EXEC_PASS C=1 FI=1 diagnostic=1 forwarding=1 seed=0 cases=329 checks=1435744 retired=2633 fences=551 fencei=43 code_writes=10 old_snapshots=2 buffered_old=1 old_offers=0 old_accepted=1 stale=286 old_errors=0 same_edge_drops=0 held_fences=492 dma_completed=1 dma_reads=3 early_examples=1 reads=553 writes=285 killed=0 max_i_wait=4 max_d_wait=7 program_digest=55e25acecfb29fbf retirement_digest=506a18f9d9192b37 effect_digest=57e6bee0c4482ffd"
+    },
+    {
+      "profile": "c1-fi1-d1-f1",
+      "seed": 1,
+      "command": [
+        "/tmp/drg5-fence-execution/c1-fi1-d1-f1/Vdrg5_fence_execution_tb",
+        "+verilator+seed+1",
+        "+seed=1"
+      ],
+      "exit_code": 0,
+      "terminal": "FENCE_EXEC_PASS C=1 FI=1 diagnostic=1 forwarding=1 seed=1 cases=329 checks=1433407 retired=2633 fences=551 fencei=43 code_writes=10 old_snapshots=2 buffered_old=1 old_offers=0 old_accepted=0 stale=309 old_errors=0 same_edge_drops=0 held_fences=492 dma_completed=1 dma_reads=3 early_examples=1 reads=553 writes=285 killed=0 max_i_wait=4 max_d_wait=7 program_digest=55e25acecfb29fbf retirement_digest=506a18f9d9192b37 effect_digest=57e6bee0c4482ffd"
+    },
+    {
+      "profile": "c1-fi1-d1-f1",
+      "seed": 305419896,
+      "command": [
+        "/tmp/drg5-fence-execution/c1-fi1-d1-f1/Vdrg5_fence_execution_tb",
+        "+verilator+seed+1",
+        "+seed=305419896"
+      ],
+      "exit_code": 0,
+      "terminal": "FENCE_EXEC_PASS C=1 FI=1 diagnostic=1 forwarding=1 seed=305419896 cases=329 checks=1433611 retired=2633 fences=551 fencei=43 code_writes=10 old_snapshots=2 buffered_old=1 old_offers=0 old_accepted=1 stale=282 old_errors=0 same_edge_drops=0 held_fences=492 dma_completed=1 dma_reads=3 early_examples=1 reads=553 writes=285 killed=0 max_i_wait=4 max_d_wait=7 program_digest=55e25acecfb29fbf retirement_digest=506a18f9d9192b37 effect_digest=57e6bee0c4482ffd"
+    },
+    {
+      "profile": "c0-fi1-d0-f1",
+      "seed": 0,
+      "command": [
+        "/tmp/drg5-fence-execution/c0-fi1-d0-f1/Vdrg5_fence_execution_tb",
+        "+verilator+seed+1",
+        "+seed=0"
+      ],
+      "exit_code": 0,
+      "terminal": "FENCE_EXEC_PASS C=0 FI=1 diagnostic=0 forwarding=1 seed=0 cases=323 checks=1151908 retired=2593 fences=551 fencei=39 code_writes=5 old_snapshots=6 buffered_old=36 old_offers=1 old_accepted=4 stale=62 old_errors=2 same_edge_drops=1 held_fences=444 dma_completed=1 dma_reads=7 early_examples=1 reads=557 writes=280 killed=1 max_i_wait=70 max_d_wait=7 program_digest=ecef00ac2579777f retirement_digest=ecbfa8be2a26ba5d effect_digest=8cc5d4a538aba4ed"
+    },
+    {
+      "profile": "c0-fi1-d0-f1",
+      "seed": 1,
+      "command": [
+        "/tmp/drg5-fence-execution/c0-fi1-d0-f1/Vdrg5_fence_execution_tb",
+        "+verilator+seed+1",
+        "+seed=1"
+      ],
+      "exit_code": 0,
+      "terminal": "FENCE_EXEC_PASS C=0 FI=1 diagnostic=0 forwarding=1 seed=1 cases=323 checks=1150341 retired=2591 fences=551 fencei=39 code_writes=5 old_snapshots=6 buffered_old=36 old_offers=1 old_accepted=4 stale=56 old_errors=2 same_edge_drops=1 held_fences=444 dma_completed=1 dma_reads=6 early_examples=1 reads=556 writes=280 killed=1 max_i_wait=70 max_d_wait=7 program_digest=ecef00ac2579777f retirement_digest=f6ce0b1af513486f effect_digest=76c6d0df7c4be115"
+    },
+    {
+      "profile": "c0-fi1-d0-f1",
+      "seed": 305419896,
+      "command": [
+        "/tmp/drg5-fence-execution/c0-fi1-d0-f1/Vdrg5_fence_execution_tb",
+        "+verilator+seed+1",
+        "+seed=305419896"
+      ],
+      "exit_code": 0,
+      "terminal": "FENCE_EXEC_PASS C=0 FI=1 diagnostic=0 forwarding=1 seed=305419896 cases=323 checks=1153272 retired=2593 fences=551 fencei=39 code_writes=5 old_snapshots=6 buffered_old=36 old_offers=2 old_accepted=3 stale=58 old_errors=2 same_edge_drops=1 held_fences=444 dma_completed=1 dma_reads=7 early_examples=1 reads=557 writes=280 killed=1 max_i_wait=70 max_d_wait=7 program_digest=ecef00ac2579777f retirement_digest=ecbfa8be2a26ba5d effect_digest=8cc5d4a538aba4ed"
+    },
+    {
+      "profile": "c1-fi0-d0-f1",
+      "seed": 0,
+      "command": [
+        "/tmp/drg5-fence-execution/c1-fi0-d0-f1/Vdrg5_fence_execution_tb",
+        "+verilator+seed+1",
+        "+seed=0"
+      ],
+      "exit_code": 0,
+      "terminal": "FENCE_EXEC_PASS C=1 FI=0 diagnostic=0 forwarding=1 seed=0 cases=317 checks=1333789 retired=2477 fences=550 fencei=0 code_writes=0 old_snapshots=0 buffered_old=0 old_offers=0 old_accepted=0 stale=233 old_errors=0 same_edge_drops=0 held_fences=384 dma_completed=0 dma_reads=0 early_examples=0 reads=550 writes=275 killed=3 max_i_wait=4 max_d_wait=5 program_digest=776289962ab54797 retirement_digest=ef2809074adf4672 effect_digest=96fe2b74ae8d1a9c"
+    },
+    {
+      "profile": "c1-fi0-d0-f1",
+      "seed": 1,
+      "command": [
+        "/tmp/drg5-fence-execution/c1-fi0-d0-f1/Vdrg5_fence_execution_tb",
+        "+verilator+seed+1",
+        "+seed=1"
+      ],
+      "exit_code": 0,
+      "terminal": "FENCE_EXEC_PASS C=1 FI=0 diagnostic=0 forwarding=1 seed=1 cases=317 checks=1329698 retired=2477 fences=550 fencei=0 code_writes=0 old_snapshots=0 buffered_old=0 old_offers=0 old_accepted=0 stale=236 old_errors=0 same_edge_drops=0 held_fences=384 dma_completed=0 dma_reads=0 early_examples=0 reads=550 writes=275 killed=2 max_i_wait=4 max_d_wait=5 program_digest=776289962ab54797 retirement_digest=ef2809074adf4672 effect_digest=96fe2b74ae8d1a9c"
+    },
+    {
+      "profile": "c1-fi0-d0-f1",
+      "seed": 305419896,
+      "command": [
+        "/tmp/drg5-fence-execution/c1-fi0-d0-f1/Vdrg5_fence_execution_tb",
+        "+verilator+seed+1",
+        "+seed=305419896"
+      ],
+      "exit_code": 0,
+      "terminal": "FENCE_EXEC_PASS C=1 FI=0 diagnostic=0 forwarding=1 seed=305419896 cases=317 checks=1333676 retired=2477 fences=550 fencei=0 code_writes=0 old_snapshots=0 buffered_old=0 old_offers=0 old_accepted=0 stale=238 old_errors=0 same_edge_drops=0 held_fences=384 dma_completed=0 dma_reads=0 early_examples=0 reads=550 writes=275 killed=4 max_i_wait=4 max_d_wait=5 program_digest=776289962ab54797 retirement_digest=ef2809074adf4672 effect_digest=96fe2b74ae8d1a9c"
+    },
+    {
+      "profile": "c0-fi0-d0-f1",
+      "seed": 0,
+      "command": [
+        "/tmp/drg5-fence-execution/c0-fi0-d0-f1/Vdrg5_fence_execution_tb",
+        "+verilator+seed+1",
+        "+seed=0"
+      ],
+      "exit_code": 0,
+      "terminal": "FENCE_EXEC_PASS C=0 FI=0 diagnostic=0 forwarding=1 seed=0 cases=315 checks=1109280 retired=2475 fences=550 fencei=0 code_writes=0 old_snapshots=0 buffered_old=0 old_offers=0 old_accepted=0 stale=41 old_errors=0 same_edge_drops=0 held_fences=384 dma_completed=0 dma_reads=0 early_examples=0 reads=550 writes=275 killed=32 max_i_wait=4 max_d_wait=5 program_digest=a9d6c0a7b2a9f637 retirement_digest=20042cfb7a741c43 effect_digest=96fe2b74ae8d1a9c"
+    },
+    {
+      "profile": "c0-fi0-d0-f1",
+      "seed": 1,
+      "command": [
+        "/tmp/drg5-fence-execution/c0-fi0-d0-f1/Vdrg5_fence_execution_tb",
+        "+verilator+seed+1",
+        "+seed=1"
+      ],
+      "exit_code": 0,
+      "terminal": "FENCE_EXEC_PASS C=0 FI=0 diagnostic=0 forwarding=1 seed=1 cases=315 checks=1107654 retired=2475 fences=550 fencei=0 code_writes=0 old_snapshots=0 buffered_old=0 old_offers=0 old_accepted=0 stale=42 old_errors=0 same_edge_drops=0 held_fences=384 dma_completed=0 dma_reads=0 early_examples=0 reads=550 writes=275 killed=31 max_i_wait=4 max_d_wait=5 program_digest=a9d6c0a7b2a9f637 retirement_digest=20042cfb7a741c43 effect_digest=96fe2b74ae8d1a9c"
+    },
+    {
+      "profile": "c0-fi0-d0-f1",
+      "seed": 305419896,
+      "command": [
+        "/tmp/drg5-fence-execution/c0-fi0-d0-f1/Vdrg5_fence_execution_tb",
+        "+verilator+seed+1",
+        "+seed=305419896"
+      ],
+      "exit_code": 0,
+      "terminal": "FENCE_EXEC_PASS C=0 FI=0 diagnostic=0 forwarding=1 seed=305419896 cases=315 checks=1109225 retired=2475 fences=550 fencei=0 code_writes=0 old_snapshots=0 buffered_old=0 old_offers=0 old_accepted=0 stale=49 old_errors=0 same_edge_drops=0 held_fences=384 dma_completed=0 dma_reads=0 early_examples=0 reads=550 writes=275 killed=29 max_i_wait=4 max_d_wait=5 program_digest=a9d6c0a7b2a9f637 retirement_digest=20042cfb7a741c43 effect_digest=96fe2b74ae8d1a9c"
+    },
+    {
+      "negative_control": "mutate_raw",
+      "command": [
+        "/tmp/drg5-fence-execution/c1-fi1-d0-f1/Vdrg5_fence_execution_tb",
+        "+verilator+seed+1",
+        "+seed=1",
+        "+mutate_raw"
+      ],
+      "exit_code": 1,
+      "detector": "FENCE_EXEC_CHECK_FAILED current executable image and original length"
+    },
+    {
+      "negative_control": "mutate_redirect",
+      "command": [
+        "/tmp/drg5-fence-execution/c1-fi1-d0-f1/Vdrg5_fence_execution_tb",
+        "+verilator+seed+1",
+        "+seed=1",
+        "+mutate_redirect"
+      ],
+      "exit_code": 1,
+      "detector": "FENCE_EXEC_CHECK_FAILED current executable image and original length"
+    },
+    {
+      "negative_control": "mutate_stale",
+      "command": [
+        "/tmp/drg5-fence-execution/c1-fi1-d0-f1/Vdrg5_fence_execution_tb",
+        "+verilator+seed+1",
+        "+seed=1",
+        "+mutate_stale"
+      ],
+      "exit_code": 1,
+      "detector": "FENCE_EXEC_CHECK_FAILED stale I response disposition"
+    },
+    {
+      "negative_control": "mutate_dma",
+      "command": [
+        "/tmp/drg5-fence-execution/c1-fi1-d0-f1/Vdrg5_fence_execution_tb",
+        "+verilator+seed+1",
+        "+seed=1",
+        "+mutate_dma"
+      ],
+      "exit_code": 1,
+      "detector": "FENCE_EXEC_CHECK_FAILED current executable image and original length"
+    },
+    {
+      "negative_control": "mutate_effect",
+      "command": [
+        "/tmp/drg5-fence-execution/c1-fi1-d0-f1/Vdrg5_fence_execution_tb",
+        "+verilator+seed+1",
+        "+seed=1",
+        "+mutate_effect"
+      ],
+      "exit_code": 1,
+      "detector": "FENCE_EXEC_CHECK_FAILED physical effects match permitted retirement"
+    }
+  ],
+  "source_sha256": {
+    "microcontroller/rtl/drg5_control_pkg.sv": "aa4193716ff8f98c066c3b88b9de8f1e201bea560e7dc3bcab670598a94c20d5",
+    "microcontroller/rtl/drg5_immediate.sv": "0178ee6a01e4c5361d149a425b5da5502ef2906b8c3ee9246800bd5bc93a080b",
+    "microcontroller/rtl/drg5_decoder.sv": "0b42ead92fd911fd1a2ed4295145b4ac476ad2933b3e2dcb4cdde95d899d52b3",
+    "microcontroller/rtl/drg5_branch.sv": "81fb7fbc54c4c64236738d289fa8fc5a64bd6373efbd66ac2da33086e8d8728e",
+    "microcontroller/rtl/drg5_lsu.sv": "eeac7f5f8d92e4e35030b716e85aabede593afe1d5ca3175e79b9e3e5c83d926",
+    "microcontroller/rtl/drg5_shifter.sv": "0f0bda6a6fc80dc60e23f0058bfac2db2986e03480d95781ead91758dc4e2223",
+    "microcontroller/rtl/drg5_alu.sv": "c1ed60c799186e4185c516049ad99d046dd9ab134afa88b57089f27408fce199",
+    "microcontroller/rtl/drg5_forward.sv": "6c88614a024cb1df85bdb4926a4d4bef9bacbc84af803bcbb7cf1b93d150e444",
+    "microcontroller/rtl/drg5_decompress.sv": "844d6c0b0dbdde6a02c7de346fbb61408ffe2e384d50b82027d9922a8e89372e",
+    "microcontroller/rtl/drg5_fetch_guard.sv": "3bda4702a4a9eb14fb859820af1098dcc2910926c6700e486b7c2f7ce5a0acbe",
+    "microcontroller/rtl/drg5_fetch_buffer.sv": "a2a5dc5b6236751bc3df70c48eedc229b40a9e79c2adb7e0969c4355fa2b5844",
+    "microcontroller/rtl/drg5_fetch.sv": "bc8a999d9e4b7761238306b8edb00b70fc1854f3070d593657a1fef9580e7247",
+    "microcontroller/rtl/drg5_frontend.sv": "7333cd008e2e63bd91d4b08f5ca323cd594efdab8c19d65603759505a3823e16",
+    "microcontroller/rtl/drg5_csr.sv": "964076aa378ef7c483103af939852587cc8f839fdcde85809e7998b65f61ee5f",
+    "microcontroller/rtl/drg5_muldiv.sv": "7eeed33bc060b11260c453c583cfe1936c8e76e6dfc9f437e92f4345e6d9911a",
+    "microcontroller/rtl/drg5_control.sv": "dfa75d71fa6e02d188b0270e1d04044750fcfd6d34b378a34262184147abb0b2",
+    "microcontroller/tests/drg5_fence_execution_tb.sv": "a5b316b49f5fad778f2bb8acbe69780b59e83f8b5ed159ff4c21a49890e3758d",
+    "microcontroller/rtl/drg5_datapath_defs.svh": "1247c7ee5185c32bcd41a1d72a08c9926e34ff5abe25e2ece8e6c2f9df21042e",
+    "microcontroller/tests/run_fence_execution.py": "7a76f7dbe7b17c74ede348c44669ccd151e3c5148aa041c0d9caa9c6850f41f6",
+    "microcontroller/tests/Makefile": "68b28ad70efad417b25d9ab07616621f2bbad30fd86f3dbbff31de19f9c2a11a"
+  },
+  "verilator": "Verilator 5.047 devel rev v5.046-19-ge9dd6eaaf (mod)",
+  "assumptions": [
+    "I snapshots captured at acceptance; executable D writes visible at response; independent acceptance and response delays",
+    "I and D stress deadlines128clocks; no production latency claim",
+    "one outstanding transaction per port; no response reordering or unsafe reset",
+    "independent program and service LCG streams preserve identical images across occupancy profiles",
+    "reserved instruction image holes fault or fail the independent PC oracle"
+  ],
+  "limits": [
+    "finite seeded simulations, not all-input proof or ACT4/Sail conformance",
+    "no firmware compiler, FPGA timing, programming, acquisition or debug qualification"
+  ]
+}

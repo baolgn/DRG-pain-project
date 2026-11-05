@@ -1,0 +1,1646 @@
+$ /tmp/drg5-control-tools/oss-cad-suite/bin/yosys -Q -T -p read_verilog -lib +/ecp5/cells_bb.v; read_verilog -sv /home/bluto/Desktop/dorsalGanglionProject/microcontroller/synth/drg5_rf_bram.sv /home/bluto/Desktop/dorsalGanglionProject/microcontroller/synth/drg5_rf_map.sv /home/bluto/Desktop/dorsalGanglionProject/microcontroller/synth/drg5_rf_pll.v; chparam -set CANDIDATE 2 drg5_rf_map; hierarchy -check -top drg5_rf_map; proc; check -assert; select -assert-none t:$dlatch; synth_ecp5 -top drg5_rf_map -json /tmp/drg5-rf-map/bram/harness.json; check -assert; stat
+
+-- Running command `read_verilog -lib +/ecp5/cells_bb.v; read_verilog -sv /home/bluto/Desktop/dorsalGanglionProject/microcontroller/synth/drg5_rf_bram.sv /home/bluto/Desktop/dorsalGanglionProject/microcontroller/synth/drg5_rf_map.sv /home/bluto/Desktop/dorsalGanglionProject/microcontroller/synth/drg5_rf_pll.v; chparam -set CANDIDATE 2 drg5_rf_map; hierarchy -check -top drg5_rf_map; proc; check -assert; select -assert-none t:$dlatch; synth_ecp5 -top drg5_rf_map -json /tmp/drg5-rf-map/bram/harness.json; check -assert; stat' --
+
+1. Executing Verilog-2005 frontend: /tmp/drg5-control-tools/oss-cad-suite/lib/../share/yosys/ecp5/cells_bb.v
+Parsing Verilog input from `/tmp/drg5-control-tools/oss-cad-suite/lib/../share/yosys/ecp5/cells_bb.v' to AST representation.
+Generating RTLIL representation for module `\GSR'.
+Generating RTLIL representation for module `\PUR'.
+Generating RTLIL representation for module `\SGSR'.
+Generating RTLIL representation for module `\PDPW16KD'.
+Generating RTLIL representation for module `\MULT18X18D'.
+Generating RTLIL representation for module `\ALU54B'.
+Generating RTLIL representation for module `\CLKDIVF'.
+Generating RTLIL representation for module `\PCSCLKDIV'.
+Generating RTLIL representation for module `\DCSC'.
+Generating RTLIL representation for module `\DCCA'.
+Generating RTLIL representation for module `\ECLKSYNCB'.
+Generating RTLIL representation for module `\ECLKBRIDGECS'.
+Generating RTLIL representation for module `\DELAYF'.
+Generating RTLIL representation for module `\DELAYG'.
+Generating RTLIL representation for module `\USRMCLK'.
+Generating RTLIL representation for module `\DQSBUFM'.
+Generating RTLIL representation for module `\DDRDLLA'.
+Generating RTLIL representation for module `\DLLDELD'.
+Generating RTLIL representation for module `\IDDRX1F'.
+Generating RTLIL representation for module `\IDDRX2F'.
+Generating RTLIL representation for module `\IDDR71B'.
+Generating RTLIL representation for module `\IDDRX2DQA'.
+Generating RTLIL representation for module `\ODDRX1F'.
+Generating RTLIL representation for module `\ODDRX2F'.
+Generating RTLIL representation for module `\ODDR71B'.
+Generating RTLIL representation for module `\OSHX2A'.
+Generating RTLIL representation for module `\TSHX2DQA'.
+Generating RTLIL representation for module `\TSHX2DQSA'.
+Generating RTLIL representation for module `\ODDRX2DQA'.
+Generating RTLIL representation for module `\ODDRX2DQSB'.
+Generating RTLIL representation for module `\EHXPLLL'.
+Generating RTLIL representation for module `\DTR'.
+Generating RTLIL representation for module `\OSCG'.
+Generating RTLIL representation for module `\EXTREFB'.
+Generating RTLIL representation for module `\JTAGG'.
+Generating RTLIL representation for module `\DCUA'.
+Successfully finished Verilog frontend.
+
+2. Executing Verilog-2005 frontend: /home/bluto/Desktop/dorsalGanglionProject/microcontroller/synth/drg5_rf_bram.sv
+Parsing SystemVerilog input from `/home/bluto/Desktop/dorsalGanglionProject/microcontroller/synth/drg5_rf_bram.sv' to AST representation.
+Generating RTLIL representation for module `\drg5_rf_bram'.
+Successfully finished Verilog frontend.
+
+3. Executing Verilog-2005 frontend: /home/bluto/Desktop/dorsalGanglionProject/microcontroller/synth/drg5_rf_map.sv
+Parsing SystemVerilog input from `/home/bluto/Desktop/dorsalGanglionProject/microcontroller/synth/drg5_rf_map.sv' to AST representation.
+Generating RTLIL representation for module `\drg5_rf_map'.
+Successfully finished Verilog frontend.
+
+4. Executing Verilog-2005 frontend: /home/bluto/Desktop/dorsalGanglionProject/microcontroller/synth/drg5_rf_pll.v
+Parsing SystemVerilog input from `/home/bluto/Desktop/dorsalGanglionProject/microcontroller/synth/drg5_rf_pll.v' to AST representation.
+Generating RTLIL representation for module `\drg5_rf_pll'.
+Successfully finished Verilog frontend.
+Parameter \CANDIDATE = 2
+
+5. Executing AST frontend in derive mode using pre-parsed AST for module `\drg5_rf_map'.
+Parameter \CANDIDATE = 2
+Generating RTLIL representation for module `$paramod\drg5_rf_map\CANDIDATE=32'00000000000000000000000000000010'.
+
+6. Executing HIERARCHY pass (managing design hierarchy).
+
+6.1. Analyzing design hierarchy..
+Top module:  \drg5_rf_map
+Used module:     \drg5_rf_pll
+Used module:     \drg5_rf_bram
+
+6.2. Analyzing design hierarchy..
+Top module:  \drg5_rf_map
+Used module:     \drg5_rf_pll
+Used module:     \drg5_rf_bram
+Removed 0 unused modules.
+
+7. Executing PROC pass (convert processes to netlists).
+
+7.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+7.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Marked 2 switch rules as full_case in process $proc$/home/bluto/Desktop/dorsalGanglionProject/microcontroller/synth/drg5_rf_map.sv:55$71 in module drg5_rf_map.
+Marked 3 switch rules as full_case in process $proc$/home/bluto/Desktop/dorsalGanglionProject/microcontroller/synth/drg5_rf_bram.sv:14$8 in module drg5_rf_bram.
+Removed a total of 0 dead cases.
+
+7.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 2 redundant assignments.
+Promoted 12 assignments to connections.
+
+7.4. Executing PROC_INIT pass (extract init attributes).
+Found init rule in `\drg5_rf_map.$proc$/home/bluto/Desktop/dorsalGanglionProject/microcontroller/synth/drg5_rf_map.sv:9$80'.
+  Set init value: \state_q = 49'0000000000000000000000000000000000000000000000001
+Found init rule in `\drg5_rf_map.$proc$/home/bluto/Desktop/dorsalGanglionProject/microcontroller/synth/drg5_rf_map.sv:12$81'.
+  Set init value: \checksum_q = 0
+
+7.5. Executing PROC_ARST pass (detect async resets in processes).
+
+7.6. Executing PROC_ROM pass (convert switches to ROMs).
+Converted 0 switches.
+<suppressed ~5 debug messages>
+
+7.7. Executing PROC_MUX pass (convert decision trees to multiplexers).
+Creating decoders for process `\drg5_rf_map.$proc$/home/bluto/Desktop/dorsalGanglionProject/microcontroller/synth/drg5_rf_map.sv:55$71'.
+     1/2: $0\checksum_q[31:0]
+     2/2: $0\state_q[48:0]
+Creating decoders for process `\drg5_rf_map.$proc$/home/bluto/Desktop/dorsalGanglionProject/microcontroller/synth/drg5_rf_map.sv:9$80'.
+Creating decoders for process `\drg5_rf_map.$proc$/home/bluto/Desktop/dorsalGanglionProject/microcontroller/synth/drg5_rf_map.sv:12$81'.
+Creating decoders for process `\drg5_rf_bram.$proc$/home/bluto/Desktop/dorsalGanglionProject/microcontroller/synth/drg5_rf_bram.sv:14$8'.
+     1/7: $1$memwr$\words$/home/bluto/Desktop/dorsalGanglionProject/microcontroller/synth/drg5_rf_bram.sv:20$2_EN[31:0]$27
+     2/7: $1$memwr$\words$/home/bluto/Desktop/dorsalGanglionProject/microcontroller/synth/drg5_rf_bram.sv:20$2_DATA[31:0]$26
+     3/7: $1$memwr$\words$/home/bluto/Desktop/dorsalGanglionProject/microcontroller/synth/drg5_rf_bram.sv:20$2_ADDR[4:0]$25
+     4/7: $2$lookahead\defined_q$7[31:0]$17
+     5/7: $2$bitselwrite$pos$/home/bluto/Desktop/dorsalGanglionProject/microcontroller/synth/drg5_rf_bram.sv:18$1[4:0]$16
+     6/7: $1$lookahead\defined_q$7[31:0]$15
+     7/7: $1$bitselwrite$pos$/home/bluto/Desktop/dorsalGanglionProject/microcontroller/synth/drg5_rf_bram.sv:18$1[4:0]$14
+
+7.8. Executing PROC_DLATCH pass (convert process syncs to latches).
+
+7.9. Executing PROC_DFF pass (convert process syncs to FFs).
+Creating register for signal `\drg5_rf_map.\state_q' using process `\drg5_rf_map.$proc$/home/bluto/Desktop/dorsalGanglionProject/microcontroller/synth/drg5_rf_map.sv:55$71'.
+  created $dff cell `$procdff$115' with positive edge clock.
+Creating register for signal `\drg5_rf_map.\checksum_q' using process `\drg5_rf_map.$proc$/home/bluto/Desktop/dorsalGanglionProject/microcontroller/synth/drg5_rf_map.sv:55$71'.
+  created $dff cell `$procdff$116' with positive edge clock.
+Creating register for signal `\drg5_rf_bram.\read1_data_o' using process `\drg5_rf_bram.$proc$/home/bluto/Desktop/dorsalGanglionProject/microcontroller/synth/drg5_rf_bram.sv:14$8'.
+  created $dff cell `$procdff$117' with positive edge clock.
+Creating register for signal `\drg5_rf_bram.\read2_data_o' using process `\drg5_rf_bram.$proc$/home/bluto/Desktop/dorsalGanglionProject/microcontroller/synth/drg5_rf_bram.sv:14$8'.
+  created $dff cell `$procdff$118' with positive edge clock.
+Creating register for signal `\drg5_rf_bram.\read1_defined_o' using process `\drg5_rf_bram.$proc$/home/bluto/Desktop/dorsalGanglionProject/microcontroller/synth/drg5_rf_bram.sv:14$8'.
+  created $dff cell `$procdff$119' with positive edge clock.
+Creating register for signal `\drg5_rf_bram.\read2_defined_o' using process `\drg5_rf_bram.$proc$/home/bluto/Desktop/dorsalGanglionProject/microcontroller/synth/drg5_rf_bram.sv:14$8'.
+  created $dff cell `$procdff$120' with positive edge clock.
+Creating register for signal `\drg5_rf_bram.\defined_q' using process `\drg5_rf_bram.$proc$/home/bluto/Desktop/dorsalGanglionProject/microcontroller/synth/drg5_rf_bram.sv:14$8'.
+  created $dff cell `$procdff$121' with positive edge clock.
+Creating register for signal `\drg5_rf_bram.$bitselwrite$pos$/home/bluto/Desktop/dorsalGanglionProject/microcontroller/synth/drg5_rf_bram.sv:18$1' using process `\drg5_rf_bram.$proc$/home/bluto/Desktop/dorsalGanglionProject/microcontroller/synth/drg5_rf_bram.sv:14$8'.
+  created $dff cell `$procdff$122' with positive edge clock.
+Creating register for signal `\drg5_rf_bram.$memwr$\words$/home/bluto/Desktop/dorsalGanglionProject/microcontroller/synth/drg5_rf_bram.sv:20$2_ADDR' using process `\drg5_rf_bram.$proc$/home/bluto/Desktop/dorsalGanglionProject/microcontroller/synth/drg5_rf_bram.sv:14$8'.
+  created $dff cell `$procdff$123' with positive edge clock.
+Creating register for signal `\drg5_rf_bram.$memwr$\words$/home/bluto/Desktop/dorsalGanglionProject/microcontroller/synth/drg5_rf_bram.sv:20$2_DATA' using process `\drg5_rf_bram.$proc$/home/bluto/Desktop/dorsalGanglionProject/microcontroller/synth/drg5_rf_bram.sv:14$8'.
+  created $dff cell `$procdff$124' with positive edge clock.
+Creating register for signal `\drg5_rf_bram.$memwr$\words$/home/bluto/Desktop/dorsalGanglionProject/microcontroller/synth/drg5_rf_bram.sv:20$2_EN' using process `\drg5_rf_bram.$proc$/home/bluto/Desktop/dorsalGanglionProject/microcontroller/synth/drg5_rf_bram.sv:14$8'.
+  created $dff cell `$procdff$125' with positive edge clock.
+Creating register for signal `\drg5_rf_bram.$lookahead\defined_q$7' using process `\drg5_rf_bram.$proc$/home/bluto/Desktop/dorsalGanglionProject/microcontroller/synth/drg5_rf_bram.sv:14$8'.
+  created $dff cell `$procdff$126' with positive edge clock.
+
+7.10. Executing PROC_MEMWR pass (convert process memory writes to cells).
+
+7.11. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Found and cleaned up 2 empty switches in `\drg5_rf_map.$proc$/home/bluto/Desktop/dorsalGanglionProject/microcontroller/synth/drg5_rf_map.sv:55$71'.
+Removing empty process `drg5_rf_map.$proc$/home/bluto/Desktop/dorsalGanglionProject/microcontroller/synth/drg5_rf_map.sv:55$71'.
+Removing empty process `drg5_rf_map.$proc$/home/bluto/Desktop/dorsalGanglionProject/microcontroller/synth/drg5_rf_map.sv:9$80'.
+Removing empty process `drg5_rf_map.$proc$/home/bluto/Desktop/dorsalGanglionProject/microcontroller/synth/drg5_rf_map.sv:12$81'.
+Found and cleaned up 3 empty switches in `\drg5_rf_bram.$proc$/home/bluto/Desktop/dorsalGanglionProject/microcontroller/synth/drg5_rf_bram.sv:14$8'.
+Removing empty process `drg5_rf_bram.$proc$/home/bluto/Desktop/dorsalGanglionProject/microcontroller/synth/drg5_rf_bram.sv:14$8'.
+Cleaned up 5 empty switches.
+
+7.12. Executing OPT_EXPR pass (perform const folding).
+Optimizing module drg5_rf_pll.
+Optimizing module drg5_rf_map.
+<suppressed ~1 debug messages>
+Optimizing module drg5_rf_bram.
+<suppressed ~5 debug messages>
+
+8. Executing CHECK pass (checking for obvious problems).
+Checking module drg5_rf_pll...
+Checking module drg5_rf_map...
+Checking module drg5_rf_bram...
+Found and reported 0 problems.
+
+9. Executing SYNTH_LATTICE pass.
+
+9.1. Executing Verilog-2005 frontend: /tmp/drg5-control-tools/oss-cad-suite/lib/../share/yosys/lattice/cells_sim_ecp5.v
+Parsing Verilog input from `/tmp/drg5-control-tools/oss-cad-suite/lib/../share/yosys/lattice/cells_sim_ecp5.v' to AST representation.
+Generating RTLIL representation for module `\LUT4'.
+Generating RTLIL representation for module `\$__ABC9_LUT5'.
+Generating RTLIL representation for module `\$__ABC9_LUT6'.
+Generating RTLIL representation for module `\$__ABC9_LUT7'.
+Generating RTLIL representation for module `\L6MUX21'.
+Generating RTLIL representation for module `\TRELLIS_RAM16X2'.
+Generating RTLIL representation for module `\PFUMX'.
+Generating RTLIL representation for module `\TRELLIS_DPR16X4'.
+Generating RTLIL representation for module `\DPR16X4C'.
+Generating RTLIL representation for module `\LUT2'.
+Generating RTLIL representation for module `\TRELLIS_FF'.
+Generating RTLIL representation for module `\TRELLIS_IO'.
+Generating RTLIL representation for module `\INV'.
+Generating RTLIL representation for module `\TRELLIS_COMB'.
+Generating RTLIL representation for module `\VLO'.
+Generating RTLIL representation for module `\VHI'.
+Generating RTLIL representation for module `\FD1P3AX'.
+Generating RTLIL representation for module `\FD1P3AY'.
+Generating RTLIL representation for module `\FD1P3BX'.
+Generating RTLIL representation for module `\FD1P3DX'.
+Generating RTLIL representation for module `\FD1P3IX'.
+Generating RTLIL representation for module `\FD1P3JX'.
+Generating RTLIL representation for module `\FD1S3AX'.
+Generating RTLIL representation for module `\FD1S3AY'.
+Generating RTLIL representation for module `\FD1S3BX'.
+Generating RTLIL representation for module `\FD1S3DX'.
+Generating RTLIL representation for module `\FD1S3IX'.
+Generating RTLIL representation for module `\FD1S3JX'.
+Generating RTLIL representation for module `\IFS1P3BX'.
+Generating RTLIL representation for module `\IFS1P3DX'.
+Generating RTLIL representation for module `\IFS1P3IX'.
+Generating RTLIL representation for module `\IFS1P3JX'.
+Generating RTLIL representation for module `\OFS1P3BX'.
+Generating RTLIL representation for module `\OFS1P3DX'.
+Generating RTLIL representation for module `\OFS1P3IX'.
+Generating RTLIL representation for module `\OFS1P3JX'.
+Generating RTLIL representation for module `\IB'.
+Generating RTLIL representation for module `\IBPU'.
+Generating RTLIL representation for module `\IBPD'.
+Generating RTLIL representation for module `\OB'.
+Generating RTLIL representation for module `\OBZ'.
+Generating RTLIL representation for module `\OBZPU'.
+Generating RTLIL representation for module `\OBZPD'.
+Generating RTLIL representation for module `\OBCO'.
+Generating RTLIL representation for module `\BB'.
+Generating RTLIL representation for module `\BBPU'.
+Generating RTLIL representation for module `\BBPD'.
+Generating RTLIL representation for module `\ILVDS'.
+Generating RTLIL representation for module `\OLVDS'.
+Generating RTLIL representation for module `\CCU2C'.
+Generating RTLIL representation for module `\DP16KD'.
+Replacing existing blackbox module `\FD1P3AX' at /tmp/drg5-control-tools/oss-cad-suite/lib/../share/yosys/lattice/cells_ff.vh:2.1-2.261.
+Generating RTLIL representation for module `\FD1P3AX'.
+Replacing existing blackbox module `\FD1P3AY' at /tmp/drg5-control-tools/oss-cad-suite/lib/../share/yosys/lattice/cells_ff.vh:3.1-3.261.
+Generating RTLIL representation for module `\FD1P3AY'.
+Replacing existing blackbox module `\FD1P3BX' at /tmp/drg5-control-tools/oss-cad-suite/lib/../share/yosys/lattice/cells_ff.vh:4.1-4.261.
+Generating RTLIL representation for module `\FD1P3BX'.
+Replacing existing blackbox module `\FD1P3DX' at /tmp/drg5-control-tools/oss-cad-suite/lib/../share/yosys/lattice/cells_ff.vh:5.1-5.261.
+Generating RTLIL representation for module `\FD1P3DX'.
+Replacing existing blackbox module `\FD1P3IX' at /tmp/drg5-control-tools/oss-cad-suite/lib/../share/yosys/lattice/cells_ff.vh:6.1-6.261.
+Generating RTLIL representation for module `\FD1P3IX'.
+Replacing existing blackbox module `\FD1P3JX' at /tmp/drg5-control-tools/oss-cad-suite/lib/../share/yosys/lattice/cells_ff.vh:7.1-7.261.
+Generating RTLIL representation for module `\FD1P3JX'.
+Replacing existing blackbox module `\FD1S3AX' at /tmp/drg5-control-tools/oss-cad-suite/lib/../share/yosys/lattice/cells_ff.vh:8.1-8.261.
+Generating RTLIL representation for module `\FD1S3AX'.
+Replacing existing blackbox module `\FD1S3AY' at /tmp/drg5-control-tools/oss-cad-suite/lib/../share/yosys/lattice/cells_ff.vh:9.1-9.261.
+Generating RTLIL representation for module `\FD1S3AY'.
+Replacing existing blackbox module `\FD1S3BX' at /tmp/drg5-control-tools/oss-cad-suite/lib/../share/yosys/lattice/cells_ff.vh:10.1-10.261.
+Generating RTLIL representation for module `\FD1S3BX'.
+Replacing existing blackbox module `\FD1S3DX' at /tmp/drg5-control-tools/oss-cad-suite/lib/../share/yosys/lattice/cells_ff.vh:11.1-11.261.
+Generating RTLIL representation for module `\FD1S3DX'.
+Replacing existing blackbox module `\FD1S3IX' at /tmp/drg5-control-tools/oss-cad-suite/lib/../share/yosys/lattice/cells_ff.vh:12.1-12.261.
+Generating RTLIL representation for module `\FD1S3IX'.
+Replacing existing blackbox module `\FD1S3JX' at /tmp/drg5-control-tools/oss-cad-suite/lib/../share/yosys/lattice/cells_ff.vh:13.1-13.261.
+Generating RTLIL representation for module `\FD1S3JX'.
+Replacing existing blackbox module `\IFS1P3BX' at /tmp/drg5-control-tools/oss-cad-suite/lib/../share/yosys/lattice/cells_ff.vh:26.1-26.301.
+Generating RTLIL representation for module `\IFS1P3BX'.
+Replacing existing blackbox module `\IFS1P3DX' at /tmp/drg5-control-tools/oss-cad-suite/lib/../share/yosys/lattice/cells_ff.vh:27.1-27.301.
+Generating RTLIL representation for module `\IFS1P3DX'.
+Replacing existing blackbox module `\IFS1P3IX' at /tmp/drg5-control-tools/oss-cad-suite/lib/../share/yosys/lattice/cells_ff.vh:28.1-28.301.
+Generating RTLIL representation for module `\IFS1P3IX'.
+Replacing existing blackbox module `\IFS1P3JX' at /tmp/drg5-control-tools/oss-cad-suite/lib/../share/yosys/lattice/cells_ff.vh:29.1-29.301.
+Generating RTLIL representation for module `\IFS1P3JX'.
+Replacing existing blackbox module `\OFS1P3BX' at /tmp/drg5-control-tools/oss-cad-suite/lib/../share/yosys/lattice/cells_ff.vh:31.1-31.302.
+Generating RTLIL representation for module `\OFS1P3BX'.
+Replacing existing blackbox module `\OFS1P3DX' at /tmp/drg5-control-tools/oss-cad-suite/lib/../share/yosys/lattice/cells_ff.vh:32.1-32.302.
+Generating RTLIL representation for module `\OFS1P3DX'.
+Replacing existing blackbox module `\OFS1P3IX' at /tmp/drg5-control-tools/oss-cad-suite/lib/../share/yosys/lattice/cells_ff.vh:33.1-33.302.
+Generating RTLIL representation for module `\OFS1P3IX'.
+Replacing existing blackbox module `\OFS1P3JX' at /tmp/drg5-control-tools/oss-cad-suite/lib/../share/yosys/lattice/cells_ff.vh:34.1-34.302.
+Generating RTLIL representation for module `\OFS1P3JX'.
+Replacing existing blackbox module `\IB' at /tmp/drg5-control-tools/oss-cad-suite/lib/../share/yosys/lattice/cells_io.vh:2.1-2.157.
+Generating RTLIL representation for module `\IB'.
+Replacing existing blackbox module `\IBPU' at /tmp/drg5-control-tools/oss-cad-suite/lib/../share/yosys/lattice/cells_io.vh:3.1-3.157.
+Generating RTLIL representation for module `\IBPU'.
+Replacing existing blackbox module `\IBPD' at /tmp/drg5-control-tools/oss-cad-suite/lib/../share/yosys/lattice/cells_io.vh:4.1-4.157.
+Generating RTLIL representation for module `\IBPD'.
+Replacing existing blackbox module `\OB' at /tmp/drg5-control-tools/oss-cad-suite/lib/../share/yosys/lattice/cells_io.vh:5.1-5.157.
+Generating RTLIL representation for module `\OB'.
+Replacing existing blackbox module `\OBZ' at /tmp/drg5-control-tools/oss-cad-suite/lib/../share/yosys/lattice/cells_io.vh:6.1-6.164.
+Generating RTLIL representation for module `\OBZ'.
+Replacing existing blackbox module `\OBZPU' at /tmp/drg5-control-tools/oss-cad-suite/lib/../share/yosys/lattice/cells_io.vh:7.1-7.164.
+Generating RTLIL representation for module `\OBZPU'.
+Replacing existing blackbox module `\OBZPD' at /tmp/drg5-control-tools/oss-cad-suite/lib/../share/yosys/lattice/cells_io.vh:8.1-8.164.
+Generating RTLIL representation for module `\OBZPD'.
+Replacing existing blackbox module `\OBCO' at /tmp/drg5-control-tools/oss-cad-suite/lib/../share/yosys/lattice/cells_io.vh:9.1-9.90.
+Generating RTLIL representation for module `\OBCO'.
+Replacing existing blackbox module `\BB' at /tmp/drg5-control-tools/oss-cad-suite/lib/../share/yosys/lattice/cells_io.vh:10.1-10.179.
+Generating RTLIL representation for module `\BB'.
+Replacing existing blackbox module `\BBPU' at /tmp/drg5-control-tools/oss-cad-suite/lib/../share/yosys/lattice/cells_io.vh:11.1-11.179.
+Generating RTLIL representation for module `\BBPU'.
+Replacing existing blackbox module `\BBPD' at /tmp/drg5-control-tools/oss-cad-suite/lib/../share/yosys/lattice/cells_io.vh:12.1-12.179.
+Generating RTLIL representation for module `\BBPD'.
+Replacing existing blackbox module `\ILVDS' at /tmp/drg5-control-tools/oss-cad-suite/lib/../share/yosys/lattice/cells_io.vh:13.1-13.139.
+Generating RTLIL representation for module `\ILVDS'.
+Replacing existing blackbox module `\OLVDS' at /tmp/drg5-control-tools/oss-cad-suite/lib/../share/yosys/lattice/cells_io.vh:14.1-14.146.
+Generating RTLIL representation for module `\OLVDS'.
+Successfully finished Verilog frontend.
+
+9.2. Executing Verilog-2005 frontend: /tmp/drg5-control-tools/oss-cad-suite/lib/../share/yosys/lattice/cells_bb_ecp5.v
+Parsing Verilog input from `/tmp/drg5-control-tools/oss-cad-suite/lib/../share/yosys/lattice/cells_bb_ecp5.v' to AST representation.
+Replacing existing blackbox module `\GSR' at /tmp/drg5-control-tools/oss-cad-suite/lib/../share/yosys/lattice/cells_bb_ecp5.v:4.1-6.10.
+Generating RTLIL representation for module `\GSR'.
+Replacing existing blackbox module `\PUR' at /tmp/drg5-control-tools/oss-cad-suite/lib/../share/yosys/lattice/cells_bb_ecp5.v:9.1-12.10.
+Generating RTLIL representation for module `\PUR'.
+Replacing existing blackbox module `\SGSR' at /tmp/drg5-control-tools/oss-cad-suite/lib/../share/yosys/lattice/cells_bb_ecp5.v:15.1-18.10.
+Generating RTLIL representation for module `\SGSR'.
+Replacing existing blackbox module `\PDPW16KD' at /tmp/drg5-control-tools/oss-cad-suite/lib/../share/yosys/lattice/cells_bb_ecp5.v:21.1-208.10.
+Generating RTLIL representation for module `\PDPW16KD'.
+Replacing existing blackbox module `\MULT18X18D' at /tmp/drg5-control-tools/oss-cad-suite/lib/../share/yosys/lattice/cells_bb_ecp5.v:211.1-470.10.
+Generating RTLIL representation for module `\MULT18X18D'.
+Replacing existing blackbox module `\ALU54B' at /tmp/drg5-control-tools/oss-cad-suite/lib/../share/yosys/lattice/cells_bb_ecp5.v:473.1-970.10.
+Generating RTLIL representation for module `\ALU54B'.
+Replacing existing blackbox module `\CLKDIVF' at /tmp/drg5-control-tools/oss-cad-suite/lib/../share/yosys/lattice/cells_bb_ecp5.v:973.1-980.10.
+Generating RTLIL representation for module `\CLKDIVF'.
+Replacing existing blackbox module `\PCSCLKDIV' at /tmp/drg5-control-tools/oss-cad-suite/lib/../share/yosys/lattice/cells_bb_ecp5.v:983.1-992.10.
+Generating RTLIL representation for module `\PCSCLKDIV'.
+Replacing existing blackbox module `\DCSC' at /tmp/drg5-control-tools/oss-cad-suite/lib/../share/yosys/lattice/cells_bb_ecp5.v:995.1-1003.10.
+Generating RTLIL representation for module `\DCSC'.
+Replacing existing blackbox module `\DCCA' at /tmp/drg5-control-tools/oss-cad-suite/lib/../share/yosys/lattice/cells_bb_ecp5.v:1006.1-1010.10.
+Generating RTLIL representation for module `\DCCA'.
+Replacing existing blackbox module `\ECLKSYNCB' at /tmp/drg5-control-tools/oss-cad-suite/lib/../share/yosys/lattice/cells_bb_ecp5.v:1013.1-1017.10.
+Generating RTLIL representation for module `\ECLKSYNCB'.
+Replacing existing blackbox module `\ECLKBRIDGECS' at /tmp/drg5-control-tools/oss-cad-suite/lib/../share/yosys/lattice/cells_bb_ecp5.v:1020.1-1025.10.
+Generating RTLIL representation for module `\ECLKBRIDGECS'.
+Replacing existing blackbox module `\DELAYF' at /tmp/drg5-control-tools/oss-cad-suite/lib/../share/yosys/lattice/cells_bb_ecp5.v:1028.1-1037.10.
+Generating RTLIL representation for module `\DELAYF'.
+Replacing existing blackbox module `\DELAYG' at /tmp/drg5-control-tools/oss-cad-suite/lib/../share/yosys/lattice/cells_bb_ecp5.v:1040.1-1045.10.
+Generating RTLIL representation for module `\DELAYG'.
+Replacing existing blackbox module `\USRMCLK' at /tmp/drg5-control-tools/oss-cad-suite/lib/../share/yosys/lattice/cells_bb_ecp5.v:1048.1-1051.10.
+Generating RTLIL representation for module `\USRMCLK'.
+Replacing existing blackbox module `\DQSBUFM' at /tmp/drg5-control-tools/oss-cad-suite/lib/../share/yosys/lattice/cells_bb_ecp5.v:1054.1-1098.10.
+Generating RTLIL representation for module `\DQSBUFM'.
+Replacing existing blackbox module `\DDRDLLA' at /tmp/drg5-control-tools/oss-cad-suite/lib/../share/yosys/lattice/cells_bb_ecp5.v:1101.1-1118.10.
+Generating RTLIL representation for module `\DDRDLLA'.
+Replacing existing blackbox module `\DLLDELD' at /tmp/drg5-control-tools/oss-cad-suite/lib/../share/yosys/lattice/cells_bb_ecp5.v:1121.1-1129.10.
+Generating RTLIL representation for module `\DLLDELD'.
+Replacing existing blackbox module `\IDDRX1F' at /tmp/drg5-control-tools/oss-cad-suite/lib/../share/yosys/lattice/cells_bb_ecp5.v:1132.1-1139.10.
+Generating RTLIL representation for module `\IDDRX1F'.
+Replacing existing blackbox module `\IDDRX2F' at /tmp/drg5-control-tools/oss-cad-suite/lib/../share/yosys/lattice/cells_bb_ecp5.v:1142.1-1153.10.
+Generating RTLIL representation for module `\IDDRX2F'.
+Replacing existing blackbox module `\IDDR71B' at /tmp/drg5-control-tools/oss-cad-suite/lib/../share/yosys/lattice/cells_bb_ecp5.v:1156.1-1170.10.
+Generating RTLIL representation for module `\IDDR71B'.
+Replacing existing blackbox module `\IDDRX2DQA' at /tmp/drg5-control-tools/oss-cad-suite/lib/../share/yosys/lattice/cells_bb_ecp5.v:1173.1-1191.10.
+Generating RTLIL representation for module `\IDDRX2DQA'.
+Replacing existing blackbox module `\ODDRX1F' at /tmp/drg5-control-tools/oss-cad-suite/lib/../share/yosys/lattice/cells_bb_ecp5.v:1194.1-1201.10.
+Generating RTLIL representation for module `\ODDRX1F'.
+Replacing existing blackbox module `\ODDRX2F' at /tmp/drg5-control-tools/oss-cad-suite/lib/../share/yosys/lattice/cells_bb_ecp5.v:1204.1-1214.10.
+Generating RTLIL representation for module `\ODDRX2F'.
+Replacing existing blackbox module `\ODDR71B' at /tmp/drg5-control-tools/oss-cad-suite/lib/../share/yosys/lattice/cells_bb_ecp5.v:1217.1-1230.10.
+Generating RTLIL representation for module `\ODDR71B'.
+Replacing existing blackbox module `\OSHX2A' at /tmp/drg5-control-tools/oss-cad-suite/lib/../share/yosys/lattice/cells_bb_ecp5.v:1233.1-1241.10.
+Generating RTLIL representation for module `\OSHX2A'.
+Replacing existing blackbox module `\TSHX2DQA' at /tmp/drg5-control-tools/oss-cad-suite/lib/../share/yosys/lattice/cells_bb_ecp5.v:1244.1-1254.10.
+Generating RTLIL representation for module `\TSHX2DQA'.
+Replacing existing blackbox module `\TSHX2DQSA' at /tmp/drg5-control-tools/oss-cad-suite/lib/../share/yosys/lattice/cells_bb_ecp5.v:1257.1-1267.10.
+Generating RTLIL representation for module `\TSHX2DQSA'.
+Replacing existing blackbox module `\ODDRX2DQA' at /tmp/drg5-control-tools/oss-cad-suite/lib/../share/yosys/lattice/cells_bb_ecp5.v:1270.1-1281.10.
+Generating RTLIL representation for module `\ODDRX2DQA'.
+Replacing existing blackbox module `\ODDRX2DQSB' at /tmp/drg5-control-tools/oss-cad-suite/lib/../share/yosys/lattice/cells_bb_ecp5.v:1284.1-1295.10.
+Generating RTLIL representation for module `\ODDRX2DQSB'.
+Replacing existing blackbox module `\EHXPLLL' at /tmp/drg5-control-tools/oss-cad-suite/lib/../share/yosys/lattice/cells_bb_ecp5.v:1298.1-1357.10.
+Generating RTLIL representation for module `\EHXPLLL'.
+Replacing existing blackbox module `\DTR' at /tmp/drg5-control-tools/oss-cad-suite/lib/../share/yosys/lattice/cells_bb_ecp5.v:1360.1-1371.10.
+Generating RTLIL representation for module `\DTR'.
+Replacing existing blackbox module `\OSCG' at /tmp/drg5-control-tools/oss-cad-suite/lib/../share/yosys/lattice/cells_bb_ecp5.v:1374.1-1377.10.
+Generating RTLIL representation for module `\OSCG'.
+Replacing existing blackbox module `\EXTREFB' at /tmp/drg5-control-tools/oss-cad-suite/lib/../share/yosys/lattice/cells_bb_ecp5.v:1380.1-1389.10.
+Generating RTLIL representation for module `\EXTREFB'.
+Replacing existing blackbox module `\JTAGG' at /tmp/drg5-control-tools/oss-cad-suite/lib/../share/yosys/lattice/cells_bb_ecp5.v:1392.1-1414.10.
+Generating RTLIL representation for module `\JTAGG'.
+Replacing existing blackbox module `\DCUA' at /tmp/drg5-control-tools/oss-cad-suite/lib/../share/yosys/lattice/cells_bb_ecp5.v:1417.1-1980.10.
+Generating RTLIL representation for module `\DCUA'.
+Successfully finished Verilog frontend.
+
+9.3. Executing HIERARCHY pass (managing design hierarchy).
+
+9.3.1. Analyzing design hierarchy..
+Top module:  \drg5_rf_map
+Used module:     \drg5_rf_pll
+Used module:     \drg5_rf_bram
+
+9.3.2. Analyzing design hierarchy..
+Top module:  \drg5_rf_map
+Used module:     \drg5_rf_pll
+Used module:     \drg5_rf_bram
+Removed 0 unused modules.
+
+9.4. Executing PROC pass (convert processes to netlists).
+
+9.4.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+9.4.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Removed a total of 0 dead cases.
+
+9.4.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 0 redundant assignments.
+Promoted 0 assignments to connections.
+
+9.4.4. Executing PROC_INIT pass (extract init attributes).
+
+9.4.5. Executing PROC_ARST pass (detect async resets in processes).
+
+9.4.6. Executing PROC_ROM pass (convert switches to ROMs).
+Converted 0 switches.
+
+9.4.7. Executing PROC_MUX pass (convert decision trees to multiplexers).
+
+9.4.8. Executing PROC_DLATCH pass (convert process syncs to latches).
+
+9.4.9. Executing PROC_DFF pass (convert process syncs to FFs).
+
+9.4.10. Executing PROC_MEMWR pass (convert process memory writes to cells).
+
+9.4.11. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+9.4.12. Executing OPT_EXPR pass (perform const folding).
+Optimizing module drg5_rf_pll.
+Optimizing module drg5_rf_map.
+Optimizing module drg5_rf_bram.
+
+9.5. Executing FLATTEN pass (flatten design).
+Deleting now unused module drg5_rf_pll.
+Deleting now unused module drg5_rf_bram.
+<suppressed ~2 debug messages>
+
+9.6. Executing TRIBUF pass.
+
+9.7. Executing DEMINOUT pass (demote inout ports to input or output).
+
+9.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module drg5_rf_map.
+
+9.9. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \drg5_rf_map..
+Removed 9 unused cells and 44 unused wires.
+<suppressed ~10 debug messages>
+
+9.10. Executing CHECK pass (checking for obvious problems).
+Checking module drg5_rf_map...
+Found and reported 0 problems.
+
+9.11. Executing OPT pass (performing simple optimizations).
+
+9.11.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module drg5_rf_map.
+
+9.11.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\drg5_rf_map'.
+Computing hashes of 67 cells of `\drg5_rf_map'.
+Finding duplicate cells in `\drg5_rf_map'.
+Computing hashes of 60 cells of `\drg5_rf_map'.
+Finding duplicate cells in `\drg5_rf_map'.
+Computing hashes of 57 cells of `\drg5_rf_map'.
+Finding duplicate cells in `\drg5_rf_map'.
+<suppressed ~30 debug messages>
+Removed a total of 10 cells.
+
+9.11.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \drg5_rf_map..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+    dead port 1/2 on $mux $flatten\genblk1.genblk1.bram_case.rf.$procmux$101.
+Removed 1 multiplexer ports.
+<suppressed ~24 debug messages>
+
+9.11.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \drg5_rf_map.
+    Consolidated identical input bits for $mux cell $flatten\genblk1.genblk1.bram_case.rf.$procmux$89:
+      Old ports: A=0, B=32'11111111111111111111111111111111, Y=$flatten\genblk1.genblk1.bram_case.rf.$0$memwr$\words$/home/bluto/Desktop/dorsalGanglionProject/microcontroller/synth/drg5_rf_bram.sv:20$2_EN[31:0]$12
+      New ports: A=1'0, B=1'1, Y=$flatten\genblk1.genblk1.bram_case.rf.$0$memwr$\words$/home/bluto/Desktop/dorsalGanglionProject/microcontroller/synth/drg5_rf_bram.sv:20$2_EN[31:0]$12 [0]
+      New connections: $flatten\genblk1.genblk1.bram_case.rf.$0$memwr$\words$/home/bluto/Desktop/dorsalGanglionProject/microcontroller/synth/drg5_rf_bram.sv:20$2_EN[31:0]$12 [31:1] = { $flatten\genblk1.genblk1.bram_case.rf.$0$memwr$\words$/home/bluto/Desktop/dorsalGanglionProject/microcontroller/synth/drg5_rf_bram.sv:20$2_EN[31:0]$12 [0] $flatten\genblk1.genblk1.bram_case.rf.$0$memwr$\words$/home/bluto/Desktop/dorsalGanglionProject/microcontroller/synth/drg5_rf_bram.sv:20$2_EN[31:0]$12 [0] $flatten\genblk1.genblk1.bram_case.rf.$0$memwr$\words$/home/bluto/Desktop/dorsalGanglionProject/microcontroller/synth/drg5_rf_bram.sv:20$2_EN[31:0]$12 [0] $flatten\genblk1.genblk1.bram_case.rf.$0$memwr$\words$/home/bluto/Desktop/dorsalGanglionProject/microcontroller/synth/drg5_rf_bram.sv:20$2_EN[31:0]$12 [0] $flatten\genblk1.genblk1.bram_case.rf.$0$memwr$\words$/home/bluto/Desktop/dorsalGanglionProject/microcontroller/synth/drg5_rf_bram.sv:20$2_EN[31:0]$12 [0] $flatten\genblk1.genblk1.bram_case.rf.$0$memwr$\words$/home/bluto/Desktop/dorsalGanglionProject/microcontroller/synth/drg5_rf_bram.sv:20$2_EN[31:0]$12 [0] $flatten\genblk1.genblk1.bram_case.rf.$0$memwr$\words$/home/bluto/Desktop/dorsalGanglionProject/microcontroller/synth/drg5_rf_bram.sv:20$2_EN[31:0]$12 [0] $flatten\genblk1.genblk1.bram_case.rf.$0$memwr$\words$/home/bluto/Desktop/dorsalGanglionProject/microcontroller/synth/drg5_rf_bram.sv:20$2_EN[31:0]$12 [0] $flatten\genblk1.genblk1.bram_case.rf.$0$memwr$\words$/home/bluto/Desktop/dorsalGanglionProject/microcontroller/synth/drg5_rf_bram.sv:20$2_EN[31:0]$12 [0] $flatten\genblk1.genblk1.bram_case.rf.$0$memwr$\words$/home/bluto/Desktop/dorsalGanglionProject/microcontroller/synth/drg5_rf_bram.sv:20$2_EN[31:0]$12 [0] $flatten\genblk1.genblk1.bram_case.rf.$0$memwr$\words$/home/bluto/Desktop/dorsalGanglionProject/microcontroller/synth/drg5_rf_bram.sv:20$2_EN[31:0]$12 [0] $flatten\genblk1.genblk1.bram_case.rf.$0$memwr$\words$/home/bluto/Desktop/dorsalGanglionProject/microcontroller/synth/drg5_rf_bram.sv:20$2_EN[31:0]$12 [0] $flatten\genblk1.genblk1.bram_case.rf.$0$memwr$\words$/home/bluto/Desktop/dorsalGanglionProject/microcontroller/synth/drg5_rf_bram.sv:20$2_EN[31:0]$12 [0] $flatten\genblk1.genblk1.bram_case.rf.$0$memwr$\words$/home/bluto/Desktop/dorsalGanglionProject/microcontroller/synth/drg5_rf_bram.sv:20$2_EN[31:0]$12 [0] $flatten\genblk1.genblk1.bram_case.rf.$0$memwr$\words$/home/bluto/Desktop/dorsalGanglionProject/microcontroller/synth/drg5_rf_bram.sv:20$2_EN[31:0]$12 [0] $flatten\genblk1.genblk1.bram_case.rf.$0$memwr$\words$/home/bluto/Desktop/dorsalGanglionProject/microcontroller/synth/drg5_rf_bram.sv:20$2_EN[31:0]$12 [0] $flatten\genblk1.genblk1.bram_case.rf.$0$memwr$\words$/home/bluto/Desktop/dorsalGanglionProject/microcontroller/synth/drg5_rf_bram.sv:20$2_EN[31:0]$12 [0] $flatten\genblk1.genblk1.bram_case.rf.$0$memwr$\words$/home/bluto/Desktop/dorsalGanglionProject/microcontroller/synth/drg5_rf_bram.sv:20$2_EN[31:0]$12 [0] $flatten\genblk1.genblk1.bram_case.rf.$0$memwr$\words$/home/bluto/Desktop/dorsalGanglionProject/microcontroller/synth/drg5_rf_bram.sv:20$2_EN[31:0]$12 [0] $flatten\genblk1.genblk1.bram_case.rf.$0$memwr$\words$/home/bluto/Desktop/dorsalGanglionProject/microcontroller/synth/drg5_rf_bram.sv:20$2_EN[31:0]$12 [0] $flatten\genblk1.genblk1.bram_case.rf.$0$memwr$\words$/home/bluto/Desktop/dorsalGanglionProject/microcontroller/synth/drg5_rf_bram.sv:20$2_EN[31:0]$12 [0] $flatten\genblk1.genblk1.bram_case.rf.$0$memwr$\words$/home/bluto/Desktop/dorsalGanglionProject/microcontroller/synth/drg5_rf_bram.sv:20$2_EN[31:0]$12 [0] $flatten\genblk1.genblk1.bram_case.rf.$0$memwr$\words$/home/bluto/Desktop/dorsalGanglionProject/microcontroller/synth/drg5_rf_bram.sv:20$2_EN[31:0]$12 [0] $flatten\genblk1.genblk1.bram_case.rf.$0$memwr$\words$/home/bluto/Desktop/dorsalGanglionProject/microcontroller/synth/drg5_rf_bram.sv:20$2_EN[31:0]$12 [0] $flatten\genblk1.genblk1.bram_case.rf.$0$memwr$\words$/home/bluto/Desktop/dorsalGanglionProject/microcontroller/synth/drg5_rf_bram.sv:20$2_EN[31:0]$12 [0] $flatten\genblk1.genblk1.bram_case.rf.$0$memwr$\words$/home/bluto/Desktop/dorsalGanglionProject/microcontroller/synth/drg5_rf_bram.sv:20$2_EN[31:0]$12 [0] $flatten\genblk1.genblk1.bram_case.rf.$0$memwr$\words$/home/bluto/Desktop/dorsalGanglionProject/microcontroller/synth/drg5_rf_bram.sv:20$2_EN[31:0]$12 [0] $flatten\genblk1.genblk1.bram_case.rf.$0$memwr$\words$/home/bluto/Desktop/dorsalGanglionProject/microcontroller/synth/drg5_rf_bram.sv:20$2_EN[31:0]$12 [0] $flatten\genblk1.genblk1.bram_case.rf.$0$memwr$\words$/home/bluto/Desktop/dorsalGanglionProject/microcontroller/synth/drg5_rf_bram.sv:20$2_EN[31:0]$12 [0] $flatten\genblk1.genblk1.bram_case.rf.$0$memwr$\words$/home/bluto/Desktop/dorsalGanglionProject/microcontroller/synth/drg5_rf_bram.sv:20$2_EN[31:0]$12 [0] $flatten\genblk1.genblk1.bram_case.rf.$0$memwr$\words$/home/bluto/Desktop/dorsalGanglionProject/microcontroller/synth/drg5_rf_bram.sv:20$2_EN[31:0]$12 [0] }
+  Optimizing cells in module \drg5_rf_map.
+Performed a total of 1 changes.
+
+9.11.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\drg5_rf_map'.
+Computing hashes of 56 cells of `\drg5_rf_map'.
+Finding duplicate cells in `\drg5_rf_map'.
+Removed a total of 0 cells.
+
+9.11.6. Executing OPT_DFF pass (perform DFF optimizations).
+
+9.11.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \drg5_rf_map..
+Removed 0 unused cells and 11 unused wires.
+<suppressed ~1 debug messages>
+
+9.11.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module drg5_rf_map.
+
+9.11.9. Rerunning OPT passes. (Maybe there is more to do..)
+
+9.11.10. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \drg5_rf_map..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~23 debug messages>
+
+9.11.11. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \drg5_rf_map.
+Performed a total of 0 changes.
+
+9.11.12. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\drg5_rf_map'.
+Computing hashes of 56 cells of `\drg5_rf_map'.
+Finding duplicate cells in `\drg5_rf_map'.
+Removed a total of 0 cells.
+
+9.11.13. Executing OPT_DFF pass (perform DFF optimizations).
+
+9.11.14. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \drg5_rf_map..
+
+9.11.15. Executing OPT_EXPR pass (perform const folding).
+Optimizing module drg5_rf_map.
+
+9.11.16. Finished fast OPT passes. (There is nothing left to do.)
+
+9.12. Executing FSM pass (extract and optimize FSM).
+
+9.12.1. Executing FSM_DETECT pass (finding FSMs in design).
+
+9.12.2. Executing FSM_EXTRACT pass (extracting FSM from design).
+
+9.12.3. Executing FSM_OPT pass (simple optimizations of FSMs).
+
+9.12.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \drg5_rf_map..
+
+9.12.5. Executing FSM_OPT pass (simple optimizations of FSMs).
+
+9.12.6. Executing FSM_RECODE pass (re-assigning FSM state encoding).
+
+9.12.7. Executing FSM_INFO pass (dumping all available information on FSM cells).
+
+9.12.8. Executing FSM_MAP pass (mapping FSMs to basic logic).
+
+9.13. Executing OPT pass (performing simple optimizations).
+
+9.13.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module drg5_rf_map.
+
+9.13.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\drg5_rf_map'.
+Computing hashes of 56 cells of `\drg5_rf_map'.
+Finding duplicate cells in `\drg5_rf_map'.
+Removed a total of 0 cells.
+
+9.13.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \drg5_rf_map..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~23 debug messages>
+
+9.13.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \drg5_rf_map.
+Performed a total of 0 changes.
+
+9.13.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\drg5_rf_map'.
+Computing hashes of 56 cells of `\drg5_rf_map'.
+Finding duplicate cells in `\drg5_rf_map'.
+Removed a total of 0 cells.
+
+9.13.6. Executing OPT_DFF pass (perform DFF optimizations).
+Adding SRST signal on $procdff$116 ($dff) from module drg5_rf_map (D = $xor$/home/bluto/Desktop/dorsalGanglionProject/microcontroller/synth/drg5_rf_map.sv:63$76_Y, Q = \checksum_q, rval = 0).
+Adding SRST signal on $procdff$115 ($dff) from module drg5_rf_map (D = { \state_q [47:0] \serial_i }, Q = \state_q, rval = 49'0000000000000000000000000000000000000000000000001).
+Adding SRST signal on $flatten\genblk1.genblk1.bram_case.rf.$procdff$121 ($dff) from module drg5_rf_map (D = $flatten\genblk1.genblk1.bram_case.rf.$2$lookahead\defined_q$7[31:0]$17, Q = \genblk1.genblk1.bram_case.rf.defined_q, rval = 1).
+Adding EN signal on $auto$ff.cc:337:slice$357 ($sdff) from module drg5_rf_map (D = $flatten\genblk1.genblk1.bram_case.rf.$or$/home/bluto/Desktop/dorsalGanglionProject/microcontroller/synth/drg5_rf_bram.sv:18$24_Y, Q = \genblk1.genblk1.bram_case.rf.defined_q).
+Adding SRST signal on $flatten\genblk1.genblk1.bram_case.rf.$procdff$118 ($dff) from module drg5_rf_map (D = $flatten\genblk1.genblk1.bram_case.rf.$ternary$/home/bluto/Desktop/dorsalGanglionProject/microcontroller/synth/drg5_rf_bram.sv:24$38_Y, Q = \genblk1.genblk1.bram_case.rf.read2_data_o, rval = 0).
+Adding SRST signal on $flatten\genblk1.genblk1.bram_case.rf.$procdff$117 ($dff) from module drg5_rf_map (D = $flatten\genblk1.genblk1.bram_case.rf.$ternary$/home/bluto/Desktop/dorsalGanglionProject/microcontroller/synth/drg5_rf_bram.sv:22$32_Y, Q = \genblk1.genblk1.bram_case.rf.read1_data_o, rval = 0).
+
+9.13.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \drg5_rf_map..
+Removed 6 unused cells and 6 unused wires.
+<suppressed ~7 debug messages>
+
+9.13.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module drg5_rf_map.
+
+9.13.9. Rerunning OPT passes. (Maybe there is more to do..)
+
+9.13.10. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \drg5_rf_map..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~14 debug messages>
+
+9.13.11. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \drg5_rf_map.
+Performed a total of 0 changes.
+
+9.13.12. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\drg5_rf_map'.
+Computing hashes of 50 cells of `\drg5_rf_map'.
+Finding duplicate cells in `\drg5_rf_map'.
+Removed a total of 0 cells.
+
+9.13.13. Executing OPT_DFF pass (perform DFF optimizations).
+
+9.13.14. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \drg5_rf_map..
+
+9.13.15. Executing OPT_EXPR pass (perform const folding).
+Optimizing module drg5_rf_map.
+
+9.13.16. Finished fast OPT passes. (There is nothing left to do.)
+
+9.14. Executing WREDUCE pass (reducing word size of cells).
+Converting cell drg5_rf_map.$flatten\genblk1.genblk1.bram_case.rf.$neg$/home/bluto/Desktop/dorsalGanglionProject/microcontroller/synth/drg5_rf_bram.sv:18$18 ($neg) from signed to unsigned.
+Removed top 1 bits (of 6) from port A of cell drg5_rf_map.$flatten\genblk1.genblk1.bram_case.rf.$neg$/home/bluto/Desktop/dorsalGanglionProject/microcontroller/synth/drg5_rf_bram.sv:18$18 ($neg).
+
+9.15. Executing PEEPOPT pass (run peephole optimizers).
+
+9.16. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \drg5_rf_map..
+
+9.17. Executing SHARE pass (SAT-based resource sharing).
+Found 2 cells in module drg5_rf_map that may be considered for resource sharing.
+  Analyzing resource sharing options for $flatten\genblk1.genblk1.bram_case.rf.$memrd$\words$/home/bluto/Desktop/dorsalGanglionProject/microcontroller/synth/drg5_rf_bram.sv:24$37 ($memrd):
+    Found 1 activation_patterns using ctrl signal $flatten\genblk1.genblk1.bram_case.rf.$logic_and$/home/bluto/Desktop/dorsalGanglionProject/microcontroller/synth/drg5_rf_bram.sv:24$36_Y.
+    Found 1 candidates: $flatten\genblk1.genblk1.bram_case.rf.$memrd$\words$/home/bluto/Desktop/dorsalGanglionProject/microcontroller/synth/drg5_rf_bram.sv:22$31
+    Analyzing resource sharing with $flatten\genblk1.genblk1.bram_case.rf.$memrd$\words$/home/bluto/Desktop/dorsalGanglionProject/microcontroller/synth/drg5_rf_bram.sv:22$31 ($memrd):
+      Found 1 activation_patterns using ctrl signal $flatten\genblk1.genblk1.bram_case.rf.$logic_and$/home/bluto/Desktop/dorsalGanglionProject/microcontroller/synth/drg5_rf_bram.sv:22$30_Y.
+      Activation pattern for cell $flatten\genblk1.genblk1.bram_case.rf.$memrd$\words$/home/bluto/Desktop/dorsalGanglionProject/microcontroller/synth/drg5_rf_bram.sv:24$37: $flatten\genblk1.genblk1.bram_case.rf.$logic_and$/home/bluto/Desktop/dorsalGanglionProject/microcontroller/synth/drg5_rf_bram.sv:24$36_Y = 1'0
+      Activation pattern for cell $flatten\genblk1.genblk1.bram_case.rf.$memrd$\words$/home/bluto/Desktop/dorsalGanglionProject/microcontroller/synth/drg5_rf_bram.sv:22$31: $flatten\genblk1.genblk1.bram_case.rf.$logic_and$/home/bluto/Desktop/dorsalGanglionProject/microcontroller/synth/drg5_rf_bram.sv:22$30_Y = 1'0
+      Size of SAT problem: 10 cells, 106 variables, 250 clauses
+      According to the SAT solver this pair of cells can not be shared.
+      Model from SAT solver: { $flatten\genblk1.genblk1.bram_case.rf.$logic_and$/home/bluto/Desktop/dorsalGanglionProject/microcontroller/synth/drg5_rf_bram.sv:22$30_Y $flatten\genblk1.genblk1.bram_case.rf.$logic_and$/home/bluto/Desktop/dorsalGanglionProject/microcontroller/synth/drg5_rf_bram.sv:24$36_Y } = 2'00
+  Analyzing resource sharing options for $flatten\genblk1.genblk1.bram_case.rf.$memrd$\words$/home/bluto/Desktop/dorsalGanglionProject/microcontroller/synth/drg5_rf_bram.sv:22$31 ($memrd):
+    Found 1 activation_patterns using ctrl signal $flatten\genblk1.genblk1.bram_case.rf.$logic_and$/home/bluto/Desktop/dorsalGanglionProject/microcontroller/synth/drg5_rf_bram.sv:22$30_Y.
+    No candidates found.
+
+9.18. Executing TECHMAP pass (map to technology primitives).
+
+9.18.1. Executing Verilog-2005 frontend: /tmp/drg5-control-tools/oss-cad-suite/lib/../share/yosys/cmp2lut.v
+Parsing Verilog input from `/tmp/drg5-control-tools/oss-cad-suite/lib/../share/yosys/cmp2lut.v' to AST representation.
+Generating RTLIL representation for module `\_90_lut_cmp_'.
+Successfully finished Verilog frontend.
+
+9.18.2. Continuing TECHMAP pass.
+No more expansions possible.
+<suppressed ~6 debug messages>
+
+9.19. Executing OPT_EXPR pass (perform const folding).
+Optimizing module drg5_rf_map.
+
+9.20. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \drg5_rf_map..
+
+9.21. Executing TECHMAP pass (map to technology primitives).
+
+9.21.1. Executing Verilog-2005 frontend: /tmp/drg5-control-tools/oss-cad-suite/lib/../share/yosys/mul2dsp.v
+Parsing Verilog input from `/tmp/drg5-control-tools/oss-cad-suite/lib/../share/yosys/mul2dsp.v' to AST representation.
+Generating RTLIL representation for module `\_80_mul'.
+Generating RTLIL representation for module `\_90_soft_mul'.
+Successfully finished Verilog frontend.
+
+9.21.2. Continuing TECHMAP pass.
+No more expansions possible.
+<suppressed ~4 debug messages>
+
+9.22. Executing TECHMAP pass (map to technology primitives).
+
+9.22.1. Executing Verilog-2005 frontend: /tmp/drg5-control-tools/oss-cad-suite/lib/../share/yosys/lattice/dsp_map_18x18.v
+Parsing Verilog input from `/tmp/drg5-control-tools/oss-cad-suite/lib/../share/yosys/lattice/dsp_map_18x18.v' to AST representation.
+Generating RTLIL representation for module `\$__MUL18X18'.
+Successfully finished Verilog frontend.
+
+9.22.2. Continuing TECHMAP pass.
+No more expansions possible.
+<suppressed ~3 debug messages>
+
+9.23. Executing ALUMACC pass (create $alu and $macc cells).
+Extracting $alu and $macc cells in module drg5_rf_map:
+  creating $macc model for $flatten\genblk1.genblk1.bram_case.rf.$neg$/home/bluto/Desktop/dorsalGanglionProject/microcontroller/synth/drg5_rf_bram.sv:18$18 ($neg).
+  creating $alu model for $macc $flatten\genblk1.genblk1.bram_case.rf.$neg$/home/bluto/Desktop/dorsalGanglionProject/microcontroller/synth/drg5_rf_bram.sv:18$18.
+  creating $alu cell for $flatten\genblk1.genblk1.bram_case.rf.$neg$/home/bluto/Desktop/dorsalGanglionProject/microcontroller/synth/drg5_rf_bram.sv:18$18: $auto$alumacc.cc:512:replace_alu$362
+  created 1 $alu and 0 $macc cells.
+
+9.24. Executing OPT pass (performing simple optimizations).
+
+9.24.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module drg5_rf_map.
+
+9.24.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\drg5_rf_map'.
+Computing hashes of 50 cells of `\drg5_rf_map'.
+Finding duplicate cells in `\drg5_rf_map'.
+Removed a total of 0 cells.
+
+9.24.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \drg5_rf_map..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~14 debug messages>
+
+9.24.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \drg5_rf_map.
+Performed a total of 0 changes.
+
+9.24.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\drg5_rf_map'.
+Computing hashes of 50 cells of `\drg5_rf_map'.
+Finding duplicate cells in `\drg5_rf_map'.
+Removed a total of 0 cells.
+
+9.24.6. Executing OPT_DFF pass (perform DFF optimizations).
+
+9.24.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \drg5_rf_map..
+
+9.24.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module drg5_rf_map.
+
+9.24.9. Finished fast OPT passes. (There is nothing left to do.)
+
+9.25. Executing MEMORY pass.
+
+9.25.1. Executing OPT_MEM pass (optimize memories).
+Performed a total of 0 transformations.
+
+9.25.2. Executing OPT_MEM_PRIORITY pass (removing unnecessary memory write priority relations).
+Performed a total of 0 transformations.
+
+9.25.3. Executing OPT_MEM_FEEDBACK pass (finding memory read-to-write feedback paths).
+  Analyzing drg5_rf_map.genblk1.genblk1.bram_case.rf.words write port 0.
+
+9.25.4. Executing MEMORY_BMUX2ROM pass (converting muxes to ROMs).
+
+9.25.5. Executing MEMORY_DFF pass (merging $dff cells to $memrd).
+Checking read port `\genblk1.genblk1.bram_case.rf.words'[0] in module `\drg5_rf_map': merging output FF to cell.
+    Write port 0: transparent.
+Checking read port `\genblk1.genblk1.bram_case.rf.words'[1] in module `\drg5_rf_map': merging output FF to cell.
+    Write port 0: transparent.
+
+9.25.6. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \drg5_rf_map..
+Removed 4 unused cells and 68 unused wires.
+<suppressed ~5 debug messages>
+
+9.25.7. Executing MEMORY_SHARE pass (consolidating $memrd/$memwr cells).
+Consolidating read ports of memory drg5_rf_map.genblk1.genblk1.bram_case.rf.words by address:
+
+9.25.8. Executing OPT_MEM_WIDEN pass (optimize memories where all ports are wide).
+Performed a total of 0 transformations.
+
+9.25.9. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \drg5_rf_map..
+
+9.25.10. Executing MEMORY_COLLECT pass (generating $mem cells).
+
+9.26. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \drg5_rf_map..
+
+9.27. Executing MEMORY_LIBMAP pass (mapping memories to cells).
+found attribute 'ram_style = block' on memory drg5_rf_map.genblk1.genblk1.bram_case.rf.words, forced mapping to block RAM
+mapping memory drg5_rf_map.genblk1.genblk1.bram_case.rf.words via $__PDPW16KD_
+<suppressed ~1399 debug messages>
+
+9.28. Executing TECHMAP pass (map to technology primitives).
+
+9.28.1. Executing Verilog-2005 frontend: /tmp/drg5-control-tools/oss-cad-suite/lib/../share/yosys/lattice/lutrams_map_trellis.v
+Parsing Verilog input from `/tmp/drg5-control-tools/oss-cad-suite/lib/../share/yosys/lattice/lutrams_map_trellis.v' to AST representation.
+Generating RTLIL representation for module `\$__TRELLIS_DPR16X4_'.
+Successfully finished Verilog frontend.
+
+9.28.2. Executing Verilog-2005 frontend: /tmp/drg5-control-tools/oss-cad-suite/lib/../share/yosys/lattice/brams_map_16kd.v
+Parsing Verilog input from `/tmp/drg5-control-tools/oss-cad-suite/lib/../share/yosys/lattice/brams_map_16kd.v' to AST representation.
+Generating RTLIL representation for module `\$__DP16KD_'.
+Generating RTLIL representation for module `\$__PDPW16KD_'.
+Successfully finished Verilog frontend.
+
+9.28.3. Continuing TECHMAP pass.
+Using template $paramod$17de901065864069ebf6e71153d13b0dfa803b2b\$__PDPW16KD_ for cells of type $__PDPW16KD_.
+No more expansions possible.
+<suppressed ~30 debug messages>
+
+9.29. Executing OPT pass (performing simple optimizations).
+
+9.29.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module drg5_rf_map.
+<suppressed ~3 debug messages>
+
+9.29.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\drg5_rf_map'.
+Computing hashes of 52 cells of `\drg5_rf_map'.
+Finding duplicate cells in `\drg5_rf_map'.
+Computing hashes of 49 cells of `\drg5_rf_map'.
+Finding duplicate cells in `\drg5_rf_map'.
+<suppressed ~9 debug messages>
+Removed a total of 3 cells.
+
+9.29.3. Executing OPT_DFF pass (perform DFF optimizations).
+Removing always-active EN on $auto$mem.cc:1169:emulate_transparency$442 ($dffe) from module drg5_rf_map.
+
+9.29.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \drg5_rf_map..
+Removed 0 unused cells and 32 unused wires.
+<suppressed ~1 debug messages>
+
+9.29.5. Rerunning OPT passes. (Removed registers in this run.)
+
+9.29.6. Executing OPT_EXPR pass (perform const folding).
+Optimizing module drg5_rf_map.
+
+9.29.7. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\drg5_rf_map'.
+Computing hashes of 49 cells of `\drg5_rf_map'.
+Finding duplicate cells in `\drg5_rf_map'.
+Removed a total of 0 cells.
+
+9.29.8. Executing OPT_DFF pass (perform DFF optimizations).
+
+9.29.9. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \drg5_rf_map..
+
+9.29.10. Finished fast OPT passes.
+
+9.30. Executing MEMORY_MAP pass (converting memories to logic and flip-flops).
+
+9.31. Executing OPT pass (performing simple optimizations).
+
+9.31.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module drg5_rf_map.
+
+9.31.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\drg5_rf_map'.
+Computing hashes of 49 cells of `\drg5_rf_map'.
+Finding duplicate cells in `\drg5_rf_map'.
+Removed a total of 0 cells.
+
+9.31.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \drg5_rf_map..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~6 debug messages>
+
+9.31.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \drg5_rf_map.
+Performed a total of 0 changes.
+
+9.31.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\drg5_rf_map'.
+Computing hashes of 49 cells of `\drg5_rf_map'.
+Finding duplicate cells in `\drg5_rf_map'.
+Removed a total of 0 cells.
+
+9.31.6. Executing OPT_DFF pass (perform DFF optimizations).
+
+9.31.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \drg5_rf_map..
+
+9.31.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module drg5_rf_map.
+
+9.31.9. Finished fast OPT passes. (There is nothing left to do.)
+
+9.32. Executing TECHMAP pass (map to technology primitives).
+
+9.32.1. Executing Verilog-2005 frontend: /tmp/drg5-control-tools/oss-cad-suite/lib/../share/yosys/techmap.v
+Parsing Verilog input from `/tmp/drg5-control-tools/oss-cad-suite/lib/../share/yosys/techmap.v' to AST representation.
+Generating RTLIL representation for module `\_90_simplemap_bool_ops'.
+Generating RTLIL representation for module `\_90_simplemap_reduce_ops'.
+Generating RTLIL representation for module `\_90_simplemap_logic_ops'.
+Generating RTLIL representation for module `\_90_simplemap_compare_ops'.
+Generating RTLIL representation for module `\_90_simplemap_various'.
+Generating RTLIL representation for module `\_90_simplemap_registers'.
+Generating RTLIL representation for module `\_90_shift_ops_shr_shl_sshl_sshr'.
+Generating RTLIL representation for module `\_90_shift_shiftx'.
+Generating RTLIL representation for module `\_90_fa'.
+Generating RTLIL representation for module `\_90_lcu_brent_kung'.
+Generating RTLIL representation for module `\_90_alu'.
+Generating RTLIL representation for module `\_90_macc'.
+Generating RTLIL representation for module `\_90_alumacc'.
+Generating RTLIL representation for module `\$__div_mod_u'.
+Generating RTLIL representation for module `\$__div_mod_trunc'.
+Generating RTLIL representation for module `\_90_div'.
+Generating RTLIL representation for module `\_90_mod'.
+Generating RTLIL representation for module `\$__div_mod_floor'.
+Generating RTLIL representation for module `\_90_divfloor'.
+Generating RTLIL representation for module `\_90_modfloor'.
+Generating RTLIL representation for module `\_90_pow'.
+Generating RTLIL representation for module `\_90_pmux'.
+Generating RTLIL representation for module `\_90_demux'.
+Generating RTLIL representation for module `\_90_lut'.
+Generating RTLIL representation for module `\$connect'.
+Generating RTLIL representation for module `\$input_port'.
+Successfully finished Verilog frontend.
+
+9.32.2. Executing Verilog-2005 frontend: /tmp/drg5-control-tools/oss-cad-suite/lib/../share/yosys/lattice/arith_map_ccu2c.v
+Parsing Verilog input from `/tmp/drg5-control-tools/oss-cad-suite/lib/../share/yosys/lattice/arith_map_ccu2c.v' to AST representation.
+Generating RTLIL representation for module `\_80_ccu2c_alu'.
+Successfully finished Verilog frontend.
+
+9.32.3. Continuing TECHMAP pass.
+Using extmapper simplemap for cells of type $mux.
+Using extmapper simplemap for cells of type $sdff.
+Using extmapper simplemap for cells of type $and.
+Using extmapper simplemap for cells of type $eq.
+Using extmapper simplemap for cells of type $dff.
+Using template $paramod$9f3f81d189a6b1d5c738a580270bbb92e45c5c71\_80_ccu2c_alu for cells of type $alu.
+Using extmapper simplemap for cells of type $sdffe.
+Using extmapper simplemap for cells of type $logic_not.
+Using extmapper simplemap for cells of type $logic_or.
+Using extmapper simplemap for cells of type $xor.
+Using extmapper simplemap for cells of type $logic_and.
+Using template $paramod$constmap:e2101c44e3f83a0dc2da774cd1fdd19ff2da5f4f$paramod$e194a9e890de0a7be18db8bd15a1479dea055e42\_90_shift_shiftx for cells of type $shiftx.
+Using extmapper simplemap for cells of type $or.
+Using extmapper simplemap for cells of type $not.
+Using template $paramod$constmap:4b059bacb536c9a389a01772cd479391d395b6c3$paramod$320aa077a7b7c3e2ebcbf2ed330b2bc798d6703e\_90_shift_shiftx for cells of type $shift.
+Using extmapper simplemap for cells of type $reduce_bool.
+Using extmapper simplemap for cells of type $pos.
+No more expansions possible.
+<suppressed ~663 debug messages>
+
+9.33. Executing OPT pass (performing simple optimizations).
+
+9.33.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module drg5_rf_map.
+<suppressed ~341 debug messages>
+
+9.33.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\drg5_rf_map'.
+Computing hashes of 913 cells of `\drg5_rf_map'.
+Finding duplicate cells in `\drg5_rf_map'.
+Computing hashes of 911 cells of `\drg5_rf_map'.
+Finding duplicate cells in `\drg5_rf_map'.
+<suppressed ~6 debug messages>
+Removed a total of 2 cells.
+
+9.33.3. Executing OPT_DFF pass (perform DFF optimizations).
+
+9.33.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \drg5_rf_map..
+Removed 266 unused cells and 54 unused wires.
+<suppressed ~267 debug messages>
+
+9.33.5. Finished fast OPT passes.
+
+9.34. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \drg5_rf_map..
+
+9.35. Executing DFFLEGALIZE pass (convert FFs to types supported by the target).
+
+9.36. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\drg5_rf_map'.
+Computing hashes of 696 cells of `\drg5_rf_map'.
+Finding duplicate cells in `\drg5_rf_map'.
+Computing hashes of 645 cells of `\drg5_rf_map'.
+Finding duplicate cells in `\drg5_rf_map'.
+<suppressed ~153 debug messages>
+Removed a total of 51 cells.
+
+9.37. Executing TECHMAP pass (map to technology primitives).
+
+9.37.1. Executing Verilog-2005 frontend: /tmp/drg5-control-tools/oss-cad-suite/lib/../share/yosys/lattice/cells_map_trellis.v
+Parsing Verilog input from `/tmp/drg5-control-tools/oss-cad-suite/lib/../share/yosys/lattice/cells_map_trellis.v' to AST representation.
+Generating RTLIL representation for module `\$_DFF_N_'.
+Generating RTLIL representation for module `\$_DFF_P_'.
+Generating RTLIL representation for module `\$_DFFE_NN_'.
+Generating RTLIL representation for module `\$_DFFE_PN_'.
+Generating RTLIL representation for module `\$_DFFE_NP_'.
+Generating RTLIL representation for module `\$_DFFE_PP_'.
+Generating RTLIL representation for module `\$_DFF_NP0_'.
+Generating RTLIL representation for module `\$_DFF_NP1_'.
+Generating RTLIL representation for module `\$_DFF_PP0_'.
+Generating RTLIL representation for module `\$_DFF_PP1_'.
+Generating RTLIL representation for module `\$_SDFF_NP0_'.
+Generating RTLIL representation for module `\$_SDFF_NP1_'.
+Generating RTLIL representation for module `\$_SDFF_PP0_'.
+Generating RTLIL representation for module `\$_SDFF_PP1_'.
+Generating RTLIL representation for module `\$_DFFE_NP0P_'.
+Generating RTLIL representation for module `\$_DFFE_NP1P_'.
+Generating RTLIL representation for module `\$_DFFE_PP0P_'.
+Generating RTLIL representation for module `\$_DFFE_PP1P_'.
+Generating RTLIL representation for module `\$_DFFE_NP0N_'.
+Generating RTLIL representation for module `\$_DFFE_NP1N_'.
+Generating RTLIL representation for module `\$_DFFE_PP0N_'.
+Generating RTLIL representation for module `\$_DFFE_PP1N_'.
+Generating RTLIL representation for module `\$_SDFFE_NP0P_'.
+Generating RTLIL representation for module `\$_SDFFE_NP1P_'.
+Generating RTLIL representation for module `\$_SDFFE_PP0P_'.
+Generating RTLIL representation for module `\$_SDFFE_PP1P_'.
+Generating RTLIL representation for module `\$_SDFFE_NP0N_'.
+Generating RTLIL representation for module `\$_SDFFE_NP1N_'.
+Generating RTLIL representation for module `\$_SDFFE_PP0N_'.
+Generating RTLIL representation for module `\$_SDFFE_PP1N_'.
+Generating RTLIL representation for module `\$_ALDFF_NP_'.
+Generating RTLIL representation for module `\$_ALDFF_PP_'.
+Generating RTLIL representation for module `\$_ALDFFE_NPN_'.
+Generating RTLIL representation for module `\$_ALDFFE_NPP_'.
+Generating RTLIL representation for module `\$_ALDFFE_PPN_'.
+Generating RTLIL representation for module `\$_ALDFFE_PPP_'.
+Generating RTLIL representation for module `\FD1P3AX'.
+Generating RTLIL representation for module `\FD1P3AY'.
+Generating RTLIL representation for module `\FD1P3BX'.
+Generating RTLIL representation for module `\FD1P3DX'.
+Generating RTLIL representation for module `\FD1P3IX'.
+Generating RTLIL representation for module `\FD1P3JX'.
+Generating RTLIL representation for module `\FD1S3AX'.
+Generating RTLIL representation for module `\FD1S3AY'.
+Generating RTLIL representation for module `\FD1S3BX'.
+Generating RTLIL representation for module `\FD1S3DX'.
+Generating RTLIL representation for module `\FD1S3IX'.
+Generating RTLIL representation for module `\FD1S3JX'.
+Generating RTLIL representation for module `\IFS1P3BX'.
+Generating RTLIL representation for module `\IFS1P3DX'.
+Generating RTLIL representation for module `\IFS1P3IX'.
+Generating RTLIL representation for module `\IFS1P3JX'.
+Generating RTLIL representation for module `\OFS1P3BX'.
+Generating RTLIL representation for module `\OFS1P3DX'.
+Generating RTLIL representation for module `\OFS1P3IX'.
+Generating RTLIL representation for module `\OFS1P3JX'.
+Generating RTLIL representation for module `\IB'.
+Generating RTLIL representation for module `\IBPU'.
+Generating RTLIL representation for module `\IBPD'.
+Generating RTLIL representation for module `\OB'.
+Generating RTLIL representation for module `\OBZ'.
+Generating RTLIL representation for module `\OBZPU'.
+Generating RTLIL representation for module `\OBZPD'.
+Generating RTLIL representation for module `\OBCO'.
+Generating RTLIL representation for module `\BB'.
+Generating RTLIL representation for module `\BBPU'.
+Generating RTLIL representation for module `\BBPD'.
+Generating RTLIL representation for module `\ILVDS'.
+Generating RTLIL representation for module `\OLVDS'.
+Successfully finished Verilog frontend.
+
+9.37.2. Continuing TECHMAP pass.
+Using template $paramod\$_DFF_P_\_TECHMAP_WIREINIT_Q_=1'x for cells of type $_DFF_P_.
+Using template \$_SDFF_PP0_ for cells of type $_SDFF_PP0_.
+Using template \$_SDFF_PP1_ for cells of type $_SDFF_PP1_.
+Using template \$_SDFFE_PP0P_ for cells of type $_SDFFE_PP0P_.
+Using template \$_SDFFE_PP1P_ for cells of type $_SDFFE_PP1P_.
+No more expansions possible.
+<suppressed ~231 debug messages>
+
+9.38. Executing OPT_EXPR pass (perform const folding).
+Optimizing module drg5_rf_map.
+
+9.39. Executing SIMPLEMAP pass (map simple cells to gate primitives).
+
+9.40. Executing LATTICE_GSR pass (implement FF init values).
+Handling GSR in drg5_rf_map.
+
+9.41. Executing ATTRMVCP pass (move or copy attributes).
+
+9.42. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \drg5_rf_map..
+Removed 0 unused cells and 794 unused wires.
+<suppressed ~1 debug messages>
+
+9.43. Executing TECHMAP pass (map to technology primitives).
+
+9.43.1. Executing Verilog-2005 frontend: /tmp/drg5-control-tools/oss-cad-suite/lib/../share/yosys/lattice/latches_map.v
+Parsing Verilog input from `/tmp/drg5-control-tools/oss-cad-suite/lib/../share/yosys/lattice/latches_map.v' to AST representation.
+Generating RTLIL representation for module `\$_DLATCH_N_'.
+Generating RTLIL representation for module `\$_DLATCH_P_'.
+Successfully finished Verilog frontend.
+
+9.43.2. Continuing TECHMAP pass.
+No more expansions possible.
+<suppressed ~4 debug messages>
+
+9.44. Executing ABC9 pass.
+
+9.44.1. Executing ABC9_OPS pass (helper functions for ABC9).
+
+9.44.2. Executing ABC9_OPS pass (helper functions for ABC9).
+
+9.44.3. Executing SCC pass (detecting logic loops).
+Found 0 SCCs in module drg5_rf_map.
+Found 0 SCCs.
+
+9.44.4. Executing ABC9_OPS pass (helper functions for ABC9).
+
+9.44.5. Executing TECHMAP pass (map to technology primitives).
+
+9.44.5.1. Executing Verilog-2005 frontend: /tmp/drg5-control-tools/oss-cad-suite/lib/../share/yosys/techmap.v
+Parsing Verilog input from `/tmp/drg5-control-tools/oss-cad-suite/lib/../share/yosys/techmap.v' to AST representation.
+Generating RTLIL representation for module `\_90_simplemap_bool_ops'.
+Generating RTLIL representation for module `\_90_simplemap_reduce_ops'.
+Generating RTLIL representation for module `\_90_simplemap_logic_ops'.
+Generating RTLIL representation for module `\_90_simplemap_compare_ops'.
+Generating RTLIL representation for module `\_90_simplemap_various'.
+Generating RTLIL representation for module `\_90_simplemap_registers'.
+Generating RTLIL representation for module `\_90_shift_ops_shr_shl_sshl_sshr'.
+Generating RTLIL representation for module `\_90_shift_shiftx'.
+Generating RTLIL representation for module `\_90_fa'.
+Generating RTLIL representation for module `\_90_lcu_brent_kung'.
+Generating RTLIL representation for module `\_90_alu'.
+Generating RTLIL representation for module `\_90_macc'.
+Generating RTLIL representation for module `\_90_alumacc'.
+Generating RTLIL representation for module `\$__div_mod_u'.
+Generating RTLIL representation for module `\$__div_mod_trunc'.
+Generating RTLIL representation for module `\_90_div'.
+Generating RTLIL representation for module `\_90_mod'.
+Generating RTLIL representation for module `\$__div_mod_floor'.
+Generating RTLIL representation for module `\_90_divfloor'.
+Generating RTLIL representation for module `\_90_modfloor'.
+Generating RTLIL representation for module `\_90_pow'.
+Generating RTLIL representation for module `\_90_pmux'.
+Generating RTLIL representation for module `\_90_demux'.
+Generating RTLIL representation for module `\_90_lut'.
+Generating RTLIL representation for module `\$connect'.
+Generating RTLIL representation for module `\$input_port'.
+Successfully finished Verilog frontend.
+
+9.44.5.2. Continuing TECHMAP pass.
+No more expansions possible.
+<suppressed ~166 debug messages>
+
+9.44.6. Executing OPT pass (performing simple optimizations).
+
+9.44.6.1. Executing OPT_EXPR pass (perform const folding).
+
+9.44.6.2. Executing OPT_MERGE pass (detect identical cells).
+Removed a total of 0 cells.
+
+9.44.6.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Removed 0 multiplexer ports.
+
+9.44.6.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+Performed a total of 0 changes.
+
+9.44.6.5. Executing OPT_MERGE pass (detect identical cells).
+Removed a total of 0 cells.
+
+9.44.6.6. Executing OPT_DFF pass (perform DFF optimizations).
+
+9.44.6.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+
+9.44.6.8. Executing OPT_EXPR pass (perform const folding).
+
+9.44.6.9. Finished fast OPT passes. (There is nothing left to do.)
+
+9.44.7. Executing TECHMAP pass (map to technology primitives).
+
+9.44.7.1. Executing Verilog-2005 frontend: /tmp/drg5-control-tools/oss-cad-suite/lib/../share/yosys/abc9_map.v
+Parsing Verilog input from `/tmp/drg5-control-tools/oss-cad-suite/lib/../share/yosys/abc9_map.v' to AST representation.
+Successfully finished Verilog frontend.
+
+9.44.7.2. Continuing TECHMAP pass.
+No more expansions possible.
+<suppressed ~2 debug messages>
+
+9.44.8. Executing Verilog-2005 frontend: /tmp/drg5-control-tools/oss-cad-suite/lib/../share/yosys/abc9_model.v
+Parsing Verilog input from `/tmp/drg5-control-tools/oss-cad-suite/lib/../share/yosys/abc9_model.v' to AST representation.
+Generating RTLIL representation for module `$__ABC9_DELAY'.
+Generating RTLIL representation for module `$__ABC9_SCC_BREAKER'.
+Generating RTLIL representation for module `$__DFF_N__$abc9_flop'.
+Generating RTLIL representation for module `$__DFF_P__$abc9_flop'.
+Successfully finished Verilog frontend.
+
+9.44.9. Executing ABC9_OPS pass (helper functions for ABC9).
+<suppressed ~2 debug messages>
+
+9.44.10. Executing ABC9_OPS pass (helper functions for ABC9).
+
+9.44.11. Executing ABC9_OPS pass (helper functions for ABC9).
+<suppressed ~2 debug messages>
+
+9.44.12. Executing TECHMAP pass (map to technology primitives).
+
+9.44.12.1. Executing Verilog-2005 frontend: /tmp/drg5-control-tools/oss-cad-suite/lib/../share/yosys/techmap.v
+Parsing Verilog input from `/tmp/drg5-control-tools/oss-cad-suite/lib/../share/yosys/techmap.v' to AST representation.
+Generating RTLIL representation for module `\_90_simplemap_bool_ops'.
+Generating RTLIL representation for module `\_90_simplemap_reduce_ops'.
+Generating RTLIL representation for module `\_90_simplemap_logic_ops'.
+Generating RTLIL representation for module `\_90_simplemap_compare_ops'.
+Generating RTLIL representation for module `\_90_simplemap_various'.
+Generating RTLIL representation for module `\_90_simplemap_registers'.
+Generating RTLIL representation for module `\_90_shift_ops_shr_shl_sshl_sshr'.
+Generating RTLIL representation for module `\_90_shift_shiftx'.
+Generating RTLIL representation for module `\_90_fa'.
+Generating RTLIL representation for module `\_90_lcu_brent_kung'.
+Generating RTLIL representation for module `\_90_alu'.
+Generating RTLIL representation for module `\_90_macc'.
+Generating RTLIL representation for module `\_90_alumacc'.
+Generating RTLIL representation for module `\$__div_mod_u'.
+Generating RTLIL representation for module `\$__div_mod_trunc'.
+Generating RTLIL representation for module `\_90_div'.
+Generating RTLIL representation for module `\_90_mod'.
+Generating RTLIL representation for module `\$__div_mod_floor'.
+Generating RTLIL representation for module `\_90_divfloor'.
+Generating RTLIL representation for module `\_90_modfloor'.
+Generating RTLIL representation for module `\_90_pow'.
+Generating RTLIL representation for module `\_90_pmux'.
+Generating RTLIL representation for module `\_90_demux'.
+Generating RTLIL representation for module `\_90_lut'.
+Generating RTLIL representation for module `\$connect'.
+Generating RTLIL representation for module `\$input_port'.
+Successfully finished Verilog frontend.
+
+9.44.12.2. Continuing TECHMAP pass.
+Using template $paramod$838872d5a4bab89607f53482b205c0fd50d8b82e\CCU2C for cells of type $paramod$838872d5a4bab89607f53482b205c0fd50d8b82e\CCU2C.
+Using extmapper simplemap for cells of type $or.
+Using extmapper simplemap for cells of type $and.
+Using extmapper simplemap for cells of type $not.
+Using extmapper simplemap for cells of type $xor.
+Using template $paramod\LUT2\INIT=4'1010 for cells of type LUT2.
+Using template $paramod\LUT4\INIT=16'1001011010101010 for cells of type LUT4.
+Using extmapper simplemap for cells of type $mux.
+No more expansions possible.
+<suppressed ~205 debug messages>
+
+9.44.13. Executing OPT pass (performing simple optimizations).
+
+9.44.13.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module drg5_rf_map.
+<suppressed ~18 debug messages>
+
+9.44.13.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\drg5_rf_map'.
+Computing hashes of 59 cells of `\drg5_rf_map'.
+Finding duplicate cells in `\drg5_rf_map'.
+Computing hashes of 57 cells of `\drg5_rf_map'.
+Finding duplicate cells in `\drg5_rf_map'.
+<suppressed ~6 debug messages>
+Removed a total of 2 cells.
+
+9.44.13.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \drg5_rf_map..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Removed 0 multiplexer ports.
+
+9.44.13.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \drg5_rf_map.
+Performed a total of 0 changes.
+
+9.44.13.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\drg5_rf_map'.
+Computing hashes of 57 cells of `\drg5_rf_map'.
+Finding duplicate cells in `\drg5_rf_map'.
+Removed a total of 0 cells.
+
+9.44.13.6. Executing OPT_DFF pass (perform DFF optimizations).
+
+9.44.13.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \drg5_rf_map..
+Removed 0 unused cells and 55 unused wires.
+<suppressed ~1 debug messages>
+
+9.44.13.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module drg5_rf_map.
+
+9.44.13.9. Rerunning OPT passes. (Maybe there is more to do..)
+
+9.44.13.10. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \drg5_rf_map..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Removed 0 multiplexer ports.
+
+9.44.13.11. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \drg5_rf_map.
+Performed a total of 0 changes.
+
+9.44.13.12. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\drg5_rf_map'.
+Computing hashes of 57 cells of `\drg5_rf_map'.
+Finding duplicate cells in `\drg5_rf_map'.
+Removed a total of 0 cells.
+
+9.44.13.13. Executing OPT_DFF pass (perform DFF optimizations).
+
+9.44.13.14. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \drg5_rf_map..
+
+9.44.13.15. Executing OPT_EXPR pass (perform const folding).
+Optimizing module drg5_rf_map.
+
+9.44.13.16. Finished fast OPT passes. (There is nothing left to do.)
+
+9.44.14. Executing AIGMAP pass (map logic to AIG).
+Module drg5_rf_map: replaced 18 cells with 120 new cells, skipped 39 cells.
+  replaced 3 cell types:
+      14 $_MUX_
+       2 $_OR_
+       2 $_XOR_
+  not replaced 3 cell types:
+       4 $_AND_
+       4 $_NOT_
+      31 $specify2
+
+9.44.15. Executing AIGMAP pass (map logic to AIG).
+Module drg5_rf_map: replaced 411 cells with 2706 new cells, skipped 234 cells.
+  replaced 3 cell types:
+     256 $_MUX_
+      57 $_OR_
+      98 $_XOR_
+  not replaced 7 cell types:
+      38 $_AND_
+      39 $_NOT_
+       2 $scopeinfo
+     149 TRELLIS_FF
+       1 EHXPLLL
+       2 DP16KD
+       3 $paramod$838872d5a4bab89607f53482b205c0fd50d8b82e\CCU2C
+
+9.44.15.1. Executing ABC9_OPS pass (helper functions for ABC9).
+
+9.44.15.2. Executing ABC9_OPS pass (helper functions for ABC9).
+
+9.44.15.3. Executing XAIGER backend.
+<suppressed ~11 debug messages>
+Extracted 1157 AND gates and 3085 wires from module `drg5_rf_map' to a netlist network with 217 inputs and 131 outputs.
+
+9.44.15.4. Executing ABC9_EXE pass (technology mapping using ABC9).
+
+9.44.15.5. Executing ABC9.
+Running ABC command: "<yosys-exe-dir>/yosys-abc" -s -f <abc-temp-dir>/abc.script 2>&1
+ABC: ======== ABC command line "source <abc-temp-dir>/abc.script"
+ABC: + read_lut <abc-temp-dir>/input.lut 
+ABC: + read_box <abc-temp-dir>/input.box 
+ABC: + &read <abc-temp-dir>/input.xaig 
+ABC: + &ps 
+ABC: <abc-temp-dir>/input : i/o =    217/    131  and =     897  lev =   13 (3.45)  mem = 0.02 MB  box = 3  bb = 0
+ABC: + &scorr 
+ABC: Warning: The network is combinational.
+ABC: + &sweep 
+ABC: + &dc2 
+ABC: + &dch -f -r 
+ABC: + &ps 
+ABC: <abc-temp-dir>/input : i/o =    217/    131  and =    1711  lev =   13 (2.97)  mem = 0.03 MB  ch =  227  box = 3  bb = 0
+ABC: cst =       0  cls =    218  lit =     227  unused =    1492  proof =     0
+ABC: + &if -W 300 -v 
+ABC: K = 7. Memory (bytes): Truth =    0. Cut =   64. Obj =  148. Set =  672. CutMin = no
+ABC: Node =    1711.  Ch =   218.  Total mem =    0.33 MB. Peak cut mem =    0.01 MB.
+ABC: P:  Del = 2769.00.  Ar =     556.0.  Edge =      768.  Cut =    21283.  T =     0.00 sec
+ABC: P:  Del = 2769.00.  Ar =     539.0.  Edge =      753.  Cut =    21275.  T =     0.00 sec
+ABC: P:  Del = 2769.00.  Ar =     276.0.  Edge =      772.  Cut =    26788.  T =     0.00 sec
+ABC: F:  Del = 2769.00.  Ar =     238.0.  Edge =      785.  Cut =    25542.  T =     0.00 sec
+ABC: A:  Del = 2769.00.  Ar =     236.0.  Edge =      784.  Cut =    27175.  T =     0.00 sec
+ABC: A:  Del = 2769.00.  Ar =     235.0.  Edge =      785.  Cut =    27141.  T =     0.00 sec
+ABC: Total time =     0.01 sec
+ABC: + &write -n <abc-temp-dir>/output.aig 
+ABC: + &mfs 
+ABC: + &ps -l 
+ABC: <abc-temp-dir>/input : i/o =    217/    131  and =    1010  lev =   13 (2.70)  mem = 0.02 MB  box = 3  bb = 0
+ABC: Mapping (K=7)  :  lut =    208  edge =     777  lev =    5 (0.99)  levB =    7  mem = 0.01 MB
+ABC: LUT = 208 : 2=4 1.9 %  3=64 30.8 %  4=129 62.0 %  5=7 3.4 %  6=2 1.0 %  7=2 1.0 %  Ave = 3.74
+ABC: + &write -n <abc-temp-dir>/output.aig 
+ABC: + time 
+ABC: elapse: 0.04 seconds, total: 0.04 seconds
+
+9.44.15.6. Executing AIGER frontend.
+<suppressed ~708 debug messages>
+Removed 1729 unused cells and 2267 unused wires.
+
+9.44.15.7. Executing ABC9_OPS pass (helper functions for ABC9).
+ABC RESULTS:              $lut cells:      209
+ABC RESULTS:   $paramod$838872d5a4bab89607f53482b205c0fd50d8b82e\CCU2C cells:        3
+ABC RESULTS:           input signals:       15
+ABC RESULTS:          output signals:       15
+Removing temp directory.
+
+9.44.16. Executing TECHMAP pass (map to technology primitives).
+
+9.44.16.1. Executing Verilog-2005 frontend: /tmp/drg5-control-tools/oss-cad-suite/lib/../share/yosys/abc9_unmap.v
+Parsing Verilog input from `/tmp/drg5-control-tools/oss-cad-suite/lib/../share/yosys/abc9_unmap.v' to AST representation.
+Generating RTLIL representation for module `\$__DFF_x__$abc9_flop'.
+Generating RTLIL representation for module `\$__ABC9_SCC_BREAKER'.
+Successfully finished Verilog frontend.
+
+9.44.16.2. Continuing TECHMAP pass.
+Using template $paramod$838872d5a4bab89607f53482b205c0fd50d8b82e\CCU2C for cells of type $paramod$838872d5a4bab89607f53482b205c0fd50d8b82e\CCU2C.
+No more expansions possible.
+<suppressed ~9 debug messages>
+Removed 69 unused cells and 3024 unused wires.
+
+9.45. Executing TECHMAP pass (map to technology primitives).
+
+9.45.1. Executing Verilog-2005 frontend: /tmp/drg5-control-tools/oss-cad-suite/lib/../share/yosys/lattice/cells_map_trellis.v
+Parsing Verilog input from `/tmp/drg5-control-tools/oss-cad-suite/lib/../share/yosys/lattice/cells_map_trellis.v' to AST representation.
+Generating RTLIL representation for module `\$_DFF_N_'.
+Generating RTLIL representation for module `\$_DFF_P_'.
+Generating RTLIL representation for module `\$_DFFE_NN_'.
+Generating RTLIL representation for module `\$_DFFE_PN_'.
+Generating RTLIL representation for module `\$_DFFE_NP_'.
+Generating RTLIL representation for module `\$_DFFE_PP_'.
+Generating RTLIL representation for module `\$_DFF_NP0_'.
+Generating RTLIL representation for module `\$_DFF_NP1_'.
+Generating RTLIL representation for module `\$_DFF_PP0_'.
+Generating RTLIL representation for module `\$_DFF_PP1_'.
+Generating RTLIL representation for module `\$_SDFF_NP0_'.
+Generating RTLIL representation for module `\$_SDFF_NP1_'.
+Generating RTLIL representation for module `\$_SDFF_PP0_'.
+Generating RTLIL representation for module `\$_SDFF_PP1_'.
+Generating RTLIL representation for module `\$_DFFE_NP0P_'.
+Generating RTLIL representation for module `\$_DFFE_NP1P_'.
+Generating RTLIL representation for module `\$_DFFE_PP0P_'.
+Generating RTLIL representation for module `\$_DFFE_PP1P_'.
+Generating RTLIL representation for module `\$_DFFE_NP0N_'.
+Generating RTLIL representation for module `\$_DFFE_NP1N_'.
+Generating RTLIL representation for module `\$_DFFE_PP0N_'.
+Generating RTLIL representation for module `\$_DFFE_PP1N_'.
+Generating RTLIL representation for module `\$_SDFFE_NP0P_'.
+Generating RTLIL representation for module `\$_SDFFE_NP1P_'.
+Generating RTLIL representation for module `\$_SDFFE_PP0P_'.
+Generating RTLIL representation for module `\$_SDFFE_PP1P_'.
+Generating RTLIL representation for module `\$_SDFFE_NP0N_'.
+Generating RTLIL representation for module `\$_SDFFE_NP1N_'.
+Generating RTLIL representation for module `\$_SDFFE_PP0N_'.
+Generating RTLIL representation for module `\$_SDFFE_PP1N_'.
+Generating RTLIL representation for module `\$_ALDFF_NP_'.
+Generating RTLIL representation for module `\$_ALDFF_PP_'.
+Generating RTLIL representation for module `\$_ALDFFE_NPN_'.
+Generating RTLIL representation for module `\$_ALDFFE_NPP_'.
+Generating RTLIL representation for module `\$_ALDFFE_PPN_'.
+Generating RTLIL representation for module `\$_ALDFFE_PPP_'.
+Generating RTLIL representation for module `\FD1P3AX'.
+Generating RTLIL representation for module `\FD1P3AY'.
+Generating RTLIL representation for module `\FD1P3BX'.
+Generating RTLIL representation for module `\FD1P3DX'.
+Generating RTLIL representation for module `\FD1P3IX'.
+Generating RTLIL representation for module `\FD1P3JX'.
+Generating RTLIL representation for module `\FD1S3AX'.
+Generating RTLIL representation for module `\FD1S3AY'.
+Generating RTLIL representation for module `\FD1S3BX'.
+Generating RTLIL representation for module `\FD1S3DX'.
+Generating RTLIL representation for module `\FD1S3IX'.
+Generating RTLIL representation for module `\FD1S3JX'.
+Generating RTLIL representation for module `\IFS1P3BX'.
+Generating RTLIL representation for module `\IFS1P3DX'.
+Generating RTLIL representation for module `\IFS1P3IX'.
+Generating RTLIL representation for module `\IFS1P3JX'.
+Generating RTLIL representation for module `\OFS1P3BX'.
+Generating RTLIL representation for module `\OFS1P3DX'.
+Generating RTLIL representation for module `\OFS1P3IX'.
+Generating RTLIL representation for module `\OFS1P3JX'.
+Generating RTLIL representation for module `\IB'.
+Generating RTLIL representation for module `\IBPU'.
+Generating RTLIL representation for module `\IBPD'.
+Generating RTLIL representation for module `\OB'.
+Generating RTLIL representation for module `\OBZ'.
+Generating RTLIL representation for module `\OBZPU'.
+Generating RTLIL representation for module `\OBZPD'.
+Generating RTLIL representation for module `\OBCO'.
+Generating RTLIL representation for module `\BB'.
+Generating RTLIL representation for module `\BBPU'.
+Generating RTLIL representation for module `\BBPD'.
+Generating RTLIL representation for module `\ILVDS'.
+Generating RTLIL representation for module `\OLVDS'.
+Generating RTLIL representation for module `\$lut'.
+Successfully finished Verilog frontend.
+
+9.45.2. Continuing TECHMAP pass.
+Using template $paramod$c1a19a87ccbbb03d43a72335db63f692ddf82cc1\$lut for cells of type $lut.
+Using template $paramod$7491e7206ae8c682d288373efe06a43b67c277cf\$lut for cells of type $lut.
+Using template $paramod\$lut\WIDTH=32'00000000000000000000000000000011\LUT=8'10010110 for cells of type $lut.
+Using template $paramod\$lut\WIDTH=32'00000000000000000000000000000011\LUT=8'01000000 for cells of type $lut.
+Using template $paramod$2bf796e0fd6e6f7f76aac424a34e617ed5d61822\$lut for cells of type $lut.
+Using template $paramod$e49f6e3576ef1a6d2f58c54414dbb786af8cc869\$lut for cells of type $lut.
+Using template $paramod$fdcae86fcfd036c1880a04306ae771a9d7579c31\$lut for cells of type $lut.
+Using template $paramod$f9813472aa48e533b3838c6f2316dc2e78c66111\$lut for cells of type $lut.
+Using template $paramod\$lut\WIDTH=32'00000000000000000000000000000011\LUT=8'10111010 for cells of type $lut.
+Using template $paramod\$lut\WIDTH=32'00000000000000000000000000000011\LUT=8'00010000 for cells of type $lut.
+Using template $paramod$e51a8a571bee774247b38f52d6e85fd62ae52cea\$lut for cells of type $lut.
+Using template $paramod\$lut\WIDTH=32'00000000000000000000000000000011\LUT=8'00000100 for cells of type $lut.
+Using template $paramod$a5516fc31d1e552de2435200bb732b4d4ad63a9c\$lut for cells of type $lut.
+Using template $paramod\$lut\WIDTH=32'00000000000000000000000000000010\LUT=4'1011 for cells of type $lut.
+Using template $paramod$7bb6a37e65823eeb4b38c370fec30ab082759a14\$lut for cells of type $lut.
+Using template $paramod\$lut\WIDTH=32'00000000000000000000000000000011\LUT=8'00100000 for cells of type $lut.
+Using template $paramod$1241d759e3df4cac11dc7c99c36b0d1b07f7a673\$lut for cells of type $lut.
+Using template $paramod\$lut\WIDTH=32'00000000000000000000000000000011\LUT=8'10010000 for cells of type $lut.
+Using template $paramod$234fd643079033ba0cbc98ff572df9b7b7a0dc86\$lut for cells of type $lut.
+Using template $paramod$8d7a8d6e3356de09670738ba85f2c6b874f6b06d\$lut for cells of type $lut.
+Using template $paramod$571404c0889eaf57f492cb5e37f8acb5df5852f9\$lut for cells of type $lut.
+Using template $paramod\$lut\WIDTH=32'00000000000000000000000000000011\LUT=8'10101100 for cells of type $lut.
+Using template $paramod$68fe50ee5a60a0bed36b1b1843c805d7bc807f41\$lut for cells of type $lut.
+Using template $paramod\$lut\WIDTH=32'00000000000000000000000000000011\LUT=8'10111000 for cells of type $lut.
+Using template $paramod$58df2c605746858c7e53492c8f57d6f1fafa12d2\$lut for cells of type $lut.
+Using template $paramod\$lut\WIDTH=32'00000000000000000000000000000010\LUT=4'0100 for cells of type $lut.
+Using template $paramod$c8f16510db975553c8b0be1064e8f5234175f8a8\$lut for cells of type $lut.
+Using template $paramod$b1680225cc6a5792caa95f54b8b3218fae21705d\$lut for cells of type $lut.
+Using template $paramod$16894c241be5ea1f024e9339dea788b4dbe184ae\$lut for cells of type $lut.
+Using template $paramod$a36debbcfde9e32a01ea5076ccf3d75225452c4d\$lut for cells of type $lut.
+Using template $paramod$4853050665c020c8d21fb1a749196950a09d9df8\$lut for cells of type $lut.
+Using template $paramod$3ae9f1cda205b669870c653a21d45eee50078e98\$lut for cells of type $lut.
+Using template $paramod$2ea69c779d6c1b79ac5a87b0d1523c67d5628dba\$lut for cells of type $lut.
+Using template $paramod$0c822c65361ce832091b6c90f1a02f1ee0b109d4\$lut for cells of type $lut.
+Using template $paramod$e5e9da8fed769f971686eed8c5eea50e61f73aaa\$lut for cells of type $lut.
+Using template $paramod$a197ef6f3b51d411ae3e5b42b5d77a606c4fb11a\$lut for cells of type $lut.
+Using template $paramod$e6a488add0b5a2d742e2ae29f62ce7616e04271d\$lut for cells of type $lut.
+Using template $paramod$7c085cdbf0919cd3ad402d9495d97f0d71e4db93\$lut for cells of type $lut.
+Using template $paramod$0939298d426d727b8afa3e9642d621400f6da76d\$lut for cells of type $lut.
+Using template $paramod$df196ed0a1da5c4a58c5e08a1dac304fd3fccaab\$lut for cells of type $lut.
+Using template $paramod$a6597eda4608f36e684c1dd07ed552fcbec112b2\$lut for cells of type $lut.
+Using template $paramod\$lut\WIDTH=32'00000000000000000000000000000011\LUT=8'01010100 for cells of type $lut.
+Using template $paramod\$lut\WIDTH=32'00000000000000000000000000000011\LUT=8'10101000 for cells of type $lut.
+Using template $paramod\$lut\WIDTH=32'00000000000000000000000000000011\LUT=8'01010011 for cells of type $lut.
+Using template $paramod$61b1c47fe6e4b680e7eed9f626283951cdd99e10\$lut for cells of type $lut.
+Using template $paramod$3fad85fdb6a08fb42cfca60fefbe8b4b9331e469\$lut for cells of type $lut.
+Using template $paramod$bd207a76d3b3a91cd02b008444c4afcf41fa9714\$lut for cells of type $lut.
+Using template $paramod$18368a3da11a7221c7fb674ec80ee0d0bd64b883\$lut for cells of type $lut.
+Using template $paramod\$lut\WIDTH=32'00000000000000000000000000000011\LUT=8'11011000 for cells of type $lut.
+Using template $paramod$ee04a7397c7e60ad1a187fa314ed449c24407f97\$lut for cells of type $lut.
+Using template $paramod$4a0b7d2a2849f16773696ba19d68aee3da2f49f1\$lut for cells of type $lut.
+Using template $paramod$3493d0d25aadc4b89d4b33293b70514b71f3c8c6\$lut for cells of type $lut.
+Using template $paramod\$lut\WIDTH=32'00000000000000000000000000000011\LUT=8'11111110 for cells of type $lut.
+Using template $paramod\$lut\WIDTH=32'00000000000000000000000000000011\LUT=8'11101010 for cells of type $lut.
+Using template $paramod$a988852add2bdce7c1dfac786401ba7c7bc832c1\$lut for cells of type $lut.
+Using template $paramod$364c9ffbffac467d60dfec81bba4e18476c15602\$lut for cells of type $lut.
+Using template $paramod$30305e55a780880b9c824fe3509a4d981acb0f2b\$lut for cells of type $lut.
+Using template $paramod$47a8214374025465e226fa66bee690ff33268a25\$lut for cells of type $lut.
+Using template $paramod$6e238df02989b317f10820a22773676e71120644\$lut for cells of type $lut.
+Using template $paramod$d6ca727e39f31d51d29072e0f33aa09c65e37336\$lut for cells of type $lut.
+Using template $paramod$98162d862d449f7c67182f5a43cdfe4123defff8\$lut for cells of type $lut.
+Using template $paramod$d9e869de4ea8677851dc452d380224cee441f821\$lut for cells of type $lut.
+Using template $paramod$fd904e9e35cfd343a9df248824bd3f1408724879\$lut for cells of type $lut.
+Using template $paramod\$lut\WIDTH=32'00000000000000000000000000000001\LUT=2'01 for cells of type $lut.
+No more expansions possible.
+<suppressed ~1112 debug messages>
+
+9.46. Executing OPT_LUT_INS pass (discard unused LUT inputs).
+Optimizing LUTs in drg5_rf_map.
+  Optimizing lut $abc$8263$lut$aiger8262$418.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut3 (4 -> 3)
+  Optimizing lut $abc$8263$lut$aiger8262$418.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut5 (4 -> 3)
+  Optimizing lut $abc$8263$lut$aiger8262$418.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut7 (4 -> 3)
+  Optimizing lut $abc$8263$lut$aiger8262$411.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut1 (4 -> 1)
+  Optimizing lut $abc$8263$lut$aiger8262$411.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut2 (4 -> 0)
+  Optimizing lut $abc$8263$lut$aiger8262$411.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut3 (4 -> 1)
+  Optimizing lut $abc$8263$lut$aiger8262$411.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut4 (4 -> 0)
+  Optimizing lut $abc$8263$lut$aiger8262$411.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut5 (4 -> 1)
+  Optimizing lut $abc$8263$lut$aiger8262$411.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut6 (4 -> 0)
+  Optimizing lut $abc$8263$lut$aiger8262$411.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut7 (4 -> 1)
+  Optimizing lut $abc$8263$lut$aiger8262$401.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut1 (4 -> 1)
+  Optimizing lut $abc$8263$lut$aiger8262$401.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut3 (4 -> 0)
+  Optimizing lut $abc$8263$lut$auto$rtlil.cc:3574:NotGate$2096.genblk1.genblk1.genblk1.genblk1.genblk1.lut1 (4 -> 0)
+  Optimizing lut $abc$8263$lut$aiger8262$411.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut0 (4 -> 0)
+  Optimizing lut $abc$8263$lut$aiger8262$418.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut1 (4 -> 1)
+  Optimizing lut $abc$8263$lut$aiger8262$436.genblk1.genblk1.genblk1.genblk1.genblk1.lut1 (4 -> 3)
+  Optimizing lut $abc$8263$lut$aiger8262$462.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut0 (4 -> 0)
+  Optimizing lut $abc$8263$lut$auto$rtlil.cc:3384:And$437.genblk1.genblk1.genblk1.genblk1.genblk1.lut0 (4 -> 0)
+  Optimizing lut $abc$8263$lut$auto$rtlil.cc:3574:NotGate$2094.genblk1.genblk1.genblk1.genblk1.genblk1.lut1 (4 -> 0)
+  Optimizing lut $abc$8263$lut$aiger8262$462.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut1 (4 -> 0)
+Removed 0 unused cells and 423 unused wires.
+
+9.47. Executing AUTONAME pass.
+Renamed 613 objects in module drg5_rf_map (90 iterations).
+<suppressed ~613 debug messages>
+
+9.48. Executing HIERARCHY pass (managing design hierarchy).
+Attribute `top' found on module `drg5_rf_map'. Setting top module to drg5_rf_map.
+
+9.48.1. Analyzing design hierarchy..
+Top module:  \drg5_rf_map
+
+9.48.2. Analyzing design hierarchy..
+Top module:  \drg5_rf_map
+Removed 0 unused modules.
+
+9.49. Printing statistics.
+
+=== drg5_rf_map ===
+
+        +----------Local Count, excluding submodules.
+        | 
+      228 wires
+      903 wire bits
+      228 public wires
+      903 public wire bits
+        3 ports
+       10 port bits
+        5 cells
+        2   $scopeinfo
+        2   DP16KD
+        1   EHXPLLL
+      413 submodules
+        3   CCU2C
+        8   L6MUX21
+      235   LUT4
+       19   PFUMX
+      148   TRELLIS_FF
+
+=== design hierarchy ===
+
+        +----------Count including submodules.
+        | 
+        5 drg5_rf_map
+
+        +----------Count including submodules.
+        | 
+      228 wires
+      903 wire bits
+      228 public wires
+      903 public wire bits
+        3 ports
+       10 port bits
+        - memories
+        - memory bits
+        - processes
+        5 cells
+        2   $scopeinfo
+        2   DP16KD
+        1   EHXPLLL
+      413 submodules
+        3   CCU2C
+        8   L6MUX21
+      235   LUT4
+       19   PFUMX
+      148   TRELLIS_FF
+
+9.50. Executing CHECK pass (checking for obvious problems).
+Checking module drg5_rf_map...
+Found and reported 0 problems.
+
+9.51. Executing JSON backend.
+
+10. Executing CHECK pass (checking for obvious problems).
+Checking module drg5_rf_map...
+Found and reported 0 problems.
+
+11. Printing statistics.
+
+=== drg5_rf_map ===
+
+        +----------Local Count, excluding submodules.
+        | 
+      228 wires
+      903 wire bits
+      228 public wires
+      903 public wire bits
+        3 ports
+       10 port bits
+      418 cells
+        2   $scopeinfo
+        3   CCU2C
+        2   DP16KD
+        1   EHXPLLL
+        8   L6MUX21
+      235   LUT4
+       19   PFUMX
+      148   TRELLIS_FF
+

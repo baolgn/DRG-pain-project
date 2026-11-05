@@ -1,0 +1,21 @@
+$ /tmp/drg5-counters/obj/Vdrg5_counters_tb +verilator+seed+1 +seed=1 +mutate_trap
+COUNTER_CHECK_FAILED retirement ledger seed=1 case=1 edge=14 event=4 addr=000 op=0 source=00000000 read=0 write=0 commit=0 trap=1 retire=0 debug=0 ebreak=0
+HISTORY slot=0 event=0 cycle=0000000000000000 instret=0000000000000000
+HISTORY slot=1 event=0 cycle=0000000000000000 instret=0000000000000000
+HISTORY slot=2 event=13 cycle=0000000000000000 instret=0000000000000000
+HISTORY slot=3 event=1 cycle=0000000000000001 instret=0000000000000000
+HISTORY slot=4 event=1 cycle=0000000000000002 instret=0000000000000000
+HISTORY slot=5 event=1 cycle=0000000000000003 instret=0000000000000000
+HISTORY slot=6 event=1 cycle=0000000000000004 instret=0000000000000000
+HISTORY slot=7 event=1 cycle=0000000000000005 instret=0000000000000000
+HISTORY slot=8 event=1 cycle=0000000000000006 instret=0000000000000000
+HISTORY slot=9 event=1 cycle=0000000000000007 instret=0000000000000000
+HISTORY slot=10 event=1 cycle=0000000000000008 instret=0000000000000000
+HISTORY slot=11 event=1 cycle=0000000000000009 instret=0000000000000000
+HISTORY slot=12 event=2 cycle=000000000000000a instret=0000000000000001
+HISTORY slot=13 event=3 cycle=000000000000000b instret=0000000000000002
+HISTORY slot=14 event=0 cycle=0000000000000000 instret=0000000000000000
+HISTORY slot=15 event=0 cycle=0000000000000000 instret=0000000000000000
+[42] %Fatal: drg5_counters_tb.sv:65: Assertion failed in drg5_counters_tb.check: counter event ledger mismatch
+%Error: microcontroller/tests/drg5_counters_tb.sv:65: Verilog $stop
+Aborting...

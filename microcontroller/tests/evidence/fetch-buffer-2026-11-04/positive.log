@@ -1,0 +1,6 @@
+$ /tmp/drg5-fetch-buffer-tests/obj/Vdrg5_fetch_buffer_tb +verilator+seed+1
+FETCH_BUFFER_PASS edges=622653 checks=1015909 prefix_cases=196608
+- /home/bluto/Desktop/dorsalGanglionProject/microcontroller/tests/drg5_fetch_buffer_tb.sv:244: Verilog $finish
+- S i m u l a t i o n   R e p o r t: Verilator 5.047 devel
+- Verilator: $finish at 7us; walltime 0.211 s; speed 32.424 us/s
+- Verilator: cpu 0.211 s on 1 threads; allocated 7 MB

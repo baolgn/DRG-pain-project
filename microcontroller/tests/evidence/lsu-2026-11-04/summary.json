@@ -1,0 +1,154 @@
+{
+  "formal_assertions_per_profile": 6,
+  "formal_assumptions": 0,
+  "profiles": "bit2 TEST_REGIONS, bit1 IRAM_WRITE, bit0 TIMER_ENABLED",
+  "results": {
+    "behavioral": {
+      "exit": 0,
+      "expected_outcome_seen": true
+    },
+    "proof-p0": {
+      "exit": 0,
+      "expected_outcome_seen": true
+    },
+    "proof-p0-negative": {
+      "exit": 1,
+      "expected_outcome_seen": true
+    },
+    "proof-p1": {
+      "exit": 0,
+      "expected_outcome_seen": true
+    },
+    "proof-p2": {
+      "exit": 0,
+      "expected_outcome_seen": true
+    },
+    "proof-p3": {
+      "exit": 0,
+      "expected_outcome_seen": true
+    },
+    "proof-p4": {
+      "exit": 0,
+      "expected_outcome_seen": true
+    },
+    "proof-p5": {
+      "exit": 0,
+      "expected_outcome_seen": true
+    },
+    "proof-p6": {
+      "exit": 0,
+      "expected_outcome_seen": true
+    },
+    "proof-p7": {
+      "exit": 0,
+      "expected_outcome_seen": true
+    },
+    "sign_detector": {
+      "exit": 1,
+      "expected_outcome_seen": true
+    },
+    "store_detector": {
+      "exit": 1,
+      "expected_outcome_seen": true
+    },
+    "synth-p0": {
+      "cells": {
+        "CCU2C": 24,
+        "L6MUX21": 54,
+        "LUT4": 312,
+        "PFUMX": 77
+      },
+      "exit": 0,
+      "expected_outcome_seen": true,
+      "netlist_sha256": "aa0e2ebdd005b306276f157aded6cdbb956aea693de92b910bb8c845474ee4cb"
+    },
+    "synth-p1": {
+      "cells": {
+        "CCU2C": 16,
+        "L6MUX21": 17,
+        "LUT4": 226,
+        "PFUMX": 39
+      },
+      "exit": 0,
+      "expected_outcome_seen": true,
+      "netlist_sha256": "a83269495ff195e6591f9cf66e0b1e65f456f6883ad00d0ecd9ea1557bedf1c4"
+    },
+    "synth-p2": {
+      "cells": {
+        "CCU2C": 24,
+        "L6MUX21": 51,
+        "LUT4": 303,
+        "PFUMX": 73
+      },
+      "exit": 0,
+      "expected_outcome_seen": true,
+      "netlist_sha256": "5f99bf3611e811f2c8f648ca1a3ef7a2d9b8dadfe980e15e70dd0b6effca3a31"
+    },
+    "synth-p3": {
+      "cells": {
+        "CCU2C": 24,
+        "L6MUX21": 52,
+        "LUT4": 297,
+        "PFUMX": 75
+      },
+      "exit": 0,
+      "expected_outcome_seen": true,
+      "netlist_sha256": "eac6173a50a0d149122551fd367bca9adae68e0d8aedfce472f3eed2b5406172"
+    },
+    "synth-p4": {
+      "cells": {
+        "CCU2C": 59,
+        "L6MUX21": 17,
+        "LUT4": 260,
+        "PFUMX": 57
+      },
+      "exit": 0,
+      "expected_outcome_seen": true,
+      "netlist_sha256": "fca3430a3f64a8e27e0348d4d0d33637450902709565fb4fa5c433e4637eb4b4"
+    },
+    "synth-p5": {
+      "cells": {
+        "CCU2C": 43,
+        "L6MUX21": 38,
+        "LUT4": 288,
+        "PFUMX": 60
+      },
+      "exit": 0,
+      "expected_outcome_seen": true,
+      "netlist_sha256": "939f1cf7f7671ba6352f079b7303d4f580aeaf4d92e8983d966f4b9fe9868900"
+    },
+    "synth-p6": {
+      "cells": {
+        "CCU2C": 59,
+        "L6MUX21": 31,
+        "LUT4": 273,
+        "PFUMX": 53
+      },
+      "exit": 0,
+      "expected_outcome_seen": true,
+      "netlist_sha256": "d81b040477d32067cf8647e5592b8e65fac17e847871918b343e2e5718016aa2"
+    },
+    "synth-p7": {
+      "cells": {
+        "CCU2C": 43,
+        "L6MUX21": 38,
+        "LUT4": 287,
+        "PFUMX": 60
+      },
+      "exit": 0,
+      "expected_outcome_seen": true,
+      "netlist_sha256": "307a053d97a3a978f3f96389e28caa59dccdc334d942f2a17024cd7d9ce2cd0e"
+    }
+  },
+  "scope": "combinational LSU policy and lane helper only; no bus ownership or response-status proof",
+  "sources": {
+    "/home/bluto/Desktop/dorsalGanglionProject/microcontroller/rtl/drg5_lsu.sv": "eeac7f5f8d92e4e35030b716e85aabede593afe1d5ca3175e79b9e3e5c83d926",
+    "/home/bluto/Desktop/dorsalGanglionProject/microcontroller/tests/drg5_lsu_formal.sv": "38bb7550fe3d0539383748851ca32053ea6e1ff8b397ba569eebdb93d8a5d9fa",
+    "/home/bluto/Desktop/dorsalGanglionProject/microcontroller/tests/drg5_lsu_tb.sv": "bffa6b66d8d3e54e0bb54891937797606f7c4641063b78e2abaa7d314113983c",
+    "/home/bluto/Desktop/dorsalGanglionProject/microcontroller/tests/run_lsu.py": "99c86e1bbb39f9c10f35d33ae321c0fcd88d25bcd81d3b3ec2f4b6519c84157b"
+  },
+  "versions": {
+    "verilator": "Verilator 5.047 devel rev v5.046-19-ge9dd6eaaf (mod)",
+    "yosys": "Yosys 0.61+39 (git sha1 49e595079, clang++ 18.1.8 -fPIC -O3)"
+  }
+}

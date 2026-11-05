@@ -1,0 +1,4 @@
+$ /tmp/drg5-m-irq-control/c1/Vdrg5_irq_control_tb +verilator+seed+1 +seed=1 +mutate_wfi_wake
+[22871] %Fatal: drg5_irq_control_tb.sv:95: Assertion failed in drg5_irq_control_tb.check: seed=1 case=86 edge=5718 pc=00000034 owner=0 accepted=0 age=0 response=0: WFI failed to wake on locally enabled pending
+%Error: microcontroller/tests/drg5_irq_control_tb.sv:95: Verilog $stop
+Aborting...

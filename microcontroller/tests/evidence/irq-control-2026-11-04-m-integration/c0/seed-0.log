@@ -1,0 +1,26 @@
+$ /tmp/drg5-m-irq-control/c0/Vdrg5_irq_control_tb +verilator+seed+1 +seed=0
+LATENCY scenario=0 accept=126 response=1 x_hold=36 synthetic_future_divider=1 fetch_drain=4 vector_delivery=16 source_to_entry=163 source_to_D=181 source_to_saved=248 D_to_ACK_effect=87 D_to_ACK_complete=88 D_to_MRET=166 save_work=69
+LATENCY scenario=1 accept=0 response=127 x_hold=8 synthetic_future_divider=0 fetch_drain=4 vector_delivery=16 source_to_entry=135 source_to_D=153 source_to_saved=220 D_to_ACK_effect=87 D_to_ACK_complete=88 D_to_MRET=166 save_work=69
+LATENCY scenario=2 accept=63 response=64 x_hold=6 synthetic_future_divider=0 fetch_drain=4 vector_delivery=16 source_to_entry=127 source_to_D=145 source_to_saved=212 D_to_ACK_effect=87 D_to_ACK_complete=88 D_to_MRET=166 save_work=69
+LATENCY scenario=3 accept=26 response=101 x_hold=3 synthetic_future_divider=0 fetch_drain=4 vector_delivery=16 source_to_entry=127 source_to_D=145 source_to_saved=212 D_to_ACK_effect=87 D_to_ACK_complete=88 D_to_MRET=166 save_work=69
+LATENCY scenario=4 accept=1 response=126 x_hold=5 synthetic_future_divider=0 fetch_drain=4 vector_delivery=16 source_to_entry=127 source_to_D=145 source_to_saved=212 D_to_ACK_effect=87 D_to_ACK_complete=88 D_to_MRET=166 save_work=69
+LATENCY scenario=5 accept=67 response=60 x_hold=6 synthetic_future_divider=0 fetch_drain=4 vector_delivery=16 source_to_entry=127 source_to_D=145 source_to_saved=212 D_to_ACK_effect=87 D_to_ACK_complete=88 D_to_MRET=166 save_work=69
+LATENCY scenario=6 accept=22 response=105 x_hold=4 synthetic_future_divider=0 fetch_drain=4 vector_delivery=16 source_to_entry=127 source_to_D=145 source_to_saved=212 D_to_ACK_effect=87 D_to_ACK_complete=88 D_to_MRET=166 save_work=69
+LATENCY scenario=7 accept=84 response=43 x_hold=7 synthetic_future_divider=0 fetch_drain=4 vector_delivery=16 source_to_entry=127 source_to_D=145 source_to_saved=212 D_to_ACK_effect=87 D_to_ACK_complete=88 D_to_MRET=166 save_work=69
+LATENCY scenario=8 accept=115 response=12 x_hold=6 synthetic_future_divider=0 fetch_drain=4 vector_delivery=16 source_to_entry=127 source_to_D=145 source_to_saved=212 D_to_ACK_effect=87 D_to_ACK_complete=88 D_to_MRET=166 save_work=69
+LATENCY scenario=9 accept=13 response=114 x_hold=7 synthetic_future_divider=0 fetch_drain=4 vector_delivery=16 source_to_entry=127 source_to_D=145 source_to_saved=212 D_to_ACK_effect=87 D_to_ACK_complete=88 D_to_MRET=166 save_work=69
+LATENCY scenario=10 accept=88 response=39 x_hold=3 synthetic_future_divider=0 fetch_drain=4 vector_delivery=16 source_to_entry=127 source_to_D=145 source_to_saved=212 D_to_ACK_effect=87 D_to_ACK_complete=88 D_to_MRET=166 save_work=69
+LATENCY scenario=11 accept=46 response=81 x_hold=1 synthetic_future_divider=0 fetch_drain=4 vector_delivery=16 source_to_entry=127 source_to_D=145 source_to_saved=212 D_to_ACK_effect=87 D_to_ACK_complete=88 D_to_MRET=166 save_work=69
+LATENCY scenario=12 accept=5 response=122 x_hold=5 synthetic_future_divider=0 fetch_drain=4 vector_delivery=16 source_to_entry=127 source_to_D=145 source_to_saved=212 D_to_ACK_effect=87 D_to_ACK_complete=88 D_to_MRET=166 save_work=69
+LATENCY scenario=13 accept=119 response=8 x_hold=6 synthetic_future_divider=0 fetch_drain=4 vector_delivery=16 source_to_entry=127 source_to_D=145 source_to_saved=212 D_to_ACK_effect=87 D_to_ACK_complete=88 D_to_MRET=166 save_work=69
+LATENCY scenario=14 accept=58 response=69 x_hold=1 synthetic_future_divider=0 fetch_drain=4 vector_delivery=16 source_to_entry=127 source_to_D=145 source_to_saved=212 D_to_ACK_effect=87 D_to_ACK_complete=88 D_to_MRET=166 save_work=69
+LATENCY scenario=15 accept=40 response=87 x_hold=4 synthetic_future_divider=0 fetch_drain=4 vector_delivery=16 source_to_entry=127 source_to_D=145 source_to_saved=212 D_to_ACK_effect=87 D_to_ACK_complete=88 D_to_MRET=166 save_work=69
+LATENCY scenario=16 accept=55 response=72 x_hold=3 synthetic_future_divider=0 fetch_drain=4 vector_delivery=16 source_to_entry=127 source_to_D=145 source_to_saved=212 D_to_ACK_effect=87 D_to_ACK_complete=88 D_to_MRET=166 save_work=69
+LATENCY scenario=17 accept=1 response=126 x_hold=2 synthetic_future_divider=0 fetch_drain=4 vector_delivery=16 source_to_entry=127 source_to_D=145 source_to_saved=212 D_to_ACK_effect=87 D_to_ACK_complete=88 D_to_MRET=166 save_work=69
+LATENCY scenario=18 accept=60 response=67 x_hold=1 synthetic_future_divider=0 fetch_drain=4 vector_delivery=16 source_to_entry=127 source_to_D=145 source_to_saved=212 D_to_ACK_effect=87 D_to_ACK_complete=88 D_to_MRET=166 save_work=69
+LATENCY scenario=19 accept=66 response=61 x_hold=4 synthetic_future_divider=0 fetch_drain=4 vector_delivery=16 source_to_entry=127 source_to_D=145 source_to_saved=212 D_to_ACK_effect=87 D_to_ACK_complete=88 D_to_MRET=166 save_work=69
+PASS irq-control C=0 seed=0 cases=120 edges=17694 checks=9482026 retired=3186 traps=2 interrupts=78 admissions=3192 kills=9 offers=718 replies=718 effects=716 sleeps=7 wakes=7 saves=320 entry_max=163 handler_max=181 saved_max=248 service_max=128 ack_max=88 return_max=166
+- microcontroller/tests/drg5_irq_control_tb.sv:1085: Verilog $finish
+- S i m u l a t i o n   R e p o r t: Verilator 5.047 devel
+- Verilator: $finish at 71ns; walltime 1.922 s; speed 36.821 ns/s
+- Verilator: cpu 1.922 s on 1 threads; allocated 10 MB

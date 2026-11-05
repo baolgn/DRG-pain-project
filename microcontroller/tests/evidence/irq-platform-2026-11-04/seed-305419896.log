@@ -1,0 +1,6 @@
+$ /tmp/drg5-irq-platform-20261104/obj/Vdrg5_irq_platform_tb +verilator+seed+1 +seed=305419896
+PASS irq-platform seed=305419896 profiles=3 capacities=1,4,64 edges=12848 checks=385449 reads=2484 writes=2711 errors=14197 timer_overrides=513 set_clear=354 empty_ack_arrival=3 full_ack_arrival=64 overflow_edges=11978 masked_pending=23151 timer_wraps=3 address_bins=ffff direction_bins=00000003 width_bins=0000000f
+- microcontroller/tests/drg5_irq_platform_tb.sv:386: Verilog $finish
+- S i m u l a t i o n   R e p o r t: Verilator 5.047 devel
+- Verilator: $finish at 26ns; walltime 0.087 s; speed 297.008 ns/s
+- Verilator: cpu 0.087 s on 1 threads; allocated 11 MB

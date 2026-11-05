@@ -1,0 +1,25 @@
+{
+  "status": "passed",
+  "profiles": 4,
+  "positive_runs": 12,
+  "negative_controls": 12,
+  "totals": {
+    "cases": 240,
+    "edges": 15616,
+    "checks": 54444,
+    "retires": 222,
+    "traps": 84,
+    "irqs": 12,
+    "halt_entries": 636,
+    "resumes": 384,
+    "reads": 12,
+    "writes": 24,
+    "responses": 60
+  },
+  "maximum_halt_wait_edges": 42,
+  "counter_ledger": "public pre-edge debug mode/inhibit/write inputs and checked terminal events; explicit scenario totals independently bound steps",
+  "limits": [
+    "CPU-side raw instruction packet fixture; external frontend/DM/DTM/host checked separately",
+    "no deadline proof for every hold schedule; no firmware saving or physical transport time included"
+  ]
+}

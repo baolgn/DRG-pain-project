@@ -1,0 +1,15 @@
+$ /tmp/drg5-control-tools-20260301/oss-cad-suite/bin/verilator --binary --timing --assert -Wall -j 2 -CFLAGS -O0 -Imicrocontroller/rtl --top-module drg5_counter_execution_tb -GC_ENABLED=1 -GDIAGNOSTIC=0 -GFORWARDING=1 --Mdir /tmp/drg5-counter-execution/c1-d0-f1 microcontroller/rtl/drg5_control_pkg.sv microcontroller/rtl/drg5_alu.sv microcontroller/rtl/drg5_branch.sv microcontroller/rtl/drg5_control.sv microcontroller/rtl/drg5_csr.sv microcontroller/rtl/drg5_decoder.sv microcontroller/rtl/drg5_decompress.sv microcontroller/rtl/drg5_fetch.sv microcontroller/rtl/drg5_fetch_buffer.sv microcontroller/rtl/drg5_fetch_guard.sv microcontroller/rtl/drg5_forward.sv microcontroller/rtl/drg5_frontend.sv microcontroller/rtl/drg5_immediate.sv microcontroller/rtl/drg5_irq_platform.sv microcontroller/rtl/drg5_lsu.sv microcontroller/rtl/drg5_muldiv.sv microcontroller/rtl/drg5_observe.sv microcontroller/rtl/drg5_regfile.sv microcontroller/rtl/drg5_shifter.sv microcontroller/tests/drg5_counter_execution_tb.sv
+%Error: microcontroller/tests/drg5_counter_execution_tb.sv:377:50: Too many digits for 12 bit number: '12'hb00?1'
+  377 |                 half_accesses|=expected.address==12'hb00?1:expected.address==12'hb80?2:expected.address==12'hb02?4:8;
+      |                                                  ^~~~~~~~~
+        ... See the manual at https://verilator.org/verilator_doc.html?v=5.047 for more assistance.
+%Error: microcontroller/tests/drg5_counter_execution_tb.sv:377:59: syntax error, unexpected ':', expecting ';'
+  377 |                 half_accesses|=expected.address==12'hb00?1:expected.address==12'hb80?2:expected.address==12'hb02?4:8;
+      |                                                           ^
+%Error: microcontroller/tests/drg5_counter_execution_tb.sv:377:78: Too many digits for 12 bit number: '12'hb80?2'
+  377 |                 half_accesses|=expected.address==12'hb00?1:expected.address==12'hb80?2:expected.address==12'hb02?4:8;
+      |                                                                              ^~~~~~~~~
+%Error: microcontroller/tests/drg5_counter_execution_tb.sv:377:106: Too many digits for 12 bit number: '12'hb02?4'
+  377 |                 half_accesses|=expected.address==12'hb00?1:expected.address==12'hb80?2:expected.address==12'hb02?4:8;
+      |                                                                                                          ^~~~~~~~~
+%Error: Exiting due to 4 error(s)

@@ -1,0 +1,6 @@
+$ /tmp/drg5-debug-core/final-comments/c1-d0/Vdrg5_debug_core_tb +verilator+seed+1 +seed=1
+PASS debug-core C=1 diagnostic=0 seed=1 cases=20 edges=1312 checks=4575 retires=20 traps=7 irqs=1 halt_entries=55 resumes=34 reads=1 writes=2 responses=5 max_halt=42
+- microcontroller/tests/drg5_debug_core_tb.sv:624: Verilog $finish
+- S i m u l a t i o n   R e p o r t: Verilator 5.047 devel
+- Verilator: $finish at 5ns; walltime 0.021 s; speed 222.547 ns/s
+- Verilator: cpu 0.021 s on 1 threads; allocated 11 MB

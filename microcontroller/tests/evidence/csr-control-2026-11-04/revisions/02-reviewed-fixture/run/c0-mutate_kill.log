@@ -1,0 +1,4 @@
+$ /tmp/drg5-csr-control-v1/c0/Vdrg5_csr_control_tb +verilator+seed+1 +seed=1 +mutate_kill
+[130868] %Fatal: drg5_csr_control_tb.sv:79: Assertion failed in drg5_csr_control_tb.check: seed=1 case=115 C=0 cycle=3636 pc=0000013c: unjustified CSR squash
+%Error: microcontroller/tests/drg5_csr_control_tb.sv:79: Verilog $stop
+Aborting...

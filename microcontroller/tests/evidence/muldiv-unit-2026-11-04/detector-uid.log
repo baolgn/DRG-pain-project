@@ -1,0 +1,7 @@
+$ /tmp/drg5-muldiv-unit/obj/Vdrg5_muldiv_tb +seed=1 +verilator+seed+1 +mutate_uid
+MULDIV_TRACE edge=1 state=8000000000000000000000000000000000000000000000000000000000
+MULDIV_TRACE edge=2 state=5000000000000000000000000000000001000000010000000100000001
+MULDIV_TRACE edge=3 state=163c88596c5e8885db00000000b4733ac50cf06d600000000100000001
+[30] %Fatal: drg5_muldiv_tb.sv:51: Assertion failed in drg5_muldiv_tb.check: MULDIV_CHECK_FAILED result identity seed=1 case=0 edge=3 op=0 lhs=00000000 rhs=00000000 elapsed=1 expected=00000000 result=00000000 uid=0000000100000001 observed_uid=0000000100000001 busy=1 valid=0
+%Error: microcontroller/tests/drg5_muldiv_tb.sv:51: Verilog $stop
+Aborting...

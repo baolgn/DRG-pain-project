@@ -1,0 +1,18 @@
+{
+  "results": {
+    "positive": {
+      "exit": 0,
+      "expected_result": true
+    },
+    "raw_detector": {
+      "exit": 1,
+      "expected_result": true
+    }
+  },
+  "runner_sha256": "bc76b250a5181bd857ddc40e27a002c44c01e9b60e2df58dc6d696d91e387c50",
+  "sources": {
+    "rtl/drg5_fetch_buffer.sv": "a2a5dc5b6236751bc3df70c48eedc229b40a9e79c2adb7e0969c4355fa2b5844",
+    "tests/drg5_fetch_buffer_tb.sv": "44386812adbfa26b0d7dd7609bc13df53177b12eb7c0965fd1a7efc76691e76b"
+  },
+  "version": "Verilator 5.047 devel rev v5.046-19-ge9dd6eaaf (mod)"
+}

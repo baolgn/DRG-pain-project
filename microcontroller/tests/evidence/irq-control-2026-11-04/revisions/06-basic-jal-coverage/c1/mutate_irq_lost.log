@@ -1,0 +1,4 @@
+$ /tmp/drg5-irq-control-final/c1/Vdrg5_irq_control_tb +verilator+seed+1 +seed=1 +mutate_irq_lost
+[2511] %Fatal: drg5_irq_control_tb.sv:95: Assertion failed in drg5_irq_control_tb.check: seed=1 case=10 edge=628 pc=00000030 owner=0 accepted=0 age=0 response=0: unexpected noninstruction redirect
+%Error: microcontroller/tests/drg5_irq_control_tb.sv:95: Verilog $stop
+Aborting...

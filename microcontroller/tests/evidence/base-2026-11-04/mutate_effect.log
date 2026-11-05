@@ -1,0 +1,86 @@
+ARCH case=1 index=0 pc=00000100 raw=00000013 trap=0 cause=0 tval=00000000 rdwrite=0 rd=0 value=00000000 next=00000104
+ARCH case=1 index=1 pc=00000104 raw=000000b7 trap=0 cause=0 tval=00000000 rdwrite=1 rd=1 value=00000000 next=00000108
+ARCH case=1 index=2 pc=00000108 raw=ffe08093 trap=0 cause=0 tval=00000000 rdwrite=1 rd=1 value=fffffffe next=0000010c
+ARCH case=1 index=3 pc=0000010c raw=00000137 trap=0 cause=0 tval=00000000 rdwrite=1 rd=2 value=00000000 next=00000110
+ARCH case=1 index=4 pc=00000110 raw=02110113 trap=0 cause=0 tval=00000000 rdwrite=1 rd=2 value=00000021 next=00000114
+ARCH case=1 index=5 pc=00000114 raw=800001b7 trap=0 cause=0 tval=00000000 rdwrite=1 rd=3 value=80000000 next=00000118
+ARCH case=1 index=6 pc=00000118 raw=00018193 trap=0 cause=0 tval=00000000 rdwrite=1 rd=3 value=80000000 next=0000011c
+ARCH case=1 index=7 pc=0000011c raw=80000237 trap=0 cause=0 tval=00000000 rdwrite=1 rd=4 value=80000000 next=00000120
+ARCH case=1 index=8 pc=00000120 raw=fff20213 trap=0 cause=0 tval=00000000 rdwrite=1 rd=4 value=7fffffff next=00000124
+ARCH case=1 index=9 pc=00000124 raw=00208433 trap=0 cause=0 tval=00000000 rdwrite=1 rd=8 value=0000001f next=00000128
+ARCH case=1 index=10 pc=00000128 raw=002094b3 trap=0 cause=0 tval=00000000 rdwrite=1 rd=9 value=fffffffc next=0000012c
+ARCH case=1 index=11 pc=0000012c raw=0020a533 trap=0 cause=0 tval=00000000 rdwrite=1 rd=10 value=00000001 next=00000130
+ARCH case=1 index=12 pc=00000130 raw=0020b5b3 trap=0 cause=0 tval=00000000 rdwrite=1 rd=11 value=00000000 next=00000134
+ARCH case=1 index=13 pc=00000134 raw=0020c633 trap=0 cause=0 tval=00000000 rdwrite=1 rd=12 value=ffffffdf next=00000138
+ARCH case=1 index=14 pc=00000138 raw=0020d6b3 trap=0 cause=0 tval=00000000 rdwrite=1 rd=13 value=7fffffff next=0000013c
+ARCH case=1 index=15 pc=0000013c raw=0020e733 trap=0 cause=0 tval=00000000 rdwrite=1 rd=14 value=ffffffff next=00000140
+ARCH case=1 index=16 pc=00000140 raw=0020f7b3 trap=0 cause=0 tval=00000000 rdwrite=1 rd=15 value=00000020 next=00000144
+ARCH case=1 index=17 pc=00000144 raw=40418833 trap=0 cause=0 tval=00000000 rdwrite=1 rd=16 value=00000001 next=00000148
+ARCH case=1 index=18 pc=00000148 raw=4021d8b3 trap=0 cause=0 tval=00000000 rdwrite=1 rd=17 value=c0000000 next=0000014c
+ARCH case=1 index=19 pc=0000014c raw=fff20913 trap=0 cause=0 tval=00000000 rdwrite=1 rd=18 value=7ffffffe next=00000150
+ARCH case=1 index=20 pc=00000150 raw=01f19993 trap=0 cause=0 tval=00000000 rdwrite=1 rd=19 value=00000000 next=00000154
+ARCH case=1 index=21 pc=00000154 raw=fff22a13 trap=0 cause=0 tval=00000000 rdwrite=1 rd=20 value=00000000 next=00000158
+ARCH case=1 index=22 pc=00000158 raw=fff23a93 trap=0 cause=0 tval=00000000 rdwrite=1 rd=21 value=00000001 next=0000015c
+ARCH case=1 index=23 pc=0000015c raw=fff24b13 trap=0 cause=0 tval=00000000 rdwrite=1 rd=22 value=80000000 next=00000160
+ARCH case=1 index=24 pc=00000160 raw=01f1db93 trap=0 cause=0 tval=00000000 rdwrite=1 rd=23 value=00000001 next=00000164
+ARCH case=1 index=25 pc=00000164 raw=fff26c13 trap=0 cause=0 tval=00000000 rdwrite=1 rd=24 value=ffffffff next=00000168
+ARCH case=1 index=26 pc=00000168 raw=fff27c93 trap=0 cause=0 tval=00000000 rdwrite=1 rd=25 value=7fffffff next=0000016c
+ARCH case=1 index=27 pc=0000016c raw=41f1dd13 trap=0 cause=0 tval=00000000 rdwrite=1 rd=26 value=ffffffff next=00000170
+ARCH case=1 index=28 pc=00000170 raw=00001297 trap=0 cause=0 tval=00000000 rdwrite=1 rd=5 value=00001170 next=00000174
+ARCH case=1 index=29 pc=00000174 raw=00128293 trap=0 cause=0 tval=00000000 rdwrite=1 rd=5 value=00001171 next=00000178
+ARCH case=1 index=30 pc=00000178 raw=00728293 trap=0 cause=0 tval=00000000 rdwrite=1 rd=5 value=00001178 next=0000017c
+ARCH case=1 index=31 pc=0000017c raw=00728293 trap=0 cause=0 tval=00000000 rdwrite=1 rd=5 value=0000117f next=00000180
+ARCH case=1 index=32 pc=00000180 raw=00728293 trap=0 cause=0 tval=00000000 rdwrite=1 rd=5 value=00001186 next=00000184
+ARCH case=1 index=33 pc=00000184 raw=00728293 trap=0 cause=0 tval=00000000 rdwrite=1 rd=5 value=0000118d next=00000188
+ARCH case=1 index=34 pc=00000188 raw=00728293 trap=0 cause=0 tval=00000000 rdwrite=1 rd=5 value=00001194 next=0000018c
+ARCH case=1 index=35 pc=0000018c raw=00728293 trap=0 cause=0 tval=00000000 rdwrite=1 rd=5 value=0000119b next=00000190
+ARCH case=1 index=36 pc=00000190 raw=00728293 trap=0 cause=0 tval=00000000 rdwrite=1 rd=5 value=000011a2 next=00000194
+ARCH case=1 index=37 pc=00000194 raw=00728293 trap=0 cause=0 tval=00000000 rdwrite=1 rd=5 value=000011a9 next=00000198
+ARCH case=1 index=38 pc=00000198 raw=00728293 trap=0 cause=0 tval=00000000 rdwrite=1 rd=5 value=000011b0 next=0000019c
+ARCH case=1 index=39 pc=0000019c raw=00728293 trap=0 cause=0 tval=00000000 rdwrite=1 rd=5 value=000011b7 next=000001a0
+ARCH case=1 index=40 pc=000001a0 raw=00728293 trap=0 cause=0 tval=00000000 rdwrite=1 rd=5 value=000011be next=000001a4
+ARCH case=1 index=41 pc=000001a4 raw=00728293 trap=0 cause=0 tval=00000000 rdwrite=1 rd=5 value=000011c5 next=000001a8
+ARCH case=1 index=42 pc=000001a8 raw=00208033 trap=0 cause=0 tval=00000000 rdwrite=0 rd=0 value=00000000 next=000001ac
+ARCH case=1 index=43 pc=000001ac raw=01128013 trap=0 cause=0 tval=00000000 rdwrite=0 rd=0 value=00000000 next=000001b0
+ARCH case=1 index=44 pc=000001b0 raw=5510106f trap=0 cause=0 tval=00000000 rdwrite=0 rd=0 value=00000000 next=00001f00
+FINAL case=1 reg=0 defined=1 value=00000000
+FINAL case=1 reg=1 defined=1 value=fffffffe
+FINAL case=1 reg=2 defined=1 value=00000021
+FINAL case=1 reg=3 defined=1 value=80000000
+FINAL case=1 reg=4 defined=1 value=7fffffff
+FINAL case=1 reg=5 defined=1 value=000011c5
+FINAL case=1 reg=6 defined=0 value=00000000
+FINAL case=1 reg=7 defined=0 value=00000000
+FINAL case=1 reg=8 defined=1 value=0000001f
+FINAL case=1 reg=9 defined=1 value=fffffffc
+FINAL case=1 reg=10 defined=1 value=00000001
+FINAL case=1 reg=11 defined=1 value=00000000
+FINAL case=1 reg=12 defined=1 value=ffffffdf
+FINAL case=1 reg=13 defined=1 value=7fffffff
+FINAL case=1 reg=14 defined=1 value=ffffffff
+FINAL case=1 reg=15 defined=1 value=00000020
+FINAL case=1 reg=16 defined=1 value=00000001
+FINAL case=1 reg=17 defined=1 value=c0000000
+FINAL case=1 reg=18 defined=1 value=7ffffffe
+FINAL case=1 reg=19 defined=1 value=00000000
+FINAL case=1 reg=20 defined=1 value=00000000
+FINAL case=1 reg=21 defined=1 value=00000001
+FINAL case=1 reg=22 defined=1 value=80000000
+FINAL case=1 reg=23 defined=1 value=00000001
+FINAL case=1 reg=24 defined=1 value=ffffffff
+FINAL case=1 reg=25 defined=1 value=7fffffff
+FINAL case=1 reg=26 defined=1 value=ffffffff
+FINAL case=1 reg=27 defined=0 value=00000000
+FINAL case=1 reg=28 defined=0 value=00000000
+FINAL case=1 reg=29 defined=0 value=00000000
+FINAL case=1 reg=30 defined=0 value=00000000
+FINAL case=1 reg=31 defined=0 value=00000000
+CASE case=1 instructions=45 cycles=51 hold_observed=0
+ARCH case=2 index=0 pc=00000100 raw=200000b7 trap=0 cause=0 tval=00000000 rdwrite=1 rd=1 value=20000000 next=00000104
+ARCH case=2 index=1 pc=00000104 raw=00008093 trap=0 cause=0 tval=00000000 rdwrite=1 rd=1 value=20000000 next=00000108
+ARCH case=2 index=2 pc=00000108 raw=89abd137 trap=0 cause=0 tval=00000000 rdwrite=1 rd=2 value=89abd000 next=0000010c
+ARCH case=2 index=3 pc=0000010c raw=def10113 trap=0 cause=0 tval=00000000 rdwrite=1 rd=2 value=89abcdef next=00000110
+SCHEDULE case=2 ordinal=4 accept_extra=0 response_edges=5
+[2212] %Fatal: drg5_base_tb.sv:86: Assertion failed in drg5_base_tb.check: case=2 seed=1 diag=0 forwarding=1 cycle=62 cursor=4: physical device effect mismatch
+%Error: microcontroller/tests/drg5_base_tb.sv:86: Verilog $stop
+Aborting...

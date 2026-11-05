@@ -1,0 +1,25 @@
+%Warning-WIDTHEXPAND: microcontroller/tests/drg5_muldiv_tb.sv:252:9: Operator TASKREF 'execute' expects 32 bits on the Function Argument, but Function Argument's UNSIGNED generates 3 bits.
+                                                                   : ... note: In instance 'drg5_muldiv_tb'
+  252 |         execute(3'(operation), random_lhs, random_rhs, unsigned'(flags[2:0]), flags[3]);
+      |         ^~~~~~~
+                      ... For warning description see https://verilator.org/warn/WIDTHEXPAND?v=5.047
+                      ... Use "/* verilator lint_off WIDTHEXPAND */" and lint_on around source to disable this message.
+%Warning-UNUSEDSIGNAL: microcontroller/tests/drg5_muldiv_tb.sv:79:60: Bits of function variable are not used: 'product'[31:0]
+                                                                    : ... note: In instance 'drg5_muldiv_tb'
+   79 |     logic signed [63:0] signed_lhs, signed_rhs, mixed_rhs, product, answer;
+      |                                                            ^~~~~~~
+                       ... For warning description see https://verilator.org/warn/UNUSEDSIGNAL?v=5.047
+                       ... Use "/* verilator lint_off UNUSEDSIGNAL */" and lint_on around source to disable this message.
+%Warning-UNUSEDSIGNAL: microcontroller/tests/drg5_muldiv_tb.sv:79:69: Bits of function variable are not used: 'answer'[63:32]
+                                                                    : ... note: In instance 'drg5_muldiv_tb'
+   79 |     logic signed [63:0] signed_lhs, signed_rhs, mixed_rhs, product, answer;
+      |                                                                     ^~~~~~
+%Warning-UNUSEDSIGNAL: microcontroller/tests/drg5_muldiv_tb.sv:248:46: Bits of signal are not used: 'flags'[31:4]
+                                                                     : ... note: In instance 'drg5_muldiv_tb'
+  248 |         logic [31:0] random_lhs, random_rhs, flags;
+      |                                              ^~~~~
+%Warning-UNUSEDSIGNAL: microcontroller/rtl/drg5_muldiv.sv:21:35: Bits of signal are not used: 'reduced_remainder'[32]
+                                                               : ... note: In instance 'drg5_muldiv_tb.dut'
+   21 |   logic [32:0] shifted_remainder, reduced_remainder;
+      |                                   ^~~~~~~~~~~~~~~~~
+%Error: Exiting due to 5 warning(s)

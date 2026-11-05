@@ -1,0 +1,456 @@
+{
+  "scope": "raw32 OP_MACHINE prototype Zicsr and synchronous machine-trap integration",
+  "verilator": "Verilator 5.047 devel rev v5.046-19-ge9dd6eaaf (mod)",
+  "source_sha256": {
+    "microcontroller/rtl/drg5_control_pkg.sv": "dc2a5f673583232106867d10989300a8854a0fc8d4fbb52e79467c67f96b5994",
+    "microcontroller/rtl/drg5_decoder.sv": "0b42ead92fd911fd1a2ed4295145b4ac476ad2933b3e2dcb4cdde95d899d52b3",
+    "microcontroller/rtl/drg5_immediate.sv": "0178ee6a01e4c5361d149a425b5da5502ef2906b8c3ee9246800bd5bc93a080b",
+    "microcontroller/rtl/drg5_branch.sv": "81fb7fbc54c4c64236738d289fa8fc5a64bd6373efbd66ac2da33086e8d8728e",
+    "microcontroller/rtl/drg5_lsu.sv": "eeac7f5f8d92e4e35030b716e85aabede593afe1d5ca3175e79b9e3e5c83d926",
+    "microcontroller/rtl/drg5_shifter.sv": "0f0bda6a6fc80dc60e23f0058bfac2db2986e03480d95781ead91758dc4e2223",
+    "microcontroller/rtl/drg5_alu.sv": "c1ed60c799186e4185c516049ad99d046dd9ab134afa88b57089f27408fce199",
+    "microcontroller/rtl/drg5_forward.sv": "6c88614a024cb1df85bdb4926a4d4bef9bacbc84af803bcbb7cf1b93d150e444",
+    "microcontroller/rtl/drg5_csr.sv": "964076aa378ef7c483103af939852587cc8f839fdcde85809e7998b65f61ee5f",
+    "microcontroller/rtl/drg5_control.sv": "b2301f45f3893d786ab527b71176834cfbbc62f12339ac204396cdc6e68d159b",
+    "microcontroller/tests/drg5_csr_control_tb.sv": "266d3d445bfc257f4048ed3e7cb9bd1769b6e0eaed6df6099c912393d319d1d3",
+    "microcontroller/rtl/drg5_datapath_defs.svh": "1247c7ee5185c32bcd41a1d72a08c9926e34ff5abe25e2ece8e6c2f9df21042e",
+    "microcontroller/tests/run_csr_control.py": "a722e53c5a2a6447ace2ed7f18467614d1bd07b28a6ce72e2ae5f29865e91ba8",
+    "microcontroller/tests/Makefile": "a90e65e834b5f87691921458d9d45572bd2cd51ea151b0b823d2393370b3bcc1"
+  },
+  "results": [
+    {
+      "configuration": "c0",
+      "seed": 0,
+      "build_command": [
+        "/tmp/drg5-control-tools-20260301/oss-cad-suite/bin/verilator",
+        "--binary",
+        "--timing",
+        "--assert",
+        "-Wall",
+        "-j",
+        "2",
+        "-CFLAGS",
+        "-O0",
+        "-Imicrocontroller/rtl",
+        "--top-module",
+        "drg5_csr_control_tb",
+        "--Mdir",
+        "/tmp/drg5-csr-control-v2/c0",
+        "-GC_ENABLED=0",
+        "microcontroller/rtl/drg5_control_pkg.sv",
+        "microcontroller/rtl/drg5_decoder.sv",
+        "microcontroller/rtl/drg5_immediate.sv",
+        "microcontroller/rtl/drg5_branch.sv",
+        "microcontroller/rtl/drg5_lsu.sv",
+        "microcontroller/rtl/drg5_shifter.sv",
+        "microcontroller/rtl/drg5_alu.sv",
+        "microcontroller/rtl/drg5_forward.sv",
+        "microcontroller/rtl/drg5_csr.sv",
+        "microcontroller/rtl/drg5_control.sv",
+        "microcontroller/tests/drg5_csr_control_tb.sv"
+      ],
+      "run_command": [
+        "/tmp/drg5-csr-control-v2/c0/Vdrg5_csr_control_tb",
+        "+verilator+seed+1",
+        "+seed=0"
+      ],
+      "exit_code": 0,
+      "result": "PASS csr-control C=0 seed=0 cases=177 cycles=6056 checks=1101469 retired=792 traps=65 reads=162 writes=179 read_suppressed=126 write_suppressed=109 prepared=344 returns=2 offers=10 replies=10 flushes=10 aborts=5 resets=183 fatal=2 cycle_rollovers=1 instret_rollovers=1 dynamic_reads=6 random_addresses=0xffff random_forms=0x3f random_holds=0x3f random_sources=0x3 random_destinations=0xd80f78e7"
+    },
+    {
+      "configuration": "c0",
+      "seed": 1,
+      "build_command": [
+        "/tmp/drg5-control-tools-20260301/oss-cad-suite/bin/verilator",
+        "--binary",
+        "--timing",
+        "--assert",
+        "-Wall",
+        "-j",
+        "2",
+        "-CFLAGS",
+        "-O0",
+        "-Imicrocontroller/rtl",
+        "--top-module",
+        "drg5_csr_control_tb",
+        "--Mdir",
+        "/tmp/drg5-csr-control-v2/c0",
+        "-GC_ENABLED=0",
+        "microcontroller/rtl/drg5_control_pkg.sv",
+        "microcontroller/rtl/drg5_decoder.sv",
+        "microcontroller/rtl/drg5_immediate.sv",
+        "microcontroller/rtl/drg5_branch.sv",
+        "microcontroller/rtl/drg5_lsu.sv",
+        "microcontroller/rtl/drg5_shifter.sv",
+        "microcontroller/rtl/drg5_alu.sv",
+        "microcontroller/rtl/drg5_forward.sv",
+        "microcontroller/rtl/drg5_csr.sv",
+        "microcontroller/rtl/drg5_control.sv",
+        "microcontroller/tests/drg5_csr_control_tb.sv"
+      ],
+      "run_command": [
+        "/tmp/drg5-csr-control-v2/c0/Vdrg5_csr_control_tb",
+        "+verilator+seed+1",
+        "+seed=1"
+      ],
+      "exit_code": 0,
+      "result": "PASS csr-control C=0 seed=1 cases=177 cycles=6053 checks=1100923 retired=795 traps=62 reads=164 writes=181 read_suppressed=127 write_suppressed=110 prepared=344 returns=2 offers=10 replies=10 flushes=10 aborts=5 resets=183 fatal=2 cycle_rollovers=1 instret_rollovers=1 dynamic_reads=6 random_addresses=0xbfff random_forms=0x3f random_holds=0x3f random_sources=0x3 random_destinations=0xd76c79c3"
+    },
+    {
+      "configuration": "c0",
+      "seed": 305419896,
+      "build_command": [
+        "/tmp/drg5-control-tools-20260301/oss-cad-suite/bin/verilator",
+        "--binary",
+        "--timing",
+        "--assert",
+        "-Wall",
+        "-j",
+        "2",
+        "-CFLAGS",
+        "-O0",
+        "-Imicrocontroller/rtl",
+        "--top-module",
+        "drg5_csr_control_tb",
+        "--Mdir",
+        "/tmp/drg5-csr-control-v2/c0",
+        "-GC_ENABLED=0",
+        "microcontroller/rtl/drg5_control_pkg.sv",
+        "microcontroller/rtl/drg5_decoder.sv",
+        "microcontroller/rtl/drg5_immediate.sv",
+        "microcontroller/rtl/drg5_branch.sv",
+        "microcontroller/rtl/drg5_lsu.sv",
+        "microcontroller/rtl/drg5_shifter.sv",
+        "microcontroller/rtl/drg5_alu.sv",
+        "microcontroller/rtl/drg5_forward.sv",
+        "microcontroller/rtl/drg5_csr.sv",
+        "microcontroller/rtl/drg5_control.sv",
+        "microcontroller/tests/drg5_csr_control_tb.sv"
+      ],
+      "run_command": [
+        "/tmp/drg5-csr-control-v2/c0/Vdrg5_csr_control_tb",
+        "+verilator+seed+1",
+        "+seed=305419896"
+      ],
+      "exit_code": 0,
+      "result": "PASS csr-control C=0 seed=305419896 cases=177 cycles=6049 checks=1100184 retired=792 traps=65 reads=162 writes=177 read_suppressed=126 write_suppressed=111 prepared=344 returns=2 offers=10 replies=10 flushes=10 aborts=5 resets=183 fatal=2 cycle_rollovers=1 instret_rollovers=1 dynamic_reads=6 random_addresses=0xfed7 random_forms=0x3f random_holds=0x3f random_sources=0x3 random_destinations=0xf33d492a"
+    },
+    {
+      "configuration": "c1",
+      "seed": 0,
+      "build_command": [
+        "/tmp/drg5-control-tools-20260301/oss-cad-suite/bin/verilator",
+        "--binary",
+        "--timing",
+        "--assert",
+        "-Wall",
+        "-j",
+        "2",
+        "-CFLAGS",
+        "-O0",
+        "-Imicrocontroller/rtl",
+        "--top-module",
+        "drg5_csr_control_tb",
+        "--Mdir",
+        "/tmp/drg5-csr-control-v2/c1",
+        "-GC_ENABLED=1",
+        "microcontroller/rtl/drg5_control_pkg.sv",
+        "microcontroller/rtl/drg5_decoder.sv",
+        "microcontroller/rtl/drg5_immediate.sv",
+        "microcontroller/rtl/drg5_branch.sv",
+        "microcontroller/rtl/drg5_lsu.sv",
+        "microcontroller/rtl/drg5_shifter.sv",
+        "microcontroller/rtl/drg5_alu.sv",
+        "microcontroller/rtl/drg5_forward.sv",
+        "microcontroller/rtl/drg5_csr.sv",
+        "microcontroller/rtl/drg5_control.sv",
+        "microcontroller/tests/drg5_csr_control_tb.sv"
+      ],
+      "run_command": [
+        "/tmp/drg5-csr-control-v2/c1/Vdrg5_csr_control_tb",
+        "+verilator+seed+1",
+        "+seed=0"
+      ],
+      "exit_code": 0,
+      "result": "PASS csr-control C=1 seed=0 cases=177 cycles=6056 checks=1101469 retired=792 traps=65 reads=162 writes=179 read_suppressed=126 write_suppressed=109 prepared=344 returns=2 offers=10 replies=10 flushes=10 aborts=5 resets=183 fatal=2 cycle_rollovers=1 instret_rollovers=1 dynamic_reads=6 random_addresses=0xffff random_forms=0x3f random_holds=0x3f random_sources=0x3 random_destinations=0xd80f78e7"
+    },
+    {
+      "configuration": "c1",
+      "seed": 1,
+      "build_command": [
+        "/tmp/drg5-control-tools-20260301/oss-cad-suite/bin/verilator",
+        "--binary",
+        "--timing",
+        "--assert",
+        "-Wall",
+        "-j",
+        "2",
+        "-CFLAGS",
+        "-O0",
+        "-Imicrocontroller/rtl",
+        "--top-module",
+        "drg5_csr_control_tb",
+        "--Mdir",
+        "/tmp/drg5-csr-control-v2/c1",
+        "-GC_ENABLED=1",
+        "microcontroller/rtl/drg5_control_pkg.sv",
+        "microcontroller/rtl/drg5_decoder.sv",
+        "microcontroller/rtl/drg5_immediate.sv",
+        "microcontroller/rtl/drg5_branch.sv",
+        "microcontroller/rtl/drg5_lsu.sv",
+        "microcontroller/rtl/drg5_shifter.sv",
+        "microcontroller/rtl/drg5_alu.sv",
+        "microcontroller/rtl/drg5_forward.sv",
+        "microcontroller/rtl/drg5_csr.sv",
+        "microcontroller/rtl/drg5_control.sv",
+        "microcontroller/tests/drg5_csr_control_tb.sv"
+      ],
+      "run_command": [
+        "/tmp/drg5-csr-control-v2/c1/Vdrg5_csr_control_tb",
+        "+verilator+seed+1",
+        "+seed=1"
+      ],
+      "exit_code": 0,
+      "result": "PASS csr-control C=1 seed=1 cases=177 cycles=6053 checks=1100923 retired=795 traps=62 reads=164 writes=181 read_suppressed=127 write_suppressed=110 prepared=344 returns=2 offers=10 replies=10 flushes=10 aborts=5 resets=183 fatal=2 cycle_rollovers=1 instret_rollovers=1 dynamic_reads=6 random_addresses=0xbfff random_forms=0x3f random_holds=0x3f random_sources=0x3 random_destinations=0xd76c79c3"
+    },
+    {
+      "configuration": "c1",
+      "seed": 305419896,
+      "build_command": [
+        "/tmp/drg5-control-tools-20260301/oss-cad-suite/bin/verilator",
+        "--binary",
+        "--timing",
+        "--assert",
+        "-Wall",
+        "-j",
+        "2",
+        "-CFLAGS",
+        "-O0",
+        "-Imicrocontroller/rtl",
+        "--top-module",
+        "drg5_csr_control_tb",
+        "--Mdir",
+        "/tmp/drg5-csr-control-v2/c1",
+        "-GC_ENABLED=1",
+        "microcontroller/rtl/drg5_control_pkg.sv",
+        "microcontroller/rtl/drg5_decoder.sv",
+        "microcontroller/rtl/drg5_immediate.sv",
+        "microcontroller/rtl/drg5_branch.sv",
+        "microcontroller/rtl/drg5_lsu.sv",
+        "microcontroller/rtl/drg5_shifter.sv",
+        "microcontroller/rtl/drg5_alu.sv",
+        "microcontroller/rtl/drg5_forward.sv",
+        "microcontroller/rtl/drg5_csr.sv",
+        "microcontroller/rtl/drg5_control.sv",
+        "microcontroller/tests/drg5_csr_control_tb.sv"
+      ],
+      "run_command": [
+        "/tmp/drg5-csr-control-v2/c1/Vdrg5_csr_control_tb",
+        "+verilator+seed+1",
+        "+seed=305419896"
+      ],
+      "exit_code": 0,
+      "result": "PASS csr-control C=1 seed=305419896 cases=177 cycles=6049 checks=1100184 retired=792 traps=65 reads=162 writes=177 read_suppressed=126 write_suppressed=111 prepared=344 returns=2 offers=10 replies=10 flushes=10 aborts=5 resets=183 fatal=2 cycle_rollovers=1 instret_rollovers=1 dynamic_reads=6 random_addresses=0xfed7 random_forms=0x3f random_holds=0x3f random_sources=0x3 random_destinations=0xf33d492a"
+    },
+    {
+      "configuration": "c0",
+      "negative_control": "mutate_write",
+      "command": [
+        "/tmp/drg5-csr-control-v2/c0/Vdrg5_csr_control_tb",
+        "+verilator+seed+1",
+        "+seed=1",
+        "+mutate_write"
+      ],
+      "exit_code": 1,
+      "detector": "independent CSR terminal mismatch",
+      "first_error": "[620] %Fatal: drg5_csr_control_tb.sv:83: Assertion failed in drg5_csr_control_tb.check: seed=1 state=00000001 case=1 C=0 cycle=18 pc=00000108: independent CSR terminal mismatch"
+    },
+    {
+      "configuration": "c0",
+      "negative_control": "mutate_read",
+      "command": [
+        "/tmp/drg5-csr-control-v2/c0/Vdrg5_csr_control_tb",
+        "+verilator+seed+1",
+        "+seed=1",
+        "+mutate_read"
+      ],
+      "exit_code": 1,
+      "detector": "independent CSR terminal mismatch",
+      "first_error": "[620] %Fatal: drg5_csr_control_tb.sv:83: Assertion failed in drg5_csr_control_tb.check: seed=1 state=00000001 case=1 C=0 cycle=18 pc=00000108: independent CSR terminal mismatch"
+    },
+    {
+      "configuration": "c0",
+      "negative_control": "mutate_stale",
+      "command": [
+        "/tmp/drg5-csr-control-v2/c0/Vdrg5_csr_control_tb",
+        "+verilator+seed+1",
+        "+seed=1",
+        "+mutate_stale"
+      ],
+      "exit_code": 1,
+      "detector": "independent CSR terminal mismatch",
+      "first_error": "[131048] %Fatal: drg5_csr_control_tb.sv:83: Assertion failed in drg5_csr_control_tb.check: seed=1 state=00000001 case=115 C=0 cycle=3641 pc=0000013c: independent CSR terminal mismatch"
+    },
+    {
+      "configuration": "c0",
+      "negative_control": "mutate_return",
+      "command": [
+        "/tmp/drg5-csr-control-v2/c0/Vdrg5_csr_control_tb",
+        "+verilator+seed+1",
+        "+seed=1",
+        "+mutate_return"
+      ],
+      "exit_code": 1,
+      "detector": "independent CSR terminal mismatch",
+      "first_error": "[126692] %Fatal: drg5_csr_control_tb.sv:83: Assertion failed in drg5_csr_control_tb.check: seed=1 state=00000001 case=114 C=0 cycle=3520 pc=0000052c: independent CSR terminal mismatch"
+    },
+    {
+      "configuration": "c0",
+      "negative_control": "mutate_kill",
+      "command": [
+        "/tmp/drg5-csr-control-v2/c0/Vdrg5_csr_control_tb",
+        "+verilator+seed+1",
+        "+seed=1",
+        "+mutate_kill"
+      ],
+      "exit_code": 1,
+      "detector": "unjustified CSR squash",
+      "first_error": "[130868] %Fatal: drg5_csr_control_tb.sv:83: Assertion failed in drg5_csr_control_tb.check: seed=1 state=00000001 case=115 C=0 cycle=3636 pc=0000013c: unjustified CSR squash"
+    },
+    {
+      "configuration": "c0",
+      "negative_control": "mutate_storage",
+      "command": [
+        "/tmp/drg5-csr-control-v2/c0/Vdrg5_csr_control_tb",
+        "+verilator+seed+1",
+        "+seed=1",
+        "+mutate_storage"
+      ],
+      "exit_code": 1,
+      "detector": "independent CSR storage mismatch",
+      "first_error": "[620] %Fatal: drg5_csr_control_tb.sv:83: Assertion failed in drg5_csr_control_tb.check: seed=1 state=00000001 case=1 C=0 cycle=18 pc=0000010c: independent CSR storage mismatch"
+    },
+    {
+      "configuration": "c0",
+      "negative_control": "mutate_counter",
+      "command": [
+        "/tmp/drg5-csr-control-v2/c0/Vdrg5_csr_control_tb",
+        "+verilator+seed+1",
+        "+seed=1",
+        "+mutate_counter"
+      ],
+      "exit_code": 1,
+      "detector": "independent counter edge mismatch",
+      "first_error": "[129968] %Fatal: drg5_csr_control_tb.sv:83: Assertion failed in drg5_csr_control_tb.check: seed=1 state=00000001 case=115 C=0 cycle=3611 pc=00000134: independent counter edge mismatch"
+    },
+    {
+      "configuration": "c1",
+      "negative_control": "mutate_write",
+      "command": [
+        "/tmp/drg5-csr-control-v2/c1/Vdrg5_csr_control_tb",
+        "+verilator+seed+1",
+        "+seed=1",
+        "+mutate_write"
+      ],
+      "exit_code": 1,
+      "detector": "independent CSR terminal mismatch",
+      "first_error": "[620] %Fatal: drg5_csr_control_tb.sv:83: Assertion failed in drg5_csr_control_tb.check: seed=1 state=00000001 case=1 C=1 cycle=18 pc=00000108: independent CSR terminal mismatch"
+    },
+    {
+      "configuration": "c1",
+      "negative_control": "mutate_read",
+      "command": [
+        "/tmp/drg5-csr-control-v2/c1/Vdrg5_csr_control_tb",
+        "+verilator+seed+1",
+        "+seed=1",
+        "+mutate_read"
+      ],
+      "exit_code": 1,
+      "detector": "independent CSR terminal mismatch",
+      "first_error": "[620] %Fatal: drg5_csr_control_tb.sv:83: Assertion failed in drg5_csr_control_tb.check: seed=1 state=00000001 case=1 C=1 cycle=18 pc=00000108: independent CSR terminal mismatch"
+    },
+    {
+      "configuration": "c1",
+      "negative_control": "mutate_stale",
+      "command": [
+        "/tmp/drg5-csr-control-v2/c1/Vdrg5_csr_control_tb",
+        "+verilator+seed+1",
+        "+seed=1",
+        "+mutate_stale"
+      ],
+      "exit_code": 1,
+      "detector": "independent CSR terminal mismatch",
+      "first_error": "[131048] %Fatal: drg5_csr_control_tb.sv:83: Assertion failed in drg5_csr_control_tb.check: seed=1 state=00000001 case=115 C=1 cycle=3641 pc=0000013c: independent CSR terminal mismatch"
+    },
+    {
+      "configuration": "c1",
+      "negative_control": "mutate_return",
+      "command": [
+        "/tmp/drg5-csr-control-v2/c1/Vdrg5_csr_control_tb",
+        "+verilator+seed+1",
+        "+seed=1",
+        "+mutate_return"
+      ],
+      "exit_code": 1,
+      "detector": "independent CSR terminal mismatch",
+      "first_error": "[126692] %Fatal: drg5_csr_control_tb.sv:83: Assertion failed in drg5_csr_control_tb.check: seed=1 state=00000001 case=114 C=1 cycle=3520 pc=0000052c: independent CSR terminal mismatch"
+    },
+    {
+      "configuration": "c1",
+      "negative_control": "mutate_kill",
+      "command": [
+        "/tmp/drg5-csr-control-v2/c1/Vdrg5_csr_control_tb",
+        "+verilator+seed+1",
+        "+seed=1",
+        "+mutate_kill"
+      ],
+      "exit_code": 1,
+      "detector": "unjustified CSR squash",
+      "first_error": "[130868] %Fatal: drg5_csr_control_tb.sv:83: Assertion failed in drg5_csr_control_tb.check: seed=1 state=00000001 case=115 C=1 cycle=3636 pc=0000013c: unjustified CSR squash"
+    },
+    {
+      "configuration": "c1",
+      "negative_control": "mutate_storage",
+      "command": [
+        "/tmp/drg5-csr-control-v2/c1/Vdrg5_csr_control_tb",
+        "+verilator+seed+1",
+        "+seed=1",
+        "+mutate_storage"
+      ],
+      "exit_code": 1,
+      "detector": "independent CSR storage mismatch",
+      "first_error": "[620] %Fatal: drg5_csr_control_tb.sv:83: Assertion failed in drg5_csr_control_tb.check: seed=1 state=00000001 case=1 C=1 cycle=18 pc=0000010c: independent CSR storage mismatch"
+    },
+    {
+      "configuration": "c1",
+      "negative_control": "mutate_counter",
+      "command": [
+        "/tmp/drg5-csr-control-v2/c1/Vdrg5_csr_control_tb",
+        "+verilator+seed+1",
+        "+seed=1",
+        "+mutate_counter"
+      ],
+      "exit_code": 1,
+      "detector": "independent counter edge mismatch",
+      "first_error": "[129968] %Fatal: drg5_csr_control_tb.sv:83: Assertion failed in drg5_csr_control_tb.check: seed=1 state=00000001 case=115 C=1 cycle=3611 pc=00000134: independent counter edge mismatch"
+    }
+  ],
+  "status": "passed",
+  "generator": "32-bit state = 1664525 * state + 1013904223 modulo 2^32; state starts at seed",
+  "seeds": [
+    0,
+    1,
+    305419896
+  ],
+  "randomized_scenarios_per_run": 32,
+  "negative_control_types": 7,
+  "negative_control_runs_passed": 14,
+  "limits": [
+    "not a complete CPU or an ACT4/Sail architectural qualification",
+    "C1 exercises mepc alignment only; fixed misa still advertises RV32I and no C decoder exists",
+    "already synchronized mip levels are readable; IRQ delivery and architectural debug remain absent",
+    "observation mutations calibrate checkers and are not injected RTL defects",
+    "memory service is directed: one outstanding word operation, independently delayed acceptance and response",
+    "no timing, place-and-route, programming or resource-budget qualification is asserted"
+  ]
+}

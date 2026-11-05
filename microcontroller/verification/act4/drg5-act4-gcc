@@ -1,0 +1,7 @@
+#!/bin/sh
+
+# preserve ACT4's selected ISA and pin assembly privilege and alignment rules.
+set -eu
+: "${DRG5_GCC:?set DRG5_GCC to the pinned xPack GCC executable}"
+exec "$DRG5_GCC" -mstrict-align -mno-relax -Wa,-mpriv-spec=1.13,-mcsr-check \
+  -Wl,--no-relax "$@"

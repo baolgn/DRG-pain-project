@@ -1,0 +1,3 @@
+[13504] %Fatal: drg5_control_flow_tb.sv:116: Assertion failed in drg5_control_flow_tb.check: case=16 cycle=376 C=0 diagnostic=0 pc=00000104: wrong architectural control result
+%Error: microcontroller/tests/drg5_control_flow_tb.sv:116: Verilog $stop
+Aborting...

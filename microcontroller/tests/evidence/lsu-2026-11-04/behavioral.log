@@ -1,0 +1,6 @@
+$ /tmp/drg5-lsu-final-v2/obj/Vdrg5_lsu_tb +verilator+seed+1
+LSU_PASS samples=85536 profiles=8 checks=2812773 reads=51216 writes=24404 alignment=213448 access=395220
+- /home/bluto/Desktop/dorsalGanglionProject/microcontroller/tests/drg5_lsu_tb.sv:186: Verilog $finish
+- S i m u l a t i o n   R e p o r t: Verilator 5.047 devel
+- Verilator: $finish at 86ns; walltime 0.019 s; speed 4.547 us/s
+- Verilator: cpu 0.019 s on 1 threads; allocated 7 MB

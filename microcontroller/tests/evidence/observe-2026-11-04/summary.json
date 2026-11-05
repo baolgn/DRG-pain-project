@@ -1,0 +1,255 @@
+{
+  "status": "passed",
+  "revision": "revisions/03-qualification",
+  "source_sha256": {
+    "microcontroller/rtl/drg5_control_pkg.sv": "9d1e39382ec54659858a88bdaf3783296e707c05ffc6fc3d8890e23d4736990f",
+    "microcontroller/rtl/drg5_observe.sv": "3192c20b58596e36c99c7b1168be7aa193e4cec11bf7151792c6b8ac3aa64bed",
+    "microcontroller/tests/drg5_observe_tb.sv": "e913fcc544a4b55a76edea99a447dc4cdbd8a77059b8aec1b5e25393696c7ed0",
+    "microcontroller/tests/run_observe.py": "af399211dbcb33d0db3f95fd088ac87532c25c20babab557c10243d2390feb00"
+  },
+  "results": [
+    {
+      "profile": 0,
+      "seed": 0,
+      "command": [
+        "/tmp/drg5-observe/p0/Vdrg5_observe_tb",
+        "+verilator+seed+1",
+        "+seed=0"
+      ],
+      "exit_code": 0,
+      "terminal": "OBSERVE_PASS profile=0 seed=0 edges=44 checks=216 valid=42 lost=0 width=3147"
+    },
+    {
+      "profile": 0,
+      "seed": 1,
+      "command": [
+        "/tmp/drg5-observe/p0/Vdrg5_observe_tb",
+        "+verilator+seed+1",
+        "+seed=1"
+      ],
+      "exit_code": 0,
+      "terminal": "OBSERVE_PASS profile=0 seed=1 edges=44 checks=216 valid=42 lost=0 width=3147"
+    },
+    {
+      "profile": 0,
+      "seed": 305419896,
+      "command": [
+        "/tmp/drg5-observe/p0/Vdrg5_observe_tb",
+        "+verilator+seed+1",
+        "+seed=305419896"
+      ],
+      "exit_code": 0,
+      "terminal": "OBSERVE_PASS profile=0 seed=305419896 edges=44 checks=216 valid=42 lost=0 width=3147"
+    },
+    {
+      "profile": 1,
+      "seed": 0,
+      "command": [
+        "/tmp/drg5-observe/p1/Vdrg5_observe_tb",
+        "+verilator+seed+1",
+        "+seed=0"
+      ],
+      "exit_code": 0,
+      "terminal": "OBSERVE_PASS profile=1 seed=0 edges=44 checks=114 valid=8 lost=34 width=3147"
+    },
+    {
+      "profile": 1,
+      "seed": 1,
+      "command": [
+        "/tmp/drg5-observe/p1/Vdrg5_observe_tb",
+        "+verilator+seed+1",
+        "+seed=1"
+      ],
+      "exit_code": 0,
+      "terminal": "OBSERVE_PASS profile=1 seed=1 edges=44 checks=114 valid=8 lost=34 width=3147"
+    },
+    {
+      "profile": 1,
+      "seed": 305419896,
+      "command": [
+        "/tmp/drg5-observe/p1/Vdrg5_observe_tb",
+        "+verilator+seed+1",
+        "+seed=305419896"
+      ],
+      "exit_code": 0,
+      "terminal": "OBSERVE_PASS profile=1 seed=305419896 edges=44 checks=114 valid=8 lost=34 width=3147"
+    },
+    {
+      "profile": 2,
+      "seed": 0,
+      "command": [
+        "/tmp/drg5-observe/p2/Vdrg5_observe_tb",
+        "+verilator+seed+1",
+        "+seed=0"
+      ],
+      "exit_code": 0,
+      "terminal": "OBSERVE_PASS profile=2 seed=0 edges=44 checks=117 valid=9 lost=33 width=3147"
+    },
+    {
+      "profile": 2,
+      "seed": 1,
+      "command": [
+        "/tmp/drg5-observe/p2/Vdrg5_observe_tb",
+        "+verilator+seed+1",
+        "+seed=1"
+      ],
+      "exit_code": 0,
+      "terminal": "OBSERVE_PASS profile=2 seed=1 edges=44 checks=117 valid=9 lost=33 width=3147"
+    },
+    {
+      "profile": 2,
+      "seed": 305419896,
+      "command": [
+        "/tmp/drg5-observe/p2/Vdrg5_observe_tb",
+        "+verilator+seed+1",
+        "+seed=305419896"
+      ],
+      "exit_code": 0,
+      "terminal": "OBSERVE_PASS profile=2 seed=305419896 edges=44 checks=117 valid=9 lost=33 width=3147"
+    },
+    {
+      "profile": 3,
+      "seed": 0,
+      "command": [
+        "/tmp/drg5-observe/p3/Vdrg5_observe_tb",
+        "+verilator+seed+1",
+        "+seed=0"
+      ],
+      "exit_code": 0,
+      "terminal": "OBSERVE_PASS profile=3 seed=0 edges=44 checks=114 valid=8 lost=34 width=3147"
+    },
+    {
+      "profile": 3,
+      "seed": 1,
+      "command": [
+        "/tmp/drg5-observe/p3/Vdrg5_observe_tb",
+        "+verilator+seed+1",
+        "+seed=1"
+      ],
+      "exit_code": 0,
+      "terminal": "OBSERVE_PASS profile=3 seed=1 edges=44 checks=114 valid=8 lost=34 width=3147"
+    },
+    {
+      "profile": 3,
+      "seed": 305419896,
+      "command": [
+        "/tmp/drg5-observe/p3/Vdrg5_observe_tb",
+        "+verilator+seed+1",
+        "+seed=305419896"
+      ],
+      "exit_code": 0,
+      "terminal": "OBSERVE_PASS profile=3 seed=305419896 edges=44 checks=114 valid=8 lost=34 width=3147"
+    },
+    {
+      "profile": 4,
+      "seed": 0,
+      "command": [
+        "/tmp/drg5-observe/p4/Vdrg5_observe_tb",
+        "+verilator+seed+1",
+        "+seed=0"
+      ],
+      "exit_code": 0,
+      "terminal": "OBSERVE_PASS profile=4 seed=0 edges=44 checks=115 valid=8 lost=34 width=3147"
+    },
+    {
+      "profile": 4,
+      "seed": 1,
+      "command": [
+        "/tmp/drg5-observe/p4/Vdrg5_observe_tb",
+        "+verilator+seed+1",
+        "+seed=1"
+      ],
+      "exit_code": 0,
+      "terminal": "OBSERVE_PASS profile=4 seed=1 edges=44 checks=115 valid=8 lost=34 width=3147"
+    },
+    {
+      "profile": 4,
+      "seed": 305419896,
+      "command": [
+        "/tmp/drg5-observe/p4/Vdrg5_observe_tb",
+        "+verilator+seed+1",
+        "+seed=305419896"
+      ],
+      "exit_code": 0,
+      "terminal": "OBSERVE_PASS profile=4 seed=305419896 edges=44 checks=115 valid=8 lost=34 width=3147"
+    },
+    {
+      "profile": 5,
+      "seed": 0,
+      "command": [
+        "/tmp/drg5-observe/p5/Vdrg5_observe_tb",
+        "+verilator+seed+1",
+        "+seed=0"
+      ],
+      "exit_code": 0,
+      "terminal": "OBSERVE_PASS profile=5 seed=0 edges=44 checks=115 valid=8 lost=34 width=3147"
+    },
+    {
+      "profile": 5,
+      "seed": 1,
+      "command": [
+        "/tmp/drg5-observe/p5/Vdrg5_observe_tb",
+        "+verilator+seed+1",
+        "+seed=1"
+      ],
+      "exit_code": 0,
+      "terminal": "OBSERVE_PASS profile=5 seed=1 edges=44 checks=115 valid=8 lost=34 width=3147"
+    },
+    {
+      "profile": 5,
+      "seed": 305419896,
+      "command": [
+        "/tmp/drg5-observe/p5/Vdrg5_observe_tb",
+        "+verilator+seed+1",
+        "+seed=305419896"
+      ],
+      "exit_code": 0,
+      "terminal": "OBSERVE_PASS profile=5 seed=305419896 edges=44 checks=115 valid=8 lost=34 width=3147"
+    },
+    {
+      "negative_control": "mutate_phase",
+      "detector": "pre-state and post-state alignment",
+      "command": [
+        "/tmp/drg5-observe/p0/Vdrg5_observe_tb",
+        "+verilator+seed+1",
+        "+seed=1",
+        "+mutate_phase"
+      ],
+      "exit_code": 1
+    },
+    {
+      "negative_control": "mutate_retired",
+      "detector": "independent normal-retirement count",
+      "command": [
+        "/tmp/drg5-observe/p0/Vdrg5_observe_tb",
+        "+verilator+seed+1",
+        "+seed=1",
+        "+mutate_retired"
+      ],
+      "exit_code": 1
+    },
+    {
+      "negative_control": "mutate_overflow",
+      "detector": "capture loss policy",
+      "command": [
+        "/tmp/drg5-observe/p1/Vdrg5_observe_tb",
+        "+verilator+seed+1",
+        "+seed=1",
+        "+mutate_overflow"
+      ],
+      "exit_code": 1
+    },
+    {
+      "negative_control": "unsafe_rearm",
+      "detector": "observation rearm requires isolated cold reset",
+      "command": [
+        "/tmp/drg5-observe/p0/Vdrg5_observe_tb",
+        "+verilator+seed+1",
+        "+seed=1",
+        "+unsafe_rearm"
+      ],
+      "exit_code": 1
+    }
+  ],
+  "scope": "observation adapter synthetic phase/identity tests; core and CSR semantics are qualified separately"
+}

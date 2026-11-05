@@ -1,0 +1,832 @@
+$ /tmp/drg5-control-tools-20260301/oss-cad-suite/bin/yosys -Q -T -p 'read_verilog -formal -sv -D SYNTHESIS microcontroller/rtl/drg5_csr.sv microcontroller/tests/drg5_csr_formal.sv; chparam -set C_ENABLED 1 -set MUTATE_COUNTER 0 drg5_csr_formal; prep -top drg5_csr_formal -flatten; async2sync; chformal -lower; check -assert; select -assert-count 7 t:$assert; select -assert-count 2 t:$assume; sat -seq 4 -tempinduct -prove-asserts -set-assumes -verify -show-inputs -timeout 90'
+
+-- Running command `read_verilog -formal -sv -D SYNTHESIS microcontroller/rtl/drg5_csr.sv microcontroller/tests/drg5_csr_formal.sv; chparam -set C_ENABLED 1 -set MUTATE_COUNTER 0 drg5_csr_formal; prep -top drg5_csr_formal -flatten; async2sync; chformal -lower; check -assert; select -assert-count 7 t:$assert; select -assert-count 2 t:$assume; sat -seq 4 -tempinduct -prove-asserts -set-assumes -verify -show-inputs -timeout 90' --
+
+1. Executing Verilog-2005 frontend: microcontroller/rtl/drg5_csr.sv
+Parsing formal SystemVerilog input from `microcontroller/rtl/drg5_csr.sv' to AST representation.
+Generating RTLIL representation for module `\drg5_csr'.
+Successfully finished Verilog frontend.
+
+2. Executing Verilog-2005 frontend: microcontroller/tests/drg5_csr_formal.sv
+Parsing formal SystemVerilog input from `microcontroller/tests/drg5_csr_formal.sv' to AST representation.
+Generating RTLIL representation for module `\drg5_csr_formal'.
+Successfully finished Verilog frontend.
+Parameter \C_ENABLED = 1
+Parameter \MUTATE_COUNTER = 0
+
+3. Executing AST frontend in derive mode using pre-parsed AST for module `\drg5_csr_formal'.
+Parameter \C_ENABLED = 1
+Parameter \MUTATE_COUNTER = 0
+Generating RTLIL representation for module `$paramod$5ad8065713156fa8d01b2fc440b906b95c4cf89a\drg5_csr_formal'.
+
+4. Executing PREP pass.
+
+4.1. Executing HIERARCHY pass (managing design hierarchy).
+
+4.1.1. Analyzing design hierarchy..
+Top module:  \drg5_csr_formal
+Used module:     \drg5_csr
+Parameter \C_ENABLED = 1'1
+
+4.1.2. Executing AST frontend in derive mode using pre-parsed AST for module `\drg5_csr'.
+Parameter \C_ENABLED = 1'1
+Generating RTLIL representation for module `$paramod\drg5_csr\C_ENABLED=1'1'.
+
+4.1.3. Analyzing design hierarchy..
+Top module:  \drg5_csr_formal
+Used module:     $paramod\drg5_csr\C_ENABLED=1'1
+
+4.1.4. Analyzing design hierarchy..
+Top module:  \drg5_csr_formal
+Used module:     $paramod\drg5_csr\C_ENABLED=1'1
+Removing unused module `\drg5_csr'.
+Removed 1 unused modules.
+Module drg5_csr_formal directly or indirectly contains formal properties -> setting "keep" attribute.
+
+4.2. Executing PROC pass (convert processes to netlists).
+
+4.2.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+4.2.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Marked 67 switch rules as full_case in process $proc$microcontroller/tests/drg5_csr_formal.sv:33$251 in module drg5_csr_formal.
+Marked 8 switch rules as full_case in process $proc$microcontroller/tests/drg5_csr_formal.sv:119$332 in module drg5_csr_formal.
+Marked 3 switch rules as full_case in process $proc$microcontroller/rtl/drg5_csr.sv:104$472 in module $paramod\drg5_csr\C_ENABLED=1'1.
+Marked 5 switch rules as full_case in process $proc$microcontroller/rtl/drg5_csr.sv:33$434 in module $paramod\drg5_csr\C_ENABLED=1'1.
+Removed a total of 0 dead cases.
+
+4.2.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 1 redundant assignment.
+Promoted 68 assignments to connections.
+
+4.2.4. Executing PROC_INIT pass (extract init attributes).
+Found init rule in `\drg5_csr_formal.$proc$microcontroller/tests/drg5_csr_formal.sv:28$430'.
+  Set init value: \past_valid = 1'0
+
+4.2.5. Executing PROC_ARST pass (detect async resets in processes).
+
+4.2.6. Executing PROC_ROM pass (convert switches to ROMs).
+Converted 0 switches.
+<suppressed ~89 debug messages>
+
+4.2.7. Executing PROC_MUX pass (convert decision trees to multiplexers).
+Creating decoders for process `\drg5_csr_formal.$proc$microcontroller/tests/drg5_csr_formal.sv:33$251'.
+     1/69: $2\expected_new[31:0]
+     2/69: $1\expected_new[31:0]
+     3/69: $64\candidate[31:31]
+     4/69: $63\candidate[31:31]
+     5/69: $62\candidate[30:30]
+     6/69: $61\candidate[30:30]
+     7/69: $60\candidate[29:29]
+     8/69: $59\candidate[29:29]
+     9/69: $58\candidate[28:28]
+    10/69: $57\candidate[28:28]
+    11/69: $56\candidate[27:27]
+    12/69: $55\candidate[27:27]
+    13/69: $54\candidate[26:26]
+    14/69: $53\candidate[26:26]
+    15/69: $52\candidate[25:25]
+    16/69: $51\candidate[25:25]
+    17/69: $50\candidate[24:24]
+    18/69: $49\candidate[24:24]
+    19/69: $48\candidate[23:23]
+    20/69: $47\candidate[23:23]
+    21/69: $46\candidate[22:22]
+    22/69: $45\candidate[22:22]
+    23/69: $44\candidate[21:21]
+    24/69: $43\candidate[21:21]
+    25/69: $42\candidate[20:20]
+    26/69: $41\candidate[20:20]
+    27/69: $40\candidate[19:19]
+    28/69: $39\candidate[19:19]
+    29/69: $38\candidate[18:18]
+    30/69: $37\candidate[18:18]
+    31/69: $36\candidate[17:17]
+    32/69: $35\candidate[17:17]
+    33/69: $34\candidate[16:16]
+    34/69: $33\candidate[16:16]
+    35/69: $32\candidate[15:15]
+    36/69: $31\candidate[15:15]
+    37/69: $30\candidate[14:14]
+    38/69: $29\candidate[14:14]
+    39/69: $28\candidate[13:13]
+    40/69: $27\candidate[13:13]
+    41/69: $26\candidate[12:12]
+    42/69: $25\candidate[12:12]
+    43/69: $24\candidate[11:11]
+    44/69: $23\candidate[11:11]
+    45/69: $22\candidate[10:10]
+    46/69: $21\candidate[10:10]
+    47/69: $20\candidate[9:9]
+    48/69: $19\candidate[9:9]
+    49/69: $18\candidate[8:8]
+    50/69: $17\candidate[8:8]
+    51/69: $16\candidate[7:7]
+    52/69: $15\candidate[7:7]
+    53/69: $14\candidate[6:6]
+    54/69: $13\candidate[6:6]
+    55/69: $12\candidate[5:5]
+    56/69: $11\candidate[5:5]
+    57/69: $10\candidate[4:4]
+    58/69: $9\candidate[4:4]
+    59/69: $8\candidate[3:3]
+    60/69: $7\candidate[3:3]
+    61/69: $6\candidate[2:2]
+    62/69: $5\candidate[2:2]
+    63/69: $4\candidate[1:1]
+    64/69: $3\candidate[1:1]
+    65/69: $2\candidate[0:0]
+    66/69: $1\candidate[0:0]
+    67/69: $1\expected_old[31:0]
+    68/69: $1\known[0:0]
+    69/69: $1\readonly_address[0:0]
+Creating decoders for process `\drg5_csr_formal.$proc$microcontroller/tests/drg5_csr_formal.sv:119$332'.
+     1/28: $4\next_retirement[63:0]
+     2/28: $4\next_cycle[63:0]
+     3/28: $1\next_inhibit[31:0]
+     4/28: $2\next_tval[31:0]
+     5/28: $2\next_cause[31:0]
+     6/28: $2\next_epc[31:0]
+     7/28: $1\next_scratch[31:0]
+     8/28: $1\next_vector[31:0]
+     9/28: $1\next_mie[31:0]
+    10/28: $4\next_status[31:0]
+    11/28: $3\next_cycle[63:0]
+    12/28: $3\next_retirement[63:0]
+    13/28: $2\next_retirement[63:0]
+    14/28: $2\next_cycle[63:0]
+    15/28: $3\next_status[31:0]
+    16/28: $2\next_status[31:0] [31:4]
+    17/28: $2\next_status[31:0] [2:0]
+    18/28: $2\next_status[31:0] [3]
+    19/28: $1\next_status[31:0] [31:8]
+    20/28: $1\next_status[31:0] [6:0]
+    21/28: $1\next_cause[31:0]
+    22/28: $1\next_epc[31:0]
+    23/28: $1\next_status[31:0] [7]
+    24/28: $1\next_tval[31:0]
+    25/28: $1\next_retirement[63:0] [63:32]
+    26/28: $1\next_retirement[63:0] [31:0]
+    27/28: $1\next_cycle[63:0] [63:32]
+    28/28: $1\next_cycle[63:0] [31:0]
+Creating decoders for process `\drg5_csr_formal.$proc$microcontroller/tests/drg5_csr_formal.sv:176$383'.
+     1/8: $assert$microcontroller/tests/drg5_csr_formal.sv:194$416_EN
+     2/8: $assert$microcontroller/tests/drg5_csr_formal.sv:192$413_EN
+     3/8: $assert$microcontroller/tests/drg5_csr_formal.sv:191$411_EN
+     4/8: $assert$microcontroller/tests/drg5_csr_formal.sv:190$408_EN
+     5/8: $assert$microcontroller/tests/drg5_csr_formal.sv:189$404_EN
+     6/8: $assert$microcontroller/tests/drg5_csr_formal.sv:188$401_EN
+     7/8: $assert$microcontroller/tests/drg5_csr_formal.sv:187$399_EN
+     8/8: $assume$microcontroller/tests/drg5_csr_formal.sv:179$385_EN
+Creating decoders for process `\drg5_csr_formal.$proc$microcontroller/tests/drg5_csr_formal.sv:28$430'.
+Creating decoders for process `$paramod\drg5_csr\C_ENABLED=1'1.$proc$microcontroller/rtl/drg5_csr.sv:104$472'.
+     1/10: $0\minstret_o[63:0]
+     2/10: $0\mcycle_o[63:0]
+     3/10: $0\mcountinhibit_o[31:0]
+     4/10: $0\mie_o[31:0]
+     5/10: $0\mtval_o[31:0]
+     6/10: $0\mcause_o[31:0]
+     7/10: $0\mepc_o[31:0]
+     8/10: $0\mscratch_o[31:0]
+     9/10: $0\mtvec_o[31:0]
+    10/10: $0\mstatus_o[31:0]
+Creating decoders for process `$paramod\drg5_csr\C_ENABLED=1'1.$proc$microcontroller/rtl/drg5_csr.sv:33$434'.
+     1/7: $3\coerced_value[31:0]
+     2/7: $2\coerced_value[31:0]
+     3/7: $1\coerced_value[31:0]
+     4/7: $1\requested_value[31:0]
+     5/7: $1\old_value[31:0]
+     6/7: $1\readonly_address[0:0]
+     7/7: $1\known[0:0]
+
+4.2.8. Executing PROC_DLATCH pass (convert process syncs to latches).
+No latch inferred for signal `\drg5_csr_formal.\known' from process `\drg5_csr_formal.$proc$microcontroller/tests/drg5_csr_formal.sv:33$251'.
+No latch inferred for signal `\drg5_csr_formal.\readonly_address' from process `\drg5_csr_formal.$proc$microcontroller/tests/drg5_csr_formal.sv:33$251'.
+No latch inferred for signal `\drg5_csr_formal.\expected_legal' from process `\drg5_csr_formal.$proc$microcontroller/tests/drg5_csr_formal.sv:33$251'.
+No latch inferred for signal `\drg5_csr_formal.\expected_old' from process `\drg5_csr_formal.$proc$microcontroller/tests/drg5_csr_formal.sv:33$251'.
+No latch inferred for signal `\drg5_csr_formal.\expected_new' from process `\drg5_csr_formal.$proc$microcontroller/tests/drg5_csr_formal.sv:33$251'.
+No latch inferred for signal `\drg5_csr_formal.\candidate' from process `\drg5_csr_formal.$proc$microcontroller/tests/drg5_csr_formal.sv:33$251'.
+No latch inferred for signal `\drg5_csr_formal.\expected_pending' from process `\drg5_csr_formal.$proc$microcontroller/tests/drg5_csr_formal.sv:33$251'.
+No latch inferred for signal `\drg5_csr_formal.$fordecl_block$65.b' from process `\drg5_csr_formal.$proc$microcontroller/tests/drg5_csr_formal.sv:33$251'.
+No latch inferred for signal `\drg5_csr_formal.\take_write' from process `\drg5_csr_formal.$proc$microcontroller/tests/drg5_csr_formal.sv:119$332'.
+No latch inferred for signal `\drg5_csr_formal.\count_cycle' from process `\drg5_csr_formal.$proc$microcontroller/tests/drg5_csr_formal.sv:119$332'.
+No latch inferred for signal `\drg5_csr_formal.\count_retirement' from process `\drg5_csr_formal.$proc$microcontroller/tests/drg5_csr_formal.sv:119$332'.
+No latch inferred for signal `\drg5_csr_formal.\next_status' from process `\drg5_csr_formal.$proc$microcontroller/tests/drg5_csr_formal.sv:119$332'.
+No latch inferred for signal `\drg5_csr_formal.\next_mie' from process `\drg5_csr_formal.$proc$microcontroller/tests/drg5_csr_formal.sv:119$332'.
+No latch inferred for signal `\drg5_csr_formal.\next_vector' from process `\drg5_csr_formal.$proc$microcontroller/tests/drg5_csr_formal.sv:119$332'.
+No latch inferred for signal `\drg5_csr_formal.\next_scratch' from process `\drg5_csr_formal.$proc$microcontroller/tests/drg5_csr_formal.sv:119$332'.
+No latch inferred for signal `\drg5_csr_formal.\next_epc' from process `\drg5_csr_formal.$proc$microcontroller/tests/drg5_csr_formal.sv:119$332'.
+No latch inferred for signal `\drg5_csr_formal.\next_cause' from process `\drg5_csr_formal.$proc$microcontroller/tests/drg5_csr_formal.sv:119$332'.
+No latch inferred for signal `\drg5_csr_formal.\next_tval' from process `\drg5_csr_formal.$proc$microcontroller/tests/drg5_csr_formal.sv:119$332'.
+No latch inferred for signal `\drg5_csr_formal.\next_inhibit' from process `\drg5_csr_formal.$proc$microcontroller/tests/drg5_csr_formal.sv:119$332'.
+No latch inferred for signal `\drg5_csr_formal.\next_cycle' from process `\drg5_csr_formal.$proc$microcontroller/tests/drg5_csr_formal.sv:119$332'.
+No latch inferred for signal `\drg5_csr_formal.\next_retirement' from process `\drg5_csr_formal.$proc$microcontroller/tests/drg5_csr_formal.sv:119$332'.
+No latch inferred for signal `$paramod\drg5_csr\C_ENABLED=1'1.\legal_o' from process `$paramod\drg5_csr\C_ENABLED=1'1.$proc$microcontroller/rtl/drg5_csr.sv:33$434'.
+No latch inferred for signal `$paramod\drg5_csr\C_ENABLED=1'1.\old_o' from process `$paramod\drg5_csr\C_ENABLED=1'1.$proc$microcontroller/rtl/drg5_csr.sv:33$434'.
+No latch inferred for signal `$paramod\drg5_csr\C_ENABLED=1'1.\read_value_o' from process `$paramod\drg5_csr\C_ENABLED=1'1.$proc$microcontroller/rtl/drg5_csr.sv:33$434'.
+No latch inferred for signal `$paramod\drg5_csr\C_ENABLED=1'1.\new_o' from process `$paramod\drg5_csr\C_ENABLED=1'1.$proc$microcontroller/rtl/drg5_csr.sv:33$434'.
+No latch inferred for signal `$paramod\drg5_csr\C_ENABLED=1'1.\known' from process `$paramod\drg5_csr\C_ENABLED=1'1.$proc$microcontroller/rtl/drg5_csr.sv:33$434'.
+No latch inferred for signal `$paramod\drg5_csr\C_ENABLED=1'1.\readonly_address' from process `$paramod\drg5_csr\C_ENABLED=1'1.$proc$microcontroller/rtl/drg5_csr.sv:33$434'.
+No latch inferred for signal `$paramod\drg5_csr\C_ENABLED=1'1.\old_value' from process `$paramod\drg5_csr\C_ENABLED=1'1.$proc$microcontroller/rtl/drg5_csr.sv:33$434'.
+No latch inferred for signal `$paramod\drg5_csr\C_ENABLED=1'1.\requested_value' from process `$paramod\drg5_csr\C_ENABLED=1'1.$proc$microcontroller/rtl/drg5_csr.sv:33$434'.
+No latch inferred for signal `$paramod\drg5_csr\C_ENABLED=1'1.\coerced_value' from process `$paramod\drg5_csr\C_ENABLED=1'1.$proc$microcontroller/rtl/drg5_csr.sv:33$434'.
+
+4.2.9. Executing PROC_DFF pass (convert process syncs to FFs).
+Creating register for signal `\drg5_csr_formal.\expected_state_q' using process `\drg5_csr_formal.$proc$microcontroller/tests/drg5_csr_formal.sv:176$383'.
+  created $dff cell `$procdff$1293' with positive edge clock.
+Creating register for signal `\drg5_csr_formal.\past_valid' using process `\drg5_csr_formal.$proc$microcontroller/tests/drg5_csr_formal.sv:176$383'.
+  created $dff cell `$procdff$1294' with positive edge clock.
+Creating register for signal `$paramod\drg5_csr\C_ENABLED=1'1.\mstatus_o' using process `$paramod\drg5_csr\C_ENABLED=1'1.$proc$microcontroller/rtl/drg5_csr.sv:104$472'.
+  created $dff cell `$procdff$1295' with positive edge clock.
+Creating register for signal `$paramod\drg5_csr\C_ENABLED=1'1.\mtvec_o' using process `$paramod\drg5_csr\C_ENABLED=1'1.$proc$microcontroller/rtl/drg5_csr.sv:104$472'.
+  created $dff cell `$procdff$1296' with positive edge clock.
+Creating register for signal `$paramod\drg5_csr\C_ENABLED=1'1.\mscratch_o' using process `$paramod\drg5_csr\C_ENABLED=1'1.$proc$microcontroller/rtl/drg5_csr.sv:104$472'.
+  created $dff cell `$procdff$1297' with positive edge clock.
+Creating register for signal `$paramod\drg5_csr\C_ENABLED=1'1.\mepc_o' using process `$paramod\drg5_csr\C_ENABLED=1'1.$proc$microcontroller/rtl/drg5_csr.sv:104$472'.
+  created $dff cell `$procdff$1298' with positive edge clock.
+Creating register for signal `$paramod\drg5_csr\C_ENABLED=1'1.\mcause_o' using process `$paramod\drg5_csr\C_ENABLED=1'1.$proc$microcontroller/rtl/drg5_csr.sv:104$472'.
+  created $dff cell `$procdff$1299' with positive edge clock.
+Creating register for signal `$paramod\drg5_csr\C_ENABLED=1'1.\mtval_o' using process `$paramod\drg5_csr\C_ENABLED=1'1.$proc$microcontroller/rtl/drg5_csr.sv:104$472'.
+  created $dff cell `$procdff$1300' with positive edge clock.
+Creating register for signal `$paramod\drg5_csr\C_ENABLED=1'1.\mie_o' using process `$paramod\drg5_csr\C_ENABLED=1'1.$proc$microcontroller/rtl/drg5_csr.sv:104$472'.
+  created $dff cell `$procdff$1301' with positive edge clock.
+Creating register for signal `$paramod\drg5_csr\C_ENABLED=1'1.\mcountinhibit_o' using process `$paramod\drg5_csr\C_ENABLED=1'1.$proc$microcontroller/rtl/drg5_csr.sv:104$472'.
+  created $dff cell `$procdff$1302' with positive edge clock.
+Creating register for signal `$paramod\drg5_csr\C_ENABLED=1'1.\mcycle_o' using process `$paramod\drg5_csr\C_ENABLED=1'1.$proc$microcontroller/rtl/drg5_csr.sv:104$472'.
+  created $dff cell `$procdff$1303' with positive edge clock.
+Creating register for signal `$paramod\drg5_csr\C_ENABLED=1'1.\minstret_o' using process `$paramod\drg5_csr\C_ENABLED=1'1.$proc$microcontroller/rtl/drg5_csr.sv:104$472'.
+  created $dff cell `$procdff$1304' with positive edge clock.
+
+4.2.10. Executing PROC_MEMWR pass (convert process memory writes to cells).
+
+4.2.11. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Found and cleaned up 67 empty switches in `\drg5_csr_formal.$proc$microcontroller/tests/drg5_csr_formal.sv:33$251'.
+Removing empty process `drg5_csr_formal.$proc$microcontroller/tests/drg5_csr_formal.sv:33$251'.
+Found and cleaned up 8 empty switches in `\drg5_csr_formal.$proc$microcontroller/tests/drg5_csr_formal.sv:119$332'.
+Removing empty process `drg5_csr_formal.$proc$microcontroller/tests/drg5_csr_formal.sv:119$332'.
+Found and cleaned up 2 empty switches in `\drg5_csr_formal.$proc$microcontroller/tests/drg5_csr_formal.sv:176$383'.
+Removing empty process `drg5_csr_formal.$proc$microcontroller/tests/drg5_csr_formal.sv:176$383'.
+Removing empty process `drg5_csr_formal.$proc$microcontroller/tests/drg5_csr_formal.sv:28$430'.
+Found and cleaned up 7 empty switches in `$paramod\drg5_csr\C_ENABLED=1'1.$proc$microcontroller/rtl/drg5_csr.sv:104$472'.
+Removing empty process `$paramod\drg5_csr\C_ENABLED=1'1.$proc$microcontroller/rtl/drg5_csr.sv:104$472'.
+Found and cleaned up 5 empty switches in `$paramod\drg5_csr\C_ENABLED=1'1.$proc$microcontroller/rtl/drg5_csr.sv:33$434'.
+Removing empty process `$paramod\drg5_csr\C_ENABLED=1'1.$proc$microcontroller/rtl/drg5_csr.sv:33$434'.
+Cleaned up 89 empty switches.
+
+4.2.12. Executing OPT_EXPR pass (perform const folding).
+Optimizing module drg5_csr_formal.
+<suppressed ~12 debug messages>
+Optimizing module $paramod\drg5_csr\C_ENABLED=1'1.
+<suppressed ~11 debug messages>
+
+4.3. Executing FLATTEN pass (flatten design).
+Deleting now unused module $paramod\drg5_csr\C_ENABLED=1'1.
+<suppressed ~1 debug messages>
+
+4.4. Executing FUTURE pass.
+
+4.5. Executing OPT_EXPR pass (perform const folding).
+Optimizing module drg5_csr_formal.
+
+4.6. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \drg5_csr_formal..
+Removed 3 unused cells and 387 unused wires.
+<suppressed ~6 debug messages>
+
+4.7. Executing CHECK pass (checking for obvious problems).
+Checking module drg5_csr_formal...
+Found and reported 0 problems.
+
+4.8. Executing OPT pass (performing simple optimizations).
+
+4.8.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module drg5_csr_formal.
+<suppressed ~1 debug messages>
+
+4.8.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\drg5_csr_formal'.
+Computing hashes of 676 cells of `\drg5_csr_formal'.
+Finding duplicate cells in `\drg5_csr_formal'.
+Computing hashes of 461 cells of `\drg5_csr_formal'.
+Finding duplicate cells in `\drg5_csr_formal'.
+Computing hashes of 455 cells of `\drg5_csr_formal'.
+Finding duplicate cells in `\drg5_csr_formal'.
+Computing hashes of 453 cells of `\drg5_csr_formal'.
+Finding duplicate cells in `\drg5_csr_formal'.
+Computing hashes of 452 cells of `\drg5_csr_formal'.
+Finding duplicate cells in `\drg5_csr_formal'.
+Computing hashes of 451 cells of `\drg5_csr_formal'.
+Finding duplicate cells in `\drg5_csr_formal'.
+<suppressed ~675 debug messages>
+Removed a total of 225 cells.
+
+4.8.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \drg5_csr_formal..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+    dead port 2/2 on $mux $procmux$857.
+    dead port 2/2 on $mux $procmux$846.
+    dead port 2/2 on $mux $procmux$835.
+    dead port 2/2 on $mux $procmux$824.
+    dead port 2/2 on $mux $procmux$813.
+    dead port 2/2 on $mux $procmux$802.
+    dead port 2/2 on $mux $procmux$791.
+    dead port 2/2 on $mux $procmux$780.
+    dead port 2/2 on $mux $procmux$769.
+    dead port 2/2 on $mux $procmux$758.
+    dead port 2/2 on $mux $procmux$747.
+    dead port 2/2 on $mux $procmux$736.
+    dead port 2/2 on $mux $flatten\dut.$procmux$1228.
+    dead port 2/2 on $mux $procmux$725.
+    dead port 2/2 on $mux $flatten\dut.$procmux$1230.
+    dead port 2/2 on $mux $procmux$714.
+    dead port 2/2 on $mux $procmux$703.
+    dead port 2/2 on $mux $procmux$692.
+    dead port 2/2 on $mux $procmux$681.
+    dead port 2/2 on $mux $procmux$670.
+    dead port 2/2 on $mux $flatten\dut.$procmux$1242.
+    dead port 2/2 on $mux $procmux$659.
+    dead port 2/2 on $mux $procmux$648.
+    dead port 2/2 on $mux $procmux$637.
+    dead port 2/2 on $mux $procmux$626.
+    dead port 2/2 on $mux $procmux$615.
+    dead port 2/2 on $mux $procmux$604.
+    dead port 2/2 on $mux $procmux$593.
+    dead port 2/2 on $mux $procmux$582.
+    dead port 2/2 on $mux $procmux$571.
+    dead port 2/2 on $mux $procmux$560.
+    dead port 2/2 on $mux $procmux$549.
+    dead port 2/2 on $mux $procmux$538.
+    dead port 2/2 on $mux $procmux$527.
+    dead port 2/2 on $mux $procmux$516.
+    dead port 2/2 on $mux $procmux$937.
+    dead port 2/2 on $mux $procmux$499.
+    dead port 1/2 on $mux $procmux$977.
+    dead port 1/2 on $mux $procmux$971.
+    dead port 1/2 on $mux $procmux$965.
+    dead port 1/2 on $mux $procmux$959.
+    dead port 1/2 on $mux $procmux$956.
+    dead port 2/2 on $mux $procmux$944.
+Removed 43 multiplexer ports.
+<suppressed ~620 debug messages>
+
+4.8.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \drg5_csr_formal.
+    New ctrl vector for $pmux cell $flatten\dut.$procmux$1271: $auto$opt_reduce.cc:137:opt_pmux$1307
+    New ctrl vector for $pmux cell $procmux$880: $auto$opt_reduce.cc:137:opt_pmux$1309
+    New ctrl vector for $pmux cell $flatten\dut.$procmux$1275: $auto$opt_reduce.cc:137:opt_pmux$1311
+    New input vector for $reduce_or cell $auto$opt_reduce.cc:131:opt_pmux$1306: { $flatten\dut.$procmux$1272_CMP $flatten\dut.$procmux$1273_CMP }
+    New input vector for $reduce_or cell $auto$opt_reduce.cc:131:opt_pmux$1308: { $flatten\dut.$procmux$1028_CMP $flatten\dut.$procmux$1029_CMP $flatten\dut.$procmux$1046_CMP $flatten\dut.$procmux$1047_CMP $flatten\dut.$procmux$1068_CMP $flatten\dut.$procmux$1091_CMP $flatten\dut.$procmux$1108_CMP $flatten\dut.$procmux$1126_CMP $flatten\dut.$procmux$1145_CMP $flatten\dut.$procmux$1165_CMP $flatten\dut.$procmux$1187_CMP $flatten\dut.$procmux$1260_CMP $flatten\dut.$procmux$1268_CMP $flatten\dut.$procmux$1272_CMP $flatten\dut.$procmux$1273_CMP $flatten\dut.$procmux$1288_CMP $flatten\dut.$procmux$1292_CMP }
+    New input vector for $reduce_or cell $auto$opt_reduce.cc:131:opt_pmux$1310: { $flatten\dut.$procmux$1028_CMP $flatten\dut.$procmux$1029_CMP $flatten\dut.$procmux$1046_CMP $flatten\dut.$procmux$1047_CMP $flatten\dut.$procmux$1068_CMP $flatten\dut.$procmux$1091_CMP $flatten\dut.$procmux$1108_CMP $flatten\dut.$procmux$1126_CMP $flatten\dut.$procmux$1145_CMP $flatten\dut.$procmux$1165_CMP $flatten\dut.$procmux$1187_CMP $flatten\dut.$procmux$1260_CMP $flatten\dut.$procmux$1268_CMP $flatten\dut.$procmux$1272_CMP $flatten\dut.$procmux$1273_CMP $flatten\dut.$procmux$1288_CMP $flatten\dut.$procmux$1292_CMP }
+  Optimizing cells in module \drg5_csr_formal.
+Performed a total of 6 changes.
+
+4.8.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\drg5_csr_formal'.
+Computing hashes of 411 cells of `\drg5_csr_formal'.
+Finding duplicate cells in `\drg5_csr_formal'.
+Computing hashes of 402 cells of `\drg5_csr_formal'.
+Finding duplicate cells in `\drg5_csr_formal'.
+Computing hashes of 401 cells of `\drg5_csr_formal'.
+Finding duplicate cells in `\drg5_csr_formal'.
+Computing hashes of 400 cells of `\drg5_csr_formal'.
+Finding duplicate cells in `\drg5_csr_formal'.
+Computing hashes of 399 cells of `\drg5_csr_formal'.
+Finding duplicate cells in `\drg5_csr_formal'.
+<suppressed ~36 debug messages>
+Removed a total of 12 cells.
+
+4.8.6. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \drg5_csr_formal..
+Removed 1 unused cells and 259 unused wires.
+<suppressed ~2 debug messages>
+
+4.8.7. Executing OPT_EXPR pass (perform const folding).
+Optimizing module drg5_csr_formal.
+
+4.8.8. Rerunning OPT passes. (Maybe there is more to do..)
+
+4.8.9. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \drg5_csr_formal..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~376 debug messages>
+
+4.8.10. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \drg5_csr_formal.
+Performed a total of 0 changes.
+
+4.8.11. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\drg5_csr_formal'.
+Computing hashes of 398 cells of `\drg5_csr_formal'.
+Finding duplicate cells in `\drg5_csr_formal'.
+Removed a total of 0 cells.
+
+4.8.12. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \drg5_csr_formal..
+
+4.8.13. Executing OPT_EXPR pass (perform const folding).
+Optimizing module drg5_csr_formal.
+
+4.8.14. Finished fast OPT passes. (There is nothing left to do.)
+
+4.9. Executing WREDUCE pass (reducing word size of cells).
+Removed top 2 bits (of 12) from port B of cell drg5_csr_formal.$gt$microcontroller/tests/drg5_csr_formal.sv:38$253 ($gt).
+Removed top 2 bits (of 12) from port B of cell drg5_csr_formal.$lt$microcontroller/tests/drg5_csr_formal.sv:38$254 ($lt).
+Removed top 31 bits (of 32) from port B of cell drg5_csr_formal.$add$microcontroller/tests/drg5_csr_formal.sv:135$373 ($add).
+Removed top 31 bits (of 32) from mux cell drg5_csr_formal.$ternary$microcontroller/tests/drg5_csr_formal.sv:136$375 ($mux).
+Removed top 31 bits (of 32) from port B of cell drg5_csr_formal.$add$microcontroller/tests/drg5_csr_formal.sv:136$376 ($add).
+Removed top 31 bits (of 32) from port B of cell drg5_csr_formal.$add$microcontroller/tests/drg5_csr_formal.sv:140$377 ($add).
+Removed top 31 bits (of 32) from mux cell drg5_csr_formal.$ternary$microcontroller/tests/drg5_csr_formal.sv:141$379 ($mux).
+Removed top 31 bits (of 32) from port B of cell drg5_csr_formal.$add$microcontroller/tests/drg5_csr_formal.sv:141$380 ($add).
+Removed top 29 bits (of 32) from port B of cell drg5_csr_formal.$le$microcontroller/tests/drg5_csr_formal.sv:181$389 ($le).
+Removed top 28 bits (of 32) from port B of cell drg5_csr_formal.$eq$microcontroller/tests/drg5_csr_formal.sv:181$391 ($eq).
+Removed top 19 bits (of 30) from port B of cell drg5_csr_formal.$eq$microcontroller/tests/drg5_csr_formal.sv:194$418 ($eq).
+Removed top 31 bits (of 32) from port B of cell drg5_csr_formal.$procmux$498_CMP1 ($eq).
+Removed top 30 bits (of 32) from port B of cell drg5_csr_formal.$procmux$498_CMP2 ($eq).
+Removed top 30 bits (of 32) from port B of cell drg5_csr_formal.$procmux$498_CMP3 ($eq).
+Removed top 29 bits (of 32) from port B of cell drg5_csr_formal.$procmux$498_CMP4 ($eq).
+Removed top 29 bits (of 32) from port B of cell drg5_csr_formal.$procmux$498_CMP5 ($eq).
+Removed top 29 bits (of 32) from port B of cell drg5_csr_formal.$procmux$498_CMP6 ($eq).
+Removed top 29 bits (of 32) from port B of cell drg5_csr_formal.$procmux$498_CMP7 ($eq).
+Removed top 28 bits (of 32) from port B of cell drg5_csr_formal.$procmux$498_CMP8 ($eq).
+Removed top 2 bits (of 12) from port B of cell drg5_csr_formal.$flatten\dut.$procmux$1288_CMP0 ($eq).
+Removed top 2 bits (of 12) from port B of cell drg5_csr_formal.$flatten\dut.$procmux$1268_CMP0 ($eq).
+Removed top 2 bits (of 12) from port B of cell drg5_csr_formal.$flatten\dut.$procmux$1260_CMP0 ($eq).
+Removed top 1 bits (of 2) from port B of cell drg5_csr_formal.$flatten\dut.$procmux$1251_CMP0 ($eq).
+Removed top 2 bits (of 12) from port B of cell drg5_csr_formal.$flatten\dut.$procmux$1187_CMP0 ($eq).
+Removed top 2 bits (of 12) from port B of cell drg5_csr_formal.$flatten\dut.$procmux$1165_CMP0 ($eq).
+Removed top 2 bits (of 12) from port B of cell drg5_csr_formal.$flatten\dut.$procmux$1145_CMP0 ($eq).
+Removed top 2 bits (of 12) from port B of cell drg5_csr_formal.$flatten\dut.$procmux$1126_CMP0 ($eq).
+Removed top 2 bits (of 12) from port B of cell drg5_csr_formal.$flatten\dut.$procmux$1108_CMP0 ($eq).
+Removed top 2 bits (of 12) from port B of cell drg5_csr_formal.$flatten\dut.$procmux$1091_CMP0 ($eq).
+Removed top 2 bits (of 12) from port B of cell drg5_csr_formal.$flatten\dut.$procmux$1068_CMP0 ($eq).
+Removed top 2 bits (of 12) from port B of cell drg5_csr_formal.$flatten\dut.$procmux$1292_CMP0 ($eq).
+Removed top 28 bits (of 32) from mux cell drg5_csr_formal.$flatten\dut.$ternary$microcontroller/rtl/drg5_csr.sv:135$491 ($mux).
+Removed top 24 bits (of 32) from mux cell drg5_csr_formal.$flatten\dut.$ternary$microcontroller/rtl/drg5_csr.sv:128$488 ($mux).
+Removed top 63 bits (of 64) from port B of cell drg5_csr_formal.$flatten\dut.$add$microcontroller/rtl/drg5_csr.sv:125$487 ($add).
+Removed top 63 bits (of 64) from port B of cell drg5_csr_formal.$flatten\dut.$add$microcontroller/rtl/drg5_csr.sv:122$478 ($add).
+Removed top 28 bits (of 32) from port B of cell drg5_csr_formal.$flatten\dut.$eq$microcontroller/rtl/drg5_csr.sv:90$456 ($eq).
+Removed top 29 bits (of 32) from port B of cell drg5_csr_formal.$flatten\dut.$le$microcontroller/rtl/drg5_csr.sv:90$455 ($le).
+Removed top 2 bits (of 12) from port B of cell drg5_csr_formal.$flatten\dut.$le$microcontroller/rtl/drg5_csr.sv:63$436 ($le).
+Removed top 2 bits (of 12) from port B of cell drg5_csr_formal.$flatten\dut.$ge$microcontroller/rtl/drg5_csr.sv:63$435 ($ge).
+Removed top 28 bits (of 32) from wire drg5_csr_formal.$flatten\dut.$or$microcontroller/rtl/drg5_csr.sv:135$492_Y.
+Removed top 28 bits (of 32) from wire drg5_csr_formal.$flatten\dut.$ternary$microcontroller/rtl/drg5_csr.sv:135$491_Y.
+Removed top 24 bits (of 32) from wire drg5_csr_formal.$flatten\dut.$or$microcontroller/rtl/drg5_csr.sv:128$489_Y.
+Removed top 24 bits (of 32) from wire drg5_csr_formal.$flatten\dut.$ternary$microcontroller/rtl/drg5_csr.sv:128$488_Y.
+Removed top 20 bits (of 32) from wire drg5_csr_formal.mip_o.
+Removed top 20 bits (of 32) from wire drg5_csr_formal.expected_pending.
+Removed top 31 bits (of 32) from wire drg5_csr_formal.$ternary$microcontroller/tests/drg5_csr_formal.sv:136$375_Y.
+Removed top 31 bits (of 32) from wire drg5_csr_formal.$ternary$microcontroller/tests/drg5_csr_formal.sv:141$379_Y.
+
+4.10. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \drg5_csr_formal..
+Removed 0 unused cells and 10 unused wires.
+<suppressed ~1 debug messages>
+
+4.11. Executing MEMORY_COLLECT pass (generating $mem cells).
+
+4.12. Executing OPT pass (performing simple optimizations).
+
+4.12.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module drg5_csr_formal.
+
+4.12.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\drg5_csr_formal'.
+Computing hashes of 398 cells of `\drg5_csr_formal'.
+Finding duplicate cells in `\drg5_csr_formal'.
+Removed a total of 0 cells.
+
+4.12.3. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \drg5_csr_formal..
+
+4.12.4. Finished fast OPT passes.
+
+4.13. Executing SORT pass.
+
+4.14. Printing statistics.
+
+=== drg5_csr_formal ===
+
+        +----------Local Count, excluding submodules.
+        | 
+      392 wires
+     6100 wire bits
+       93 public wires
+     2357 public wire bits
+       18 ports
+      185 port bits
+      398 cells
+        6   $add
+        1   $and
+        9   $check
+       12   $dff
+       50   $eq
+        3   $ge
+        3   $gt
+        5   $le
+       36   $logic_and
+       12   $logic_not
+       14   $logic_or
+        3   $lt
+      197   $mux
+        1   $not
+        1   $or
+       40   $pmux
+        4   $reduce_or
+        1   $scopeinfo
+
+4.15. Executing CHECK pass (checking for obvious problems).
+Checking module drg5_csr_formal...
+Found and reported 0 problems.
+
+5. Executing ASYNC2SYNC pass.
+
+6. Executing CHECK pass (checking for obvious problems).
+Checking module drg5_csr_formal...
+Found and reported 0 problems.
+
+7. Executing SAT pass (solving SAT problems in the circuit).
+Using SAT solver `minisat`.
+
+Setting up time step 1:
+Final constraint equation: { } = { }
+Imported 443 cells to SAT database.
+Import constraint from assume cell: $auto$async2sync.cc:116:execute$1372 when $auto$async2sync.cc:107:execute$1368.
+Import constraint from assume cell: $auto$async2sync.cc:116:execute$1366 when $auto$async2sync.cc:107:execute$1362.
+Import set-constraint from init attribute: $auto$async2sync.cc:116:execute$1372 = 1'1
+Import set-constraint from init attribute: $auto$async2sync.cc:107:execute$1368 = 1'0
+Import set-constraint from init attribute: $auto$async2sync.cc:116:execute$1366 = 1'1
+Import set-constraint from init attribute: $auto$async2sync.cc:107:execute$1362 = 1'0
+Import set-constraint from init attribute: $auto$async2sync.cc:116:execute$1360 = 1'1
+Import set-constraint from init attribute: $auto$async2sync.cc:107:execute$1356 = 1'0
+Import set-constraint from init attribute: $auto$async2sync.cc:116:execute$1354 = 1'1
+Import set-constraint from init attribute: $auto$async2sync.cc:107:execute$1350 = 1'0
+Import set-constraint from init attribute: $auto$async2sync.cc:116:execute$1348 = 1'1
+Import set-constraint from init attribute: $auto$async2sync.cc:107:execute$1344 = 1'0
+Import set-constraint from init attribute: $auto$async2sync.cc:116:execute$1342 = 1'1
+Import set-constraint from init attribute: $auto$async2sync.cc:107:execute$1338 = 1'0
+Import set-constraint from init attribute: $auto$async2sync.cc:116:execute$1336 = 1'1
+Import set-constraint from init attribute: $auto$async2sync.cc:107:execute$1332 = 1'0
+Import set-constraint from init attribute: $auto$async2sync.cc:116:execute$1330 = 1'1
+Import set-constraint from init attribute: $auto$async2sync.cc:107:execute$1326 = 1'0
+Import set-constraint from init attribute: $auto$async2sync.cc:116:execute$1324 = 1'1
+Import set-constraint from init attribute: $auto$async2sync.cc:107:execute$1320 = 1'0
+Import set-constraint from init attribute: \past_valid = 1'0
+Final init constraint equation: { \past_valid $auto$async2sync.cc:107:execute$1320 $auto$async2sync.cc:116:execute$1324 $auto$async2sync.cc:107:execute$1326 $auto$async2sync.cc:116:execute$1330 $auto$async2sync.cc:107:execute$1332 $auto$async2sync.cc:116:execute$1336 $auto$async2sync.cc:107:execute$1338 $auto$async2sync.cc:116:execute$1342 $auto$async2sync.cc:107:execute$1344 $auto$async2sync.cc:116:execute$1348 $auto$async2sync.cc:107:execute$1350 $auto$async2sync.cc:116:execute$1354 $auto$async2sync.cc:107:execute$1356 $auto$async2sync.cc:116:execute$1360 $auto$async2sync.cc:107:execute$1362 $auto$async2sync.cc:116:execute$1366 $auto$async2sync.cc:107:execute$1368 $auto$async2sync.cc:116:execute$1372 } = 19'0010101010101010101
+
+Setting up time step 2:
+Final constraint equation: { } = { }
+Imported 443 cells to SAT database.
+Import constraint from assume cell: $auto$async2sync.cc:116:execute$1372 when $auto$async2sync.cc:107:execute$1368.
+Import constraint from assume cell: $auto$async2sync.cc:116:execute$1366 when $auto$async2sync.cc:107:execute$1362.
+
+Setting up time step 3:
+Final constraint equation: { } = { }
+Imported 443 cells to SAT database.
+Import constraint from assume cell: $auto$async2sync.cc:116:execute$1372 when $auto$async2sync.cc:107:execute$1368.
+Import constraint from assume cell: $auto$async2sync.cc:116:execute$1366 when $auto$async2sync.cc:107:execute$1362.
+
+Setting up time step 4:
+Final constraint equation: { } = { }
+Imported 443 cells to SAT database.
+Import constraint from assume cell: $auto$async2sync.cc:116:execute$1372 when $auto$async2sync.cc:107:execute$1368.
+Import constraint from assume cell: $auto$async2sync.cc:116:execute$1366 when $auto$async2sync.cc:107:execute$1362.
+
+Setting up time step 1:
+Final constraint equation: { } = { }
+Imported 443 cells to SAT database.
+Import constraint from assume cell: $auto$async2sync.cc:116:execute$1372 when $auto$async2sync.cc:107:execute$1368.
+Import constraint from assume cell: $auto$async2sync.cc:116:execute$1366 when $auto$async2sync.cc:107:execute$1362.
+Import proof for assert: $auto$async2sync.cc:116:execute$1360 when $auto$async2sync.cc:107:execute$1356.
+Import proof for assert: $auto$async2sync.cc:116:execute$1354 when $auto$async2sync.cc:107:execute$1350.
+Import proof for assert: $auto$async2sync.cc:116:execute$1348 when $auto$async2sync.cc:107:execute$1344.
+Import proof for assert: $auto$async2sync.cc:116:execute$1342 when $auto$async2sync.cc:107:execute$1338.
+Import proof for assert: $auto$async2sync.cc:116:execute$1336 when $auto$async2sync.cc:107:execute$1332.
+Import proof for assert: $auto$async2sync.cc:116:execute$1330 when $auto$async2sync.cc:107:execute$1326.
+Import proof for assert: $auto$async2sync.cc:116:execute$1324 when $auto$async2sync.cc:107:execute$1320.
+
+** Trying induction with length 1 **
+
+Setting up time step 5:
+Final constraint equation: { } = { }
+Imported 443 cells to SAT database.
+Import constraint from assume cell: $auto$async2sync.cc:116:execute$1372 when $auto$async2sync.cc:107:execute$1368.
+Import constraint from assume cell: $auto$async2sync.cc:116:execute$1366 when $auto$async2sync.cc:107:execute$1362.
+Import proof for assert: $auto$async2sync.cc:116:execute$1360 when $auto$async2sync.cc:107:execute$1356.
+Import proof for assert: $auto$async2sync.cc:116:execute$1354 when $auto$async2sync.cc:107:execute$1350.
+Import proof for assert: $auto$async2sync.cc:116:execute$1348 when $auto$async2sync.cc:107:execute$1344.
+Import proof for assert: $auto$async2sync.cc:116:execute$1342 when $auto$async2sync.cc:107:execute$1338.
+Import proof for assert: $auto$async2sync.cc:116:execute$1336 when $auto$async2sync.cc:107:execute$1332.
+Import proof for assert: $auto$async2sync.cc:116:execute$1330 when $auto$async2sync.cc:107:execute$1326.
+Import proof for assert: $auto$async2sync.cc:116:execute$1324 when $auto$async2sync.cc:107:execute$1320.
+Import show expression: \access_i
+Import show expression: \addr_i
+Import show expression: \clk_i
+Import show expression: \commit_i
+Import show expression: \debug_ebreak_entry_i
+Import show expression: \debug_mode_i
+Import show expression: \mip_levels_i
+Import show expression: \mret_i
+Import show expression: \op_i
+Import show expression: \read_i
+Import show expression: \reset_i
+Import show expression: \retire_i
+Import show expression: \source_i
+Import show expression: \trap_cause_i
+Import show expression: \trap_i
+Import show expression: \trap_pc_i
+Import show expression: \trap_tval_i
+Import show expression: \write_i
+
+[base case 1] Solving problem with 184802 variables and 507340 clauses..
+Base case for induction length 1 proven.
+
+Setting up time step 2:
+Final constraint equation: { } = { }
+Imported 443 cells to SAT database.
+Import constraint from assume cell: $auto$async2sync.cc:116:execute$1372 when $auto$async2sync.cc:107:execute$1368.
+Import constraint from assume cell: $auto$async2sync.cc:116:execute$1366 when $auto$async2sync.cc:107:execute$1362.
+Import proof for assert: $auto$async2sync.cc:116:execute$1360 when $auto$async2sync.cc:107:execute$1356.
+Import proof for assert: $auto$async2sync.cc:116:execute$1354 when $auto$async2sync.cc:107:execute$1350.
+Import proof for assert: $auto$async2sync.cc:116:execute$1348 when $auto$async2sync.cc:107:execute$1344.
+Import proof for assert: $auto$async2sync.cc:116:execute$1342 when $auto$async2sync.cc:107:execute$1338.
+Import proof for assert: $auto$async2sync.cc:116:execute$1336 when $auto$async2sync.cc:107:execute$1332.
+Import proof for assert: $auto$async2sync.cc:116:execute$1330 when $auto$async2sync.cc:107:execute$1326.
+Import proof for assert: $auto$async2sync.cc:116:execute$1324 when $auto$async2sync.cc:107:execute$1320.
+Import show expression: \access_i
+Import show expression: \addr_i
+Import show expression: \clk_i
+Import show expression: \commit_i
+Import show expression: \debug_ebreak_entry_i
+Import show expression: \debug_mode_i
+Import show expression: \mip_levels_i
+Import show expression: \mret_i
+Import show expression: \op_i
+Import show expression: \read_i
+Import show expression: \reset_i
+Import show expression: \retire_i
+Import show expression: \source_i
+Import show expression: \trap_cause_i
+Import show expression: \trap_i
+Import show expression: \trap_pc_i
+Import show expression: \trap_tval_i
+Import show expression: \write_i
+
+[induction step 1] Solving problem with 72501 variables and 198196 clauses..
+Induction step failed. Incrementing induction length.
+
+  Time Signal Name                                       Dec       Hex                                                                                                                                                                                                                                                                                                                                                                                                 Bin
+  ---- ----------------------------------------- ----------- ---------                                                                                           ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+  init $auto$async2sync.cc:107:execute$1320                0         0                                                                                                                                                                                                                                                                                                                                                                                                   0
+  init $auto$async2sync.cc:107:execute$1326                0         0                                                                                                                                                                                                                                                                                                                                                                                                   0
+  init $auto$async2sync.cc:107:execute$1332                0         0                                                                                                                                                                                                                                                                                                                                                                                                   0
+  init $auto$async2sync.cc:107:execute$1338                0         0                                                                                                                                                                                                                                                                                                                                                                                                   0
+  init $auto$async2sync.cc:107:execute$1344                0         0                                                                                                                                                                                                                                                                                                                                                                                                   0
+  init $auto$async2sync.cc:107:execute$1350                0         0                                                                                                                                                                                                                                                                                                                                                                                                   0
+  init $auto$async2sync.cc:107:execute$1356                0         0                                                                                                                                                                                                                                                                                                                                                                                                   0
+  init $auto$async2sync.cc:107:execute$1362                0         0                                                                                                                                                                                                                                                                                                                                                                                                   0
+  init $auto$async2sync.cc:107:execute$1368                0         0                                                                                                                                                                                                                                                                                                                                                                                                   0
+  init $auto$async2sync.cc:116:execute$1324                1         1                                                                                                                                                                                                                                                                                                                                                                                                   1
+  init $auto$async2sync.cc:116:execute$1330                0         0                                                                                                                                                                                                                                                                                                                                                                                                   0
+  init $auto$async2sync.cc:116:execute$1336                0         0                                                                                                                                                                                                                                                                                                                                                                                                   0
+  init $auto$async2sync.cc:116:execute$1342                1         1                                                                                                                                                                                                                                                                                                                                                                                                   1
+  init $auto$async2sync.cc:116:execute$1348                1         1                                                                                                                                                                                                                                                                                                                                                                                                   1
+  init $auto$async2sync.cc:116:execute$1354                1         1                                                                                                                                                                                                                                                                                                                                                                                                   1
+  init $auto$async2sync.cc:116:execute$1360                1         1                                                                                                                                                                                                                                                                                                                                                                                                   1
+  init $auto$async2sync.cc:116:execute$1366                0         0                                                                                                                                                                                                                                                                                                                                                                                                   0
+  init $auto$async2sync.cc:116:execute$1372                0         0                                                                                                                                                                                                                                                                                                                                                                                                   0
+  init \dut.mcause_o                                       0         0                                                                                                                                                                                                                                                                                                                                                                    00000000000000000000000000000000
+  init \dut.mcountinhibit_o                                0         0                                                                                                                                                                                                                                                                                                                                                                    00000000000000000000000000000000
+  init \dut.mcycle_o                                      --        --                                                                                                                                                                                                                                                                                                                                    1111111111111111111111111111111111111111111111111111111111111110
+  init \dut.mepc_o                                         1         1                                                                                                                                                                                                                                                                                                                                                                    00000000000000000000000000000001
+  init \dut.mie_o                                          0         0                                                                                                                                                                                                                                                                                                                                                                    00000000000000000000000000000000
+  init \dut.minstret_o                                    --        --                                                                                                                                                                                                                                                                                                                                    0100010010000000000000010001001111111111111111111111111111111111
+  init \dut.mscratch_o                                     0         0                                                                                                                                                                                                                                                                                                                                                                    00000000000000000000000000000000
+  init \dut.mstatus_o                                      0         0                                                                                                                                                                                                                                                                                                                                                                    00000000000000000000000000000000
+  init \dut.mtval_o                                        0         0                                                                                                                                                                                                                                                                                                                                                                    00000000000000000000000000000000
+  init \dut.mtvec_o                                        2         2                                                                                                                                                                                                                                                                                                                                                                    00000000000000000000000000000010
+  init \expected_state_q                                  --        --    000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000010000000000000000000000000000000000000000000000000000000000000000100000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000011111111111111111111111111111111111111111111111111111111111111100100010010000000000000010001001111111111111111111111111111111111
+  init \past_valid                                         1         1                                                                                                                                                                                                                                                                                                                                                                                                   1
+  ---- ----------------------------------------- ----------- ---------                                                                                           ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+     1 \access_i                                           1         1                                                                                                                                                                                                                                                                                                                                                                                                   1
+     1 \addr_i                                          2946       b82                                                                                                                                                                                                                                                                                                                                                                                        101110000010
+     1 \clk_i                                              0         0                                                                                                                                                                                                                                                                                                                                                                                                   0
+     1 \commit_i                                           0         0                                                                                                                                                                                                                                                                                                                                                                                                   0
+     1 \debug_ebreak_entry_i                               0         0                                                                                                                                                                                                                                                                                                                                                                                                   0
+     1 \debug_mode_i                                       0         0                                                                                                                                                                                                                                                                                                                                                                                                   0
+     1 \mip_levels_i                                       0         0                                                                                                                                                                                                                                                                                                                                                                    00000000000000000000000000000000
+     1 \mret_i                                             0         0                                                                                                                                                                                                                                                                                                                                                                                                   0
+     1 \op_i                                               1         1                                                                                                                                                                                                                                                                                                                                                                                                  01
+     1 \read_i                                             1         1                                                                                                                                                                                                                                                                                                                                                                                                   1
+     1 \reset_i                                            0         0                                                                                                                                                                                                                                                                                                                                                                                                   0
+     1 \retire_i                                           1         1                                                                                                                                                                                                                                                                                                                                                                                                   1
+     1 \source_i                                  1805449656  6b9cf9b8                                                                                                                                                                                                                                                                                                                                                                    01101011100111001111100110111000
+     1 \trap_cause_i                             -2147483641  80000007                                                                                                                                                                                                                                                                                                                                                                    10000000000000000000000000000111
+     1 \trap_i                                             0         0                                                                                                                                                                                                                                                                                                                                                                                                   0
+     1 \trap_pc_i                                          0         0                                                                                                                                                                                                                                                                                                                                                                    00000000000000000000000000000000
+     1 \trap_tval_i                                        0         0                                                                                                                                                                                                                                                                                                                                                                    00000000000000000000000000000000
+     1 \write_i                                            1         1                                                                                                                                                                                                                                                                                                                                                                                                   1
+  ---- ----------------------------------------- ----------- ---------                                                                                           ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+     2 \access_i                                           1         1                                                                                                                                                                                                                                                                                                                                                                                                   1
+     2 \addr_i                                           773       305                                                                                                                                                                                                                                                                                                                                                                                        001100000101
+     2 \clk_i                                              0         0                                                                                                                                                                                                                                                                                                                                                                                                   0
+     2 \commit_i                                           1         1                                                                                                                                                                                                                                                                                                                                                                                                   1
+     2 \debug_ebreak_entry_i                               0         0                                                                                                                                                                                                                                                                                                                                                                                                   0
+     2 \debug_mode_i                                       0         0                                                                                                                                                                                                                                                                                                                                                                                                   0
+     2 \mip_levels_i                                       0         0                                                                                                                                                                                                                                                                                                                                                                    00000000000000000000000000000000
+     2 \mret_i                                             0         0                                                                                                                                                                                                                                                                                                                                                                                                   0
+     2 \op_i                                               1         1                                                                                                                                                                                                                                                                                                                                                                                                  01
+     2 \read_i                                             0         0                                                                                                                                                                                                                                                                                                                                                                                                   0
+     2 \reset_i                                            0         0                                                                                                                                                                                                                                                                                                                                                                                                   0
+     2 \retire_i                                           0         0                                                                                                                                                                                                                                                                                                                                                                                                   0
+     2 \source_i                                           0         0                                                                                                                                                                                                                                                                                                                                                                    00000000000000000000000000000000
+     2 \trap_cause_i                                       0         0                                                                                                                                                                                                                                                                                                                                                                    00000000000000000000000000000000
+     2 \trap_i                                             0         0                                                                                                                                                                                                                                                                                                                                                                                                   0
+     2 \trap_pc_i                                          0         0                                                                                                                                                                                                                                                                                                                                                                    00000000000000000000000000000000
+     2 \trap_tval_i                                        0         0                                                                                                                                                                                                                                                                                                                                                                    00000000000000000000000000000000
+     2 \write_i                                            1         1                                                                                                                                                                                                                                                                                                                                                                                                   1
+
+** Trying induction with length 2 **
+
+Setting up time step 6:
+Final constraint equation: { } = { }
+Imported 443 cells to SAT database.
+Import constraint from assume cell: $auto$async2sync.cc:116:execute$1372 when $auto$async2sync.cc:107:execute$1368.
+Import constraint from assume cell: $auto$async2sync.cc:116:execute$1366 when $auto$async2sync.cc:107:execute$1362.
+Import proof for assert: $auto$async2sync.cc:116:execute$1360 when $auto$async2sync.cc:107:execute$1356.
+Import proof for assert: $auto$async2sync.cc:116:execute$1354 when $auto$async2sync.cc:107:execute$1350.
+Import proof for assert: $auto$async2sync.cc:116:execute$1348 when $auto$async2sync.cc:107:execute$1344.
+Import proof for assert: $auto$async2sync.cc:116:execute$1342 when $auto$async2sync.cc:107:execute$1338.
+Import proof for assert: $auto$async2sync.cc:116:execute$1336 when $auto$async2sync.cc:107:execute$1332.
+Import proof for assert: $auto$async2sync.cc:116:execute$1330 when $auto$async2sync.cc:107:execute$1326.
+Import proof for assert: $auto$async2sync.cc:116:execute$1324 when $auto$async2sync.cc:107:execute$1320.
+Import show expression: \access_i
+Import show expression: \addr_i
+Import show expression: \clk_i
+Import show expression: \commit_i
+Import show expression: \debug_ebreak_entry_i
+Import show expression: \debug_mode_i
+Import show expression: \mip_levels_i
+Import show expression: \mret_i
+Import show expression: \op_i
+Import show expression: \read_i
+Import show expression: \reset_i
+Import show expression: \retire_i
+Import show expression: \source_i
+Import show expression: \trap_cause_i
+Import show expression: \trap_i
+Import show expression: \trap_pc_i
+Import show expression: \trap_tval_i
+Import show expression: \write_i
+
+[base case 2] Solving problem with 224596 variables and 618257 clauses..
+Base case for induction length 2 proven.
+
+Setting up time step 3:
+Final constraint equation: { } = { }
+Imported 443 cells to SAT database.
+Import constraint from assume cell: $auto$async2sync.cc:116:execute$1372 when $auto$async2sync.cc:107:execute$1368.
+Import constraint from assume cell: $auto$async2sync.cc:116:execute$1366 when $auto$async2sync.cc:107:execute$1362.
+Import proof for assert: $auto$async2sync.cc:116:execute$1360 when $auto$async2sync.cc:107:execute$1356.
+Import proof for assert: $auto$async2sync.cc:116:execute$1354 when $auto$async2sync.cc:107:execute$1350.
+Import proof for assert: $auto$async2sync.cc:116:execute$1348 when $auto$async2sync.cc:107:execute$1344.
+Import proof for assert: $auto$async2sync.cc:116:execute$1342 when $auto$async2sync.cc:107:execute$1338.
+Import proof for assert: $auto$async2sync.cc:116:execute$1336 when $auto$async2sync.cc:107:execute$1332.
+Import proof for assert: $auto$async2sync.cc:116:execute$1330 when $auto$async2sync.cc:107:execute$1326.
+Import proof for assert: $auto$async2sync.cc:116:execute$1324 when $auto$async2sync.cc:107:execute$1320.
+Import show expression: \access_i
+Import show expression: \addr_i
+Import show expression: \clk_i
+Import show expression: \commit_i
+Import show expression: \debug_ebreak_entry_i
+Import show expression: \debug_mode_i
+Import show expression: \mip_levels_i
+Import show expression: \mret_i
+Import show expression: \op_i
+Import show expression: \read_i
+Import show expression: \reset_i
+Import show expression: \retire_i
+Import show expression: \source_i
+Import show expression: \trap_cause_i
+Import show expression: \trap_i
+Import show expression: \trap_pc_i
+Import show expression: \trap_tval_i
+Import show expression: \write_i
+
+[induction step 2] Solving problem with 114657 variables and 316985 clauses..
+Induction step proven: SUCCESS!
+
+                  /$$$$$$      /$$$$$$$$     /$$$$$$$    
+                 /$$__  $$    | $$_____/    | $$__  $$   
+                | $$  \ $$    | $$          | $$  \ $$   
+                | $$  | $$    | $$$$$       | $$  | $$   
+                | $$  | $$    | $$__/       | $$  | $$   
+                | $$/$$ $$    | $$          | $$  | $$   
+                |  $$$$$$/ /$$| $$$$$$$$ /$$| $$$$$$$//$$
+                 \____ $$$|__/|________/|__/|_______/|__/
+                       \__/                              
+

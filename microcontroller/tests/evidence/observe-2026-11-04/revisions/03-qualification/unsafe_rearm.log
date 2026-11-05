@@ -1,0 +1,4 @@
+$ /tmp/drg5-observe/p0/Vdrg5_observe_tb +verilator+seed+1 +seed=1 +unsafe_rearm
+[170] %Fatal: drg5_observe.sv:150: Assertion failed in drg5_observe_tb.dut: observation rearm requires isolated cold reset
+%Error: microcontroller/rtl/drg5_observe.sv:150: Verilog $stop
+Aborting...

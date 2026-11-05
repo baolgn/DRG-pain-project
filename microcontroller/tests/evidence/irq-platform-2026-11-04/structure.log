@@ -1,0 +1,841 @@
+$ /tmp/drg5-control-tools-20260301/oss-cad-suite/bin/yosys -Q -T -p 'read_verilog -sv -D SYNTHESIS microcontroller/rtl/drg5_irq_platform.sv; hierarchy -check -top drg5_irq_platform; proc; check -assert; select -assert-none t:$dlatch t:$adlatch; synth -top drg5_irq_platform; check -assert; select -assert-none t:$dlatch t:$adlatch; stat'
+
+-- Running command `read_verilog -sv -D SYNTHESIS microcontroller/rtl/drg5_irq_platform.sv; hierarchy -check -top drg5_irq_platform; proc; check -assert; select -assert-none t:$dlatch t:$adlatch; synth -top drg5_irq_platform; check -assert; select -assert-none t:$dlatch t:$adlatch; stat' --
+
+1. Executing Verilog-2005 frontend: microcontroller/rtl/drg5_irq_platform.sv
+Parsing SystemVerilog input from `microcontroller/rtl/drg5_irq_platform.sv' to AST representation.
+Generating RTLIL representation for module `\drg5_irq_platform'.
+Successfully finished Verilog frontend.
+
+2. Executing HIERARCHY pass (managing design hierarchy).
+
+2.1. Analyzing design hierarchy..
+Top module:  \drg5_irq_platform
+
+2.2. Analyzing design hierarchy..
+Top module:  \drg5_irq_platform
+Removed 0 unused modules.
+
+3. Executing PROC pass (convert processes to netlists).
+
+3.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+3.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Marked 3 switch rules as full_case in process $proc$microcontroller/rtl/drg5_irq_platform.sv:84$37 in module drg5_irq_platform.
+Marked 3 switch rules as full_case in process $proc$microcontroller/rtl/drg5_irq_platform.sv:33$1 in module drg5_irq_platform.
+Removed a total of 0 dead cases.
+
+3.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 2 redundant assignments.
+Promoted 14 assignments to connections.
+
+3.4. Executing PROC_INIT pass (extract init attributes).
+
+3.5. Executing PROC_ARST pass (detect async resets in processes).
+
+3.6. Executing PROC_ROM pass (convert switches to ROMs).
+Converted 0 switches.
+<suppressed ~9 debug messages>
+
+3.7. Executing PROC_MUX pass (convert decision trees to multiplexers).
+Creating decoders for process `\drg5_irq_platform.$proc$microcontroller/rtl/drg5_irq_platform.sv:84$37'.
+     1/8: $0\mtimecmp_o[63:0] [63:32]
+     2/8: $0\mtimecmp_o[63:0] [31:0]
+     3/8: $0\mtime_o[63:0]
+     4/8: $0\count_q[6:0]
+     5/8: $0\overflow_o[0:0]
+     6/8: $0\ext_enable_o[31:0]
+     7/8: $0\msip_o[0:0]
+     8/8: $0\events_q[30:0]
+Creating decoders for process `\drg5_irq_platform.$proc$microcontroller/rtl/drg5_irq_platform.sv:73$32'.
+Creating decoders for process `\drg5_irq_platform.$proc$microcontroller/rtl/drg5_irq_platform.sv:33$1'.
+     1/4: $2\rdata_o[31:0]
+     2/4: $1\rdata_o[31:0]
+     3/4: $1\direction_ok[0:0]
+     4/4: $1\known[0:0]
+
+3.8. Executing PROC_DLATCH pass (convert process syncs to latches).
+No latch inferred for signal `\drg5_irq_platform.\mip_levels_o' from process `\drg5_irq_platform.$proc$microcontroller/rtl/drg5_irq_platform.sv:73$32'.
+No latch inferred for signal `\drg5_irq_platform.\ext_pending_o' from process `\drg5_irq_platform.$proc$microcontroller/rtl/drg5_irq_platform.sv:73$32'.
+No latch inferred for signal `\drg5_irq_platform.\block_count_o' from process `\drg5_irq_platform.$proc$microcontroller/rtl/drg5_irq_platform.sv:73$32'.
+No latch inferred for signal `\drg5_irq_platform.\stop_o' from process `\drg5_irq_platform.$proc$microcontroller/rtl/drg5_irq_platform.sv:73$32'.
+No latch inferred for signal `\drg5_irq_platform.\error_o' from process `\drg5_irq_platform.$proc$microcontroller/rtl/drg5_irq_platform.sv:33$1'.
+No latch inferred for signal `\drg5_irq_platform.\rdata_o' from process `\drg5_irq_platform.$proc$microcontroller/rtl/drg5_irq_platform.sv:33$1'.
+No latch inferred for signal `\drg5_irq_platform.\clear_events' from process `\drg5_irq_platform.$proc$microcontroller/rtl/drg5_irq_platform.sv:33$1'.
+No latch inferred for signal `\drg5_irq_platform.\known' from process `\drg5_irq_platform.$proc$microcontroller/rtl/drg5_irq_platform.sv:33$1'.
+No latch inferred for signal `\drg5_irq_platform.\direction_ok' from process `\drg5_irq_platform.$proc$microcontroller/rtl/drg5_irq_platform.sv:33$1'.
+No latch inferred for signal `\drg5_irq_platform.\legal_write' from process `\drg5_irq_platform.$proc$microcontroller/rtl/drg5_irq_platform.sv:33$1'.
+No latch inferred for signal `\drg5_irq_platform.\acknowledge' from process `\drg5_irq_platform.$proc$microcontroller/rtl/drg5_irq_platform.sv:33$1'.
+
+3.9. Executing PROC_DFF pass (convert process syncs to FFs).
+Creating register for signal `\drg5_irq_platform.\mtime_o' using process `\drg5_irq_platform.$proc$microcontroller/rtl/drg5_irq_platform.sv:84$37'.
+  created $dff cell `$procdff$144' with positive edge clock.
+Creating register for signal `\drg5_irq_platform.\mtimecmp_o' using process `\drg5_irq_platform.$proc$microcontroller/rtl/drg5_irq_platform.sv:84$37'.
+  created $dff cell `$procdff$145' with positive edge clock.
+Creating register for signal `\drg5_irq_platform.\msip_o' using process `\drg5_irq_platform.$proc$microcontroller/rtl/drg5_irq_platform.sv:84$37'.
+  created $dff cell `$procdff$146' with positive edge clock.
+Creating register for signal `\drg5_irq_platform.\ext_enable_o' using process `\drg5_irq_platform.$proc$microcontroller/rtl/drg5_irq_platform.sv:84$37'.
+  created $dff cell `$procdff$147' with positive edge clock.
+Creating register for signal `\drg5_irq_platform.\overflow_o' using process `\drg5_irq_platform.$proc$microcontroller/rtl/drg5_irq_platform.sv:84$37'.
+  created $dff cell `$procdff$148' with positive edge clock.
+Creating register for signal `\drg5_irq_platform.\count_q' using process `\drg5_irq_platform.$proc$microcontroller/rtl/drg5_irq_platform.sv:84$37'.
+  created $dff cell `$procdff$149' with positive edge clock.
+Creating register for signal `\drg5_irq_platform.\events_q' using process `\drg5_irq_platform.$proc$microcontroller/rtl/drg5_irq_platform.sv:84$37'.
+  created $dff cell `$procdff$150' with positive edge clock.
+
+3.10. Executing PROC_MEMWR pass (convert process memory writes to cells).
+
+3.11. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Found and cleaned up 6 empty switches in `\drg5_irq_platform.$proc$microcontroller/rtl/drg5_irq_platform.sv:84$37'.
+Removing empty process `drg5_irq_platform.$proc$microcontroller/rtl/drg5_irq_platform.sv:84$37'.
+Removing empty process `drg5_irq_platform.$proc$microcontroller/rtl/drg5_irq_platform.sv:73$32'.
+Found and cleaned up 3 empty switches in `\drg5_irq_platform.$proc$microcontroller/rtl/drg5_irq_platform.sv:33$1'.
+Removing empty process `drg5_irq_platform.$proc$microcontroller/rtl/drg5_irq_platform.sv:33$1'.
+Cleaned up 9 empty switches.
+
+3.12. Executing OPT_EXPR pass (perform const folding).
+Optimizing module drg5_irq_platform.
+<suppressed ~3 debug messages>
+
+4. Executing CHECK pass (checking for obvious problems).
+Checking module drg5_irq_platform...
+Found and reported 0 problems.
+
+5. Executing SYNTH pass.
+
+5.1. Executing HIERARCHY pass (managing design hierarchy).
+
+5.1.1. Analyzing design hierarchy..
+Top module:  \drg5_irq_platform
+
+5.1.2. Analyzing design hierarchy..
+Top module:  \drg5_irq_platform
+Removed 0 unused modules.
+
+5.2. Executing PROC pass (convert processes to netlists).
+
+5.2.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+5.2.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Removed a total of 0 dead cases.
+
+5.2.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 0 redundant assignments.
+Promoted 0 assignments to connections.
+
+5.2.4. Executing PROC_INIT pass (extract init attributes).
+
+5.2.5. Executing PROC_ARST pass (detect async resets in processes).
+
+5.2.6. Executing PROC_ROM pass (convert switches to ROMs).
+Converted 0 switches.
+
+5.2.7. Executing PROC_MUX pass (convert decision trees to multiplexers).
+
+5.2.8. Executing PROC_DLATCH pass (convert process syncs to latches).
+
+5.2.9. Executing PROC_DFF pass (convert process syncs to FFs).
+
+5.2.10. Executing PROC_MEMWR pass (convert process memory writes to cells).
+
+5.2.11. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+5.2.12. Executing OPT_EXPR pass (perform const folding).
+Optimizing module drg5_irq_platform.
+
+5.3. Executing OPT_EXPR pass (perform const folding).
+Optimizing module drg5_irq_platform.
+
+5.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \drg5_irq_platform..
+Removed 0 unused cells and 53 unused wires.
+<suppressed ~1 debug messages>
+
+5.5. Executing CHECK pass (checking for obvious problems).
+Checking module drg5_irq_platform...
+Found and reported 0 problems.
+
+5.6. Executing OPT pass (performing simple optimizations).
+
+5.6.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module drg5_irq_platform.
+
+5.6.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\drg5_irq_platform'.
+Computing hashes of 111 cells of `\drg5_irq_platform'.
+Finding duplicate cells in `\drg5_irq_platform'.
+Computing hashes of 88 cells of `\drg5_irq_platform'.
+Finding duplicate cells in `\drg5_irq_platform'.
+Computing hashes of 87 cells of `\drg5_irq_platform'.
+Finding duplicate cells in `\drg5_irq_platform'.
+<suppressed ~72 debug messages>
+Removed a total of 24 cells.
+
+5.6.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \drg5_irq_platform..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+    dead port 2/2 on $mux $procmux$130.
+Removed 1 multiplexer ports.
+<suppressed ~43 debug messages>
+
+5.6.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \drg5_irq_platform.
+    New ctrl vector for $pmux cell $procmux$140: $auto$opt_reduce.cc:137:opt_pmux$152
+    New input vector for $reduce_or cell $auto$opt_reduce.cc:131:opt_pmux$151: { $procmux$143_CMP $procmux$142_CMP $procmux$141_CMP }
+  Optimizing cells in module \drg5_irq_platform.
+Performed a total of 2 changes.
+
+5.6.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\drg5_irq_platform'.
+Computing hashes of 87 cells of `\drg5_irq_platform'.
+Finding duplicate cells in `\drg5_irq_platform'.
+Removed a total of 0 cells.
+
+5.6.6. Executing OPT_DFF pass (perform DFF optimizations).
+
+5.6.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \drg5_irq_platform..
+Removed 1 unused cells and 18 unused wires.
+<suppressed ~2 debug messages>
+
+5.6.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module drg5_irq_platform.
+
+5.6.9. Rerunning OPT passes. (Maybe there is more to do..)
+
+5.6.10. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \drg5_irq_platform..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~42 debug messages>
+
+5.6.11. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \drg5_irq_platform.
+Performed a total of 0 changes.
+
+5.6.12. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\drg5_irq_platform'.
+Computing hashes of 86 cells of `\drg5_irq_platform'.
+Finding duplicate cells in `\drg5_irq_platform'.
+Removed a total of 0 cells.
+
+5.6.13. Executing OPT_DFF pass (perform DFF optimizations).
+
+5.6.14. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \drg5_irq_platform..
+
+5.6.15. Executing OPT_EXPR pass (perform const folding).
+Optimizing module drg5_irq_platform.
+
+5.6.16. Finished fast OPT passes. (There is nothing left to do.)
+
+5.7. Executing FSM pass (extract and optimize FSM).
+
+5.7.1. Executing FSM_DETECT pass (finding FSMs in design).
+
+5.7.2. Executing FSM_EXTRACT pass (extracting FSM from design).
+
+5.7.3. Executing FSM_OPT pass (simple optimizations of FSMs).
+
+5.7.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \drg5_irq_platform..
+
+5.7.5. Executing FSM_OPT pass (simple optimizations of FSMs).
+
+5.7.6. Executing FSM_RECODE pass (re-assigning FSM state encoding).
+
+5.7.7. Executing FSM_INFO pass (dumping all available information on FSM cells).
+
+5.7.8. Executing FSM_MAP pass (mapping FSMs to basic logic).
+
+5.8. Executing OPT pass (performing simple optimizations).
+
+5.8.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module drg5_irq_platform.
+
+5.8.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\drg5_irq_platform'.
+Computing hashes of 86 cells of `\drg5_irq_platform'.
+Finding duplicate cells in `\drg5_irq_platform'.
+Removed a total of 0 cells.
+
+5.8.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \drg5_irq_platform..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~42 debug messages>
+
+5.8.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \drg5_irq_platform.
+Performed a total of 0 changes.
+
+5.8.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\drg5_irq_platform'.
+Computing hashes of 86 cells of `\drg5_irq_platform'.
+Finding duplicate cells in `\drg5_irq_platform'.
+Removed a total of 0 cells.
+
+5.8.6. Executing OPT_DFF pass (perform DFF optimizations).
+Adding SRST signal on $procdff$149 ($dff) from module drg5_irq_platform (D = $procmux$86_Y, Q = \count_q, rval = 7'0000000).
+Adding EN signal on $auto$ff.cc:337:slice$153 ($sdff) from module drg5_irq_platform (D = $procmux$86_Y, Q = \count_q).
+Adding SRST signal on $procdff$150 ($dff) from module drg5_irq_platform (D = $or$microcontroller/rtl/drg5_irq_platform.sv:98$41_Y, Q = \events_q, rval = 31'0000000000000000000000000000000).
+Adding SRST signal on $procdff$144 ($dff) from module drg5_irq_platform (D = $procmux$75_Y, Q = \mtime_o, rval = 64'0000000000000000000000000000000000000000000000000000000000000000).
+Adding EN signal on $auto$ff.cc:337:slice$162 ($sdff) from module drg5_irq_platform (D = $procmux$75_Y [31:0], Q = \mtime_o [31:0]).
+Adding EN signal on $auto$ff.cc:337:slice$162 ($sdff) from module drg5_irq_platform (D = $procmux$75_Y [63:32], Q = \mtime_o [63:32]).
+Adding SRST signal on $procdff$145 ($dff) from module drg5_irq_platform (D = { $procmux$53_Y $procmux$63_Y }, Q = \mtimecmp_o, rval = 64'1111111111111111111111111111111111111111111111111111111111111111).
+Adding EN signal on $auto$ff.cc:337:slice$169 ($sdff) from module drg5_irq_platform (D = \wdata_i, Q = \mtimecmp_o [63:32]).
+Adding EN signal on $auto$ff.cc:337:slice$169 ($sdff) from module drg5_irq_platform (D = \wdata_i, Q = \mtimecmp_o [31:0]).
+Adding SRST signal on $procdff$146 ($dff) from module drg5_irq_platform (D = $procmux$110_Y, Q = \msip_o, rval = 1'0).
+Adding EN signal on $auto$ff.cc:337:slice$176 ($sdff) from module drg5_irq_platform (D = \wdata_i [0], Q = \msip_o).
+Adding SRST signal on $procdff$147 ($dff) from module drg5_irq_platform (D = $procmux$102_Y, Q = \ext_enable_o, rval = 0).
+Adding EN signal on $auto$ff.cc:337:slice$180 ($sdff) from module drg5_irq_platform (D = \wdata_i, Q = \ext_enable_o).
+Adding SRST signal on $procdff$148 ($dff) from module drg5_irq_platform (D = $procmux$95_Y, Q = \overflow_o, rval = 1'0).
+Adding EN signal on $auto$ff.cc:337:slice$184 ($sdff) from module drg5_irq_platform (D = 1'1, Q = \overflow_o).
+
+5.8.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \drg5_irq_platform..
+Removed 18 unused cells and 17 unused wires.
+<suppressed ~19 debug messages>
+
+5.8.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module drg5_irq_platform.
+<suppressed ~1 debug messages>
+
+5.8.9. Rerunning OPT passes. (Maybe there is more to do..)
+
+5.8.10. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \drg5_irq_platform..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~18 debug messages>
+
+5.8.11. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \drg5_irq_platform.
+Performed a total of 0 changes.
+
+5.8.12. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\drg5_irq_platform'.
+Computing hashes of 80 cells of `\drg5_irq_platform'.
+Finding duplicate cells in `\drg5_irq_platform'.
+Removed a total of 0 cells.
+
+5.8.13. Executing OPT_DFF pass (perform DFF optimizations).
+
+5.8.14. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \drg5_irq_platform..
+
+5.8.15. Executing OPT_EXPR pass (perform const folding).
+Optimizing module drg5_irq_platform.
+
+5.8.16. Finished fast OPT passes. (There is nothing left to do.)
+
+5.9. Executing WREDUCE pass (reducing word size of cells).
+Removed top 63 bits (of 64) from port B of cell drg5_irq_platform.$add$microcontroller/rtl/drg5_irq_platform.sv:97$38 ($add).
+Removed top 1 bits (of 32) from port B of cell drg5_irq_platform.$procmux$141_CMP0 ($eq).
+Removed top 1 bits (of 32) from port B of cell drg5_irq_platform.$procmux$142_CMP0 ($eq).
+Removed top 1 bits (of 32) from port B of cell drg5_irq_platform.$procmux$142_CMP1 ($eq).
+Removed top 1 bits (of 32) from port B of cell drg5_irq_platform.$procmux$143_CMP0 ($eq).
+Removed top 1 bits (of 32) from port B of cell drg5_irq_platform.$procmux$143_CMP1 ($eq).
+Removed top 1 bits (of 32) from port B of cell drg5_irq_platform.$procmux$143_CMP2 ($eq).
+Removed top 1 bits (of 32) from port B of cell drg5_irq_platform.$procmux$143_CMP3 ($eq).
+Removed top 1 bits (of 32) from port B of cell drg5_irq_platform.$procmux$143_CMP4 ($eq).
+Removed top 1 bits (of 32) from port B of cell drg5_irq_platform.$procmux$143_CMP5 ($eq).
+Removed top 1 bits (of 32) from port B of cell drg5_irq_platform.$procmux$143_CMP6 ($eq).
+
+5.10. Executing PEEPOPT pass (run peephole optimizers).
+
+5.11. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \drg5_irq_platform..
+
+5.12. Executing ALUMACC pass (create $alu and $macc cells).
+Extracting $alu and $macc cells in module drg5_irq_platform:
+  creating $macc model for $sub$microcontroller/rtl/drg5_irq_platform.sv:108$48 ($sub).
+  creating $macc model for $add$microcontroller/rtl/drg5_irq_platform.sv:104$45 ($add).
+  creating $macc model for $add$microcontroller/rtl/drg5_irq_platform.sv:97$38 ($add).
+  creating $alu model for $macc $add$microcontroller/rtl/drg5_irq_platform.sv:97$38.
+  creating $alu model for $macc $add$microcontroller/rtl/drg5_irq_platform.sv:104$45.
+  creating $alu model for $macc $sub$microcontroller/rtl/drg5_irq_platform.sv:108$48.
+  creating $alu model for $ge$microcontroller/rtl/drg5_irq_platform.sv:78$34 ($ge): new $alu
+  creating $alu cell for $ge$microcontroller/rtl/drg5_irq_platform.sv:78$34: $auto$alumacc.cc:512:replace_alu$189
+  creating $alu cell for $sub$microcontroller/rtl/drg5_irq_platform.sv:108$48: $auto$alumacc.cc:512:replace_alu$202
+  creating $alu cell for $add$microcontroller/rtl/drg5_irq_platform.sv:104$45: $auto$alumacc.cc:512:replace_alu$205
+  creating $alu cell for $add$microcontroller/rtl/drg5_irq_platform.sv:97$38: $auto$alumacc.cc:512:replace_alu$208
+  created 4 $alu and 0 $macc cells.
+
+5.13. Executing SHARE pass (SAT-based resource sharing).
+
+5.14. Executing OPT pass (performing simple optimizations).
+
+5.14.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module drg5_irq_platform.
+
+5.14.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\drg5_irq_platform'.
+Computing hashes of 85 cells of `\drg5_irq_platform'.
+Finding duplicate cells in `\drg5_irq_platform'.
+Removed a total of 0 cells.
+
+5.14.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \drg5_irq_platform..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~18 debug messages>
+
+5.14.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \drg5_irq_platform.
+Performed a total of 0 changes.
+
+5.14.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\drg5_irq_platform'.
+Computing hashes of 85 cells of `\drg5_irq_platform'.
+Finding duplicate cells in `\drg5_irq_platform'.
+Removed a total of 0 cells.
+
+5.14.6. Executing OPT_DFF pass (perform DFF optimizations).
+
+5.14.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \drg5_irq_platform..
+Removed 0 unused cells and 1 unused wires.
+<suppressed ~1 debug messages>
+
+5.14.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module drg5_irq_platform.
+
+5.14.9. Rerunning OPT passes. (Maybe there is more to do..)
+
+5.14.10. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \drg5_irq_platform..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~18 debug messages>
+
+5.14.11. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \drg5_irq_platform.
+Performed a total of 0 changes.
+
+5.14.12. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\drg5_irq_platform'.
+Computing hashes of 85 cells of `\drg5_irq_platform'.
+Finding duplicate cells in `\drg5_irq_platform'.
+Removed a total of 0 cells.
+
+5.14.13. Executing OPT_DFF pass (perform DFF optimizations).
+
+5.14.14. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \drg5_irq_platform..
+
+5.14.15. Executing OPT_EXPR pass (perform const folding).
+Optimizing module drg5_irq_platform.
+
+5.14.16. Finished fast OPT passes. (There is nothing left to do.)
+
+5.15. Executing MEMORY pass.
+
+5.15.1. Executing OPT_MEM pass (optimize memories).
+Performed a total of 0 transformations.
+
+5.15.2. Executing OPT_MEM_PRIORITY pass (removing unnecessary memory write priority relations).
+Performed a total of 0 transformations.
+
+5.15.3. Executing OPT_MEM_FEEDBACK pass (finding memory read-to-write feedback paths).
+
+5.15.4. Executing MEMORY_BMUX2ROM pass (converting muxes to ROMs).
+
+5.15.5. Executing MEMORY_DFF pass (merging $dff cells to $memrd).
+
+5.15.6. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \drg5_irq_platform..
+
+5.15.7. Executing MEMORY_SHARE pass (consolidating $memrd/$memwr cells).
+
+5.15.8. Executing OPT_MEM_WIDEN pass (optimize memories where all ports are wide).
+Performed a total of 0 transformations.
+
+5.15.9. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \drg5_irq_platform..
+
+5.15.10. Executing MEMORY_COLLECT pass (generating $mem cells).
+
+5.16. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \drg5_irq_platform..
+
+5.17. Executing OPT pass (performing simple optimizations).
+
+5.17.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module drg5_irq_platform.
+<suppressed ~3 debug messages>
+
+5.17.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\drg5_irq_platform'.
+Computing hashes of 82 cells of `\drg5_irq_platform'.
+Finding duplicate cells in `\drg5_irq_platform'.
+Removed a total of 0 cells.
+
+5.17.3. Executing OPT_DFF pass (perform DFF optimizations).
+
+5.17.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \drg5_irq_platform..
+Removed 0 unused cells and 3 unused wires.
+<suppressed ~1 debug messages>
+
+5.17.5. Finished fast OPT passes.
+
+5.18. Executing MEMORY_MAP pass (converting memories to logic and flip-flops).
+
+5.19. Executing OPT pass (performing simple optimizations).
+
+5.19.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module drg5_irq_platform.
+
+5.19.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\drg5_irq_platform'.
+Computing hashes of 82 cells of `\drg5_irq_platform'.
+Finding duplicate cells in `\drg5_irq_platform'.
+Removed a total of 0 cells.
+
+5.19.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \drg5_irq_platform..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~14 debug messages>
+
+5.19.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \drg5_irq_platform.
+    Consolidated identical input bits for $mux cell $ternary$microcontroller/rtl/drg5_irq_platform.sv:49$15:
+      Old ports: A=4'0000, B=4'1111, Y=$ternary$microcontroller/rtl/drg5_irq_platform.sv:49$15_Y
+      New ports: A=1'0, B=1'1, Y=$ternary$microcontroller/rtl/drg5_irq_platform.sv:49$15_Y [0]
+      New connections: $ternary$microcontroller/rtl/drg5_irq_platform.sv:49$15_Y [3:1] = { $ternary$microcontroller/rtl/drg5_irq_platform.sv:49$15_Y [0] $ternary$microcontroller/rtl/drg5_irq_platform.sv:49$15_Y [0] $ternary$microcontroller/rtl/drg5_irq_platform.sv:49$15_Y [0] }
+  Optimizing cells in module \drg5_irq_platform.
+Performed a total of 1 changes.
+
+5.19.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\drg5_irq_platform'.
+Computing hashes of 82 cells of `\drg5_irq_platform'.
+Finding duplicate cells in `\drg5_irq_platform'.
+Removed a total of 0 cells.
+
+5.19.6. Executing OPT_SHARE pass.
+    Found cells that share an operand and can be merged by moving the $mux $procmux$86 in front of them:
+        $auto$alumacc.cc:512:replace_alu$205
+        $auto$alumacc.cc:512:replace_alu$202
+
+5.19.7. Executing OPT_DFF pass (perform DFF optimizations).
+
+5.19.8. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \drg5_irq_platform..
+Removed 0 unused cells and 6 unused wires.
+<suppressed ~1 debug messages>
+
+5.19.9. Executing OPT_EXPR pass (perform const folding).
+Optimizing module drg5_irq_platform.
+<suppressed ~3 debug messages>
+
+5.19.10. Rerunning OPT passes. (Maybe there is more to do..)
+
+5.19.11. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \drg5_irq_platform..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~12 debug messages>
+
+5.19.12. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \drg5_irq_platform.
+    Consolidated identical input bits for $mux cell $auto$opt_share.cc:244:merge_operators$214:
+      Old ports: A=7'1111111, B=7'0000001, Y=$auto$rtlil.cc:3474:Mux$215
+      New ports: A=1'1, B=1'0, Y=$auto$rtlil.cc:3474:Mux$215 [1]
+      New connections: { $auto$rtlil.cc:3474:Mux$215 [6:2] $auto$rtlil.cc:3474:Mux$215 [0] } = { $auto$rtlil.cc:3474:Mux$215 [1] $auto$rtlil.cc:3474:Mux$215 [1] $auto$rtlil.cc:3474:Mux$215 [1] $auto$rtlil.cc:3474:Mux$215 [1] $auto$rtlil.cc:3474:Mux$215 [1] 1'1 }
+  Optimizing cells in module \drg5_irq_platform.
+Performed a total of 1 changes.
+
+5.19.13. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\drg5_irq_platform'.
+Computing hashes of 80 cells of `\drg5_irq_platform'.
+Finding duplicate cells in `\drg5_irq_platform'.
+Removed a total of 0 cells.
+
+5.19.14. Executing OPT_SHARE pass.
+
+5.19.15. Executing OPT_DFF pass (perform DFF optimizations).
+
+5.19.16. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \drg5_irq_platform..
+Removed 0 unused cells and 3 unused wires.
+<suppressed ~1 debug messages>
+
+5.19.17. Executing OPT_EXPR pass (perform const folding).
+Optimizing module drg5_irq_platform.
+<suppressed ~1 debug messages>
+
+5.19.18. Rerunning OPT passes. (Maybe there is more to do..)
+
+5.19.19. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \drg5_irq_platform..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~10 debug messages>
+
+5.19.20. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \drg5_irq_platform.
+Performed a total of 0 changes.
+
+5.19.21. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\drg5_irq_platform'.
+Computing hashes of 80 cells of `\drg5_irq_platform'.
+Finding duplicate cells in `\drg5_irq_platform'.
+Removed a total of 0 cells.
+
+5.19.22. Executing OPT_SHARE pass.
+
+5.19.23. Executing OPT_DFF pass (perform DFF optimizations).
+
+5.19.24. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \drg5_irq_platform..
+
+5.19.25. Executing OPT_EXPR pass (perform const folding).
+Optimizing module drg5_irq_platform.
+
+5.19.26. Finished fast OPT passes. (There is nothing left to do.)
+
+5.20. Executing TECHMAP pass (map to technology primitives).
+
+5.20.1. Executing Verilog-2005 frontend: /tmp/drg5-control-tools-20260301/oss-cad-suite/lib/../share/yosys/techmap.v
+Parsing Verilog input from `/tmp/drg5-control-tools-20260301/oss-cad-suite/lib/../share/yosys/techmap.v' to AST representation.
+Generating RTLIL representation for module `\_90_simplemap_bool_ops'.
+Generating RTLIL representation for module `\_90_simplemap_reduce_ops'.
+Generating RTLIL representation for module `\_90_simplemap_logic_ops'.
+Generating RTLIL representation for module `\_90_simplemap_compare_ops'.
+Generating RTLIL representation for module `\_90_simplemap_various'.
+Generating RTLIL representation for module `\_90_simplemap_registers'.
+Generating RTLIL representation for module `\_90_shift_ops_shr_shl_sshl_sshr'.
+Generating RTLIL representation for module `\_90_shift_shiftx'.
+Generating RTLIL representation for module `\_90_fa'.
+Generating RTLIL representation for module `\_90_lcu_brent_kung'.
+Generating RTLIL representation for module `\_90_alu'.
+Generating RTLIL representation for module `\_90_macc'.
+Generating RTLIL representation for module `\_90_alumacc'.
+Generating RTLIL representation for module `$__div_mod_u'.
+Generating RTLIL representation for module `$__div_mod_trunc'.
+Generating RTLIL representation for module `\_90_div'.
+Generating RTLIL representation for module `\_90_mod'.
+Generating RTLIL representation for module `$__div_mod_floor'.
+Generating RTLIL representation for module `\_90_divfloor'.
+Generating RTLIL representation for module `\_90_modfloor'.
+Generating RTLIL representation for module `\_90_pow'.
+Generating RTLIL representation for module `\_90_pmux'.
+Generating RTLIL representation for module `\_90_demux'.
+Generating RTLIL representation for module `\_90_lut'.
+Generating RTLIL representation for module `$connect'.
+Generating RTLIL representation for module `$input_port'.
+Successfully finished Verilog frontend.
+
+5.20.2. Continuing TECHMAP pass.
+Using extmapper simplemap for cells of type $not.
+Using template $paramod$cc80a4e89b0341cb117f5d28b0e7244620640141\_90_alu for cells of type $alu.
+Using template $paramod$dbcdc7e8aa1a4080cea2deda6fdc8772064f4d90\_90_alu for cells of type $alu.
+Using extmapper simplemap for cells of type $reduce_or.
+Using extmapper simplemap for cells of type $or.
+Using extmapper simplemap for cells of type $reduce_and.
+Using template $paramod$039520c137afc9cd69dd56c3fb11a4e1fbe5f664\_90_alu for cells of type $alu.
+Using extmapper simplemap for cells of type $sdffe.
+Using extmapper simplemap for cells of type $ne.
+Using extmapper simplemap for cells of type $sdff.
+Using extmapper simplemap for cells of type $reduce_bool.
+Using extmapper simplemap for cells of type $logic_not.
+Using extmapper simplemap for cells of type $logic_or.
+Using extmapper simplemap for cells of type $logic_and.
+Using extmapper simplemap for cells of type $mux.
+Using extmapper simplemap for cells of type $and.
+Using extmapper simplemap for cells of type $eq.
+Using template $paramod$54a4503cc57b9df40b70c1899504d6aac2650719\_90_pmux for cells of type $pmux.
+Using template $paramod$80834bdd89ff0e27a02312429a7cc3a2e63489a8\_90_pmux for cells of type $pmux.
+Using template $paramod$c5c783b17ab1d780abfad8cfe6563a0a7b47a3b0\_90_pmux for cells of type $pmux.
+Using extmapper simplemap for cells of type $xor.
+Using template $paramod\_90_fa\WIDTH=32'00000000000000000000000001000000 for cells of type $fa.
+Using template $paramod\_90_lcu_brent_kung\WIDTH=32'00000000000000000000000001000000 for cells of type $lcu.
+Using extmapper simplemap for cells of type $pos.
+Using template $paramod\_90_fa\WIDTH=32'00000000000000000000000000000111 for cells of type $fa.
+Using template $paramod\_90_lcu_brent_kung\WIDTH=32'00000000000000000000000000000111 for cells of type $lcu.
+No more expansions possible.
+<suppressed ~1330 debug messages>
+
+5.21. Executing OPT pass (performing simple optimizations).
+
+5.21.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module drg5_irq_platform.
+<suppressed ~1498 debug messages>
+
+5.21.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\drg5_irq_platform'.
+Computing hashes of 2367 cells of `\drg5_irq_platform'.
+Finding duplicate cells in `\drg5_irq_platform'.
+Computing hashes of 2182 cells of `\drg5_irq_platform'.
+Finding duplicate cells in `\drg5_irq_platform'.
+Computing hashes of 2099 cells of `\drg5_irq_platform'.
+Finding duplicate cells in `\drg5_irq_platform'.
+Computing hashes of 2057 cells of `\drg5_irq_platform'.
+Finding duplicate cells in `\drg5_irq_platform'.
+Computing hashes of 2036 cells of `\drg5_irq_platform'.
+Finding duplicate cells in `\drg5_irq_platform'.
+Computing hashes of 2026 cells of `\drg5_irq_platform'.
+Finding duplicate cells in `\drg5_irq_platform'.
+<suppressed ~1023 debug messages>
+Removed a total of 341 cells.
+
+5.21.3. Executing OPT_DFF pass (perform DFF optimizations).
+
+5.21.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \drg5_irq_platform..
+Removed 255 unused cells and 843 unused wires.
+<suppressed ~256 debug messages>
+
+5.21.5. Finished fast OPT passes.
+
+5.22. Executing ABC pass (technology mapping using ABC).
+
+5.22.1. Extracting gate netlist of module `\drg5_irq_platform' to `<abc-temp-dir>/input.blif'..
+
+5.22.1.1. Executed ABC.
+Extracted 1571 gates and 1878 wires to a netlist network with 305 inputs and 146 outputs.
+Running ABC script: <abc-temp-dir>/abc.script
+ABC: UC Berkeley, ABC 1.01 (compiled Feb 28 2026 03:14:16)
+ABC: abc 01> empty
+ABC: abc 01> source <abc-temp-dir>/abc.script
+ABC: + read_blif <abc-temp-dir>/input.blif 
+ABC: + read_library <abc-temp-dir>/stdcells.genlib 
+ABC: + strash 
+ABC: + dretime 
+ABC: + map 
+ABC: + write_blif <abc-temp-dir>/output.blif 
+ABC: 
+ABC: YOSYS_ABC_DONE 
+
+5.22.1.2. Re-integrating ABC results.
+ABC RESULTS:               AND cells:      100
+ABC RESULTS:            ANDNOT cells:      601
+ABC RESULTS:               MUX cells:      129
+ABC RESULTS:              NAND cells:       41
+ABC RESULTS:               NOR cells:       33
+ABC RESULTS:               NOT cells:        8
+ABC RESULTS:                OR cells:      304
+ABC RESULTS:             ORNOT cells:       89
+ABC RESULTS:              XNOR cells:       29
+ABC RESULTS:               XOR cells:      114
+ABC RESULTS:        internal signals:     1427
+ABC RESULTS:           input signals:      305
+ABC RESULTS:          output signals:      146
+Removing temp directory.
+Removing global temp directory.
+
+5.23. Executing OPT pass (performing simple optimizations).
+
+5.23.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module drg5_irq_platform.
+
+5.23.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\drg5_irq_platform'.
+Computing hashes of 1648 cells of `\drg5_irq_platform'.
+Finding duplicate cells in `\drg5_irq_platform'.
+Removed a total of 0 cells.
+
+5.23.3. Executing OPT_DFF pass (perform DFF optimizations).
+
+5.23.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \drg5_irq_platform..
+Removed 0 unused cells and 765 unused wires.
+<suppressed ~6 debug messages>
+
+5.23.5. Finished fast OPT passes.
+
+5.24. Executing HIERARCHY pass (managing design hierarchy).
+Attribute `top' found on module `drg5_irq_platform'. Setting top module to drg5_irq_platform.
+
+5.24.1. Analyzing design hierarchy..
+Top module:  \drg5_irq_platform
+
+5.24.2. Analyzing design hierarchy..
+Top module:  \drg5_irq_platform
+Removed 0 unused modules.
+
+5.25. Printing statistics.
+
+=== drg5_irq_platform ===
+
+        +----------Local Count, excluding submodules.
+        | 
+     1430 wires
+     1855 wire bits
+       23 public wires
+      436 public wire bits
+       21 ports
+      398 port bits
+     1648 cells
+      601   $_ANDNOT_
+      100   $_AND_
+      129   $_MUX_
+       41   $_NAND_
+       33   $_NOR_
+        8   $_NOT_
+       89   $_ORNOT_
+      304   $_OR_
+      105   $_SDFFE_PP0P_
+       64   $_SDFFE_PP1P_
+       31   $_SDFF_PP0_
+       29   $_XNOR_
+      114   $_XOR_
+
+5.26. Executing CHECK pass (checking for obvious problems).
+Checking module drg5_irq_platform...
+Found and reported 0 problems.
+
+6. Executing CHECK pass (checking for obvious problems).
+Checking module drg5_irq_platform...
+Found and reported 0 problems.
+
+7. Printing statistics.
+
+=== drg5_irq_platform ===
+
+        +----------Local Count, excluding submodules.
+        | 
+     1430 wires
+     1855 wire bits
+       23 public wires
+      436 public wire bits
+       21 ports
+      398 port bits
+     1648 cells
+      601   $_ANDNOT_
+      100   $_AND_
+      129   $_MUX_
+       41   $_NAND_
+       33   $_NOR_
+        8   $_NOT_
+       89   $_ORNOT_
+      304   $_OR_
+      105   $_SDFFE_PP0P_
+       64   $_SDFFE_PP1P_
+       31   $_SDFF_PP0_
+       29   $_XNOR_
+      114   $_XOR_
+

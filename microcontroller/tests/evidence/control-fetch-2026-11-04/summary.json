@@ -1,0 +1,32 @@
+{
+  "results": {
+    "positive": {
+      "exit": 0,
+      "expected_terminal_seen": true
+    },
+    "stale_detector": {
+      "exit": 1,
+      "expected_terminal_seen": true
+    },
+    "target_detector": {
+      "exit": 1,
+      "expected_terminal_seen": true
+    }
+  },
+  "scope": "non-C verification bridge only; no production frontend or full CPU qualification",
+  "sources": {
+    "/home/bluto/Desktop/dorsalGanglionProject/microcontroller/rtl/drg5_branch.sv": "81fb7fbc54c4c64236738d289fa8fc5a64bd6373efbd66ac2da33086e8d8728e",
+    "/home/bluto/Desktop/dorsalGanglionProject/microcontroller/rtl/drg5_control.sv": "96ca9c62140e7279e8f61be5ee6d5ad4dea4a15d6a3daa17bc07704a30d43236",
+    "/home/bluto/Desktop/dorsalGanglionProject/microcontroller/rtl/drg5_control_pkg.sv": "b28d145f554f65cdb4eb9bc66a52243e732e75f44d28bc4a3cf4ead342ec68af",
+    "/home/bluto/Desktop/dorsalGanglionProject/microcontroller/rtl/drg5_datapath_defs.svh": "1247c7ee5185c32bcd41a1d72a08c9926e34ff5abe25e2ece8e6c2f9df21042e",
+    "/home/bluto/Desktop/dorsalGanglionProject/microcontroller/rtl/drg5_decoder.sv": "0b42ead92fd911fd1a2ed4295145b4ac476ad2933b3e2dcb4cdde95d899d52b3",
+    "/home/bluto/Desktop/dorsalGanglionProject/microcontroller/rtl/drg5_fetch.sv": "bc8a999d9e4b7761238306b8edb00b70fc1854f3070d593657a1fef9580e7247",
+    "/home/bluto/Desktop/dorsalGanglionProject/microcontroller/rtl/drg5_fetch_buffer.sv": "a2a5dc5b6236751bc3df70c48eedc229b40a9e79c2adb7e0969c4355fa2b5844",
+    "/home/bluto/Desktop/dorsalGanglionProject/microcontroller/rtl/drg5_fetch_guard.sv": "3bda4702a4a9eb14fb859820af1098dcc2910926c6700e486b7c2f7ce5a0acbe",
+    "/home/bluto/Desktop/dorsalGanglionProject/microcontroller/rtl/drg5_immediate.sv": "0178ee6a01e4c5361d149a425b5da5502ef2906b8c3ee9246800bd5bc93a080b",
+    "/home/bluto/Desktop/dorsalGanglionProject/microcontroller/tests/drg5_control_fetch_tb.sv": "86390e7ac70f2f43fe17ccb8d80e825f8ae3a69c8ec3312225bfdbec0b935cba",
+    "/home/bluto/Desktop/dorsalGanglionProject/microcontroller/tests/run_control_fetch.py": "bdfe050219a21c5ef428fae59681c74f0a5117541802a5bb77f1fd426bba5f37"
+  },
+  "stress_response_deadline": 32,
+  "version": "Verilator 5.047 devel rev v5.046-19-ge9dd6eaaf (mod)"
+}

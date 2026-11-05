@@ -1,0 +1,6 @@
+$ /tmp/drg5-counter-execution/c1-d1-f1/Vdrg5_counter_execution_tb +verilator+seed+1 +seed=305419896 +trace_file=/tmp/drg5-counter-execution/c1-d1-f1/seed-305419896.trace.jsonl
+COUNTER_EXEC_PASS C=1 diagnostic=1 forwarding=1 seed=305419896 cases=18 edges=12747 checks=633437 retired=482 traps=18 compressed=19 IRQ=1 idle=12 csr_reads=312 csr_writes=264 inhibit_writes=20 suppressed=88 nonzero_index_zero_writes=64 cycle_rollovers=2 instret_rollovers=2 cycle_wraps=1 instret_wraps=1 holds=4979 divide_waits=170 I=1005 D=5 hold_mask=1f acceptance_mask=f response_mask=7e program_digest=fdcfc2bc4ee4a092
+- microcontroller/tests/drg5_counter_execution_tb.sv:690: Verilog $finish
+- S i m u l a t i o n   R e p o r t: Verilator 5.047 devel
+- Verilator: $finish at 64ns; walltime 0.913 s; speed 69.789 ns/s
+- Verilator: cpu 0.913 s on 1 threads; allocated 20 MB

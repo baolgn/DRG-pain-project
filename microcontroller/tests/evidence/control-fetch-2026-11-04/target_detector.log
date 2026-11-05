@@ -1,0 +1,4 @@
+$ /tmp/drg5-control-fetch-final/obj/Vdrg5_control_fetch_tb +verilator+seed+1 +mutate_target_fault
+[108] %Fatal: drg5_control_fetch_tb.sv:122: Assertion failed in drg5_control_fetch_tb.check: CONTROL_FETCH_CHECK_FAILED target instruction owns its fault case=0 edge=54
+%Error: /home/bluto/Desktop/dorsalGanglionProject/microcontroller/tests/drg5_control_fetch_tb.sv:122: Verilog $stop
+Aborting...

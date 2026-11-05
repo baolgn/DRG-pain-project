@@ -1,0 +1,28 @@
+{
+  "status": "passed",
+  "revision": "07-qualification",
+  "positive_runs": 3,
+  "negative_controls": 3,
+  "totals": {
+    "cases": 33,
+    "cycles": 5123,
+    "checks": 29481,
+    "retires": 72,
+    "resets": 12,
+    "I_responses": 306,
+    "D_effects": 6,
+    "D_responses": 6,
+    "SBA_effects": 21,
+    "SBA_responses": 21,
+    "reads": 15,
+    "writes": 6
+  },
+  "maximum_reset_request_to_release_edges": 85,
+  "measured_SBA_timeout_edges": 128,
+  "clock_assumptions": "TCK scans may occur with fabric clock paused; request and response CDC receive explicit fabric and TCK service; latencies count fabric edges, not host or wall time",
+  "limits": [
+    "finite directed schedules",
+    "targets are independent synchronous models, not physical FPGA peripherals",
+    "OpenOCD/GDB is qualified by the separate remote integration suite"
+  ]
+}

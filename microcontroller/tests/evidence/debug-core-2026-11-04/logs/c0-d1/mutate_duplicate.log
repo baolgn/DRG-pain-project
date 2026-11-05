@@ -1,0 +1,4 @@
+$ /tmp/drg5-debug-core/final-comments/c0-d1/Vdrg5_debug_core_tb +verilator+seed+1 +seed=1 +mutate_duplicate
+[2093] %Fatal: drg5_debug_core_tb.sv:69: Assertion failed in drg5_debug_core_tb.check: debug-core seed=1 case=8 edge=578 dpc=00000004: MMIO effect missing or duplicated
+%Error: microcontroller/tests/drg5_debug_core_tb.sv:69: Verilog $stop
+Aborting...

@@ -1,0 +1,4 @@
+$ /tmp/drg5-fetch-buffer-tests/obj/Vdrg5_fetch_buffer_tb +verilator+seed+1 +mutate_raw
+[43] %Fatal: drg5_fetch_buffer_tb.sv:45: Assertion failed in drg5_fetch_buffer_tb.check: FETCH_BUFFER_CHECK_FAILED packet raw edge=4
+%Error: /home/bluto/Desktop/dorsalGanglionProject/microcontroller/tests/drg5_fetch_buffer_tb.sv:45: Verilog $stop
+Aborting...

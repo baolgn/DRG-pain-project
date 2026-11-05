@@ -1,0 +1,4 @@
+$ /tmp/drg5-decompress-tests/obj/Vdrg5_decompress_tb +verilator+seed+1 +oracle=/tmp/drg5-decompress-tests/oracle.hex +mutate_hint
+[6] %Fatal: drg5_decompress_tb.sv:24: Assertion failed in drg5_decompress_tb.check: DECOMPRESS_CHECK_FAILED HINT flag instr=0005 got=200000013 expected=200000013
+%Error: microcontroller/tests/drg5_decompress_tb.sv:24: Verilog $stop
+Aborting...

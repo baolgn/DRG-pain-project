@@ -1,0 +1,58 @@
+$ /tmp/drg5-control-tools-20260301/oss-cad-suite/bin/verilator --binary --timing --assert -Wall -j 2 -CFLAGS -O0 -Imicrocontroller/rtl --top-module drg5_irq_fetch_tb -GI_LIMIT=4 --Mdir /tmp/drg5-irq-fetch-20261104/obj-4 microcontroller/rtl/drg5_control_pkg.sv microcontroller/rtl/drg5_immediate.sv microcontroller/rtl/drg5_decoder.sv microcontroller/rtl/drg5_branch.sv microcontroller/rtl/drg5_lsu.sv microcontroller/rtl/drg5_shifter.sv microcontroller/rtl/drg5_alu.sv microcontroller/rtl/drg5_forward.sv microcontroller/rtl/drg5_fetch_guard.sv microcontroller/rtl/drg5_fetch_buffer.sv microcontroller/rtl/drg5_fetch.sv microcontroller/rtl/drg5_csr.sv microcontroller/rtl/drg5_control.sv microcontroller/tests/drg5_irq_fetch_tb.sv
+%Warning-MULTIDRIVEN: microcontroller/tests/drg5_irq_fetch_tb.sv:69:5: Variable written to in always_comb also written by other process (IEEE 1800-2023 9.2.2.2): 'in_packet_i'
+                                                                     : ... note: In instance 'drg5_irq_fetch_tb'
+                      microcontroller/tests/drg5_irq_fetch_tb.sv:69:5: 
+   69 |     in_packet_i = '0;
+      |     ^~~~~~~~~~~
+                      microcontroller/tests/drg5_irq_fetch_tb.sv:7:26: ... Location of other write
+    7 |   packet_t in_packet_i = '0;
+      |                          ^~
+                      ... For warning description see https://verilator.org/warn/MULTIDRIVEN?v=5.047
+                      ... Use "/* verilator lint_off MULTIDRIVEN */" and lint_on around source to disable this message.
+%Warning-MULTIDRIVEN: microcontroller/tests/drg5_irq_fetch_tb.sv:78:5: Variable written to in always_comb also written by other process (IEEE 1800-2023 9.2.2.2): 'in_valid_i'
+                                                                     : ... note: In instance 'drg5_irq_fetch_tb'
+                      microcontroller/tests/drg5_irq_fetch_tb.sv:78:5: 
+   78 |     in_valid_i = fetch_valid && run_enable;
+      |     ^~~~~~~~~~
+                      microcontroller/tests/drg5_irq_fetch_tb.sv:6:22: ... Location of other write
+    6 |   logic in_valid_i = 0, in_ready_o;
+      |                      ^
+%Warning-PROCASSINIT: microcontroller/tests/drg5_irq_fetch_tb.sv:6:22: Procedural assignment to declaration with initial value: 'in_valid_i'
+                                                                     : ... note: In instance 'drg5_irq_fetch_tb'
+                                                                     : ... Location of variable initialization
+    6 |   logic in_valid_i = 0, in_ready_o;
+      |                      ^
+                      microcontroller/tests/drg5_irq_fetch_tb.sv:78:5: ... Location of variable process write
+                                                                     : ... Perhaps should initialize instead using a reset in this process
+   78 |     in_valid_i = fetch_valid && run_enable;
+      |     ^~~~~~~~~~
+                      ... For warning description see https://verilator.org/warn/PROCASSINIT?v=5.047
+                      ... Use "/* verilator lint_off PROCASSINIT */" and lint_on around source to disable this message.
+%Warning-PROCASSINIT: microcontroller/tests/drg5_irq_fetch_tb.sv:7:26: Procedural assignment to declaration with initial value: 'in_packet_i'
+                                                                     : ... note: In instance 'drg5_irq_fetch_tb'
+                                                                     : ... Location of variable initialization
+    7 |   packet_t in_packet_i = '0;
+      |                          ^~
+                      microcontroller/tests/drg5_irq_fetch_tb.sv:69:5: ... Location of variable process write
+                                                                     : ... Perhaps should initialize instead using a reset in this process
+   69 |     in_packet_i = '0;
+      |     ^~~~~~~~~~~
+%Warning-UNUSEDSIGNAL: microcontroller/tests/drg5_irq_fetch_tb.sv:21:15: Bits of signal are not used: 'stage_valid_o'[4:2,0]
+                                                                       : ... note: In instance 'drg5_irq_fetch_tb'
+   21 |   logic [4:0] stage_valid_o, kill_valid_o;
+      |               ^~~~~~~~~~~~~
+                       ... For warning description see https://verilator.org/warn/UNUSEDSIGNAL?v=5.047
+                       ... Use "/* verilator lint_off UNUSEDSIGNAL */" and lint_on around source to disable this message.
+%Warning-UNUSEDSIGNAL: microcontroller/tests/drg5_irq_fetch_tb.sv:31:16: Bits of signal are not used: 'mstatus_o'[31:4,2:0]
+                                                                       : ... note: In instance 'drg5_irq_fetch_tb'
+   31 |   logic [31:0] mstatus_o, mtvec_o, mscratch_o, mepc_o, mcause_o, mtval_o;
+      |                ^~~~~~~~~
+%Warning-UNUSEDSIGNAL: microcontroller/tests/drg5_irq_fetch_tb.sv:32:23: Signal is not used: 'mip_o'
+                                                                       : ... note: In instance 'drg5_irq_fetch_tb'
+   32 |   logic [31:0] mie_o, mip_o, mcountinhibit_o;
+      |                       ^~~~~
+%Warning-UNUSEDSIGNAL: microcontroller/tests/drg5_irq_fetch_tb.sv:35:36: Signal is not used: 'idle_o'
+                                                                       : ... note: In instance 'drg5_irq_fetch_tb'
+   35 |   logic fetch_busy_i, irq_valid_o, idle_o, entry_pending_o;
+      |                                    ^~~~~~
+%Error: Exiting due to 8 warning(s)

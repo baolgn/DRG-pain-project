@@ -1,0 +1,7 @@
+$ /tmp/drg5-control-tools-20260301/oss-cad-suite/bin/verilator --binary --timing --assert -Wall -j 2 -CFLAGS -O0 -Imicrocontroller/rtl --top-module drg5_irq_control_tb --Mdir /tmp/drg5-irq-control-final/c1 -GC_ENABLED=1 microcontroller/rtl/drg5_control_pkg.sv microcontroller/rtl/drg5_decoder.sv microcontroller/rtl/drg5_immediate.sv microcontroller/rtl/drg5_branch.sv microcontroller/rtl/drg5_lsu.sv microcontroller/rtl/drg5_shifter.sv microcontroller/rtl/drg5_alu.sv microcontroller/rtl/drg5_forward.sv microcontroller/rtl/drg5_csr.sv microcontroller/rtl/drg5_irq_platform.sv microcontroller/rtl/drg5_control.sv microcontroller/tests/drg5_irq_control_tb.sv
+make: Entering directory '/tmp/drg5-irq-control-final/c1'
+make: Nothing to be done for 'default'.
+make: Leaving directory '/tmp/drg5-irq-control-final/c1'
+- V e r i l a t i o n   R e p o r t: Verilator 5.047 devel rev v5.046-19-ge9dd6eaaf (mod)
+- Verilator: Built from 0.000 MB sources in 0 modules, into 0.000 MB in 0 C++ files needing 0.000 MB
+- Verilator: Walltime 0.008 s (elab=0.000, cvt=0.000, bld=0.007); cpu 0.001 s on 2 threads; allocated 19.152 MB

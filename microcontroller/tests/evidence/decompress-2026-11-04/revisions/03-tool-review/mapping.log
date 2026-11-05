@@ -1,0 +1,1940 @@
+$ /tmp/drg5-control-tools-20260301/oss-cad-suite/bin/yosys -Q -T -m slang -p read_slang --top drg5_decompress microcontroller/rtl/drg5_decompress.sv; hierarchy -check -top drg5_decompress; proc; opt; check -assert; select -assert-none t:$dlatch t:$adlatch; synth_ecp5 -top drg5_decompress; check -assert; stat; write_json /tmp/drg5-decompress-tests/decompress.json
+
+-- Running command `read_slang --top drg5_decompress microcontroller/rtl/drg5_decompress.sv; hierarchy -check -top drg5_decompress; proc; opt; check -assert; select -assert-none t:$dlatch t:$adlatch; synth_ecp5 -top drg5_decompress; check -assert; stat; write_json /tmp/drg5-decompress-tests/decompress.json' --
+
+1. Executing SLANG frontend.
+Top level design units:
+    drg5_decompress
+
+Build succeeded: 0 errors, 0 warnings
+
+1.1. Executing UNDRIVEN pass. (resolve undriven signals)
+
+1.2. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Found and cleaned up 1 empty switch in `\drg5_decompress.$0'.
+Cleaned up 1 empty switch.
+
+1.3. Executing TRIBUF pass.
+
+1.4. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Marked 24 switch rules as full_case in process $0 in module drg5_decompress.
+Removed a total of 0 dead cases.
+
+1.5. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 12 redundant assignments.
+Promoted 0 assignments to connections.
+
+1.6. Executing PROC_INIT pass (extract init attributes).
+
+1.7. Executing PROC_ROM pass (convert switches to ROMs).
+Converted 0 switches.
+<suppressed ~35 debug messages>
+
+1.8. Executing PROC_MUX pass (convert decision trees to multiplexers).
+Creating decoders for process `\drg5_decompress.$0'.
+     1/40: $expanded_o$76
+     2/40: $class_o$68
+     3/40: $expanded_o$67
+     4/40: $class_o$61
+     5/40: $expanded_o$60
+     6/40: $class_o$63
+     7/40: $expanded_o$62
+     8/40: $offset$54
+     9/40: $class_o$53
+    10/40: $expanded_o$52
+    11/40: $class_o$50
+    12/40: $expanded_o$49
+    13/40: $offset$71
+    14/40: $class_o$70
+    15/40: $expanded_o$69
+    16/40: $expanded_o$36
+    17/40: $class_o$38
+    18/40: $expanded_o$37
+    19/40: $class_o$40
+    20/40: $expanded_o$39
+    21/40: $class_o$34
+    22/40: $expanded_o$33
+    23/40: $class_o$26
+    24/40: $expanded_o$25
+    25/40: $class_o$28
+    26/40: $expanded_o$27
+    27/40: $class_o$21
+    28/40: $expanded_o$20
+    29/40: $offset$29
+    30/40: $class_o$42
+    31/40: $expanded_o$41
+    32/40: $offset$43
+    33/40: $class_o$73
+    34/40: $class_o$3
+    35/40: $expanded_o$2
+    36/40: $offset$6
+    37/40: $class_o$5
+    38/40: $expanded_o$4
+    39/40: $offset$74
+    40/40: $expanded_o$72
+
+1.9. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Found and cleaned up 35 empty switches in `\drg5_decompress.$0'.
+Removing empty process `drg5_decompress.$0'.
+Cleaned up 35 empty switches.
+
+1.10. Executing OPT_EXPR pass (perform const folding).
+Optimizing module drg5_decompress.
+<suppressed ~48 debug messages>
+
+2. Executing HIERARCHY pass (managing design hierarchy).
+
+2.1. Analyzing design hierarchy..
+Top module:  \drg5_decompress
+
+2.2. Analyzing design hierarchy..
+Top module:  \drg5_decompress
+Removed 0 unused modules.
+
+3. Executing PROC pass (convert processes to netlists).
+
+3.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+3.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Removed a total of 0 dead cases.
+
+3.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 0 redundant assignments.
+Promoted 0 assignments to connections.
+
+3.4. Executing PROC_INIT pass (extract init attributes).
+
+3.5. Executing PROC_ARST pass (detect async resets in processes).
+
+3.6. Executing PROC_ROM pass (convert switches to ROMs).
+Converted 0 switches.
+
+3.7. Executing PROC_MUX pass (convert decision trees to multiplexers).
+
+3.8. Executing PROC_DLATCH pass (convert process syncs to latches).
+
+3.9. Executing PROC_DFF pass (convert process syncs to FFs).
+
+3.10. Executing PROC_MEMWR pass (convert process memory writes to cells).
+
+3.11. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+3.12. Executing OPT_EXPR pass (perform const folding).
+Optimizing module drg5_decompress.
+
+4. Executing OPT pass (performing simple optimizations).
+
+4.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module drg5_decompress.
+
+4.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\drg5_decompress'.
+Computing hashes of 295 cells of `\drg5_decompress'.
+Finding duplicate cells in `\drg5_decompress'.
+Computing hashes of 173 cells of `\drg5_decompress'.
+Finding duplicate cells in `\drg5_decompress'.
+Computing hashes of 168 cells of `\drg5_decompress'.
+Finding duplicate cells in `\drg5_decompress'.
+<suppressed ~381 debug messages>
+Removed a total of 127 cells.
+
+4.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \drg5_decompress..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+    dead port 2/2 on $mux $procmux$218.
+    dead port 2/2 on $mux $procmux$216.
+    dead port 1/4 on $pmux $procmux$404.
+    dead port 2/4 on $pmux $procmux$404.
+    dead port 3/4 on $pmux $procmux$404.
+    dead port 4/4 on $pmux $procmux$404.
+    dead port 2/2 on $mux $procmux$205.
+    dead port 2/2 on $mux $procmux$347.
+    dead port 2/2 on $mux $procmux$203.
+    dead port 2/2 on $mux $procmux$227.
+    dead port 2/2 on $mux $procmux$399.
+    dead port 2/2 on $mux $procmux$397.
+    dead port 2/2 on $mux $procmux$192.
+    dead port 2/2 on $mux $procmux$190.
+    dead port 2/2 on $mux $procmux$188.
+    dead port 2/2 on $mux $procmux$388.
+    dead port 2/2 on $mux $procmux$180.
+    dead port 2/2 on $mux $procmux$178.
+    dead port 2/2 on $mux $procmux$176.
+    dead port 2/2 on $mux $procmux$419.
+    dead port 2/2 on $mux $procmux$168.
+    dead port 2/2 on $mux $procmux$386.
+    dead port 2/2 on $mux $procmux$166.
+    dead port 1/2 on $mux $procmux$334.
+    dead port 2/2 on $mux $procmux$334.
+    dead port 2/2 on $mux $procmux$164.
+    dead port 1/2 on $mux $procmux$162.
+    dead port 2/2 on $mux $procmux$152.
+    dead port 1/2 on $mux $procmux$332.
+    dead port 2/2 on $mux $procmux$332.
+    dead port 1/2 on $mux $procmux$330.
+    dead port 2/2 on $mux $procmux$330.
+    dead port 2/2 on $mux $procmux$322.
+    dead port 2/2 on $mux $procmux$141.
+    dead port 2/2 on $mux $procmux$320.
+    dead port 1/4 on $pmux $procmux$433.
+    dead port 2/4 on $pmux $procmux$433.
+    dead port 3/4 on $pmux $procmux$433.
+    dead port 4/4 on $pmux $procmux$433.
+    dead port 2/2 on $mux $procmux$318.
+    dead port 2/2 on $mux $procmux$309.
+    dead port 1/2 on $mux $procmux$130.
+    dead port 2/2 on $mux $procmux$130.
+    dead port 2/2 on $mux $procmux$307.
+    dead port 1/3 on $pmux $procmux$126.
+    dead port 2/3 on $pmux $procmux$126.
+    dead port 3/3 on $pmux $procmux$126.
+    dead port 2/2 on $mux $procmux$123.
+    dead port 2/2 on $mux $procmux$305.
+    dead port 2/2 on $mux $procmux$121.
+    dead port 2/2 on $mux $procmux$113.
+    dead port 2/2 on $mux $procmux$296.
+    dead port 2/2 on $mux $procmux$111.
+    dead port 2/2 on $mux $procmux$103.
+    dead port 2/2 on $mux $procmux$294.
+    dead port 2/2 on $mux $procmux$101.
+    dead port 1/2 on $mux $procmux$369.
+    dead port 2/2 on $mux $procmux$369.
+    dead port 2/2 on $mux $procmux$94.
+    dead port 2/2 on $mux $procmux$92.
+    dead port 2/2 on $mux $procmux$283.
+    dead port 1/2 on $mux $procmux$85.
+    dead port 2/2 on $mux $procmux$85.
+    dead port 1/2 on $mux $procmux$83.
+    dead port 2/2 on $mux $procmux$83.
+    dead port 2/2 on $mux $procmux$281.
+    dead port 1/2 on $mux $procmux$81.
+    dead port 2/2 on $mux $procmux$81.
+    dead port 2/2 on $mux $procmux$76.
+    dead port 1/2 on $mux $procmux$367.
+    dead port 2/2 on $mux $procmux$367.
+    dead port 2/2 on $mux $procmux$74.
+    dead port 2/2 on $mux $procmux$72.
+    dead port 2/2 on $mux $procmux$63.
+    dead port 2/2 on $mux $procmux$270.
+    dead port 2/2 on $mux $procmux$61.
+    dead port 2/2 on $mux $procmux$59.
+    dead port 2/2 on $mux $procmux$50.
+    dead port 2/2 on $mux $procmux$268.
+    dead port 2/2 on $mux $procmux$48.
+    dead port 2/2 on $mux $procmux$360.
+    dead port 2/2 on $mux $procmux$46.
+    dead port 1/2 on $mux $procmux$44.
+    dead port 2/2 on $mux $procmux$36.
+    dead port 1/2 on $mux $procmux$266.
+    dead port 2/2 on $mux $procmux$34.
+    dead port 2/2 on $mux $procmux$32.
+    dead port 1/2 on $mux $procmux$30.
+    dead port 2/2 on $mux $procmux$22.
+    dead port 2/2 on $mux $procmux$257.
+    dead port 2/2 on $mux $procmux$20.
+    dead port 1/2 on $mux $procmux$409.
+    dead port 2/2 on $mux $procmux$409.
+    dead port 2/2 on $mux $procmux$12.
+    dead port 2/2 on $mux $procmux$255.
+    dead port 2/2 on $mux $procmux$10.
+    dead port 2/2 on $mux $procmux$429.
+    dead port 1/2 on $mux $procmux$253.
+    dead port 2/2 on $mux $procmux$244.
+    dead port 2/2 on $mux $procmux$242.
+    dead port 2/2 on $mux $procmux$240.
+    dead port 2/2 on $mux $procmux$231.
+    dead port 2/2 on $mux $procmux$229.
+Removed 103 multiplexer ports.
+<suppressed ~117 debug messages>
+
+4.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \drg5_decompress.
+    New ctrl vector for $pmux cell $procmux$338: { $procmux$428_CMP $procmux$426_CMP $procmux$368_CMP $procmux$354_CMP $auto$opt_reduce.cc:137:opt_pmux$448 }
+    New ctrl vector for $pmux cell $procmux$414: { $procmux$428_CMP $auto$opt_reduce.cc:137:opt_pmux$450 }
+    New input vector for $reduce_or cell $auto$opt_reduce.cc:131:opt_pmux$447: { $procmux$425_CMP $procmux$358_CMP $procmux$352_CMP [1] }
+  Optimizing cells in module \drg5_decompress.
+Performed a total of 3 changes.
+
+4.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\drg5_decompress'.
+Computing hashes of 85 cells of `\drg5_decompress'.
+Finding duplicate cells in `\drg5_decompress'.
+Computing hashes of 82 cells of `\drg5_decompress'.
+Finding duplicate cells in `\drg5_decompress'.
+<suppressed ~9 debug messages>
+Removed a total of 3 cells.
+
+4.6. Executing OPT_DFF pass (perform DFF optimizations).
+
+4.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \drg5_decompress..
+Removed 1 unused cells and 304 unused wires.
+<suppressed ~16 debug messages>
+
+4.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module drg5_decompress.
+
+4.9. Rerunning OPT passes. (Maybe there is more to do..)
+
+4.10. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \drg5_decompress..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~49 debug messages>
+
+4.11. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \drg5_decompress.
+Performed a total of 0 changes.
+
+4.12. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\drg5_decompress'.
+Computing hashes of 81 cells of `\drg5_decompress'.
+Finding duplicate cells in `\drg5_decompress'.
+Removed a total of 0 cells.
+
+4.13. Executing OPT_DFF pass (perform DFF optimizations).
+
+4.14. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \drg5_decompress..
+
+4.15. Executing OPT_EXPR pass (perform const folding).
+Optimizing module drg5_decompress.
+
+4.16. Finished fast OPT passes. (There is nothing left to do.)
+
+5. Executing CHECK pass (checking for obvious problems).
+Checking module drg5_decompress...
+Found and reported 0 problems.
+
+6. Executing SYNTH_LATTICE pass.
+
+6.1. Executing Verilog-2005 frontend: /tmp/drg5-control-tools-20260301/oss-cad-suite/lib/../share/yosys/lattice/cells_sim_ecp5.v
+Parsing Verilog input from `/tmp/drg5-control-tools-20260301/oss-cad-suite/lib/../share/yosys/lattice/cells_sim_ecp5.v' to AST representation.
+Generating RTLIL representation for module `\LUT4'.
+Generating RTLIL representation for module `\$__ABC9_LUT5'.
+Generating RTLIL representation for module `\$__ABC9_LUT6'.
+Generating RTLIL representation for module `\$__ABC9_LUT7'.
+Generating RTLIL representation for module `\L6MUX21'.
+Generating RTLIL representation for module `\TRELLIS_RAM16X2'.
+Generating RTLIL representation for module `\PFUMX'.
+Generating RTLIL representation for module `\TRELLIS_DPR16X4'.
+Generating RTLIL representation for module `\DPR16X4C'.
+Generating RTLIL representation for module `\LUT2'.
+Generating RTLIL representation for module `\TRELLIS_FF'.
+Generating RTLIL representation for module `\TRELLIS_IO'.
+Generating RTLIL representation for module `\INV'.
+Generating RTLIL representation for module `\TRELLIS_COMB'.
+Generating RTLIL representation for module `\VLO'.
+Generating RTLIL representation for module `\VHI'.
+Generating RTLIL representation for module `\FD1P3AX'.
+Generating RTLIL representation for module `\FD1P3AY'.
+Generating RTLIL representation for module `\FD1P3BX'.
+Generating RTLIL representation for module `\FD1P3DX'.
+Generating RTLIL representation for module `\FD1P3IX'.
+Generating RTLIL representation for module `\FD1P3JX'.
+Generating RTLIL representation for module `\FD1S3AX'.
+Generating RTLIL representation for module `\FD1S3AY'.
+Generating RTLIL representation for module `\FD1S3BX'.
+Generating RTLIL representation for module `\FD1S3DX'.
+Generating RTLIL representation for module `\FD1S3IX'.
+Generating RTLIL representation for module `\FD1S3JX'.
+Generating RTLIL representation for module `\IFS1P3BX'.
+Generating RTLIL representation for module `\IFS1P3DX'.
+Generating RTLIL representation for module `\IFS1P3IX'.
+Generating RTLIL representation for module `\IFS1P3JX'.
+Generating RTLIL representation for module `\OFS1P3BX'.
+Generating RTLIL representation for module `\OFS1P3DX'.
+Generating RTLIL representation for module `\OFS1P3IX'.
+Generating RTLIL representation for module `\OFS1P3JX'.
+Generating RTLIL representation for module `\IB'.
+Generating RTLIL representation for module `\IBPU'.
+Generating RTLIL representation for module `\IBPD'.
+Generating RTLIL representation for module `\OB'.
+Generating RTLIL representation for module `\OBZ'.
+Generating RTLIL representation for module `\OBZPU'.
+Generating RTLIL representation for module `\OBZPD'.
+Generating RTLIL representation for module `\OBCO'.
+Generating RTLIL representation for module `\BB'.
+Generating RTLIL representation for module `\BBPU'.
+Generating RTLIL representation for module `\BBPD'.
+Generating RTLIL representation for module `\ILVDS'.
+Generating RTLIL representation for module `\OLVDS'.
+Generating RTLIL representation for module `\CCU2C'.
+Generating RTLIL representation for module `\DP16KD'.
+Replacing existing blackbox module `\FD1P3AX' at /tmp/drg5-control-tools-20260301/oss-cad-suite/lib/../share/yosys/lattice/cells_ff.vh:2.1-2.261.
+Generating RTLIL representation for module `\FD1P3AX'.
+Replacing existing blackbox module `\FD1P3AY' at /tmp/drg5-control-tools-20260301/oss-cad-suite/lib/../share/yosys/lattice/cells_ff.vh:3.1-3.261.
+Generating RTLIL representation for module `\FD1P3AY'.
+Replacing existing blackbox module `\FD1P3BX' at /tmp/drg5-control-tools-20260301/oss-cad-suite/lib/../share/yosys/lattice/cells_ff.vh:4.1-4.261.
+Generating RTLIL representation for module `\FD1P3BX'.
+Replacing existing blackbox module `\FD1P3DX' at /tmp/drg5-control-tools-20260301/oss-cad-suite/lib/../share/yosys/lattice/cells_ff.vh:5.1-5.261.
+Generating RTLIL representation for module `\FD1P3DX'.
+Replacing existing blackbox module `\FD1P3IX' at /tmp/drg5-control-tools-20260301/oss-cad-suite/lib/../share/yosys/lattice/cells_ff.vh:6.1-6.261.
+Generating RTLIL representation for module `\FD1P3IX'.
+Replacing existing blackbox module `\FD1P3JX' at /tmp/drg5-control-tools-20260301/oss-cad-suite/lib/../share/yosys/lattice/cells_ff.vh:7.1-7.261.
+Generating RTLIL representation for module `\FD1P3JX'.
+Replacing existing blackbox module `\FD1S3AX' at /tmp/drg5-control-tools-20260301/oss-cad-suite/lib/../share/yosys/lattice/cells_ff.vh:8.1-8.261.
+Generating RTLIL representation for module `\FD1S3AX'.
+Replacing existing blackbox module `\FD1S3AY' at /tmp/drg5-control-tools-20260301/oss-cad-suite/lib/../share/yosys/lattice/cells_ff.vh:9.1-9.261.
+Generating RTLIL representation for module `\FD1S3AY'.
+Replacing existing blackbox module `\FD1S3BX' at /tmp/drg5-control-tools-20260301/oss-cad-suite/lib/../share/yosys/lattice/cells_ff.vh:10.1-10.261.
+Generating RTLIL representation for module `\FD1S3BX'.
+Replacing existing blackbox module `\FD1S3DX' at /tmp/drg5-control-tools-20260301/oss-cad-suite/lib/../share/yosys/lattice/cells_ff.vh:11.1-11.261.
+Generating RTLIL representation for module `\FD1S3DX'.
+Replacing existing blackbox module `\FD1S3IX' at /tmp/drg5-control-tools-20260301/oss-cad-suite/lib/../share/yosys/lattice/cells_ff.vh:12.1-12.261.
+Generating RTLIL representation for module `\FD1S3IX'.
+Replacing existing blackbox module `\FD1S3JX' at /tmp/drg5-control-tools-20260301/oss-cad-suite/lib/../share/yosys/lattice/cells_ff.vh:13.1-13.261.
+Generating RTLIL representation for module `\FD1S3JX'.
+Replacing existing blackbox module `\IFS1P3BX' at /tmp/drg5-control-tools-20260301/oss-cad-suite/lib/../share/yosys/lattice/cells_ff.vh:26.1-26.301.
+Generating RTLIL representation for module `\IFS1P3BX'.
+Replacing existing blackbox module `\IFS1P3DX' at /tmp/drg5-control-tools-20260301/oss-cad-suite/lib/../share/yosys/lattice/cells_ff.vh:27.1-27.301.
+Generating RTLIL representation for module `\IFS1P3DX'.
+Replacing existing blackbox module `\IFS1P3IX' at /tmp/drg5-control-tools-20260301/oss-cad-suite/lib/../share/yosys/lattice/cells_ff.vh:28.1-28.301.
+Generating RTLIL representation for module `\IFS1P3IX'.
+Replacing existing blackbox module `\IFS1P3JX' at /tmp/drg5-control-tools-20260301/oss-cad-suite/lib/../share/yosys/lattice/cells_ff.vh:29.1-29.301.
+Generating RTLIL representation for module `\IFS1P3JX'.
+Replacing existing blackbox module `\OFS1P3BX' at /tmp/drg5-control-tools-20260301/oss-cad-suite/lib/../share/yosys/lattice/cells_ff.vh:31.1-31.302.
+Generating RTLIL representation for module `\OFS1P3BX'.
+Replacing existing blackbox module `\OFS1P3DX' at /tmp/drg5-control-tools-20260301/oss-cad-suite/lib/../share/yosys/lattice/cells_ff.vh:32.1-32.302.
+Generating RTLIL representation for module `\OFS1P3DX'.
+Replacing existing blackbox module `\OFS1P3IX' at /tmp/drg5-control-tools-20260301/oss-cad-suite/lib/../share/yosys/lattice/cells_ff.vh:33.1-33.302.
+Generating RTLIL representation for module `\OFS1P3IX'.
+Replacing existing blackbox module `\OFS1P3JX' at /tmp/drg5-control-tools-20260301/oss-cad-suite/lib/../share/yosys/lattice/cells_ff.vh:34.1-34.302.
+Generating RTLIL representation for module `\OFS1P3JX'.
+Replacing existing blackbox module `\IB' at /tmp/drg5-control-tools-20260301/oss-cad-suite/lib/../share/yosys/lattice/cells_io.vh:2.1-2.157.
+Generating RTLIL representation for module `\IB'.
+Replacing existing blackbox module `\IBPU' at /tmp/drg5-control-tools-20260301/oss-cad-suite/lib/../share/yosys/lattice/cells_io.vh:3.1-3.157.
+Generating RTLIL representation for module `\IBPU'.
+Replacing existing blackbox module `\IBPD' at /tmp/drg5-control-tools-20260301/oss-cad-suite/lib/../share/yosys/lattice/cells_io.vh:4.1-4.157.
+Generating RTLIL representation for module `\IBPD'.
+Replacing existing blackbox module `\OB' at /tmp/drg5-control-tools-20260301/oss-cad-suite/lib/../share/yosys/lattice/cells_io.vh:5.1-5.157.
+Generating RTLIL representation for module `\OB'.
+Replacing existing blackbox module `\OBZ' at /tmp/drg5-control-tools-20260301/oss-cad-suite/lib/../share/yosys/lattice/cells_io.vh:6.1-6.164.
+Generating RTLIL representation for module `\OBZ'.
+Replacing existing blackbox module `\OBZPU' at /tmp/drg5-control-tools-20260301/oss-cad-suite/lib/../share/yosys/lattice/cells_io.vh:7.1-7.164.
+Generating RTLIL representation for module `\OBZPU'.
+Replacing existing blackbox module `\OBZPD' at /tmp/drg5-control-tools-20260301/oss-cad-suite/lib/../share/yosys/lattice/cells_io.vh:8.1-8.164.
+Generating RTLIL representation for module `\OBZPD'.
+Replacing existing blackbox module `\OBCO' at /tmp/drg5-control-tools-20260301/oss-cad-suite/lib/../share/yosys/lattice/cells_io.vh:9.1-9.90.
+Generating RTLIL representation for module `\OBCO'.
+Replacing existing blackbox module `\BB' at /tmp/drg5-control-tools-20260301/oss-cad-suite/lib/../share/yosys/lattice/cells_io.vh:10.1-10.179.
+Generating RTLIL representation for module `\BB'.
+Replacing existing blackbox module `\BBPU' at /tmp/drg5-control-tools-20260301/oss-cad-suite/lib/../share/yosys/lattice/cells_io.vh:11.1-11.179.
+Generating RTLIL representation for module `\BBPU'.
+Replacing existing blackbox module `\BBPD' at /tmp/drg5-control-tools-20260301/oss-cad-suite/lib/../share/yosys/lattice/cells_io.vh:12.1-12.179.
+Generating RTLIL representation for module `\BBPD'.
+Replacing existing blackbox module `\ILVDS' at /tmp/drg5-control-tools-20260301/oss-cad-suite/lib/../share/yosys/lattice/cells_io.vh:13.1-13.139.
+Generating RTLIL representation for module `\ILVDS'.
+Replacing existing blackbox module `\OLVDS' at /tmp/drg5-control-tools-20260301/oss-cad-suite/lib/../share/yosys/lattice/cells_io.vh:14.1-14.146.
+Generating RTLIL representation for module `\OLVDS'.
+Successfully finished Verilog frontend.
+
+6.2. Executing Verilog-2005 frontend: /tmp/drg5-control-tools-20260301/oss-cad-suite/lib/../share/yosys/lattice/cells_bb_ecp5.v
+Parsing Verilog input from `/tmp/drg5-control-tools-20260301/oss-cad-suite/lib/../share/yosys/lattice/cells_bb_ecp5.v' to AST representation.
+Generating RTLIL representation for module `\GSR'.
+Generating RTLIL representation for module `\PUR'.
+Generating RTLIL representation for module `\SGSR'.
+Generating RTLIL representation for module `\PDPW16KD'.
+Generating RTLIL representation for module `\MULT18X18D'.
+Generating RTLIL representation for module `\ALU54B'.
+Generating RTLIL representation for module `\CLKDIVF'.
+Generating RTLIL representation for module `\PCSCLKDIV'.
+Generating RTLIL representation for module `\DCSC'.
+Generating RTLIL representation for module `\DCCA'.
+Generating RTLIL representation for module `\ECLKSYNCB'.
+Generating RTLIL representation for module `\ECLKBRIDGECS'.
+Generating RTLIL representation for module `\DELAYF'.
+Generating RTLIL representation for module `\DELAYG'.
+Generating RTLIL representation for module `\USRMCLK'.
+Generating RTLIL representation for module `\DQSBUFM'.
+Generating RTLIL representation for module `\DDRDLLA'.
+Generating RTLIL representation for module `\DLLDELD'.
+Generating RTLIL representation for module `\IDDRX1F'.
+Generating RTLIL representation for module `\IDDRX2F'.
+Generating RTLIL representation for module `\IDDR71B'.
+Generating RTLIL representation for module `\IDDRX2DQA'.
+Generating RTLIL representation for module `\ODDRX1F'.
+Generating RTLIL representation for module `\ODDRX2F'.
+Generating RTLIL representation for module `\ODDR71B'.
+Generating RTLIL representation for module `\OSHX2A'.
+Generating RTLIL representation for module `\TSHX2DQA'.
+Generating RTLIL representation for module `\TSHX2DQSA'.
+Generating RTLIL representation for module `\ODDRX2DQA'.
+Generating RTLIL representation for module `\ODDRX2DQSB'.
+Generating RTLIL representation for module `\EHXPLLL'.
+Generating RTLIL representation for module `\DTR'.
+Generating RTLIL representation for module `\OSCG'.
+Generating RTLIL representation for module `\EXTREFB'.
+Generating RTLIL representation for module `\JTAGG'.
+Generating RTLIL representation for module `\DCUA'.
+Successfully finished Verilog frontend.
+
+6.3. Executing HIERARCHY pass (managing design hierarchy).
+
+6.3.1. Analyzing design hierarchy..
+Top module:  \drg5_decompress
+
+6.3.2. Analyzing design hierarchy..
+Top module:  \drg5_decompress
+Removed 0 unused modules.
+
+6.4. Executing PROC pass (convert processes to netlists).
+
+6.4.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+6.4.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Removed a total of 0 dead cases.
+
+6.4.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 0 redundant assignments.
+Promoted 0 assignments to connections.
+
+6.4.4. Executing PROC_INIT pass (extract init attributes).
+
+6.4.5. Executing PROC_ARST pass (detect async resets in processes).
+
+6.4.6. Executing PROC_ROM pass (convert switches to ROMs).
+Converted 0 switches.
+
+6.4.7. Executing PROC_MUX pass (convert decision trees to multiplexers).
+
+6.4.8. Executing PROC_DLATCH pass (convert process syncs to latches).
+
+6.4.9. Executing PROC_DFF pass (convert process syncs to FFs).
+
+6.4.10. Executing PROC_MEMWR pass (convert process memory writes to cells).
+
+6.4.11. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+6.4.12. Executing OPT_EXPR pass (perform const folding).
+Optimizing module drg5_decompress.
+
+6.5. Executing FLATTEN pass (flatten design).
+
+6.6. Executing TRIBUF pass.
+
+6.7. Executing DEMINOUT pass (demote inout ports to input or output).
+
+6.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module drg5_decompress.
+
+6.9. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \drg5_decompress..
+
+6.10. Executing CHECK pass (checking for obvious problems).
+Checking module drg5_decompress...
+Found and reported 0 problems.
+
+6.11. Executing OPT pass (performing simple optimizations).
+
+6.11.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module drg5_decompress.
+
+6.11.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\drg5_decompress'.
+Computing hashes of 81 cells of `\drg5_decompress'.
+Finding duplicate cells in `\drg5_decompress'.
+Removed a total of 0 cells.
+
+6.11.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \drg5_decompress..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~49 debug messages>
+
+6.11.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \drg5_decompress.
+Performed a total of 0 changes.
+
+6.11.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\drg5_decompress'.
+Computing hashes of 81 cells of `\drg5_decompress'.
+Finding duplicate cells in `\drg5_decompress'.
+Removed a total of 0 cells.
+
+6.11.6. Executing OPT_DFF pass (perform DFF optimizations).
+
+6.11.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \drg5_decompress..
+
+6.11.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module drg5_decompress.
+
+6.11.9. Finished fast OPT passes. (There is nothing left to do.)
+
+6.12. Executing FSM pass (extract and optimize FSM).
+
+6.12.1. Executing FSM_DETECT pass (finding FSMs in design).
+
+6.12.2. Executing FSM_EXTRACT pass (extracting FSM from design).
+
+6.12.3. Executing FSM_OPT pass (simple optimizations of FSMs).
+
+6.12.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \drg5_decompress..
+
+6.12.5. Executing FSM_OPT pass (simple optimizations of FSMs).
+
+6.12.6. Executing FSM_RECODE pass (re-assigning FSM state encoding).
+
+6.12.7. Executing FSM_INFO pass (dumping all available information on FSM cells).
+
+6.12.8. Executing FSM_MAP pass (mapping FSMs to basic logic).
+
+6.13. Executing OPT pass (performing simple optimizations).
+
+6.13.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module drg5_decompress.
+
+6.13.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\drg5_decompress'.
+Computing hashes of 81 cells of `\drg5_decompress'.
+Finding duplicate cells in `\drg5_decompress'.
+Removed a total of 0 cells.
+
+6.13.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \drg5_decompress..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~49 debug messages>
+
+6.13.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \drg5_decompress.
+Performed a total of 0 changes.
+
+6.13.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\drg5_decompress'.
+Computing hashes of 81 cells of `\drg5_decompress'.
+Finding duplicate cells in `\drg5_decompress'.
+Removed a total of 0 cells.
+
+6.13.6. Executing OPT_DFF pass (perform DFF optimizations).
+
+6.13.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \drg5_decompress..
+
+6.13.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module drg5_decompress.
+
+6.13.9. Finished fast OPT passes. (There is nothing left to do.)
+
+6.14. Executing WREDUCE pass (reducing word size of cells).
+Removed top 4 bits (of 5) from mux cell drg5_decompress.$15 ($mux).
+Removed top 3 bits (of 5) from port B of cell drg5_decompress.$18 ($eq).
+Removed top 4 bits (of 5) from mux cell drg5_decompress.$59 ($mux).
+Removed top 1 bits (of 2) from port B of cell drg5_decompress.$77 ($eq).
+Removed top 12 bits (of 32) from mux cell drg5_decompress.$procmux$41 ($mux).
+Removed top 11 bits (of 32) from mux cell drg5_decompress.$procmux$70 ($mux).
+Removed top 1 bits (of 2) from mux cell drg5_decompress.$procmux$90 ($mux).
+Removed top 4 bits (of 32) from mux cell drg5_decompress.$procmux$99 ($mux).
+Removed top 7 bits (of 32) from mux cell drg5_decompress.$procmux$119 ($mux).
+Removed top 1 bits (of 2) from port B of cell drg5_decompress.$procmux$160_CMP0 ($eq).
+Removed top 1 bits (of 2) from mux cell drg5_decompress.$procmux$174 ($mux).
+Removed top 1 bits (of 32) from mux cell drg5_decompress.$procmux$238 ($mux).
+Removed top 1 bits (of 2) from port B of cell drg5_decompress.$procmux$241_CMP1 ($eq).
+Removed top 1 bits (of 2) from mux cell drg5_decompress.$procmux$303 ($mux).
+Removed top 2 bits (of 3) from port B of cell drg5_decompress.$procmux$358_CMP0 ($eq).
+Removed top 1 bits (of 3) from port B of cell drg5_decompress.$procmux$368_CMP0 ($eq).
+Removed top 1 bits (of 2) from mux cell drg5_decompress.$procmux$384 ($mux).
+Removed top 2 bits (of 32) from mux cell drg5_decompress.$procmux$395 ($mux).
+Removed top 1 bits (of 2) from mux cell drg5_decompress.$procmux$414 ($pmux).
+Removed top 2 bits (of 32) from mux cell drg5_decompress.$procmux$424 ($pmux).
+Removed top 1 bits (of 3) from port B of cell drg5_decompress.$procmux$426_CMP0 ($eq).
+Removed top 1 bits (of 2) from port B of cell drg5_decompress.$procmux$444_CMP0 ($eq).
+Removed top 12 bits (of 32) from wire drg5_decompress.$expanded_o$60.
+Removed top 4 bits (of 5) from wire drg5_decompress.$59y.
+Removed top 1 bits (of 2) from wire drg5_decompress.$class_o$53.
+Removed top 4 bits (of 32) from wire drg5_decompress.$expanded_o$52.
+Removed top 7 bits (of 32) from wire drg5_decompress.$expanded_o$49.
+Removed top 1 bits (of 2) from wire drg5_decompress.$class_o$38.
+Removed top 1 bits (of 32) from wire drg5_decompress.$expanded_o$33.
+Removed top 1 bits (of 2) from wire drg5_decompress.$class_o$21.
+Removed top 4 bits (of 5) from wire drg5_decompress.$15y.
+Removed top 1 bits (of 2) from wire drg5_decompress.$class_o$5.
+Removed top 2 bits (of 32) from wire drg5_decompress.$expanded_o$4.
+Removed top 1 bits (of 2) from wire drg5_decompress.$class_o$3.
+Removed top 2 bits (of 32) from wire drg5_decompress.$expanded_o$2.
+Removed top 11 bits (of 32) from wire drg5_decompress.$expanded_o$62.
+
+6.15. Executing PEEPOPT pass (run peephole optimizers).
+
+6.16. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \drg5_decompress..
+Removed 0 unused cells and 14 unused wires.
+<suppressed ~1 debug messages>
+
+6.17. Executing SHARE pass (SAT-based resource sharing).
+
+6.18. Executing TECHMAP pass (map to technology primitives).
+
+6.18.1. Executing Verilog-2005 frontend: /tmp/drg5-control-tools-20260301/oss-cad-suite/lib/../share/yosys/cmp2lut.v
+Parsing Verilog input from `/tmp/drg5-control-tools-20260301/oss-cad-suite/lib/../share/yosys/cmp2lut.v' to AST representation.
+Generating RTLIL representation for module `\_90_lut_cmp_'.
+Successfully finished Verilog frontend.
+
+6.18.2. Continuing TECHMAP pass.
+No more expansions possible.
+<suppressed ~6 debug messages>
+
+6.19. Executing OPT_EXPR pass (perform const folding).
+Optimizing module drg5_decompress.
+
+6.20. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \drg5_decompress..
+
+6.21. Executing TECHMAP pass (map to technology primitives).
+
+6.21.1. Executing Verilog-2005 frontend: /tmp/drg5-control-tools-20260301/oss-cad-suite/lib/../share/yosys/mul2dsp.v
+Parsing Verilog input from `/tmp/drg5-control-tools-20260301/oss-cad-suite/lib/../share/yosys/mul2dsp.v' to AST representation.
+Generating RTLIL representation for module `\_80_mul'.
+Generating RTLIL representation for module `\_90_soft_mul'.
+Successfully finished Verilog frontend.
+
+6.21.2. Continuing TECHMAP pass.
+No more expansions possible.
+<suppressed ~4 debug messages>
+
+6.22. Executing TECHMAP pass (map to technology primitives).
+
+6.22.1. Executing Verilog-2005 frontend: /tmp/drg5-control-tools-20260301/oss-cad-suite/lib/../share/yosys/lattice/dsp_map_18x18.v
+Parsing Verilog input from `/tmp/drg5-control-tools-20260301/oss-cad-suite/lib/../share/yosys/lattice/dsp_map_18x18.v' to AST representation.
+Generating RTLIL representation for module `$__MUL18X18'.
+Successfully finished Verilog frontend.
+
+6.22.2. Continuing TECHMAP pass.
+No more expansions possible.
+<suppressed ~3 debug messages>
+
+6.23. Executing ALUMACC pass (create $alu and $macc cells).
+Extracting $alu and $macc cells in module drg5_decompress:
+  created 0 $alu and 0 $macc cells.
+
+6.24. Executing OPT pass (performing simple optimizations).
+
+6.24.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module drg5_decompress.
+
+6.24.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\drg5_decompress'.
+Computing hashes of 81 cells of `\drg5_decompress'.
+Finding duplicate cells in `\drg5_decompress'.
+Removed a total of 0 cells.
+
+6.24.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \drg5_decompress..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~49 debug messages>
+
+6.24.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \drg5_decompress.
+Performed a total of 0 changes.
+
+6.24.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\drg5_decompress'.
+Computing hashes of 81 cells of `\drg5_decompress'.
+Finding duplicate cells in `\drg5_decompress'.
+Removed a total of 0 cells.
+
+6.24.6. Executing OPT_DFF pass (perform DFF optimizations).
+
+6.24.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \drg5_decompress..
+
+6.24.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module drg5_decompress.
+
+6.24.9. Finished fast OPT passes. (There is nothing left to do.)
+
+6.25. Executing MEMORY pass.
+
+6.25.1. Executing OPT_MEM pass (optimize memories).
+Performed a total of 0 transformations.
+
+6.25.2. Executing OPT_MEM_PRIORITY pass (removing unnecessary memory write priority relations).
+Performed a total of 0 transformations.
+
+6.25.3. Executing OPT_MEM_FEEDBACK pass (finding memory read-to-write feedback paths).
+
+6.25.4. Executing MEMORY_BMUX2ROM pass (converting muxes to ROMs).
+
+6.25.5. Executing MEMORY_DFF pass (merging $dff cells to $memrd).
+
+6.25.6. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \drg5_decompress..
+
+6.25.7. Executing MEMORY_SHARE pass (consolidating $memrd/$memwr cells).
+
+6.25.8. Executing OPT_MEM_WIDEN pass (optimize memories where all ports are wide).
+Performed a total of 0 transformations.
+
+6.25.9. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \drg5_decompress..
+
+6.25.10. Executing MEMORY_COLLECT pass (generating $mem cells).
+
+6.26. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \drg5_decompress..
+
+6.27. Executing MEMORY_LIBMAP pass (mapping memories to cells).
+
+6.28. Executing TECHMAP pass (map to technology primitives).
+
+6.28.1. Executing Verilog-2005 frontend: /tmp/drg5-control-tools-20260301/oss-cad-suite/lib/../share/yosys/lattice/lutrams_map_trellis.v
+Parsing Verilog input from `/tmp/drg5-control-tools-20260301/oss-cad-suite/lib/../share/yosys/lattice/lutrams_map_trellis.v' to AST representation.
+Generating RTLIL representation for module `$__TRELLIS_DPR16X4_'.
+Successfully finished Verilog frontend.
+
+6.28.2. Executing Verilog-2005 frontend: /tmp/drg5-control-tools-20260301/oss-cad-suite/lib/../share/yosys/lattice/brams_map_16kd.v
+Parsing Verilog input from `/tmp/drg5-control-tools-20260301/oss-cad-suite/lib/../share/yosys/lattice/brams_map_16kd.v' to AST representation.
+Generating RTLIL representation for module `$__DP16KD_'.
+Generating RTLIL representation for module `$__PDPW16KD_'.
+Successfully finished Verilog frontend.
+
+6.28.3. Continuing TECHMAP pass.
+No more expansions possible.
+<suppressed ~5 debug messages>
+
+6.29. Executing OPT pass (performing simple optimizations).
+
+6.29.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module drg5_decompress.
+<suppressed ~10 debug messages>
+
+6.29.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\drg5_decompress'.
+Computing hashes of 77 cells of `\drg5_decompress'.
+Finding duplicate cells in `\drg5_decompress'.
+Removed a total of 0 cells.
+
+6.29.3. Executing OPT_DFF pass (perform DFF optimizations).
+
+6.29.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \drg5_decompress..
+Removed 4 unused cells and 7 unused wires.
+<suppressed ~5 debug messages>
+
+6.29.5. Finished fast OPT passes.
+
+6.30. Executing MEMORY_MAP pass (converting memories to logic and flip-flops).
+
+6.31. Executing OPT pass (performing simple optimizations).
+
+6.31.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module drg5_decompress.
+
+6.31.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\drg5_decompress'.
+Computing hashes of 73 cells of `\drg5_decompress'.
+Finding duplicate cells in `\drg5_decompress'.
+Removed a total of 0 cells.
+
+6.31.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \drg5_decompress..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~42 debug messages>
+
+6.31.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \drg5_decompress.
+    Consolidated identical input bits for $mux cell $procmux$316:
+      Old ports: A=0, B={ \instr_i [12] \instr_i [12] \instr_i [12] \instr_i [4:3] \instr_i [5] \instr_i [2] \instr_i [6] 24'000000010000000100010011 }, Y=$expanded_o$20
+      New ports: A=7'0000000, B={ \instr_i [12] \instr_i [4:3] \instr_i [5] \instr_i [2] \instr_i [6] 1'1 }, Y={ $expanded_o$20 [29:24] $expanded_o$20 [0] }
+      New connections: { $expanded_o$20 [31:30] $expanded_o$20 [23:1] } = { $expanded_o$20 [29] $expanded_o$20 [29] 7'0000000 $expanded_o$20 [0] 7'0000000 $expanded_o$20 [0] 3'000 $expanded_o$20 [0] 2'00 $expanded_o$20 [0] }
+    Consolidated identical input bits for $mux cell $procmux$57:
+      Old ports: A={ 1'0 $10y }, B=2'01, Y=$class_o$63
+      New ports: A=$10y, B=1'1, Y=$class_o$63 [0]
+      New connections: $class_o$63 [1] = 1'0
+    Consolidated identical input bits for $mux cell $procmux$41:
+      Old ports: A=20'00000000000000000000, B={ \instr_i [11:7] 7'0000000 \instr_i [12] 7'1100111 }, Y=$auto$wreduce.cc:514:run$676 [19:0]
+      New ports: A=7'0000000, B={ \instr_i [11:7] \instr_i [12] 1'1 }, Y={ $auto$wreduce.cc:514:run$676 [19:15] $auto$wreduce.cc:514:run$676 [7] $auto$wreduce.cc:514:run$676 [0] }
+      New connections: { $auto$wreduce.cc:514:run$676 [14:8] $auto$wreduce.cc:514:run$676 [6:1] } = { 7'0000000 $auto$wreduce.cc:514:run$676 [0] $auto$wreduce.cc:514:run$676 [0] 2'00 $auto$wreduce.cc:514:run$676 [0] $auto$wreduce.cc:514:run$676 [0] }
+    Consolidated identical input bits for $mux cell $procmux$263:
+      Old ports: A=0, B={ \instr_i [12] \instr_i [12] \instr_i [12] \instr_i [12] \instr_i [12] \instr_i [12] \instr_i [12] \instr_i [12] \instr_i [12] \instr_i [12] \instr_i [12] \instr_i [12] \instr_i [12] \instr_i [12] \instr_i [12] \instr_i [6:2] \instr_i [11:7] 7'0110111 }, Y=$expanded_o$25
+      New ports: A=12'000000000000, B={ \instr_i [12] \instr_i [6:2] \instr_i [11:7] 1'1 }, Y={ $expanded_o$25 [17:7] $expanded_o$25 [0] }
+      New connections: { $expanded_o$25 [31:18] $expanded_o$25 [6:1] } = { $expanded_o$25 [17] $expanded_o$25 [17] $expanded_o$25 [17] $expanded_o$25 [17] $expanded_o$25 [17] $expanded_o$25 [17] $expanded_o$25 [17] $expanded_o$25 [17] $expanded_o$25 [17] $expanded_o$25 [17] $expanded_o$25 [17] $expanded_o$25 [17] $expanded_o$25 [17] $expanded_o$25 [17] 1'0 $expanded_o$25 [0] $expanded_o$25 [0] 1'0 $expanded_o$25 [0] $expanded_o$25 [0] }
+    Consolidated identical input bits for $mux cell $procmux$119:
+      Old ports: A={ \instr_i [6:2] \instr_i [11:7] 3'001 \instr_i [11:7] 7'0010011 }, B=25'0000000000000000000000000, Y=$auto$wreduce.cc:514:run$680 [24:0]
+      New ports: A={ \instr_i [6:2] \instr_i [11:7] 1'1 }, B=11'00000000000, Y={ $auto$wreduce.cc:514:run$680 [24:20] $auto$wreduce.cc:514:run$680 [11:7] $auto$wreduce.cc:514:run$680 [0] }
+      New connections: { $auto$wreduce.cc:514:run$680 [19:12] $auto$wreduce.cc:514:run$680 [6:1] } = { $auto$wreduce.cc:514:run$680 [11:7] 2'00 $auto$wreduce.cc:514:run$680 [0] 2'00 $auto$wreduce.cc:514:run$680 [0] 2'00 $auto$wreduce.cc:514:run$680 [0] }
+    Consolidated identical input bits for $mux cell $procmux$18:
+      Old ports: A={ 7'0000000 \instr_i [6:2] $66y 3'000 \instr_i [11:7] 7'0110011 }, B={ 11'00000000000 $auto$wreduce.cc:514:run$689 [20:0] }, Y=$expanded_o$67
+      New ports: A={ \instr_i [6:2] $66y 3'000 \instr_i [11:7] 7'0110011 }, B={ 4'0000 $auto$wreduce.cc:514:run$689 [20:0] }, Y=$expanded_o$67 [24:0]
+      New connections: $expanded_o$67 [31:25] = 7'0000000
+    Consolidated identical input bits for $mux cell $procmux$99:
+      Old ports: A=28'0000000000000000000000000000, B={ \instr_i [3:2] \instr_i [12] \instr_i [6:4] 10'0000010010 \instr_i [11:7] 7'0000011 }, Y=$auto$wreduce.cc:514:run$679 [27:0]
+      New ports: A=12'000000000000, B={ \instr_i [3:2] \instr_i [12] \instr_i [6:4] \instr_i [11:7] 1'1 }, Y={ $auto$wreduce.cc:514:run$679 [27:22] $auto$wreduce.cc:514:run$679 [11:7] $auto$wreduce.cc:514:run$679 [0] }
+      New connections: { $auto$wreduce.cc:514:run$679 [21:12] $auto$wreduce.cc:514:run$679 [6:1] } = { 5'00000 $auto$wreduce.cc:514:run$679 [0] 2'00 $auto$wreduce.cc:514:run$679 [0] 6'000000 $auto$wreduce.cc:514:run$679 [0] }
+    Consolidated identical input bits for $pmux cell $procmux$157:
+      Old ports: A={ 9'010000001 \instr_i [4:2] 2'01 \instr_i [9:7] 5'00001 \instr_i [9:7] 7'0110011 }, B={ 9'000000001 \instr_i [4:2] 2'01 \instr_i [9:7] 5'10001 \instr_i [9:7] 16'0110011000000001 \instr_i [4:2] 2'01 \instr_i [9:7] 5'11001 \instr_i [9:7] 16'0110011000000001 \instr_i [4:2] 2'01 \instr_i [9:7] 5'11101 \instr_i [9:7] 7'0110011 }, Y=$expanded_o$36
+      New ports: A=4'1000, B=12'010001100111, Y={ $expanded_o$36 [30] $expanded_o$36 [14:12] }
+      New connections: { $expanded_o$36 [31] $expanded_o$36 [29:15] $expanded_o$36 [11:0] } = { 8'00000001 \instr_i [4:2] 2'01 \instr_i [9:7] 2'01 \instr_i [9:7] 7'0110011 }
+    Consolidated identical input bits for $mux cell $procmux$395:
+      Old ports: A=30'000000000000000000000000000000, B={ \instr_i [10:7] \instr_i [12:11] \instr_i [5] \instr_i [6] 12'000001000001 \instr_i [4:2] 7'0010011 }, Y=$auto$wreduce.cc:514:run$688 [29:0]
+      New ports: A=12'000000000000, B={ \instr_i [10:7] \instr_i [12:11] \instr_i [5] \instr_i [6] \instr_i [4:2] 1'1 }, Y={ $auto$wreduce.cc:514:run$688 [29:22] $auto$wreduce.cc:514:run$688 [9:7] $auto$wreduce.cc:514:run$688 [0] }
+      New connections: { $auto$wreduce.cc:514:run$688 [21:10] $auto$wreduce.cc:514:run$688 [6:1] } = { 5'00000 $auto$wreduce.cc:514:run$688 [0] 5'00000 $auto$wreduce.cc:514:run$688 [0] 2'00 $auto$wreduce.cc:514:run$688 [0] 2'00 $auto$wreduce.cc:514:run$688 [0] }
+    Consolidated identical input bits for $mux cell $procmux$238:
+      Old ports: A={ \instr_i [10] 5'00000 \instr_i [6:2] 2'01 \instr_i [9:7] 5'10101 \instr_i [9:7] 7'0010011 }, B=31'0000000000000000000000000000000, Y=$auto$wreduce.cc:514:run$682 [30:0]
+      New ports: A={ \instr_i [10] \instr_i [6:2] \instr_i [9:7] 1'1 }, B=10'0000000000, Y={ $auto$wreduce.cc:514:run$682 [30] $auto$wreduce.cc:514:run$682 [24:20] $auto$wreduce.cc:514:run$682 [9:7] $auto$wreduce.cc:514:run$682 [0] }
+      New connections: { $auto$wreduce.cc:514:run$682 [29:25] $auto$wreduce.cc:514:run$682 [19:10] $auto$wreduce.cc:514:run$682 [6:1] } = { 6'000000 $auto$wreduce.cc:514:run$682 [0] $auto$wreduce.cc:514:run$682 [9:7] $auto$wreduce.cc:514:run$682 [0] 1'0 $auto$wreduce.cc:514:run$682 [0] 1'0 $auto$wreduce.cc:514:run$682 [0] 2'00 $auto$wreduce.cc:514:run$682 [0] 2'00 $auto$wreduce.cc:514:run$682 [0] }
+  Optimizing cells in module \drg5_decompress.
+    Consolidated identical input bits for $mux cell $procmux$70:
+      Old ports: A={ 1'0 $auto$wreduce.cc:514:run$676 [19:0] }, B=21'100000000000001110011, Y=$auto$wreduce.cc:514:run$689 [20:0]
+      New ports: A={ $auto$wreduce.cc:514:run$676 [19:15] $auto$wreduce.cc:514:run$676 [7] 1'0 $auto$wreduce.cc:514:run$676 [0] $auto$wreduce.cc:514:run$676 [0] }, B=9'000000101, Y={ $auto$wreduce.cc:514:run$689 [19:15] $auto$wreduce.cc:514:run$689 [7] $auto$wreduce.cc:514:run$689 [4] $auto$wreduce.cc:514:run$689 [2] $auto$wreduce.cc:514:run$689 [0] }
+      New connections: { $auto$wreduce.cc:514:run$689 [20] $auto$wreduce.cc:514:run$689 [14:8] $auto$wreduce.cc:514:run$689 [6:5] $auto$wreduce.cc:514:run$689 [3] $auto$wreduce.cc:514:run$689 [1] } = { $auto$wreduce.cc:514:run$689 [4] 7'0000000 $auto$wreduce.cc:514:run$689 [0] $auto$wreduce.cc:514:run$689 [0] 1'0 $auto$wreduce.cc:514:run$689 [0] }
+    Consolidated identical input bits for $pmux cell $procmux$424:
+      Old ports: A=30'000000000000000000000000000000, B={ $auto$wreduce.cc:514:run$688 [29:0] 3'000 \instr_i [5] \instr_i [12:10] \instr_i [6] 4'0001 \instr_i [9:7] 5'01001 \instr_i [4:2] 10'0000011000 \instr_i [5] \instr_i [12] 2'01 \instr_i [4:2] 2'01 \instr_i [9:7] 3'010 \instr_i [11:10] \instr_i [6] 9'000100011 }, Y=$auto$wreduce.cc:514:run$686 [29:0]
+      New ports: A=22'0000000000000000000000, B={ $auto$wreduce.cc:514:run$688 [29:22] 3'000 $auto$wreduce.cc:514:run$688 [0] 3'000 $auto$wreduce.cc:514:run$688 [0] $auto$wreduce.cc:514:run$688 [9:7] 1'0 $auto$wreduce.cc:514:run$688 [0] $auto$wreduce.cc:514:run$688 [0] 3'000 \instr_i [5] \instr_i [12:10] \instr_i [6] 2'00 \instr_i [9:7] 3'101 \instr_i [4:2] 6'001000 \instr_i [5] \instr_i [12] 2'01 \instr_i [4:2] \instr_i [9:7] 1'1 \instr_i [11:10] \instr_i [6] 5'00101 }, Y={ $auto$wreduce.cc:514:run$686 [29:20] $auto$wreduce.cc:514:run$686 [17:15] $auto$wreduce.cc:514:run$686 [13] $auto$wreduce.cc:514:run$686 [11:7] $auto$wreduce.cc:514:run$686 [5:4] $auto$wreduce.cc:514:run$686 [0] }
+      New connections: { $auto$wreduce.cc:514:run$686 [19:18] $auto$wreduce.cc:514:run$686 [14] $auto$wreduce.cc:514:run$686 [12] $auto$wreduce.cc:514:run$686 [6] $auto$wreduce.cc:514:run$686 [3:1] } = { 1'0 $auto$wreduce.cc:514:run$686 [13] 5'00000 $auto$wreduce.cc:514:run$686 [0] }
+    Consolidated identical input bits for $pmux cell $procmux$144:
+      Old ports: A=0, B={ 7'0000000 $auto$wreduce.cc:514:run$680 [24:0] 4'0000 $auto$wreduce.cc:514:run$679 [27:0] $expanded_o$67 4'0000 \instr_i [8:7] \instr_i [12] \instr_i [6:2] 8'00010010 \instr_i [11:9] 9'000100011 }, Y=$expanded_o$69
+      New ports: A=28'0000000000000000000000000000, B={ 3'000 $auto$wreduce.cc:514:run$680 [24:20] $auto$wreduce.cc:514:run$680 [11:7] 2'00 $auto$wreduce.cc:514:run$680 [0] $auto$wreduce.cc:514:run$680 [11:7] 2'00 $auto$wreduce.cc:514:run$680 [0] 2'00 $auto$wreduce.cc:514:run$680 [0] $auto$wreduce.cc:514:run$680 [0] $auto$wreduce.cc:514:run$679 [27:22] 5'00000 $auto$wreduce.cc:514:run$679 [0] 2'00 $auto$wreduce.cc:514:run$679 [0] 1'0 $auto$wreduce.cc:514:run$679 [11:7] 5'00000 $auto$wreduce.cc:514:run$679 [0] $auto$wreduce.cc:514:run$679 [0] 3'000 $expanded_o$67 [24:0] \instr_i [8:7] \instr_i [12] \instr_i [6:2] 8'00010010 \instr_i [11:9] 9'000100011 }, Y=$expanded_o$69 [27:0]
+      New connections: $expanded_o$69 [31:28] = 4'0000
+    Consolidated identical input bits for $mux cell $procmux$292:
+      Old ports: A=$expanded_o$25, B=$expanded_o$20, Y=$expanded_o$27
+      New ports: A={ $expanded_o$25 [17] $expanded_o$25 [17] $expanded_o$25 [17] $expanded_o$25 [17] $expanded_o$25 [17] $expanded_o$25 [17] $expanded_o$25 [17:7] $expanded_o$25 [0] $expanded_o$25 [0] }, B={ $expanded_o$20 [29:24] 1'0 $expanded_o$20 [0] 7'0000000 $expanded_o$20 [0] 2'00 $expanded_o$20 [0] }, Y={ $expanded_o$27 [29:24] $expanded_o$27 [17:7] $expanded_o$27 [2] $expanded_o$27 [0] }
+      New connections: { $expanded_o$27 [31:30] $expanded_o$27 [23:18] $expanded_o$27 [6:3] $expanded_o$27 [1] } = { $expanded_o$27 [29] $expanded_o$27 [29] $expanded_o$27 [17] $expanded_o$27 [17] $expanded_o$27 [17] $expanded_o$27 [17] $expanded_o$27 [17] $expanded_o$27 [17] 1'0 $expanded_o$27 [2] $expanded_o$27 [0] 1'0 $expanded_o$27 [0] }
+    Consolidated identical input bits for $mux cell $procmux$186:
+      Old ports: A=$expanded_o$36, B=0, Y=$expanded_o$37
+      New ports: A={ $expanded_o$36 [30] \instr_i [4:2] $expanded_o$36 [14:12] \instr_i [9:7] 1'1 }, B=11'00000000000, Y={ $expanded_o$37 [30] $expanded_o$37 [22:20] $expanded_o$37 [14:12] $expanded_o$37 [9:7] $expanded_o$37 [0] }
+      New connections: { $expanded_o$37 [31] $expanded_o$37 [29:23] $expanded_o$37 [19:15] $expanded_o$37 [11:10] $expanded_o$37 [6:1] } = { 7'0000000 $expanded_o$37 [0] 1'0 $expanded_o$37 [0] $expanded_o$37 [9:7] 1'0 $expanded_o$37 [0] 1'0 $expanded_o$37 [0] $expanded_o$37 [0] 2'00 $expanded_o$37 [0] }
+  Optimizing cells in module \drg5_decompress.
+    Consolidated identical input bits for $pmux cell $procmux$211:
+      Old ports: A={ 1'0 $auto$wreduce.cc:514:run$682 [30:0] }, B={ \instr_i [12] \instr_i [12] \instr_i [12] \instr_i [12] \instr_i [12] \instr_i [12] \instr_i [12] \instr_i [6:2] 2'01 \instr_i [9:7] 5'11101 \instr_i [9:7] 7'0010011 $expanded_o$37 }, Y=$expanded_o$39
+      New ports: A={ $auto$wreduce.cc:514:run$682 [30] 1'0 $auto$wreduce.cc:514:run$682 [24:20] $auto$wreduce.cc:514:run$682 [0] 1'0 $auto$wreduce.cc:514:run$682 [0] $auto$wreduce.cc:514:run$682 [9:7] 1'0 $auto$wreduce.cc:514:run$682 [0] }, B={ \instr_i [12] \instr_i [12] \instr_i [6:2] 3'111 \instr_i [9:7] 2'01 $expanded_o$37 [30] 2'00 $expanded_o$37 [0] $expanded_o$37 [22:20] $expanded_o$37 [14:12] $expanded_o$37 [9:7] $expanded_o$37 [0] $expanded_o$37 [0] }, Y={ $expanded_o$39 [30] $expanded_o$39 [25:20] $expanded_o$39 [14:12] $expanded_o$39 [9:7] $expanded_o$39 [5] $expanded_o$39 [0] }
+      New connections: { $expanded_o$39 [31] $expanded_o$39 [29:26] $expanded_o$39 [19:15] $expanded_o$39 [11:10] $expanded_o$39 [6] $expanded_o$39 [4:1] } = { $expanded_o$39 [25] $expanded_o$39 [25] $expanded_o$39 [25] $expanded_o$39 [25] $expanded_o$39 [25] 1'0 $expanded_o$39 [0] $expanded_o$39 [9:7] 1'0 $expanded_o$39 [0] 1'0 $expanded_o$39 [0] 2'00 $expanded_o$39 [0] }
+    Consolidated identical input bits for $mux cell $procmux$18:
+      Old ports: A={ \instr_i [6:2] $66y 3'000 \instr_i [11:7] 7'0110011 }, B={ 4'0000 $auto$wreduce.cc:514:run$689 [20:0] }, Y=$expanded_o$67 [24:0]
+      New ports: A={ \instr_i [6:2] $66y \instr_i [11:7] 4'0101 }, B={ 4'0000 $auto$wreduce.cc:514:run$689 [4] $auto$wreduce.cc:514:run$689 [19:15] 4'0000 $auto$wreduce.cc:514:run$689 [7] $auto$wreduce.cc:514:run$689 [0] $auto$wreduce.cc:514:run$689 [4] $auto$wreduce.cc:514:run$689 [2] $auto$wreduce.cc:514:run$689 [0] }, Y={ $expanded_o$67 [24:15] $expanded_o$67 [11:6] $expanded_o$67 [4] $expanded_o$67 [2] $expanded_o$67 [0] }
+      New connections: { $expanded_o$67 [14:12] $expanded_o$67 [5] $expanded_o$67 [3] $expanded_o$67 [1] } = { 3'000 $expanded_o$67 [0] 1'0 $expanded_o$67 [0] }
+  Optimizing cells in module \drg5_decompress.
+    Consolidated identical input bits for $pmux cell $procmux$351:
+      Old ports: A={ \instr_i [12] \instr_i [12] \instr_i [12] \instr_i [12] \instr_i [12] \instr_i [12] \instr_i [12] \instr_i [6:2] \instr_i [11:7] 3'000 \instr_i [11:7] 7'0010011 }, B={ \instr_i [12] \instr_i [8] \instr_i [10:9] \instr_i [6] \instr_i [7] \instr_i [2] \instr_i [11] \instr_i [5:3] \instr_i [12] \instr_i [12] \instr_i [12] \instr_i [12] \instr_i [12] \instr_i [12] \instr_i [12] \instr_i [12] \instr_i [12] 4'0000 $15y 7'1101111 \instr_i [12] \instr_i [12] \instr_i [12] \instr_i [12] \instr_i [12] \instr_i [12] \instr_i [12] \instr_i [6:2] 8'00000000 \instr_i [11:7] 7'0010011 $expanded_o$27 $expanded_o$39 \instr_i [12] \instr_i [12] \instr_i [12] \instr_i [12] \instr_i [6:5] \instr_i [2] 7'0000001 \instr_i [9:7] 2'00 \instr_i [13] \instr_i [11:10] \instr_i [4:3] \instr_i [12] 7'1100011 }, Y=$expanded_o$41
+      New ports: A={ \instr_i [12] \instr_i [12] \instr_i [12] \instr_i [12] \instr_i [12] \instr_i [12] \instr_i [12] \instr_i [6:2] \instr_i [11:7] 3'000 \instr_i [11:7] 6'001001 }, B={ \instr_i [12] \instr_i [8] \instr_i [10:9] \instr_i [6] \instr_i [7] \instr_i [2] \instr_i [11] \instr_i [5:3] \instr_i [12] \instr_i [12] \instr_i [12] \instr_i [12] \instr_i [12] \instr_i [12] \instr_i [12] \instr_i [12] \instr_i [12] 4'0000 $15y 6'110111 \instr_i [12] \instr_i [12] \instr_i [12] \instr_i [12] \instr_i [12] \instr_i [12] \instr_i [12] \instr_i [6:2] 8'00000000 \instr_i [11:7] 6'001001 $expanded_o$27 [29] $expanded_o$27 [29] $expanded_o$27 [29:24] $expanded_o$27 [17] $expanded_o$27 [17] $expanded_o$27 [17] $expanded_o$27 [17] $expanded_o$27 [17] $expanded_o$27 [17] $expanded_o$27 [17:7] 1'0 $expanded_o$27 [2] $expanded_o$27 [0] 1'0 $expanded_o$27 [2] $expanded_o$27 [0] $expanded_o$39 [25] $expanded_o$39 [30] $expanded_o$39 [25] $expanded_o$39 [25] $expanded_o$39 [25] $expanded_o$39 [25] $expanded_o$39 [25:20] 1'0 $expanded_o$39 [0] $expanded_o$39 [9:7] $expanded_o$39 [14:12] 1'0 $expanded_o$39 [0] $expanded_o$39 [9:7] 1'0 $expanded_o$39 [5] $expanded_o$39 [0] 2'00 $expanded_o$39 [0] \instr_i [12] \instr_i [12] \instr_i [12] \instr_i [12] \instr_i [6:5] \instr_i [2] 7'0000001 \instr_i [9:7] 2'00 \instr_i [13] \instr_i [11:10] \instr_i [4:3] \instr_i [12] 6'110001 }, Y={ $expanded_o$41 [31:2] $expanded_o$41 [0] }
+      New connections: $expanded_o$41 [1] = $expanded_o$41 [0]
+    Consolidated identical input bits for $pmux cell $procmux$144:
+      Old ports: A=28'0000000000000000000000000000, B={ 3'000 $auto$wreduce.cc:514:run$680 [24:20] $auto$wreduce.cc:514:run$680 [11:7] 2'00 $auto$wreduce.cc:514:run$680 [0] $auto$wreduce.cc:514:run$680 [11:7] 2'00 $auto$wreduce.cc:514:run$680 [0] 2'00 $auto$wreduce.cc:514:run$680 [0] $auto$wreduce.cc:514:run$680 [0] $auto$wreduce.cc:514:run$679 [27:22] 5'00000 $auto$wreduce.cc:514:run$679 [0] 2'00 $auto$wreduce.cc:514:run$679 [0] 1'0 $auto$wreduce.cc:514:run$679 [11:7] 5'00000 $auto$wreduce.cc:514:run$679 [0] $auto$wreduce.cc:514:run$679 [0] 3'000 $expanded_o$67 [24:0] \instr_i [8:7] \instr_i [12] \instr_i [6:2] 8'00010010 \instr_i [11:9] 9'000100011 }, Y=$expanded_o$69 [27:0]
+      New ports: A=25'0000000000000000000000000, B={ 3'000 $auto$wreduce.cc:514:run$680 [24:20] $auto$wreduce.cc:514:run$680 [11:7] 1'0 $auto$wreduce.cc:514:run$680 [0] $auto$wreduce.cc:514:run$680 [11:7] 2'00 $auto$wreduce.cc:514:run$680 [0] 1'0 $auto$wreduce.cc:514:run$680 [0] $auto$wreduce.cc:514:run$679 [27:22] 5'00000 $auto$wreduce.cc:514:run$679 [0] 1'0 $auto$wreduce.cc:514:run$679 [0] 1'0 $auto$wreduce.cc:514:run$679 [11:7] 4'0000 $auto$wreduce.cc:514:run$679 [0] 3'000 $expanded_o$67 [24:15] 2'00 $expanded_o$67 [11:6] $expanded_o$67 [0] $expanded_o$67 [4] $expanded_o$67 [2] $expanded_o$67 [0] \instr_i [8:7] \instr_i [12] \instr_i [6:2] 7'0001010 \instr_i [11:9] 7'0001001 }, Y={ $expanded_o$69 [27:15] $expanded_o$69 [13:4] $expanded_o$69 [2] $expanded_o$69 [0] }
+      New connections: { $expanded_o$69 [14] $expanded_o$69 [3] $expanded_o$69 [1] } = { 2'00 $expanded_o$69 [0] }
+  Optimizing cells in module \drg5_decompress.
+    Consolidated identical input bits for $pmux cell $procmux$441:
+      Old ports: A=0, B={ 2'00 $auto$wreduce.cc:514:run$686 [29:0] $expanded_o$41 $expanded_o$69 }, Y=$expanded_o$72
+      New ports: A=31'0000000000000000000000000000000, B={ 2'00 $auto$wreduce.cc:514:run$686 [29:20] 1'0 $auto$wreduce.cc:514:run$686 [13] $auto$wreduce.cc:514:run$686 [17:15] 1'0 $auto$wreduce.cc:514:run$686 [13] 1'0 $auto$wreduce.cc:514:run$686 [11:7] 1'0 $auto$wreduce.cc:514:run$686 [5:4] 2'00 $auto$wreduce.cc:514:run$686 [0] $expanded_o$41 [31:2] $expanded_o$41 [0] 4'0000 $expanded_o$69 [27:15] 1'0 $expanded_o$69 [13:4] 1'0 $expanded_o$69 [2] $expanded_o$69 [0] }, Y={ $expanded_o$72 [31:2] $expanded_o$72 [0] }
+      New connections: $expanded_o$72 [1] = $expanded_o$72 [0]
+  Optimizing cells in module \drg5_decompress.
+    Consolidated identical input bits for $mux cell $procmux$2:
+      Old ports: A=$expanded_o$72, B=19, Y=\expanded_o
+      New ports: A={ $expanded_o$72 [31:2] $expanded_o$72 [0] }, B=31'0000000000000000000000000001001, Y={ \expanded_o [31:2] \expanded_o [0] }
+      New connections: \expanded_o [1] = \expanded_o [0]
+  Optimizing cells in module \drg5_decompress.
+Performed a total of 21 changes.
+
+6.31.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\drg5_decompress'.
+Computing hashes of 73 cells of `\drg5_decompress'.
+Finding duplicate cells in `\drg5_decompress'.
+Removed a total of 0 cells.
+
+6.31.6. Executing OPT_DFF pass (perform DFF optimizations).
+
+6.31.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \drg5_decompress..
+
+6.31.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module drg5_decompress.
+
+6.31.9. Rerunning OPT passes. (Maybe there is more to do..)
+
+6.31.10. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \drg5_decompress..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~42 debug messages>
+
+6.31.11. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \drg5_decompress.
+Performed a total of 0 changes.
+
+6.31.12. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\drg5_decompress'.
+Computing hashes of 73 cells of `\drg5_decompress'.
+Finding duplicate cells in `\drg5_decompress'.
+Removed a total of 0 cells.
+
+6.31.13. Executing OPT_DFF pass (perform DFF optimizations).
+
+6.31.14. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \drg5_decompress..
+
+6.31.15. Executing OPT_EXPR pass (perform const folding).
+Optimizing module drg5_decompress.
+
+6.31.16. Finished fast OPT passes. (There is nothing left to do.)
+
+6.32. Executing TECHMAP pass (map to technology primitives).
+
+6.32.1. Executing Verilog-2005 frontend: /tmp/drg5-control-tools-20260301/oss-cad-suite/lib/../share/yosys/techmap.v
+Parsing Verilog input from `/tmp/drg5-control-tools-20260301/oss-cad-suite/lib/../share/yosys/techmap.v' to AST representation.
+Generating RTLIL representation for module `\_90_simplemap_bool_ops'.
+Generating RTLIL representation for module `\_90_simplemap_reduce_ops'.
+Generating RTLIL representation for module `\_90_simplemap_logic_ops'.
+Generating RTLIL representation for module `\_90_simplemap_compare_ops'.
+Generating RTLIL representation for module `\_90_simplemap_various'.
+Generating RTLIL representation for module `\_90_simplemap_registers'.
+Generating RTLIL representation for module `\_90_shift_ops_shr_shl_sshl_sshr'.
+Generating RTLIL representation for module `\_90_shift_shiftx'.
+Generating RTLIL representation for module `\_90_fa'.
+Generating RTLIL representation for module `\_90_lcu_brent_kung'.
+Generating RTLIL representation for module `\_90_alu'.
+Generating RTLIL representation for module `\_90_macc'.
+Generating RTLIL representation for module `\_90_alumacc'.
+Generating RTLIL representation for module `$__div_mod_u'.
+Generating RTLIL representation for module `$__div_mod_trunc'.
+Generating RTLIL representation for module `\_90_div'.
+Generating RTLIL representation for module `\_90_mod'.
+Generating RTLIL representation for module `$__div_mod_floor'.
+Generating RTLIL representation for module `\_90_divfloor'.
+Generating RTLIL representation for module `\_90_modfloor'.
+Generating RTLIL representation for module `\_90_pow'.
+Generating RTLIL representation for module `\_90_pmux'.
+Generating RTLIL representation for module `\_90_demux'.
+Generating RTLIL representation for module `\_90_lut'.
+Generating RTLIL representation for module `$connect'.
+Generating RTLIL representation for module `$input_port'.
+Successfully finished Verilog frontend.
+
+6.32.2. Executing Verilog-2005 frontend: /tmp/drg5-control-tools-20260301/oss-cad-suite/lib/../share/yosys/lattice/arith_map_ccu2c.v
+Parsing Verilog input from `/tmp/drg5-control-tools-20260301/oss-cad-suite/lib/../share/yosys/lattice/arith_map_ccu2c.v' to AST representation.
+Generating RTLIL representation for module `\_80_ccu2c_alu'.
+Successfully finished Verilog frontend.
+
+6.32.3. Continuing TECHMAP pass.
+Using extmapper simplemap for cells of type $reduce_or.
+Using extmapper simplemap for cells of type $reduce_bool.
+Using extmapper simplemap for cells of type $logic_and.
+Using extmapper simplemap for cells of type $logic_not.
+Using extmapper simplemap for cells of type $logic_or.
+Using extmapper simplemap for cells of type $mux.
+Using extmapper simplemap for cells of type $eq.
+Using template $paramod$068ad458e7761d78e5eed8238508872e7b0aef95\_90_pmux for cells of type $pmux.
+Using template $paramod$8e235e9b529dfd4aea8a90009cd599016ab01c3c\_90_pmux for cells of type $pmux.
+Using template $paramod$c2e415ef15bc3ccd2723772353a6b450d3d76206\_90_pmux for cells of type $pmux.
+Using template $paramod$521ce43182eecb9f60c72393a788160d2c356bf5\_90_pmux for cells of type $pmux.
+Using template $paramod$21a993a8c398891107be36c3a76332f0d1652884\_90_pmux for cells of type $pmux.
+Using template $paramod$878fd1809419ed11a2d056be26ac30d95fbba358\_90_pmux for cells of type $pmux.
+Using template $paramod$c5c783b17ab1d780abfad8cfe6563a0a7b47a3b0\_90_pmux for cells of type $pmux.
+Using template $paramod$97565c3687be688407d1272a293bd9d0ae6852dc\_90_pmux for cells of type $pmux.
+Using template $paramod$4e99ce8f3ff8355c2fa6eaa8d174fb317480c146\_90_pmux for cells of type $pmux.
+Using template $paramod$88184249da84238853ee4b15e8f92ee2db8d6f51\_90_pmux for cells of type $pmux.
+Using extmapper simplemap for cells of type $and.
+No more expansions possible.
+<suppressed ~474 debug messages>
+
+6.33. Executing OPT pass (performing simple optimizations).
+
+6.33.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module drg5_decompress.
+<suppressed ~414 debug messages>
+
+6.33.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\drg5_decompress'.
+Computing hashes of 1027 cells of `\drg5_decompress'.
+Finding duplicate cells in `\drg5_decompress'.
+Computing hashes of 882 cells of `\drg5_decompress'.
+Finding duplicate cells in `\drg5_decompress'.
+Computing hashes of 861 cells of `\drg5_decompress'.
+Finding duplicate cells in `\drg5_decompress'.
+Computing hashes of 856 cells of `\drg5_decompress'.
+Finding duplicate cells in `\drg5_decompress'.
+Computing hashes of 854 cells of `\drg5_decompress'.
+Finding duplicate cells in `\drg5_decompress'.
+<suppressed ~519 debug messages>
+Removed a total of 173 cells.
+
+6.33.3. Executing OPT_DFF pass (perform DFF optimizations).
+
+6.33.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \drg5_decompress..
+Removed 1 unused cells and 680 unused wires.
+<suppressed ~2 debug messages>
+
+6.33.5. Finished fast OPT passes.
+
+6.34. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \drg5_decompress..
+
+6.35. Executing DFFLEGALIZE pass (convert FFs to types supported by the target).
+
+6.36. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\drg5_decompress'.
+Computing hashes of 853 cells of `\drg5_decompress'.
+Finding duplicate cells in `\drg5_decompress'.
+Removed a total of 0 cells.
+
+6.37. Executing TECHMAP pass (map to technology primitives).
+
+6.37.1. Executing Verilog-2005 frontend: /tmp/drg5-control-tools-20260301/oss-cad-suite/lib/../share/yosys/lattice/cells_map_trellis.v
+Parsing Verilog input from `/tmp/drg5-control-tools-20260301/oss-cad-suite/lib/../share/yosys/lattice/cells_map_trellis.v' to AST representation.
+Generating RTLIL representation for module `$_DFF_N_'.
+Generating RTLIL representation for module `$_DFF_P_'.
+Generating RTLIL representation for module `$_DFFE_NN_'.
+Generating RTLIL representation for module `$_DFFE_PN_'.
+Generating RTLIL representation for module `$_DFFE_NP_'.
+Generating RTLIL representation for module `$_DFFE_PP_'.
+Generating RTLIL representation for module `$_DFF_NP0_'.
+Generating RTLIL representation for module `$_DFF_NP1_'.
+Generating RTLIL representation for module `$_DFF_PP0_'.
+Generating RTLIL representation for module `$_DFF_PP1_'.
+Generating RTLIL representation for module `$_SDFF_NP0_'.
+Generating RTLIL representation for module `$_SDFF_NP1_'.
+Generating RTLIL representation for module `$_SDFF_PP0_'.
+Generating RTLIL representation for module `$_SDFF_PP1_'.
+Generating RTLIL representation for module `$_DFFE_NP0P_'.
+Generating RTLIL representation for module `$_DFFE_NP1P_'.
+Generating RTLIL representation for module `$_DFFE_PP0P_'.
+Generating RTLIL representation for module `$_DFFE_PP1P_'.
+Generating RTLIL representation for module `$_DFFE_NP0N_'.
+Generating RTLIL representation for module `$_DFFE_NP1N_'.
+Generating RTLIL representation for module `$_DFFE_PP0N_'.
+Generating RTLIL representation for module `$_DFFE_PP1N_'.
+Generating RTLIL representation for module `$_SDFFE_NP0P_'.
+Generating RTLIL representation for module `$_SDFFE_NP1P_'.
+Generating RTLIL representation for module `$_SDFFE_PP0P_'.
+Generating RTLIL representation for module `$_SDFFE_PP1P_'.
+Generating RTLIL representation for module `$_SDFFE_NP0N_'.
+Generating RTLIL representation for module `$_SDFFE_NP1N_'.
+Generating RTLIL representation for module `$_SDFFE_PP0N_'.
+Generating RTLIL representation for module `$_SDFFE_PP1N_'.
+Generating RTLIL representation for module `$_ALDFF_NP_'.
+Generating RTLIL representation for module `$_ALDFF_PP_'.
+Generating RTLIL representation for module `$_ALDFFE_NPN_'.
+Generating RTLIL representation for module `$_ALDFFE_NPP_'.
+Generating RTLIL representation for module `$_ALDFFE_PPN_'.
+Generating RTLIL representation for module `$_ALDFFE_PPP_'.
+Generating RTLIL representation for module `\FD1P3AX'.
+Generating RTLIL representation for module `\FD1P3AY'.
+Generating RTLIL representation for module `\FD1P3BX'.
+Generating RTLIL representation for module `\FD1P3DX'.
+Generating RTLIL representation for module `\FD1P3IX'.
+Generating RTLIL representation for module `\FD1P3JX'.
+Generating RTLIL representation for module `\FD1S3AX'.
+Generating RTLIL representation for module `\FD1S3AY'.
+Generating RTLIL representation for module `\FD1S3BX'.
+Generating RTLIL representation for module `\FD1S3DX'.
+Generating RTLIL representation for module `\FD1S3IX'.
+Generating RTLIL representation for module `\FD1S3JX'.
+Generating RTLIL representation for module `\IFS1P3BX'.
+Generating RTLIL representation for module `\IFS1P3DX'.
+Generating RTLIL representation for module `\IFS1P3IX'.
+Generating RTLIL representation for module `\IFS1P3JX'.
+Generating RTLIL representation for module `\OFS1P3BX'.
+Generating RTLIL representation for module `\OFS1P3DX'.
+Generating RTLIL representation for module `\OFS1P3IX'.
+Generating RTLIL representation for module `\OFS1P3JX'.
+Generating RTLIL representation for module `\IB'.
+Generating RTLIL representation for module `\IBPU'.
+Generating RTLIL representation for module `\IBPD'.
+Generating RTLIL representation for module `\OB'.
+Generating RTLIL representation for module `\OBZ'.
+Generating RTLIL representation for module `\OBZPU'.
+Generating RTLIL representation for module `\OBZPD'.
+Generating RTLIL representation for module `\OBCO'.
+Generating RTLIL representation for module `\BB'.
+Generating RTLIL representation for module `\BBPU'.
+Generating RTLIL representation for module `\BBPD'.
+Generating RTLIL representation for module `\ILVDS'.
+Generating RTLIL representation for module `\OLVDS'.
+Successfully finished Verilog frontend.
+
+6.37.2. Continuing TECHMAP pass.
+No more expansions possible.
+<suppressed ~71 debug messages>
+
+6.38. Executing OPT_EXPR pass (perform const folding).
+Optimizing module drg5_decompress.
+
+6.39. Executing SIMPLEMAP pass (map simple cells to gate primitives).
+
+6.40. Executing LATTICE_GSR pass (implement FF init values).
+Handling GSR in drg5_decompress.
+
+6.41. Executing ATTRMVCP pass (move or copy attributes).
+
+6.42. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \drg5_decompress..
+
+6.43. Executing TECHMAP pass (map to technology primitives).
+
+6.43.1. Executing Verilog-2005 frontend: /tmp/drg5-control-tools-20260301/oss-cad-suite/lib/../share/yosys/lattice/latches_map.v
+Parsing Verilog input from `/tmp/drg5-control-tools-20260301/oss-cad-suite/lib/../share/yosys/lattice/latches_map.v' to AST representation.
+Generating RTLIL representation for module `$_DLATCH_N_'.
+Generating RTLIL representation for module `$_DLATCH_P_'.
+Successfully finished Verilog frontend.
+
+6.43.2. Continuing TECHMAP pass.
+No more expansions possible.
+<suppressed ~4 debug messages>
+
+6.44. Executing ABC9 pass.
+
+6.44.1. Executing ABC9_OPS pass (helper functions for ABC9).
+
+6.44.2. Executing ABC9_OPS pass (helper functions for ABC9).
+
+6.44.3. Executing SCC pass (detecting logic loops).
+Found 0 SCCs in module drg5_decompress.
+Found 0 SCCs.
+
+6.44.4. Executing ABC9_OPS pass (helper functions for ABC9).
+
+6.44.5. Executing TECHMAP pass (map to technology primitives).
+
+6.44.5.1. Executing Verilog-2005 frontend: /tmp/drg5-control-tools-20260301/oss-cad-suite/lib/../share/yosys/techmap.v
+Parsing Verilog input from `/tmp/drg5-control-tools-20260301/oss-cad-suite/lib/../share/yosys/techmap.v' to AST representation.
+Generating RTLIL representation for module `\_90_simplemap_bool_ops'.
+Generating RTLIL representation for module `\_90_simplemap_reduce_ops'.
+Generating RTLIL representation for module `\_90_simplemap_logic_ops'.
+Generating RTLIL representation for module `\_90_simplemap_compare_ops'.
+Generating RTLIL representation for module `\_90_simplemap_various'.
+Generating RTLIL representation for module `\_90_simplemap_registers'.
+Generating RTLIL representation for module `\_90_shift_ops_shr_shl_sshl_sshr'.
+Generating RTLIL representation for module `\_90_shift_shiftx'.
+Generating RTLIL representation for module `\_90_fa'.
+Generating RTLIL representation for module `\_90_lcu_brent_kung'.
+Generating RTLIL representation for module `\_90_alu'.
+Generating RTLIL representation for module `\_90_macc'.
+Generating RTLIL representation for module `\_90_alumacc'.
+Generating RTLIL representation for module `$__div_mod_u'.
+Generating RTLIL representation for module `$__div_mod_trunc'.
+Generating RTLIL representation for module `\_90_div'.
+Generating RTLIL representation for module `\_90_mod'.
+Generating RTLIL representation for module `$__div_mod_floor'.
+Generating RTLIL representation for module `\_90_divfloor'.
+Generating RTLIL representation for module `\_90_modfloor'.
+Generating RTLIL representation for module `\_90_pow'.
+Generating RTLIL representation for module `\_90_pmux'.
+Generating RTLIL representation for module `\_90_demux'.
+Generating RTLIL representation for module `\_90_lut'.
+Generating RTLIL representation for module `$connect'.
+Generating RTLIL representation for module `$input_port'.
+Successfully finished Verilog frontend.
+
+6.44.5.2. Continuing TECHMAP pass.
+No more expansions possible.
+<suppressed ~165 debug messages>
+
+6.44.6. Executing OPT pass (performing simple optimizations).
+
+6.44.6.1. Executing OPT_EXPR pass (perform const folding).
+
+6.44.6.2. Executing OPT_MERGE pass (detect identical cells).
+Removed a total of 0 cells.
+
+6.44.6.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Removed 0 multiplexer ports.
+
+6.44.6.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+Performed a total of 0 changes.
+
+6.44.6.5. Executing OPT_MERGE pass (detect identical cells).
+Removed a total of 0 cells.
+
+6.44.6.6. Executing OPT_DFF pass (perform DFF optimizations).
+
+6.44.6.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+
+6.44.6.8. Executing OPT_EXPR pass (perform const folding).
+
+6.44.6.9. Finished fast OPT passes. (There is nothing left to do.)
+
+6.44.7. Executing TECHMAP pass (map to technology primitives).
+
+6.44.7.1. Executing Verilog-2005 frontend: /tmp/drg5-control-tools-20260301/oss-cad-suite/lib/../share/yosys/abc9_map.v
+Parsing Verilog input from `/tmp/drg5-control-tools-20260301/oss-cad-suite/lib/../share/yosys/abc9_map.v' to AST representation.
+Successfully finished Verilog frontend.
+
+6.44.7.2. Continuing TECHMAP pass.
+No more expansions possible.
+<suppressed ~2 debug messages>
+
+6.44.8. Executing Verilog-2005 frontend: /tmp/drg5-control-tools-20260301/oss-cad-suite/lib/../share/yosys/abc9_model.v
+Parsing Verilog input from `/tmp/drg5-control-tools-20260301/oss-cad-suite/lib/../share/yosys/abc9_model.v' to AST representation.
+Generating RTLIL representation for module `$__ABC9_DELAY'.
+Generating RTLIL representation for module `$__ABC9_SCC_BREAKER'.
+Generating RTLIL representation for module `$__DFF_N__$abc9_flop'.
+Generating RTLIL representation for module `$__DFF_P__$abc9_flop'.
+Successfully finished Verilog frontend.
+
+6.44.9. Executing ABC9_OPS pass (helper functions for ABC9).
+
+6.44.10. Executing ABC9_OPS pass (helper functions for ABC9).
+
+6.44.11. Executing ABC9_OPS pass (helper functions for ABC9).
+<suppressed ~2 debug messages>
+
+6.44.12. Executing AIGMAP pass (map logic to AIG).
+Module drg5_decompress: replaced 567 cells with 3108 new cells, skipped 286 cells.
+  replaced 2 cell types:
+     280 $_MUX_
+     287 $_OR_
+  not replaced 2 cell types:
+     248 $_AND_
+      38 $_NOT_
+
+6.44.12.1. Executing ABC9_OPS pass (helper functions for ABC9).
+
+6.44.12.2. Executing ABC9_OPS pass (helper functions for ABC9).
+
+6.44.12.3. Executing XAIGER backend.
+<suppressed ~5 debug messages>
+Extracted 1375 AND gates and 3413 wires from module `drg5_decompress' to a netlist network with 16 inputs and 36 outputs.
+
+6.44.12.4. Executing ABC9_EXE pass (technology mapping using ABC9).
+
+6.44.12.5. Executing ABC9.
+Running ABC command: "<yosys-exe-dir>/yosys-abc" -s -f <abc-temp-dir>/abc.script 2>&1
+ABC: ======== ABC command line "source <abc-temp-dir>/abc.script"
+ABC: + read_lut <abc-temp-dir>/input.lut 
+ABC: + read_box <abc-temp-dir>/input.box 
+ABC: + &read <abc-temp-dir>/input.xaig 
+ABC: + &ps 
+ABC: <abc-temp-dir>/input : i/o =     16/     36  and =     903  lev =   20 (18.86)  mem = 0.01 MB  box = 0  bb = 0
+ABC: + &scorr 
+ABC: Warning: The network is combinational.
+ABC: + &sweep 
+ABC: + &dc2 
+ABC: + &dch -f -r 
+ABC: + &ps 
+ABC: <abc-temp-dir>/input : i/o =     16/     36  and =     640  lev =   12 (11.08)  mem = 0.01 MB  ch =  103  box = 0  bb = 0
+ABC: cst =       0  cls =     98  lit =     103  unused =     455  proof =     0
+ABC: + &if -W 300 -v 
+ABC: K = 7. Memory (bytes): Truth =    0. Cut =   64. Obj =  148. Set =  672. CutMin = no
+ABC: Node =     640.  Ch =    98.  Total mem =    0.11 MB. Peak cut mem =    0.04 MB.
+ABC: P:  Del = 2584.00.  Ar =     829.0.  Edge =     1002.  Cut =     9714.  T =     0.00 sec
+ABC: P:  Del = 2584.00.  Ar =     825.0.  Edge =     1033.  Cut =     9529.  T =     0.00 sec
+ABC: P:  Del = 2584.00.  Ar =     750.0.  Edge =     1024.  Cut =    18202.  T =     0.00 sec
+ABC: F:  Del = 2584.00.  Ar =     581.0.  Edge =      925.  Cut =     8569.  T =     0.00 sec
+ABC: A:  Del = 2584.00.  Ar =     505.0.  Edge =      852.  Cut =     8497.  T =     0.00 sec
+ABC: A:  Del = 2584.00.  Ar =     495.0.  Edge =      839.  Cut =     8129.  T =     0.00 sec
+ABC: Total time =     0.01 sec
+ABC: + &write -n <abc-temp-dir>/output.aig 
+ABC: + &mfs 
+ABC: Timing manager is given but there is no GIA of boxes.
+ABC: Error: Abc_FrameUpdateGia(): Transformation has failed.
+ABC: + &ps -l 
+ABC: <abc-temp-dir>/input : i/o =     16/     36  and =     874  lev =   12 (11.17)  mem = 0.01 MB  box = 0  bb = 0
+ABC: Mapping (K=7)  :  lut =    175  edge =     839  lev =    5 (4.81)  mem = 0.01 MB
+ABC: LUT = 175 : 2=12 6.9 %  3=24 13.7 %  4=29 16.6 %  5=61 34.9 %  6=21 12.0 %  7=28 16.0 %  Ave = 4.79
+ABC: + &write -n <abc-temp-dir>/output.aig 
+ABC: + &verify 
+ABC: Networks are equivalent.  Time =     0.02 sec
+ABC: + time 
+ABC: elapse: 0.05 seconds, total: 0.05 seconds
+
+6.44.12.6. Executing AIGER frontend.
+<suppressed ~112 debug messages>
+Removed 1164 unused cells and 1214 unused wires.
+
+6.44.12.7. Executing ABC9_OPS pass (helper functions for ABC9).
+ABC RESULTS:              $lut cells:      175
+ABC RESULTS:           input signals:        1
+ABC RESULTS:          output signals:        4
+Removing temp directory.
+
+6.44.13. Executing TECHMAP pass (map to technology primitives).
+
+6.44.13.1. Executing Verilog-2005 frontend: /tmp/drg5-control-tools-20260301/oss-cad-suite/lib/../share/yosys/abc9_unmap.v
+Parsing Verilog input from `/tmp/drg5-control-tools-20260301/oss-cad-suite/lib/../share/yosys/abc9_unmap.v' to AST representation.
+Generating RTLIL representation for module `$__DFF_x__$abc9_flop'.
+Generating RTLIL representation for module `$__ABC9_SCC_BREAKER'.
+Successfully finished Verilog frontend.
+
+6.44.13.2. Continuing TECHMAP pass.
+No more expansions possible.
+<suppressed ~5 debug messages>
+Removed 5 unused cells and 3380 unused wires.
+
+6.45. Executing TECHMAP pass (map to technology primitives).
+
+6.45.1. Executing Verilog-2005 frontend: /tmp/drg5-control-tools-20260301/oss-cad-suite/lib/../share/yosys/lattice/cells_map_trellis.v
+Parsing Verilog input from `/tmp/drg5-control-tools-20260301/oss-cad-suite/lib/../share/yosys/lattice/cells_map_trellis.v' to AST representation.
+Generating RTLIL representation for module `$_DFF_N_'.
+Generating RTLIL representation for module `$_DFF_P_'.
+Generating RTLIL representation for module `$_DFFE_NN_'.
+Generating RTLIL representation for module `$_DFFE_PN_'.
+Generating RTLIL representation for module `$_DFFE_NP_'.
+Generating RTLIL representation for module `$_DFFE_PP_'.
+Generating RTLIL representation for module `$_DFF_NP0_'.
+Generating RTLIL representation for module `$_DFF_NP1_'.
+Generating RTLIL representation for module `$_DFF_PP0_'.
+Generating RTLIL representation for module `$_DFF_PP1_'.
+Generating RTLIL representation for module `$_SDFF_NP0_'.
+Generating RTLIL representation for module `$_SDFF_NP1_'.
+Generating RTLIL representation for module `$_SDFF_PP0_'.
+Generating RTLIL representation for module `$_SDFF_PP1_'.
+Generating RTLIL representation for module `$_DFFE_NP0P_'.
+Generating RTLIL representation for module `$_DFFE_NP1P_'.
+Generating RTLIL representation for module `$_DFFE_PP0P_'.
+Generating RTLIL representation for module `$_DFFE_PP1P_'.
+Generating RTLIL representation for module `$_DFFE_NP0N_'.
+Generating RTLIL representation for module `$_DFFE_NP1N_'.
+Generating RTLIL representation for module `$_DFFE_PP0N_'.
+Generating RTLIL representation for module `$_DFFE_PP1N_'.
+Generating RTLIL representation for module `$_SDFFE_NP0P_'.
+Generating RTLIL representation for module `$_SDFFE_NP1P_'.
+Generating RTLIL representation for module `$_SDFFE_PP0P_'.
+Generating RTLIL representation for module `$_SDFFE_PP1P_'.
+Generating RTLIL representation for module `$_SDFFE_NP0N_'.
+Generating RTLIL representation for module `$_SDFFE_NP1N_'.
+Generating RTLIL representation for module `$_SDFFE_PP0N_'.
+Generating RTLIL representation for module `$_SDFFE_PP1N_'.
+Generating RTLIL representation for module `$_ALDFF_NP_'.
+Generating RTLIL representation for module `$_ALDFF_PP_'.
+Generating RTLIL representation for module `$_ALDFFE_NPN_'.
+Generating RTLIL representation for module `$_ALDFFE_NPP_'.
+Generating RTLIL representation for module `$_ALDFFE_PPN_'.
+Generating RTLIL representation for module `$_ALDFFE_PPP_'.
+Generating RTLIL representation for module `\FD1P3AX'.
+Generating RTLIL representation for module `\FD1P3AY'.
+Generating RTLIL representation for module `\FD1P3BX'.
+Generating RTLIL representation for module `\FD1P3DX'.
+Generating RTLIL representation for module `\FD1P3IX'.
+Generating RTLIL representation for module `\FD1P3JX'.
+Generating RTLIL representation for module `\FD1S3AX'.
+Generating RTLIL representation for module `\FD1S3AY'.
+Generating RTLIL representation for module `\FD1S3BX'.
+Generating RTLIL representation for module `\FD1S3DX'.
+Generating RTLIL representation for module `\FD1S3IX'.
+Generating RTLIL representation for module `\FD1S3JX'.
+Generating RTLIL representation for module `\IFS1P3BX'.
+Generating RTLIL representation for module `\IFS1P3DX'.
+Generating RTLIL representation for module `\IFS1P3IX'.
+Generating RTLIL representation for module `\IFS1P3JX'.
+Generating RTLIL representation for module `\OFS1P3BX'.
+Generating RTLIL representation for module `\OFS1P3DX'.
+Generating RTLIL representation for module `\OFS1P3IX'.
+Generating RTLIL representation for module `\OFS1P3JX'.
+Generating RTLIL representation for module `\IB'.
+Generating RTLIL representation for module `\IBPU'.
+Generating RTLIL representation for module `\IBPD'.
+Generating RTLIL representation for module `\OB'.
+Generating RTLIL representation for module `\OBZ'.
+Generating RTLIL representation for module `\OBZPU'.
+Generating RTLIL representation for module `\OBZPD'.
+Generating RTLIL representation for module `\OBCO'.
+Generating RTLIL representation for module `\BB'.
+Generating RTLIL representation for module `\BBPU'.
+Generating RTLIL representation for module `\BBPD'.
+Generating RTLIL representation for module `\ILVDS'.
+Generating RTLIL representation for module `\OLVDS'.
+Generating RTLIL representation for module `$lut'.
+Successfully finished Verilog frontend.
+
+6.45.2. Continuing TECHMAP pass.
+Using template $paramod$f9813472aa48e533b3838c6f2316dc2e78c66111$lut for cells of type $lut.
+Using template $paramod$7bb6a37e65823eeb4b38c370fec30ab082759a14$lut for cells of type $lut.
+Using template $paramod$lut\WIDTH=32'00000000000000000000000000000010\LUT=4'0100 for cells of type $lut.
+Using template $paramod$lut\WIDTH=32'00000000000000000000000000000011\LUT=8'01110111 for cells of type $lut.
+Using template $paramod$c28a8b7ce0535d090c4cfb52e9c74affd52b110c$lut for cells of type $lut.
+Using template $paramod$lut\WIDTH=32'00000000000000000000000000000011\LUT=8'00001101 for cells of type $lut.
+Using template $paramod$a5516fc31d1e552de2435200bb732b4d4ad63a9c$lut for cells of type $lut.
+Using template $paramod$lut\WIDTH=32'00000000000000000000000000000010\LUT=4'0001 for cells of type $lut.
+Using template $paramod$cbb2dfe31d344d3326d567c2ed5a4b2a29f63219$lut for cells of type $lut.
+Using template $paramod$lut\WIDTH=32'00000000000000000000000000000011\LUT=8'01010001 for cells of type $lut.
+Using template $paramod$b4f85a6321a00b090afc4e21d68e7b99eb94d149$lut for cells of type $lut.
+Using template $paramod$658b9ed803f0d3d335616d3858b53e0a2522f1e8$lut for cells of type $lut.
+Using template $paramod$lut\WIDTH=32'00000000000000000000000000000011\LUT=8'00000001 for cells of type $lut.
+Using template $paramod$lut\WIDTH=32'00000000000000000000000000000010\LUT=4'1000 for cells of type $lut.
+Using template $paramod$lut\WIDTH=32'00000000000000000000000000000010\LUT=4'0010 for cells of type $lut.
+Using template $paramod$lut\WIDTH=32'00000000000000000000000000000011\LUT=8'00000010 for cells of type $lut.
+Using template $paramod$9c65fdfac74256c2eb67dd209b598e25d1f0a099$lut for cells of type $lut.
+Using template $paramod$063b535950dbdc6e6eb1cf64e00afa869735f5f9$lut for cells of type $lut.
+Using template $paramod$66fa3278791b0fa844ff474a9305b2ac9faca91c$lut for cells of type $lut.
+Using template $paramod$lut\WIDTH=32'00000000000000000000000000000011\LUT=8'11010101 for cells of type $lut.
+Using template $paramod$lut\WIDTH=32'00000000000000000000000000000011\LUT=8'11110111 for cells of type $lut.
+Using template $paramod$6e238df02989b317f10820a22773676e71120644$lut for cells of type $lut.
+Using template $paramod$lut\WIDTH=32'00000000000000000000000000000011\LUT=8'00100000 for cells of type $lut.
+Using template $paramod$47a8214374025465e226fa66bee690ff33268a25$lut for cells of type $lut.
+Using template $paramod$d9a8b38ca92c0b7eacd44db09e50891fea2603a8$lut for cells of type $lut.
+Using template $paramod$c71ff4a15e84c66116008c97f38c8a9677d97aae$lut for cells of type $lut.
+Using template $paramod$lut\WIDTH=32'00000000000000000000000000000011\LUT=8'01000000 for cells of type $lut.
+Using template $paramod$lut\WIDTH=32'00000000000000000000000000000011\LUT=8'10100010 for cells of type $lut.
+Using template $paramod$f229d23c8c370dbed1c4d7dbda3b30c6550e1a2a$lut for cells of type $lut.
+Using template $paramod$ce48a2c52d9991d12221b4e95aa9bb4d8d874806$lut for cells of type $lut.
+Using template $paramod$lut\WIDTH=32'00000000000000000000000000000010\LUT=4'1011 for cells of type $lut.
+Using template $paramod$a662ee295d0f0c57debb520a1476a80e4a8c1beb$lut for cells of type $lut.
+Using template $paramod$67c48105ac1ac93bb69f86fb03f6e86baeb7b30e$lut for cells of type $lut.
+Using template $paramod$9bdc414229f06e785dc8fd97a243faa9336e164a$lut for cells of type $lut.
+Using template $paramod$c56e339a50e17e5f93822d2e7e1116e0620fceb2$lut for cells of type $lut.
+Using template $paramod$c1606d3614fcdad1ad79a2d03af4b22fd3221a98$lut for cells of type $lut.
+Using template $paramod$lut\WIDTH=32'00000000000000000000000000000010\LUT=4'1110 for cells of type $lut.
+Using template $paramod$571404c0889eaf57f492cb5e37f8acb5df5852f9$lut for cells of type $lut.
+Using template $paramod$dd95acdea9c10e4d143ea0b05f5efd28d4461683$lut for cells of type $lut.
+Using template $paramod$364c9ffbffac467d60dfec81bba4e18476c15602$lut for cells of type $lut.
+Using template $paramod$06f89e40f6d85491e766ffb7091b68e6ea3574f8$lut for cells of type $lut.
+Using template $paramod$a834b692ece3caea22d1569524df6f3306389251$lut for cells of type $lut.
+Using template $paramod$960ac2b5144f5b7bfcff596b057efff7228d3117$lut for cells of type $lut.
+Using template $paramod$315d6f3d0605da9e9af87a3b2c4e961d56884de2$lut for cells of type $lut.
+Using template $paramod$8ff8e24137e2f18450842e6fe340a219f9ee285d$lut for cells of type $lut.
+Using template $paramod$d7ce01f6fad64f6babac57dd5b7d5a8b5f416a10$lut for cells of type $lut.
+Using template $paramod$98aacbcf708c6f07b5c9961963372b9e3b1de03a$lut for cells of type $lut.
+Using template $paramod$85f85f3fbd15a1b36c366c482ddb8b1eee698ec8$lut for cells of type $lut.
+Using template $paramod$lut\WIDTH=32'00000000000000000000000000000011\LUT=8'00001000 for cells of type $lut.
+Using template $paramod$8e44661def013b6bf9fe6f8b049ef2c838d749f9$lut for cells of type $lut.
+Using template $paramod$lut\WIDTH=32'00000000000000000000000000000011\LUT=8'00010011 for cells of type $lut.
+Using template $paramod$c3053f6205a15ede0b5f2eb161da6571ca4cdf93$lut for cells of type $lut.
+Using template $paramod$5834ad07c9565f180a588614115852758bfcb98d$lut for cells of type $lut.
+Using template $paramod$6023c671e114c4eb0467aa8a0b08e183f33ec2fd$lut for cells of type $lut.
+Using template $paramod$4f78047ef27f5507fcc205dd11f9239955bbcb66$lut for cells of type $lut.
+Using template $paramod$22e1b4dc30dd5837eb613d9d512c17bb105260ee$lut for cells of type $lut.
+Using template $paramod$cd9231b075bd1676df876ecf0b1b4d3b7da3c55b$lut for cells of type $lut.
+Using template $paramod$lut\WIDTH=32'00000000000000000000000000000011\LUT=8'11100000 for cells of type $lut.
+Using template $paramod$4040d51ad5c5e81302e17787a7679b382a438b5c$lut for cells of type $lut.
+Using template $paramod$6bc136981c93a593479f7070f0feb996d28f7456$lut for cells of type $lut.
+Using template $paramod$498daa9936ffa1c0b12d774cacc95a35d14b818e$lut for cells of type $lut.
+Using template $paramod$6d6beead1425af15cf78b27fd9b11b41b5d4bce8$lut for cells of type $lut.
+Using template $paramod$lut\WIDTH=32'00000000000000000000000000000011\LUT=8'10000000 for cells of type $lut.
+Using template $paramod$efc5709db5dc64d56d20f6cb628d30bcf6c57c3b$lut for cells of type $lut.
+Using template $paramod$422232a1d5bcb8127453d44dea3b58932406f5f2$lut for cells of type $lut.
+Using template $paramod$b2b81edcc33c34b1742d2b2203de8702a40e7379$lut for cells of type $lut.
+Using template $paramod$eb8f7c2eaf318bfd289b1ea116737c16dafa4a91$lut for cells of type $lut.
+Using template $paramod$8f0c612bba402aa217a44616da4b01b105d12099$lut for cells of type $lut.
+Using template $paramod$6aafbe9261964e9bfb1eb7929a23faad982744a2$lut for cells of type $lut.
+Using template $paramod$1e829022bbb0d3993a96699b562ff3b413522a97$lut for cells of type $lut.
+Using template $paramod$f678cf839e9d34b0c7b078333541f58aa3dc9449$lut for cells of type $lut.
+Using template $paramod$7921556ecc2f10de0cd8299fe77f2240688aee53$lut for cells of type $lut.
+Using template $paramod$51fe1be46c251d0a7c8786eb2d13d71ba7fff868$lut for cells of type $lut.
+Using template $paramod$31b1ed78ef80fa27b32cc38e455010c2e9256440$lut for cells of type $lut.
+Using template $paramod$1345836f5e34cbac836f540ce33dba56b8f70250$lut for cells of type $lut.
+Using template $paramod$a225f27314b4aa7e6fcacbc48b1f6962f9b99361$lut for cells of type $lut.
+Using template $paramod$c29ed12cd214688bf98c2bdaf855de676839e54c$lut for cells of type $lut.
+Using template $paramod$bfab0b3aad1e3296d61917c6a32dc09fe40d49bd$lut for cells of type $lut.
+Using template $paramod$cad8f5c808e91f937dcf797b89e646787b39867a$lut for cells of type $lut.
+Using template $paramod$e9c77024ca501b890c641f9c0b10e27242db8730$lut for cells of type $lut.
+Using template $paramod$620586420e818d3afa7e5b51fcf19f5c6ea83ad4$lut for cells of type $lut.
+Using template $paramod$999a970d46b10d8470d6b1f8965fa7c87b551465$lut for cells of type $lut.
+Using template $paramod$1bcb466228aa769eff4eb30b9ce3a8cade7c5092$lut for cells of type $lut.
+Using template $paramod$7f24f2fa325870de55906a10d4998a26f16b739e$lut for cells of type $lut.
+Using template $paramod$c366d6a5d3693eaf9c3289ee443f7a07c4c72c83$lut for cells of type $lut.
+Using template $paramod$db489f0eecf0f2a637f219a5480f565ed9bcbf48$lut for cells of type $lut.
+Using template $paramod$f6808d926e8c49ea455fc0b4fd513f6b5c9bc14b$lut for cells of type $lut.
+Using template $paramod$eed706f4fb4386f35487793b4ec40c500f9a2e91$lut for cells of type $lut.
+Using template $paramod$bff62a795ed18c6848c3575771757fae2e846a79$lut for cells of type $lut.
+Using template $paramod$8fdbade4320dd24b5ef3225b5f0fdd08f02a3525$lut for cells of type $lut.
+Using template $paramod$a7dad16c080c08c1647c7e1b9706a59a123d8bcd$lut for cells of type $lut.
+Using template $paramod$6180a4c8189624b60ab0c3e3397a97c8e4f7ac0a$lut for cells of type $lut.
+Using template $paramod$c6932d0419018208e5384761d78f0ead9bcc772f$lut for cells of type $lut.
+Using template $paramod$39a3022e55aa03d0b5478da3a6d9fcb662c62e56$lut for cells of type $lut.
+Using template $paramod$b1019ef374c83c5bd4e1fe0766e2652a94062e9c$lut for cells of type $lut.
+Using template $paramod$f40560e80aa0ae2566982e9eeb65e24826c7503e$lut for cells of type $lut.
+Using template $paramod$113f4e719f501b5c89c602022e4012380e0b1dac$lut for cells of type $lut.
+Using template $paramod$4b0651e814060deb8a9b11a312a1ad911d0a70f4$lut for cells of type $lut.
+Using template $paramod$2b9f1cfe61309f0dbfddfedd994818415a72435f$lut for cells of type $lut.
+Using template $paramod$d3879f7fbc57a41a7d2088a3bfe658e058e86f8e$lut for cells of type $lut.
+Using template $paramod$70e1b1098f05f8bc9abbd13525eb0341773fcc8b$lut for cells of type $lut.
+Using template $paramod$lut\WIDTH=32'00000000000000000000000000000011\LUT=8'00000100 for cells of type $lut.
+Using template $paramod$c5e26dd1508a2ca7074e2d1abc41eb8d81d39a79$lut for cells of type $lut.
+Using template $paramod$d07b370dde847ff102dfeea99a3d78ed7f287f4e$lut for cells of type $lut.
+Using template $paramod$d07636b58652f36b87c606b080722fa5c245e481$lut for cells of type $lut.
+Using template $paramod$8fcf3b356c8fa47a4f21fe980d7968c3390374f8$lut for cells of type $lut.
+Using template $paramod$838bb817c76679c8c2d52204f3010bbd50fb13ee$lut for cells of type $lut.
+Using template $paramod$f22ff2051949e5f50139b20fdbe6b29d0f471fa6$lut for cells of type $lut.
+Using template $paramod$6daa1f38743ddf86b54e83cbcf8003e7e7d78aa1$lut for cells of type $lut.
+Using template $paramod$lut\WIDTH=32'00000000000000000000000000000011\LUT=8'10101000 for cells of type $lut.
+Using template $paramod$35e3f5999cc18968683ed9d48206d12cdfba1c72$lut for cells of type $lut.
+Using template $paramod$e6cfc2a250ad5b0b3da266fa46a057a6eca6e3d9$lut for cells of type $lut.
+Using template $paramod$deee34e8905bf9ca045d3022e1976dff294919be$lut for cells of type $lut.
+Using template $paramod$00003f7a4e2e5c93f44806efe0930fc989c48b29$lut for cells of type $lut.
+Using template $paramod$d6ab46c46758740afec17d2e888d65cb4a8e0635$lut for cells of type $lut.
+Using template $paramod$e6aeb87ec10d44fb16e2c2e7675ec6db31072b99$lut for cells of type $lut.
+Using template $paramod$f1894721635af56c8e3bf12e5ccb2f87c787d574$lut for cells of type $lut.
+Using template $paramod$d9300287b35efb2cca1a75255cb1c0d42a53c235$lut for cells of type $lut.
+Using template $paramod$890e39c7c8a76a50ce3ec953baf1ef58d638d6d8$lut for cells of type $lut.
+Using template $paramod$edbb25dcb5bc28fd4befda411d8b779d599b715d$lut for cells of type $lut.
+Using template $paramod$660a72f63d46a844bb0ddab189b65027c878fc6b$lut for cells of type $lut.
+Using template $paramod$e46703b423a661cd7d311c41833ea655969702cc$lut for cells of type $lut.
+Using template $paramod$cffc6ae87e2643c54b07604cb7b8203d2d06760d$lut for cells of type $lut.
+Using template $paramod$193d365ba3260f56de4ca734b1cedcf9dc72302b$lut for cells of type $lut.
+Using template $paramod$c2078473dc2d0dc38d6ceb10807b010c385ede24$lut for cells of type $lut.
+Using template $paramod$df929792afd0bebf101a124ee890c12e0fed6a8d$lut for cells of type $lut.
+Using template $paramod$219b71aec9a19e7a27754ed85a7d6cdad9e5ec96$lut for cells of type $lut.
+Using template $paramod$8ac5a87a3ffe2d5ab63597049aeac686a78708cf$lut for cells of type $lut.
+Using template $paramod$4a587f235e6d1da68bc7b5e617bddc378923296d$lut for cells of type $lut.
+Using template $paramod$54c86ef28bdd2025084d0f5969f8ed086eda96f2$lut for cells of type $lut.
+Using template $paramod$12fab2372900afb79973610e24d610296d99bcbc$lut for cells of type $lut.
+Using template $paramod$1bc18cecbd4005f70ba587d586191e503ca099f8$lut for cells of type $lut.
+Using template $paramod$23da582b86241546eace0c8bedadb42614eea4c1$lut for cells of type $lut.
+Using template $paramod$b37745e523c16472c60cfc12cb60f911d6e11313$lut for cells of type $lut.
+No more expansions possible.
+<suppressed ~1989 debug messages>
+
+6.46. Executing OPT_LUT_INS pass (discard unused LUT inputs).
+Optimizing LUTs in drg5_decompress.
+  Optimizing lut $abc$9237$lut\expanded_o[16].genblk1.genblk1.genblk1.genblk1.genblk1.lut1 (4 -> 0)
+  Optimizing lut $abc$9237$lut\expanded_o[2].genblk1.genblk1.genblk1.genblk1.genblk1.lut1 (4 -> 0)
+  Optimizing lut $abc$9237$lut$aiger9236$874.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut2 (4 -> 3)
+  Optimizing lut $abc$9237$lut$aiger9236$874.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut3 (4 -> 3)
+  Optimizing lut $abc$9237$lut\expanded_o[24].genblk1.genblk1.genblk1.genblk1.genblk1.lut1 (4 -> 0)
+  Optimizing lut $abc$9237$lut\expanded_o[8].genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut1 (4 -> 3)
+  Optimizing lut $abc$9237$lut\expanded_o[8].genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut2 (4 -> 3)
+  Optimizing lut $abc$9237$lut\expanded_o[8].genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut3 (4 -> 3)
+  Optimizing lut $abc$9237$lut\expanded_o[8].genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut5 (4 -> 3)
+  Optimizing lut $abc$9237$lut\expanded_o[8].genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut6 (4 -> 0)
+  Optimizing lut $abc$9237$lut\expanded_o[8].genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut7 (4 -> 3)
+  Optimizing lut $abc$9237$lut\expanded_o[13].genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut1 (4 -> 2)
+  Optimizing lut $abc$9237$lut\expanded_o[13].genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut3 (4 -> 3)
+  Optimizing lut $abc$9237$lut$aiger9236$854.genblk1.genblk1.genblk1.genblk1.genblk1.lut1 (4 -> 0)
+  Optimizing lut $abc$9237$lut$aiger9236$539.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut1 (4 -> 0)
+  Optimizing lut $abc$9237$lut$aiger9236$539.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut2 (4 -> 3)
+  Optimizing lut $abc$9237$lut$aiger9236$539.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut4 (4 -> 0)
+  Optimizing lut $abc$9237$lut$aiger9236$539.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut5 (4 -> 0)
+  Optimizing lut $abc$9237$lut$aiger9236$539.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut6 (4 -> 0)
+  Optimizing lut $abc$9237$lut$aiger9236$539.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut7 (4 -> 0)
+  Optimizing lut $abc$9237$lut$aiger9236$664.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut1 (4 -> 3)
+  Optimizing lut $abc$9237$lut$aiger9236$664.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut2 (4 -> 2)
+  Optimizing lut $abc$9237$lut$aiger9236$664.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut3 (4 -> 2)
+  Optimizing lut $abc$9237$lut$aiger9236$664.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut6 (4 -> 3)
+  Optimizing lut $abc$9237$lut$aiger9236$664.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut7 (4 -> 3)
+  Optimizing lut $abc$9237$lut$aiger9236$706.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut1 (4 -> 1)
+  Optimizing lut $abc$9237$lut$aiger9236$706.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut2 (4 -> 0)
+  Optimizing lut $abc$9237$lut$aiger9236$706.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut3 (4 -> 0)
+  Optimizing lut $abc$9237$lut$aiger9236$706.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut4 (4 -> 1)
+  Optimizing lut $abc$9237$lut$aiger9236$706.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut6 (4 -> 0)
+  Optimizing lut $abc$9237$lut$aiger9236$706.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut7 (4 -> 0)
+  Optimizing lut $abc$9237$lut$aiger9236$293.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut3 (4 -> 3)
+  Optimizing lut $abc$9237$lut$aiger9236$293.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut4 (4 -> 2)
+  Optimizing lut $abc$9237$lut$aiger9236$293.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut5 (4 -> 2)
+  Optimizing lut $abc$9237$lut$aiger9236$293.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut6 (4 -> 2)
+  Optimizing lut $abc$9237$lut$aiger9236$293.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut7 (4 -> 1)
+  Optimizing lut $abc$9237$lut$aiger9236$769.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut2 (4 -> 3)
+  Optimizing lut $abc$9237$lut$aiger9236$769.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut3 (4 -> 0)
+  Optimizing lut $abc$9237$lut\expanded_o[10].genblk1.genblk1.genblk1.genblk1.genblk1.lut1 (4 -> 0)
+  Optimizing lut $abc$9237$lut$aiger9236$472.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut1 (4 -> 0)
+  Optimizing lut $abc$9237$lut$aiger9236$472.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut3 (4 -> 0)
+  Optimizing lut $abc$9237$lut$aiger9236$472.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut4 (4 -> 2)
+  Optimizing lut $abc$9237$lut$aiger9236$472.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut5 (4 -> 0)
+  Optimizing lut $abc$9237$lut$aiger9236$472.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut6 (4 -> 3)
+  Optimizing lut $abc$9237$lut$aiger9236$472.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut7 (4 -> 0)
+  Optimizing lut $abc$9237$lut$aiger9236$578.genblk1.genblk1.genblk1.genblk1.genblk1.lut1 (4 -> 0)
+  Optimizing lut $abc$9237$lut\expanded_o[7].genblk1.genblk1.genblk1.genblk1.genblk1.lut1 (4 -> 0)
+  Optimizing lut $abc$9237$lut$aiger9236$299.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut1 (4 -> 0)
+  Optimizing lut $abc$9237$lut$aiger9236$299.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut2 (4 -> 1)
+  Optimizing lut $abc$9237$lut$aiger9236$278.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut1 (4 -> 0)
+  Optimizing lut $abc$9237$lut$aiger9236$278.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut2 (4 -> 3)
+  Optimizing lut $abc$9237$lut$aiger9236$278.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut3 (4 -> 0)
+  Optimizing lut $abc$9237$lut$aiger9236$278.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut4 (4 -> 3)
+  Optimizing lut $abc$9237$lut$aiger9236$278.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut5 (4 -> 0)
+  Optimizing lut $abc$9237$lut$aiger9236$278.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut7 (4 -> 0)
+  Optimizing lut $abc$9237$lut$aiger9236$154.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut1 (4 -> 0)
+  Optimizing lut $abc$9237$lut$aiger9236$154.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut2 (4 -> 0)
+  Optimizing lut $abc$9237$lut$aiger9236$154.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut3 (4 -> 0)
+  Optimizing lut $abc$9237$lut$aiger9236$154.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut4 (4 -> 0)
+  Optimizing lut $abc$9237$lut$aiger9236$154.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut5 (4 -> 0)
+  Optimizing lut $abc$9237$lut$aiger9236$154.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut7 (4 -> 0)
+  Optimizing lut $abc$9237$lut$aiger9236$284.genblk1.genblk1.genblk1.genblk1.genblk1.lut1 (4 -> 3)
+  Optimizing lut $abc$9237$lut$aiger9236$826.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut2 (4 -> 0)
+  Optimizing lut $abc$9237$lut$aiger9236$826.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut3 (4 -> 0)
+  Optimizing lut $abc$9237$lut\expanded_o[9].genblk1.genblk1.genblk1.genblk1.genblk1.lut1 (4 -> 0)
+  Optimizing lut $abc$9237$lut$aiger9236$337.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut2 (4 -> 3)
+  Optimizing lut $abc$9237$lut$aiger9236$337.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut3 (4 -> 3)
+  Optimizing lut $abc$9237$lut$aiger9236$337.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut5 (4 -> 3)
+  Optimizing lut $abc$9237$lut$aiger9236$337.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut6 (4 -> 3)
+  Optimizing lut $abc$9237$lut$aiger9236$337.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut7 (4 -> 2)
+  Optimizing lut $abc$9237$lut$aiger9236$369.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut1 (4 -> 1)
+  Optimizing lut $abc$9237$lut$aiger9236$369.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut2 (4 -> 1)
+  Optimizing lut $abc$9237$lut$aiger9236$369.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut3 (4 -> 1)
+  Optimizing lut $abc$9237$lut$aiger9236$369.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut4 (4 -> 2)
+  Optimizing lut $abc$9237$lut$aiger9236$369.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut5 (4 -> 1)
+  Optimizing lut $abc$9237$lut$aiger9236$369.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut7 (4 -> 1)
+  Optimizing lut $abc$9237$lut$aiger9236$331.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut2 (4 -> 0)
+  Optimizing lut $abc$9237$lut$aiger9236$331.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut4 (4 -> 0)
+  Optimizing lut $abc$9237$lut$aiger9236$331.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut6 (4 -> 0)
+  Optimizing lut $abc$9237$lut$aiger9236$750.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut1 (4 -> 2)
+  Optimizing lut $abc$9237$lut$aiger9236$750.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut2 (4 -> 3)
+  Optimizing lut $abc$9237$lut$aiger9236$750.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut3 (4 -> 1)
+  Optimizing lut $abc$9237$lut$aiger9236$750.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut4 (4 -> 3)
+  Optimizing lut $abc$9237$lut$aiger9236$750.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut5 (4 -> 3)
+  Optimizing lut $abc$9237$lut$aiger9236$750.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut7 (4 -> 2)
+  Optimizing lut $abc$9237$lut$aiger9236$723.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut1 (4 -> 3)
+  Optimizing lut $abc$9237$lut$aiger9236$723.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut2 (4 -> 3)
+  Optimizing lut $abc$9237$lut$aiger9236$723.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut3 (4 -> 3)
+  Optimizing lut $abc$9237$lut$aiger9236$723.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut4 (4 -> 3)
+  Optimizing lut $abc$9237$lut$aiger9236$723.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut6 (4 -> 3)
+  Optimizing lut $abc$9237$lut$aiger9236$723.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut7 (4 -> 3)
+  Optimizing lut $abc$9237$lut$aiger9236$697.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut5 (4 -> 0)
+  Optimizing lut $abc$9237$lut$aiger9236$697.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut7 (4 -> 2)
+  Optimizing lut $abc$9237$lut$aiger9236$820.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut1 (4 -> 0)
+  Optimizing lut $abc$9237$lut$aiger9236$820.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut2 (4 -> 0)
+  Optimizing lut $abc$9237$lut\expanded_o[18].genblk1.genblk1.genblk1.genblk1.genblk1.lut1 (4 -> 0)
+  Optimizing lut $abc$9237$lut\expanded_o[5].genblk1.genblk1.genblk1.genblk1.genblk1.lut1 (4 -> 0)
+  Optimizing lut $abc$9237$lut$aiger9236$257.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut2 (4 -> 0)
+  Optimizing lut $abc$9237$lut$aiger9236$257.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut3 (4 -> 0)
+  Optimizing lut $abc$9237$lut$aiger9236$811.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut1 (4 -> 2)
+  Optimizing lut $abc$9237$lut$aiger9236$811.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut2 (4 -> 3)
+  Optimizing lut $abc$9237$lut$aiger9236$811.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut3 (4 -> 3)
+  Optimizing lut $abc$9237$lut$aiger9236$811.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut4 (4 -> 3)
+  Optimizing lut $abc$9237$lut$aiger9236$744.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut5 (4 -> 3)
+  Optimizing lut $abc$9237$lut$aiger9236$689.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut1 (4 -> 0)
+  Optimizing lut $abc$9237$lut$aiger9236$689.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut2 (4 -> 0)
+  Optimizing lut $abc$9237$lut$aiger9236$689.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut3 (4 -> 0)
+  Optimizing lut $abc$9237$lut$aiger9236$689.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut4 (4 -> 0)
+  Optimizing lut $abc$9237$lut$aiger9236$689.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut6 (4 -> 0)
+  Optimizing lut $abc$9237$lut$aiger9236$689.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut7 (4 -> 0)
+  Optimizing lut $abc$9237$lut$aiger9236$603.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut3 (4 -> 0)
+  Optimizing lut $abc$9237$lut$aiger9236$603.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut4 (4 -> 3)
+  Optimizing lut $abc$9237$lut$aiger9236$603.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut6 (4 -> 3)
+  Optimizing lut $abc$9237$lut$aiger9236$603.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut7 (4 -> 0)
+  Optimizing lut $abc$9237$lut$aiger9236$804.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut2 (4 -> 0)
+  Optimizing lut $abc$9237$lut$aiger9236$804.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut3 (4 -> 0)
+  Optimizing lut $abc$9237$lut$aiger9236$731.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut3 (4 -> 3)
+  Optimizing lut $abc$9237$lut$aiger9236$508.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut3 (4 -> 2)
+  Optimizing lut $abc$9237$lut$aiger9236$489.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut1 (4 -> 0)
+  Optimizing lut $abc$9237$lut$aiger9236$489.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut3 (4 -> 0)
+  Optimizing lut $abc$9237$lut$aiger9236$489.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut4 (4 -> 2)
+  Optimizing lut $abc$9237$lut$aiger9236$489.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut5 (4 -> 0)
+  Optimizing lut $abc$9237$lut$aiger9236$489.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut6 (4 -> 3)
+  Optimizing lut $abc$9237$lut$aiger9236$489.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut7 (4 -> 0)
+  Optimizing lut $abc$9237$lut$aiger9236$501.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut1 (4 -> 0)
+  Optimizing lut $abc$9237$lut$aiger9236$501.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut2 (4 -> 0)
+  Optimizing lut $abc$9237$lut$aiger9236$501.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut3 (4 -> 0)
+  Optimizing lut $abc$9237$lut$aiger9236$501.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut4 (4 -> 0)
+  Optimizing lut $abc$9237$lut$aiger9236$501.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut5 (4 -> 3)
+  Optimizing lut $abc$9237$lut$aiger9236$501.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut6 (4 -> 0)
+  Optimizing lut $abc$9237$lut\expanded_o[23].genblk1.genblk1.genblk1.genblk1.genblk1.lut1 (4 -> 0)
+  Optimizing lut $abc$9237$lut$aiger9236$312.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut2 (4 -> 3)
+  Optimizing lut $abc$9237$lut$aiger9236$638.genblk1.genblk1.genblk1.genblk1.genblk1.lut1 (4 -> 3)
+  Optimizing lut $abc$9237$lut$aiger9236$633.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut2 (4 -> 0)
+  Optimizing lut $abc$9237$lut$aiger9236$633.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut3 (4 -> 0)
+  Optimizing lut $abc$9237$lut$aiger9236$406.genblk1.genblk1.genblk1.genblk1.genblk1.lut1 (4 -> 2)
+  Optimizing lut $abc$9237$lut$aiger9236$385.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut1 (4 -> 2)
+  Optimizing lut $abc$9237$lut$aiger9236$385.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut2 (4 -> 3)
+  Optimizing lut $abc$9237$lut$aiger9236$402.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut3 (4 -> 3)
+  Optimizing lut $abc$9237$lut$aiger9236$272.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut3 (4 -> 0)
+  Optimizing lut $abc$9237$lut$aiger9236$679.genblk1.genblk1.genblk1.genblk1.genblk1.lut1 (4 -> 0)
+  Optimizing lut $abc$9237$lut$aiger9236$673.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut2 (4 -> 1)
+  Optimizing lut $abc$9237$lut$aiger9236$673.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut3 (4 -> 1)
+  Optimizing lut $abc$9237$lut$aiger9236$548.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut3 (4 -> 0)
+  Optimizing lut $abc$9237$lut$aiger9236$620.genblk1.genblk1.genblk1.genblk1.genblk1.lut1 (4 -> 3)
+  Optimizing lut $abc$9237$lut$aiger9236$652.genblk1.genblk1.genblk1.genblk1.genblk1.lut1 (4 -> 0)
+  Optimizing lut $abc$9237$lut$aiger9236$648.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut1 (4 -> 0)
+  Optimizing lut $abc$9237$lut$aiger9236$648.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut2 (4 -> 0)
+  Optimizing lut $abc$9237$lut$aiger9236$648.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut3 (4 -> 0)
+  Optimizing lut $abc$9237$lut$aiger9236$648.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut5 (4 -> 1)
+  Optimizing lut $abc$9237$lut$aiger9236$648.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut6 (4 -> 1)
+  Optimizing lut $abc$9237$lut$aiger9236$648.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut7 (4 -> 1)
+  Optimizing lut $abc$9237$lut$aiger9236$557.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut4 (4 -> 0)
+  Optimizing lut $abc$9237$lut$aiger9236$557.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut5 (4 -> 0)
+  Optimizing lut $abc$9237$lut$aiger9236$557.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut7 (4 -> 3)
+  Optimizing lut $abc$9237$lut$aiger9236$353.genblk1.genblk1.genblk1.genblk1.genblk1.lut1 (4 -> 3)
+  Optimizing lut $abc$9237$lut$aiger9236$187.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut2 (4 -> 1)
+  Optimizing lut $abc$9237$lut$aiger9236$187.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut3 (4 -> 1)
+  Optimizing lut $abc$9237$lut$aiger9236$198.genblk1.genblk1.genblk1.genblk1.genblk1.lut1 (4 -> 0)
+  Optimizing lut $abc$9237$lut$aiger9236$160.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut1 (4 -> 0)
+  Optimizing lut $abc$9237$lut$aiger9236$160.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut2 (4 -> 0)
+  Optimizing lut $abc$9237$lut$aiger9236$160.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut3 (4 -> 0)
+  Optimizing lut $abc$9237$lut$aiger9236$160.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut5 (4 -> 1)
+  Optimizing lut $abc$9237$lut$aiger9236$160.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut6 (4 -> 1)
+  Optimizing lut $abc$9237$lut$aiger9236$160.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut7 (4 -> 1)
+  Optimizing lut $abc$9237$lut$aiger9236$130.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut1 (4 -> 3)
+  Optimizing lut $abc$9237$lut$aiger9236$130.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut2 (4 -> 3)
+  Optimizing lut $abc$9237$lut$aiger9236$130.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut3 (4 -> 3)
+  Optimizing lut $abc$9237$lut$aiger9236$130.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut4 (4 -> 3)
+  Optimizing lut $abc$9237$lut$aiger9236$130.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut6 (4 -> 3)
+  Optimizing lut $abc$9237$lut$aiger9236$130.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut7 (4 -> 3)
+  Optimizing lut $abc$9237$lut$aiger9236$171.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut2 (4 -> 0)
+  Optimizing lut $abc$9237$lut$aiger9236$171.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut3 (4 -> 0)
+  Optimizing lut $abc$9237$lut$aiger9236$171.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut6 (4 -> 0)
+  Optimizing lut $abc$9237$lut$aiger9236$171.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut7 (4 -> 0)
+  Optimizing lut $abc$9237$lut$aiger9236$39.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut2 (4 -> 2)
+  Optimizing lut $abc$9237$lut$aiger9236$39.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut3 (4 -> 2)
+  Optimizing lut $abc$9237$lut$aiger9236$39.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut5 (4 -> 2)
+  Optimizing lut $abc$9237$lut$aiger9236$39.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut6 (4 -> 2)
+  Optimizing lut $abc$9237$lut$aiger9236$39.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut7 (4 -> 2)
+  Optimizing lut $abc$9237$lut$aiger9236$55.genblk1.genblk1.genblk1.genblk1.genblk1.lut1 (4 -> 2)
+  Optimizing lut $abc$9237$lut$aiger9236$73.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut2 (4 -> 0)
+  Optimizing lut $abc$9237$lut$aiger9236$73.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut3 (4 -> 0)
+  Optimizing lut $abc$9237$lut$aiger9236$73.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut5 (4 -> 0)
+  Optimizing lut $abc$9237$lut$aiger9236$73.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut6 (4 -> 0)
+  Optimizing lut $abc$9237$lut$aiger9236$73.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut7 (4 -> 0)
+  Optimizing lut $abc$9237$lut\expanded_o[26].genblk1.genblk1.genblk1.genblk1.genblk1.lut1 (4 -> 0)
+  Optimizing lut $abc$9237$lut$aiger9236$723.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut0 (4 -> 3)
+  Optimizing lut $abc$9237$lut\expanded_o[30].genblk1.genblk1.genblk1.genblk1.genblk1.lut0 (4 -> 1)
+  Optimizing lut $abc$9237$lut$aiger9236$130.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut0 (4 -> 3)
+  Optimizing lut $abc$9237$lut$aiger9236$89.genblk1.genblk1.genblk1.genblk1.genblk1.lut1 (4 -> 0)
+  Optimizing lut $abc$9237$lut$aiger9236$673.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut1 (4 -> 0)
+  Optimizing lut $abc$9237$lut$aiger9236$278.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut0 (4 -> 2)
+  Optimizing lut $abc$9237$lut$aiger9236$878.genblk1.genblk1.genblk1.genblk1.genblk1.lut0 (4 -> 1)
+  Optimizing lut $abc$9237$lut\expanded_o[12].genblk1.genblk1.genblk1.genblk1.genblk1.lut0 (4 -> 1)
+  Optimizing lut $abc$9237$lut$aiger9236$385.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut0 (4 -> 3)
+  Optimizing lut $abc$9237$lut$aiger9236$533.genblk1.genblk1.genblk1.genblk1.genblk1.lut1 (4 -> 3)
+  Optimizing lut $abc$9237$lut$aiger9236$138.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut0 (4 -> 1)
+  Optimizing lut $abc$9237$lut$aiger9236$607.genblk1.genblk1.genblk1.genblk1.genblk1.lut0 (4 -> 3)
+  Optimizing lut $abc$9237$lut$aiger9236$142.genblk1.genblk1.genblk1.genblk1.genblk1.lut0 (4 -> 3)
+  Optimizing lut $abc$9237$lut$aiger9236$357.genblk1.genblk1.genblk1.genblk1.genblk1.lut0 (4 -> 3)
+  Optimizing lut $abc$9237$lut$aiger9236$633.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut0 (4 -> 3)
+  Optimizing lut $abc$9237$lut\expanded_o[29].genblk1.genblk1.genblk1.genblk1.genblk1.lut0 (4 -> 1)
+  Optimizing lut $abc$9237$lut$aiger9236$826.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut1 (4 -> 0)
+  Optimizing lut $abc$9237$lut$aiger9236$472.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut0 (4 -> 2)
+  Optimizing lut $abc$9237$lut$aiger9236$39.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut0 (4 -> 2)
+  Optimizing lut $abc$9237$lut$aiger9236$781.genblk1.genblk1.genblk1.genblk1.genblk1.lut0 (4 -> 0)
+  Optimizing lut $abc$9237$lut\expanded_o[8].genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut0 (4 -> 3)
+  Optimizing lut $abc$9237$lut$aiger9236$171.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut1 (4 -> 0)
+  Optimizing lut $abc$9237$lut\expanded_o[22].genblk1.genblk1.genblk1.genblk1.genblk1.lut0 (4 -> 1)
+  Optimizing lut $abc$9237$lut\expanded_o[13].genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut0 (4 -> 2)
+  Optimizing lut $abc$9237$lut$aiger9236$154.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut0 (4 -> 0)
+  Optimizing lut $abc$9237$lut$aiger9236$160.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut0 (4 -> 3)
+  Optimizing lut $abc$9237$lut$aiger9236$557.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut1 (4 -> 0)
+  Optimizing lut $abc$9237$lut$aiger9236$603.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut0 (4 -> 3)
+  Optimizing lut $abc$9237$lut$aiger9236$774.genblk1.genblk1.genblk1.genblk1.genblk1.lut1 (4 -> 0)
+  Optimizing lut $abc$9237$lut\expanded_o[17].genblk1.genblk1.genblk1.genblk1.genblk1.lut0 (4 -> 1)
+  Optimizing lut $abc$9237$lut$aiger9236$539.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut0 (4 -> 0)
+  Optimizing lut $abc$9237$lut$aiger9236$39.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut1 (4 -> 2)
+  Optimizing lut $abc$9237$lut$aiger9236$331.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut0 (4 -> 0)
+  Optimizing lut $abc$9237$lut$aiger9236$706.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut0 (4 -> 2)
+  Optimizing lut $abc$9237$lut$aiger9236$312.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut1 (4 -> 1)
+  Optimizing lut $abc$9237$lut$aiger9236$171.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut0 (4 -> 0)
+  Optimizing lut $abc$9237$lut$aiger9236$561.genblk1.genblk1.genblk1.genblk1.genblk1.lut1 (4 -> 0)
+  Optimizing lut $abc$9237$lut$aiger9236$73.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut0 (4 -> 0)
+  Optimizing lut $abc$9237$lut$aiger9236$657.genblk1.genblk1.genblk1.genblk1.genblk1.lut1 (4 -> 0)
+  Optimizing lut $abc$9237$lut\expanded_o[28].genblk1.genblk1.genblk1.genblk1.genblk1.lut0 (4 -> 1)
+  Optimizing lut $abc$9237$lut$aiger9236$250.genblk1.genblk1.genblk1.genblk1.genblk1.lut0 (4 -> 0)
+  Optimizing lut $auto$abc9_ops.cc:1552:reintegrate$9239.genblk1.genblk1.genblk1.genblk1.genblk1.lut0 (4 -> 0)
+  Optimizing lut $abc$9237$lut$aiger9236$840.genblk1.genblk1.genblk1.genblk1.genblk1.lut0 (4 -> 2)
+  Optimizing lut $abc$9237$lut\expanded_o[19].genblk1.genblk1.genblk1.genblk1.genblk1.lut0 (4 -> 1)
+  Optimizing lut $abc$9237$lut$aiger9236$299.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut0 (4 -> 0)
+  Optimizing lut $abc$9237$lut$aiger9236$836.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut0 (4 -> 3)
+  Optimizing lut $abc$9237$lut$aiger9236$369.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut0 (4 -> 1)
+  Optimizing lut $abc$9237$lut$aiger9236$495.genblk1.genblk1.genblk1.genblk1.genblk1.lut0 (4 -> 3)
+  Optimizing lut $abc$9237$lut$aiger9236$182.genblk1.genblk1.genblk1.genblk1.genblk1.lut0 (4 -> 0)
+  Optimizing lut $abc$9237$lut\expanded_o[11].genblk1.genblk1.genblk1.genblk1.genblk1.lut0 (4 -> 1)
+  Optimizing lut $abc$9237$lut$aiger9236$421.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut0 (4 -> 3)
+  Optimizing lut $abc$9237$lut$aiger9236$257.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut0 (4 -> 3)
+  Optimizing lut $abc$9237$lut$aiger9236$73.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut1 (4 -> 0)
+  Optimizing lut $abc$9237$lut\expanded_o[25].genblk1.genblk1.genblk1.genblk1.genblk1.lut0 (4 -> 1)
+  Optimizing lut $abc$9237$lut$aiger9236$750.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut0 (4 -> 2)
+  Optimizing lut $abc$9237$lut$aiger9236$191.genblk1.genblk1.genblk1.genblk1.genblk1.lut0 (4 -> 0)
+  Optimizing lut $abc$9237$lut$aiger9236$489.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut0 (4 -> 2)
+  Optimizing lut $abc$9237$lut$aiger9236$103 (4 -> 2)
+  Optimizing lut $abc$9237$lut$aiger9236$820.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut0 (4 -> 0)
+  Optimizing lut $abc$9237$lut$aiger9236$67.genblk1.genblk1.genblk1.genblk1.genblk1.lut1 (4 -> 0)
+  Optimizing lut $abc$9237$lut$aiger9236$689.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut0 (4 -> 0)
+  Optimizing lut $abc$9237$lut\expanded_o[27].genblk1.genblk1.genblk1.genblk1.genblk1.lut0 (4 -> 1)
+  Optimizing lut $abc$9237$lut$aiger9236$307.genblk1.genblk1.genblk1.genblk1.genblk1.lut0 (4 -> 3)
+  Optimizing lut $abc$9237$lut$aiger9236$886.genblk1.genblk1.genblk1.genblk1.genblk1.lut0 (4 -> 1)
+  Optimizing lut $abc$9237$lut\expanded_o[14].genblk1.genblk1.genblk1.genblk1.genblk1.lut0 (4 -> 1)
+  Optimizing lut $abc$9237$lut$aiger9236$811.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut0 (4 -> 2)
+  Optimizing lut $abc$9237$lut$aiger9236$187.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut1 (4 -> 1)
+  Optimizing lut $abc$9237$lut$aiger9236$501.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut0 (4 -> 0)
+  Optimizing lut $abc$9237$lut$aiger9236$648.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut0 (4 -> 0)
+  Optimizing lut $abc$9237$lut$aiger9236$138.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut1 (4 -> 1)
+  Optimizing lut $abc$9237$lut$aiger9236$557.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut0 (4 -> 0)
+  Optimizing lut $abc$9237$lut\expanded_o[20].genblk1.genblk1.genblk1.genblk1.genblk1.lut0 (4 -> 1)
+  Optimizing lut $abc$9237$lut\expanded_o[15].genblk1.genblk1.genblk1.genblk1.genblk1.lut0 (4 -> 1)
+  Optimizing lut $abc$9237$lut$aiger9236$349.genblk1.genblk1.genblk1.genblk1.genblk1.lut0 (4 -> 3)
+  Optimizing lut $abc$9237$lut$aiger9236$206.genblk1.genblk1.genblk1.genblk1.genblk1.lut0 (4 -> 0)
+  Optimizing lut $abc$9237$lut$aiger9236$210.genblk1.genblk1.genblk1.genblk1.genblk1.lut0 (4 -> 0)
+  Optimizing lut $abc$9237$lut$aiger9236$312.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut0 (4 -> 3)
+  Optimizing lut $abc$9237$lut\expanded_o[21].genblk1.genblk1.genblk1.genblk1.genblk1.lut0 (4 -> 1)
+  Optimizing lut $abc$9237$lut$aiger9236$272.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut1 (4 -> 0)
+  Optimizing lut $abc$9237$lut$aiger9236$272.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut0 (4 -> 0)
+  Optimizing lut $abc$9237$lut\expanded_o[31].genblk1.genblk1.genblk1.genblk1.genblk1.lut0 (4 -> 1)
+Removed 0 unused cells and 414 unused wires.
+
+6.47. Executing AUTONAME pass.
+Renamed 1532 objects in module drg5_decompress (231 iterations).
+<suppressed ~1532 debug messages>
+
+6.48. Executing HIERARCHY pass (managing design hierarchy).
+Attribute `top' found on module `drg5_decompress'. Setting top module to drg5_decompress.
+
+6.48.1. Analyzing design hierarchy..
+Top module:  \drg5_decompress
+
+6.48.2. Analyzing design hierarchy..
+Top module:  \drg5_decompress
+Removed 0 unused modules.
+
+6.49. Printing statistics.
+
+=== drg5_decompress ===
+
+        +----------Local Count, excluding submodules.
+        | 
+      729 wires
+     1171 wire bits
+      729 public wires
+     1171 public wire bits
+        5 ports
+       52 port bits
+      815 submodules
+      105   L6MUX21
+      495   LUT4
+      215   PFUMX
+
+=== design hierarchy ===
+
+        +----------Count including submodules.
+        | 
+        - drg5_decompress
+
+        +----------Count including submodules.
+        | 
+      729 wires
+     1171 wire bits
+      729 public wires
+     1171 public wire bits
+        5 ports
+       52 port bits
+        - memories
+        - memory bits
+        - processes
+        - cells
+      815 submodules
+      105   L6MUX21
+      495   LUT4
+      215   PFUMX
+
+6.50. Executing CHECK pass (checking for obvious problems).
+Checking module drg5_decompress...
+Found and reported 0 problems.
+
+7. Executing CHECK pass (checking for obvious problems).
+Checking module drg5_decompress...
+Found and reported 0 problems.
+
+8. Printing statistics.
+
+=== drg5_decompress ===
+
+        +----------Local Count, excluding submodules.
+        | 
+      729 wires
+     1171 wire bits
+      729 public wires
+     1171 public wire bits
+        5 ports
+       52 port bits
+      815 cells
+      105   L6MUX21
+      495   LUT4
+      215   PFUMX
+
+9. Executing JSON backend.

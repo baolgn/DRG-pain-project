@@ -1,0 +1,3 @@
+[5948] %Fatal: drg5_irq_control_tb.sv:94: Assertion failed in drg5_irq_control_tb.check: seed=1 case=21 edge=1487 pc=00000100 owner=0 accepted=0 age=4 response=7: WFI wake lost sequential continuation
+%Error: microcontroller/tests/drg5_irq_control_tb.sv:94: Verilog $stop
+Aborting...

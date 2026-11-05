@@ -1,0 +1,2 @@
+$ /tmp/drg5-control-tools-20260301/oss-cad-suite/bin/yosys -V
+Yosys 0.62+112 (git sha1 687a36af3, clang++ 18.1.8 -fPIC -O3)

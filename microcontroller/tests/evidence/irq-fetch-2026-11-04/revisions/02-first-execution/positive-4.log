@@ -1,0 +1,4 @@
+$ /tmp/drg5-irq-fetch-20261104/obj-4/Vdrg5_irq_fetch_tb +verilator+seed+1
+[218] %Fatal: drg5_irq_fetch_tb.sv:151: Assertion failed in drg5_irq_fetch_tb.check: IRQ_FETCH_CHECK_FAILED exact handler store effect limit=4 case=0 edge=109 pc=00000104 owner=0 accepted=0 addr=00000108 tag=00000013 age=0
+%Error: microcontroller/tests/drg5_irq_fetch_tb.sv:151: Verilog $stop
+Aborting...

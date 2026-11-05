@@ -1,0 +1,603 @@
+{
+  "schema": "DRG5-OBS1",
+  "packed_bits": 3147,
+  "package_sha256": "9d1e39382ec54659858a88bdaf3783296e707c05ffc6fc3d8890e23d4736990f",
+  "fields": {
+    "valid": {
+      "lsb": 3146,
+      "width": 1
+    },
+    "overflow": {
+      "lsb": 3143,
+      "width": 3
+    },
+    "sequence_id": {
+      "lsb": 3079,
+      "width": 64
+    },
+    "epoch": {
+      "lsb": 3015,
+      "width": 64
+    },
+    "retired_before": {
+      "lsb": 2951,
+      "width": 64
+    },
+    "retired_after": {
+      "lsb": 2887,
+      "width": 64
+    },
+    "cold_reset": {
+      "lsb": 2886,
+      "width": 1
+    },
+    "hart_reset": {
+      "lsb": 2885,
+      "width": 1
+    },
+    "isolated": {
+      "lsb": 2884,
+      "width": 1
+    },
+    "debug_mode": {
+      "lsb": 2883,
+      "width": 1
+    },
+    "debug_ebreak_entry": {
+      "lsb": 2882,
+      "width": 1
+    },
+    "hold": {
+      "lsb": 2877,
+      "width": 5
+    },
+    "stages_before": {
+      "lsb": 2872,
+      "width": 5
+    },
+    "stages_after": {
+      "lsb": 2867,
+      "width": 5
+    },
+    "admitted_before": {
+      "lsb": 2862,
+      "width": 5
+    },
+    "admitted_after": {
+      "lsb": 2857,
+      "width": 5
+    },
+    "transfers": {
+      "lsb": 2853,
+      "width": 4
+    },
+    "input_accept": {
+      "lsb": 2852,
+      "width": 1
+    },
+    "input_packet.pc": {
+      "lsb": 2820,
+      "width": 32
+    },
+    "input_packet.raw": {
+      "lsb": 2788,
+      "width": 32
+    },
+    "input_packet.raw_valid": {
+      "lsb": 2784,
+      "width": 4
+    },
+    "input_packet.length": {
+      "lsb": 2781,
+      "width": 3
+    },
+    "input_packet.expanded_valid": {
+      "lsb": 2780,
+      "width": 1
+    },
+    "input_packet.expanded": {
+      "lsb": 2748,
+      "width": 32
+    },
+    "input_packet.op": {
+      "lsb": 2744,
+      "width": 4
+    },
+    "input_packet.rs1_used": {
+      "lsb": 2743,
+      "width": 1
+    },
+    "input_packet.rs2_used": {
+      "lsb": 2742,
+      "width": 1
+    },
+    "input_packet.rs1": {
+      "lsb": 2737,
+      "width": 5
+    },
+    "input_packet.rs2": {
+      "lsb": 2732,
+      "width": 5
+    },
+    "input_packet.rd": {
+      "lsb": 2727,
+      "width": 5
+    },
+    "input_packet.rs1_value": {
+      "lsb": 2695,
+      "width": 32
+    },
+    "input_packet.rs2_value": {
+      "lsb": 2663,
+      "width": 32
+    },
+    "input_packet.rd_write": {
+      "lsb": 2662,
+      "width": 1
+    },
+    "input_packet.result": {
+      "lsb": 2630,
+      "width": 32
+    },
+    "input_packet.next_pc": {
+      "lsb": 2598,
+      "width": 32
+    },
+    "input_packet.mem_addr": {
+      "lsb": 2566,
+      "width": 32
+    },
+    "input_packet.mem_wdata": {
+      "lsb": 2534,
+      "width": 32
+    },
+    "input_packet.mem_size": {
+      "lsb": 2532,
+      "width": 2
+    },
+    "input_packet.mem_signed": {
+      "lsb": 2531,
+      "width": 1
+    },
+    "input_packet.csr_addr": {
+      "lsb": 2519,
+      "width": 12
+    },
+    "input_packet.csr_op": {
+      "lsb": 2517,
+      "width": 2
+    },
+    "input_packet.csr_read": {
+      "lsb": 2516,
+      "width": 1
+    },
+    "input_packet.csr_write": {
+      "lsb": 2515,
+      "width": 1
+    },
+    "input_packet.csr_source": {
+      "lsb": 2483,
+      "width": 32
+    },
+    "input_packet.fault": {
+      "lsb": 2482,
+      "width": 1
+    },
+    "input_packet.cause": {
+      "lsb": 2450,
+      "width": 32
+    },
+    "input_packet.mtval": {
+      "lsb": 2418,
+      "width": 32
+    },
+    "irq_levels": {
+      "lsb": 2386,
+      "width": 32
+    },
+    "cycle_before": {
+      "lsb": 2322,
+      "width": 64
+    },
+    "cycle_after": {
+      "lsb": 2258,
+      "width": 64
+    },
+    "instret_before": {
+      "lsb": 2194,
+      "width": 64
+    },
+    "instret_after": {
+      "lsb": 2130,
+      "width": 64
+    },
+    "inhibit_before": {
+      "lsb": 2098,
+      "width": 32
+    },
+    "inhibit_after": {
+      "lsb": 2066,
+      "width": 32
+    },
+    "terminal.valid": {
+      "lsb": 2065,
+      "width": 1
+    },
+    "terminal.trap": {
+      "lsb": 2064,
+      "width": 1
+    },
+    "terminal.uid": {
+      "lsb": 2000,
+      "width": 64
+    },
+    "terminal.order": {
+      "lsb": 1936,
+      "width": 64
+    },
+    "terminal.packet.pc": {
+      "lsb": 1904,
+      "width": 32
+    },
+    "terminal.packet.raw": {
+      "lsb": 1872,
+      "width": 32
+    },
+    "terminal.packet.raw_valid": {
+      "lsb": 1868,
+      "width": 4
+    },
+    "terminal.packet.length": {
+      "lsb": 1865,
+      "width": 3
+    },
+    "terminal.packet.expanded_valid": {
+      "lsb": 1864,
+      "width": 1
+    },
+    "terminal.packet.expanded": {
+      "lsb": 1832,
+      "width": 32
+    },
+    "terminal.packet.op": {
+      "lsb": 1828,
+      "width": 4
+    },
+    "terminal.packet.rs1_used": {
+      "lsb": 1827,
+      "width": 1
+    },
+    "terminal.packet.rs2_used": {
+      "lsb": 1826,
+      "width": 1
+    },
+    "terminal.packet.rs1": {
+      "lsb": 1821,
+      "width": 5
+    },
+    "terminal.packet.rs2": {
+      "lsb": 1816,
+      "width": 5
+    },
+    "terminal.packet.rd": {
+      "lsb": 1811,
+      "width": 5
+    },
+    "terminal.packet.rs1_value": {
+      "lsb": 1779,
+      "width": 32
+    },
+    "terminal.packet.rs2_value": {
+      "lsb": 1747,
+      "width": 32
+    },
+    "terminal.packet.rd_write": {
+      "lsb": 1746,
+      "width": 1
+    },
+    "terminal.packet.result": {
+      "lsb": 1714,
+      "width": 32
+    },
+    "terminal.packet.next_pc": {
+      "lsb": 1682,
+      "width": 32
+    },
+    "terminal.packet.mem_addr": {
+      "lsb": 1650,
+      "width": 32
+    },
+    "terminal.packet.mem_wdata": {
+      "lsb": 1618,
+      "width": 32
+    },
+    "terminal.packet.mem_size": {
+      "lsb": 1616,
+      "width": 2
+    },
+    "terminal.packet.mem_signed": {
+      "lsb": 1615,
+      "width": 1
+    },
+    "terminal.packet.csr_addr": {
+      "lsb": 1603,
+      "width": 12
+    },
+    "terminal.packet.csr_op": {
+      "lsb": 1601,
+      "width": 2
+    },
+    "terminal.packet.csr_read": {
+      "lsb": 1600,
+      "width": 1
+    },
+    "terminal.packet.csr_write": {
+      "lsb": 1599,
+      "width": 1
+    },
+    "terminal.packet.csr_source": {
+      "lsb": 1567,
+      "width": 32
+    },
+    "terminal.packet.fault": {
+      "lsb": 1566,
+      "width": 1
+    },
+    "terminal.packet.cause": {
+      "lsb": 1534,
+      "width": 32
+    },
+    "terminal.packet.mtval": {
+      "lsb": 1502,
+      "width": 32
+    },
+    "terminal.rd_write": {
+      "lsb": 1501,
+      "width": 1
+    },
+    "terminal.rd": {
+      "lsb": 1496,
+      "width": 5
+    },
+    "terminal.value": {
+      "lsb": 1464,
+      "width": 32
+    },
+    "terminal.next_pc": {
+      "lsb": 1432,
+      "width": 32
+    },
+    "terminal.csr_read": {
+      "lsb": 1431,
+      "width": 1
+    },
+    "terminal.csr_write": {
+      "lsb": 1430,
+      "width": 1
+    },
+    "terminal.csr_old": {
+      "lsb": 1398,
+      "width": 32
+    },
+    "terminal.csr_new": {
+      "lsb": 1366,
+      "width": 32
+    },
+    "kill_valid": {
+      "lsb": 1361,
+      "width": 5
+    },
+    "kill_uid": {
+      "lsb": 1041,
+      "width": 320
+    },
+    "stage_uid": {
+      "lsb": 721,
+      "width": 320
+    },
+    "irq": {
+      "lsb": 720,
+      "width": 1
+    },
+    "idle": {
+      "lsb": 719,
+      "width": 1
+    },
+    "fatal": {
+      "lsb": 718,
+      "width": 1
+    },
+    "redirect": {
+      "lsb": 717,
+      "width": 1
+    },
+    "flush_accept": {
+      "lsb": 716,
+      "width": 1
+    },
+    "flush_aborted": {
+      "lsb": 715,
+      "width": 1
+    },
+    "irq_pc": {
+      "lsb": 683,
+      "width": 32
+    },
+    "irq_cause": {
+      "lsb": 651,
+      "width": 32
+    },
+    "redirect_pc": {
+      "lsb": 619,
+      "width": 32
+    },
+    "flush_pc": {
+      "lsb": 587,
+      "width": 32
+    },
+    "fatal_record.valid": {
+      "lsb": 586,
+      "width": 1
+    },
+    "fatal_record.owned": {
+      "lsb": 585,
+      "width": 1
+    },
+    "fatal_record.accepted": {
+      "lsb": 584,
+      "width": 1
+    },
+    "fatal_record.responded": {
+      "lsb": 583,
+      "width": 1
+    },
+    "fatal_record.reason": {
+      "lsb": 580,
+      "width": 3
+    },
+    "fatal_record.uid": {
+      "lsb": 516,
+      "width": 64
+    },
+    "fatal_record.pc": {
+      "lsb": 484,
+      "width": 32
+    },
+    "fatal_record.addr": {
+      "lsb": 452,
+      "width": 32
+    },
+    "fatal_record.wdata": {
+      "lsb": 420,
+      "width": 32
+    },
+    "fatal_record.tag": {
+      "lsb": 388,
+      "width": 32
+    },
+    "fatal_record.size": {
+      "lsb": 386,
+      "width": 2
+    },
+    "fatal_record.wstrb": {
+      "lsb": 382,
+      "width": 4
+    },
+    "fatal_record.write": {
+      "lsb": 381,
+      "width": 1
+    },
+    "d_offer": {
+      "lsb": 380,
+      "width": 1
+    },
+    "d_accept": {
+      "lsb": 379,
+      "width": 1
+    },
+    "d_response": {
+      "lsb": 378,
+      "width": 1
+    },
+    "d_write": {
+      "lsb": 377,
+      "width": 1
+    },
+    "d_addr": {
+      "lsb": 345,
+      "width": 32
+    },
+    "d_wdata": {
+      "lsb": 313,
+      "width": 32
+    },
+    "d_tag": {
+      "lsb": 281,
+      "width": 32
+    },
+    "d_response_tag": {
+      "lsb": 249,
+      "width": 32
+    },
+    "d_rdata": {
+      "lsb": 217,
+      "width": 32
+    },
+    "d_size": {
+      "lsb": 215,
+      "width": 2
+    },
+    "d_status": {
+      "lsb": 213,
+      "width": 2
+    },
+    "d_strobes": {
+      "lsb": 209,
+      "width": 4
+    },
+    "d_launch": {
+      "lsb": 208,
+      "width": 1
+    },
+    "d_launch_uid": {
+      "lsb": 144,
+      "width": 64
+    },
+    "i_offer": {
+      "lsb": 143,
+      "width": 1
+    },
+    "i_accept": {
+      "lsb": 142,
+      "width": 1
+    },
+    "i_response": {
+      "lsb": 141,
+      "width": 1
+    },
+    "i_drop": {
+      "lsb": 140,
+      "width": 1
+    },
+    "i_fatal": {
+      "lsb": 139,
+      "width": 1
+    },
+    "i_fatal_reason": {
+      "lsb": 136,
+      "width": 3
+    },
+    "i_addr": {
+      "lsb": 104,
+      "width": 32
+    },
+    "i_tag": {
+      "lsb": 72,
+      "width": 32
+    },
+    "i_response_tag": {
+      "lsb": 40,
+      "width": 32
+    },
+    "i_rdata": {
+      "lsb": 8,
+      "width": 32
+    },
+    "i_parcels": {
+      "lsb": 6,
+      "width": 2
+    },
+    "i_response_parcels": {
+      "lsb": 4,
+      "width": 2
+    },
+    "i_fault": {
+      "lsb": 2,
+      "width": 2
+    },
+    "i_status": {
+      "lsb": 0,
+      "width": 2
+    }
+  }
+}

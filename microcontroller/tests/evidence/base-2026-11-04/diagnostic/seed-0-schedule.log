@@ -1,0 +1,56 @@
+SCHEDULE case=2 ordinal=4 accept_extra=2 response_edges=5
+SERVICE case=2 ordinal=4 offer=301 accepted=304 reply_due=309
+SCHEDULE case=2 ordinal=5 accept_extra=1 response_edges=3
+SERVICE case=2 ordinal=5 offer=316 accepted=318 reply_due=321
+SCHEDULE case=2 ordinal=6 accept_extra=3 response_edges=1
+SERVICE case=2 ordinal=6 offer=328 accepted=332 reply_due=333
+SCHEDULE case=2 ordinal=7 accept_extra=1 response_edges=5
+SERVICE case=2 ordinal=7 offer=340 accepted=342 reply_due=347
+SCHEDULE case=2 ordinal=8 accept_extra=0 response_edges=3
+SERVICE case=2 ordinal=8 offer=354 accepted=355 reply_due=358
+SCHEDULE case=2 ordinal=9 accept_extra=1 response_edges=3
+SERVICE case=2 ordinal=9 offer=365 accepted=367 reply_due=370
+SCHEDULE case=2 ordinal=10 accept_extra=2 response_edges=3
+SERVICE case=2 ordinal=10 offer=377 accepted=380 reply_due=383
+SCHEDULE case=2 ordinal=11 accept_extra=3 response_edges=3
+SERVICE case=2 ordinal=11 offer=390 accepted=394 reply_due=397
+SCHEDULE case=2 ordinal=14 accept_extra=3 response_edges=5
+SERVICE case=2 ordinal=14 offer=416 accepted=420 reply_due=425
+SCHEDULE case=2 ordinal=15 accept_extra=1 response_edges=1
+SERVICE case=2 ordinal=15 offer=432 accepted=434 reply_due=435
+SCHEDULE case=2 ordinal=17 accept_extra=3 response_edges=5
+SERVICE case=2 ordinal=17 offer=449 accepted=453 reply_due=458
+SCHEDULE case=2 ordinal=19 accept_extra=1 response_edges=5
+SERVICE case=2 ordinal=19 offer=472 accepted=474 reply_due=479
+SCHEDULE case=2 ordinal=20 accept_extra=1 response_edges=1
+SERVICE case=2 ordinal=20 offer=486 accepted=488 reply_due=489
+SCHEDULE case=2 ordinal=21 accept_extra=3 response_edges=4
+SERVICE case=2 ordinal=21 offer=496 accepted=500 reply_due=504
+SCHEDULE case=17 ordinal=5 accept_extra=3 response_edges=3
+SERVICE case=17 ordinal=5 offer=1402 accepted=1406 reply_due=1409
+SCHEDULE case=18 ordinal=5 accept_extra=1 response_edges=3
+SERVICE case=18 ordinal=5 offer=1465 accepted=1467 reply_due=1470
+SCHEDULE case=19 ordinal=5 accept_extra=2 response_edges=2
+SERVICE case=19 ordinal=5 offer=1508 accepted=1511 reply_due=1513
+SCHEDULE case=20 ordinal=5 accept_extra=0 response_edges=1
+SERVICE case=20 ordinal=5 offer=1563 accepted=1564 reply_due=1565
+SCHEDULE case=21 ordinal=5 accept_extra=2 response_edges=5
+SERVICE case=21 ordinal=5 offer=1603 accepted=1606 reply_due=1611
+SCHEDULE case=21 ordinal=6 accept_extra=2 response_edges=2
+SERVICE case=21 ordinal=6 offer=1618 accepted=1621 reply_due=1623
+SCHEDULE case=22 ordinal=5 accept_extra=0 response_edges=4
+SERVICE case=22 ordinal=5 offer=1673 accepted=1674 reply_due=1678
+SCHEDULE case=23 ordinal=5 accept_extra=2 response_edges=4
+SERVICE case=23 ordinal=5 offer=1716 accepted=1719 reply_due=1723
+SCHEDULE case=23 ordinal=6 accept_extra=2 response_edges=1
+SERVICE case=23 ordinal=6 offer=1730 accepted=1733 reply_due=1734
+SCHEDULE case=24 ordinal=5 accept_extra=0 response_edges=3
+SERVICE case=24 ordinal=5 offer=1784 accepted=1785 reply_due=1788
+SCHEDULE case=47 ordinal=2 accept_extra=3 response_edges=5
+SERVICE case=47 ordinal=2 offer=2012 accepted=2016 reply_due=2021
+SCHEDULE case=48 ordinal=2 accept_extra=1 response_edges=4
+SERVICE case=48 ordinal=2 offer=2041 accepted=2043 reply_due=2047
+SCHEDULE case=49 ordinal=2 accept_extra=3 response_edges=3
+SERVICE case=49 ordinal=2 offer=2067 accepted=2071 reply_due=2074
+SCHEDULE case=50 ordinal=2 accept_extra=1 response_edges=3
+SERVICE case=50 ordinal=2 offer=2094 accepted=2096 reply_due=2099

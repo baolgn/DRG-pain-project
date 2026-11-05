@@ -1,0 +1,14 @@
+{
+  "command": [
+    "python3",
+    "microcontroller/tests/run_fence_events.py",
+    "--verilator",
+    "/tmp/drg5-control-tools-20260301/oss-cad-suite/bin/verilator",
+    "--build",
+    "/tmp/drg5-fence-events",
+    "--evidence-dir",
+    "/tmp/drg5-fence-events-reproduction-evidence"
+  ],
+  "exit_code": 0,
+  "note": "same qualified binaries; runner metadata supports an evidence directory outside the repository"
+}

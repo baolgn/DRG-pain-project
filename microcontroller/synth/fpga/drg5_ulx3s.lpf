@@ -1,0 +1,33 @@
+# use the pinned v316 mapping for ULX3S v3.1.7 D&M.
+# constrain the physical oscillator; the PLL supplies the core clock.
+LOCATE COMP "clk25_i" SITE "G2";
+IOBUF PORT "clk25_i" IO_TYPE=LVCMOS33 PULLMODE=NONE;
+FREQUENCY PORT "clk25_i" 25.000 MHZ;
+
+# FIRE1 resets the local platform; FIRE2 injects a retained test event.
+LOCATE COMP "reset_btn_i" SITE "R1";
+IOBUF PORT "reset_btn_i" IO_TYPE=LVCMOS33 PULLMODE=DOWN;
+LOCATE COMP "event_btn_i" SITE "T1";
+IOBUF PORT "event_btn_i" IO_TYPE=LVCMOS33 PULLMODE=DOWN;
+
+# transmit console bytes to the onboard FT231X receiver.
+LOCATE COMP "uart_tx_o" SITE "L4";
+IOBUF PORT "uart_tx_o" IO_TYPE=LVCMOS33 PULLMODE=UP DRIVE=4;
+
+# LEDs expose local status without a synchronous external timing contract.
+LOCATE COMP "led_o[0]" SITE "B2";
+IOBUF PORT "led_o[0]" IO_TYPE=LVCMOS33 PULLMODE=NONE DRIVE=4;
+LOCATE COMP "led_o[1]" SITE "C2";
+IOBUF PORT "led_o[1]" IO_TYPE=LVCMOS33 PULLMODE=NONE DRIVE=4;
+LOCATE COMP "led_o[2]" SITE "C1";
+IOBUF PORT "led_o[2]" IO_TYPE=LVCMOS33 PULLMODE=NONE DRIVE=4;
+LOCATE COMP "led_o[3]" SITE "D2";
+IOBUF PORT "led_o[3]" IO_TYPE=LVCMOS33 PULLMODE=NONE DRIVE=4;
+LOCATE COMP "led_o[4]" SITE "D1";
+IOBUF PORT "led_o[4]" IO_TYPE=LVCMOS33 PULLMODE=NONE DRIVE=4;
+LOCATE COMP "led_o[5]" SITE "E2";
+IOBUF PORT "led_o[5]" IO_TYPE=LVCMOS33 PULLMODE=NONE DRIVE=4;
+LOCATE COMP "led_o[6]" SITE "E1";
+IOBUF PORT "led_o[6]" IO_TYPE=LVCMOS33 PULLMODE=NONE DRIVE=4;
+LOCATE COMP "led_o[7]" SITE "H3";
+IOBUF PORT "led_o[7]" IO_TYPE=LVCMOS33 PULLMODE=NONE DRIVE=4;

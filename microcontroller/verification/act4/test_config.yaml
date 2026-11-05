@@ -1,0 +1,10 @@
+# executable names resolve from the pinned tool environment.
+name: drg5-rv32imc
+udb_config: drg5.yaml
+linker_script: link.ld
+dut_include_dir: .
+compiler_exe: drg5-act4-gcc
+objdump_exe: riscv-none-elf-objdump
+ref_model_exe: sail_riscv_sim
+include_priv_tests: true
+harts: 1

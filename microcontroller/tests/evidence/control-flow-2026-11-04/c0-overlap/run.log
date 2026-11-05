@@ -1,0 +1,5 @@
+PASS control-flow C=0 diagnostic=0 cases=37 cycles=663 retirements=107 traps=16 redirects=39 kills=63 hazards=57 bypasses=19 nearest=28 X_hold=36 W_hold=41 loads=4 target_faults=1 I_reads=2 X_behind_load=16
+- microcontroller/tests/drg5_control_flow_tb.sv:1113: Verilog $finish
+- S i m u l a t i o n   R e p o r t: Verilator 5.047 devel
+- Verilator: $finish at 24ns; walltime 0.135 s; speed 176.838 ns/s
+- Verilator: cpu 0.135 s on 1 threads; allocated 15 MB

@@ -1,0 +1,14 @@
+{
+  "verilator": {
+    "path": "/tmp/drg5-control-tools-20260301/oss-cad-suite/libexec/verilator_bin",
+    "sha256": "6b6b60384cc154f29e308f0aed8a83cb49d24b8ab0ad501f8fd5d8b14d3b538d"
+  },
+  "yosys": {
+    "path": "/tmp/drg5-control-tools/oss-cad-suite/libexec/yosys",
+    "sha256": "d3f9cc84a6fc75d0052f63cd7f8c812f5a9169722c82ca4014521dce4de8eace"
+  },
+  "yosys-abc": {
+    "path": "/tmp/drg5-control-tools/oss-cad-suite/libexec/yosys-abc",
+    "sha256": "16533de41738eda7d84759e74a311a64a698612a2aa165f46ca8b23bb91e4029"
+  }
+}

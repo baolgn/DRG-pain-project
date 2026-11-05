@@ -1,0 +1,6 @@
+$ /tmp/drg5-counters/obj/Vdrg5_counters_tb +verilator+seed+1 +seed=1 +ledger=/home/bluto/Desktop/dorsalGanglionProject/microcontroller/tests/evidence/counters-2026-11-04/revisions/01-qualification/seed-1.csv
+COUNTERS_PASS seed=1 profiles=2 cases=4 edges=21268 checks=255233 records=1097 compressed=6 stalls=20 traps=2 irqs=1 debug=10053 halt=1 resume=3 step=1 ebreak_debug=33 writes=1181 debug_writes=204 cycle_carries=65 instret_carries=70 cycle_wraps=1 instret_wraps=2 retries=2 coherent_reads=4 aliases=1677 ledger=6dfffa8572500cf8
+- microcontroller/tests/drg5_counters_tb.sv:379: Verilog $finish
+- S i m u l a t i o n   R e p o r t: Verilator 5.047 devel
+- Verilator: $finish at 64ns; walltime 0.270 s; speed 236.382 ns/s
+- Verilator: cpu 0.270 s on 1 threads; allocated 13 MB

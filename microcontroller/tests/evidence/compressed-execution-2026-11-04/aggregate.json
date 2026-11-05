@@ -1,0 +1,45 @@
+{
+  "positive_runs": 18,
+  "negative_controls": 4,
+  "totals": {
+    "cases": 1041,
+    "edges": 436413,
+    "checks": 12412093,
+    "retired": 20988,
+    "traps": 1053,
+    "killed": 52,
+    "compressed": 3875,
+    "straddled": 362,
+    "hints": 765,
+    "links": 180,
+    "branches": 441,
+    "first_faults": 54,
+    "second_faults": 54,
+    "stale": 1152,
+    "I_offers": 40905,
+    "I_accepts": 40905,
+    "I_replies": 40905,
+    "D_offers": 1260,
+    "D_accepts": 1260,
+    "D_replies": 1260,
+    "reads": 564,
+    "writes": 636,
+    "holds": 314140,
+    "IRQ": 12,
+    "idle": 12,
+    "pending": 75,
+    "simultaneous_discard": 12,
+    "late_C_wait": 140
+  },
+  "matching_same_program_profiles": [
+    "c1-m1-d0-f1",
+    "c1-m1-d0-f0",
+    "c1-m1-d1-f1"
+  ],
+  "seeds": [
+    0,
+    1,
+    305419896
+  ],
+  "scope": "finite semantic checks plus matching 64-bit stream signatures; no collision-free formal equivalence claim"
+}

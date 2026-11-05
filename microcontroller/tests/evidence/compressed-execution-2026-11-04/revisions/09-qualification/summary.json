@@ -1,0 +1,326 @@
+{
+  "status": "passed",
+  "scope": "real frontend and packet controller; finite mixed-width simulation",
+  "profiles": [
+    [
+      1,
+      1,
+      0,
+      1
+    ],
+    [
+      1,
+      1,
+      0,
+      0
+    ],
+    [
+      1,
+      1,
+      1,
+      1
+    ],
+    [
+      1,
+      0,
+      0,
+      1
+    ],
+    [
+      0,
+      1,
+      0,
+      1
+    ],
+    [
+      0,
+      0,
+      0,
+      1
+    ]
+  ],
+  "seeds": [
+    0,
+    1,
+    305419896
+  ],
+  "smoke": false,
+  "results": [
+    {
+      "profile": "c1-m1-d0-f1",
+      "seed": 0,
+      "command": [
+        "/tmp/drg5-c-execution-final/c1-m1-d0-f1/Vdrg5_compressed_execution_tb",
+        "+verilator+seed+1",
+        "+seed=0"
+      ],
+      "exit_code": 0,
+      "terminal": "C_EXEC_PASS C=1 M=1 diagnostic=0 forwarding=1 seed=0 cases=84 edges=35696 checks=1012492 retired=1724 traps=85 killed=6 compressed=328 straddled=27 hints=62 links=15 branches=37 first_faults=4 second_faults=4 stale=95 I_offers=3387 I_accepts=3387 I_replies=3387 D_offers=109 D_accepts=109 D_replies=109 reads=50 writes=54 holds=25840 max_I_accept=18 max_D_accept=9 IRQ=1 idle=1 pending=5 simultaneous_discard=1 late_C_wait=24 program_digest=9c4792d4b7555ca3 retirement_digest=1a68cafc451967f2 effect_digest=95bfae5614e44196"
+    },
+    {
+      "profile": "c1-m1-d0-f1",
+      "seed": 1,
+      "command": [
+        "/tmp/drg5-c-execution-final/c1-m1-d0-f1/Vdrg5_compressed_execution_tb",
+        "+verilator+seed+1",
+        "+seed=1"
+      ],
+      "exit_code": 0,
+      "terminal": "C_EXEC_PASS C=1 M=1 diagnostic=0 forwarding=1 seed=1 cases=84 edges=35875 checks=1023620 retired=1724 traps=85 killed=5 compressed=321 straddled=34 hints=63 links=15 branches=37 first_faults=4 second_faults=4 stale=95 I_offers=3393 I_accepts=3393 I_replies=3393 D_offers=98 D_accepts=98 D_replies=98 reads=43 writes=50 holds=25965 max_I_accept=18 max_D_accept=9 IRQ=1 idle=1 pending=6 simultaneous_discard=1 late_C_wait=22 program_digest=0066ec3a7019bbc8 retirement_digest=ea6c204c3ccafa35 effect_digest=88feac11d3b0026f"
+    },
+    {
+      "profile": "c1-m1-d0-f1",
+      "seed": 305419896,
+      "command": [
+        "/tmp/drg5-c-execution-final/c1-m1-d0-f1/Vdrg5_compressed_execution_tb",
+        "+verilator+seed+1",
+        "+seed=305419896"
+      ],
+      "exit_code": 0,
+      "terminal": "C_EXEC_PASS C=1 M=1 diagnostic=0 forwarding=1 seed=305419896 cases=84 edges=35899 checks=1023629 retired=1724 traps=85 killed=6 compressed=322 straddled=31 hints=67 links=15 branches=37 first_faults=4 second_faults=4 stale=97 I_offers=3393 I_accepts=3393 I_replies=3393 D_offers=108 D_accepts=108 D_replies=108 reads=48 writes=55 holds=25982 max_I_accept=18 max_D_accept=9 IRQ=1 idle=1 pending=9 simultaneous_discard=1 late_C_wait=24 program_digest=190653a9d7cc37a0 retirement_digest=1a04246bcf5081f7 effect_digest=1c24400bd6fa46ab"
+    },
+    {
+      "profile": "c1-m1-d0-f0",
+      "seed": 0,
+      "command": [
+        "/tmp/drg5-c-execution-final/c1-m1-d0-f0/Vdrg5_compressed_execution_tb",
+        "+verilator+seed+1",
+        "+seed=0"
+      ],
+      "exit_code": 0,
+      "terminal": "C_EXEC_PASS C=1 M=1 diagnostic=0 forwarding=0 seed=0 cases=84 edges=35746 checks=1014282 retired=1724 traps=85 killed=8 compressed=328 straddled=27 hints=62 links=15 branches=37 first_faults=4 second_faults=4 stale=93 I_offers=3390 I_accepts=3390 I_replies=3390 D_offers=109 D_accepts=109 D_replies=109 reads=50 writes=54 holds=25881 max_I_accept=18 max_D_accept=9 IRQ=1 idle=1 pending=5 simultaneous_discard=1 late_C_wait=24 program_digest=9c4792d4b7555ca3 retirement_digest=1a68cafc451967f2 effect_digest=95bfae5614e44196"
+    },
+    {
+      "profile": "c1-m1-d0-f0",
+      "seed": 1,
+      "command": [
+        "/tmp/drg5-c-execution-final/c1-m1-d0-f0/Vdrg5_compressed_execution_tb",
+        "+verilator+seed+1",
+        "+seed=1"
+      ],
+      "exit_code": 0,
+      "terminal": "C_EXEC_PASS C=1 M=1 diagnostic=0 forwarding=0 seed=1 cases=84 edges=35897 checks=1024771 retired=1724 traps=85 killed=7 compressed=321 straddled=34 hints=63 links=15 branches=37 first_faults=4 second_faults=4 stale=93 I_offers=3395 I_accepts=3395 I_replies=3395 D_offers=98 D_accepts=98 D_replies=98 reads=43 writes=50 holds=25988 max_I_accept=18 max_D_accept=9 IRQ=1 idle=1 pending=6 simultaneous_discard=1 late_C_wait=22 program_digest=0066ec3a7019bbc8 retirement_digest=ea6c204c3ccafa35 effect_digest=88feac11d3b0026f"
+    },
+    {
+      "profile": "c1-m1-d0-f0",
+      "seed": 305419896,
+      "command": [
+        "/tmp/drg5-c-execution-final/c1-m1-d0-f0/Vdrg5_compressed_execution_tb",
+        "+verilator+seed+1",
+        "+seed=305419896"
+      ],
+      "exit_code": 0,
+      "terminal": "C_EXEC_PASS C=1 M=1 diagnostic=0 forwarding=0 seed=305419896 cases=84 edges=35921 checks=1025066 retired=1724 traps=85 killed=8 compressed=322 straddled=31 hints=67 links=15 branches=37 first_faults=4 second_faults=4 stale=97 I_offers=3395 I_accepts=3395 I_replies=3395 D_offers=108 D_accepts=108 D_replies=108 reads=48 writes=55 holds=26003 max_I_accept=18 max_D_accept=9 IRQ=1 idle=1 pending=9 simultaneous_discard=1 late_C_wait=24 program_digest=190653a9d7cc37a0 retirement_digest=1a04246bcf5081f7 effect_digest=1c24400bd6fa46ab"
+    },
+    {
+      "profile": "c1-m1-d1-f1",
+      "seed": 0,
+      "command": [
+        "/tmp/drg5-c-execution-final/c1-m1-d1-f1/Vdrg5_compressed_execution_tb",
+        "+verilator+seed+1",
+        "+seed=0"
+      ],
+      "exit_code": 0,
+      "terminal": "C_EXEC_PASS C=1 M=1 diagnostic=1 forwarding=1 seed=0 cases=84 edges=36231 checks=1042334 retired=1724 traps=85 killed=0 compressed=328 straddled=27 hints=62 links=15 branches=37 first_faults=4 second_faults=4 stale=97 I_offers=3381 I_accepts=3381 I_replies=3381 D_offers=109 D_accepts=109 D_replies=109 reads=50 writes=54 holds=26297 max_I_accept=18 max_D_accept=9 IRQ=1 idle=1 pending=9 simultaneous_discard=1 late_C_wait=0 program_digest=9c4792d4b7555ca3 retirement_digest=1a68cafc451967f2 effect_digest=95bfae5614e44196"
+    },
+    {
+      "profile": "c1-m1-d1-f1",
+      "seed": 1,
+      "command": [
+        "/tmp/drg5-c-execution-final/c1-m1-d1-f1/Vdrg5_compressed_execution_tb",
+        "+verilator+seed+1",
+        "+seed=1"
+      ],
+      "exit_code": 0,
+      "terminal": "C_EXEC_PASS C=1 M=1 diagnostic=1 forwarding=1 seed=1 cases=84 edges=36165 checks=1042091 retired=1724 traps=85 killed=0 compressed=321 straddled=34 hints=63 links=15 branches=37 first_faults=4 second_faults=4 stale=92 I_offers=3388 I_accepts=3388 I_replies=3388 D_offers=98 D_accepts=98 D_replies=98 reads=43 writes=50 holds=26277 max_I_accept=18 max_D_accept=9 IRQ=1 idle=1 pending=7 simultaneous_discard=1 late_C_wait=0 program_digest=0066ec3a7019bbc8 retirement_digest=ea6c204c3ccafa35 effect_digest=88feac11d3b0026f"
+    },
+    {
+      "profile": "c1-m1-d1-f1",
+      "seed": 305419896,
+      "command": [
+        "/tmp/drg5-c-execution-final/c1-m1-d1-f1/Vdrg5_compressed_execution_tb",
+        "+verilator+seed+1",
+        "+seed=305419896"
+      ],
+      "exit_code": 0,
+      "terminal": "C_EXEC_PASS C=1 M=1 diagnostic=1 forwarding=1 seed=305419896 cases=84 edges=36265 checks=1047905 retired=1724 traps=85 killed=0 compressed=322 straddled=31 hints=67 links=15 branches=37 first_faults=4 second_faults=4 stale=94 I_offers=3387 I_accepts=3387 I_replies=3387 D_offers=108 D_accepts=108 D_replies=108 reads=48 writes=55 holds=26327 max_I_accept=18 max_D_accept=9 IRQ=1 idle=1 pending=4 simultaneous_discard=1 late_C_wait=0 program_digest=190653a9d7cc37a0 retirement_digest=1a04246bcf5081f7 effect_digest=1c24400bd6fa46ab"
+    },
+    {
+      "profile": "c1-m0-d0-f1",
+      "seed": 0,
+      "command": [
+        "/tmp/drg5-c-execution-final/c1-m0-d0-f1/Vdrg5_compressed_execution_tb",
+        "+verilator+seed+1",
+        "+seed=0"
+      ],
+      "exit_code": 0,
+      "terminal": "C_EXEC_PASS C=1 M=0 diagnostic=0 forwarding=1 seed=0 cases=83 edges=34852 checks=990847 retired=1683 traps=84 killed=3 compressed=325 straddled=25 hints=61 links=15 branches=36 first_faults=4 second_faults=4 stale=90 I_offers=3301 I_accepts=3301 I_replies=3301 D_offers=109 D_accepts=109 D_replies=109 reads=50 writes=54 holds=25369 max_I_accept=18 max_D_accept=9 IRQ=1 idle=1 pending=4 simultaneous_discard=1 late_C_wait=0 program_digest=fa99f159facd32da retirement_digest=9c5882befed4e989 effect_digest=95bfae5614e44196"
+    },
+    {
+      "profile": "c1-m0-d0-f1",
+      "seed": 1,
+      "command": [
+        "/tmp/drg5-c-execution-final/c1-m0-d0-f1/Vdrg5_compressed_execution_tb",
+        "+verilator+seed+1",
+        "+seed=1"
+      ],
+      "exit_code": 0,
+      "terminal": "C_EXEC_PASS C=1 M=0 diagnostic=0 forwarding=1 seed=1 cases=83 edges=34770 checks=990730 retired=1683 traps=84 killed=5 compressed=318 straddled=32 hints=62 links=15 branches=36 first_faults=4 second_faults=4 stale=95 I_offers=3310 I_accepts=3310 I_replies=3310 D_offers=98 D_accepts=98 D_replies=98 reads=43 writes=50 holds=25327 max_I_accept=18 max_D_accept=9 IRQ=1 idle=1 pending=3 simultaneous_discard=1 late_C_wait=0 program_digest=92329bf31e4785a9 retirement_digest=17b7f9e47261c8cc effect_digest=88feac11d3b0026f"
+    },
+    {
+      "profile": "c1-m0-d0-f1",
+      "seed": 305419896,
+      "command": [
+        "/tmp/drg5-c-execution-final/c1-m0-d0-f1/Vdrg5_compressed_execution_tb",
+        "+verilator+seed+1",
+        "+seed=305419896"
+      ],
+      "exit_code": 0,
+      "terminal": "C_EXEC_PASS C=1 M=0 diagnostic=0 forwarding=1 seed=305419896 cases=83 edges=34972 checks=999272 retired=1683 traps=84 killed=4 compressed=319 straddled=29 hints=66 links=15 branches=36 first_faults=4 second_faults=4 stale=98 I_offers=3308 I_accepts=3308 I_replies=3308 D_offers=108 D_accepts=108 D_replies=108 reads=48 writes=55 holds=25450 max_I_accept=18 max_D_accept=9 IRQ=1 idle=1 pending=8 simultaneous_discard=1 late_C_wait=0 program_digest=a88bb5c5c7b4e221 retirement_digest=66e7a506cca20c22 effect_digest=1c24400bd6fa46ab"
+    },
+    {
+      "profile": "c0-m1-d0-f1",
+      "seed": 0,
+      "command": [
+        "/tmp/drg5-c-execution-final/c0-m1-d0-f1/Vdrg5_compressed_execution_tb",
+        "+verilator+seed+1",
+        "+seed=0"
+      ],
+      "exit_code": 0,
+      "terminal": "C_EXEC_PASS C=0 M=1 diagnostic=0 forwarding=1 seed=0 cases=6 edges=1365 checks=29292 retired=71 traps=6 killed=0 compressed=0 straddled=0 hints=0 links=0 branches=0 first_faults=1 second_faults=1 stale=3 I_offers=80 I_accepts=80 I_replies=80 D_offers=0 D_accepts=0 D_replies=0 reads=0 writes=0 holds=582 max_I_accept=4 max_D_accept=0 IRQ=0 idle=0 pending=0 simultaneous_discard=0 late_C_wait=0 program_digest=38e9465c0533c155 retirement_digest=8ea6431f4c5208c0 effect_digest=cbf29ce484222325"
+    },
+    {
+      "profile": "c0-m1-d0-f1",
+      "seed": 1,
+      "command": [
+        "/tmp/drg5-c-execution-final/c0-m1-d0-f1/Vdrg5_compressed_execution_tb",
+        "+verilator+seed+1",
+        "+seed=1"
+      ],
+      "exit_code": 0,
+      "terminal": "C_EXEC_PASS C=0 M=1 diagnostic=0 forwarding=1 seed=1 cases=6 edges=1366 checks=29923 retired=71 traps=6 killed=0 compressed=0 straddled=0 hints=0 links=0 branches=0 first_faults=1 second_faults=1 stale=2 I_offers=80 I_accepts=80 I_replies=80 D_offers=0 D_accepts=0 D_replies=0 reads=0 writes=0 holds=580 max_I_accept=4 max_D_accept=0 IRQ=0 idle=0 pending=0 simultaneous_discard=0 late_C_wait=0 program_digest=38e9465c0533c155 retirement_digest=8ea6431f4c5208c0 effect_digest=cbf29ce484222325"
+    },
+    {
+      "profile": "c0-m1-d0-f1",
+      "seed": 305419896,
+      "command": [
+        "/tmp/drg5-c-execution-final/c0-m1-d0-f1/Vdrg5_compressed_execution_tb",
+        "+verilator+seed+1",
+        "+seed=305419896"
+      ],
+      "exit_code": 0,
+      "terminal": "C_EXEC_PASS C=0 M=1 diagnostic=0 forwarding=1 seed=305419896 cases=6 edges=1355 checks=29421 retired=71 traps=6 killed=0 compressed=0 straddled=0 hints=0 links=0 branches=0 first_faults=1 second_faults=1 stale=3 I_offers=80 I_accepts=80 I_replies=80 D_offers=0 D_accepts=0 D_replies=0 reads=0 writes=0 holds=569 max_I_accept=4 max_D_accept=0 IRQ=0 idle=0 pending=0 simultaneous_discard=0 late_C_wait=0 program_digest=38e9465c0533c155 retirement_digest=8ea6431f4c5208c0 effect_digest=cbf29ce484222325"
+    },
+    {
+      "profile": "c0-m0-d0-f1",
+      "seed": 0,
+      "command": [
+        "/tmp/drg5-c-execution-final/c0-m0-d0-f1/Vdrg5_compressed_execution_tb",
+        "+verilator+seed+1",
+        "+seed=0"
+      ],
+      "exit_code": 0,
+      "terminal": "C_EXEC_PASS C=0 M=0 diagnostic=0 forwarding=1 seed=0 cases=6 edges=1341 checks=28541 retired=70 traps=6 killed=0 compressed=0 straddled=0 hints=0 links=0 branches=0 first_faults=1 second_faults=1 stale=3 I_offers=79 I_accepts=79 I_replies=79 D_offers=0 D_accepts=0 D_replies=0 reads=0 writes=0 holds=569 max_I_accept=4 max_D_accept=0 IRQ=0 idle=0 pending=0 simultaneous_discard=0 late_C_wait=0 program_digest=38e9465c0533c155 retirement_digest=b94c4dbb31f6ab8a effect_digest=cbf29ce484222325"
+    },
+    {
+      "profile": "c0-m0-d0-f1",
+      "seed": 1,
+      "command": [
+        "/tmp/drg5-c-execution-final/c0-m0-d0-f1/Vdrg5_compressed_execution_tb",
+        "+verilator+seed+1",
+        "+seed=1"
+      ],
+      "exit_code": 0,
+      "terminal": "C_EXEC_PASS C=0 M=0 diagnostic=0 forwarding=1 seed=1 cases=6 edges=1360 checks=29210 retired=70 traps=6 killed=0 compressed=0 straddled=0 hints=0 links=0 branches=0 first_faults=1 second_faults=1 stale=2 I_offers=79 I_accepts=79 I_replies=79 D_offers=0 D_accepts=0 D_replies=0 reads=0 writes=0 holds=578 max_I_accept=4 max_D_accept=0 IRQ=0 idle=0 pending=0 simultaneous_discard=0 late_C_wait=0 program_digest=38e9465c0533c155 retirement_digest=b94c4dbb31f6ab8a effect_digest=cbf29ce484222325"
+    },
+    {
+      "profile": "c0-m0-d0-f1",
+      "seed": 305419896,
+      "command": [
+        "/tmp/drg5-c-execution-final/c0-m0-d0-f1/Vdrg5_compressed_execution_tb",
+        "+verilator+seed+1",
+        "+seed=305419896"
+      ],
+      "exit_code": 0,
+      "terminal": "C_EXEC_PASS C=0 M=0 diagnostic=0 forwarding=1 seed=305419896 cases=6 edges=1337 checks=28667 retired=70 traps=6 killed=0 compressed=0 straddled=0 hints=0 links=0 branches=0 first_faults=1 second_faults=1 stale=3 I_offers=79 I_accepts=79 I_replies=79 D_offers=0 D_accepts=0 D_replies=0 reads=0 writes=0 holds=556 max_I_accept=4 max_D_accept=0 IRQ=0 idle=0 pending=0 simultaneous_discard=0 late_C_wait=0 program_digest=38e9465c0533c155 retirement_digest=b94c4dbb31f6ab8a effect_digest=cbf29ce484222325"
+    },
+    {
+      "negative_control": "mutate_raw",
+      "command": [
+        "/tmp/drg5-c-execution-final/c1-m1-d0-f1/Vdrg5_compressed_execution_tb",
+        "+verilator+seed+1",
+        "+seed=1",
+        "+mutate_raw"
+      ],
+      "exit_code": 1,
+      "detector": "C_EXEC_CHECK_FAILED original bits and length preserved"
+    },
+    {
+      "negative_control": "mutate_epc",
+      "command": [
+        "/tmp/drg5-c-execution-final/c1-m1-d0-f1/Vdrg5_compressed_execution_tb",
+        "+verilator+seed+1",
+        "+seed=1",
+        "+mutate_epc"
+      ],
+      "exit_code": 1,
+      "detector": "C_EXEC_CHECK_FAILED precise fault and instruction start PC"
+    },
+    {
+      "negative_control": "mutate_link",
+      "command": [
+        "/tmp/drg5-c-execution-final/c1-m1-d0-f1/Vdrg5_compressed_execution_tb",
+        "+verilator+seed+1",
+        "+seed=1",
+        "+mutate_link"
+      ],
+      "exit_code": 1,
+      "detector": "C_EXEC_CHECK_FAILED architectural register result"
+    },
+    {
+      "negative_control": "mutate_effect",
+      "command": [
+        "/tmp/drg5-c-execution-final/c1-m1-d0-f1/Vdrg5_compressed_execution_tb",
+        "+verilator+seed+1",
+        "+seed=1",
+        "+mutate_effect"
+      ],
+      "exit_code": 1,
+      "detector": "C_EXEC_CHECK_FAILED physical effects match permitted retirement"
+    }
+  ],
+  "source_sha256": {
+    "microcontroller/rtl/drg5_control_pkg.sv": "fda063ce363184082c36ff0985af2828f4bc9a6b17da107266e734e32791c288",
+    "microcontroller/rtl/drg5_immediate.sv": "0178ee6a01e4c5361d149a425b5da5502ef2906b8c3ee9246800bd5bc93a080b",
+    "microcontroller/rtl/drg5_decoder.sv": "0b42ead92fd911fd1a2ed4295145b4ac476ad2933b3e2dcb4cdde95d899d52b3",
+    "microcontroller/rtl/drg5_branch.sv": "81fb7fbc54c4c64236738d289fa8fc5a64bd6373efbd66ac2da33086e8d8728e",
+    "microcontroller/rtl/drg5_lsu.sv": "eeac7f5f8d92e4e35030b716e85aabede593afe1d5ca3175e79b9e3e5c83d926",
+    "microcontroller/rtl/drg5_shifter.sv": "0f0bda6a6fc80dc60e23f0058bfac2db2986e03480d95781ead91758dc4e2223",
+    "microcontroller/rtl/drg5_alu.sv": "c1ed60c799186e4185c516049ad99d046dd9ab134afa88b57089f27408fce199",
+    "microcontroller/rtl/drg5_forward.sv": "6c88614a024cb1df85bdb4926a4d4bef9bacbc84af803bcbb7cf1b93d150e444",
+    "microcontroller/rtl/drg5_decompress.sv": "844d6c0b0dbdde6a02c7de346fbb61408ffe2e384d50b82027d9922a8e89372e",
+    "microcontroller/rtl/drg5_fetch_guard.sv": "3bda4702a4a9eb14fb859820af1098dcc2910926c6700e486b7c2f7ce5a0acbe",
+    "microcontroller/rtl/drg5_fetch_buffer.sv": "a2a5dc5b6236751bc3df70c48eedc229b40a9e79c2adb7e0969c4355fa2b5844",
+    "microcontroller/rtl/drg5_fetch.sv": "bc8a999d9e4b7761238306b8edb00b70fc1854f3070d593657a1fef9580e7247",
+    "microcontroller/rtl/drg5_frontend.sv": "7333cd008e2e63bd91d4b08f5ca323cd594efdab8c19d65603759505a3823e16",
+    "microcontroller/rtl/drg5_csr.sv": "964076aa378ef7c483103af939852587cc8f839fdcde85809e7998b65f61ee5f",
+    "microcontroller/rtl/drg5_muldiv.sv": "7eeed33bc060b11260c453c583cfe1936c8e76e6dfc9f437e92f4345e6d9911a",
+    "microcontroller/rtl/drg5_control.sv": "497b62f6990ba096859acef3f7cc3a3cc36cdb373c9b1e7fc64453e62766d9d1",
+    "microcontroller/tests/drg5_compressed_execution_tb.sv": "2ec9244e1d33d21db78356d363d3f539993582f64a046230e37a85ffaac20be6",
+    "microcontroller/rtl/drg5_datapath_defs.svh": "1247c7ee5185c32bcd41a1d72a08c9926e34ff5abe25e2ece8e6c2f9df21042e",
+    "microcontroller/tests/run_compressed_execution.py": "aa9555c506965d1e3ff42aa9864a867729e792fbc61e94ec7a3b38ad5541bbe7",
+    "microcontroller/tests/Makefile": "1f163d8d84ece9db0eefde7a1e610444cd13b3deb8ab2a3afda7961a5e22ea95"
+  },
+  "verilator": "Verilator 5.047 devel rev v5.046-19-ge9dd6eaaf (mod)",
+  "assumptions": [
+    "synchronous target data captured at acceptance; independent I/D acceptance and response delays",
+    "I and D stress deadlines64clocks; no production latency claim",
+    "one outstanding transaction per port; no response reordering or unsafe reset",
+    "independent program and service LCG streams preserve identical images across occupancy profiles",
+    "reserved instruction image holes fault or fail the independent PC oracle"
+  ],
+  "limits": [
+    "finite seeded simulations, not all-input proof or ACT4/Sail conformance",
+    "no firmware compiler, FPGA timing, programming, acquisition or debug qualification"
+  ]
+}

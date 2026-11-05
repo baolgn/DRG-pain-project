@@ -1,0 +1,1092 @@
+{
+  "schema": "DRG5-REQUIREMENTS-1",
+  "date": "2026-11-04",
+  "status": "complete_with_open_release_gates",
+  "normative_manifest": "microcontroller/rtl/README.md",
+  "scope": "requirement evidence ledger; scope-limited passes never imply named-build conformance",
+  "evidence": {
+    "base": {
+      "path": "microcontroller/verification/evidence/verification-2026-11-04/directed/base-summary.json",
+      "kind": "fresh_directed",
+      "status": "passed"
+    },
+    "memory": {
+      "path": "microcontroller/verification/evidence/verification-2026-11-04/directed/memory-summary.json",
+      "kind": "fresh_directed",
+      "status": "passed"
+    },
+    "control-flow": {
+      "path": "microcontroller/verification/evidence/verification-2026-11-04/directed/control-flow-summary.json",
+      "kind": "fresh_directed",
+      "status": "passed"
+    },
+    "control-events": {
+      "path": "microcontroller/verification/evidence/verification-2026-11-04/directed/control-events-summary.json",
+      "kind": "fresh_directed",
+      "status": "passed"
+    },
+    "csr": {
+      "path": "microcontroller/verification/evidence/verification-2026-11-04/directed/csr-summary.json",
+      "kind": "fresh_directed",
+      "status": "passed"
+    },
+    "csr-control": {
+      "path": "microcontroller/verification/evidence/verification-2026-11-04/directed/csr-control-summary.json",
+      "kind": "fresh_directed",
+      "status": "passed"
+    },
+    "irq-control": {
+      "path": "microcontroller/verification/evidence/verification-2026-11-04/directed/irq-control-summary.json",
+      "kind": "fresh_directed",
+      "status": "passed"
+    },
+    "muldiv-control": {
+      "path": "microcontroller/verification/evidence/verification-2026-11-04/directed/muldiv-control-summary.json",
+      "kind": "fresh_directed",
+      "status": "passed"
+    },
+    "compressed-execution": {
+      "path": "microcontroller/verification/evidence/verification-2026-11-04/directed/compressed-execution-summary.json",
+      "kind": "fresh_directed",
+      "status": "passed"
+    },
+    "fence-execution": {
+      "path": "microcontroller/verification/evidence/verification-2026-11-04/directed/fence-execution-summary.json",
+      "kind": "fresh_directed",
+      "status": "passed"
+    },
+    "fence-events": {
+      "path": "microcontroller/verification/evidence/verification-2026-11-04/directed/fence-events-summary.json",
+      "kind": "fresh_directed",
+      "status": "passed"
+    },
+    "decompress": {
+      "path": "microcontroller/tests/evidence/decompress-2026-11-04/summary.json",
+      "kind": "reused_exact_sources",
+      "status": "passed",
+      "revalidation": "microcontroller/verification/evidence/verification-2026-11-04/reuse/summary.json"
+    },
+    "forward-unit": {
+      "path": "microcontroller/tests/evidence/forward-2026-11-04/summary.json",
+      "kind": "reused_exact_sources",
+      "status": "passed",
+      "revalidation": "microcontroller/verification/evidence/verification-2026-11-04/reuse/summary.json"
+    },
+    "lsu-unit": {
+      "path": "microcontroller/tests/evidence/lsu-2026-11-04/summary.json",
+      "kind": "reused_exact_sources",
+      "status": "passed",
+      "revalidation": "microcontroller/verification/evidence/verification-2026-11-04/reuse/summary.json"
+    },
+    "m-unit": {
+      "path": "microcontroller/tests/evidence/muldiv-unit-2026-11-04/summary.json",
+      "kind": "reused_exact_sources",
+      "status": "passed",
+      "revalidation": "microcontroller/verification/evidence/verification-2026-11-04/reuse/summary.json"
+    },
+    "fetch-formal-historical": {
+      "path": "microcontroller/verification/evidence/fetch-2026-11-04/formal-summary.json",
+      "kind": "reused_exact_sources",
+      "status": "passed",
+      "revalidation": "microcontroller/verification/evidence/verification-2026-11-04/reuse/summary.json"
+    },
+    "debug-core": {
+      "path": "microcontroller/tests/evidence/debug-core-2026-11-04/summary.json",
+      "kind": "reused_exact_sources",
+      "status": "passed",
+      "revalidation": "microcontroller/verification/evidence/verification-2026-11-04/reuse/summary.json"
+    },
+    "debug-module": {
+      "path": "microcontroller/tests/evidence/debug-module-2026-11-04/summary.json",
+      "kind": "reused_exact_sources",
+      "status": "passed",
+      "revalidation": "microcontroller/verification/evidence/verification-2026-11-04/reuse/summary.json"
+    },
+    "debug-system": {
+      "path": "microcontroller/tests/evidence/debug-system-2026-11-04/summary.json",
+      "kind": "reused_exact_sources",
+      "status": "passed",
+      "revalidation": "microcontroller/verification/evidence/verification-2026-11-04/reuse/summary.json"
+    },
+    "debug-remote-0": {
+      "path": "microcontroller/tests/evidence/debug-remote-2026-11-04/revisions/10-qualification/summary.json",
+      "kind": "reused_exact_sources",
+      "status": "passed",
+      "revalidation": "microcontroller/verification/evidence/verification-2026-11-04/reuse/summary.json"
+    },
+    "debug-remote-1": {
+      "path": "microcontroller/tests/evidence/debug-remote-2026-11-04/revisions/11-qualification/summary.json",
+      "kind": "reused_exact_sources",
+      "status": "passed",
+      "revalidation": "microcontroller/verification/evidence/verification-2026-11-04/reuse/summary.json"
+    },
+    "debug-remote-305419896": {
+      "path": "microcontroller/tests/evidence/debug-remote-2026-11-04/revisions/12-qualification/summary.json",
+      "kind": "reused_exact_sources",
+      "status": "passed",
+      "revalidation": "microcontroller/verification/evidence/verification-2026-11-04/reuse/summary.json"
+    },
+    "irq-fetch": {
+      "path": "microcontroller/verification/evidence/debug-2026-11-04/compatibility/revisions/07-irq-fetch/result/summary.json",
+      "kind": "reused_exact_sources",
+      "status": "passed",
+      "revalidation": "microcontroller/verification/evidence/verification-2026-11-04/reuse/summary.json"
+    },
+    "structure": {
+      "path": "microcontroller/verification/evidence/debug-2026-11-04/structure/summary.json",
+      "kind": "reused_exact_sources",
+      "status": "passed",
+      "revalidation": "microcontroller/verification/evidence/verification-2026-11-04/reuse/summary.json"
+    },
+    "units": {
+      "path": "microcontroller/verification/evidence/verification-2026-11-04/units/summary.json",
+      "kind": "fresh_component",
+      "status": "passed"
+    },
+    "datapath-map": {
+      "path": "microcontroller/verification/evidence/datapath-2026-11-04/summary.json",
+      "kind": "reused_exact_sources",
+      "status": "passed",
+      "revalidation": "microcontroller/verification/evidence/verification-2026-11-04/reuse/summary.json"
+    },
+    "counter-execution": {
+      "path": "microcontroller/verification/evidence/verification-2026-11-04/counter-execution/summary.json",
+      "kind": "fresh_directed",
+      "status": "passed"
+    },
+    "execution": {
+      "path": "microcontroller/verification/evidence/verification-2026-11-04/execution/summary.json",
+      "kind": "fresh_random_reference",
+      "status": "passed"
+    },
+    "formal": {
+      "path": "microcontroller/verification/evidence/verification-2026-11-04/formal/campaign-20261105T023106052242Z/summary.json",
+      "kind": "fresh_formal",
+      "status": "PASS"
+    },
+    "archived-replay": {
+      "path": "microcontroller/verification/evidence/verification-2026-11-04/execution/archived-replay.json",
+      "kind": "fresh_replay",
+      "status": "passed"
+    },
+    "act4": {
+      "path": "microcontroller/verification/evidence/verification-2026-11-04/act4/campaigns/20261105T023106052242Z/manifest.json",
+      "kind": "fresh_architectural_campaign",
+      "status": "qualification_open"
+    },
+    "publication-guards": {
+      "path": "microcontroller/verification/evidence/verification-2026-11-04/act4/publisher-negative-checks.json",
+      "kind": "fresh_metadata_validation",
+      "status": "passed",
+      "source_base": "microcontroller/verification/act4"
+    },
+    "formal-admission": {
+      "path": "microcontroller/verification/evidence/verification-2026-11-04/formal/admission-campaign-20261105T023106052242Z/summary.json",
+      "kind": "fresh_formal",
+      "status": "PASS"
+    }
+  },
+  "requirements": [
+    {
+      "id": "CFG-01",
+      "requirement": "pinned ISA and intermediate configuration identity",
+      "configured_behavior": "I2.1/M2.0/C2.0/Zicsr2.0/Zifencei2.0/Sm1.13; mimpid0 prototype; C/M/FI/debug disabled profiles do not inherit enabled claims",
+      "evidence": [
+        "base",
+        "muldiv-control",
+        "compressed-execution",
+        "fence-execution",
+        "debug-core"
+      ],
+      "coverage": "finite_component_or_integration",
+      "limits": "B0-B3/F remain unqualified; default parameter profiles are separately reported",
+      "release_gate": "scope_limited"
+    },
+    {
+      "id": "CFG-02",
+      "requirement": "matching firmware, model and ELF settings",
+      "configured_behavior": "ILP32 soft-float, little endian, strict alignment, no relaxation; model and test selection match enabled modules",
+      "evidence": [
+        "execution",
+        "act4"
+      ],
+      "coverage": "partial",
+      "limits": "matching compiler/model/CPU flags verified in generated programs; ACT4 retains mcause legalization and absent-timeh platform-address mismatches",
+      "release_gate": "open"
+    },
+    {
+      "id": "ISA-01",
+      "requirement": "complete base decoder and instruction legality",
+      "configured_behavior": "40 base instruction rows, reserved immediate fields illegal, legal hints/fences retained",
+      "evidence": [
+        "base",
+        "units",
+        "datapath-map",
+        "execution"
+      ],
+      "coverage": "finite_component_or_integration",
+      "limits": "finite programs and declared decoder vectors; no exhaustive 2^32 encoding enumeration",
+      "release_gate": "scope_limited"
+    },
+    {
+      "id": "ISA-02",
+      "requirement": "ALU wraparound, signedness and shifts",
+      "configured_behavior": "32-bit modular arithmetic, signed and unsigned comparisons, low-five-bit register shifts",
+      "evidence": [
+        "base",
+        "units",
+        "datapath-map",
+        "execution"
+      ],
+      "coverage": "finite_component_or_integration",
+      "limits": "standalone arithmetic/shifter SAT covers all two-state operands; finite pipeline programs do not establish whole-core all-input equivalence",
+      "release_gate": "scope_limited"
+    },
+    {
+      "id": "ISA-03",
+      "requirement": "operand-use masks and x0 semantics",
+      "configured_behavior": "only used operands create hazards; x0 reads zero and ignores writes",
+      "evidence": [
+        "base",
+        "forward-unit",
+        "units",
+        "datapath-map",
+        "execution"
+      ],
+      "coverage": "finite_component_or_integration",
+      "limits": "unreset x1-x31 require initialization; two-state simulation is not proof of unknown-state safety",
+      "release_gate": "scope_limited"
+    },
+    {
+      "id": "RF-01",
+      "requirement": "register-file latency and same-edge write/read",
+      "configured_behavior": "asynchronous two-read ports with defined commit write bypass and x0 masking",
+      "evidence": [
+        "base",
+        "structure",
+        "units",
+        "datapath-map"
+      ],
+      "coverage": "finite_component_or_integration",
+      "limits": "standalone RF and FF/distributed/BRAM candidates have individually tested latency; controller uses its own register array, tested through committed execution",
+      "release_gate": "scope_limited"
+    },
+    {
+      "id": "FWD-01",
+      "requirement": "newest older matching producer wins",
+      "configured_behavior": "nearest matching producer blocks older bypass when unavailable; load only forwards successful completion",
+      "evidence": [
+        "base",
+        "memory",
+        "forward-unit",
+        "execution"
+      ],
+      "coverage": "finite_component_or_integration",
+      "limits": "finite integrated dependency programs plus independent forwarding-unit induction",
+      "release_gate": "scope_limited"
+    },
+    {
+      "id": "FWD-02",
+      "requirement": "all operand consumers use correct dependency handling",
+      "configured_behavior": "ALU, branch, JALR address, load/store address and store data share ordered dependency handling",
+      "evidence": [
+        "base",
+        "memory",
+        "control-flow",
+        "muldiv-control",
+        "execution"
+      ],
+      "coverage": "finite_component_or_integration",
+      "limits": "finite profile/seed matrix; not whole-core formal data equivalence",
+      "release_gate": "scope_limited"
+    },
+    {
+      "id": "CTL-01",
+      "requirement": "all branches and jumps preserve architectural sequence",
+      "configured_behavior": "BEQ/BNE/BLT/BGE/BLTU/BGEU, JAL/JALR; JALR clears bit0; PC+original length links",
+      "evidence": [
+        "base",
+        "control-flow",
+        "compressed-execution",
+        "execution"
+      ],
+      "coverage": "finite_component_or_integration",
+      "limits": "C0/C1 target alignment tested; dependent/untaken and wrap cases are fixture-scoped",
+      "release_gate": "scope_limited"
+    },
+    {
+      "id": "CTL-02",
+      "requirement": "older synchronous faults dominate younger redirects",
+      "configured_behavior": "branch results held, redirect once at ordered permission, no younger link on older fault",
+      "evidence": [
+        "control-flow",
+        "control-events",
+        "memory"
+      ],
+      "coverage": "finite_component_or_integration",
+      "limits": "bounded directed event permutations, not every simultaneous input vector",
+      "release_gate": "scope_limited"
+    },
+    {
+      "id": "PIPE-01",
+      "requirement": "valid/ready stability and transfers",
+      "configured_behavior": "a stage advances once on transfer, remains stable when held and cannot silently lose a token",
+      "evidence": [
+        "base",
+        "control-events",
+        "memory",
+        "formal",
+        "formal-admission"
+      ],
+      "coverage": "partial",
+      "limits": "current production-control SBY BMC depth16 (checked steps0-15) covers held F/D/X/W packets and selected M fields; all exposed request fields retained; separate no-flush singleton profile proves admission by reset-relative edge4 and checks the full32-clock post-admission terminal window within SBY BMC depth40 (checked steps0-39); constrained packet profile, no whole-core induction",
+      "release_gate": "open"
+    },
+    {
+      "id": "PIPE-02",
+      "requirement": "flush, kill and ordered terminal disposition",
+      "configured_behavior": "killed instructions never retire, write GPR/CSR or start an unpermitted memory effect",
+      "evidence": [
+        "control-events",
+        "memory",
+        "csr-control",
+        "fence-events",
+        "formal"
+      ],
+      "coverage": "finite_component_or_integration",
+      "limits": "external diagnostic flush has a narrower contract than final platform reset",
+      "release_gate": "scope_limited"
+    },
+    {
+      "id": "PIPE-03",
+      "requirement": "one-in-flight and overlap modes agree",
+      "configured_behavior": "diagnostic, conservative and forwarding profiles compare architectural/effect records",
+      "evidence": [
+        "base",
+        "compressed-execution",
+        "fence-execution",
+        "execution"
+      ],
+      "coverage": "finite_component_or_integration",
+      "limits": "cycle counts may differ; equality of tested streams does not prove all streams",
+      "release_gate": "scope_limited"
+    },
+    {
+      "id": "FETCH-01",
+      "requirement": "synchronous instruction memory and independent backpressure",
+      "configured_behavior": "one outstanding owned fetch; acceptance and response timing vary independently",
+      "evidence": [
+        "compressed-execution",
+        "fence-execution",
+        "irq-fetch"
+      ],
+      "coverage": "finite_component_or_integration",
+      "limits": "fixture timing domains and explicit timeout assumptions remain authoritative",
+      "release_gate": "scope_limited"
+    },
+    {
+      "id": "FETCH-02",
+      "requirement": "stale responses and wrong-path faults cannot execute",
+      "configured_behavior": "redirect invalidates assembly state; obsolete owner drains without delivering bytes or faults",
+      "evidence": [
+        "compressed-execution",
+        "fence-events",
+        "fetch-formal-historical",
+        "formal"
+      ],
+      "coverage": "finite_component_or_integration",
+      "limits": "fresh and historical source-bound fetch BMC20 use2generation bits/4tag bits and8-clock deadline; no unbounded stream proof",
+      "release_gate": "scope_limited"
+    },
+    {
+      "id": "FETCH-03",
+      "requirement": "generation reuse cannot revive an old response",
+      "configured_behavior": "reallocate only after live obligation drainage; wrap safety checked with small counters",
+      "evidence": [
+        "fetch-formal-historical",
+        "fence-execution",
+        "formal"
+      ],
+      "coverage": "finite_component_or_integration",
+      "limits": "fresh reduced-width fetch BMC20 plus live revoked-owner wrap witness; no full-width unbounded proof",
+      "release_gate": "scope_limited"
+    },
+    {
+      "id": "FETCH-04",
+      "requirement": "instruction permission and second-parcel faults",
+      "configured_behavior": "no fetch to side-effectful peripheral regions; second-portion fault retains instruction-start PC and faulting parcel address",
+      "evidence": [
+        "compressed-execution",
+        "fence-execution",
+        "formal"
+      ],
+      "coverage": "finite_component_or_integration",
+      "limits": "intentional test-only apertures are enabled only in named fixtures",
+      "release_gate": "scope_limited"
+    },
+    {
+      "id": "BUS-01",
+      "requirement": "request ownership begins at first valid",
+      "configured_behavior": "stable request-valid/payload until acceptance, then descriptor until response; no veto after launch",
+      "evidence": [
+        "memory",
+        "control-events",
+        "irq-control",
+        "debug-system",
+        "formal"
+      ],
+      "coverage": "finite_component_or_integration",
+      "limits": "request and completion channels checked separately; normal progress requires responder contract",
+      "release_gate": "scope_limited"
+    },
+    {
+      "id": "BUS-02",
+      "requirement": "one acceptance and one effect per request",
+      "configured_behavior": "one outstanding D transaction, no store buffer; effect counters independent of retirement",
+      "evidence": [
+        "memory",
+        "base",
+        "debug-system",
+        "formal",
+        "archived-replay"
+      ],
+      "coverage": "finite_component_or_integration",
+      "limits": "checker negative controls prove selected duplicate/missing-effect detectors, not all possible checker faults",
+      "release_gate": "scope_limited"
+    },
+    {
+      "id": "BUS-03",
+      "requirement": "matching response, timeout and no replay",
+      "configured_behavior": "matching last-deadline response wins; definite no-effect response traps; uncertain or lost completion enters sticky fatal recovery",
+      "evidence": [
+        "memory",
+        "irq-control",
+        "debug-system"
+      ],
+      "coverage": "finite_component_or_integration",
+      "limits": "containment is not successful retirement and automatic replay is forbidden",
+      "release_gate": "scope_limited"
+    },
+    {
+      "id": "MEM-01",
+      "requirement": "widths, endian lanes and extensions",
+      "configured_behavior": "LB/LBU/LH/LHU/LW/SB/SH/SW natural little-endian byte lanes and signed/zero results",
+      "evidence": [
+        "memory",
+        "lsu-unit",
+        "base",
+        "execution"
+      ],
+      "coverage": "finite_component_or_integration",
+      "limits": "fixture word-only MMIO restrictions are distinct from RAM byte/halfword support",
+      "release_gate": "scope_limited"
+    },
+    {
+      "id": "MEM-02",
+      "requirement": "local rejection before effects",
+      "configured_behavior": "alignment before region faults; permissions and width checks prevent a bus launch",
+      "evidence": [
+        "memory",
+        "lsu-unit",
+        "debug-system",
+        "execution"
+      ],
+      "coverage": "finite_component_or_integration",
+      "limits": "fixed physical guards, no PMP/MMU/virtual memory",
+      "release_gate": "scope_limited"
+    },
+    {
+      "id": "MEM-03",
+      "requirement": "loads to x0 remain real operations",
+      "configured_behavior": "permitted destructive read occurs once; faulting read still traps without x0 write",
+      "evidence": [
+        "memory",
+        "base",
+        "execution"
+      ],
+      "coverage": "finite_component_or_integration",
+      "limits": "retirement-only checking is insufficient; device ledger is required",
+      "release_gate": "scope_limited"
+    },
+    {
+      "id": "CSR-01",
+      "requirement": "complete address inventory and illegal absences",
+      "configured_behavior": "mconfigptr/mstatush present zero; required HPM machine placeholders zero; lower-mode/PMP/user-counter/debug-normal addresses absent",
+      "evidence": [
+        "csr",
+        "csr-control",
+        "debug-core"
+      ],
+      "coverage": "finite_component_or_integration",
+      "limits": "standalone bank and raw CSR controller have different caller boundaries",
+      "release_gate": "scope_limited"
+    },
+    {
+      "id": "CSR-02",
+      "requirement": "six Zicsr operations and suppression",
+      "configured_behavior": "CSRRW[I] rd0 suppresses read; CSRRS/RC[I] suppress write only when source index/zimm0, not nonzero register holding0",
+      "evidence": [
+        "csr-control",
+        "csr",
+        "execution"
+      ],
+      "coverage": "finite_component_or_integration",
+      "limits": "normalized bank read/write inputs alone do not verify encoded suppression",
+      "release_gate": "scope_limited"
+    },
+    {
+      "id": "CSR-03",
+      "requirement": "permissions and WARL/WLRL rules",
+      "configured_behavior": "read-only writes illegal when write requested; writable masks, mepc alignment, mtvec direct coercion, mcause legal values",
+      "evidence": [
+        "csr",
+        "csr-control",
+        "act4"
+      ],
+      "coverage": "finite_component_or_integration",
+      "limits": "directed bank/controller checks pass; ACT4 mcause write8 retains7 as manifest requires while Sail expects8; reference legal-value mismatch remains open",
+      "release_gate": "scope_limited"
+    },
+    {
+      "id": "TRAP-01",
+      "requirement": "trap-state entry and MRET",
+      "configured_behavior": "precise mepc/mcause/mtval/mstatus updates; MRET restores MIE and resumes legal mepc",
+      "evidence": [
+        "csr-control",
+        "control-events",
+        "irq-control",
+        "execution"
+      ],
+      "coverage": "finite_component_or_integration",
+      "limits": "M-only, no delegation or nested hardware shadow state",
+      "release_gate": "scope_limited"
+    },
+    {
+      "id": "TRAP-02",
+      "requirement": "ECALL, EBREAK, unsupported SYSTEM and exception ordering",
+      "configured_behavior": "ECALL11, breakpoint3 unless enabled debug route, illegal2 with mtval0; synchronous older fault before IRQ",
+      "evidence": [
+        "csr-control",
+        "irq-control",
+        "debug-core",
+        "execution"
+      ],
+      "coverage": "finite_component_or_integration",
+      "limits": "debug-routed EBREAK has its own distinct terminal event",
+      "release_gate": "scope_limited"
+    },
+    {
+      "id": "IRQ-01",
+      "requirement": "pending events retained while masked",
+      "configured_behavior": "platform-held machine software/timer/external levels; peripheral acknowledge clears source with set winning races",
+      "evidence": [
+        "irq-control",
+        "irq-fetch"
+      ],
+      "coverage": "finite_component_or_integration",
+      "limits": "persistent simulated platform; physical acquisition interrupt queue/CDC not qualified",
+      "release_gate": "scope_limited"
+    },
+    {
+      "id": "IRQ-02",
+      "requirement": "re-evaluate eligibility after retirement",
+      "configured_behavior": "post-CSR/MRET mstatus/mie state selects live pending interrupt at safe boundary",
+      "evidence": [
+        "irq-control",
+        "csr-control",
+        "fence-events"
+      ],
+      "coverage": "finite_component_or_integration",
+      "limits": "no stale latched cause; finite concurrent-event schedules",
+      "release_gate": "scope_limited"
+    },
+    {
+      "id": "IRQ-03",
+      "requirement": "WFI wake, idle and debug",
+      "configured_behavior": "wake on locally enabled pending event independently of global MIE; timer/acquisition clocks continue; step WFI completes",
+      "evidence": [
+        "irq-control",
+        "debug-core",
+        "debug-system"
+      ],
+      "coverage": "finite_component_or_integration",
+      "limits": "CPU idle does not demonstrate real acquisition clock or DMA implementation",
+      "release_gate": "scope_limited"
+    },
+    {
+      "id": "IRQ-04",
+      "requirement": "bounded interrupt response including service",
+      "configured_behavior": "count from event visibility through drain/redirect and firmware save under declared memory service",
+      "evidence": [
+        "irq-control",
+        "muldiv-control",
+        "irq-fetch"
+      ],
+      "coverage": "partial",
+      "limits": "finite measured schedules and analytic assumptions; not all-schedule firmware WCET",
+      "release_gate": "open"
+    },
+    {
+      "id": "M-01",
+      "requirement": "eight M instruction arithmetic results",
+      "configured_behavior": "mixed-sign high products; truncation toward zero; dividend remainder sign; div0 and signed overflow as specified",
+      "evidence": [
+        "m-unit",
+        "muldiv-control",
+        "execution"
+      ],
+      "coverage": "finite_component_or_integration",
+      "limits": "unit directed/seeded arithmetic and controller dependencies; no exhaustive all 64-bit operand pairs",
+      "release_gate": "scope_limited"
+    },
+    {
+      "id": "M-02",
+      "requirement": "blocking result ownership and completion latency",
+      "configured_behavior": "single X owner, finite fixed unit latency, held result under backpressure, killed/reset owner cannot complete into a later token",
+      "evidence": [
+        "m-unit",
+        "muldiv-control",
+        "debug-core"
+      ],
+      "coverage": "finite_component_or_integration",
+      "limits": "downstream stalls are additional to unit latency; healthy-memory bounds needed for IRQ/debug total",
+      "release_gate": "scope_limited"
+    },
+    {
+      "id": "C-01",
+      "requirement": "all 65536 halfword classifications",
+      "configured_behavior": "RV32C legal/HINT/reserved/unsupported classification and decompression preserve raw encoding/length",
+      "evidence": [
+        "decompress"
+      ],
+      "coverage": "finite_component_or_integration",
+      "limits": "exhaustive encoding classification against independent table; does not exhaust dynamic operands or PCs",
+      "release_gate": "scope_limited"
+    },
+    {
+      "id": "C-02",
+      "requirement": "mixed 16/32-bit program execution",
+      "configured_behavior": "halfword targets/links, 32-bit instruction at word+2, wrong-path discard and parcel faults",
+      "evidence": [
+        "compressed-execution",
+        "fence-execution",
+        "debug-system",
+        "execution"
+      ],
+      "coverage": "finite_component_or_integration",
+      "limits": "finite alignment/stall/redirect/fault matrix",
+      "release_gate": "scope_limited"
+    },
+    {
+      "id": "FENCE-01",
+      "requirement": "ordered FENCE semantics",
+      "configured_behavior": "conservative full data barrier; legal hints and reserved base FENCE fields retain defined behavior",
+      "evidence": [
+        "base",
+        "fence-execution",
+        "fence-events",
+        "execution"
+      ],
+      "coverage": "finite_component_or_integration",
+      "limits": "no incoherent external-agent completion is implied",
+      "release_gate": "scope_limited"
+    },
+    {
+      "id": "FENCE-02",
+      "requirement": "instruction synchronization after writes",
+      "configured_behavior": "FENCE.I waits for older writes, invalidates fetch/assembly/decode, drains stale replies and resumes once",
+      "evidence": [
+        "fence-execution",
+        "fence-events"
+      ],
+      "coverage": "finite_component_or_integration",
+      "limits": "no cache does not remove obligations; data effects checked independently",
+      "release_gate": "scope_limited"
+    },
+    {
+      "id": "FENCE-03",
+      "requirement": "external writer completion sequence",
+      "configured_behavior": "establish DMA/writer completion then FENCE.I; debug code writer drains before resume invalidation",
+      "evidence": [
+        "fence-execution",
+        "debug-system",
+        "debug-remote-0"
+      ],
+      "coverage": "finite_component_or_integration",
+      "limits": "simulated writer completion; actual acquisition DMA ownership protocol is not qualified",
+      "release_gate": "scope_limited"
+    },
+    {
+      "id": "COUNT-01",
+      "requirement": "cycle and actual retirement accounting",
+      "configured_behavior": "64-bit mcycle; minstret counts compressed once, excludes trap/IRQ/kill/debug breakpoint",
+      "evidence": [
+        "csr",
+        "debug-core",
+        "counter-execution"
+      ],
+      "coverage": "finite_component_or_integration",
+      "limits": "12 fresh full-frontend runs with independent edge replay; timed counter semantics are not compared against instruction-time Sail",
+      "release_gate": "scope_limited"
+    },
+    {
+      "id": "COUNT-02",
+      "requirement": "RV32 halves, writes, inhibition and rollover",
+      "configured_behavior": "half-write preserves other half and wins over whole-counter increment; old inhibit controls same edge",
+      "evidence": [
+        "csr",
+        "counter-execution"
+      ],
+      "coverage": "finite_component_or_integration",
+      "limits": "fresh standalone bank induction and 12-run end-to-end counter matrix; halfword counter timing is independently modeled",
+      "release_gate": "scope_limited"
+    },
+    {
+      "id": "COUNT-03",
+      "requirement": "debug counting and absent Zicntr",
+      "configured_behavior": "pre-edge debug policy and EBREAK exception; stopcount1; time/instret/cycle user aliases illegal",
+      "evidence": [
+        "csr",
+        "debug-core",
+        "debug-remote-0",
+        "act4"
+      ],
+      "coverage": "finite_component_or_integration",
+      "limits": "machine counters are not Zicntr; ACT4 counter test also traps on timeh correctly but leaks different platform-address literals into its signature",
+      "release_gate": "scope_limited"
+    },
+    {
+      "id": "DBG-01",
+      "requirement": "Debug1.0 composed DM and JTAG transport",
+      "configured_behavior": "separate core, DM, DTM and guarded system; selected mandatory/optional profile from manifest",
+      "evidence": [
+        "debug-module",
+        "debug-system",
+        "debug-remote-0"
+      ],
+      "coverage": "finite_component_or_integration",
+      "limits": "no formal or physical Debug certification; IDCODE remains unassigned",
+      "release_gate": "scope_limited"
+    },
+    {
+      "id": "DBG-02",
+      "requirement": "halt, resume, memory drain and reset-halt",
+      "configured_behavior": "finish offered/accepted work before halted; resume exactly once without replay; coordinated reset preserves ownership",
+      "evidence": [
+        "debug-core",
+        "debug-system",
+        "debug-remote-1"
+      ],
+      "coverage": "finite_component_or_integration",
+      "limits": "simulated transport/reset schedules; physical reset and CDC timing not qualified",
+      "release_gate": "scope_limited"
+    },
+    {
+      "id": "DBG-03",
+      "requirement": "abstract GPR and CSR access, SBA guards",
+      "configured_behavior": "defined read/write permissions and unsupported command errors; SBA width/alignment/region/uncertainty rules",
+      "evidence": [
+        "debug-module",
+        "debug-system",
+        "debug-remote-305419896"
+      ],
+      "coverage": "finite_component_or_integration",
+      "limits": "no Program Buffer, trigger, abstract memory command or authentication",
+      "release_gate": "scope_limited"
+    },
+    {
+      "id": "DBG-04",
+      "requirement": "single-step branch, trap, WFI and pending IRQ",
+      "configured_behavior": "step executes one attempt; trap state updates then halt before handler; stepie0 retains IRQ; branch halt at target",
+      "evidence": [
+        "debug-core",
+        "debug-remote-0",
+        "debug-remote-1",
+        "debug-remote-305419896"
+      ],
+      "coverage": "finite_component_or_integration",
+      "limits": "actual OpenOCD/GDB exercised through simulated JTAG; GDB bare-metal OSABI required",
+      "release_gate": "scope_limited"
+    },
+    {
+      "id": "DBG-05",
+      "requirement": "debug transport errors and unsupported facilities",
+      "configured_behavior": "busy/sticky/reset generations drain; reserved DMI op fails; absent DMI registers zero/ignore; absent hart CSR access faults",
+      "evidence": [
+        "debug-module",
+        "debug-system"
+      ],
+      "coverage": "finite_component_or_integration",
+      "limits": "optional address rules differ between DMI and hart CSR spaces",
+      "release_gate": "scope_limited"
+    },
+    {
+      "id": "TRACE-01",
+      "requirement": "reconstruct architecture without silent capture loss",
+      "configured_behavior": "separate terminal/retirement IDs, original bits/length, GPR/CSR/counter/event/bus records; explicit capture exhaustion",
+      "evidence": [
+        "counter-execution",
+        "debug-remote-0"
+      ],
+      "coverage": "partial",
+      "limits": "fresh DRG5-OBS1 counter replay plus exact-source debug auxiliary captures; not full planned DRG5-TRACE1 or RVFI",
+      "release_gate": "open"
+    },
+    {
+      "id": "TRACE-02",
+      "requirement": "lost/duplicate/stale records detected",
+      "configured_behavior": "contiguous observed identity and expected footer; independent architectural/effect replay and corruption detectors",
+      "evidence": [
+        "base",
+        "memory",
+        "debug-remote-0",
+        "execution",
+        "archived-replay"
+      ],
+      "coverage": "finite_component_or_integration",
+      "limits": "coverage depends on exact replay schema; no unseen-field comparison claim",
+      "release_gate": "scope_limited"
+    },
+    {
+      "id": "UNSUP-01",
+      "requirement": "unsupported ISA and privilege requests have defined response",
+      "configured_behavior": "A/F/D/V/B/custom and unsupported SYSTEM encodings illegal except overlapping legal hints; no lower-mode state",
+      "evidence": [
+        "base",
+        "csr-control",
+        "compressed-execution"
+      ],
+      "coverage": "partial",
+      "limits": "selected representative and compressed exhaustive encodings; all unsupported 32-bit space not enumerated",
+      "release_gate": "open"
+    },
+    {
+      "id": "UNSUP-02",
+      "requirement": "absent CSR address coverage",
+      "configured_behavior": "all 4096 CSR addresses classified by standalone bank and debug abstraction where implemented",
+      "evidence": [
+        "csr",
+        "debug-core",
+        "debug-module"
+      ],
+      "coverage": "finite_component_or_integration",
+      "limits": "address enumeration is distinct from exhaustive write-value/legalization verification",
+      "release_gate": "scope_limited"
+    },
+    {
+      "id": "UNSUP-03",
+      "requirement": "unsupported build and image attributes",
+      "configured_behavior": "RV32E/ILP32E, incompatible ISA/endianness/ABI images rejected by qualification tooling",
+      "evidence": [],
+      "coverage": "not_executed",
+      "limits": "no architecture-specific forbidden-image corpus executed yet",
+      "release_gate": "open"
+    },
+    {
+      "id": "ACT-01",
+      "requirement": "ACT4 selected architecture tests execute on actual DUT",
+      "configured_behavior": "selected test inventory, generated expected values, linked ELF, actual retirement and success/failure each recorded",
+      "evidence": [
+        "act4",
+        "publication-guards"
+      ],
+      "coverage": "partial_architectural_campaign",
+      "limits": "279selected;274built;5capacity omissions;272pass+2retained profile/model mismatches at each seed1/24301; no complete ACT4 qualification; checks after each failed test first mismatch remain unqualified",
+      "release_gate": "failed_reference_profile_and_capacity"
+    },
+    {
+      "id": "RAND-01",
+      "requirement": "independently generated randomized programs",
+      "configured_behavior": "reproducible generation seeds with initialized registers and matching ISA; independent retirement reference",
+      "evidence": [
+        "execution",
+        "archived-replay"
+      ],
+      "coverage": "finite_random_reference",
+      "limits": "8 deterministic generation seeds in4CPU profiles; finite programs, no asynchronous IRQ/debug/cycle equivalence to Sail; platform-specific MMIO tail checked independently",
+      "release_gate": "scope_limited"
+    },
+    {
+      "id": "FORMAL-01",
+      "requirement": "formal safety and progress have explicit scope",
+      "configured_behavior": "stable stalled state, ordered retirement, discarded instructions, unique transactions and bounded progress under named assumptions",
+      "evidence": [
+        "forward-unit",
+        "lsu-unit",
+        "fetch-formal-historical",
+        "formal",
+        "formal-admission"
+      ],
+      "coverage": "partial",
+      "limits": "controller safety SBY BMC depth16 (checked steps0-15) with100assertions/3assumptions; arbitrary-flush singleton progress SBY BMC depth40 (checked steps0-39) with conditional32-clock disposition bound and20assertions/12assumptions, no admission bound and no extended observation of late accepts; separate no-flush singleton SBY BMC depth40 (checked steps0-39) with22assertions/13assumptions proves admission by reset-relative edge4 and checks the complete32-clock acceptance-to-terminal window; no arbitrary-stream liveness; fresh fetch Yosys SAT -seq20 (steps1-20) and independent unit proofs; final outer wrapper executed end to end with its launch bytes retained; earlier metadata-only catalog remains historical",
+      "release_gate": "open"
+    },
+    {
+      "id": "TOOLS-01",
+      "requirement": "open-source tools and exact source identities",
+      "configured_behavior": "pinned Verilator/Yosys/SBY/solvers/GCC/binutils/GDB/Sail/ACT4/OpenOCD executable/source identities recorded",
+      "evidence": [
+        "structure",
+        "debug-remote-0",
+        "act4",
+        "publication-guards"
+      ],
+      "coverage": "partial",
+      "limits": "physical programming and full frontend/backend flow qualification are separate gates",
+      "release_gate": "open"
+    },
+    {
+      "id": "FPGA-01",
+      "requirement": "exact board/part/package/programmer can be programmed",
+      "configured_behavior": "small target design synth/place/route/program passes on selected hardware",
+      "evidence": [],
+      "coverage": "not_executed",
+      "limits": "no physical FPGA/programmer access; no physical program result may be inferred from family support",
+      "release_gate": "open"
+    },
+    {
+      "id": "FPGA-02",
+      "requirement": "resource and clock budget",
+      "configured_behavior": "complete target design fits allocation and closes routed frequency",
+      "evidence": [
+        "structure"
+      ],
+      "coverage": "partial",
+      "limits": "current native mapped core exceeds allocation; full SoC placed timing absent",
+      "release_gate": "failed_resource_allocation_and_unmeasured_timing"
+    },
+    {
+      "id": "BUDGET-01",
+      "requirement": "instruction/data latency and contention",
+      "configured_behavior": "per-target first-offer-to-response budgets include acceptance waits; contention arbiter and peripheral service assumptions explicit",
+      "evidence": [
+        "memory",
+        "irq-control",
+        "debug-system"
+      ],
+      "coverage": "partial",
+      "limits": "fixtures measure stated schedules; real complete fabric not qualified",
+      "release_gate": "open"
+    },
+    {
+      "id": "BUDGET-02",
+      "requirement": "debug halt and M delay bounds",
+      "configured_behavior": "fixed unit delay plus bounded owned request drain and frontend redirection; halted status before deadline",
+      "evidence": [
+        "muldiv-control",
+        "debug-core",
+        "debug-system"
+      ],
+      "coverage": "partial",
+      "limits": "transport service and physical TCK/CDC bounds remain unqualified",
+      "release_gate": "open"
+    },
+    {
+      "id": "ACQ-01",
+      "requirement": "5.12 ms acquisition-block firmware deadline",
+      "configured_behavior": "256 simultaneous frames/50000 per second =5.12ms;195.3125 blocks/s; CPU services blocks/events only",
+      "evidence": [],
+      "coverage": "not_executed",
+      "limits": "complete acquisition firmware WCET and worst-case shared-fabric contention not executed",
+      "release_gate": "open"
+    },
+    {
+      "id": "ACQ-02",
+      "requirement": "dedicated acquisition timing and DMA",
+      "configured_behavior": "ADC conversion/capture/timestamp/raw movement stay in hardware; WFI/debug cannot inadvertently freeze those clocks",
+      "evidence": [],
+      "coverage": "not_executed",
+      "limits": "no integrated acquisition hardware, sustained block queue or clock-domain measurement in CPU campaign",
+      "release_gate": "open"
+    },
+    {
+      "id": "ENV-01",
+      "requirement": "physical CDC/reset/unknown behavior",
+      "configured_behavior": "synchronized stable inputs, reset recovery and unreset GPR initialization assumptions named",
+      "evidence": [],
+      "coverage": "not_executed",
+      "limits": "two-state simulation/formal cannot establish analog metastability, physical reset or X-propagation safety",
+      "release_gate": "open"
+    },
+    {
+      "id": "REF-01",
+      "requirement": "retirement-level independent reference comparison",
+      "configured_behavior": "compare original bits/length, instruction-start and next PC, GPR result, explicit CSR access/suppression, memory descriptor/value and synchronous trap metadata",
+      "evidence": [
+        "execution",
+        "archived-replay"
+      ],
+      "coverage": "finite_random_reference",
+      "limits": "finite deterministic reference scope; timer/cycle/debug/IRQ timing and model-specific CSR legalization remain independently directed, not normalized",
+      "release_gate": "scope_limited"
+    },
+    {
+      "id": "RESET-01",
+      "requirement": "reset scope and outstanding ownership",
+      "configured_behavior": "cold reset requires containment; warm reset drains exposed requests; DM-only reset does not reset core or revoke observed halt; reset-halt returns stable reset PC",
+      "evidence": [
+        "memory",
+        "debug-core",
+        "debug-system"
+      ],
+      "coverage": "finite_component_or_integration",
+      "limits": "physical reset/isolation and CDC timing require separate hardware qualification",
+      "release_gate": "scope_limited"
+    },
+    {
+      "id": "UNSUP-04",
+      "requirement": "absent interrupts, endian controls and optional guarantees",
+      "configured_behavior": "unbound NMI/local/fast/counter-overflow sources have no delivery; reserved interrupt/endian bits zero; no security/isolation/authentication or hard-real-time guarantee is advertised",
+      "evidence": [
+        "csr",
+        "irq-control",
+        "debug-module"
+      ],
+      "coverage": "partial",
+      "limits": "no exhaustive hostile electrical input or security qualification; unsupported guarantee is documented absence",
+      "release_gate": "open"
+    },
+    {
+      "id": "COV-01",
+      "requirement": "coverage gaps are explicit",
+      "configured_behavior": "retain selected-test dispositions, known directed bins, unproved assumptions and failing/open requirement rows",
+      "evidence": [
+        "act4",
+        "publication-guards"
+      ],
+      "coverage": "partial_inventory_and_unknown_closure",
+      "limits": "no complete HDL line/toggle/functional coverage closure or exhaustive simultaneous-event cross-product has been collected",
+      "release_gate": "open"
+    }
+  ],
+  "status_rules": {
+    "passed": "only a source-bound positive run with required detector/semantic checks",
+    "reused_exact_sources": "historical run, exact declared sources and immutable archive revalidated; not new execution",
+    "historical_only": "result retained with an explicit current-source gap",
+    "not_executed": "no supporting execution in this campaign",
+    "scope_limited": "finite or component evidence does not close an unrestricted release gate"
+  },
+  "coverage_statement": "No numeric whole-CPU functional or code-coverage percentage is claimed; directed bins and ACT4 selected-test dispositions remain local evidence.",
+  "execution_history": {
+    "integrated_attempt": "microcontroller/verification/evidence/verification-2026-11-04/campaigns/20261105T023106052242Z/summary.json",
+    "targeted_recovery": "microcontroller/verification/evidence/verification-2026-11-04/campaigns/20261105T023106052242Z/recovery-results.json",
+    "integrated_exit": 1,
+    "retained_infrastructure_failures": [
+      "directed CSR-control compilation",
+      "counter execution compilation/publication",
+      "generated-program publication"
+    ],
+    "infrastructure_cause": "temporary-storage quota exhausted; exact original failures retained",
+    "recovered_without_test_or_RTL_changes": [
+      "remaining six directed families",
+      "counter matrix",
+      "generated-program Sail matrix"
+    ],
+    "recovery_exit_codes": [
+      0,
+      0,
+      0
+    ],
+    "architectural_qualification": "open: five capacity omissions and two retained reference/applicability mismatches per timing seed"
+  }
+}

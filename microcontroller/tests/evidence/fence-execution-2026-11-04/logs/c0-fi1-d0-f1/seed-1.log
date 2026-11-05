@@ -1,0 +1,6 @@
+$ /tmp/drg5-fence-execution/c0-fi1-d0-f1/Vdrg5_fence_execution_tb +verilator+seed+1 +seed=1
+FENCE_EXEC_PASS C=0 FI=1 diagnostic=0 forwarding=1 seed=1 cases=323 checks=1150341 retired=2591 fences=551 fencei=39 code_writes=5 old_snapshots=6 buffered_old=36 old_offers=1 old_accepted=4 stale=56 old_errors=2 same_edge_drops=1 held_fences=444 dma_completed=1 dma_reads=6 early_examples=1 reads=556 writes=280 killed=1 max_i_wait=70 max_d_wait=7 program_digest=ecef00ac2579777f retirement_digest=f6ce0b1af513486f effect_digest=76c6d0df7c4be115
+- microcontroller/tests/drg5_fence_execution_tb.sv:954: Verilog $finish
+- S i m u l a t i o n   R e p o r t: Verilator 5.047 devel
+- Verilator: $finish at 350ns; walltime 1.878 s; speed 186.276 ns/s
+- Verilator: cpu 1.877 s on 1 threads; allocated 10 MB

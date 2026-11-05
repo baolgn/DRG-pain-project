@@ -1,0 +1,37 @@
+$ /tmp/drg5-c-execution-final/c1-m1-d0-f1/Vdrg5_compressed_execution_tb +verilator+seed+1 +seed=1 +mutate_epc
+C_EXEC_FAILURE label=precise fault and instruction start PC seed=1 case=63 edge=33163 arch_pc=00000000 I=0/0/00000000 D=0/0/20000000
+C_HISTORY age=0 pc=00000000 raw=00000000 stages=00000
+C_HISTORY age=1 pc=00000000 raw=00000000 stages=00000
+C_HISTORY age=2 pc=00000000 raw=00000000 stages=00000
+C_HISTORY age=3 pc=00000000 raw=00000000 stages=00000
+C_HISTORY age=4 pc=00000000 raw=00000000 stages=00000
+C_HISTORY age=5 pc=00000000 raw=00000000 stages=00000
+C_HISTORY age=6 pc=00000000 raw=00000000 stages=00000
+C_HISTORY age=7 pc=00000000 raw=00000000 stages=00000
+C_HISTORY age=8 pc=00000000 raw=00000000 stages=00000
+C_HISTORY age=9 pc=00000000 raw=00000000 stages=00000
+C_HISTORY age=10 pc=00000000 raw=00000000 stages=00000
+C_HISTORY age=11 pc=00000000 raw=00000000 stages=00000
+C_HISTORY age=12 pc=00000000 raw=00000000 stages=00000
+C_HISTORY age=13 pc=00000000 raw=00000000 stages=00000
+C_HISTORY age=14 pc=00000000 raw=00000000 stages=00000
+C_HISTORY age=15 pc=00000000 raw=00000000 stages=00000
+C_HISTORY age=16 pc=00000000 raw=00000000 stages=00000
+C_HISTORY age=17 pc=00000000 raw=00000000 stages=00000
+C_HISTORY age=18 pc=00000000 raw=00000000 stages=00000
+C_HISTORY age=19 pc=00000000 raw=00000000 stages=00000
+C_HISTORY age=20 pc=00000000 raw=00000000 stages=00000
+C_HISTORY age=21 pc=00000000 raw=00000000 stages=00000
+C_HISTORY age=22 pc=00000000 raw=00000000 stages=00000
+C_HISTORY age=23 pc=00000000 raw=00000000 stages=00000
+C_HISTORY age=24 pc=00000000 raw=00000000 stages=00000
+C_HISTORY age=25 pc=00000000 raw=00000000 stages=00000
+C_HISTORY age=26 pc=00000000 raw=00000000 stages=00001
+C_HISTORY age=27 pc=00000000 raw=00000000 stages=00010
+C_HISTORY age=28 pc=00000000 raw=00000000 stages=00100
+C_HISTORY age=29 pc=00000000 raw=00000000 stages=00100
+C_HISTORY age=30 pc=00000000 raw=00000000 stages=01000
+C_HISTORY age=31 pc=00000000 raw=00000000 stages=10000
+[132651] %Fatal: drg5_compressed_execution_tb.sv:132: Assertion failed in drg5_compressed_execution_tb.check: C_EXEC_CHECK_FAILED precise fault and instruction start PC
+%Error: microcontroller/tests/drg5_compressed_execution_tb.sv:132: Verilog $stop
+Aborting...

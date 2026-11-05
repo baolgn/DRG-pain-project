@@ -1,0 +1,10 @@
+SCHEDULE profile=1 scenario=0 seed=1 cycle=71 uid=1 pc=00000104 tag=1 address=20000000 write=0 size=0 accept_extra=0 response_edges=3
+ACCEPT profile=1 scenario=0 seed=1 cycle=72 uid=1 tag=1 address=20000000 data=00000000 lanes=0 status=0 read_count=0 write_count=0
+RESPONSE profile=1 scenario=0 seed=1 cycle=75 tag=1 status=0 data=00000001 matching=1 contained=0
+SCHEDULE profile=1 scenario=0 seed=1 cycle=89 uid=1 pc=00000104 tag=1 address=20000000 write=0 size=0 accept_extra=2 response_edges=1
+ACCEPT profile=1 scenario=0 seed=1 cycle=92 uid=1 tag=1 address=20000000 data=00000000 lanes=0 status=0 read_count=0 write_count=0
+RESPONSE profile=1 scenario=0 seed=1 cycle=93 tag=1 status=0 data=00000001 matching=1 contained=0
+SCHEDULE profile=1 scenario=0 seed=1 cycle=108 uid=2 pc=00000108 tag=1 address=20000000 write=1 size=0 accept_extra=0 response_edges=3
+[3858] %Fatal: drg5_memory_tb.sv:89: Assertion failed in drg5_memory_tb.check: case=9 profile=1 scenario=0 seed=1 cycle=108 pc=00000108: owned request descriptor changed
+%Error: microcontroller/tests/drg5_memory_tb.sv:89: Verilog $stop
+Aborting...

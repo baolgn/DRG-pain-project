@@ -1,0 +1,6 @@
+{
+  "microcontroller/rtl/drg5_control_pkg.sv": "9d1e39382ec54659858a88bdaf3783296e707c05ffc6fc3d8890e23d4736990f",
+  "microcontroller/rtl/drg5_observe.sv": "3192c20b58596e36c99c7b1168be7aa193e4cec11bf7151792c6b8ac3aa64bed",
+  "microcontroller/tests/drg5_observe_tb.sv": "fc2ac12b89481dd94b3162f44fdf1d410dd48c6cb539b7af8b9d095deef97b4b",
+  "microcontroller/tests/run_observe.py": "55d9973c5eb68f870c0ad154b1d61ffe61ae3073646e67dd2ed26e88cbaf75a2"
+}

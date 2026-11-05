@@ -1,0 +1,6 @@
+$ /tmp/drg5-forward-final/obj/Vdrg5_forward_tb +verilator+seed+1
+FORWARD_PASS samples=3231264 modes=2 checks=45237697 blocked=545429 both_matches=85742 zero=1119528 unused=3273748 forbidden_fallback=1380
+- /home/bluto/Desktop/dorsalGanglionProject/microcontroller/tests/drg5_forward_tb.sv:213: Verilog $finish
+- S i m u l a t i o n   R e p o r t: Verilator 5.047 devel
+- Verilator: $finish at 3us; walltime 0.326 s; speed 9.916 us/s
+- Verilator: cpu 0.326 s on 1 threads; allocated 7 MB

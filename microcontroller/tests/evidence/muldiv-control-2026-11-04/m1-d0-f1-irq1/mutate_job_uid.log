@@ -1,0 +1,10 @@
+$ /tmp/drg5-muldiv-control-final-r4/m1-d0-f1-irq1/Vdrg5_muldiv_control_tb +verilator+seed+1 +seed=1 +mutate_job_uid
+M_FAILURE job_owned=1 job_uid=4 start=21 op=0 expected=80000000 unit_busy=1 unit_valid=1 unit_uid=4 unit_result=80000000
+M_STAGE stage=0 valid=0 uid=0 pc=00000000 raw=00000000 admitted=0 issued=0 done=0 result=00000000
+M_STAGE stage=1 valid=0 uid=0 pc=00000000 raw=00000000 admitted=0 issued=0 done=0 result=00000000
+M_STAGE stage=2 valid=1 uid=4 pc=00000010 raw=023102b3 admitted=1 issued=1 done=0 result=00000000
+M_STAGE stage=3 valid=0 uid=0 pc=00000000 raw=00000000 admitted=0 issued=0 done=0 result=00000000
+M_STAGE stage=4 valid=0 uid=0 pc=00000000 raw=00000000 admitted=0 issued=0 done=0 result=00000000
+[91] %Fatal: drg5_muldiv_control_tb.sv:148: Assertion failed in drg5_muldiv_control_tb.check: seed=1 case=1 edge=23 pc=00000010 owner=0 accepted=0 age=0 response=0: M completion UID mismatch
+%Error: microcontroller/tests/drg5_muldiv_control_tb.sv:148: Verilog $stop
+Aborting...

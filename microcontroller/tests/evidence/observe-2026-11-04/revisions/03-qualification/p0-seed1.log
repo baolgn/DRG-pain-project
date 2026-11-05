@@ -1,0 +1,6 @@
+$ /tmp/drg5-observe/p0/Vdrg5_observe_tb +verilator+seed+1 +seed=1
+OBSERVE_PASS profile=0 seed=1 edges=44 checks=216 valid=42 lost=0 width=3147
+- microcontroller/tests/drg5_observe_tb.sv:201: Verilog $finish
+- S i m u l a t i o n   R e p o r t: Verilator 5.047 devel
+- Verilator: $finish at 176ps; walltime 0.002 s; speed 73.517 ns/s
+- Verilator: cpu 0.002 s on 1 threads; allocated 7 MB

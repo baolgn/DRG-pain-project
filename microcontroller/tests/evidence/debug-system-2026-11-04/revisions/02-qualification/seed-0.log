@@ -1,0 +1,3 @@
+[542] %Fatal: drg5_debug_system_tb.sv:70: Assertion failed in drg5_debug_system_tb.check: SYSTEM_CHECK seed=0 case=1 cycle=18 I=0 D=0 S=0: power reset failed to clear containment
+%Error: microcontroller/tests/drg5_debug_system_tb.sv:70: Verilog $stop
+Aborting...

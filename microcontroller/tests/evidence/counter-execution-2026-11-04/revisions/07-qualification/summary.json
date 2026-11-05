@@ -1,0 +1,83 @@
+{
+  "status": "passed",
+  "scope": "real frontend and packet controller; finite counter and execution simulation",
+  "profiles": [
+    [
+      1,
+      0,
+      1
+    ]
+  ],
+  "seeds": [
+    1
+  ],
+  "smoke": true,
+  "results": [
+    {
+      "profile": "c1-d0-f1",
+      "seed": 1,
+      "command": [
+        "/tmp/drg5-counter-execution/c1-d0-f1/Vdrg5_counter_execution_tb",
+        "+verilator+seed+1",
+        "+seed=1",
+        "+trace_file=/tmp/drg5-counter-execution/c1-d0-f1/seed-1.trace.jsonl"
+      ],
+      "exit_code": 0,
+      "terminal": "COUNTER_EXEC_PASS C=1 diagnostic=0 forwarding=1 seed=1 cases=18 edges=12563 checks=623110 retired=482 traps=18 compressed=19 IRQ=1 idle=12 csr_reads=312 csr_writes=264 inhibit_writes=20 suppressed=88 zero_index_writes=64 cycle_rollovers=2 instret_rollovers=2 cycle_wraps=1 instret_wraps=1 holds=4911 divide_waits=170 I=1005 D=5 hold_mask=1f acceptance_mask=f response_mask=7e program_digest=fdcfc2bc4ee4a092",
+      "trace": "c1-d0-f1-seed-1.trace.jsonl.gz",
+      "replay": {
+        "status": "passed",
+        "edges": 12563,
+        "sequence": 12562,
+        "epochs": 18,
+        "retired": 482,
+        "traps": 18,
+        "interrupts": 1,
+        "counter_csr_reads": 312,
+        "counter_csr_writes": 284,
+        "instruction_transactions": 1005,
+        "data_transactions": 5,
+        "trace_sha256": "005b5d5134bee2780a00b33e296874d762f93e1f884447c484b7c002d10869a8",
+        "packed_bits": 3147
+      }
+    }
+  ],
+  "source_sha256": {
+    "microcontroller/rtl/drg5_control_pkg.sv": "9d1e39382ec54659858a88bdaf3783296e707c05ffc6fc3d8890e23d4736990f",
+    "microcontroller/rtl/drg5_alu.sv": "c1ed60c799186e4185c516049ad99d046dd9ab134afa88b57089f27408fce199",
+    "microcontroller/rtl/drg5_branch.sv": "81fb7fbc54c4c64236738d289fa8fc5a64bd6373efbd66ac2da33086e8d8728e",
+    "microcontroller/rtl/drg5_control.sv": "dfa75d71fa6e02d188b0270e1d04044750fcfd6d34b378a34262184147abb0b2",
+    "microcontroller/rtl/drg5_csr.sv": "964076aa378ef7c483103af939852587cc8f839fdcde85809e7998b65f61ee5f",
+    "microcontroller/rtl/drg5_decoder.sv": "0b42ead92fd911fd1a2ed4295145b4ac476ad2933b3e2dcb4cdde95d899d52b3",
+    "microcontroller/rtl/drg5_decompress.sv": "844d6c0b0dbdde6a02c7de346fbb61408ffe2e384d50b82027d9922a8e89372e",
+    "microcontroller/rtl/drg5_fetch.sv": "bc8a999d9e4b7761238306b8edb00b70fc1854f3070d593657a1fef9580e7247",
+    "microcontroller/rtl/drg5_fetch_buffer.sv": "a2a5dc5b6236751bc3df70c48eedc229b40a9e79c2adb7e0969c4355fa2b5844",
+    "microcontroller/rtl/drg5_fetch_guard.sv": "3bda4702a4a9eb14fb859820af1098dcc2910926c6700e486b7c2f7ce5a0acbe",
+    "microcontroller/rtl/drg5_forward.sv": "6c88614a024cb1df85bdb4926a4d4bef9bacbc84af803bcbb7cf1b93d150e444",
+    "microcontroller/rtl/drg5_frontend.sv": "7333cd008e2e63bd91d4b08f5ca323cd594efdab8c19d65603759505a3823e16",
+    "microcontroller/rtl/drg5_immediate.sv": "0178ee6a01e4c5361d149a425b5da5502ef2906b8c3ee9246800bd5bc93a080b",
+    "microcontroller/rtl/drg5_irq_platform.sv": "290620945a47a3e6ecec53530381ec08ed7571cf7671aab86299f8049fb90aa7",
+    "microcontroller/rtl/drg5_lsu.sv": "eeac7f5f8d92e4e35030b716e85aabede593afe1d5ca3175e79b9e3e5c83d926",
+    "microcontroller/rtl/drg5_muldiv.sv": "7eeed33bc060b11260c453c583cfe1936c8e76e6dfc9f437e92f4345e6d9911a",
+    "microcontroller/rtl/drg5_observe.sv": "3192c20b58596e36c99c7b1168be7aa193e4cec11bf7151792c6b8ac3aa64bed",
+    "microcontroller/rtl/drg5_regfile.sv": "126dd570ac7bc69ec35f04313ce65c015d1f441e629b3772d4d49004db59472a",
+    "microcontroller/rtl/drg5_shifter.sv": "0f0bda6a6fc80dc60e23f0058bfac2db2986e03480d95781ead91758dc4e2223",
+    "microcontroller/tests/drg5_counter_execution_tb.sv": "24381d5471046289efa9dd8bc550fc017ea300fecb65e471bafb88223958feea",
+    "microcontroller/rtl/drg5_datapath_defs.svh": "1247c7ee5185c32bcd41a1d72a08c9926e34ff5abe25e2ece8e6c2f9df21042e",
+    "microcontroller/tests/run_counter_execution.py": "444d2616b29851ba15ce2149b02e1edade6323bcc3e69ccee46355b2f49e686f",
+    "microcontroller/tests/replay_counter_trace.py": "b715f9beeb34a912742164e3fbb23f0a853e0417bfb55c0ce6b26809c109a16c",
+    "microcontroller/tests/Makefile": "a079f81206ed4ef073466c92da71d929b0438f77b2a02dcddb48f08a0d770faf"
+  },
+  "verilator": "Verilator 5.047 devel rev v5.046-19-ge9dd6eaaf (mod)",
+  "assumptions": [
+    "I snapshots captured at acceptance; independent acceptance and response delays",
+    "I and D stress deadlines128clocks; no production latency claim",
+    "one outstanding transaction per port; no response reordering or unsafe reset",
+    "fixed instruction corpus; service xorshift varies stalls without changing program images",
+    "reserved instruction image holes fault or fail the independent PC oracle"
+  ],
+  "limits": [
+    "finite seeded simulations, not all-input proof or ACT4/Sail conformance",
+    "no firmware compiler, FPGA timing, programming, acquisition or integrated debug qualification"
+  ]
+}

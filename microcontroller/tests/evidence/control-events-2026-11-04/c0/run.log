@@ -1,0 +1,5 @@
+PASS control-events C=0 cases=11 cycles=279 checks=47931 terminals=29 traps=3 kills=7 flushes=7 flush_redirects=4 aborts=3 resets=13 loads=4 responses=4 normal_W=2 fault_W=1 load_flush=4 held_reset=1 mepc_MRET=1 dual_CSR_bypass=2
+- microcontroller/tests/drg5_control_events_tb.sv:802: Verilog $finish
+- S i m u l a t i o n   R e p o r t: Verilator 5.047 devel
+- Verilator: $finish at 10ns; walltime 0.032 s; speed 317.524 ns/s
+- Verilator: cpu 0.032 s on 1 threads; allocated 13 MB

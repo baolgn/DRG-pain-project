@@ -1,0 +1,60 @@
+{
+  "formal_assertions_per_configuration": 6,
+  "formal_assumptions": 0,
+  "results": {
+    "behavioral": {
+      "exit": 0,
+      "expected_outcome_seen": true
+    },
+    "proof-c0": {
+      "exit": 0,
+      "expected_outcome_seen": true
+    },
+    "proof-c0-negative": {
+      "exit": 1,
+      "expected_outcome_seen": true
+    },
+    "proof-c1": {
+      "exit": 0,
+      "expected_outcome_seen": true
+    },
+    "synth-c0": {
+      "cells": {
+        "CCU2C": 64,
+        "L6MUX21": 108,
+        "LUT4": 420,
+        "PFUMX": 150
+      },
+      "exit": 0,
+      "expected_outcome_seen": true,
+      "netlist_sha256": "ac2ab5aa773964ce48ea63b2f5df4604bf21bb0c6f80fcd599917f292f7508b5"
+    },
+    "synth-c1": {
+      "cells": {
+        "CCU2C": 64,
+        "L6MUX21": 105,
+        "LUT4": 412,
+        "PFUMX": 146
+      },
+      "exit": 0,
+      "expected_outcome_seen": true,
+      "netlist_sha256": "c3b9f99211db9d3f40e376e9df6834edfa082b6c5746d5b36fb64b5bd56ebf05"
+    },
+    "target_detector": {
+      "exit": 1,
+      "expected_outcome_seen": true
+    }
+  },
+  "scope": "independent decoded branch unit; optional original short lengths, no compressed decoder",
+  "sources": {
+    "/home/bluto/Desktop/dorsalGanglionProject/microcontroller/rtl/drg5_branch.sv": "81fb7fbc54c4c64236738d289fa8fc5a64bd6373efbd66ac2da33086e8d8728e",
+    "/home/bluto/Desktop/dorsalGanglionProject/microcontroller/rtl/drg5_datapath_defs.svh": "1247c7ee5185c32bcd41a1d72a08c9926e34ff5abe25e2ece8e6c2f9df21042e",
+    "/home/bluto/Desktop/dorsalGanglionProject/microcontroller/tests/drg5_branch_formal.sv": "25aa9cc4940e1a23809c67a1571c180a1c6e144c5f4b65ad8f129850893ddd4c",
+    "/home/bluto/Desktop/dorsalGanglionProject/microcontroller/tests/drg5_branch_tb.sv": "f4382e945a4a6d2803a0895032153327da453961b5324f869cf402505fab9c9e",
+    "/home/bluto/Desktop/dorsalGanglionProject/microcontroller/tests/run_branch.py": "df01ac24811be1dd41a843736ffdde133f5d860214038de99cbcff0f74301e5a"
+  },
+  "versions": {
+    "verilator": "Verilator 5.047 devel rev v5.046-19-ge9dd6eaaf (mod)",
+    "yosys": "Yosys 0.61+39 (git sha1 49e595079, clang++ 18.1.8 -fPIC -O3)"
+  }
+}

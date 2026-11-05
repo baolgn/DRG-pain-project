@@ -1,0 +1,8 @@
+$ /tmp/drg5-control-tools-20260301/oss-cad-suite/bin/verilator --binary --timing --assert -Wall -j 2 -CFLAGS -O0 -Imicrocontroller/rtl --top-module drg5_compressed_execution_tb -GC_ENABLED=1 -GM_ENABLED=1 -GDIAGNOSTIC=0 -GFORWARDING=1 --Mdir /tmp/drg5-c-execution-smoke/c1-m1-d0-f1 microcontroller/rtl/drg5_control_pkg.sv microcontroller/rtl/drg5_immediate.sv microcontroller/rtl/drg5_decoder.sv microcontroller/rtl/drg5_branch.sv microcontroller/rtl/drg5_lsu.sv microcontroller/rtl/drg5_shifter.sv microcontroller/rtl/drg5_alu.sv microcontroller/rtl/drg5_forward.sv microcontroller/rtl/drg5_decompress.sv microcontroller/rtl/drg5_fetch_guard.sv microcontroller/rtl/drg5_fetch_buffer.sv microcontroller/rtl/drg5_fetch.sv microcontroller/rtl/drg5_frontend.sv microcontroller/rtl/drg5_csr.sv microcontroller/rtl/drg5_muldiv.sv microcontroller/rtl/drg5_control.sv microcontroller/tests/drg5_compressed_execution_tb.sv
+%Warning-UNUSEDSIGNAL: microcontroller/tests/drg5_compressed_execution_tb.sv:778:9: Bits of function variable are not used: 'index'[31:12]
+                                                                                  : ... note: In instance 'drg5_compressed_execution_tb'
+  778 |     int index, base;
+      |         ^~~~~
+                       ... For warning description see https://verilator.org/warn/UNUSEDSIGNAL?v=5.047
+                       ... Use "/* verilator lint_off UNUSEDSIGNAL */" and lint_on around source to disable this message.
+%Error: Exiting due to 1 warning(s)

@@ -1,0 +1,6 @@
+{
+  "microcontroller/rtl/drg5_csr.sv": "964076aa378ef7c483103af939852587cc8f839fdcde85809e7998b65f61ee5f",
+  "microcontroller/tests/drg5_counters_tb.sv": "6f9b826a7c3a4bacb153d64b07daf8218c2e8b1c2b233533955159e4129bebf4",
+  "microcontroller/tests/drg5_csr_formal.sv": "d0365683745ed5c6e38370baf281944dbe77ca9163663d758b854f056c9ff44a",
+  "microcontroller/tests/run_counters.py": "9982b5c7a45fd08d4d25c88bece678f927bbd196ce89234495ff7c15cd564b73"
+}

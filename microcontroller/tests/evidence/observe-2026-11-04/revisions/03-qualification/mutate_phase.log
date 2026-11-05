@@ -1,0 +1,4 @@
+$ /tmp/drg5-observe/p0/Vdrg5_observe_tb +verilator+seed+1 +seed=1 +mutate_phase
+[8] %Fatal: drg5_observe_tb.sv:64: Assertion failed in drg5_observe_tb.check: OBSERVE_FAIL profile=0 seed=1 edge=2: pre-state and post-state alignment
+%Error: microcontroller/tests/drg5_observe_tb.sv:64: Verilog $stop
+Aborting...

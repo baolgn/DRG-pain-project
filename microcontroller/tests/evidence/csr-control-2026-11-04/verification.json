@@ -1,0 +1,38 @@
+{
+  "status": "passed",
+  "source_files_verified": 14,
+  "positive_runs": 6,
+  "calibrated_negative_runs": 14,
+  "totals": {
+    "cases": 1062,
+    "cycles": 36316,
+    "checks": 6605152,
+    "retired": 4758,
+    "traps": 384,
+    "reads": 976,
+    "writes": 1074,
+    "offers": 60,
+    "replies": 60
+  },
+  "runtime_masks_match_independent_lcg_replay": true,
+  "binaries": {
+    "c0": "2afd4c8927e61b53992517cac892424af2430271accab8b5dce342203c4e0b09",
+    "c1": "04098e7477f337fb6d25269fafca4051d9a82a6fcfad0ba3bd842055f01b77e3"
+  },
+  "source_sha256": {
+    "microcontroller/rtl/drg5_control_pkg.sv": "dc2a5f673583232106867d10989300a8854a0fc8d4fbb52e79467c67f96b5994",
+    "microcontroller/rtl/drg5_decoder.sv": "0b42ead92fd911fd1a2ed4295145b4ac476ad2933b3e2dcb4cdde95d899d52b3",
+    "microcontroller/rtl/drg5_immediate.sv": "0178ee6a01e4c5361d149a425b5da5502ef2906b8c3ee9246800bd5bc93a080b",
+    "microcontroller/rtl/drg5_branch.sv": "81fb7fbc54c4c64236738d289fa8fc5a64bd6373efbd66ac2da33086e8d8728e",
+    "microcontroller/rtl/drg5_lsu.sv": "eeac7f5f8d92e4e35030b716e85aabede593afe1d5ca3175e79b9e3e5c83d926",
+    "microcontroller/rtl/drg5_shifter.sv": "0f0bda6a6fc80dc60e23f0058bfac2db2986e03480d95781ead91758dc4e2223",
+    "microcontroller/rtl/drg5_alu.sv": "c1ed60c799186e4185c516049ad99d046dd9ab134afa88b57089f27408fce199",
+    "microcontroller/rtl/drg5_forward.sv": "6c88614a024cb1df85bdb4926a4d4bef9bacbc84af803bcbb7cf1b93d150e444",
+    "microcontroller/rtl/drg5_csr.sv": "964076aa378ef7c483103af939852587cc8f839fdcde85809e7998b65f61ee5f",
+    "microcontroller/rtl/drg5_control.sv": "b2301f45f3893d786ab527b71176834cfbbc62f12339ac204396cdc6e68d159b",
+    "microcontroller/tests/drg5_csr_control_tb.sv": "266d3d445bfc257f4048ed3e7cb9bd1769b6e0eaed6df6099c912393d319d1d3",
+    "microcontroller/rtl/drg5_datapath_defs.svh": "1247c7ee5185c32bcd41a1d72a08c9926e34ff5abe25e2ece8e6c2f9df21042e",
+    "microcontroller/tests/run_csr_control.py": "a722e53c5a2a6447ace2ed7f18467614d1bd07b28a6ce72e2ae5f29865e91ba8",
+    "microcontroller/tests/Makefile": "a90e65e834b5f87691921458d9d45572bd2cd51ea151b0b823d2393370b3bcc1"
+  }
+}

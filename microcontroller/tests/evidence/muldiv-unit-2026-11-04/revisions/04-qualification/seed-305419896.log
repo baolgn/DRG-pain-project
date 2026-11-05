@@ -1,0 +1,14 @@
+$ /tmp/drg5-muldiv-unit/obj/Vdrg5_muldiv_tb +seed=305419896 +verilator+seed+1
+MULDIV_OPCODE op=0 cases=8472 min=2 max=2
+MULDIV_OPCODE op=1 cases=8472 min=2 max=2
+MULDIV_OPCODE op=2 cases=8473 min=2 max=2
+MULDIV_OPCODE op=3 cases=8468 min=2 max=2
+MULDIV_OPCODE op=4 cases=8465 min=33 max=33
+MULDIV_OPCODE op=5 cases=8464 min=33 max=33
+MULDIV_OPCODE op=6 cases=8464 min=33 max=33
+MULDIV_OPCODE op=7 cases=8464 min=33 max=33
+MULDIV_PASS seed=305419896 cases=67742 checks=4131480 edges=1628437 resets=156 held=237287 early_ready=17566 mul_latency=2 div_latency=33
+- microcontroller/tests/drg5_muldiv_tb.sv:276: Verilog $finish
+- S i m u l a t i o n   R e p o r t: Verilator 5.047 devel
+- Verilator: $finish at 16us; walltime 0.466 s; speed 34.961 us/s
+- Verilator: cpu 0.466 s on 1 threads; allocated 7 MB

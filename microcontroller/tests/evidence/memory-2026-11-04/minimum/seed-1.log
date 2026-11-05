@@ -1,0 +1,14 @@
+SCHEDULE profile=0 scenario=1 seed=1 cycle=11 uid=1 pc=00000104 tag=1 address=40000000 write=0 size=2 accept_extra=0 response_edges=3
+ACCEPT profile=0 scenario=1 seed=1 cycle=12 uid=1 tag=1 address=40000000 data=00000000 lanes=0 status=0 read_count=1 write_count=0
+RESPONSE profile=0 scenario=1 seed=1 cycle=12 tag=1 status=0 data=00000000 matching=1 contained=0
+SCHEDULE profile=0 scenario=1 seed=1 cycle=26 uid=1 pc=00000104 tag=1 address=20000000 write=0 size=2 accept_extra=2 response_edges=1
+ACCEPT profile=0 scenario=1 seed=1 cycle=29 uid=1 tag=1 address=20000000 data=00000000 lanes=0 status=0 read_count=0 write_count=0
+RESPONSE profile=0 scenario=1 seed=1 cycle=30 tag=1 status=0 data=80ff7f01 matching=1 contained=1
+SCHEDULE profile=0 scenario=1 seed=1 cycle=44 uid=1 pc=00000104 tag=1 address=20000000 write=0 size=2 accept_extra=0 response_edges=3
+ACCEPT profile=0 scenario=1 seed=1 cycle=45 uid=1 tag=1 address=20000000 data=00000000 lanes=0 status=0 read_count=0 write_count=0
+RESPONSE profile=0 scenario=1 seed=1 cycle=48 tag=1 status=0 data=80ff7f01 matching=1 contained=1
+PASS memory profile=0 scenario=1 deadline=1 seed=1 cases=3 cycles=52 checks=402339 terminals=4 traps=0 kills=2 offers=3 replies=3 decoded=0 rejects=0 fatal_cases=2 resets=8 effects=1 max_accept_delay=2 max_response_delay=3 flushes=0 flush_redirects=0 aborts=0 bypasses=3 reset_cases=0 dependency_stalls=6 nearest_stalls=0 memory_flush=0 invalid=0
+- microcontroller/tests/drg5_memory_tb.sv:1664: Verilog $finish
+- S i m u l a t i o n   R e p o r t: Verilator 5.047 devel
+- Verilator: $finish at 2ns; walltime 0.053 s; speed 35.048 ns/s
+- Verilator: cpu 0.052 s on 1 threads; allocated 11 MB

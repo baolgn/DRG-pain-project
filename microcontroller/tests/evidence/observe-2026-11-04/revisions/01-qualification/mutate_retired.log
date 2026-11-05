@@ -1,0 +1,4 @@
+$ /tmp/drg5-observe/p0/Vdrg5_observe_tb +verilator+seed+1 +seed=1 +mutate_retired
+[12] %Fatal: drg5_observe_tb.sv:63: Assertion failed in drg5_observe_tb.check: OBSERVE_FAIL profile=0 seed=1 edge=3: independent normal-retirement count
+%Error: microcontroller/tests/drg5_observe_tb.sv:63: Verilog $stop
+Aborting...

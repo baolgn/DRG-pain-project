@@ -1,0 +1,4 @@
+$ /tmp/drg5-muldiv-control-final/m1-d0-f1-irq1/Vdrg5_muldiv_control_tb +verilator+seed+1 +seed=1 +mutate_duplicate_read
+[81896] %Fatal: drg5_muldiv_control_tb.sv:139: Assertion failed in drg5_muldiv_control_tb.check: seed=1 case=288 edge=20474 pc=00000100 owner=0 accepted=0 age=126 response=0: M MMIO read effect missing or repeated
+%Error: microcontroller/tests/drg5_muldiv_control_tb.sv:139: Verilog $stop
+Aborting...

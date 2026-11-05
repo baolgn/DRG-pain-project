@@ -1,0 +1,205 @@
+{
+  "scope": "control-flow packet prototype with real RF sources and fetch-fault adapter; not CPU conformance",
+  "verilator": "Verilator 5.047 devel rev v5.046-19-ge9dd6eaaf (mod)",
+  "source_sha256": {
+    "microcontroller/rtl/drg5_control_pkg.sv": "b28d145f554f65cdb4eb9bc66a52243e732e75f44d28bc4a3cf4ead342ec68af",
+    "microcontroller/rtl/drg5_decoder.sv": "0b42ead92fd911fd1a2ed4295145b4ac476ad2933b3e2dcb4cdde95d899d52b3",
+    "microcontroller/rtl/drg5_immediate.sv": "0178ee6a01e4c5361d149a425b5da5502ef2906b8c3ee9246800bd5bc93a080b",
+    "microcontroller/rtl/drg5_branch.sv": "81fb7fbc54c4c64236738d289fa8fc5a64bd6373efbd66ac2da33086e8d8728e",
+    "microcontroller/rtl/drg5_control.sv": "96ca9c62140e7279e8f61be5ee6d5ad4dea4a15d6a3daa17bc07704a30d43236",
+    "microcontroller/rtl/drg5_fetch_guard.sv": "3bda4702a4a9eb14fb859820af1098dcc2910926c6700e486b7c2f7ce5a0acbe",
+    "microcontroller/rtl/drg5_fetch_buffer.sv": "a2a5dc5b6236751bc3df70c48eedc229b40a9e79c2adb7e0969c4355fa2b5844",
+    "microcontroller/rtl/drg5_fetch.sv": "bc8a999d9e4b7761238306b8edb00b70fc1854f3070d593657a1fef9580e7247",
+    "microcontroller/tests/drg5_control_flow_tb.sv": "9255763d288a3f2a151065ee2660c18be692abae513abaf54db8590127be1bb5",
+    "microcontroller/rtl/drg5_datapath_defs.svh": "1247c7ee5185c32bcd41a1d72a08c9926e34ff5abe25e2ece8e6c2f9df21042e",
+    "microcontroller/tests/run_control_flow.py": "074f65500f8d146ad66a640f84e4a48e36ecacb03b4b4b2ceba12f1b2ab32fb5",
+    "microcontroller/tests/Makefile": "066a0ae04ee70d59c7c86d06bcf02c8be0c9354524aa8ff124a3ca5c62a4523c"
+  },
+  "results": [
+    {
+      "configuration": "c0-overlap",
+      "build_command": [
+        "/tmp/drg5-control-tools-20260301/oss-cad-suite/bin/verilator",
+        "--binary",
+        "--timing",
+        "--assert",
+        "-Wall",
+        "-j",
+        "2",
+        "-CFLAGS",
+        "-O0",
+        "-Imicrocontroller/rtl",
+        "--top-module",
+        "drg5_control_flow_tb",
+        "--Mdir",
+        "/tmp/drg5-control-flow-final/c0-overlap",
+        "-GC_ENABLED=0",
+        "-GDIAGNOSTIC=0",
+        "microcontroller/rtl/drg5_control_pkg.sv",
+        "microcontroller/rtl/drg5_decoder.sv",
+        "microcontroller/rtl/drg5_immediate.sv",
+        "microcontroller/rtl/drg5_branch.sv",
+        "microcontroller/rtl/drg5_control.sv",
+        "microcontroller/rtl/drg5_fetch_guard.sv",
+        "microcontroller/rtl/drg5_fetch_buffer.sv",
+        "microcontroller/rtl/drg5_fetch.sv",
+        "microcontroller/tests/drg5_control_flow_tb.sv"
+      ],
+      "run_command": [
+        "/tmp/drg5-control-flow-final/c0-overlap/Vdrg5_control_flow_tb",
+        "+verilator+seed+1"
+      ],
+      "exit_code": 0,
+      "result": "PASS control-flow C=0 diagnostic=0 cases=37 cycles=663 retirements=107 traps=16 redirects=39 kills=63 hazards=57 bypasses=19 nearest=28 X_hold=36 W_hold=41 loads=4 target_faults=1 I_reads=2 X_behind_load=16"
+    },
+    {
+      "configuration": "c1-overlap",
+      "build_command": [
+        "/tmp/drg5-control-tools-20260301/oss-cad-suite/bin/verilator",
+        "--binary",
+        "--timing",
+        "--assert",
+        "-Wall",
+        "-j",
+        "2",
+        "-CFLAGS",
+        "-O0",
+        "-Imicrocontroller/rtl",
+        "--top-module",
+        "drg5_control_flow_tb",
+        "--Mdir",
+        "/tmp/drg5-control-flow-final/c1-overlap",
+        "-GC_ENABLED=1",
+        "-GDIAGNOSTIC=0",
+        "microcontroller/rtl/drg5_control_pkg.sv",
+        "microcontroller/rtl/drg5_decoder.sv",
+        "microcontroller/rtl/drg5_immediate.sv",
+        "microcontroller/rtl/drg5_branch.sv",
+        "microcontroller/rtl/drg5_control.sv",
+        "microcontroller/rtl/drg5_fetch_guard.sv",
+        "microcontroller/rtl/drg5_fetch_buffer.sv",
+        "microcontroller/rtl/drg5_fetch.sv",
+        "microcontroller/tests/drg5_control_flow_tb.sv"
+      ],
+      "run_command": [
+        "/tmp/drg5-control-flow-final/c1-overlap/Vdrg5_control_flow_tb",
+        "+verilator+seed+1"
+      ],
+      "exit_code": 0,
+      "result": "PASS control-flow C=1 diagnostic=0 cases=37 cycles=692 retirements=115 traps=12 redirects=39 kills=63 hazards=59 bypasses=20 nearest=28 X_hold=36 W_hold=41 loads=4 target_faults=1 I_reads=4 X_behind_load=16"
+    },
+    {
+      "configuration": "c0-diagnostic",
+      "build_command": [
+        "/tmp/drg5-control-tools-20260301/oss-cad-suite/bin/verilator",
+        "--binary",
+        "--timing",
+        "--assert",
+        "-Wall",
+        "-j",
+        "2",
+        "-CFLAGS",
+        "-O0",
+        "-Imicrocontroller/rtl",
+        "--top-module",
+        "drg5_control_flow_tb",
+        "--Mdir",
+        "/tmp/drg5-control-flow-final/c0-diagnostic",
+        "-GC_ENABLED=0",
+        "-GDIAGNOSTIC=1",
+        "microcontroller/rtl/drg5_control_pkg.sv",
+        "microcontroller/rtl/drg5_decoder.sv",
+        "microcontroller/rtl/drg5_immediate.sv",
+        "microcontroller/rtl/drg5_branch.sv",
+        "microcontroller/rtl/drg5_control.sv",
+        "microcontroller/rtl/drg5_fetch_guard.sv",
+        "microcontroller/rtl/drg5_fetch_buffer.sv",
+        "microcontroller/rtl/drg5_fetch.sv",
+        "microcontroller/tests/drg5_control_flow_tb.sv"
+      ],
+      "run_command": [
+        "/tmp/drg5-control-flow-final/c0-diagnostic/Vdrg5_control_flow_tb",
+        "+verilator+seed+1"
+      ],
+      "exit_code": 0,
+      "result": "PASS control-flow C=0 diagnostic=1 cases=37 cycles=932 retirements=107 traps=16 redirects=39 kills=0 hazards=0 bypasses=0 nearest=0 X_hold=36 W_hold=41 loads=4 target_faults=1 I_reads=2 X_behind_load=0"
+    },
+    {
+      "configuration": "c1-diagnostic",
+      "build_command": [
+        "/tmp/drg5-control-tools-20260301/oss-cad-suite/bin/verilator",
+        "--binary",
+        "--timing",
+        "--assert",
+        "-Wall",
+        "-j",
+        "2",
+        "-CFLAGS",
+        "-O0",
+        "-Imicrocontroller/rtl",
+        "--top-module",
+        "drg5_control_flow_tb",
+        "--Mdir",
+        "/tmp/drg5-control-flow-final/c1-diagnostic",
+        "-GC_ENABLED=1",
+        "-GDIAGNOSTIC=1",
+        "microcontroller/rtl/drg5_control_pkg.sv",
+        "microcontroller/rtl/drg5_decoder.sv",
+        "microcontroller/rtl/drg5_immediate.sv",
+        "microcontroller/rtl/drg5_branch.sv",
+        "microcontroller/rtl/drg5_control.sv",
+        "microcontroller/rtl/drg5_fetch_guard.sv",
+        "microcontroller/rtl/drg5_fetch_buffer.sv",
+        "microcontroller/rtl/drg5_fetch.sv",
+        "microcontroller/tests/drg5_control_flow_tb.sv"
+      ],
+      "run_command": [
+        "/tmp/drg5-control-flow-final/c1-diagnostic/Vdrg5_control_flow_tb",
+        "+verilator+seed+1"
+      ],
+      "exit_code": 0,
+      "result": "PASS control-flow C=1 diagnostic=1 cases=37 cycles=959 retirements=115 traps=12 redirects=39 kills=0 hazards=0 bypasses=0 nearest=0 X_hold=36 W_hold=41 loads=4 target_faults=1 I_reads=4 X_behind_load=0"
+    },
+    {
+      "negative_control": "mutate_link",
+      "command": [
+        "/tmp/drg5-control-flow-final/c0-overlap/Vdrg5_control_flow_tb",
+        "+verilator+seed+1",
+        "+mutate_link"
+      ],
+      "exit_code": 1,
+      "detector": "wrong architectural control result",
+      "first_error": "[13504] %Fatal: drg5_control_flow_tb.sv:116: Assertion failed in drg5_control_flow_tb.check: case=16 cycle=376 C=0 diagnostic=0 pc=00000104: wrong architectural control result"
+    },
+    {
+      "negative_control": "mutate_source",
+      "command": [
+        "/tmp/drg5-control-flow-final/c0-overlap/Vdrg5_control_flow_tb",
+        "+verilator+seed+1",
+        "+mutate_source"
+      ],
+      "exit_code": 1,
+      "detector": "control operands did not come from the independent register bank",
+      "first_error": "[616] %Fatal: drg5_control_flow_tb.sv:116: Assertion failed in drg5_control_flow_tb.check: case=1 cycle=18 C=0 diagnostic=0 pc=00000108: control operands did not come from the independent register bank"
+    },
+    {
+      "negative_control": "mutate_target",
+      "command": [
+        "/tmp/drg5-control-flow-final/c0-overlap/Vdrg5_control_flow_tb",
+        "+verilator+seed+1",
+        "+mutate_target"
+      ],
+      "exit_code": 1,
+      "detector": "redirect target disagreed with independent architectural PC",
+      "first_error": "[688] %Fatal: drg5_control_flow_tb.sv:116: Assertion failed in drg5_control_flow_tb.check: case=1 cycle=20 C=0 diagnostic=0 pc=00000118: redirect target disagreed with independent architectural PC"
+    }
+  ],
+  "status": "passed",
+  "negative_controls_passed": 3,
+  "limits": [
+    "no compressed decoder: two-byte controls use trusted external expansion",
+    "external-flush interactions with OP_CONTROL are source-reviewed only here",
+    "C-dependent trap mepc masking is executed; C1 mepc CSR-write/MRET masking is source-reviewed",
+    "all non-control program packets supply precomputed operations"
+  ]
+}

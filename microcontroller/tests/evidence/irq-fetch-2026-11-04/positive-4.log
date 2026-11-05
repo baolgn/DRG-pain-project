@@ -1,0 +1,8 @@
+$ /tmp/drg5-irq-fetch-20261104/obj-4/Vdrg5_irq_fetch_tb +verilator+seed+1
+IRQ_FETCH_CASE limit=4 case=0 entry=2 handler_D=9 I_max=3 waiting=2 offers=21 accepts=21 replies=21
+IRQ_FETCH_CASE limit=4 case=1 entry=3 handler_D=10 I_max=4 waiting=3 offers=21 accepts=21 replies=21
+IRQ_FETCH_PASS limit=4 cases=2 checks=1199 max_entry=3 max_handler_D=10 max_I=4
+- microcontroller/tests/drg5_irq_fetch_tb.sv:304: Verilog $finish
+- S i m u l a t i o n   R e p o r t: Verilator 5.047 devel
+- Verilator: $finish at 450ps; walltime 0.003 s; speed 154.470 ns/s
+- Verilator: cpu 0.003 s on 1 threads; allocated 8 MB

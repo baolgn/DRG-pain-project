@@ -1,0 +1,4 @@
+$ /tmp/drg5-muldiv-unit/obj/Vdrg5_muldiv_tb +seed=1 +verilator+seed+1 +misuse_start
+[25] %Fatal: drg5_muldiv.sv:159: Assertion failed in drg5_muldiv_tb.dut: arithmetic start while busy
+%Error: microcontroller/rtl/drg5_muldiv.sv:159: Verilog $stop
+Aborting...

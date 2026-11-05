@@ -1,0 +1,61 @@
+{
+  "formal_assertions_per_mode": 7,
+  "formal_assumptions": 0,
+  "results": {
+    "behavioral": {
+      "exit": 0,
+      "expected_terminal_seen": true
+    },
+    "fallback_detector": {
+      "exit": 1,
+      "expected_terminal_seen": true
+    },
+    "proof-f0": {
+      "exit": 0,
+      "expected_terminal_seen": true
+    },
+    "proof-f1": {
+      "exit": 0,
+      "expected_terminal_seen": true
+    },
+    "proof-f1-negative": {
+      "exit": 1,
+      "expected_terminal_seen": true
+    },
+    "stall_detector": {
+      "exit": 1,
+      "expected_terminal_seen": true
+    },
+    "synth-f0": {
+      "cells": {
+        "L6MUX21": 10,
+        "LUT4": 243,
+        "PFUMX": 22
+      },
+      "exit": 0,
+      "expected_terminal_seen": true,
+      "netlist_sha256": "8b0f1fee037714372fe70f24fc5fab597b7ba161b44d03bf76e89367bc4d8e6c"
+    },
+    "synth-f1": {
+      "cells": {
+        "L6MUX21": 126,
+        "LUT4": 663,
+        "PFUMX": 271
+      },
+      "exit": 0,
+      "expected_terminal_seen": true,
+      "netlist_sha256": "ed7c68e245fc012819a3fc943c53dc9b98f1fef61a931d04108daf55d5f0a0d5"
+    }
+  },
+  "scope": "combinational forwarding selection only; caller producer readiness and pipeline ownership are separate",
+  "sources": {
+    "/home/bluto/Desktop/dorsalGanglionProject/microcontroller/rtl/drg5_forward.sv": "6c88614a024cb1df85bdb4926a4d4bef9bacbc84af803bcbb7cf1b93d150e444",
+    "/home/bluto/Desktop/dorsalGanglionProject/microcontroller/tests/drg5_forward_formal.sv": "3b65c2b16be702bf62a6f020871f1933e082e9e023d6fef321307cc7720b1d58",
+    "/home/bluto/Desktop/dorsalGanglionProject/microcontroller/tests/drg5_forward_tb.sv": "8c9ee008614dea057d8a21babc71fc17652be670d866cded6f5dd596ab870c32",
+    "/home/bluto/Desktop/dorsalGanglionProject/microcontroller/tests/run_forward.py": "4a4a45a54720d754a4edb0ad64cc02e0a8c782d9e1326e93282f940516642345"
+  },
+  "versions": {
+    "verilator": "Verilator 5.047 devel rev v5.046-19-ge9dd6eaaf (mod)",
+    "yosys": "Yosys 0.61+39 (git sha1 49e595079, clang++ 18.1.8 -fPIC -O3)"
+  }
+}

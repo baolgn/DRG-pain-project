@@ -1,0 +1,88 @@
+{
+  "limits": [
+    "two-state simulation; no formal proof",
+    "caller supplies synchronous events and one pulse per accepted physical transaction",
+    "no CPU, CDC, acquisition descriptor memory, DMA or bus-response bridge is implemented here",
+    "overflow explicitly reports an unretained notification and requires hardware stop",
+    "generic synthesis, when requested, establishes no FPGA timing or physical qualification"
+  ],
+  "profiles": {
+    "capacities": [
+      1,
+      4,
+      64
+    ],
+    "random_vectors_per_seed": 12000,
+    "seeds": [
+      0,
+      1,
+      305419896
+    ]
+  },
+  "results": {
+    "detector-count": {
+      "exit": 1,
+      "terminal": "[410] %Fatal: drg5_irq_platform_tb.sv:45: Assertion failed in drg5_irq_platform_tb.check: edge=205 profile=0 seed=1 reset=0 command=1 write=1 addr=40001020 data=00000001 size=2 strobe=f events=00000000 block=1: notification count mismatch"
+    },
+    "detector-error": {
+      "exit": 1,
+      "terminal": "[409] %Fatal: drg5_irq_platform_tb.sv:45: Assertion failed in drg5_irq_platform_tb.check: edge=204 profile=0 seed=1 reset=0 command=1 write=1 addr=40001020 data=00000001 size=2 strobe=f events=00000000 block=1: MMIO permission mismatch"
+    },
+    "detector-irq": {
+      "exit": 1,
+      "terminal": "[6] %Fatal: drg5_irq_platform_tb.sv:45: Assertion failed in drg5_irq_platform_tb.check: edge=3 profile=0 seed=1 reset=0 command=1 write=1 addr=40001004 data=ffffffff size=2 strobe=f events=00000000 block=0: interrupt level mismatch"
+    },
+    "detector-overflow": {
+      "exit": 1,
+      "terminal": "[412] %Fatal: drg5_irq_platform_tb.sv:45: Assertion failed in drg5_irq_platform_tb.check: edge=206 profile=0 seed=1 reset=0 command=0 write=0 addr=00000000 data=00000000 size=2 strobe=0 events=00000000 block=1: overflow containment mismatch"
+    },
+    "detector-pending": {
+      "exit": 1,
+      "terminal": "[36] %Fatal: drg5_irq_platform_tb.sv:45: Assertion failed in drg5_irq_platform_tb.check: edge=18 profile=0 seed=1 reset=0 command=0 write=0 addr=00000000 data=00000000 size=2 strobe=0 events=00000001 block=0: external pending mismatch"
+    },
+    "detector-read": {
+      "exit": 1,
+      "terminal": "[13] %Fatal: drg5_irq_platform_tb.sv:45: Assertion failed in drg5_irq_platform_tb.check: edge=6 profile=0 seed=1 reset=0 command=1 write=0 addr=40001004 data=00000000 size=2 strobe=0 events=00000000 block=0: MMIO read snapshot mismatch"
+    },
+    "detector-timer": {
+      "exit": 1,
+      "terminal": "[4] %Fatal: drg5_irq_platform_tb.sv:45: Assertion failed in drg5_irq_platform_tb.check: edge=2 profile=0 seed=1 reset=0 command=1 write=1 addr=40001000 data=ffffffff size=2 strobe=f events=00000000 block=0: timer edge mismatch"
+    },
+    "seed-0": {
+      "exit": 0,
+      "terminal": "PASS irq-platform seed=0 profiles=3 capacities=1,4,64 edges=12848 checks=385449 reads=2622 writes=2649 errors=13944 timer_overrides=543 set_clear=384 empty_ack_arrival=9 full_ack_arrival=58 overflow_edges=12218 masked_pending=23379 timer_wraps=3 address_bins=ffff direction_bins=00000003 width_bins=0000000f"
+    },
+    "seed-1": {
+      "exit": 0,
+      "terminal": "PASS irq-platform seed=1 profiles=3 capacities=1,4,64 edges=12848 checks=385449 reads=2757 writes=2634 errors=13938 timer_overrides=567 set_clear=369 empty_ack_arrival=12 full_ack_arrival=52 overflow_edges=11722 masked_pending=23835 timer_wraps=3 address_bins=ffff direction_bins=00000003 width_bins=0000000f"
+    },
+    "seed-305419896": {
+      "exit": 0,
+      "terminal": "PASS irq-platform seed=305419896 profiles=3 capacities=1,4,64 edges=12848 checks=385449 reads=2484 writes=2711 errors=14197 timer_overrides=513 set_clear=354 empty_ack_arrival=3 full_ack_arrival=64 overflow_edges=11978 masked_pending=23151 timer_wraps=3 address_bins=ffff direction_bins=00000003 width_bins=0000000f"
+    },
+    "structure": {
+      "exit": 0,
+      "scope": "generic synthesis; default capacity 64; no latches"
+    }
+  },
+  "scope": "accepted MMIO pulse, timer and retained source platform only",
+  "source_sha256": {
+    "microcontroller/rtl/drg5_irq_platform.sv": "290620945a47a3e6ecec53530381ec08ed7571cf7671aab86299f8049fb90aa7",
+    "microcontroller/tests/drg5_irq_platform_tb.sv": "ecc8114e2c53f4c41d6a54e42ad965375badaef3abc291d51465e9bebc8c7693",
+    "microcontroller/tests/run_irq_platform.py": "aa8abcdb83f7170662e70a23a475b4ca3cfa2918d12b2dfe287ebc0473875026"
+  },
+  "tools": {
+    "verilator": {
+      "path": "/tmp/drg5-control-tools-20260301/oss-cad-suite/bin/verilator",
+      "sha256": "93dde63802d895d64675984a6a8268a287211ed1abace90b3e0bc4320ed22bdb"
+    },
+    "yosys": {
+      "path": "/tmp/drg5-control-tools-20260301/oss-cad-suite/bin/yosys",
+      "sha256": "7c3e3396b38c129dd7485be5a0a0f0da8e495a94c8fd486059e3bea043a588d6"
+    }
+  },
+  "versions": {
+    "verilator": "Verilator 5.047 devel rev v5.046-19-ge9dd6eaaf (mod)",
+    "yosys": "Yosys 0.62+112 (git sha1 687a36af3, clang++ 18.1.8 -fPIC -O3)"
+  }
+}

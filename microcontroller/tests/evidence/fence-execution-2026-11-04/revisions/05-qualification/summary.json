@@ -1,0 +1,63 @@
+{
+  "status": "passed",
+  "scope": "real frontend and packet controller; finite instruction synchronization simulation",
+  "profiles": [
+    [
+      1,
+      1,
+      0,
+      1
+    ]
+  ],
+  "seeds": [
+    1
+  ],
+  "smoke": true,
+  "results": [
+    {
+      "profile": "c1-fi1-d0-f1",
+      "seed": 1,
+      "command": [
+        "/tmp/drg5-fence-execution/c1-fi1-d0-f1/Vdrg5_fence_execution_tb",
+        "+verilator+seed+1",
+        "+seed=1"
+      ],
+      "exit_code": 0,
+      "terminal": "FENCE_EXEC_PASS C=1 FI=1 diagnostic=0 forwarding=1 seed=1 cases=329 checks=1408121 retired=2633 fences=551 fencei=43 code_writes=10 old_snapshots=328 buffered_old=111 old_offers=1 old_accepted=4 stale=287 old_errors=2 same_edge_drops=1 held_fences=492 dma_completed=1 dma_reads=3 early_examples=1 reads=553 writes=285 killed=1 max_i_wait=70 max_d_wait=7 program_digest=55e25acecfb29fbf retirement_digest=506a18f9d9192b37 effect_digest=57e6bee0c4482ffd"
+    }
+  ],
+  "source_sha256": {
+    "microcontroller/rtl/drg5_control_pkg.sv": "aa4193716ff8f98c066c3b88b9de8f1e201bea560e7dc3bcab670598a94c20d5",
+    "microcontroller/rtl/drg5_immediate.sv": "0178ee6a01e4c5361d149a425b5da5502ef2906b8c3ee9246800bd5bc93a080b",
+    "microcontroller/rtl/drg5_decoder.sv": "0b42ead92fd911fd1a2ed4295145b4ac476ad2933b3e2dcb4cdde95d899d52b3",
+    "microcontroller/rtl/drg5_branch.sv": "81fb7fbc54c4c64236738d289fa8fc5a64bd6373efbd66ac2da33086e8d8728e",
+    "microcontroller/rtl/drg5_lsu.sv": "eeac7f5f8d92e4e35030b716e85aabede593afe1d5ca3175e79b9e3e5c83d926",
+    "microcontroller/rtl/drg5_shifter.sv": "0f0bda6a6fc80dc60e23f0058bfac2db2986e03480d95781ead91758dc4e2223",
+    "microcontroller/rtl/drg5_alu.sv": "c1ed60c799186e4185c516049ad99d046dd9ab134afa88b57089f27408fce199",
+    "microcontroller/rtl/drg5_forward.sv": "6c88614a024cb1df85bdb4926a4d4bef9bacbc84af803bcbb7cf1b93d150e444",
+    "microcontroller/rtl/drg5_decompress.sv": "844d6c0b0dbdde6a02c7de346fbb61408ffe2e384d50b82027d9922a8e89372e",
+    "microcontroller/rtl/drg5_fetch_guard.sv": "3bda4702a4a9eb14fb859820af1098dcc2910926c6700e486b7c2f7ce5a0acbe",
+    "microcontroller/rtl/drg5_fetch_buffer.sv": "a2a5dc5b6236751bc3df70c48eedc229b40a9e79c2adb7e0969c4355fa2b5844",
+    "microcontroller/rtl/drg5_fetch.sv": "bc8a999d9e4b7761238306b8edb00b70fc1854f3070d593657a1fef9580e7247",
+    "microcontroller/rtl/drg5_frontend.sv": "7333cd008e2e63bd91d4b08f5ca323cd594efdab8c19d65603759505a3823e16",
+    "microcontroller/rtl/drg5_csr.sv": "964076aa378ef7c483103af939852587cc8f839fdcde85809e7998b65f61ee5f",
+    "microcontroller/rtl/drg5_muldiv.sv": "7eeed33bc060b11260c453c583cfe1936c8e76e6dfc9f437e92f4345e6d9911a",
+    "microcontroller/rtl/drg5_control.sv": "dfa75d71fa6e02d188b0270e1d04044750fcfd6d34b378a34262184147abb0b2",
+    "microcontroller/tests/drg5_fence_execution_tb.sv": "bc5b1670c24c3232d6ef70544841cd1c8ad01075e7666f97afe56cf9ab6c66a3",
+    "microcontroller/rtl/drg5_datapath_defs.svh": "1247c7ee5185c32bcd41a1d72a08c9926e34ff5abe25e2ece8e6c2f9df21042e",
+    "microcontroller/tests/run_fence_execution.py": "84a82d9da1d5849aa0e50541d0b91c43e3609dabf1443c5a1b307c36134ad272",
+    "microcontroller/tests/Makefile": "68b28ad70efad417b25d9ab07616621f2bbad30fd86f3dbbff31de19f9c2a11a"
+  },
+  "verilator": "Verilator 5.047 devel rev v5.046-19-ge9dd6eaaf (mod)",
+  "assumptions": [
+    "I snapshots captured at acceptance; executable D writes visible at response; independent acceptance and response delays",
+    "I and D stress deadlines128clocks; no production latency claim",
+    "one outstanding transaction per port; no response reordering or unsafe reset",
+    "independent program and service LCG streams preserve identical images across occupancy profiles",
+    "reserved instruction image holes fault or fail the independent PC oracle"
+  ],
+  "limits": [
+    "finite seeded simulations, not all-input proof or ACT4/Sail conformance",
+    "no firmware compiler, FPGA timing, programming, acquisition or debug qualification"
+  ]
+}
