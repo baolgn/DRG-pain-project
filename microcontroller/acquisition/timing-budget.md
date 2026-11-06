@@ -1,6 +1,6 @@
 # ACQ-R1 timing budget
 
-This is the timing allocation for **ACQ-R1 revision 3**, before implementation of ADC control state machines. The 20 µs cadence, 100 ns pulse, 250 ns observed BUSY-rise deadline, 2 µs observed BUSY-fall deadline and 20 MHz serial clock are retained as **nominal tick-domain values**. The proposed **13 µs completed-read deadline is rejected**: a BUSY fall accepted at 2 µs cannot complete the specified transfer and checks by 13 µs. R1 retains its **1120-tick, nominal 14 µs** deadline.
+This timing allocation was introduced by **ACQ-R1 revision 3** and remains required by revision 4's [frozen formats](formats.md), before implementation of ADC control state machines. The 20 µs cadence, 100 ns pulse, 250 ns observed BUSY-rise deadline, 2 µs observed BUSY-fall deadline and 20 MHz serial clock are retained as **nominal tick-domain values**. The proposed **13 µs completed-read deadline is rejected**: a BUSY fall accepted at 2 µs cannot complete the specified transfer and checks by 13 µs. R1 retains its **1120-tick, nominal 14 µs** deadline.
 
 The arithmetic fits the allocations below; **physical timing closure has not passed**. There is no inspected board, approved adapter, routed acquisition receiver, characterized translator or independent supervisor. Unknown physical delays are release blockers, not zero-delay paths. `ACQ-R1_AVAILABLE` remains false. No ADC state machine or new hardware behavior is implemented here.
 
@@ -153,6 +153,8 @@ Even charging all 512 register timeouts serially (≤1.024103 ms), both conversi
 ## Storage and closure
 
 Storage budgets are **new admission requirements**, not a claim that FIFO/DMA/ring hardware exists. Every CDC, arbitration pause, refresh, header/CRC32C calculation, cache/fence requirement and controller stall must be included. Require ≥4,000,000 bytes/s guaranteed capture service after grant, at most 64 extra bytes of publication metadata per block, and the latency caps below. Measured average bandwidth is insufficient.
+
+Revision 4 fills that capture-metadata allowance with exactly one 64-byte ACD1 descriptor (60-byte body plus final four-byte PUB1 store). Its separate retirement clear is four bytes charged to allocation-control service, not capture or transport's 64-byte metadata allowances. At the fastest admitted clock it consumes ≤781.328125 B/s of the allocation-control master's separately qualified 4 MB/s reservation; normal acknowledgement is ≤80 µs and timeout/action ≤100 µs. It cannot block closure while waiting for a consumer, and failure leaves that allocation nonfree. The numerical capture/drain calculations below remain unchanged; the format review separately checks this added control traffic and the 4096-byte descriptor table.
 
 | Operation | Bound and failure handling |
 | --- | --- |

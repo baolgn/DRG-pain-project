@@ -1,0 +1,6729 @@
+{
+  "schema": "DRG5-FORMAT-CONFORMANCE-1",
+  "status": "independent-format-conformance-pass",
+  "physical_qualified": false,
+  "hardware_exercised": false,
+  "checks": [
+    {
+      "name": "producer CRC32C check string",
+      "passed": true
+    },
+    {
+      "name": "host CRC32C check string",
+      "passed": true
+    },
+    {
+      "name": "producer ADC known pattern CRC",
+      "passed": true
+    },
+    {
+      "name": "literal 48-byte record golden",
+      "passed": true
+    },
+    {
+      "name": "host independently decodes literal record",
+      "passed": true
+    },
+    {
+      "name": "capture length 0",
+      "passed": true
+    },
+    {
+      "name": "capture length 1",
+      "passed": true
+    },
+    {
+      "name": "capture length 2",
+      "passed": true
+    },
+    {
+      "name": "capture length 3",
+      "passed": true
+    },
+    {
+      "name": "capture length 4",
+      "passed": true
+    },
+    {
+      "name": "capture length 5",
+      "passed": true
+    },
+    {
+      "name": "capture length 6",
+      "passed": true
+    },
+    {
+      "name": "capture length 7",
+      "passed": true
+    },
+    {
+      "name": "capture length 8",
+      "passed": true
+    },
+    {
+      "name": "capture length 9",
+      "passed": true
+    },
+    {
+      "name": "capture length 10",
+      "passed": true
+    },
+    {
+      "name": "capture length 11",
+      "passed": true
+    },
+    {
+      "name": "capture length 12",
+      "passed": true
+    },
+    {
+      "name": "capture length 13",
+      "passed": true
+    },
+    {
+      "name": "capture length 14",
+      "passed": true
+    },
+    {
+      "name": "capture length 15",
+      "passed": true
+    },
+    {
+      "name": "capture length 16",
+      "passed": true
+    },
+    {
+      "name": "capture length 17",
+      "passed": true
+    },
+    {
+      "name": "capture length 18",
+      "passed": true
+    },
+    {
+      "name": "capture length 19",
+      "passed": true
+    },
+    {
+      "name": "capture length 20",
+      "passed": true
+    },
+    {
+      "name": "capture length 21",
+      "passed": true
+    },
+    {
+      "name": "capture length 22",
+      "passed": true
+    },
+    {
+      "name": "capture length 23",
+      "passed": true
+    },
+    {
+      "name": "capture length 24",
+      "passed": true
+    },
+    {
+      "name": "capture length 25",
+      "passed": true
+    },
+    {
+      "name": "capture length 26",
+      "passed": true
+    },
+    {
+      "name": "capture length 27",
+      "passed": true
+    },
+    {
+      "name": "capture length 28",
+      "passed": true
+    },
+    {
+      "name": "capture length 29",
+      "passed": true
+    },
+    {
+      "name": "capture length 30",
+      "passed": true
+    },
+    {
+      "name": "capture length 31",
+      "passed": true
+    },
+    {
+      "name": "capture length 32",
+      "passed": true
+    },
+    {
+      "name": "capture length 33",
+      "passed": true
+    },
+    {
+      "name": "capture length 34",
+      "passed": true
+    },
+    {
+      "name": "capture length 35",
+      "passed": true
+    },
+    {
+      "name": "capture length 36",
+      "passed": true
+    },
+    {
+      "name": "capture length 37",
+      "passed": true
+    },
+    {
+      "name": "capture length 38",
+      "passed": true
+    },
+    {
+      "name": "capture length 39",
+      "passed": true
+    },
+    {
+      "name": "capture length 40",
+      "passed": true
+    },
+    {
+      "name": "capture length 41",
+      "passed": true
+    },
+    {
+      "name": "capture length 42",
+      "passed": true
+    },
+    {
+      "name": "capture length 43",
+      "passed": true
+    },
+    {
+      "name": "capture length 44",
+      "passed": true
+    },
+    {
+      "name": "capture length 45",
+      "passed": true
+    },
+    {
+      "name": "capture length 46",
+      "passed": true
+    },
+    {
+      "name": "capture length 47",
+      "passed": true
+    },
+    {
+      "name": "capture length 48",
+      "passed": true
+    },
+    {
+      "name": "capture length 49",
+      "passed": true
+    },
+    {
+      "name": "capture length 50",
+      "passed": true
+    },
+    {
+      "name": "capture length 51",
+      "passed": true
+    },
+    {
+      "name": "capture length 52",
+      "passed": true
+    },
+    {
+      "name": "capture length 53",
+      "passed": true
+    },
+    {
+      "name": "capture length 54",
+      "passed": true
+    },
+    {
+      "name": "capture length 55",
+      "passed": true
+    },
+    {
+      "name": "capture length 56",
+      "passed": true
+    },
+    {
+      "name": "capture length 57",
+      "passed": true
+    },
+    {
+      "name": "capture length 58",
+      "passed": true
+    },
+    {
+      "name": "capture length 59",
+      "passed": true
+    },
+    {
+      "name": "capture length 60",
+      "passed": true
+    },
+    {
+      "name": "capture length 61",
+      "passed": true
+    },
+    {
+      "name": "capture length 62",
+      "passed": true
+    },
+    {
+      "name": "capture length 63",
+      "passed": true
+    },
+    {
+      "name": "capture length 64",
+      "passed": true
+    },
+    {
+      "name": "capture length 65",
+      "passed": true
+    },
+    {
+      "name": "capture length 66",
+      "passed": true
+    },
+    {
+      "name": "capture length 67",
+      "passed": true
+    },
+    {
+      "name": "capture length 68",
+      "passed": true
+    },
+    {
+      "name": "capture length 69",
+      "passed": true
+    },
+    {
+      "name": "capture length 70",
+      "passed": true
+    },
+    {
+      "name": "capture length 71",
+      "passed": true
+    },
+    {
+      "name": "capture length 72",
+      "passed": true
+    },
+    {
+      "name": "capture length 73",
+      "passed": true
+    },
+    {
+      "name": "capture length 74",
+      "passed": true
+    },
+    {
+      "name": "capture length 75",
+      "passed": true
+    },
+    {
+      "name": "capture length 76",
+      "passed": true
+    },
+    {
+      "name": "capture length 77",
+      "passed": true
+    },
+    {
+      "name": "capture length 78",
+      "passed": true
+    },
+    {
+      "name": "capture length 79",
+      "passed": true
+    },
+    {
+      "name": "capture length 80",
+      "passed": true
+    },
+    {
+      "name": "capture length 81",
+      "passed": true
+    },
+    {
+      "name": "capture length 82",
+      "passed": true
+    },
+    {
+      "name": "capture length 83",
+      "passed": true
+    },
+    {
+      "name": "capture length 84",
+      "passed": true
+    },
+    {
+      "name": "capture length 85",
+      "passed": true
+    },
+    {
+      "name": "capture length 86",
+      "passed": true
+    },
+    {
+      "name": "capture length 87",
+      "passed": true
+    },
+    {
+      "name": "capture length 88",
+      "passed": true
+    },
+    {
+      "name": "capture length 89",
+      "passed": true
+    },
+    {
+      "name": "capture length 90",
+      "passed": true
+    },
+    {
+      "name": "capture length 91",
+      "passed": true
+    },
+    {
+      "name": "capture length 92",
+      "passed": true
+    },
+    {
+      "name": "capture length 93",
+      "passed": true
+    },
+    {
+      "name": "capture length 94",
+      "passed": true
+    },
+    {
+      "name": "capture length 95",
+      "passed": true
+    },
+    {
+      "name": "capture length 96",
+      "passed": true
+    },
+    {
+      "name": "capture length 97",
+      "passed": true
+    },
+    {
+      "name": "capture length 98",
+      "passed": true
+    },
+    {
+      "name": "capture length 99",
+      "passed": true
+    },
+    {
+      "name": "capture length 100",
+      "passed": true
+    },
+    {
+      "name": "capture length 101",
+      "passed": true
+    },
+    {
+      "name": "capture length 102",
+      "passed": true
+    },
+    {
+      "name": "capture length 103",
+      "passed": true
+    },
+    {
+      "name": "capture length 104",
+      "passed": true
+    },
+    {
+      "name": "capture length 105",
+      "passed": true
+    },
+    {
+      "name": "capture length 106",
+      "passed": true
+    },
+    {
+      "name": "capture length 107",
+      "passed": true
+    },
+    {
+      "name": "capture length 108",
+      "passed": true
+    },
+    {
+      "name": "capture length 109",
+      "passed": true
+    },
+    {
+      "name": "capture length 110",
+      "passed": true
+    },
+    {
+      "name": "capture length 111",
+      "passed": true
+    },
+    {
+      "name": "capture length 112",
+      "passed": true
+    },
+    {
+      "name": "capture length 113",
+      "passed": true
+    },
+    {
+      "name": "capture length 114",
+      "passed": true
+    },
+    {
+      "name": "capture length 115",
+      "passed": true
+    },
+    {
+      "name": "capture length 116",
+      "passed": true
+    },
+    {
+      "name": "capture length 117",
+      "passed": true
+    },
+    {
+      "name": "capture length 118",
+      "passed": true
+    },
+    {
+      "name": "capture length 119",
+      "passed": true
+    },
+    {
+      "name": "capture length 120",
+      "passed": true
+    },
+    {
+      "name": "capture length 121",
+      "passed": true
+    },
+    {
+      "name": "capture length 122",
+      "passed": true
+    },
+    {
+      "name": "capture length 123",
+      "passed": true
+    },
+    {
+      "name": "capture length 124",
+      "passed": true
+    },
+    {
+      "name": "capture length 125",
+      "passed": true
+    },
+    {
+      "name": "capture length 126",
+      "passed": true
+    },
+    {
+      "name": "capture length 127",
+      "passed": true
+    },
+    {
+      "name": "capture length 128",
+      "passed": true
+    },
+    {
+      "name": "capture length 129",
+      "passed": true
+    },
+    {
+      "name": "capture length 130",
+      "passed": true
+    },
+    {
+      "name": "capture length 131",
+      "passed": true
+    },
+    {
+      "name": "capture length 132",
+      "passed": true
+    },
+    {
+      "name": "capture length 133",
+      "passed": true
+    },
+    {
+      "name": "capture length 134",
+      "passed": true
+    },
+    {
+      "name": "capture length 135",
+      "passed": true
+    },
+    {
+      "name": "capture length 136",
+      "passed": true
+    },
+    {
+      "name": "capture length 137",
+      "passed": true
+    },
+    {
+      "name": "capture length 138",
+      "passed": true
+    },
+    {
+      "name": "capture length 139",
+      "passed": true
+    },
+    {
+      "name": "capture length 140",
+      "passed": true
+    },
+    {
+      "name": "capture length 141",
+      "passed": true
+    },
+    {
+      "name": "capture length 142",
+      "passed": true
+    },
+    {
+      "name": "capture length 143",
+      "passed": true
+    },
+    {
+      "name": "capture length 144",
+      "passed": true
+    },
+    {
+      "name": "capture length 145",
+      "passed": true
+    },
+    {
+      "name": "capture length 146",
+      "passed": true
+    },
+    {
+      "name": "capture length 147",
+      "passed": true
+    },
+    {
+      "name": "capture length 148",
+      "passed": true
+    },
+    {
+      "name": "capture length 149",
+      "passed": true
+    },
+    {
+      "name": "capture length 150",
+      "passed": true
+    },
+    {
+      "name": "capture length 151",
+      "passed": true
+    },
+    {
+      "name": "capture length 152",
+      "passed": true
+    },
+    {
+      "name": "capture length 153",
+      "passed": true
+    },
+    {
+      "name": "capture length 154",
+      "passed": true
+    },
+    {
+      "name": "capture length 155",
+      "passed": true
+    },
+    {
+      "name": "capture length 156",
+      "passed": true
+    },
+    {
+      "name": "capture length 157",
+      "passed": true
+    },
+    {
+      "name": "capture length 158",
+      "passed": true
+    },
+    {
+      "name": "capture length 159",
+      "passed": true
+    },
+    {
+      "name": "capture length 160",
+      "passed": true
+    },
+    {
+      "name": "capture length 161",
+      "passed": true
+    },
+    {
+      "name": "capture length 162",
+      "passed": true
+    },
+    {
+      "name": "capture length 163",
+      "passed": true
+    },
+    {
+      "name": "capture length 164",
+      "passed": true
+    },
+    {
+      "name": "capture length 165",
+      "passed": true
+    },
+    {
+      "name": "capture length 166",
+      "passed": true
+    },
+    {
+      "name": "capture length 167",
+      "passed": true
+    },
+    {
+      "name": "capture length 168",
+      "passed": true
+    },
+    {
+      "name": "capture length 169",
+      "passed": true
+    },
+    {
+      "name": "capture length 170",
+      "passed": true
+    },
+    {
+      "name": "capture length 171",
+      "passed": true
+    },
+    {
+      "name": "capture length 172",
+      "passed": true
+    },
+    {
+      "name": "capture length 173",
+      "passed": true
+    },
+    {
+      "name": "capture length 174",
+      "passed": true
+    },
+    {
+      "name": "capture length 175",
+      "passed": true
+    },
+    {
+      "name": "capture length 176",
+      "passed": true
+    },
+    {
+      "name": "capture length 177",
+      "passed": true
+    },
+    {
+      "name": "capture length 178",
+      "passed": true
+    },
+    {
+      "name": "capture length 179",
+      "passed": true
+    },
+    {
+      "name": "capture length 180",
+      "passed": true
+    },
+    {
+      "name": "capture length 181",
+      "passed": true
+    },
+    {
+      "name": "capture length 182",
+      "passed": true
+    },
+    {
+      "name": "capture length 183",
+      "passed": true
+    },
+    {
+      "name": "capture length 184",
+      "passed": true
+    },
+    {
+      "name": "capture length 185",
+      "passed": true
+    },
+    {
+      "name": "capture length 186",
+      "passed": true
+    },
+    {
+      "name": "capture length 187",
+      "passed": true
+    },
+    {
+      "name": "capture length 188",
+      "passed": true
+    },
+    {
+      "name": "capture length 189",
+      "passed": true
+    },
+    {
+      "name": "capture length 190",
+      "passed": true
+    },
+    {
+      "name": "capture length 191",
+      "passed": true
+    },
+    {
+      "name": "capture length 192",
+      "passed": true
+    },
+    {
+      "name": "capture length 193",
+      "passed": true
+    },
+    {
+      "name": "capture length 194",
+      "passed": true
+    },
+    {
+      "name": "capture length 195",
+      "passed": true
+    },
+    {
+      "name": "capture length 196",
+      "passed": true
+    },
+    {
+      "name": "capture length 197",
+      "passed": true
+    },
+    {
+      "name": "capture length 198",
+      "passed": true
+    },
+    {
+      "name": "capture length 199",
+      "passed": true
+    },
+    {
+      "name": "capture length 200",
+      "passed": true
+    },
+    {
+      "name": "capture length 201",
+      "passed": true
+    },
+    {
+      "name": "capture length 202",
+      "passed": true
+    },
+    {
+      "name": "capture length 203",
+      "passed": true
+    },
+    {
+      "name": "capture length 204",
+      "passed": true
+    },
+    {
+      "name": "capture length 205",
+      "passed": true
+    },
+    {
+      "name": "capture length 206",
+      "passed": true
+    },
+    {
+      "name": "capture length 207",
+      "passed": true
+    },
+    {
+      "name": "capture length 208",
+      "passed": true
+    },
+    {
+      "name": "capture length 209",
+      "passed": true
+    },
+    {
+      "name": "capture length 210",
+      "passed": true
+    },
+    {
+      "name": "capture length 211",
+      "passed": true
+    },
+    {
+      "name": "capture length 212",
+      "passed": true
+    },
+    {
+      "name": "capture length 213",
+      "passed": true
+    },
+    {
+      "name": "capture length 214",
+      "passed": true
+    },
+    {
+      "name": "capture length 215",
+      "passed": true
+    },
+    {
+      "name": "capture length 216",
+      "passed": true
+    },
+    {
+      "name": "capture length 217",
+      "passed": true
+    },
+    {
+      "name": "capture length 218",
+      "passed": true
+    },
+    {
+      "name": "capture length 219",
+      "passed": true
+    },
+    {
+      "name": "capture length 220",
+      "passed": true
+    },
+    {
+      "name": "capture length 221",
+      "passed": true
+    },
+    {
+      "name": "capture length 222",
+      "passed": true
+    },
+    {
+      "name": "capture length 223",
+      "passed": true
+    },
+    {
+      "name": "capture length 224",
+      "passed": true
+    },
+    {
+      "name": "analog permission mask 0",
+      "passed": true
+    },
+    {
+      "name": "analog permission mask 1",
+      "passed": true
+    },
+    {
+      "name": "analog permission mask 2",
+      "passed": true
+    },
+    {
+      "name": "analog permission mask 3",
+      "passed": true
+    },
+    {
+      "name": "analog permission mask 4",
+      "passed": true
+    },
+    {
+      "name": "analog permission mask 5",
+      "passed": true
+    },
+    {
+      "name": "analog permission mask 6",
+      "passed": true
+    },
+    {
+      "name": "analog permission mask 7",
+      "passed": true
+    },
+    {
+      "name": "analog permission mask 8",
+      "passed": true
+    },
+    {
+      "name": "analog permission mask 9",
+      "passed": true
+    },
+    {
+      "name": "analog permission mask 10",
+      "passed": true
+    },
+    {
+      "name": "analog permission mask 11",
+      "passed": true
+    },
+    {
+      "name": "analog permission mask 12",
+      "passed": true
+    },
+    {
+      "name": "analog permission mask 13",
+      "passed": true
+    },
+    {
+      "name": "analog permission mask 14",
+      "passed": true
+    },
+    {
+      "name": "analog permission mask 15",
+      "passed": true
+    },
+    {
+      "name": "analog permission mask 16",
+      "passed": true
+    },
+    {
+      "name": "analog permission mask 17",
+      "passed": true
+    },
+    {
+      "name": "analog permission mask 18",
+      "passed": true
+    },
+    {
+      "name": "analog permission mask 19",
+      "passed": true
+    },
+    {
+      "name": "analog permission mask 20",
+      "passed": true
+    },
+    {
+      "name": "analog permission mask 21",
+      "passed": true
+    },
+    {
+      "name": "analog permission mask 22",
+      "passed": true
+    },
+    {
+      "name": "analog permission mask 23",
+      "passed": true
+    },
+    {
+      "name": "analog permission mask 24",
+      "passed": true
+    },
+    {
+      "name": "analog permission mask 25",
+      "passed": true
+    },
+    {
+      "name": "analog permission mask 26",
+      "passed": true
+    },
+    {
+      "name": "analog permission mask 27",
+      "passed": true
+    },
+    {
+      "name": "analog permission mask 28",
+      "passed": true
+    },
+    {
+      "name": "analog permission mask 29",
+      "passed": true
+    },
+    {
+      "name": "analog permission mask 30",
+      "passed": true
+    },
+    {
+      "name": "analog permission mask 31",
+      "passed": true
+    },
+    {
+      "name": "analog permission mask 32",
+      "passed": true
+    },
+    {
+      "name": "analog permission mask 33",
+      "passed": true
+    },
+    {
+      "name": "analog permission mask 34",
+      "passed": true
+    },
+    {
+      "name": "analog permission mask 35",
+      "passed": true
+    },
+    {
+      "name": "analog permission mask 36",
+      "passed": true
+    },
+    {
+      "name": "analog permission mask 37",
+      "passed": true
+    },
+    {
+      "name": "analog permission mask 38",
+      "passed": true
+    },
+    {
+      "name": "analog permission mask 39",
+      "passed": true
+    },
+    {
+      "name": "analog permission mask 40",
+      "passed": true
+    },
+    {
+      "name": "analog permission mask 41",
+      "passed": true
+    },
+    {
+      "name": "analog permission mask 42",
+      "passed": true
+    },
+    {
+      "name": "analog permission mask 43",
+      "passed": true
+    },
+    {
+      "name": "analog permission mask 44",
+      "passed": true
+    },
+    {
+      "name": "analog permission mask 45",
+      "passed": true
+    },
+    {
+      "name": "analog permission mask 46",
+      "passed": true
+    },
+    {
+      "name": "analog permission mask 47",
+      "passed": true
+    },
+    {
+      "name": "analog permission mask 48",
+      "passed": true
+    },
+    {
+      "name": "analog permission mask 49",
+      "passed": true
+    },
+    {
+      "name": "analog permission mask 50",
+      "passed": true
+    },
+    {
+      "name": "analog permission mask 51",
+      "passed": true
+    },
+    {
+      "name": "analog permission mask 52",
+      "passed": true
+    },
+    {
+      "name": "analog permission mask 53",
+      "passed": true
+    },
+    {
+      "name": "analog permission mask 54",
+      "passed": true
+    },
+    {
+      "name": "analog permission mask 55",
+      "passed": true
+    },
+    {
+      "name": "analog permission mask 56",
+      "passed": true
+    },
+    {
+      "name": "analog permission mask 57",
+      "passed": true
+    },
+    {
+      "name": "analog permission mask 58",
+      "passed": true
+    },
+    {
+      "name": "analog permission mask 59",
+      "passed": true
+    },
+    {
+      "name": "analog permission mask 60",
+      "passed": true
+    },
+    {
+      "name": "analog permission mask 61",
+      "passed": true
+    },
+    {
+      "name": "analog permission mask 62",
+      "passed": true
+    },
+    {
+      "name": "analog permission mask 63",
+      "passed": true
+    },
+    {
+      "name": "analog permission mask 64",
+      "passed": true
+    },
+    {
+      "name": "analog permission mask 65",
+      "passed": true
+    },
+    {
+      "name": "analog permission mask 66",
+      "passed": true
+    },
+    {
+      "name": "analog permission mask 67",
+      "passed": true
+    },
+    {
+      "name": "analog permission mask 68",
+      "passed": true
+    },
+    {
+      "name": "analog permission mask 69",
+      "passed": true
+    },
+    {
+      "name": "analog permission mask 70",
+      "passed": true
+    },
+    {
+      "name": "analog permission mask 71",
+      "passed": true
+    },
+    {
+      "name": "analog permission mask 72",
+      "passed": true
+    },
+    {
+      "name": "analog permission mask 73",
+      "passed": true
+    },
+    {
+      "name": "analog permission mask 74",
+      "passed": true
+    },
+    {
+      "name": "analog permission mask 75",
+      "passed": true
+    },
+    {
+      "name": "analog permission mask 76",
+      "passed": true
+    },
+    {
+      "name": "analog permission mask 77",
+      "passed": true
+    },
+    {
+      "name": "analog permission mask 78",
+      "passed": true
+    },
+    {
+      "name": "analog permission mask 79",
+      "passed": true
+    },
+    {
+      "name": "analog permission mask 80",
+      "passed": true
+    },
+    {
+      "name": "analog permission mask 81",
+      "passed": true
+    },
+    {
+      "name": "analog permission mask 82",
+      "passed": true
+    },
+    {
+      "name": "analog permission mask 83",
+      "passed": true
+    },
+    {
+      "name": "analog permission mask 84",
+      "passed": true
+    },
+    {
+      "name": "analog permission mask 85",
+      "passed": true
+    },
+    {
+      "name": "analog permission mask 86",
+      "passed": true
+    },
+    {
+      "name": "analog permission mask 87",
+      "passed": true
+    },
+    {
+      "name": "analog permission mask 88",
+      "passed": true
+    },
+    {
+      "name": "analog permission mask 89",
+      "passed": true
+    },
+    {
+      "name": "analog permission mask 90",
+      "passed": true
+    },
+    {
+      "name": "analog permission mask 91",
+      "passed": true
+    },
+    {
+      "name": "analog permission mask 92",
+      "passed": true
+    },
+    {
+      "name": "analog permission mask 93",
+      "passed": true
+    },
+    {
+      "name": "analog permission mask 94",
+      "passed": true
+    },
+    {
+      "name": "analog permission mask 95",
+      "passed": true
+    },
+    {
+      "name": "analog permission mask 96",
+      "passed": true
+    },
+    {
+      "name": "analog permission mask 97",
+      "passed": true
+    },
+    {
+      "name": "analog permission mask 98",
+      "passed": true
+    },
+    {
+      "name": "analog permission mask 99",
+      "passed": true
+    },
+    {
+      "name": "analog permission mask 100",
+      "passed": true
+    },
+    {
+      "name": "analog permission mask 101",
+      "passed": true
+    },
+    {
+      "name": "analog permission mask 102",
+      "passed": true
+    },
+    {
+      "name": "analog permission mask 103",
+      "passed": true
+    },
+    {
+      "name": "analog permission mask 104",
+      "passed": true
+    },
+    {
+      "name": "analog permission mask 105",
+      "passed": true
+    },
+    {
+      "name": "analog permission mask 106",
+      "passed": true
+    },
+    {
+      "name": "analog permission mask 107",
+      "passed": true
+    },
+    {
+      "name": "analog permission mask 108",
+      "passed": true
+    },
+    {
+      "name": "analog permission mask 109",
+      "passed": true
+    },
+    {
+      "name": "analog permission mask 110",
+      "passed": true
+    },
+    {
+      "name": "analog permission mask 111",
+      "passed": true
+    },
+    {
+      "name": "analog permission mask 112",
+      "passed": true
+    },
+    {
+      "name": "analog permission mask 113",
+      "passed": true
+    },
+    {
+      "name": "analog permission mask 114",
+      "passed": true
+    },
+    {
+      "name": "analog permission mask 115",
+      "passed": true
+    },
+    {
+      "name": "analog permission mask 116",
+      "passed": true
+    },
+    {
+      "name": "analog permission mask 117",
+      "passed": true
+    },
+    {
+      "name": "analog permission mask 118",
+      "passed": true
+    },
+    {
+      "name": "analog permission mask 119",
+      "passed": true
+    },
+    {
+      "name": "analog permission mask 120",
+      "passed": true
+    },
+    {
+      "name": "analog permission mask 121",
+      "passed": true
+    },
+    {
+      "name": "analog permission mask 122",
+      "passed": true
+    },
+    {
+      "name": "analog permission mask 123",
+      "passed": true
+    },
+    {
+      "name": "analog permission mask 124",
+      "passed": true
+    },
+    {
+      "name": "analog permission mask 125",
+      "passed": true
+    },
+    {
+      "name": "analog permission mask 126",
+      "passed": true
+    },
+    {
+      "name": "analog permission mask 127",
+      "passed": true
+    },
+    {
+      "name": "analog permission mask 128",
+      "passed": true
+    },
+    {
+      "name": "analog permission mask 129",
+      "passed": true
+    },
+    {
+      "name": "analog permission mask 130",
+      "passed": true
+    },
+    {
+      "name": "analog permission mask 131",
+      "passed": true
+    },
+    {
+      "name": "analog permission mask 132",
+      "passed": true
+    },
+    {
+      "name": "analog permission mask 133",
+      "passed": true
+    },
+    {
+      "name": "analog permission mask 134",
+      "passed": true
+    },
+    {
+      "name": "analog permission mask 135",
+      "passed": true
+    },
+    {
+      "name": "analog permission mask 136",
+      "passed": true
+    },
+    {
+      "name": "analog permission mask 137",
+      "passed": true
+    },
+    {
+      "name": "analog permission mask 138",
+      "passed": true
+    },
+    {
+      "name": "analog permission mask 139",
+      "passed": true
+    },
+    {
+      "name": "analog permission mask 140",
+      "passed": true
+    },
+    {
+      "name": "analog permission mask 141",
+      "passed": true
+    },
+    {
+      "name": "analog permission mask 142",
+      "passed": true
+    },
+    {
+      "name": "analog permission mask 143",
+      "passed": true
+    },
+    {
+      "name": "analog permission mask 144",
+      "passed": true
+    },
+    {
+      "name": "analog permission mask 145",
+      "passed": true
+    },
+    {
+      "name": "analog permission mask 146",
+      "passed": true
+    },
+    {
+      "name": "analog permission mask 147",
+      "passed": true
+    },
+    {
+      "name": "analog permission mask 148",
+      "passed": true
+    },
+    {
+      "name": "analog permission mask 149",
+      "passed": true
+    },
+    {
+      "name": "analog permission mask 150",
+      "passed": true
+    },
+    {
+      "name": "analog permission mask 151",
+      "passed": true
+    },
+    {
+      "name": "analog permission mask 152",
+      "passed": true
+    },
+    {
+      "name": "analog permission mask 153",
+      "passed": true
+    },
+    {
+      "name": "analog permission mask 154",
+      "passed": true
+    },
+    {
+      "name": "analog permission mask 155",
+      "passed": true
+    },
+    {
+      "name": "analog permission mask 156",
+      "passed": true
+    },
+    {
+      "name": "analog permission mask 157",
+      "passed": true
+    },
+    {
+      "name": "analog permission mask 158",
+      "passed": true
+    },
+    {
+      "name": "analog permission mask 159",
+      "passed": true
+    },
+    {
+      "name": "analog permission mask 160",
+      "passed": true
+    },
+    {
+      "name": "analog permission mask 161",
+      "passed": true
+    },
+    {
+      "name": "analog permission mask 162",
+      "passed": true
+    },
+    {
+      "name": "analog permission mask 163",
+      "passed": true
+    },
+    {
+      "name": "analog permission mask 164",
+      "passed": true
+    },
+    {
+      "name": "analog permission mask 165",
+      "passed": true
+    },
+    {
+      "name": "analog permission mask 166",
+      "passed": true
+    },
+    {
+      "name": "analog permission mask 167",
+      "passed": true
+    },
+    {
+      "name": "analog permission mask 168",
+      "passed": true
+    },
+    {
+      "name": "analog permission mask 169",
+      "passed": true
+    },
+    {
+      "name": "analog permission mask 170",
+      "passed": true
+    },
+    {
+      "name": "analog permission mask 171",
+      "passed": true
+    },
+    {
+      "name": "analog permission mask 172",
+      "passed": true
+    },
+    {
+      "name": "analog permission mask 173",
+      "passed": true
+    },
+    {
+      "name": "analog permission mask 174",
+      "passed": true
+    },
+    {
+      "name": "analog permission mask 175",
+      "passed": true
+    },
+    {
+      "name": "analog permission mask 176",
+      "passed": true
+    },
+    {
+      "name": "analog permission mask 177",
+      "passed": true
+    },
+    {
+      "name": "analog permission mask 178",
+      "passed": true
+    },
+    {
+      "name": "analog permission mask 179",
+      "passed": true
+    },
+    {
+      "name": "analog permission mask 180",
+      "passed": true
+    },
+    {
+      "name": "analog permission mask 181",
+      "passed": true
+    },
+    {
+      "name": "analog permission mask 182",
+      "passed": true
+    },
+    {
+      "name": "analog permission mask 183",
+      "passed": true
+    },
+    {
+      "name": "analog permission mask 184",
+      "passed": true
+    },
+    {
+      "name": "analog permission mask 185",
+      "passed": true
+    },
+    {
+      "name": "analog permission mask 186",
+      "passed": true
+    },
+    {
+      "name": "analog permission mask 187",
+      "passed": true
+    },
+    {
+      "name": "analog permission mask 188",
+      "passed": true
+    },
+    {
+      "name": "analog permission mask 189",
+      "passed": true
+    },
+    {
+      "name": "analog permission mask 190",
+      "passed": true
+    },
+    {
+      "name": "analog permission mask 191",
+      "passed": true
+    },
+    {
+      "name": "analog permission mask 192",
+      "passed": true
+    },
+    {
+      "name": "analog permission mask 193",
+      "passed": true
+    },
+    {
+      "name": "analog permission mask 194",
+      "passed": true
+    },
+    {
+      "name": "analog permission mask 195",
+      "passed": true
+    },
+    {
+      "name": "analog permission mask 196",
+      "passed": true
+    },
+    {
+      "name": "analog permission mask 197",
+      "passed": true
+    },
+    {
+      "name": "analog permission mask 198",
+      "passed": true
+    },
+    {
+      "name": "analog permission mask 199",
+      "passed": true
+    },
+    {
+      "name": "analog permission mask 200",
+      "passed": true
+    },
+    {
+      "name": "analog permission mask 201",
+      "passed": true
+    },
+    {
+      "name": "analog permission mask 202",
+      "passed": true
+    },
+    {
+      "name": "analog permission mask 203",
+      "passed": true
+    },
+    {
+      "name": "analog permission mask 204",
+      "passed": true
+    },
+    {
+      "name": "analog permission mask 205",
+      "passed": true
+    },
+    {
+      "name": "analog permission mask 206",
+      "passed": true
+    },
+    {
+      "name": "analog permission mask 207",
+      "passed": true
+    },
+    {
+      "name": "analog permission mask 208",
+      "passed": true
+    },
+    {
+      "name": "analog permission mask 209",
+      "passed": true
+    },
+    {
+      "name": "analog permission mask 210",
+      "passed": true
+    },
+    {
+      "name": "analog permission mask 211",
+      "passed": true
+    },
+    {
+      "name": "analog permission mask 212",
+      "passed": true
+    },
+    {
+      "name": "analog permission mask 213",
+      "passed": true
+    },
+    {
+      "name": "analog permission mask 214",
+      "passed": true
+    },
+    {
+      "name": "analog permission mask 215",
+      "passed": true
+    },
+    {
+      "name": "analog permission mask 216",
+      "passed": true
+    },
+    {
+      "name": "analog permission mask 217",
+      "passed": true
+    },
+    {
+      "name": "analog permission mask 218",
+      "passed": true
+    },
+    {
+      "name": "analog permission mask 219",
+      "passed": true
+    },
+    {
+      "name": "analog permission mask 220",
+      "passed": true
+    },
+    {
+      "name": "analog permission mask 221",
+      "passed": true
+    },
+    {
+      "name": "analog permission mask 222",
+      "passed": true
+    },
+    {
+      "name": "analog permission mask 223",
+      "passed": true
+    },
+    {
+      "name": "analog permission mask 224",
+      "passed": true
+    },
+    {
+      "name": "analog permission mask 225",
+      "passed": true
+    },
+    {
+      "name": "analog permission mask 226",
+      "passed": true
+    },
+    {
+      "name": "analog permission mask 227",
+      "passed": true
+    },
+    {
+      "name": "analog permission mask 228",
+      "passed": true
+    },
+    {
+      "name": "analog permission mask 229",
+      "passed": true
+    },
+    {
+      "name": "analog permission mask 230",
+      "passed": true
+    },
+    {
+      "name": "analog permission mask 231",
+      "passed": true
+    },
+    {
+      "name": "analog permission mask 232",
+      "passed": true
+    },
+    {
+      "name": "analog permission mask 233",
+      "passed": true
+    },
+    {
+      "name": "analog permission mask 234",
+      "passed": true
+    },
+    {
+      "name": "analog permission mask 235",
+      "passed": true
+    },
+    {
+      "name": "analog permission mask 236",
+      "passed": true
+    },
+    {
+      "name": "analog permission mask 237",
+      "passed": true
+    },
+    {
+      "name": "analog permission mask 238",
+      "passed": true
+    },
+    {
+      "name": "analog permission mask 239",
+      "passed": true
+    },
+    {
+      "name": "analog permission mask 240",
+      "passed": true
+    },
+    {
+      "name": "analog permission mask 241",
+      "passed": true
+    },
+    {
+      "name": "analog permission mask 242",
+      "passed": true
+    },
+    {
+      "name": "analog permission mask 243",
+      "passed": true
+    },
+    {
+      "name": "analog permission mask 244",
+      "passed": true
+    },
+    {
+      "name": "analog permission mask 245",
+      "passed": true
+    },
+    {
+      "name": "analog permission mask 246",
+      "passed": true
+    },
+    {
+      "name": "analog permission mask 247",
+      "passed": true
+    },
+    {
+      "name": "analog permission mask 248",
+      "passed": true
+    },
+    {
+      "name": "analog permission mask 249",
+      "passed": true
+    },
+    {
+      "name": "analog permission mask 250",
+      "passed": true
+    },
+    {
+      "name": "analog permission mask 251",
+      "passed": true
+    },
+    {
+      "name": "analog permission mask 252",
+      "passed": true
+    },
+    {
+      "name": "analog permission mask 253",
+      "passed": true
+    },
+    {
+      "name": "analog permission mask 254",
+      "passed": true
+    },
+    {
+      "name": "analog permission mask 255",
+      "passed": true
+    },
+    {
+      "name": "signed endpoints and rail validity",
+      "passed": true
+    },
+    {
+      "name": "bad ADC CRC is retained invalid evidence",
+      "passed": true
+    },
+    {
+      "name": "complete zero CRC trailer",
+      "passed": true
+    },
+    {
+      "name": "untriggered placeholder bytes",
+      "passed": true
+    },
+    {
+      "name": "status bit 5",
+      "passed": true
+    },
+    {
+      "name": "status bit 6",
+      "passed": true
+    },
+    {
+      "name": "status bit 7",
+      "passed": true
+    },
+    {
+      "name": "status bit 3",
+      "passed": true
+    },
+    {
+      "name": "status bit 0",
+      "passed": true
+    },
+    {
+      "name": "record mutation 0:0",
+      "passed": true,
+      "rejection": "inconsistent CRC_OK"
+    },
+    {
+      "name": "record mutation 0:1",
+      "passed": true,
+      "rejection": "inconsistent CRC_OK"
+    },
+    {
+      "name": "record mutation 0:2",
+      "passed": true,
+      "rejection": "inconsistent CRC_OK"
+    },
+    {
+      "name": "record mutation 0:3",
+      "passed": true,
+      "rejection": "inconsistent CRC_OK"
+    },
+    {
+      "name": "record mutation 0:4",
+      "passed": true,
+      "rejection": "inconsistent CRC_OK"
+    },
+    {
+      "name": "record mutation 0:5",
+      "passed": true,
+      "rejection": "inconsistent CRC_OK"
+    },
+    {
+      "name": "record mutation 0:6",
+      "passed": true,
+      "rejection": "inconsistent CRC_OK"
+    },
+    {
+      "name": "record mutation 0:7",
+      "passed": true,
+      "rejection": "inconsistent CRC_OK"
+    },
+    {
+      "name": "record mutation 1:0",
+      "passed": true,
+      "rejection": "inconsistent CRC_OK"
+    },
+    {
+      "name": "record mutation 1:1",
+      "passed": true,
+      "rejection": "inconsistent CRC_OK"
+    },
+    {
+      "name": "record mutation 1:2",
+      "passed": true,
+      "rejection": "inconsistent CRC_OK"
+    },
+    {
+      "name": "record mutation 1:3",
+      "passed": true,
+      "rejection": "inconsistent CRC_OK"
+    },
+    {
+      "name": "record mutation 1:4",
+      "passed": true,
+      "rejection": "inconsistent CRC_OK"
+    },
+    {
+      "name": "record mutation 1:5",
+      "passed": true,
+      "rejection": "inconsistent CRC_OK"
+    },
+    {
+      "name": "record mutation 1:6",
+      "passed": true,
+      "rejection": "inconsistent CRC_OK"
+    },
+    {
+      "name": "record mutation 1:7",
+      "passed": true,
+      "rejection": "inconsistent CRC_OK"
+    },
+    {
+      "name": "record mutation 2:0",
+      "passed": true,
+      "rejection": "inconsistent CRC_OK"
+    },
+    {
+      "name": "record mutation 2:1",
+      "passed": true,
+      "rejection": "noncanonical signed18 code"
+    },
+    {
+      "name": "record mutation 2:2",
+      "passed": true,
+      "rejection": "noncanonical signed18 code"
+    },
+    {
+      "name": "record mutation 2:3",
+      "passed": true,
+      "rejection": "noncanonical signed18 code"
+    },
+    {
+      "name": "record mutation 2:4",
+      "passed": true,
+      "rejection": "noncanonical signed18 code"
+    },
+    {
+      "name": "record mutation 2:5",
+      "passed": true,
+      "rejection": "noncanonical signed18 code"
+    },
+    {
+      "name": "record mutation 2:6",
+      "passed": true,
+      "rejection": "noncanonical signed18 code"
+    },
+    {
+      "name": "record mutation 2:7",
+      "passed": true,
+      "rejection": "noncanonical signed18 code"
+    },
+    {
+      "name": "record mutation 3:0",
+      "passed": true,
+      "rejection": "noncanonical signed18 code"
+    },
+    {
+      "name": "record mutation 3:1",
+      "passed": true,
+      "rejection": "noncanonical signed18 code"
+    },
+    {
+      "name": "record mutation 3:2",
+      "passed": true,
+      "rejection": "noncanonical signed18 code"
+    },
+    {
+      "name": "record mutation 3:3",
+      "passed": true,
+      "rejection": "noncanonical signed18 code"
+    },
+    {
+      "name": "record mutation 3:4",
+      "passed": true,
+      "rejection": "noncanonical signed18 code"
+    },
+    {
+      "name": "record mutation 3:5",
+      "passed": true,
+      "rejection": "noncanonical signed18 code"
+    },
+    {
+      "name": "record mutation 3:6",
+      "passed": true,
+      "rejection": "noncanonical signed18 code"
+    },
+    {
+      "name": "record mutation 3:7",
+      "passed": true,
+      "rejection": "noncanonical signed18 code"
+    },
+    {
+      "name": "record mutation 4:0",
+      "passed": true,
+      "rejection": "inconsistent CRC_OK"
+    },
+    {
+      "name": "record mutation 4:1",
+      "passed": true,
+      "rejection": "inconsistent CRC_OK"
+    },
+    {
+      "name": "record mutation 4:2",
+      "passed": true,
+      "rejection": "inconsistent CRC_OK"
+    },
+    {
+      "name": "record mutation 4:3",
+      "passed": true,
+      "rejection": "inconsistent CRC_OK"
+    },
+    {
+      "name": "record mutation 4:4",
+      "passed": true,
+      "rejection": "inconsistent CRC_OK"
+    },
+    {
+      "name": "record mutation 4:5",
+      "passed": true,
+      "rejection": "inconsistent CRC_OK"
+    },
+    {
+      "name": "record mutation 4:6",
+      "passed": true,
+      "rejection": "inconsistent CRC_OK"
+    },
+    {
+      "name": "record mutation 4:7",
+      "passed": true,
+      "rejection": "inconsistent CRC_OK"
+    },
+    {
+      "name": "record mutation 5:0",
+      "passed": true,
+      "rejection": "inconsistent CRC_OK"
+    },
+    {
+      "name": "record mutation 5:1",
+      "passed": true,
+      "rejection": "inconsistent CRC_OK"
+    },
+    {
+      "name": "record mutation 5:2",
+      "passed": true,
+      "rejection": "inconsistent CRC_OK"
+    },
+    {
+      "name": "record mutation 5:3",
+      "passed": true,
+      "rejection": "inconsistent CRC_OK"
+    },
+    {
+      "name": "record mutation 5:4",
+      "passed": true,
+      "rejection": "inconsistent CRC_OK"
+    },
+    {
+      "name": "record mutation 5:5",
+      "passed": true,
+      "rejection": "inconsistent CRC_OK"
+    },
+    {
+      "name": "record mutation 5:6",
+      "passed": true,
+      "rejection": "inconsistent CRC_OK"
+    },
+    {
+      "name": "record mutation 5:7",
+      "passed": true,
+      "rejection": "inconsistent CRC_OK"
+    },
+    {
+      "name": "record mutation 6:0",
+      "passed": true,
+      "rejection": "inconsistent CRC_OK"
+    },
+    {
+      "name": "record mutation 6:1",
+      "passed": true,
+      "rejection": "noncanonical signed18 code"
+    },
+    {
+      "name": "record mutation 6:2",
+      "passed": true,
+      "rejection": "noncanonical signed18 code"
+    },
+    {
+      "name": "record mutation 6:3",
+      "passed": true,
+      "rejection": "noncanonical signed18 code"
+    },
+    {
+      "name": "record mutation 6:4",
+      "passed": true,
+      "rejection": "noncanonical signed18 code"
+    },
+    {
+      "name": "record mutation 6:5",
+      "passed": true,
+      "rejection": "noncanonical signed18 code"
+    },
+    {
+      "name": "record mutation 6:6",
+      "passed": true,
+      "rejection": "noncanonical signed18 code"
+    },
+    {
+      "name": "record mutation 6:7",
+      "passed": true,
+      "rejection": "noncanonical signed18 code"
+    },
+    {
+      "name": "record mutation 7:0",
+      "passed": true,
+      "rejection": "noncanonical signed18 code"
+    },
+    {
+      "name": "record mutation 7:1",
+      "passed": true,
+      "rejection": "noncanonical signed18 code"
+    },
+    {
+      "name": "record mutation 7:2",
+      "passed": true,
+      "rejection": "noncanonical signed18 code"
+    },
+    {
+      "name": "record mutation 7:3",
+      "passed": true,
+      "rejection": "noncanonical signed18 code"
+    },
+    {
+      "name": "record mutation 7:4",
+      "passed": true,
+      "rejection": "noncanonical signed18 code"
+    },
+    {
+      "name": "record mutation 7:5",
+      "passed": true,
+      "rejection": "noncanonical signed18 code"
+    },
+    {
+      "name": "record mutation 7:6",
+      "passed": true,
+      "rejection": "noncanonical signed18 code"
+    },
+    {
+      "name": "record mutation 7:7",
+      "passed": true,
+      "rejection": "noncanonical signed18 code"
+    },
+    {
+      "name": "record mutation 8:0",
+      "passed": true,
+      "rejection": "inconsistent CRC_OK"
+    },
+    {
+      "name": "record mutation 8:1",
+      "passed": true,
+      "rejection": "inconsistent CRC_OK"
+    },
+    {
+      "name": "record mutation 8:2",
+      "passed": true,
+      "rejection": "inconsistent CRC_OK"
+    },
+    {
+      "name": "record mutation 8:3",
+      "passed": true,
+      "rejection": "inconsistent CRC_OK"
+    },
+    {
+      "name": "record mutation 8:4",
+      "passed": true,
+      "rejection": "inconsistent CRC_OK"
+    },
+    {
+      "name": "record mutation 8:5",
+      "passed": true,
+      "rejection": "inconsistent CRC_OK"
+    },
+    {
+      "name": "record mutation 8:6",
+      "passed": true,
+      "rejection": "inconsistent CRC_OK"
+    },
+    {
+      "name": "record mutation 8:7",
+      "passed": true,
+      "rejection": "inconsistent CRC_OK"
+    },
+    {
+      "name": "record mutation 9:0",
+      "passed": true,
+      "rejection": "inconsistent CRC_OK"
+    },
+    {
+      "name": "record mutation 9:1",
+      "passed": true,
+      "rejection": "inconsistent CRC_OK"
+    },
+    {
+      "name": "record mutation 9:2",
+      "passed": true,
+      "rejection": "inconsistent CRC_OK"
+    },
+    {
+      "name": "record mutation 9:3",
+      "passed": true,
+      "rejection": "inconsistent CRC_OK"
+    },
+    {
+      "name": "record mutation 9:4",
+      "passed": true,
+      "rejection": "inconsistent CRC_OK"
+    },
+    {
+      "name": "record mutation 9:5",
+      "passed": true,
+      "rejection": "inconsistent CRC_OK"
+    },
+    {
+      "name": "record mutation 9:6",
+      "passed": true,
+      "rejection": "inconsistent CRC_OK"
+    },
+    {
+      "name": "record mutation 9:7",
+      "passed": true,
+      "rejection": "inconsistent CRC_OK"
+    },
+    {
+      "name": "record mutation 10:0",
+      "passed": true,
+      "rejection": "inconsistent CRC_OK"
+    },
+    {
+      "name": "record mutation 10:1",
+      "passed": true,
+      "rejection": "noncanonical signed18 code"
+    },
+    {
+      "name": "record mutation 10:2",
+      "passed": true,
+      "rejection": "noncanonical signed18 code"
+    },
+    {
+      "name": "record mutation 10:3",
+      "passed": true,
+      "rejection": "noncanonical signed18 code"
+    },
+    {
+      "name": "record mutation 10:4",
+      "passed": true,
+      "rejection": "noncanonical signed18 code"
+    },
+    {
+      "name": "record mutation 10:5",
+      "passed": true,
+      "rejection": "noncanonical signed18 code"
+    },
+    {
+      "name": "record mutation 10:6",
+      "passed": true,
+      "rejection": "noncanonical signed18 code"
+    },
+    {
+      "name": "record mutation 10:7",
+      "passed": true,
+      "rejection": "noncanonical signed18 code"
+    },
+    {
+      "name": "record mutation 11:0",
+      "passed": true,
+      "rejection": "noncanonical signed18 code"
+    },
+    {
+      "name": "record mutation 11:1",
+      "passed": true,
+      "rejection": "noncanonical signed18 code"
+    },
+    {
+      "name": "record mutation 11:2",
+      "passed": true,
+      "rejection": "noncanonical signed18 code"
+    },
+    {
+      "name": "record mutation 11:3",
+      "passed": true,
+      "rejection": "noncanonical signed18 code"
+    },
+    {
+      "name": "record mutation 11:4",
+      "passed": true,
+      "rejection": "noncanonical signed18 code"
+    },
+    {
+      "name": "record mutation 11:5",
+      "passed": true,
+      "rejection": "noncanonical signed18 code"
+    },
+    {
+      "name": "record mutation 11:6",
+      "passed": true,
+      "rejection": "noncanonical signed18 code"
+    },
+    {
+      "name": "record mutation 11:7",
+      "passed": true,
+      "rejection": "noncanonical signed18 code"
+    },
+    {
+      "name": "record mutation 12:0",
+      "passed": true,
+      "rejection": "inconsistent CRC_OK"
+    },
+    {
+      "name": "record mutation 12:1",
+      "passed": true,
+      "rejection": "inconsistent CRC_OK"
+    },
+    {
+      "name": "record mutation 12:2",
+      "passed": true,
+      "rejection": "inconsistent CRC_OK"
+    },
+    {
+      "name": "record mutation 12:3",
+      "passed": true,
+      "rejection": "inconsistent CRC_OK"
+    },
+    {
+      "name": "record mutation 12:4",
+      "passed": true,
+      "rejection": "inconsistent CRC_OK"
+    },
+    {
+      "name": "record mutation 12:5",
+      "passed": true,
+      "rejection": "inconsistent CRC_OK"
+    },
+    {
+      "name": "record mutation 12:6",
+      "passed": true,
+      "rejection": "inconsistent CRC_OK"
+    },
+    {
+      "name": "record mutation 12:7",
+      "passed": true,
+      "rejection": "inconsistent CRC_OK"
+    },
+    {
+      "name": "record mutation 13:0",
+      "passed": true,
+      "rejection": "inconsistent CRC_OK"
+    },
+    {
+      "name": "record mutation 13:1",
+      "passed": true,
+      "rejection": "inconsistent CRC_OK"
+    },
+    {
+      "name": "record mutation 13:2",
+      "passed": true,
+      "rejection": "inconsistent CRC_OK"
+    },
+    {
+      "name": "record mutation 13:3",
+      "passed": true,
+      "rejection": "inconsistent CRC_OK"
+    },
+    {
+      "name": "record mutation 13:4",
+      "passed": true,
+      "rejection": "inconsistent CRC_OK"
+    },
+    {
+      "name": "record mutation 13:5",
+      "passed": true,
+      "rejection": "inconsistent CRC_OK"
+    },
+    {
+      "name": "record mutation 13:6",
+      "passed": true,
+      "rejection": "inconsistent CRC_OK"
+    },
+    {
+      "name": "record mutation 13:7",
+      "passed": true,
+      "rejection": "inconsistent CRC_OK"
+    },
+    {
+      "name": "record mutation 14:0",
+      "passed": true,
+      "rejection": "inconsistent CRC_OK"
+    },
+    {
+      "name": "record mutation 14:1",
+      "passed": true,
+      "rejection": "noncanonical signed18 code"
+    },
+    {
+      "name": "record mutation 14:2",
+      "passed": true,
+      "rejection": "noncanonical signed18 code"
+    },
+    {
+      "name": "record mutation 14:3",
+      "passed": true,
+      "rejection": "noncanonical signed18 code"
+    },
+    {
+      "name": "record mutation 14:4",
+      "passed": true,
+      "rejection": "noncanonical signed18 code"
+    },
+    {
+      "name": "record mutation 14:5",
+      "passed": true,
+      "rejection": "noncanonical signed18 code"
+    },
+    {
+      "name": "record mutation 14:6",
+      "passed": true,
+      "rejection": "noncanonical signed18 code"
+    },
+    {
+      "name": "record mutation 14:7",
+      "passed": true,
+      "rejection": "noncanonical signed18 code"
+    },
+    {
+      "name": "record mutation 15:0",
+      "passed": true,
+      "rejection": "noncanonical signed18 code"
+    },
+    {
+      "name": "record mutation 15:1",
+      "passed": true,
+      "rejection": "noncanonical signed18 code"
+    },
+    {
+      "name": "record mutation 15:2",
+      "passed": true,
+      "rejection": "noncanonical signed18 code"
+    },
+    {
+      "name": "record mutation 15:3",
+      "passed": true,
+      "rejection": "noncanonical signed18 code"
+    },
+    {
+      "name": "record mutation 15:4",
+      "passed": true,
+      "rejection": "noncanonical signed18 code"
+    },
+    {
+      "name": "record mutation 15:5",
+      "passed": true,
+      "rejection": "noncanonical signed18 code"
+    },
+    {
+      "name": "record mutation 15:6",
+      "passed": true,
+      "rejection": "noncanonical signed18 code"
+    },
+    {
+      "name": "record mutation 15:7",
+      "passed": true,
+      "rejection": "noncanonical signed18 code"
+    },
+    {
+      "name": "record mutation 16:0",
+      "passed": true,
+      "rejection": "inconsistent CRC_OK"
+    },
+    {
+      "name": "record mutation 16:1",
+      "passed": true,
+      "rejection": "inconsistent CRC_OK"
+    },
+    {
+      "name": "record mutation 16:2",
+      "passed": true,
+      "rejection": "inconsistent CRC_OK"
+    },
+    {
+      "name": "record mutation 16:3",
+      "passed": true,
+      "rejection": "inconsistent CRC_OK"
+    },
+    {
+      "name": "record mutation 16:4",
+      "passed": true,
+      "rejection": "inconsistent CRC_OK"
+    },
+    {
+      "name": "record mutation 16:5",
+      "passed": true,
+      "rejection": "inconsistent CRC_OK"
+    },
+    {
+      "name": "record mutation 16:6",
+      "passed": true,
+      "rejection": "inconsistent CRC_OK"
+    },
+    {
+      "name": "record mutation 16:7",
+      "passed": true,
+      "rejection": "inconsistent CRC_OK"
+    },
+    {
+      "name": "record mutation 17:0",
+      "passed": true,
+      "rejection": "inconsistent CRC_OK"
+    },
+    {
+      "name": "record mutation 17:1",
+      "passed": true,
+      "rejection": "inconsistent CRC_OK"
+    },
+    {
+      "name": "record mutation 17:2",
+      "passed": true,
+      "rejection": "inconsistent CRC_OK"
+    },
+    {
+      "name": "record mutation 17:3",
+      "passed": true,
+      "rejection": "inconsistent CRC_OK"
+    },
+    {
+      "name": "record mutation 17:4",
+      "passed": true,
+      "rejection": "inconsistent CRC_OK"
+    },
+    {
+      "name": "record mutation 17:5",
+      "passed": true,
+      "rejection": "inconsistent CRC_OK"
+    },
+    {
+      "name": "record mutation 17:6",
+      "passed": true,
+      "rejection": "inconsistent CRC_OK"
+    },
+    {
+      "name": "record mutation 17:7",
+      "passed": true,
+      "rejection": "inconsistent CRC_OK"
+    },
+    {
+      "name": "record mutation 18:0",
+      "passed": true,
+      "rejection": "inconsistent CRC_OK"
+    },
+    {
+      "name": "record mutation 18:1",
+      "passed": true,
+      "rejection": "noncanonical signed18 code"
+    },
+    {
+      "name": "record mutation 18:2",
+      "passed": true,
+      "rejection": "noncanonical signed18 code"
+    },
+    {
+      "name": "record mutation 18:3",
+      "passed": true,
+      "rejection": "noncanonical signed18 code"
+    },
+    {
+      "name": "record mutation 18:4",
+      "passed": true,
+      "rejection": "noncanonical signed18 code"
+    },
+    {
+      "name": "record mutation 18:5",
+      "passed": true,
+      "rejection": "noncanonical signed18 code"
+    },
+    {
+      "name": "record mutation 18:6",
+      "passed": true,
+      "rejection": "noncanonical signed18 code"
+    },
+    {
+      "name": "record mutation 18:7",
+      "passed": true,
+      "rejection": "noncanonical signed18 code"
+    },
+    {
+      "name": "record mutation 19:0",
+      "passed": true,
+      "rejection": "noncanonical signed18 code"
+    },
+    {
+      "name": "record mutation 19:1",
+      "passed": true,
+      "rejection": "noncanonical signed18 code"
+    },
+    {
+      "name": "record mutation 19:2",
+      "passed": true,
+      "rejection": "noncanonical signed18 code"
+    },
+    {
+      "name": "record mutation 19:3",
+      "passed": true,
+      "rejection": "noncanonical signed18 code"
+    },
+    {
+      "name": "record mutation 19:4",
+      "passed": true,
+      "rejection": "noncanonical signed18 code"
+    },
+    {
+      "name": "record mutation 19:5",
+      "passed": true,
+      "rejection": "noncanonical signed18 code"
+    },
+    {
+      "name": "record mutation 19:6",
+      "passed": true,
+      "rejection": "noncanonical signed18 code"
+    },
+    {
+      "name": "record mutation 19:7",
+      "passed": true,
+      "rejection": "noncanonical signed18 code"
+    },
+    {
+      "name": "record mutation 20:0",
+      "passed": true,
+      "rejection": "inconsistent CRC_OK"
+    },
+    {
+      "name": "record mutation 20:1",
+      "passed": true,
+      "rejection": "inconsistent CRC_OK"
+    },
+    {
+      "name": "record mutation 20:2",
+      "passed": true,
+      "rejection": "inconsistent CRC_OK"
+    },
+    {
+      "name": "record mutation 20:3",
+      "passed": true,
+      "rejection": "inconsistent CRC_OK"
+    },
+    {
+      "name": "record mutation 20:4",
+      "passed": true,
+      "rejection": "inconsistent CRC_OK"
+    },
+    {
+      "name": "record mutation 20:5",
+      "passed": true,
+      "rejection": "inconsistent CRC_OK"
+    },
+    {
+      "name": "record mutation 20:6",
+      "passed": true,
+      "rejection": "inconsistent CRC_OK"
+    },
+    {
+      "name": "record mutation 20:7",
+      "passed": true,
+      "rejection": "inconsistent CRC_OK"
+    },
+    {
+      "name": "record mutation 21:0",
+      "passed": true,
+      "rejection": "inconsistent CRC_OK"
+    },
+    {
+      "name": "record mutation 21:1",
+      "passed": true,
+      "rejection": "inconsistent CRC_OK"
+    },
+    {
+      "name": "record mutation 21:2",
+      "passed": true,
+      "rejection": "inconsistent CRC_OK"
+    },
+    {
+      "name": "record mutation 21:3",
+      "passed": true,
+      "rejection": "inconsistent CRC_OK"
+    },
+    {
+      "name": "record mutation 21:4",
+      "passed": true,
+      "rejection": "inconsistent CRC_OK"
+    },
+    {
+      "name": "record mutation 21:5",
+      "passed": true,
+      "rejection": "inconsistent CRC_OK"
+    },
+    {
+      "name": "record mutation 21:6",
+      "passed": true,
+      "rejection": "inconsistent CRC_OK"
+    },
+    {
+      "name": "record mutation 21:7",
+      "passed": true,
+      "rejection": "inconsistent CRC_OK"
+    },
+    {
+      "name": "record mutation 22:0",
+      "passed": true,
+      "rejection": "inconsistent CRC_OK"
+    },
+    {
+      "name": "record mutation 22:1",
+      "passed": true,
+      "rejection": "noncanonical signed18 code"
+    },
+    {
+      "name": "record mutation 22:2",
+      "passed": true,
+      "rejection": "noncanonical signed18 code"
+    },
+    {
+      "name": "record mutation 22:3",
+      "passed": true,
+      "rejection": "noncanonical signed18 code"
+    },
+    {
+      "name": "record mutation 22:4",
+      "passed": true,
+      "rejection": "noncanonical signed18 code"
+    },
+    {
+      "name": "record mutation 22:5",
+      "passed": true,
+      "rejection": "noncanonical signed18 code"
+    },
+    {
+      "name": "record mutation 22:6",
+      "passed": true,
+      "rejection": "noncanonical signed18 code"
+    },
+    {
+      "name": "record mutation 22:7",
+      "passed": true,
+      "rejection": "noncanonical signed18 code"
+    },
+    {
+      "name": "record mutation 23:0",
+      "passed": true,
+      "rejection": "noncanonical signed18 code"
+    },
+    {
+      "name": "record mutation 23:1",
+      "passed": true,
+      "rejection": "noncanonical signed18 code"
+    },
+    {
+      "name": "record mutation 23:2",
+      "passed": true,
+      "rejection": "noncanonical signed18 code"
+    },
+    {
+      "name": "record mutation 23:3",
+      "passed": true,
+      "rejection": "noncanonical signed18 code"
+    },
+    {
+      "name": "record mutation 23:4",
+      "passed": true,
+      "rejection": "noncanonical signed18 code"
+    },
+    {
+      "name": "record mutation 23:5",
+      "passed": true,
+      "rejection": "noncanonical signed18 code"
+    },
+    {
+      "name": "record mutation 23:6",
+      "passed": true,
+      "rejection": "noncanonical signed18 code"
+    },
+    {
+      "name": "record mutation 23:7",
+      "passed": true,
+      "rejection": "noncanonical signed18 code"
+    },
+    {
+      "name": "record mutation 24:0",
+      "passed": true,
+      "rejection": "inconsistent CRC_OK"
+    },
+    {
+      "name": "record mutation 24:1",
+      "passed": true,
+      "rejection": "inconsistent CRC_OK"
+    },
+    {
+      "name": "record mutation 24:2",
+      "passed": true,
+      "rejection": "inconsistent CRC_OK"
+    },
+    {
+      "name": "record mutation 24:3",
+      "passed": true,
+      "rejection": "inconsistent CRC_OK"
+    },
+    {
+      "name": "record mutation 24:4",
+      "passed": true,
+      "rejection": "inconsistent CRC_OK"
+    },
+    {
+      "name": "record mutation 24:5",
+      "passed": true,
+      "rejection": "inconsistent CRC_OK"
+    },
+    {
+      "name": "record mutation 24:6",
+      "passed": true,
+      "rejection": "inconsistent CRC_OK"
+    },
+    {
+      "name": "record mutation 24:7",
+      "passed": true,
+      "rejection": "inconsistent CRC_OK"
+    },
+    {
+      "name": "record mutation 25:0",
+      "passed": true,
+      "rejection": "inconsistent CRC_OK"
+    },
+    {
+      "name": "record mutation 25:1",
+      "passed": true,
+      "rejection": "inconsistent CRC_OK"
+    },
+    {
+      "name": "record mutation 25:2",
+      "passed": true,
+      "rejection": "inconsistent CRC_OK"
+    },
+    {
+      "name": "record mutation 25:3",
+      "passed": true,
+      "rejection": "inconsistent CRC_OK"
+    },
+    {
+      "name": "record mutation 25:4",
+      "passed": true,
+      "rejection": "inconsistent CRC_OK"
+    },
+    {
+      "name": "record mutation 25:5",
+      "passed": true,
+      "rejection": "inconsistent CRC_OK"
+    },
+    {
+      "name": "record mutation 25:6",
+      "passed": true,
+      "rejection": "inconsistent CRC_OK"
+    },
+    {
+      "name": "record mutation 25:7",
+      "passed": true,
+      "rejection": "inconsistent CRC_OK"
+    },
+    {
+      "name": "record mutation 26:0",
+      "passed": true,
+      "rejection": "inconsistent CRC_OK"
+    },
+    {
+      "name": "record mutation 26:1",
+      "passed": true,
+      "rejection": "noncanonical signed18 code"
+    },
+    {
+      "name": "record mutation 26:2",
+      "passed": true,
+      "rejection": "noncanonical signed18 code"
+    },
+    {
+      "name": "record mutation 26:3",
+      "passed": true,
+      "rejection": "noncanonical signed18 code"
+    },
+    {
+      "name": "record mutation 26:4",
+      "passed": true,
+      "rejection": "noncanonical signed18 code"
+    },
+    {
+      "name": "record mutation 26:5",
+      "passed": true,
+      "rejection": "noncanonical signed18 code"
+    },
+    {
+      "name": "record mutation 26:6",
+      "passed": true,
+      "rejection": "noncanonical signed18 code"
+    },
+    {
+      "name": "record mutation 26:7",
+      "passed": true,
+      "rejection": "noncanonical signed18 code"
+    },
+    {
+      "name": "record mutation 27:0",
+      "passed": true,
+      "rejection": "noncanonical signed18 code"
+    },
+    {
+      "name": "record mutation 27:1",
+      "passed": true,
+      "rejection": "noncanonical signed18 code"
+    },
+    {
+      "name": "record mutation 27:2",
+      "passed": true,
+      "rejection": "noncanonical signed18 code"
+    },
+    {
+      "name": "record mutation 27:3",
+      "passed": true,
+      "rejection": "noncanonical signed18 code"
+    },
+    {
+      "name": "record mutation 27:4",
+      "passed": true,
+      "rejection": "noncanonical signed18 code"
+    },
+    {
+      "name": "record mutation 27:5",
+      "passed": true,
+      "rejection": "noncanonical signed18 code"
+    },
+    {
+      "name": "record mutation 27:6",
+      "passed": true,
+      "rejection": "noncanonical signed18 code"
+    },
+    {
+      "name": "record mutation 27:7",
+      "passed": true,
+      "rejection": "noncanonical signed18 code"
+    },
+    {
+      "name": "record mutation 28:0",
+      "passed": true,
+      "rejection": "inconsistent CRC_OK"
+    },
+    {
+      "name": "record mutation 28:1",
+      "passed": true,
+      "rejection": "inconsistent CRC_OK"
+    },
+    {
+      "name": "record mutation 28:2",
+      "passed": true,
+      "rejection": "inconsistent CRC_OK"
+    },
+    {
+      "name": "record mutation 28:3",
+      "passed": true,
+      "rejection": "inconsistent CRC_OK"
+    },
+    {
+      "name": "record mutation 28:4",
+      "passed": true,
+      "rejection": "inconsistent CRC_OK"
+    },
+    {
+      "name": "record mutation 28:5",
+      "passed": true,
+      "rejection": "inconsistent CRC_OK"
+    },
+    {
+      "name": "record mutation 28:6",
+      "passed": true,
+      "rejection": "inconsistent CRC_OK"
+    },
+    {
+      "name": "record mutation 28:7",
+      "passed": true,
+      "rejection": "inconsistent CRC_OK"
+    },
+    {
+      "name": "record mutation 29:0",
+      "passed": true,
+      "rejection": "inconsistent CRC_OK"
+    },
+    {
+      "name": "record mutation 29:1",
+      "passed": true,
+      "rejection": "inconsistent CRC_OK"
+    },
+    {
+      "name": "record mutation 29:2",
+      "passed": true,
+      "rejection": "inconsistent CRC_OK"
+    },
+    {
+      "name": "record mutation 29:3",
+      "passed": true,
+      "rejection": "inconsistent CRC_OK"
+    },
+    {
+      "name": "record mutation 29:4",
+      "passed": true,
+      "rejection": "inconsistent CRC_OK"
+    },
+    {
+      "name": "record mutation 29:5",
+      "passed": true,
+      "rejection": "inconsistent CRC_OK"
+    },
+    {
+      "name": "record mutation 29:6",
+      "passed": true,
+      "rejection": "inconsistent CRC_OK"
+    },
+    {
+      "name": "record mutation 29:7",
+      "passed": true,
+      "rejection": "inconsistent CRC_OK"
+    },
+    {
+      "name": "record mutation 30:0",
+      "passed": true,
+      "rejection": "inconsistent CRC_OK"
+    },
+    {
+      "name": "record mutation 30:1",
+      "passed": true,
+      "rejection": "noncanonical signed18 code"
+    },
+    {
+      "name": "record mutation 30:2",
+      "passed": true,
+      "rejection": "noncanonical signed18 code"
+    },
+    {
+      "name": "record mutation 30:3",
+      "passed": true,
+      "rejection": "noncanonical signed18 code"
+    },
+    {
+      "name": "record mutation 30:4",
+      "passed": true,
+      "rejection": "noncanonical signed18 code"
+    },
+    {
+      "name": "record mutation 30:5",
+      "passed": true,
+      "rejection": "noncanonical signed18 code"
+    },
+    {
+      "name": "record mutation 30:6",
+      "passed": true,
+      "rejection": "noncanonical signed18 code"
+    },
+    {
+      "name": "record mutation 30:7",
+      "passed": true,
+      "rejection": "noncanonical signed18 code"
+    },
+    {
+      "name": "record mutation 31:0",
+      "passed": true,
+      "rejection": "noncanonical signed18 code"
+    },
+    {
+      "name": "record mutation 31:1",
+      "passed": true,
+      "rejection": "noncanonical signed18 code"
+    },
+    {
+      "name": "record mutation 31:2",
+      "passed": true,
+      "rejection": "noncanonical signed18 code"
+    },
+    {
+      "name": "record mutation 31:3",
+      "passed": true,
+      "rejection": "noncanonical signed18 code"
+    },
+    {
+      "name": "record mutation 31:4",
+      "passed": true,
+      "rejection": "noncanonical signed18 code"
+    },
+    {
+      "name": "record mutation 31:5",
+      "passed": true,
+      "rejection": "noncanonical signed18 code"
+    },
+    {
+      "name": "record mutation 31:6",
+      "passed": true,
+      "rejection": "noncanonical signed18 code"
+    },
+    {
+      "name": "record mutation 31:7",
+      "passed": true,
+      "rejection": "noncanonical signed18 code"
+    },
+    {
+      "name": "record mutation 32:0",
+      "passed": true,
+      "rejection": "inconsistent status flags"
+    },
+    {
+      "name": "record mutation 32:1",
+      "passed": true,
+      "rejection": "inconsistent status flags"
+    },
+    {
+      "name": "record mutation 32:2",
+      "passed": true,
+      "rejection": "inconsistent status flags"
+    },
+    {
+      "name": "record mutation 32:3",
+      "passed": true,
+      "rejection": "inconsistent status flags"
+    },
+    {
+      "name": "record mutation 32:4",
+      "passed": true,
+      "rejection": "inconsistent status flags"
+    },
+    {
+      "name": "record mutation 32:5",
+      "passed": true,
+      "rejection": "inconsistent status flags"
+    },
+    {
+      "name": "record mutation 32:6",
+      "passed": true,
+      "rejection": "inconsistent status flags"
+    },
+    {
+      "name": "record mutation 32:7",
+      "passed": true,
+      "rejection": "inconsistent status flags"
+    },
+    {
+      "name": "record mutation 33:0",
+      "passed": true,
+      "rejection": "inconsistent status flags"
+    },
+    {
+      "name": "record mutation 33:1",
+      "passed": true,
+      "rejection": "inconsistent status flags"
+    },
+    {
+      "name": "record mutation 33:2",
+      "passed": true,
+      "rejection": "inconsistent status flags"
+    },
+    {
+      "name": "record mutation 33:3",
+      "passed": true,
+      "rejection": "inconsistent status flags"
+    },
+    {
+      "name": "record mutation 33:4",
+      "passed": true,
+      "rejection": "inconsistent status flags"
+    },
+    {
+      "name": "record mutation 33:5",
+      "passed": true,
+      "rejection": "inconsistent status flags"
+    },
+    {
+      "name": "record mutation 33:6",
+      "passed": true,
+      "rejection": "inconsistent status flags"
+    },
+    {
+      "name": "record mutation 33:7",
+      "passed": true,
+      "rejection": "inconsistent status flags"
+    },
+    {
+      "name": "record mutation 34:0",
+      "passed": true,
+      "rejection": "inconsistent status flags"
+    },
+    {
+      "name": "record mutation 34:1",
+      "passed": true,
+      "rejection": "inconsistent status flags"
+    },
+    {
+      "name": "record mutation 34:2",
+      "passed": true,
+      "rejection": "inconsistent status flags"
+    },
+    {
+      "name": "record mutation 34:3",
+      "passed": true,
+      "rejection": "inconsistent status flags"
+    },
+    {
+      "name": "record mutation 34:4",
+      "passed": true,
+      "rejection": "inconsistent status flags"
+    },
+    {
+      "name": "record mutation 34:5",
+      "passed": true,
+      "rejection": "inconsistent status flags"
+    },
+    {
+      "name": "record mutation 34:6",
+      "passed": true,
+      "rejection": "inconsistent status flags"
+    },
+    {
+      "name": "record mutation 34:7",
+      "passed": true,
+      "rejection": "inconsistent status flags"
+    },
+    {
+      "name": "record mutation 35:0",
+      "passed": true,
+      "rejection": "inconsistent status flags"
+    },
+    {
+      "name": "record mutation 35:1",
+      "passed": true,
+      "rejection": "inconsistent status flags"
+    },
+    {
+      "name": "record mutation 35:2",
+      "passed": true,
+      "rejection": "inconsistent status flags"
+    },
+    {
+      "name": "record mutation 35:3",
+      "passed": true,
+      "rejection": "inconsistent status flags"
+    },
+    {
+      "name": "record mutation 35:4",
+      "passed": true,
+      "rejection": "inconsistent status flags"
+    },
+    {
+      "name": "record mutation 35:5",
+      "passed": true,
+      "rejection": "inconsistent status flags"
+    },
+    {
+      "name": "record mutation 35:6",
+      "passed": true,
+      "rejection": "inconsistent status flags"
+    },
+    {
+      "name": "record mutation 35:7",
+      "passed": true,
+      "rejection": "inconsistent status flags"
+    },
+    {
+      "name": "record mutation 36:0",
+      "passed": true,
+      "rejection": "inconsistent status flags"
+    },
+    {
+      "name": "record mutation 36:1",
+      "passed": true,
+      "rejection": "inconsistent status flags"
+    },
+    {
+      "name": "record mutation 36:2",
+      "passed": true,
+      "rejection": "inconsistent status flags"
+    },
+    {
+      "name": "record mutation 36:3",
+      "passed": true,
+      "rejection": "inconsistent status flags"
+    },
+    {
+      "name": "record mutation 36:4",
+      "passed": true,
+      "rejection": "inconsistent status flags"
+    },
+    {
+      "name": "record mutation 36:5",
+      "passed": true,
+      "rejection": "inconsistent status flags"
+    },
+    {
+      "name": "record mutation 36:6",
+      "passed": true,
+      "rejection": "inconsistent status flags"
+    },
+    {
+      "name": "record mutation 36:7",
+      "passed": true,
+      "rejection": "inconsistent status flags"
+    },
+    {
+      "name": "record mutation 37:0",
+      "passed": true,
+      "rejection": "inconsistent status flags"
+    },
+    {
+      "name": "record mutation 37:1",
+      "passed": true,
+      "rejection": "inconsistent status flags"
+    },
+    {
+      "name": "record mutation 37:2",
+      "passed": true,
+      "rejection": "inconsistent status flags"
+    },
+    {
+      "name": "record mutation 37:3",
+      "passed": true,
+      "rejection": "inconsistent status flags"
+    },
+    {
+      "name": "record mutation 37:4",
+      "passed": true,
+      "rejection": "inconsistent status flags"
+    },
+    {
+      "name": "record mutation 37:5",
+      "passed": true,
+      "rejection": "inconsistent status flags"
+    },
+    {
+      "name": "record mutation 37:6",
+      "passed": true,
+      "rejection": "inconsistent status flags"
+    },
+    {
+      "name": "record mutation 37:7",
+      "passed": true,
+      "rejection": "inconsistent status flags"
+    },
+    {
+      "name": "record mutation 38:0",
+      "passed": true,
+      "rejection": "inconsistent status flags"
+    },
+    {
+      "name": "record mutation 38:1",
+      "passed": true,
+      "rejection": "inconsistent status flags"
+    },
+    {
+      "name": "record mutation 38:2",
+      "passed": true,
+      "rejection": "inconsistent status flags"
+    },
+    {
+      "name": "record mutation 38:3",
+      "passed": true,
+      "rejection": "inconsistent status flags"
+    },
+    {
+      "name": "record mutation 38:4",
+      "passed": true,
+      "rejection": "inconsistent status flags"
+    },
+    {
+      "name": "record mutation 38:5",
+      "passed": true,
+      "rejection": "inconsistent status flags"
+    },
+    {
+      "name": "record mutation 38:6",
+      "passed": true,
+      "rejection": "inconsistent status flags"
+    },
+    {
+      "name": "record mutation 38:7",
+      "passed": true,
+      "rejection": "inconsistent status flags"
+    },
+    {
+      "name": "record mutation 39:0",
+      "passed": true,
+      "rejection": "inconsistent status flags"
+    },
+    {
+      "name": "record mutation 39:1",
+      "passed": true,
+      "rejection": "inconsistent status flags"
+    },
+    {
+      "name": "record mutation 39:2",
+      "passed": true,
+      "rejection": "inconsistent status flags"
+    },
+    {
+      "name": "record mutation 39:3",
+      "passed": true,
+      "rejection": "inconsistent status flags"
+    },
+    {
+      "name": "record mutation 39:4",
+      "passed": true,
+      "rejection": "inconsistent status flags"
+    },
+    {
+      "name": "record mutation 39:5",
+      "passed": true,
+      "rejection": "inconsistent status flags"
+    },
+    {
+      "name": "record mutation 39:6",
+      "passed": true,
+      "rejection": "inconsistent status flags"
+    },
+    {
+      "name": "record mutation 39:7",
+      "passed": true,
+      "rejection": "inconsistent status flags"
+    },
+    {
+      "name": "record mutation 40:0",
+      "passed": true,
+      "rejection": "inconsistent CRC_OK"
+    },
+    {
+      "name": "record mutation 40:1",
+      "passed": true,
+      "rejection": "inconsistent CRC_OK"
+    },
+    {
+      "name": "record mutation 40:2",
+      "passed": true,
+      "rejection": "inconsistent CRC_OK"
+    },
+    {
+      "name": "record mutation 40:3",
+      "passed": true,
+      "rejection": "inconsistent CRC_OK"
+    },
+    {
+      "name": "record mutation 40:4",
+      "passed": true,
+      "rejection": "inconsistent CRC_OK"
+    },
+    {
+      "name": "record mutation 40:5",
+      "passed": true,
+      "rejection": "inconsistent CRC_OK"
+    },
+    {
+      "name": "record mutation 40:6",
+      "passed": true,
+      "rejection": "inconsistent CRC_OK"
+    },
+    {
+      "name": "record mutation 40:7",
+      "passed": true,
+      "rejection": "inconsistent CRC_OK"
+    },
+    {
+      "name": "record mutation 41:0",
+      "passed": true,
+      "rejection": "inconsistent CRC_OK"
+    },
+    {
+      "name": "record mutation 41:1",
+      "passed": true,
+      "rejection": "inconsistent CRC_OK"
+    },
+    {
+      "name": "record mutation 41:2",
+      "passed": true,
+      "rejection": "inconsistent CRC_OK"
+    },
+    {
+      "name": "record mutation 41:3",
+      "passed": true,
+      "rejection": "inconsistent CRC_OK"
+    },
+    {
+      "name": "record mutation 41:4",
+      "passed": true,
+      "rejection": "inconsistent CRC_OK"
+    },
+    {
+      "name": "record mutation 41:5",
+      "passed": true,
+      "rejection": "inconsistent CRC_OK"
+    },
+    {
+      "name": "record mutation 41:6",
+      "passed": true,
+      "rejection": "inconsistent CRC_OK"
+    },
+    {
+      "name": "record mutation 41:7",
+      "passed": true,
+      "rejection": "inconsistent CRC_OK"
+    },
+    {
+      "name": "record mutation 42:0",
+      "passed": true,
+      "rejection": "nonprefix presence mask"
+    },
+    {
+      "name": "record mutation 42:1",
+      "passed": true,
+      "rejection": "nonprefix presence mask"
+    },
+    {
+      "name": "record mutation 42:2",
+      "passed": true,
+      "rejection": "nonprefix presence mask"
+    },
+    {
+      "name": "record mutation 42:3",
+      "passed": true,
+      "rejection": "nonprefix presence mask"
+    },
+    {
+      "name": "record mutation 42:4",
+      "passed": true,
+      "rejection": "nonprefix presence mask"
+    },
+    {
+      "name": "record mutation 42:5",
+      "passed": true,
+      "rejection": "nonprefix presence mask"
+    },
+    {
+      "name": "record mutation 42:6",
+      "passed": true,
+      "rejection": "nonprefix presence mask"
+    },
+    {
+      "name": "record mutation 42:7",
+      "passed": true,
+      "rejection": "nonzero absent pair"
+    },
+    {
+      "name": "record mutation 43:0",
+      "passed": true,
+      "rejection": "nonzero record reservation"
+    },
+    {
+      "name": "record mutation 43:1",
+      "passed": true,
+      "rejection": "nonzero record reservation"
+    },
+    {
+      "name": "record mutation 43:2",
+      "passed": true,
+      "rejection": "nonzero record reservation"
+    },
+    {
+      "name": "record mutation 43:3",
+      "passed": true,
+      "rejection": "nonzero record reservation"
+    },
+    {
+      "name": "record mutation 43:4",
+      "passed": true,
+      "rejection": "nonzero record reservation"
+    },
+    {
+      "name": "record mutation 43:5",
+      "passed": true,
+      "rejection": "nonzero record reservation"
+    },
+    {
+      "name": "record mutation 43:6",
+      "passed": true,
+      "rejection": "nonzero record reservation"
+    },
+    {
+      "name": "record mutation 43:7",
+      "passed": true,
+      "rejection": "nonzero record reservation"
+    },
+    {
+      "name": "record mutation 44:0",
+      "passed": true,
+      "rejection": "inconsistent valid mask"
+    },
+    {
+      "name": "record mutation 44:1",
+      "passed": true,
+      "rejection": "inconsistent valid mask"
+    },
+    {
+      "name": "record mutation 44:2",
+      "passed": true,
+      "rejection": "inconsistent valid mask"
+    },
+    {
+      "name": "record mutation 44:3",
+      "passed": true,
+      "rejection": "inconsistent valid mask"
+    },
+    {
+      "name": "record mutation 44:4",
+      "passed": true,
+      "rejection": "inconsistent valid mask"
+    },
+    {
+      "name": "record mutation 44:5",
+      "passed": true,
+      "rejection": "inconsistent valid mask"
+    },
+    {
+      "name": "record mutation 44:6",
+      "passed": true,
+      "rejection": "inconsistent valid mask"
+    },
+    {
+      "name": "record mutation 44:7",
+      "passed": true,
+      "rejection": "inconsistent valid mask"
+    },
+    {
+      "name": "record mutation 45:0",
+      "passed": true,
+      "rejection": "inconsistent rail flags"
+    },
+    {
+      "name": "record mutation 45:1",
+      "passed": true,
+      "rejection": "inconsistent rail flags"
+    },
+    {
+      "name": "record mutation 45:2",
+      "passed": true,
+      "rejection": "inconsistent rail flags"
+    },
+    {
+      "name": "record mutation 45:3",
+      "passed": true,
+      "rejection": "inconsistent rail flags"
+    },
+    {
+      "name": "record mutation 45:4",
+      "passed": true,
+      "rejection": "inconsistent rail flags"
+    },
+    {
+      "name": "record mutation 45:5",
+      "passed": true,
+      "rejection": "inconsistent rail flags"
+    },
+    {
+      "name": "record mutation 45:6",
+      "passed": true,
+      "rejection": "inconsistent rail flags"
+    },
+    {
+      "name": "record mutation 45:7",
+      "passed": true,
+      "rejection": "inconsistent rail flags"
+    },
+    {
+      "name": "record mutation 46:0",
+      "passed": true,
+      "rejection": "inconsistent complete frame"
+    },
+    {
+      "name": "record mutation 46:1",
+      "passed": true,
+      "rejection": "inconsistent missing flag"
+    },
+    {
+      "name": "record mutation 46:2",
+      "passed": true,
+      "rejection": "inconsistent CRC_OK"
+    },
+    {
+      "name": "record mutation 46:3",
+      "passed": true,
+      "rejection": "inconsistent frame integrity"
+    },
+    {
+      "name": "record mutation 46:4",
+      "passed": true,
+      "rejection": "settling without analog invalidity"
+    },
+    {
+      "name": "record mutation 46:5",
+      "passed": true,
+      "rejection": "inconsistent missing flag"
+    },
+    {
+      "name": "record mutation 46:6",
+      "passed": true,
+      "rejection": "inconsistent complete frame"
+    },
+    {
+      "name": "record mutation 46:7",
+      "passed": true,
+      "rejection": "inconsistent status flags"
+    },
+    {
+      "name": "record mutation 47:0",
+      "passed": true,
+      "rejection": "inconsistent status flags"
+    },
+    {
+      "name": "record mutation 47:1",
+      "passed": true,
+      "rejection": "inconsistent status flags"
+    },
+    {
+      "name": "record mutation 47:2",
+      "passed": true,
+      "rejection": "inconsistent status flags"
+    },
+    {
+      "name": "record mutation 47:3",
+      "passed": true,
+      "rejection": "analog invalidity with all channels valid"
+    },
+    {
+      "name": "record mutation 47:4",
+      "passed": true,
+      "rejection": "valid channel in invalid frame"
+    },
+    {
+      "name": "record mutation 47:5",
+      "passed": true,
+      "rejection": "nonzero record reservation"
+    },
+    {
+      "name": "record mutation 47:6",
+      "passed": true,
+      "rejection": "nonzero record reservation"
+    },
+    {
+      "name": "record mutation 47:7",
+      "passed": true,
+      "rejection": "nonzero record reservation"
+    },
+    {
+      "name": "configuration and epoch exact sizes and binding",
+      "passed": true
+    },
+    {
+      "name": "independent header field packing",
+      "passed": true
+    },
+    {
+      "name": "minimum block size",
+      "passed": true
+    },
+    {
+      "name": "block count 1",
+      "passed": true
+    },
+    {
+      "name": "block count 2",
+      "passed": true
+    },
+    {
+      "name": "block count 3",
+      "passed": true
+    },
+    {
+      "name": "block count 4",
+      "passed": true
+    },
+    {
+      "name": "block count 5",
+      "passed": true
+    },
+    {
+      "name": "block count 6",
+      "passed": true
+    },
+    {
+      "name": "block count 7",
+      "passed": true
+    },
+    {
+      "name": "block count 8",
+      "passed": true
+    },
+    {
+      "name": "block count 9",
+      "passed": true
+    },
+    {
+      "name": "block count 10",
+      "passed": true
+    },
+    {
+      "name": "block count 11",
+      "passed": true
+    },
+    {
+      "name": "block count 12",
+      "passed": true
+    },
+    {
+      "name": "block count 13",
+      "passed": true
+    },
+    {
+      "name": "block count 14",
+      "passed": true
+    },
+    {
+      "name": "block count 15",
+      "passed": true
+    },
+    {
+      "name": "block count 16",
+      "passed": true
+    },
+    {
+      "name": "block count 17",
+      "passed": true
+    },
+    {
+      "name": "block count 18",
+      "passed": true
+    },
+    {
+      "name": "block count 19",
+      "passed": true
+    },
+    {
+      "name": "block count 20",
+      "passed": true
+    },
+    {
+      "name": "block count 21",
+      "passed": true
+    },
+    {
+      "name": "block count 22",
+      "passed": true
+    },
+    {
+      "name": "block count 23",
+      "passed": true
+    },
+    {
+      "name": "block count 24",
+      "passed": true
+    },
+    {
+      "name": "block count 25",
+      "passed": true
+    },
+    {
+      "name": "block count 26",
+      "passed": true
+    },
+    {
+      "name": "block count 27",
+      "passed": true
+    },
+    {
+      "name": "block count 28",
+      "passed": true
+    },
+    {
+      "name": "block count 29",
+      "passed": true
+    },
+    {
+      "name": "block count 30",
+      "passed": true
+    },
+    {
+      "name": "block count 31",
+      "passed": true
+    },
+    {
+      "name": "block count 32",
+      "passed": true
+    },
+    {
+      "name": "block count 33",
+      "passed": true
+    },
+    {
+      "name": "block count 34",
+      "passed": true
+    },
+    {
+      "name": "block count 35",
+      "passed": true
+    },
+    {
+      "name": "block count 36",
+      "passed": true
+    },
+    {
+      "name": "block count 37",
+      "passed": true
+    },
+    {
+      "name": "block count 38",
+      "passed": true
+    },
+    {
+      "name": "block count 39",
+      "passed": true
+    },
+    {
+      "name": "block count 40",
+      "passed": true
+    },
+    {
+      "name": "block count 41",
+      "passed": true
+    },
+    {
+      "name": "block count 42",
+      "passed": true
+    },
+    {
+      "name": "block count 43",
+      "passed": true
+    },
+    {
+      "name": "block count 44",
+      "passed": true
+    },
+    {
+      "name": "block count 45",
+      "passed": true
+    },
+    {
+      "name": "block count 46",
+      "passed": true
+    },
+    {
+      "name": "block count 47",
+      "passed": true
+    },
+    {
+      "name": "block count 48",
+      "passed": true
+    },
+    {
+      "name": "block count 49",
+      "passed": true
+    },
+    {
+      "name": "block count 50",
+      "passed": true
+    },
+    {
+      "name": "block count 51",
+      "passed": true
+    },
+    {
+      "name": "block count 52",
+      "passed": true
+    },
+    {
+      "name": "block count 53",
+      "passed": true
+    },
+    {
+      "name": "block count 54",
+      "passed": true
+    },
+    {
+      "name": "block count 55",
+      "passed": true
+    },
+    {
+      "name": "block count 56",
+      "passed": true
+    },
+    {
+      "name": "block count 57",
+      "passed": true
+    },
+    {
+      "name": "block count 58",
+      "passed": true
+    },
+    {
+      "name": "block count 59",
+      "passed": true
+    },
+    {
+      "name": "block count 60",
+      "passed": true
+    },
+    {
+      "name": "block count 61",
+      "passed": true
+    },
+    {
+      "name": "block count 62",
+      "passed": true
+    },
+    {
+      "name": "block count 63",
+      "passed": true
+    },
+    {
+      "name": "block count 64",
+      "passed": true
+    },
+    {
+      "name": "block count 65",
+      "passed": true
+    },
+    {
+      "name": "block count 66",
+      "passed": true
+    },
+    {
+      "name": "block count 67",
+      "passed": true
+    },
+    {
+      "name": "block count 68",
+      "passed": true
+    },
+    {
+      "name": "block count 69",
+      "passed": true
+    },
+    {
+      "name": "block count 70",
+      "passed": true
+    },
+    {
+      "name": "block count 71",
+      "passed": true
+    },
+    {
+      "name": "block count 72",
+      "passed": true
+    },
+    {
+      "name": "block count 73",
+      "passed": true
+    },
+    {
+      "name": "block count 74",
+      "passed": true
+    },
+    {
+      "name": "block count 75",
+      "passed": true
+    },
+    {
+      "name": "block count 76",
+      "passed": true
+    },
+    {
+      "name": "block count 77",
+      "passed": true
+    },
+    {
+      "name": "block count 78",
+      "passed": true
+    },
+    {
+      "name": "block count 79",
+      "passed": true
+    },
+    {
+      "name": "block count 80",
+      "passed": true
+    },
+    {
+      "name": "block count 81",
+      "passed": true
+    },
+    {
+      "name": "block count 82",
+      "passed": true
+    },
+    {
+      "name": "block count 83",
+      "passed": true
+    },
+    {
+      "name": "block count 84",
+      "passed": true
+    },
+    {
+      "name": "block count 85",
+      "passed": true
+    },
+    {
+      "name": "block count 86",
+      "passed": true
+    },
+    {
+      "name": "block count 87",
+      "passed": true
+    },
+    {
+      "name": "block count 88",
+      "passed": true
+    },
+    {
+      "name": "block count 89",
+      "passed": true
+    },
+    {
+      "name": "block count 90",
+      "passed": true
+    },
+    {
+      "name": "block count 91",
+      "passed": true
+    },
+    {
+      "name": "block count 92",
+      "passed": true
+    },
+    {
+      "name": "block count 93",
+      "passed": true
+    },
+    {
+      "name": "block count 94",
+      "passed": true
+    },
+    {
+      "name": "block count 95",
+      "passed": true
+    },
+    {
+      "name": "block count 96",
+      "passed": true
+    },
+    {
+      "name": "block count 97",
+      "passed": true
+    },
+    {
+      "name": "block count 98",
+      "passed": true
+    },
+    {
+      "name": "block count 99",
+      "passed": true
+    },
+    {
+      "name": "block count 100",
+      "passed": true
+    },
+    {
+      "name": "block count 101",
+      "passed": true
+    },
+    {
+      "name": "block count 102",
+      "passed": true
+    },
+    {
+      "name": "block count 103",
+      "passed": true
+    },
+    {
+      "name": "block count 104",
+      "passed": true
+    },
+    {
+      "name": "block count 105",
+      "passed": true
+    },
+    {
+      "name": "block count 106",
+      "passed": true
+    },
+    {
+      "name": "block count 107",
+      "passed": true
+    },
+    {
+      "name": "block count 108",
+      "passed": true
+    },
+    {
+      "name": "block count 109",
+      "passed": true
+    },
+    {
+      "name": "block count 110",
+      "passed": true
+    },
+    {
+      "name": "block count 111",
+      "passed": true
+    },
+    {
+      "name": "block count 112",
+      "passed": true
+    },
+    {
+      "name": "block count 113",
+      "passed": true
+    },
+    {
+      "name": "block count 114",
+      "passed": true
+    },
+    {
+      "name": "block count 115",
+      "passed": true
+    },
+    {
+      "name": "block count 116",
+      "passed": true
+    },
+    {
+      "name": "block count 117",
+      "passed": true
+    },
+    {
+      "name": "block count 118",
+      "passed": true
+    },
+    {
+      "name": "block count 119",
+      "passed": true
+    },
+    {
+      "name": "block count 120",
+      "passed": true
+    },
+    {
+      "name": "block count 121",
+      "passed": true
+    },
+    {
+      "name": "block count 122",
+      "passed": true
+    },
+    {
+      "name": "block count 123",
+      "passed": true
+    },
+    {
+      "name": "block count 124",
+      "passed": true
+    },
+    {
+      "name": "block count 125",
+      "passed": true
+    },
+    {
+      "name": "block count 126",
+      "passed": true
+    },
+    {
+      "name": "block count 127",
+      "passed": true
+    },
+    {
+      "name": "block count 128",
+      "passed": true
+    },
+    {
+      "name": "block count 129",
+      "passed": true
+    },
+    {
+      "name": "block count 130",
+      "passed": true
+    },
+    {
+      "name": "block count 131",
+      "passed": true
+    },
+    {
+      "name": "block count 132",
+      "passed": true
+    },
+    {
+      "name": "block count 133",
+      "passed": true
+    },
+    {
+      "name": "block count 134",
+      "passed": true
+    },
+    {
+      "name": "block count 135",
+      "passed": true
+    },
+    {
+      "name": "block count 136",
+      "passed": true
+    },
+    {
+      "name": "block count 137",
+      "passed": true
+    },
+    {
+      "name": "block count 138",
+      "passed": true
+    },
+    {
+      "name": "block count 139",
+      "passed": true
+    },
+    {
+      "name": "block count 140",
+      "passed": true
+    },
+    {
+      "name": "block count 141",
+      "passed": true
+    },
+    {
+      "name": "block count 142",
+      "passed": true
+    },
+    {
+      "name": "block count 143",
+      "passed": true
+    },
+    {
+      "name": "block count 144",
+      "passed": true
+    },
+    {
+      "name": "block count 145",
+      "passed": true
+    },
+    {
+      "name": "block count 146",
+      "passed": true
+    },
+    {
+      "name": "block count 147",
+      "passed": true
+    },
+    {
+      "name": "block count 148",
+      "passed": true
+    },
+    {
+      "name": "block count 149",
+      "passed": true
+    },
+    {
+      "name": "block count 150",
+      "passed": true
+    },
+    {
+      "name": "block count 151",
+      "passed": true
+    },
+    {
+      "name": "block count 152",
+      "passed": true
+    },
+    {
+      "name": "block count 153",
+      "passed": true
+    },
+    {
+      "name": "block count 154",
+      "passed": true
+    },
+    {
+      "name": "block count 155",
+      "passed": true
+    },
+    {
+      "name": "block count 156",
+      "passed": true
+    },
+    {
+      "name": "block count 157",
+      "passed": true
+    },
+    {
+      "name": "block count 158",
+      "passed": true
+    },
+    {
+      "name": "block count 159",
+      "passed": true
+    },
+    {
+      "name": "block count 160",
+      "passed": true
+    },
+    {
+      "name": "block count 161",
+      "passed": true
+    },
+    {
+      "name": "block count 162",
+      "passed": true
+    },
+    {
+      "name": "block count 163",
+      "passed": true
+    },
+    {
+      "name": "block count 164",
+      "passed": true
+    },
+    {
+      "name": "block count 165",
+      "passed": true
+    },
+    {
+      "name": "block count 166",
+      "passed": true
+    },
+    {
+      "name": "block count 167",
+      "passed": true
+    },
+    {
+      "name": "block count 168",
+      "passed": true
+    },
+    {
+      "name": "block count 169",
+      "passed": true
+    },
+    {
+      "name": "block count 170",
+      "passed": true
+    },
+    {
+      "name": "block count 171",
+      "passed": true
+    },
+    {
+      "name": "block count 172",
+      "passed": true
+    },
+    {
+      "name": "block count 173",
+      "passed": true
+    },
+    {
+      "name": "block count 174",
+      "passed": true
+    },
+    {
+      "name": "block count 175",
+      "passed": true
+    },
+    {
+      "name": "block count 176",
+      "passed": true
+    },
+    {
+      "name": "block count 177",
+      "passed": true
+    },
+    {
+      "name": "block count 178",
+      "passed": true
+    },
+    {
+      "name": "block count 179",
+      "passed": true
+    },
+    {
+      "name": "block count 180",
+      "passed": true
+    },
+    {
+      "name": "block count 181",
+      "passed": true
+    },
+    {
+      "name": "block count 182",
+      "passed": true
+    },
+    {
+      "name": "block count 183",
+      "passed": true
+    },
+    {
+      "name": "block count 184",
+      "passed": true
+    },
+    {
+      "name": "block count 185",
+      "passed": true
+    },
+    {
+      "name": "block count 186",
+      "passed": true
+    },
+    {
+      "name": "block count 187",
+      "passed": true
+    },
+    {
+      "name": "block count 188",
+      "passed": true
+    },
+    {
+      "name": "block count 189",
+      "passed": true
+    },
+    {
+      "name": "block count 190",
+      "passed": true
+    },
+    {
+      "name": "block count 191",
+      "passed": true
+    },
+    {
+      "name": "block count 192",
+      "passed": true
+    },
+    {
+      "name": "block count 193",
+      "passed": true
+    },
+    {
+      "name": "block count 194",
+      "passed": true
+    },
+    {
+      "name": "block count 195",
+      "passed": true
+    },
+    {
+      "name": "block count 196",
+      "passed": true
+    },
+    {
+      "name": "block count 197",
+      "passed": true
+    },
+    {
+      "name": "block count 198",
+      "passed": true
+    },
+    {
+      "name": "block count 199",
+      "passed": true
+    },
+    {
+      "name": "block count 200",
+      "passed": true
+    },
+    {
+      "name": "block count 201",
+      "passed": true
+    },
+    {
+      "name": "block count 202",
+      "passed": true
+    },
+    {
+      "name": "block count 203",
+      "passed": true
+    },
+    {
+      "name": "block count 204",
+      "passed": true
+    },
+    {
+      "name": "block count 205",
+      "passed": true
+    },
+    {
+      "name": "block count 206",
+      "passed": true
+    },
+    {
+      "name": "block count 207",
+      "passed": true
+    },
+    {
+      "name": "block count 208",
+      "passed": true
+    },
+    {
+      "name": "block count 209",
+      "passed": true
+    },
+    {
+      "name": "block count 210",
+      "passed": true
+    },
+    {
+      "name": "block count 211",
+      "passed": true
+    },
+    {
+      "name": "block count 212",
+      "passed": true
+    },
+    {
+      "name": "block count 213",
+      "passed": true
+    },
+    {
+      "name": "block count 214",
+      "passed": true
+    },
+    {
+      "name": "block count 215",
+      "passed": true
+    },
+    {
+      "name": "block count 216",
+      "passed": true
+    },
+    {
+      "name": "block count 217",
+      "passed": true
+    },
+    {
+      "name": "block count 218",
+      "passed": true
+    },
+    {
+      "name": "block count 219",
+      "passed": true
+    },
+    {
+      "name": "block count 220",
+      "passed": true
+    },
+    {
+      "name": "block count 221",
+      "passed": true
+    },
+    {
+      "name": "block count 222",
+      "passed": true
+    },
+    {
+      "name": "block count 223",
+      "passed": true
+    },
+    {
+      "name": "block count 224",
+      "passed": true
+    },
+    {
+      "name": "block count 225",
+      "passed": true
+    },
+    {
+      "name": "block count 226",
+      "passed": true
+    },
+    {
+      "name": "block count 227",
+      "passed": true
+    },
+    {
+      "name": "block count 228",
+      "passed": true
+    },
+    {
+      "name": "block count 229",
+      "passed": true
+    },
+    {
+      "name": "block count 230",
+      "passed": true
+    },
+    {
+      "name": "block count 231",
+      "passed": true
+    },
+    {
+      "name": "block count 232",
+      "passed": true
+    },
+    {
+      "name": "block count 233",
+      "passed": true
+    },
+    {
+      "name": "block count 234",
+      "passed": true
+    },
+    {
+      "name": "block count 235",
+      "passed": true
+    },
+    {
+      "name": "block count 236",
+      "passed": true
+    },
+    {
+      "name": "block count 237",
+      "passed": true
+    },
+    {
+      "name": "block count 238",
+      "passed": true
+    },
+    {
+      "name": "block count 239",
+      "passed": true
+    },
+    {
+      "name": "block count 240",
+      "passed": true
+    },
+    {
+      "name": "block count 241",
+      "passed": true
+    },
+    {
+      "name": "block count 242",
+      "passed": true
+    },
+    {
+      "name": "block count 243",
+      "passed": true
+    },
+    {
+      "name": "block count 244",
+      "passed": true
+    },
+    {
+      "name": "block count 245",
+      "passed": true
+    },
+    {
+      "name": "block count 246",
+      "passed": true
+    },
+    {
+      "name": "block count 247",
+      "passed": true
+    },
+    {
+      "name": "block count 248",
+      "passed": true
+    },
+    {
+      "name": "block count 249",
+      "passed": true
+    },
+    {
+      "name": "block count 250",
+      "passed": true
+    },
+    {
+      "name": "block count 251",
+      "passed": true
+    },
+    {
+      "name": "block count 252",
+      "passed": true
+    },
+    {
+      "name": "block count 253",
+      "passed": true
+    },
+    {
+      "name": "block count 254",
+      "passed": true
+    },
+    {
+      "name": "block count 255",
+      "passed": true
+    },
+    {
+      "name": "block count 256",
+      "passed": true
+    },
+    {
+      "name": "exact block summary reductions",
+      "passed": true
+    },
+    {
+      "name": "structural block stays unbound",
+      "passed": true
+    },
+    {
+      "name": "header semantic mutation 0",
+      "passed": true,
+      "rejection": "unsupported block framing"
+    },
+    {
+      "name": "header semantic mutation 1",
+      "passed": true,
+      "rejection": "unsupported block framing"
+    },
+    {
+      "name": "header semantic mutation 2",
+      "passed": true,
+      "rejection": "unsupported block framing"
+    },
+    {
+      "name": "header semantic mutation 3",
+      "passed": true,
+      "rejection": "zero block identity"
+    },
+    {
+      "name": "header semantic mutation 4",
+      "passed": true,
+      "rejection": "zero block identity"
+    },
+    {
+      "name": "header semantic mutation 5",
+      "passed": true,
+      "rejection": "invalid block slot range"
+    },
+    {
+      "name": "header semantic mutation 6",
+      "passed": true,
+      "rejection": "block schedule mismatch"
+    },
+    {
+      "name": "header semantic mutation 7",
+      "passed": true,
+      "rejection": "unsupported block period or count"
+    },
+    {
+      "name": "header semantic mutation 8",
+      "passed": true,
+      "rejection": "unsupported block period or count"
+    },
+    {
+      "name": "header semantic mutation 9",
+      "passed": true,
+      "rejection": "invalid block flags or partial block"
+    },
+    {
+      "name": "header semantic mutation 10",
+      "passed": true,
+      "rejection": "invalid block flags or partial block"
+    },
+    {
+      "name": "header semantic mutation 11",
+      "passed": true,
+      "rejection": "block extent mismatch"
+    },
+    {
+      "name": "header semantic mutation 12",
+      "passed": true,
+      "rejection": "block configuration mismatch"
+    },
+    {
+      "name": "block short payload",
+      "passed": true,
+      "rejection": "incorrect block length"
+    },
+    {
+      "name": "block allocation padding",
+      "passed": true,
+      "rejection": "block extent mismatch"
+    },
+    {
+      "name": "block damaged CRC",
+      "passed": true,
+      "rejection": "CRC32C mismatch"
+    },
+    {
+      "name": "publication identity and byte extent",
+      "passed": true
+    },
+    {
+      "name": "publication without lease stays unbound",
+      "passed": true
+    },
+    {
+      "name": "lease session",
+      "passed": true,
+      "rejection": "publication lease session mismatch"
+    },
+    {
+      "name": "lease slot",
+      "passed": true,
+      "rejection": "stale allocation lease"
+    },
+    {
+      "name": "lease generation",
+      "passed": true,
+      "rejection": "stale allocation lease"
+    },
+    {
+      "name": "unpublished descriptor",
+      "passed": true,
+      "rejection": "NOT_PUBLISHED"
+    },
+    {
+      "name": "lost publication under live lease",
+      "passed": true,
+      "rejection": "publication revoked under live lease"
+    },
+    {
+      "name": "descriptor semantic mutation 0",
+      "passed": true,
+      "rejection": "zero publication identity"
+    },
+    {
+      "name": "descriptor semantic mutation 1",
+      "passed": true,
+      "rejection": "invalid publication address or extent"
+    },
+    {
+      "name": "descriptor semantic mutation 2",
+      "passed": true,
+      "rejection": "invalid publication address or extent"
+    },
+    {
+      "name": "descriptor semantic mutation 3",
+      "passed": true,
+      "rejection": "publication block mismatch"
+    },
+    {
+      "name": "descriptor semantic mutation 4",
+      "passed": true,
+      "rejection": "invalid publication reservation or ring index"
+    },
+    {
+      "name": "descriptor semantic mutation 5",
+      "passed": true,
+      "rejection": "invalid publication reservation or ring index"
+    },
+    {
+      "name": "descriptor semantic mutation 6",
+      "passed": true,
+      "rejection": "invalid publication word"
+    },
+    {
+      "name": "allocation map overflow",
+      "passed": true,
+      "rejection": "ring map exceeds physical address space"
+    },
+    {
+      "name": "configuration field 32",
+      "passed": true,
+      "rejection": "unsupported configuration profile"
+    },
+    {
+      "name": "configuration field 34",
+      "passed": true,
+      "rejection": "unsupported configuration profile"
+    },
+    {
+      "name": "configuration field 36",
+      "passed": true,
+      "rejection": "unsupported configuration profile"
+    },
+    {
+      "name": "configuration field 38",
+      "passed": true,
+      "rejection": "unsupported configuration profile"
+    },
+    {
+      "name": "configuration field 40",
+      "passed": true,
+      "rejection": "unsupported configuration profile"
+    },
+    {
+      "name": "configuration field 41",
+      "passed": true,
+      "rejection": "unsupported configuration profile"
+    },
+    {
+      "name": "configuration field 42",
+      "passed": true,
+      "rejection": "unsupported configuration profile"
+    },
+    {
+      "name": "configuration field 43",
+      "passed": true,
+      "rejection": "unsupported configuration profile"
+    },
+    {
+      "name": "configuration field 44",
+      "passed": true,
+      "rejection": "unsupported configuration profile"
+    },
+    {
+      "name": "configuration field 108",
+      "passed": true,
+      "rejection": "nonzero configuration reservation"
+    },
+    {
+      "name": "configuration field 112",
+      "passed": true,
+      "rejection": "nonzero configuration reservation"
+    },
+    {
+      "name": "configuration field 119",
+      "passed": true,
+      "rejection": "nonzero configuration reservation"
+    },
+    {
+      "name": "configuration field 124",
+      "passed": true,
+      "rejection": "nonzero configuration reservation"
+    },
+    {
+      "name": "configuration field 127",
+      "passed": true,
+      "rejection": "nonzero configuration reservation"
+    },
+    {
+      "name": "manifest byte mismatch",
+      "passed": true,
+      "rejection": "manifest length mismatch"
+    },
+    {
+      "name": "configuration zero session",
+      "passed": true,
+      "rejection": "zero configuration identity"
+    },
+    {
+      "name": "unreduced tick frequency",
+      "passed": true,
+      "rejection": "tick frequency must be reduced"
+    },
+    {
+      "name": "unsupported tick frequency",
+      "passed": true,
+      "rejection": "tick frequency outside 100 ppm envelope"
+    },
+    {
+      "name": "epoch binding mismatch",
+      "passed": true,
+      "rejection": "epoch binding mismatch"
+    },
+    {
+      "name": "zero epoch origin cannot follow ARM",
+      "passed": true,
+      "rejection": "epoch first tick must be nonzero"
+    },
+    {
+      "name": "host rejects zero epoch origin",
+      "passed": true,
+      "rejection": "zero epoch first tick"
+    },
+    {
+      "name": "forged configuration mapping",
+      "passed": true,
+      "rejection": "incorrect binding context"
+    },
+    {
+      "name": "forged epoch mapping",
+      "passed": true,
+      "rejection": "incorrect binding context"
+    },
+    {
+      "name": "forged block mapping",
+      "passed": true,
+      "rejection": "incorrect binding context"
+    },
+    {
+      "name": "configuration context is immutable",
+      "passed": true
+    },
+    {
+      "name": "inclusive exact loss count",
+      "passed": true
+    },
+    {
+      "name": "unknown loss is not zero count",
+      "passed": true
+    },
+    {
+      "name": "loss ledger excludes uncertainty",
+      "passed": true
+    },
+    {
+      "name": "published-invalid records are not producer loss",
+      "passed": true,
+      "rejection": "producer loss overlaps published records"
+    },
+    {
+      "name": "archive gap preserves producer publication",
+      "passed": true
+    },
+    {
+      "name": "unmerged adjacent exact loss",
+      "passed": true,
+      "rejection": "unmerged adjacent loss intervals"
+    },
+    {
+      "name": "duplicate uncertainty",
+      "passed": true,
+      "rejection": "unsorted or duplicate uncertainty intervals"
+    },
+    {
+      "name": "forged loss mapping",
+      "passed": true,
+      "rejection": "incorrect binding context"
+    },
+    {
+      "name": "conflicting loss epoch binding",
+      "passed": true,
+      "rejection": "conflicting interval epoch binding"
+    },
+    {
+      "name": "conflicting published epoch binding",
+      "passed": true,
+      "rejection": "conflicting interval epoch binding"
+    },
+    {
+      "name": "loss semantic mutation 0",
+      "passed": true,
+      "rejection": "invalid loss causes"
+    },
+    {
+      "name": "loss semantic mutation 1",
+      "passed": true,
+      "rejection": "invalid loss causes"
+    },
+    {
+      "name": "loss semantic mutation 2",
+      "passed": true,
+      "rejection": "invalid loss framing fields"
+    },
+    {
+      "name": "loss semantic mutation 3",
+      "passed": true,
+      "rejection": "invalid loss framing fields"
+    },
+    {
+      "name": "loss semantic mutation 4",
+      "passed": true,
+      "rejection": "invalid inferred loss origin"
+    },
+    {
+      "name": "loss reserved slot maximum",
+      "passed": true,
+      "rejection": "loss endpoint exceeds count range"
+    },
+    {
+      "name": "known loss schedule overflow even without ticks",
+      "passed": true,
+      "rejection": "loss endpoint schedule out of range"
+    },
+    {
+      "name": "first stream block",
+      "passed": true
+    },
+    {
+      "name": "partial final stream block",
+      "passed": true
+    },
+    {
+      "name": "duplicate stream block",
+      "passed": true,
+      "rejection": "duplicate or reordered stream block"
+    },
+    {
+      "name": "new epoch keeps stream sequence",
+      "passed": true
+    },
+    {
+      "name": "archive sequence gap is explicit",
+      "passed": true
+    },
+    {
+      "name": "timebase frequency cannot change under same ID",
+      "passed": true,
+      "rejection": "timebase frequency changed"
+    },
+    {
+      "name": "ledger rejection is atomic",
+      "passed": true
+    },
+    {
+      "name": "first epoch cannot hide earlier epochs in sequence gap",
+      "passed": true,
+      "rejection": "impossible skipped-block count"
+    },
+    {
+      "name": "first epoch gap has full prefix blocks",
+      "passed": true
+    },
+    {
+      "name": "gap after FINAL belongs to immediate next epoch prefix",
+      "passed": true,
+      "rejection": "impossible skipped-block count"
+    },
+    {
+      "name": "same timebase cannot overlap prior ticks",
+      "passed": true,
+      "rejection": "timebase tick reused or reversed"
+    },
+    {
+      "name": "new timebase permits tick restart",
+      "passed": true
+    },
+    {
+      "name": "missing prefix cannot hide overlapping epoch origin",
+      "passed": true,
+      "rejection": "timebase tick reused or reversed"
+    },
+    {
+      "name": "origin rejection leaves sequence and binding untouched",
+      "passed": true
+    },
+    {
+      "name": "loss-only epoch chronology ticks False",
+      "passed": true,
+      "rejection": "overlapping or reversed epoch chronology"
+    },
+    {
+      "name": "loss-only epoch chronology ticks True",
+      "passed": true,
+      "rejection": "overlapping or reversed epoch chronology"
+    },
+    {
+      "name": "loss chronology permits a new timebase",
+      "passed": true
+    },
+    {
+      "name": "uncertain endpoint does not invent occupied chronology",
+      "passed": true
+    },
+    {
+      "name": "final generation is represented without wrap",
+      "passed": true
+    },
+    {
+      "name": "finite epochs cannot hide unlimited prior publications",
+      "passed": true,
+      "rejection": "impossible skipped-block count"
+    },
+    {
+      "name": "final u64 sequence does not wrap",
+      "passed": true
+    },
+    {
+      "name": "stream cannot continue after sequence exhaustion",
+      "passed": true,
+      "rejection": "stream sequence exhausted"
+    },
+    {
+      "name": "absolute epoch publication capacity",
+      "passed": true
+    },
+    {
+      "name": "initial archive gap exceeds prior epoch capacity",
+      "passed": true,
+      "rejection": "impossible skipped-block count"
+    },
+    {
+      "name": "initial archive gap includes maximum prior capacity",
+      "passed": true
+    },
+    {
+      "name": "transition gap exceeds prior known-origin tail",
+      "passed": true,
+      "rejection": "impossible skipped-block count"
+    },
+    {
+      "name": "transition gap allows last prior partial block",
+      "passed": true
+    },
+    {
+      "name": "transition gap exceeds intervening epoch capacity",
+      "passed": true,
+      "rejection": "impossible skipped-block count"
+    },
+    {
+      "name": "transition gap allows full intervening capacity",
+      "passed": true
+    },
+    {
+      "name": "same-timebase gap has no room for prior tail",
+      "passed": true,
+      "rejection": "impossible skipped-block count"
+    },
+    {
+      "name": "same-timebase gap fits one prior partial block",
+      "passed": true
+    },
+    {
+      "name": "timestamp overflow",
+      "passed": true,
+      "rejection": "last scheduled tick out of range"
+    },
+    {
+      "name": "producer rejects empty block",
+      "passed": true,
+      "rejection": "block must contain 1..256 records"
+    },
+    {
+      "name": "producer rejects nonfinal partial block",
+      "passed": true,
+      "rejection": "partial block must be FINAL"
+    },
+    {
+      "name": "producer rejects unsupported sample width",
+      "passed": true,
+      "rejection": "sample outside signed18 range"
+    },
+    {
+      "name": "producer rejects untriggered captured data",
+      "passed": true,
+      "rejection": "untriggered slot cannot contain captured bits"
+    },
+    {
+      "name": "all u64 binding fields retain upper words",
+      "passed": true
+    },
+    {
+      "name": "independent publication field packing",
+      "passed": true
+    },
+    {
+      "name": "allocation exclusive end equals 2^32",
+      "passed": true
+    },
+    {
+      "name": "inferred allocation base cannot be negative",
+      "passed": true,
+      "rejection": "invalid inferred ring allocation"
+    },
+    {
+      "name": "inferred whole ring cannot exceed u32",
+      "passed": true,
+      "rejection": "invalid inferred ring allocation"
+    },
+    {
+      "name": "configuration short length",
+      "passed": true,
+      "rejection": "incorrect object length"
+    },
+    {
+      "name": "configuration extra byte",
+      "passed": true,
+      "rejection": "incorrect object length"
+    },
+    {
+      "name": "configuration framing 0",
+      "passed": true,
+      "rejection": "unsupported object framing"
+    },
+    {
+      "name": "configuration framing 4",
+      "passed": true,
+      "rejection": "unsupported object framing"
+    },
+    {
+      "name": "configuration framing 6",
+      "passed": true,
+      "rejection": "unsupported object framing"
+    },
+    {
+      "name": "epoch short length",
+      "passed": true,
+      "rejection": "incorrect object length"
+    },
+    {
+      "name": "epoch extra byte",
+      "passed": true,
+      "rejection": "incorrect object length"
+    },
+    {
+      "name": "epoch framing 0",
+      "passed": true,
+      "rejection": "unsupported object framing"
+    },
+    {
+      "name": "epoch framing 4",
+      "passed": true,
+      "rejection": "unsupported object framing"
+    },
+    {
+      "name": "epoch framing 6",
+      "passed": true,
+      "rejection": "unsupported object framing"
+    },
+    {
+      "name": "publication short length",
+      "passed": true,
+      "rejection": "incorrect publication length"
+    },
+    {
+      "name": "publication extra byte",
+      "passed": true,
+      "rejection": "incorrect publication length"
+    },
+    {
+      "name": "publication framing 0",
+      "passed": true,
+      "rejection": "unsupported object framing"
+    },
+    {
+      "name": "publication framing 4",
+      "passed": true,
+      "rejection": "unsupported object framing"
+    },
+    {
+      "name": "publication framing 6",
+      "passed": true,
+      "rejection": "unsupported object framing"
+    },
+    {
+      "name": "loss short length",
+      "passed": true,
+      "rejection": "incorrect object length"
+    },
+    {
+      "name": "loss extra byte",
+      "passed": true,
+      "rejection": "incorrect object length"
+    },
+    {
+      "name": "loss framing 0",
+      "passed": true,
+      "rejection": "unsupported object framing"
+    },
+    {
+      "name": "loss framing 4",
+      "passed": true,
+      "rejection": "unsupported object framing"
+    },
+    {
+      "name": "loss framing 6",
+      "passed": true,
+      "rejection": "unsupported object framing"
+    },
+    {
+      "name": "block short length",
+      "passed": true,
+      "rejection": "incorrect block length"
+    },
+    {
+      "name": "block extra byte",
+      "passed": true,
+      "rejection": "block extent mismatch"
+    },
+    {
+      "name": "block framing 0",
+      "passed": true,
+      "rejection": "unsupported block framing"
+    },
+    {
+      "name": "block framing 4",
+      "passed": true,
+      "rejection": "unsupported block framing"
+    },
+    {
+      "name": "block framing 6",
+      "passed": true,
+      "rejection": "unsupported block framing"
+    },
+    {
+      "name": "manifest maximum fits u32 length",
+      "passed": true
+    },
+    {
+      "name": "empty manifest is unsupported",
+      "passed": true,
+      "rejection": "manifest length outside profile"
+    },
+    {
+      "name": "oversized manifest is unsupported",
+      "passed": true,
+      "rejection": "manifest length outside profile"
+    },
+    {
+      "name": "unbound loss tick spacing",
+      "passed": true,
+      "rejection": "inconsistent loss tick spacing"
+    },
+    {
+      "name": "unbound loss origin cannot precede ARM",
+      "passed": true,
+      "rejection": "invalid inferred loss origin"
+    },
+    {
+      "name": "unbound known loss endpoint must fit any legal origin",
+      "passed": true,
+      "rejection": "unsupported first loss slot"
+    },
+    {
+      "name": "known slot zero differs from unknown endpoint",
+      "passed": true
+    },
+    {
+      "name": "disjoint cause partitions count once",
+      "passed": true
+    },
+    {
+      "name": "reordered exact intervals",
+      "passed": true,
+      "rejection": "unsorted or overlapping exact loss"
+    },
+    {
+      "name": "equal uncertain bounds require cause merge",
+      "passed": true,
+      "rejection": "unmerged uncertainty causes"
+    },
+    {
+      "name": "loss parser rejects mutable epoch copy",
+      "passed": true,
+      "rejection": "incorrect binding context"
+    },
+    {
+      "name": "descriptor table storage ledger",
+      "passed": true
+    },
+    {
+      "name": "retirement metadata service ledger",
+      "passed": true
+    },
+    {
+      "name": "random payload 0",
+      "passed": true
+    },
+    {
+      "name": "random payload 1",
+      "passed": true
+    },
+    {
+      "name": "random payload 2",
+      "passed": true
+    },
+    {
+      "name": "random payload 3",
+      "passed": true
+    },
+    {
+      "name": "random payload 4",
+      "passed": true
+    },
+    {
+      "name": "random payload 5",
+      "passed": true
+    },
+    {
+      "name": "random payload 6",
+      "passed": true
+    },
+    {
+      "name": "random payload 7",
+      "passed": true
+    },
+    {
+      "name": "random payload 8",
+      "passed": true
+    },
+    {
+      "name": "random payload 9",
+      "passed": true
+    },
+    {
+      "name": "random payload 10",
+      "passed": true
+    },
+    {
+      "name": "random payload 11",
+      "passed": true
+    },
+    {
+      "name": "random payload 12",
+      "passed": true
+    },
+    {
+      "name": "random payload 13",
+      "passed": true
+    },
+    {
+      "name": "random payload 14",
+      "passed": true
+    },
+    {
+      "name": "random payload 15",
+      "passed": true
+    },
+    {
+      "name": "random payload 16",
+      "passed": true
+    },
+    {
+      "name": "random payload 17",
+      "passed": true
+    },
+    {
+      "name": "random payload 18",
+      "passed": true
+    },
+    {
+      "name": "random payload 19",
+      "passed": true
+    },
+    {
+      "name": "random payload 20",
+      "passed": true
+    },
+    {
+      "name": "random payload 21",
+      "passed": true
+    },
+    {
+      "name": "random payload 22",
+      "passed": true
+    },
+    {
+      "name": "random payload 23",
+      "passed": true
+    },
+    {
+      "name": "random payload 24",
+      "passed": true
+    },
+    {
+      "name": "random payload 25",
+      "passed": true
+    },
+    {
+      "name": "random payload 26",
+      "passed": true
+    },
+    {
+      "name": "random payload 27",
+      "passed": true
+    },
+    {
+      "name": "random payload 28",
+      "passed": true
+    },
+    {
+      "name": "random payload 29",
+      "passed": true
+    },
+    {
+      "name": "random payload 30",
+      "passed": true
+    },
+    {
+      "name": "random payload 31",
+      "passed": true
+    },
+    {
+      "name": "random payload 32",
+      "passed": true
+    },
+    {
+      "name": "random payload 33",
+      "passed": true
+    },
+    {
+      "name": "random payload 34",
+      "passed": true
+    },
+    {
+      "name": "random payload 35",
+      "passed": true
+    },
+    {
+      "name": "random payload 36",
+      "passed": true
+    },
+    {
+      "name": "random payload 37",
+      "passed": true
+    },
+    {
+      "name": "random payload 38",
+      "passed": true
+    },
+    {
+      "name": "random payload 39",
+      "passed": true
+    },
+    {
+      "name": "random payload 40",
+      "passed": true
+    },
+    {
+      "name": "random payload 41",
+      "passed": true
+    },
+    {
+      "name": "random payload 42",
+      "passed": true
+    },
+    {
+      "name": "random payload 43",
+      "passed": true
+    },
+    {
+      "name": "random payload 44",
+      "passed": true
+    },
+    {
+      "name": "random payload 45",
+      "passed": true
+    },
+    {
+      "name": "random payload 46",
+      "passed": true
+    },
+    {
+      "name": "random payload 47",
+      "passed": true
+    },
+    {
+      "name": "random payload 48",
+      "passed": true
+    },
+    {
+      "name": "random payload 49",
+      "passed": true
+    },
+    {
+      "name": "random payload 50",
+      "passed": true
+    },
+    {
+      "name": "random payload 51",
+      "passed": true
+    },
+    {
+      "name": "random payload 52",
+      "passed": true
+    },
+    {
+      "name": "random payload 53",
+      "passed": true
+    },
+    {
+      "name": "random payload 54",
+      "passed": true
+    },
+    {
+      "name": "random payload 55",
+      "passed": true
+    },
+    {
+      "name": "random payload 56",
+      "passed": true
+    },
+    {
+      "name": "random payload 57",
+      "passed": true
+    },
+    {
+      "name": "random payload 58",
+      "passed": true
+    },
+    {
+      "name": "random payload 59",
+      "passed": true
+    },
+    {
+      "name": "random payload 60",
+      "passed": true
+    },
+    {
+      "name": "random payload 61",
+      "passed": true
+    },
+    {
+      "name": "random payload 62",
+      "passed": true
+    },
+    {
+      "name": "random payload 63",
+      "passed": true
+    },
+    {
+      "name": "random payload 64",
+      "passed": true
+    },
+    {
+      "name": "random payload 65",
+      "passed": true
+    },
+    {
+      "name": "random payload 66",
+      "passed": true
+    },
+    {
+      "name": "random payload 67",
+      "passed": true
+    },
+    {
+      "name": "random payload 68",
+      "passed": true
+    },
+    {
+      "name": "random payload 69",
+      "passed": true
+    },
+    {
+      "name": "random payload 70",
+      "passed": true
+    },
+    {
+      "name": "random payload 71",
+      "passed": true
+    },
+    {
+      "name": "random payload 72",
+      "passed": true
+    },
+    {
+      "name": "random payload 73",
+      "passed": true
+    },
+    {
+      "name": "random payload 74",
+      "passed": true
+    },
+    {
+      "name": "random payload 75",
+      "passed": true
+    },
+    {
+      "name": "random payload 76",
+      "passed": true
+    },
+    {
+      "name": "random payload 77",
+      "passed": true
+    },
+    {
+      "name": "random payload 78",
+      "passed": true
+    },
+    {
+      "name": "random payload 79",
+      "passed": true
+    },
+    {
+      "name": "random payload 80",
+      "passed": true
+    },
+    {
+      "name": "random payload 81",
+      "passed": true
+    },
+    {
+      "name": "random payload 82",
+      "passed": true
+    },
+    {
+      "name": "random payload 83",
+      "passed": true
+    },
+    {
+      "name": "random payload 84",
+      "passed": true
+    },
+    {
+      "name": "random payload 85",
+      "passed": true
+    },
+    {
+      "name": "random payload 86",
+      "passed": true
+    },
+    {
+      "name": "random payload 87",
+      "passed": true
+    },
+    {
+      "name": "random payload 88",
+      "passed": true
+    },
+    {
+      "name": "random payload 89",
+      "passed": true
+    },
+    {
+      "name": "random payload 90",
+      "passed": true
+    },
+    {
+      "name": "random payload 91",
+      "passed": true
+    },
+    {
+      "name": "random payload 92",
+      "passed": true
+    },
+    {
+      "name": "random payload 93",
+      "passed": true
+    },
+    {
+      "name": "random payload 94",
+      "passed": true
+    },
+    {
+      "name": "random payload 95",
+      "passed": true
+    },
+    {
+      "name": "random payload 96",
+      "passed": true
+    },
+    {
+      "name": "random payload 97",
+      "passed": true
+    },
+    {
+      "name": "random payload 98",
+      "passed": true
+    },
+    {
+      "name": "random payload 99",
+      "passed": true
+    },
+    {
+      "name": "random payload 100",
+      "passed": true
+    },
+    {
+      "name": "random payload 101",
+      "passed": true
+    },
+    {
+      "name": "random payload 102",
+      "passed": true
+    },
+    {
+      "name": "random payload 103",
+      "passed": true
+    },
+    {
+      "name": "random payload 104",
+      "passed": true
+    },
+    {
+      "name": "random payload 105",
+      "passed": true
+    },
+    {
+      "name": "random payload 106",
+      "passed": true
+    },
+    {
+      "name": "random payload 107",
+      "passed": true
+    },
+    {
+      "name": "random payload 108",
+      "passed": true
+    },
+    {
+      "name": "random payload 109",
+      "passed": true
+    },
+    {
+      "name": "random payload 110",
+      "passed": true
+    },
+    {
+      "name": "random payload 111",
+      "passed": true
+    },
+    {
+      "name": "random payload 112",
+      "passed": true
+    },
+    {
+      "name": "random payload 113",
+      "passed": true
+    },
+    {
+      "name": "random payload 114",
+      "passed": true
+    },
+    {
+      "name": "random payload 115",
+      "passed": true
+    },
+    {
+      "name": "random payload 116",
+      "passed": true
+    },
+    {
+      "name": "random payload 117",
+      "passed": true
+    },
+    {
+      "name": "random payload 118",
+      "passed": true
+    },
+    {
+      "name": "random payload 119",
+      "passed": true
+    },
+    {
+      "name": "random payload 120",
+      "passed": true
+    },
+    {
+      "name": "random payload 121",
+      "passed": true
+    },
+    {
+      "name": "random payload 122",
+      "passed": true
+    },
+    {
+      "name": "random payload 123",
+      "passed": true
+    },
+    {
+      "name": "random payload 124",
+      "passed": true
+    },
+    {
+      "name": "random payload 125",
+      "passed": true
+    },
+    {
+      "name": "random payload 126",
+      "passed": true
+    },
+    {
+      "name": "random payload 127",
+      "passed": true
+    },
+    {
+      "name": "random payload 128",
+      "passed": true
+    },
+    {
+      "name": "random payload 129",
+      "passed": true
+    },
+    {
+      "name": "random payload 130",
+      "passed": true
+    },
+    {
+      "name": "random payload 131",
+      "passed": true
+    },
+    {
+      "name": "random payload 132",
+      "passed": true
+    },
+    {
+      "name": "random payload 133",
+      "passed": true
+    },
+    {
+      "name": "random payload 134",
+      "passed": true
+    },
+    {
+      "name": "random payload 135",
+      "passed": true
+    },
+    {
+      "name": "random payload 136",
+      "passed": true
+    },
+    {
+      "name": "random payload 137",
+      "passed": true
+    },
+    {
+      "name": "random payload 138",
+      "passed": true
+    },
+    {
+      "name": "random payload 139",
+      "passed": true
+    },
+    {
+      "name": "random payload 140",
+      "passed": true
+    },
+    {
+      "name": "random payload 141",
+      "passed": true
+    },
+    {
+      "name": "random payload 142",
+      "passed": true
+    },
+    {
+      "name": "random payload 143",
+      "passed": true
+    },
+    {
+      "name": "random payload 144",
+      "passed": true
+    },
+    {
+      "name": "random payload 145",
+      "passed": true
+    },
+    {
+      "name": "random payload 146",
+      "passed": true
+    },
+    {
+      "name": "random payload 147",
+      "passed": true
+    },
+    {
+      "name": "random payload 148",
+      "passed": true
+    },
+    {
+      "name": "random payload 149",
+      "passed": true
+    },
+    {
+      "name": "random payload 150",
+      "passed": true
+    },
+    {
+      "name": "random payload 151",
+      "passed": true
+    },
+    {
+      "name": "random payload 152",
+      "passed": true
+    },
+    {
+      "name": "random payload 153",
+      "passed": true
+    },
+    {
+      "name": "random payload 154",
+      "passed": true
+    },
+    {
+      "name": "random payload 155",
+      "passed": true
+    },
+    {
+      "name": "random payload 156",
+      "passed": true
+    },
+    {
+      "name": "random payload 157",
+      "passed": true
+    },
+    {
+      "name": "random payload 158",
+      "passed": true
+    },
+    {
+      "name": "random payload 159",
+      "passed": true
+    },
+    {
+      "name": "random payload 160",
+      "passed": true
+    },
+    {
+      "name": "random payload 161",
+      "passed": true
+    },
+    {
+      "name": "random payload 162",
+      "passed": true
+    },
+    {
+      "name": "random payload 163",
+      "passed": true
+    },
+    {
+      "name": "random payload 164",
+      "passed": true
+    },
+    {
+      "name": "random payload 165",
+      "passed": true
+    },
+    {
+      "name": "random payload 166",
+      "passed": true
+    },
+    {
+      "name": "random payload 167",
+      "passed": true
+    },
+    {
+      "name": "random payload 168",
+      "passed": true
+    },
+    {
+      "name": "random payload 169",
+      "passed": true
+    },
+    {
+      "name": "random payload 170",
+      "passed": true
+    },
+    {
+      "name": "random payload 171",
+      "passed": true
+    },
+    {
+      "name": "random payload 172",
+      "passed": true
+    },
+    {
+      "name": "random payload 173",
+      "passed": true
+    },
+    {
+      "name": "random payload 174",
+      "passed": true
+    },
+    {
+      "name": "random payload 175",
+      "passed": true
+    },
+    {
+      "name": "random payload 176",
+      "passed": true
+    },
+    {
+      "name": "random payload 177",
+      "passed": true
+    },
+    {
+      "name": "random payload 178",
+      "passed": true
+    },
+    {
+      "name": "random payload 179",
+      "passed": true
+    },
+    {
+      "name": "random payload 180",
+      "passed": true
+    },
+    {
+      "name": "random payload 181",
+      "passed": true
+    },
+    {
+      "name": "random payload 182",
+      "passed": true
+    },
+    {
+      "name": "random payload 183",
+      "passed": true
+    },
+    {
+      "name": "random payload 184",
+      "passed": true
+    },
+    {
+      "name": "random payload 185",
+      "passed": true
+    },
+    {
+      "name": "random payload 186",
+      "passed": true
+    },
+    {
+      "name": "random payload 187",
+      "passed": true
+    },
+    {
+      "name": "random payload 188",
+      "passed": true
+    },
+    {
+      "name": "random payload 189",
+      "passed": true
+    },
+    {
+      "name": "random payload 190",
+      "passed": true
+    },
+    {
+      "name": "random payload 191",
+      "passed": true
+    },
+    {
+      "name": "random payload 192",
+      "passed": true
+    },
+    {
+      "name": "random payload 193",
+      "passed": true
+    },
+    {
+      "name": "random payload 194",
+      "passed": true
+    },
+    {
+      "name": "random payload 195",
+      "passed": true
+    },
+    {
+      "name": "random payload 196",
+      "passed": true
+    },
+    {
+      "name": "random payload 197",
+      "passed": true
+    },
+    {
+      "name": "random payload 198",
+      "passed": true
+    },
+    {
+      "name": "random payload 199",
+      "passed": true
+    },
+    {
+      "name": "random payload 200",
+      "passed": true
+    },
+    {
+      "name": "random payload 201",
+      "passed": true
+    },
+    {
+      "name": "random payload 202",
+      "passed": true
+    },
+    {
+      "name": "random payload 203",
+      "passed": true
+    },
+    {
+      "name": "random payload 204",
+      "passed": true
+    },
+    {
+      "name": "random payload 205",
+      "passed": true
+    },
+    {
+      "name": "random payload 206",
+      "passed": true
+    },
+    {
+      "name": "random payload 207",
+      "passed": true
+    },
+    {
+      "name": "random payload 208",
+      "passed": true
+    },
+    {
+      "name": "random payload 209",
+      "passed": true
+    },
+    {
+      "name": "random payload 210",
+      "passed": true
+    },
+    {
+      "name": "random payload 211",
+      "passed": true
+    },
+    {
+      "name": "random payload 212",
+      "passed": true
+    },
+    {
+      "name": "random payload 213",
+      "passed": true
+    },
+    {
+      "name": "random payload 214",
+      "passed": true
+    },
+    {
+      "name": "random payload 215",
+      "passed": true
+    },
+    {
+      "name": "random payload 216",
+      "passed": true
+    },
+    {
+      "name": "random payload 217",
+      "passed": true
+    },
+    {
+      "name": "random payload 218",
+      "passed": true
+    },
+    {
+      "name": "random payload 219",
+      "passed": true
+    },
+    {
+      "name": "random payload 220",
+      "passed": true
+    },
+    {
+      "name": "random payload 221",
+      "passed": true
+    },
+    {
+      "name": "random payload 222",
+      "passed": true
+    },
+    {
+      "name": "random payload 223",
+      "passed": true
+    },
+    {
+      "name": "random payload 224",
+      "passed": true
+    },
+    {
+      "name": "random payload 225",
+      "passed": true
+    },
+    {
+      "name": "random payload 226",
+      "passed": true
+    },
+    {
+      "name": "random payload 227",
+      "passed": true
+    },
+    {
+      "name": "random payload 228",
+      "passed": true
+    },
+    {
+      "name": "random payload 229",
+      "passed": true
+    },
+    {
+      "name": "random payload 230",
+      "passed": true
+    },
+    {
+      "name": "random payload 231",
+      "passed": true
+    },
+    {
+      "name": "random payload 232",
+      "passed": true
+    },
+    {
+      "name": "random payload 233",
+      "passed": true
+    },
+    {
+      "name": "random payload 234",
+      "passed": true
+    },
+    {
+      "name": "random payload 235",
+      "passed": true
+    },
+    {
+      "name": "random payload 236",
+      "passed": true
+    },
+    {
+      "name": "random payload 237",
+      "passed": true
+    },
+    {
+      "name": "random payload 238",
+      "passed": true
+    },
+    {
+      "name": "random payload 239",
+      "passed": true
+    },
+    {
+      "name": "random payload 240",
+      "passed": true
+    },
+    {
+      "name": "random payload 241",
+      "passed": true
+    },
+    {
+      "name": "random payload 242",
+      "passed": true
+    },
+    {
+      "name": "random payload 243",
+      "passed": true
+    },
+    {
+      "name": "random payload 244",
+      "passed": true
+    },
+    {
+      "name": "random payload 245",
+      "passed": true
+    },
+    {
+      "name": "random payload 246",
+      "passed": true
+    },
+    {
+      "name": "random payload 247",
+      "passed": true
+    },
+    {
+      "name": "random payload 248",
+      "passed": true
+    },
+    {
+      "name": "random payload 249",
+      "passed": true
+    },
+    {
+      "name": "random payload 250",
+      "passed": true
+    },
+    {
+      "name": "random payload 251",
+      "passed": true
+    },
+    {
+      "name": "random payload 252",
+      "passed": true
+    },
+    {
+      "name": "random payload 253",
+      "passed": true
+    },
+    {
+      "name": "random payload 254",
+      "passed": true
+    },
+    {
+      "name": "random payload 255",
+      "passed": true
+    },
+    {
+      "name": "source stability",
+      "passed": true
+    }
+  ],
+  "source_sha256": {
+    "microcontroller/acquisition/check_formats.py": "90afa01dad517b82c75505f25ac3e6177c3773132ad1b23290f9aa92cd563fb4",
+    "microcontroller/acquisition/format_producer.py": "0a83812ee4f37d2bc42c44c1b30f26ba52908dfa8b650d2d7af99e4ec87cf456",
+    "microcontroller/acquisition/format_parser.py": "fe0c70eec36ade5b623d3042a18190dbd314da1a214770dd8f19000d11ae5a0f",
+    "microcontroller/acquisition/formats.md": "72a98c0d304d9afc5abac956fcd2997d087d5817953cdfbf759d0b23a0c26055"
+  },
+  "checks_passed": 1549,
+  "artifacts_sha256": {
+    "configuration.bin": "8a8fd9dd55916414bece1e4a22a4bc65aec6f3a040eca3a1e2622645575451c7",
+    "epoch.bin": "f36fbe1080f89b758bddbeba0274c0522c266e9e780e915cd5e6ff652fb5da3d",
+    "full-block.bin": "40b43b78d1c96ce8b96fcb784504e9807b78a539fa039a6a8fcfb633a232015f",
+    "loss.bin": "7e3b83819f1e81f59732cda41ae22171f8f2bf196aace213da2a96471c6275c9",
+    "partial-block.bin": "c638dcbd0bce47598238983920eea951d89f23e7360c7fc0a00e32b86644842b",
+    "publication.bin": "a97738a0b93a0ae8543aa9e3030b4616d6018dff9e5a648d34f31cef19c1a65f",
+    "qualification-manifest.bin": "5e0a8b8340aa30f1eceec6cbc89928919a6dd0eb66c79d9e83b2556cc4fa17ae",
+    "record.bin": "d28f1b5d89f9042c9b2954d75cce81c950e57a0725b0d06448567ff0c5d9b8ed",
+    "sources/check_formats.py": "90afa01dad517b82c75505f25ac3e6177c3773132ad1b23290f9aa92cd563fb4",
+    "sources/format_parser.py": "fe0c70eec36ade5b623d3042a18190dbd314da1a214770dd8f19000d11ae5a0f",
+    "sources/format_producer.py": "0a83812ee4f37d2bc42c44c1b30f26ba52908dfa8b650d2d7af99e4ec87cf456",
+    "sources/formats.md": "72a98c0d304d9afc5abac956fcd2997d087d5817953cdfbf759d0b23a0c26055"
+  }
+}

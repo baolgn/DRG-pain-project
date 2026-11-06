@@ -6,6 +6,16 @@ The **[ACQ-R1 contract](contract.md)** now freezes the first implementation's su
 
 The **[timing budget](timing-budget.md)** separates ADC limits from controller choices before state-machine design. Revision 3 retains the nominal 14 µs read deadline because 13 µs cannot cover the entire accepted 2 µs BUSY-fall window. It allocates clock tolerance, FPGA/board capture paths, bounded service/storage waits and independent supervision; arithmetic passes do not establish physical timing closure.
 
+The **[binary formats](formats.md)** freeze revision 4's 48-byte records, 64-byte block headers and publication descriptors, immutable configuration/epoch bindings and exact loss intervals. Independent producer and host-parser code checks byte agreement, canonical validity, integrity, allocation generations and counter exhaustion. These offline format tools do not implement ADC control, DMA or concurrent memory publication.
+
+Reproduce the format check from the repository root with Python 3, choosing a new output directory for each attempt:
+
+```sh
+PYTHONDONTWRITEBYTECODE=1 python3 -O microcontroller/acquisition/check_formats.py --output /tmp/drg-acquisition-formats-check
+```
+
+The runner retains source snapshots, binary golden vectors and individual positive/negative results. Its predicates remain active under `-O`. See the [format review](evidence/formats-2026-11-05/review.json) for the retained revision history and current result.
+
 The [board qualification](board-qualification.md) traces the documented ADC nets, power/reference selection and ownership. J1–J8 are the positive/negative connectors for channels 1–4, not eight independent channel sockets. The [electrical and Ubuntu qualification](qualification.md) separates fresh executable tool checks from physical gates. The user confirmed that no board is available; physical assembly inspection, rail/continuity measurements and programming remain unperformed.
 
 ## Table of contents
@@ -15,6 +25,7 @@ The [board qualification](board-qualification.md) traces the documented ADC nets
 | [First implementation contract](contract.md) |
 | [ADC profile](adc-profile.md) |
 | [Timing budget](timing-budget.md) |
+| [Frozen binary formats](formats.md) |
 | [Definition review](review.md) |
 | [Board qualification](board-qualification.md) |
 | [Electrical and Ubuntu qualification](qualification.md) |

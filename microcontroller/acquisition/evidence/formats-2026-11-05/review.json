@@ -1,0 +1,681 @@
+{
+  "schema": "DRG5-FORMAT-REVIEW-1",
+  "date": "2026-11-05",
+  "baseline_commit": "2a8f65b21b324c9f33051b66deea08db080d6d11",
+  "contract_revision": 4,
+  "result": "independent-producer-host-format-conformance-pass",
+  "physical_qualified": false,
+  "hardware_exercised": false,
+  "complete_acquisition_implemented": false,
+  "review_cycles": [
+    {
+      "focus": "exact geometry and representation",
+      "resolution": "freeze six byte layouts; explicit little endian, signed18 in i32, zero reserved fields, magic/version and actual-length rejection"
+    },
+    {
+      "focus": "record truth and integrity",
+      "resolution": "canonical flags, positional status, present prefixes and incomplete trailer handling; independently recompute ADC CRC16 and block CRC32C"
+    },
+    {
+      "focus": "configuration and epoch context",
+      "resolution": "separate opaque manifest byte binding from physical qualification; retain ACE1 on ARM; nonzero origin; immutable validated context and raw provenance"
+    },
+    {
+      "focus": "ownership and ABA",
+      "resolution": "lease includes session, ring index and full generation; PUB1 alone cannot prove ownership; explicit zero-publication precedence and immutable leased snapshot"
+    },
+    {
+      "focus": "partial blocks and loss namespaces",
+      "resolution": "partial blocks are final; no padding exported; exact producer loss excludes all published records; archive gaps and uncertain envelopes have separate counting rules"
+    },
+    {
+      "focus": "unbound arithmetic",
+      "resolution": "reject impossible ACL1 origin/spacing/known endpoints and impossible inferred full ACD1 ring maps even before external binding"
+    },
+    {
+      "focus": "epoch chronology",
+      "resolution": "new-epoch order uses ACE1 origin even with missing prefixes; loss-only exact epochs contribute occupied endpoints; uncertain envelopes do not fabricate occupancy"
+    },
+    {
+      "focus": "finite publication histories",
+      "resolution": "reject sequence gaps exceeding finite prior/intermediate epoch capacities; tighten old tail before a new origin on the same timebase; correct impossible exhaustion fixture"
+    },
+    {
+      "focus": "storage and service",
+      "resolution": "account separately for 4096-byte descriptor table and 4-byte retirement store; bound retirement service without blocking drain"
+    },
+    {
+      "focus": "comments and final independent review",
+      "resolution": "retain initial three comment findings and correct them; final 216-file audit passes; independent reviewer confirms all targeted residuals fixed and r4 source hashes match"
+    }
+  ],
+  "independence": {
+    "producer": "separately authored bytearray/explicit-offset packer with bitwise CRC32C and MSB feedback ADC CRC16",
+    "host": "separately authored struct decoder with table CRC32C and polynomial-division ADC CRC16; never read or imported producer implementation",
+    "harness": "third implementation compares literal record and independently packed header/descriptor bytes, decoded fields, canonical predicates and rejection outcomes",
+    "imports": {
+      "format_producer.py": [
+        "hashlib",
+        "math"
+      ],
+      "format_parser.py": [
+        "hashlib",
+        "math",
+        "struct",
+        "collections.abc",
+        "types"
+      ]
+    },
+    "shared_packing_offsets_or_crc_helpers": false
+  },
+  "field_coverage": {
+    "record": {
+      "bytes": 48,
+      "no_overlap_or_gap": true,
+      "fields": [
+        {
+          "offset": 0,
+          "bytes": 32,
+          "name": "samples"
+        },
+        {
+          "offset": 32,
+          "bytes": 8,
+          "name": "status"
+        },
+        {
+          "offset": 40,
+          "bytes": 2,
+          "name": "received_crc16"
+        },
+        {
+          "offset": 42,
+          "bytes": 1,
+          "name": "present"
+        },
+        {
+          "offset": 43,
+          "bytes": 1,
+          "name": "reserved"
+        },
+        {
+          "offset": 44,
+          "bytes": 4,
+          "name": "flags"
+        }
+      ]
+    },
+    "ACQ1": {
+      "bytes": 64,
+      "no_overlap_or_gap": true,
+      "fields": [
+        {
+          "offset": 0,
+          "bytes": 4,
+          "name": "magic"
+        },
+        {
+          "offset": 4,
+          "bytes": 2,
+          "name": "version"
+        },
+        {
+          "offset": 6,
+          "bytes": 2,
+          "name": "header_bytes"
+        },
+        {
+          "offset": 8,
+          "bytes": 8,
+          "name": "epoch"
+        },
+        {
+          "offset": 16,
+          "bytes": 8,
+          "name": "sequence"
+        },
+        {
+          "offset": 24,
+          "bytes": 8,
+          "name": "first_slot"
+        },
+        {
+          "offset": 32,
+          "bytes": 8,
+          "name": "first_tick"
+        },
+        {
+          "offset": 40,
+          "bytes": 4,
+          "name": "period"
+        },
+        {
+          "offset": 44,
+          "bytes": 2,
+          "name": "count"
+        },
+        {
+          "offset": 46,
+          "bytes": 2,
+          "name": "flags"
+        },
+        {
+          "offset": 48,
+          "bytes": 4,
+          "name": "payload_bytes"
+        },
+        {
+          "offset": 52,
+          "bytes": 4,
+          "name": "crc32c"
+        },
+        {
+          "offset": 56,
+          "bytes": 8,
+          "name": "config"
+        }
+      ]
+    },
+    "ACD1": {
+      "bytes": 64,
+      "no_overlap_or_gap": true,
+      "fields": [
+        {
+          "offset": 0,
+          "bytes": 4,
+          "name": "magic"
+        },
+        {
+          "offset": 4,
+          "bytes": 2,
+          "name": "version"
+        },
+        {
+          "offset": 6,
+          "bytes": 2,
+          "name": "descriptor_bytes"
+        },
+        {
+          "offset": 8,
+          "bytes": 8,
+          "name": "epoch"
+        },
+        {
+          "offset": 16,
+          "bytes": 8,
+          "name": "sequence"
+        },
+        {
+          "offset": 24,
+          "bytes": 8,
+          "name": "generation"
+        },
+        {
+          "offset": 32,
+          "bytes": 8,
+          "name": "config"
+        },
+        {
+          "offset": 40,
+          "bytes": 4,
+          "name": "address"
+        },
+        {
+          "offset": 44,
+          "bytes": 4,
+          "name": "block_bytes"
+        },
+        {
+          "offset": 48,
+          "bytes": 4,
+          "name": "block_crc32c"
+        },
+        {
+          "offset": 52,
+          "bytes": 2,
+          "name": "ring_index"
+        },
+        {
+          "offset": 54,
+          "bytes": 2,
+          "name": "reserved_flags"
+        },
+        {
+          "offset": 56,
+          "bytes": 4,
+          "name": "crc32c"
+        },
+        {
+          "offset": 60,
+          "bytes": 4,
+          "name": "publication_word"
+        }
+      ]
+    },
+    "ACF1": {
+      "bytes": 128,
+      "no_overlap_or_gap": true,
+      "fields": [
+        {
+          "offset": 0,
+          "bytes": 4,
+          "name": "magic"
+        },
+        {
+          "offset": 4,
+          "bytes": 2,
+          "name": "version"
+        },
+        {
+          "offset": 6,
+          "bytes": 2,
+          "name": "binding_bytes"
+        },
+        {
+          "offset": 8,
+          "bytes": 8,
+          "name": "config"
+        },
+        {
+          "offset": 16,
+          "bytes": 16,
+          "name": "session"
+        },
+        {
+          "offset": 32,
+          "bytes": 2,
+          "name": "contract_revision"
+        },
+        {
+          "offset": 34,
+          "bytes": 2,
+          "name": "record_version"
+        },
+        {
+          "offset": 36,
+          "bytes": 2,
+          "name": "block_version"
+        },
+        {
+          "offset": 38,
+          "bytes": 2,
+          "name": "publication_version"
+        },
+        {
+          "offset": 40,
+          "bytes": 1,
+          "name": "adc_id"
+        },
+        {
+          "offset": 41,
+          "bytes": 1,
+          "name": "channels"
+        },
+        {
+          "offset": 42,
+          "bytes": 1,
+          "name": "sample_bits"
+        },
+        {
+          "offset": 43,
+          "bytes": 1,
+          "name": "status_bytes"
+        },
+        {
+          "offset": 44,
+          "bytes": 4,
+          "name": "period"
+        },
+        {
+          "offset": 48,
+          "bytes": 8,
+          "name": "tick_numerator"
+        },
+        {
+          "offset": 56,
+          "bytes": 8,
+          "name": "tick_denominator"
+        },
+        {
+          "offset": 64,
+          "bytes": 8,
+          "name": "timebase"
+        },
+        {
+          "offset": 72,
+          "bytes": 32,
+          "name": "manifest_sha256"
+        },
+        {
+          "offset": 104,
+          "bytes": 4,
+          "name": "manifest_bytes"
+        },
+        {
+          "offset": 108,
+          "bytes": 4,
+          "name": "reserved_flags"
+        },
+        {
+          "offset": 112,
+          "bytes": 8,
+          "name": "reserved"
+        },
+        {
+          "offset": 120,
+          "bytes": 4,
+          "name": "crc32c"
+        },
+        {
+          "offset": 124,
+          "bytes": 4,
+          "name": "reserved"
+        }
+      ]
+    },
+    "ACE1": {
+      "bytes": 64,
+      "no_overlap_or_gap": true,
+      "fields": [
+        {
+          "offset": 0,
+          "bytes": 4,
+          "name": "magic"
+        },
+        {
+          "offset": 4,
+          "bytes": 2,
+          "name": "version"
+        },
+        {
+          "offset": 6,
+          "bytes": 2,
+          "name": "binding_bytes"
+        },
+        {
+          "offset": 8,
+          "bytes": 8,
+          "name": "epoch"
+        },
+        {
+          "offset": 16,
+          "bytes": 8,
+          "name": "config"
+        },
+        {
+          "offset": 24,
+          "bytes": 8,
+          "name": "timebase"
+        },
+        {
+          "offset": 32,
+          "bytes": 8,
+          "name": "first_tick"
+        },
+        {
+          "offset": 40,
+          "bytes": 16,
+          "name": "session"
+        },
+        {
+          "offset": 56,
+          "bytes": 4,
+          "name": "reserved_flags"
+        },
+        {
+          "offset": 60,
+          "bytes": 4,
+          "name": "crc32c"
+        }
+      ]
+    },
+    "ACL1": {
+      "bytes": 64,
+      "no_overlap_or_gap": true,
+      "fields": [
+        {
+          "offset": 0,
+          "bytes": 4,
+          "name": "magic"
+        },
+        {
+          "offset": 4,
+          "bytes": 2,
+          "name": "version"
+        },
+        {
+          "offset": 6,
+          "bytes": 2,
+          "name": "interval_bytes"
+        },
+        {
+          "offset": 8,
+          "bytes": 8,
+          "name": "epoch"
+        },
+        {
+          "offset": 16,
+          "bytes": 8,
+          "name": "first_slot"
+        },
+        {
+          "offset": 24,
+          "bytes": 8,
+          "name": "last_slot"
+        },
+        {
+          "offset": 32,
+          "bytes": 8,
+          "name": "first_tick"
+        },
+        {
+          "offset": 40,
+          "bytes": 8,
+          "name": "last_tick"
+        },
+        {
+          "offset": 48,
+          "bytes": 4,
+          "name": "causes"
+        },
+        {
+          "offset": 52,
+          "bytes": 4,
+          "name": "flags"
+        },
+        {
+          "offset": 56,
+          "bytes": 4,
+          "name": "crc32c"
+        },
+        {
+          "offset": 60,
+          "bytes": 4,
+          "name": "reserved"
+        }
+      ]
+    }
+  },
+  "fit_checks": {
+    "record_bytes": 48,
+    "header_bytes": 64,
+    "maximum_records": 256,
+    "record_count_storage_bits": 16,
+    "maximum_payload_bytes": 12288,
+    "payload_length_storage_bits": 32,
+    "minimum_actual_block_bytes": 112,
+    "maximum_actual_block_bytes": 12352,
+    "publication_bytes": 64,
+    "configuration_binding_bytes": 128,
+    "epoch_binding_bytes": 64,
+    "loss_interval_bytes": 64,
+    "ring_index_max": 63,
+    "ring_index_storage_bits": 16,
+    "physical_address_storage_bits": 32,
+    "exclusive_address_end_max": 4294967296,
+    "identity_storage_bits": 64,
+    "session_bytes": 16,
+    "maximum_manifest_bytes": 1048576,
+    "maximum_blocks_per_epoch": 45035996273705,
+    "arithmetic": "unbounded intermediates; explicit range checks before storage; no modulo identities"
+  },
+  "conformance_attempts": [
+    {
+      "attempt": "r1",
+      "file": "r1/summary.json",
+      "sha256": "df882612682ad2dd32551f5ecf6eee9e15339a94957bfab1c8a984c527ce60e2",
+      "checks_passed": 1490,
+      "python_optimized": false,
+      "current": false
+    },
+    {
+      "attempt": "r2",
+      "file": "r2/summary.json",
+      "sha256": "c295e3d9e50435c0b856d8470445ece870fe23db93050f03e3aa850e57ec8b80",
+      "checks_passed": 1533,
+      "python_optimized": true,
+      "current": false
+    },
+    {
+      "attempt": "r3",
+      "file": "r3/summary.json",
+      "sha256": "098fc7fb9ce1bf80568cd2ea82cfc1e260c1508ccb99caee53f7d13efa8c2a2c",
+      "checks_passed": 1539,
+      "python_optimized": true,
+      "current": false
+    },
+    {
+      "attempt": "r4",
+      "file": "r4/summary.json",
+      "sha256": "a8b8caf621f7c27cdd9e8433b20d22d7742c0531753ec299f7f5ed43d490e964",
+      "checks_passed": 1549,
+      "python_optimized": true,
+      "current": true
+    }
+  ],
+  "final_conformance": {
+    "file": "r4/summary.json",
+    "checks_passed": 1549,
+    "zero_failures": true,
+    "source_sha256": {
+      "microcontroller/acquisition/check_formats.py": "90afa01dad517b82c75505f25ac3e6177c3773132ad1b23290f9aa92cd563fb4",
+      "microcontroller/acquisition/format_producer.py": "0a83812ee4f37d2bc42c44c1b30f26ba52908dfa8b650d2d7af99e4ec87cf456",
+      "microcontroller/acquisition/format_parser.py": "fe0c70eec36ade5b623d3042a18190dbd314da1a214770dd8f19000d11ae5a0f",
+      "microcontroller/acquisition/formats.md": "72a98c0d304d9afc5abac956fcd2997d087d5817953cdfbf759d0b23a0c26055"
+    },
+    "source_snapshots_and_all_attempt_artifacts_verified": true
+  },
+  "comment_audit": {
+    "file": "comments.json",
+    "sha256": "c9a268c5285dd60a4c702f1b45887b55137f245be0a6837adaf94976d17011f2",
+    "active_files": 216,
+    "comment_blocks": 7122,
+    "python_files_syntax_checked": 98,
+    "all_findings_empty": true,
+    "initial_failed_audit": "comments-r1.json",
+    "prior_passing_audit": "comments-r3.json",
+    "historical_sources_preserved": true,
+    "manual_review": "new codec functions, conditional/loop blocks, CRC logic, ledger ordering and publication/lease explanations; existing active code already conforms and remains unchanged"
+  },
+  "capacity_and_traffic": {
+    "raw_ring_bytes": 790528,
+    "descriptor_table_bytes": 4096,
+    "combined_bytes": 794624,
+    "external_total_allocated_bytes": 1449984,
+    "external_remaining_bytes": 647168,
+    "capture_publication_bytes_per_block": 64,
+    "transport_descriptor_bytes_per_block": 64,
+    "allocation_control_retirement_bytes_per_block": 4,
+    "maximum_retirement_bytes_per_second": 781.328125,
+    "allocation_control_reserved_bytes_per_second": 4000000,
+    "normal_retirement_acknowledgement_us_max": 80,
+    "retirement_fault_action_us_max": 100,
+    "prior_capture_and_drain_arithmetic_unchanged": true
+  },
+  "repository_checks": {
+    "tracked_code_unchanged": true,
+    "new_active_code": [
+      "microcontroller/acquisition/format_producer.py",
+      "microcontroller/acquisition/format_parser.py",
+      "microcontroller/acquisition/check_formats.py"
+    ],
+    "historical_evidence_unchanged": true,
+    "local_document_file_links_checked": 195,
+    "tracked_diff_whitespace": "passed"
+  },
+  "documentation_sha256": {
+    "CHANGELOG.md": "6c83dc685c15992c785fcda2e05762d8c9880becdb3cfb24433fef0f36d5fba8",
+    "docs/README.md": "a9f71434ec06b3af867ebd8b37ae117dc48ad4a1591c03f629151d3b82b49231",
+    "docs/pre-coding-workflow.md": "e6781c332149843f0bb9c689402f7ac434e67595126689c10a33541ee19604c6",
+    "microcontroller/acquisition/README.md": "5e33925fa1ed55d93d975c1fe1dffb4954bc85e7d719fd64969871f321760e57",
+    "microcontroller/acquisition/contract.md": "85b8445d4a2374467faf36c53cdcf5413847513e41e39eb476f14bcccee5e24d",
+    "microcontroller/acquisition/review.md": "b1dbaa07584a9ad149fd34f5026eac2bc079c998c0c93d4d21c28163300ac25f",
+    "microcontroller/acquisition/timing-budget.md": "680a340462d589011ce1d2a9bab37212e3153ba6d82886890af6a9d3e13b8e06",
+    "microcontroller/memory/README.md": "29a9b38e1e01156a9e92c4aa1396a4d924b1fe1b0cf41ad3879a0a350b9892a6",
+    "microcontroller/acquisition/formats.md": "72a98c0d304d9afc5abac956fcd2997d087d5817953cdfbf759d0b23a0c26055"
+  },
+  "limitations": [
+    "format agreement does not prove ADC pin capture, physical timing closure or complete engine behavior",
+    "manifest hash equality does not establish physical analog or clock qualification",
+    "offline lease comparison does not implement concurrent RV32 atomic publication, memory ordering or retirement containment",
+    "sequence bounds are necessary conservative checks, not reconstruction of absent history or proof of terminal/archive completeness",
+    "terminal, event, command and quality-amendment semantics remain in the contract; their hardware/MMIO/archive bindings are not implemented by these codecs"
+  ],
+  "retained_sha256": {
+    "comments-r1.json": "86708aef7b620bb4f5bd1f249d670892e1e2ea136a286268661ebcc3deed3bdc",
+    "comments-r3.json": "6e03ac5a7014eb0f2fe66baeaddd83bbdb5cf6b042485fd8066f018d3e5c3238",
+    "comments.json": "c9a268c5285dd60a4c702f1b45887b55137f245be0a6837adaf94976d17011f2",
+    "r1/configuration.bin": "8a8fd9dd55916414bece1e4a22a4bc65aec6f3a040eca3a1e2622645575451c7",
+    "r1/epoch.bin": "f36fbe1080f89b758bddbeba0274c0522c266e9e780e915cd5e6ff652fb5da3d",
+    "r1/full-block.bin": "40b43b78d1c96ce8b96fcb784504e9807b78a539fa039a6a8fcfb633a232015f",
+    "r1/loss.bin": "7e3b83819f1e81f59732cda41ae22171f8f2bf196aace213da2a96471c6275c9",
+    "r1/partial-block.bin": "c638dcbd0bce47598238983920eea951d89f23e7360c7fc0a00e32b86644842b",
+    "r1/publication.bin": "a97738a0b93a0ae8543aa9e3030b4616d6018dff9e5a648d34f31cef19c1a65f",
+    "r1/qualification-manifest.bin": "5e0a8b8340aa30f1eceec6cbc89928919a6dd0eb66c79d9e83b2556cc4fa17ae",
+    "r1/record.bin": "d28f1b5d89f9042c9b2954d75cce81c950e57a0725b0d06448567ff0c5d9b8ed",
+    "r1/sources/check_formats.py": "0943000f3ebe02bf6cd76b07bb0c828a633e0d8de5905b2699496fd519e5d7bc",
+    "r1/sources/format_parser.py": "a33e19f5bbd28bfa38591ea8b7a1070029718a7d77b605e329e257b9d87770f3",
+    "r1/sources/format_producer.py": "0a83812ee4f37d2bc42c44c1b30f26ba52908dfa8b650d2d7af99e4ec87cf456",
+    "r1/sources/formats.md": "7e9343d6a808aa1399a48efcaff60df3238755609f46d1bf60ac290f18f1051a",
+    "r1/summary.json": "df882612682ad2dd32551f5ecf6eee9e15339a94957bfab1c8a984c527ce60e2",
+    "r2/configuration.bin": "8a8fd9dd55916414bece1e4a22a4bc65aec6f3a040eca3a1e2622645575451c7",
+    "r2/epoch.bin": "f36fbe1080f89b758bddbeba0274c0522c266e9e780e915cd5e6ff652fb5da3d",
+    "r2/full-block.bin": "40b43b78d1c96ce8b96fcb784504e9807b78a539fa039a6a8fcfb633a232015f",
+    "r2/loss.bin": "7e3b83819f1e81f59732cda41ae22171f8f2bf196aace213da2a96471c6275c9",
+    "r2/partial-block.bin": "c638dcbd0bce47598238983920eea951d89f23e7360c7fc0a00e32b86644842b",
+    "r2/publication.bin": "a97738a0b93a0ae8543aa9e3030b4616d6018dff9e5a648d34f31cef19c1a65f",
+    "r2/qualification-manifest.bin": "5e0a8b8340aa30f1eceec6cbc89928919a6dd0eb66c79d9e83b2556cc4fa17ae",
+    "r2/record.bin": "d28f1b5d89f9042c9b2954d75cce81c950e57a0725b0d06448567ff0c5d9b8ed",
+    "r2/sources/check_formats.py": "61eafe05d8e51d583dd9e09adb4b23bdec5875a7b5e03abd7b32f3c797390e5c",
+    "r2/sources/format_parser.py": "f744167fd3b9e1a70700dd7625d1af2e3ca2fa14275d85592479de37c1ab2fa5",
+    "r2/sources/format_producer.py": "0a83812ee4f37d2bc42c44c1b30f26ba52908dfa8b650d2d7af99e4ec87cf456",
+    "r2/sources/formats.md": "572761c39f0da05defe66f3eb41267c2563131330ec697d5817470ff62420ca4",
+    "r2/summary.json": "c295e3d9e50435c0b856d8470445ece870fe23db93050f03e3aa850e57ec8b80",
+    "r3/configuration.bin": "8a8fd9dd55916414bece1e4a22a4bc65aec6f3a040eca3a1e2622645575451c7",
+    "r3/epoch.bin": "f36fbe1080f89b758bddbeba0274c0522c266e9e780e915cd5e6ff652fb5da3d",
+    "r3/full-block.bin": "40b43b78d1c96ce8b96fcb784504e9807b78a539fa039a6a8fcfb633a232015f",
+    "r3/loss.bin": "7e3b83819f1e81f59732cda41ae22171f8f2bf196aace213da2a96471c6275c9",
+    "r3/partial-block.bin": "c638dcbd0bce47598238983920eea951d89f23e7360c7fc0a00e32b86644842b",
+    "r3/publication.bin": "a97738a0b93a0ae8543aa9e3030b4616d6018dff9e5a648d34f31cef19c1a65f",
+    "r3/qualification-manifest.bin": "5e0a8b8340aa30f1eceec6cbc89928919a6dd0eb66c79d9e83b2556cc4fa17ae",
+    "r3/record.bin": "d28f1b5d89f9042c9b2954d75cce81c950e57a0725b0d06448567ff0c5d9b8ed",
+    "r3/sources/check_formats.py": "540824b48ecbbe7499b0594a356b3d09cfb8b78bb4b9f188b3f4ebcaba98a124",
+    "r3/sources/format_parser.py": "13e54d00afc171e16dea9f35c9861efca4dadd86a5e69cf06acea9d35196ad3e",
+    "r3/sources/format_producer.py": "0a83812ee4f37d2bc42c44c1b30f26ba52908dfa8b650d2d7af99e4ec87cf456",
+    "r3/sources/formats.md": "0e5c271e4cafd3def252058a2a1bace96d58f53b77f8fa3d4b9405945f120dd0",
+    "r3/summary.json": "098fc7fb9ce1bf80568cd2ea82cfc1e260c1508ccb99caee53f7d13efa8c2a2c",
+    "r4/configuration.bin": "8a8fd9dd55916414bece1e4a22a4bc65aec6f3a040eca3a1e2622645575451c7",
+    "r4/epoch.bin": "f36fbe1080f89b758bddbeba0274c0522c266e9e780e915cd5e6ff652fb5da3d",
+    "r4/full-block.bin": "40b43b78d1c96ce8b96fcb784504e9807b78a539fa039a6a8fcfb633a232015f",
+    "r4/loss.bin": "7e3b83819f1e81f59732cda41ae22171f8f2bf196aace213da2a96471c6275c9",
+    "r4/partial-block.bin": "c638dcbd0bce47598238983920eea951d89f23e7360c7fc0a00e32b86644842b",
+    "r4/publication.bin": "a97738a0b93a0ae8543aa9e3030b4616d6018dff9e5a648d34f31cef19c1a65f",
+    "r4/qualification-manifest.bin": "5e0a8b8340aa30f1eceec6cbc89928919a6dd0eb66c79d9e83b2556cc4fa17ae",
+    "r4/record.bin": "d28f1b5d89f9042c9b2954d75cce81c950e57a0725b0d06448567ff0c5d9b8ed",
+    "r4/sources/check_formats.py": "90afa01dad517b82c75505f25ac3e6177c3773132ad1b23290f9aa92cd563fb4",
+    "r4/sources/format_parser.py": "fe0c70eec36ade5b623d3042a18190dbd314da1a214770dd8f19000d11ae5a0f",
+    "r4/sources/format_producer.py": "0a83812ee4f37d2bc42c44c1b30f26ba52908dfa8b650d2d7af99e4ec87cf456",
+    "r4/sources/formats.md": "72a98c0d304d9afc5abac956fcd2997d087d5817953cdfbf759d0b23a0c26055",
+    "r4/summary.json": "a8b8caf621f7c27cdd9e8433b20d22d7742c0531753ec299f7f5ed43d490e964"
+  }
+}

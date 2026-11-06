@@ -32,7 +32,7 @@ The ADC integration gate requires controlled startup, reset, configuration readb
 
 ## Capacity, timing and ownership
 
-The proposed record format preserves all 18 ADC bits in signed 32-bit words and reserves metadata for status, integrity and validity. A frame's scheduled aperture defines sample time; host arrival time does not. Configuration changes, discontinuities and recovery create explicit epoch boundaries.
+The [frozen acquisition formats](../microcontroller/acquisition/formats.md) preserve all 18 ADC bits in signed 32-bit words and assign exact status, integrity and validity fields. Stored timestamps identify scheduled FPGA CONVST markers; the qualified timing model supplies their relationship to ADC apertures. Host arrival time does not define sample time. Configuration changes, discontinuities and recovery create explicit epoch boundaries.
 
 | Budget | Proposed value | Required evidence |
 | --- | --- | --- |

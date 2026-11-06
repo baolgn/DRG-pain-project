@@ -46,3 +46,7 @@ The final definition review found no unresolved semantic defect within the decla
 ## Subsequent timing review
 
 ACQ-R1 revision 3 adds the [timing budget](timing-budget.md) and its separate [review evidence](evidence/timing-2026-11-05/review.json). It distinguishes the exact 1068-tick completion from the conservative 1072-tick allocation, retains the 1120-tick deadline, and adds tolerance, external min/max paths, bounded service/storage waits and independent supervision. The earlier evidence above remains tied to its original revision; it is not a validation of these new requirements. Physical timing closure is still pending.
+
+## Subsequent format review
+
+Revision 4 freezes the [binary formats](formats.md) and records separate [format evidence](evidence/formats-2026-11-05/review.json). Independent implementations check exact packing and reject contradictory flags, unbound/mutated context, stale leases, impossible stream histories and inconsistent loss metadata. The prior definition and timing evidence remains unchanged and bound to its original sources; this format work does not qualify hardware capture or atomic publication.
