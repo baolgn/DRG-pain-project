@@ -50,3 +50,7 @@ ACQ-R1 revision 3 adds the [timing budget](timing-budget.md) and its separate [r
 ## Subsequent format review
 
 Revision 4 freezes the [binary formats](formats.md) and records separate [format evidence](evidence/formats-2026-11-05/review.json). Independent implementations check exact packing and reject contradictory flags, unbound/mutated context, stale leases, impossible stream histories and inconsistent loss metadata. The prior definition and timing evidence remains unchanged and bound to its original sources; this format work does not qualify hardware capture or atomic publication.
+
+## Subsequent clock/reset lifecycle review
+
+[ACQ-R1-CDC1](clock-reset-lifecycle.md) supplements revision 4 without changing its binary formats. Separate [lifecycle evidence](evidence/lifecycle-2026-11-05/review.json) records repeated specification/model reviews, finite reachable-state exploration, deliberate failing controls and comment audits. Corrections cover delayed bilateral fences, ARM-created epoch binding, stopped-clock supervision, CPU-reset request retention and uncertain publication. These abstract results do not certify RTL or physical CDC/reset behavior.

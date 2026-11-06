@@ -54,6 +54,7 @@ This check exercises one digital component without accessing hardware. The [test
 | [Acquisition contract](../microcontroller/acquisition/contract.md) | Freezes the initial ADC profile, epochs, cadence, validity, records, commands and closure outcomes. |
 | [Acquisition timing budget](../microcontroller/acquisition/timing-budget.md) | Separates ADC requirements from controller allocations, checks deadline margins, and bounds or supervises every wait before state-machine design. |
 | [Acquisition binary formats](../microcontroller/acquisition/formats.md) | Freezes exact record/block/descriptor bytes, integrity, context bindings, identifier lifetimes and loss intervals with independent producer/host checks. |
+| [Acquisition clock/reset lifecycle](../microcontroller/acquisition/clock-reset-lifecycle.md) | Defines fixed clock domains, coherent crossings, reset retention/containment and requalification; checks abstract reset races without claiming physical CDC proof. |
 | [Electrical and Ubuntu qualification](../microcontroller/acquisition/qualification.md) | Reviews evaluation-board routing and power ownership, runs exact-device tool checks, and identifies unperformed physical gates. |
 | [Memory](../microcontroller/memory/README.md) | Describes local storage and the proposed shared-memory ownership and service contracts. |
 | [Signal processing](../microcontroller/signal-processing/README.md) | Distinguishes the diagnostic arithmetic workload from planned calibrated analysis. |

@@ -2,6 +2,8 @@
 
 Contract **ACQ-R1, revision 4**, 2026-11-05. MUST, MUST NOT and REJECT are normative. Revision 4 freezes the [binary formats](formats.md), canonical validity predicates, publication/configuration/epoch descriptors, loss intervals and independent host interpretation. It preserves the 48-byte record, 64-byte block header and version-1 record/block encoding. Revision 3's [timing budget](timing-budget.md), nominal 14 µs deadline and revision 2's electrical restrictions remain. This is the implementation target, not a claim that the complete engine exists. [The implementation boundary](#existing-implementation-and-release-gates) identifies the current synthetic guard. This contract, its [ADC profile](adc-profile.md), formats and timing budget decide ACQ-R1 behavior where older architecture diagrams show alternatives.
 
+The normative [ACQ-R1-CDC1 lifecycle supplement](clock-reset-lifecycle.md) defines fixed clock domains, coherent crossings, retained ownership and distinct reset scopes. It preserves revision 4's byte encoding; qualification metadata additionally binds the supplement and implemented crossing/reset design. Reset release and link readiness never imply ARM, completion or free storage.
+
 ## Contents
 
 | Section |
@@ -216,6 +218,8 @@ ACL1 intervals use inclusive endpoints, checked counts, explicit known flags and
 With a service failure, later frames must not be published past an unretained gap; ACQ-R1 stops and accounts the uncommitted suffix. Already published blocks remain readable. An invalid record and a lost record are distinct: the former preserves position in a block; the latter requires a terminal lost range. Reaching an integer's maximum exactly inhibits further admission with `COUNTER_EXHAUSTED` while preserving exact accounting. An attempted increment beyond it saturates, sets sticky `ACCOUNTING_INEXACT` and yields uncertain closure; counters never roll over or silently clear. Hardware reset that erases counters starts a new session and leaves the old session incomplete unless its terminal evidence was already archived.
 
 Restart is explicit: archive/acknowledge old terminal metadata, contain or retire old operations, retain or release consumer-owned blocks correctly, restore admission reserve, RECOVER/CONFIGURE and requalify, then ARM. Even unchanged settings create a new epoch and slot zero; stopped time contains no scheduled slots. Old results/IRQs/releases cannot satisfy new ownership. A new epoch cannot mix with the prior partial block. CPU reset or debugger resume never automatically restarts capture.
+
+CPU-only reset retains peripheral mailboxes, response sinks and allocation owners. Acquisition reset that destroys timing/accounting starts a new session; system reset and FPGA reconfiguration assume no volatile ownership authority survives. The lifecycle supplement defines their containment and requalification rules. When destructive reset erased the terminal record, explicitly archive the surviving session as INCOMPLETE and establish containment/new-session recovery authority; do not fabricate ACK_TERMINAL or wait indefinitely for an erased object. This does not waive acknowledgment of a terminal that actually survives.
 
 ## Events, interrupts and CPU responsibilities
 

@@ -564,6 +564,8 @@ flowchart TB
 
 ## MEM-15 · Reset scopes and ownership
 
+The acquisition-specific [reset matrix and crossing rules](../acquisition/clock-reset-lifecycle.md) require retained mailbox/response/lease managers through CPU-only reset, bilateral fences before destructive FIFO or handshake reset, and new-session recovery when acquisition timing/accounting is erased. An unacknowledged PUB1 store may still commit; preserve its old owner and quarantine until visibility/containment is established. Surviving RAM bytes do not recreate erased ownership. The ingress allocation holds 256 internal 56-byte entries (14 KiB), leaving 2 KiB within its 16 KiB allowance for declared context/control/staging state; no additional queue expands the 514-record tail.
+
 ```mermaid
 %%{init: {"theme":"neutral","fontFamily":"Arial,sans-serif","themeVariables":{"fontFamily":"Arial,sans-serif","fontSize":"14px"},"flowchart":{"htmlLabels":true,"minNodeWidth":0,"wrappingWidth":240,"nodeSpacing":28,"rankSpacing":32,"curve":"linear"}}}%%
 flowchart TB
@@ -576,7 +578,7 @@ flowchart TB
     SCOPE -->|"memory / fabric / system reset"| STOP["Revoke capture validity; close / fault epoch<br/>block new traffic; preserve evidence where possible"]
     STOP --> OLD["Keep offered valid and accepted records owned<br/>drain or positively isolate; then reset target / CDC state<br/>quarantine uncertain writes"]
     OLD --> TEST["Reconcile affected state; test RAM if retention unproven<br/>reset ownership only after no further old effects possible"]
-    TEST --> START["New generation / epoch; explicit re-arm"]
+    TEST --> START["Fresh link generation; explicit requalification / arm<br/>erased acquisition timing or ownership: new session"]
     SCOPE -->|"FPGA reconfiguration / power loss"| BOOT["No assumed volatile record retention<br/>record cold start + unknown prior completion<br/>fence / reconcile external targets before ROM execution"]
     CLK["Failed domain cannot acknowledge reset<br/>independent working supervisor isolates it"] -.-> OLD
 ```

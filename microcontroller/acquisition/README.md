@@ -16,6 +16,10 @@ PYTHONDONTWRITEBYTECODE=1 python3 -O microcontroller/acquisition/check_formats.p
 
 The runner retains source snapshots, binary golden vectors and individual positive/negative results. Its predicates remain active under `-O`. See the [format review](evidence/formats-2026-11-05/review.json) for the retained revision history and current result.
 
+The **[clock/reset lifecycle](clock-reset-lifecycle.md)** fixes domain ownership, retained coherent mailboxes, complete-record FIFO crossings, STOP receipts and separate CPU/acquisition/system/reconfiguration scopes. ACQ-R1-CDC1 supplements the frozen revision-4 format without changing its bytes. Reset cannot create a trigger, record, acknowledgment or free allocation. Its [abstract protocol checker](check_lifecycle.py) explores reset/clock interleavings and unsafe counterexamples; physical CDC and reset qualification remain open.
+
+Run `python3 -O microcontroller/acquisition/check_lifecycle.py --output /tmp/drg-acquisition-lifecycle-check` from the repository root, using a fresh directory. The [lifecycle evidence](evidence/lifecycle-2026-11-05/review.json) records the finite models, assumptions and actual review revisions.
+
 The [board qualification](board-qualification.md) traces the documented ADC nets, power/reference selection and ownership. J1–J8 are the positive/negative connectors for channels 1–4, not eight independent channel sockets. The [electrical and Ubuntu qualification](qualification.md) separates fresh executable tool checks from physical gates. The user confirmed that no board is available; physical assembly inspection, rail/continuity measurements and programming remain unperformed.
 
 ## Table of contents
@@ -26,6 +30,7 @@ The [board qualification](board-qualification.md) traces the documented ADC nets
 | [ADC profile](adc-profile.md) |
 | [Timing budget](timing-budget.md) |
 | [Frozen binary formats](formats.md) |
+| [Clock/reset lifecycle](clock-reset-lifecycle.md) |
 | [Definition review](review.md) |
 | [Board qualification](board-qualification.md) |
 | [Electrical and Ubuntu qualification](qualification.md) |
@@ -130,6 +135,8 @@ flowchart TB
 ```
 
 ## Acquisition clocks, crossings and reset
+
+The [normative lifecycle supplement](clock-reset-lifecycle.md) supplies the reset matrix and protocol rules for this proposed diagram. The fixed acquisition clock uses enables; CPU reset preserves peripheral owners; destructive reset fences both crossing endpoints before clearing history. The record FIFO prepares static context before ARM and installs ARM-created ACE1 before system-side reads.
 
 ```mermaid
 %%{init: {"theme":"neutral","themeVariables":{"fontFamily":"Arial,sans-serif","fontSize":"14px"},"flowchart":{"htmlLabels":true,"minNodeWidth":0,"wrappingWidth":240,"nodeSpacing":28,"rankSpacing":32,"curve":"linear"}}}%%

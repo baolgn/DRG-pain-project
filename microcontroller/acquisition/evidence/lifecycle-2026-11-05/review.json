@@ -1,0 +1,446 @@
+{
+  "schema": "DRG5-LIFECYCLE-REVIEW-1",
+  "date": "2026-11-05",
+  "baseline_commit": "d6b398de912ebccc9599f2fe17720cd1efc8cd13",
+  "contract_revision": 4,
+  "supplement": "ACQ-R1-CDC1",
+  "supplement_revision": 1,
+  "result": "defined-lifecycle-and-finite-abstract-safety-pass",
+  "hardware_available": false,
+  "hardware_exercised": false,
+  "rtl_cdc_verified": false,
+  "physical_cdc_reset_qualified": false,
+  "complete_acquisition_qualified": false,
+  "review_cycles": [
+    {
+      "focus": "clock/domain/reset inventory",
+      "resolution": "fixed acquisition clock and CE-driven serial output; separate continuously running system owners and independent supervisor; CPU reset cannot clear peripheral authority"
+    },
+    {
+      "focus": "coherent messages and snapshot semantics",
+      "resolution": "four-phase retained payload/reply channels; exact identities and separate admission/completion; scalar controls are not tagged messages; source-domain snapshots are not falsely simultaneous"
+    },
+    {
+      "focus": "FIFO capacity and immutable context",
+      "resolution": "56-byte entries retain record48 plus slot64; 14 KiB payload and <=2 KiB declared metadata/staging within 16 KiB; no extra owner beyond 514-record tail"
+    },
+    {
+      "focus": "reset race and isolation order",
+      "resolution": "allow late old-context transfers until each endpoint parks; crossing-visible history clears only after bilateral fence or physically proven abrupt-reset fence ordering"
+    },
+    {
+      "focus": "publication and missing terminal authority",
+      "resolution": "offered PUB1 may commit after acquisition reset; preserve old owner and quarantine until matching visibility/containment; explicit INCOMPLETE recovery avoids fake or impossible ACK_TERMINAL"
+    },
+    {
+      "focus": "ARM-created timing binding",
+      "resolution": "prepare static context only; accepted ARM creates ACE1, first tick A+1; gate S reads until exact metadata arrives without CPU wait or delayed first slot"
+    },
+    {
+      "focus": "first-record timing",
+      "resolution": "early stop placeholder exposes metadata wait; ACE copy24 ticks normal/deadline32 and transfer32 fit56 normal/64 accepted; all remote observation delay charged within64/80 handoff budgets"
+    },
+    {
+      "focus": "independent progress watchdogs",
+      "resolution": "per-target retained challenges avoid sampling aliasing; responders outside functional reset; independent80-tick timers include last in-flight response, return-to-zero and isolation; no cross-target refresh"
+    },
+    {
+      "focus": "STOP request retirement",
+      "resolution": "active request retires separately from sticky cause history; no-epoch ALREADY_STOPPED needs no invented terminal; actual faults still require recovery"
+    },
+    {
+      "focus": "nonvacuity and causal model checks",
+      "resolution": "add covered reset phases and causal transition checks; broken controls demonstrate silent request withdrawal and joint slot/record fabrication are caught"
+    },
+    {
+      "focus": "independent reset observation and epoch metadata models",
+      "resolution": "separate source CPU reset from destination STOP observation; explicit settling waits; model delayed/stale ARM metadata and pre-binding read rejection"
+    },
+    {
+      "focus": "final independent review",
+      "resolution": "CDC and reset reviewers found no remaining targeted logical contradiction after timing and STOP clarifications; root verified retained source hashes, arithmetic, syntax, comments and links"
+    }
+  ],
+  "finite_model_scope": [
+    "finite abstract state exploration, not an RTL or analog CDC proof",
+    "two commands; retained endpoints; source reset and destination STOP observation are independent",
+    "two-stage control crossings plus explicit further-edge payload/reply settling waits",
+    "depth-two FIFO; five records; one coordinated replacement across two link identities",
+    "prepared context and ARM-created ACE1; one record per context across two sessions; delayed metadata",
+    "one allocation/transaction/lease plus offered/accepted/visible PUB1 phases",
+    "one symbolic scheduled slot; controlled STOP versus abrupt acquisition reset",
+    "coherent Gray-pointer samples and stable bundled data are assumed physical obligations",
+    "state exhaustion proves safety only for these finite abstractions; no fairness or deadline proof"
+  ],
+  "model_attempts": [
+    {
+      "attempt": "r1",
+      "file": "r1/summary.json",
+      "sha256": "22a413100a465779e58e531d30045e8335f79094860d2676766890447cdd46cb",
+      "source_sha256": "a91720b8a283608d46fc4a8a164d33bc123814de1c676f404ecb5eb3cd511837",
+      "states": 1261,
+      "transitions": 4935,
+      "coverage_targets": 0,
+      "expected_counterexamples": 4,
+      "current": false
+    },
+    {
+      "attempt": "r2",
+      "file": "r2/summary.json",
+      "sha256": "547f86d1cf62937ec043689d530ee2e7af613208c98b1d9c86ae26a824272415",
+      "source_sha256": "10bf37492822dbac6a26eb8884d2575698c7bbc188194a779684d5affce3c9af",
+      "states": 1345,
+      "transitions": 5459,
+      "coverage_targets": 27,
+      "expected_counterexamples": 4,
+      "current": false
+    },
+    {
+      "attempt": "r3",
+      "file": "r3/summary.json",
+      "sha256": "1faf2734c7cdf3fbc1e8e9456f7eba850b6ac00f43b5723c0728cb01cf3667ef",
+      "source_sha256": "34ebc0e917d740e178b3c6154a6409e37d8c77366410d2c07291b11444219ed6",
+      "states": 1345,
+      "transitions": 5459,
+      "coverage_targets": 27,
+      "expected_counterexamples": 4,
+      "current": false
+    },
+    {
+      "attempt": "r4",
+      "file": "r4/summary.json",
+      "sha256": "57ae1bb3fc2c08858724d006b44759f229009fb779723b15750f17655146c6c2",
+      "source_sha256": "d3546bf6d598512bd216e66c9ed2d8286891cf2db845b096419409761226de2b",
+      "states": 1345,
+      "transitions": 5459,
+      "coverage_targets": 27,
+      "expected_counterexamples": 6,
+      "current": false
+    },
+    {
+      "attempt": "r5",
+      "file": "r5/summary.json",
+      "sha256": "86a9e0742df26f7b4e37f467bfebfe99846222558e1139430e08f6a4a06d0cca",
+      "source_sha256": "531ffdb1102ddf1ee56ad83c10b25d79b62a90a8a286ec562b1bf5582a04c2b9",
+      "states": 1684,
+      "transitions": 7053,
+      "coverage_targets": 38,
+      "expected_counterexamples": 9,
+      "current": true
+    }
+  ],
+  "final_model": {
+    "file": "r5/summary.json",
+    "source_sha256": "531ffdb1102ddf1ee56ad83c10b25d79b62a90a8a286ec562b1bf5582a04c2b9",
+    "states": 1684,
+    "transitions": 7053,
+    "coverage_targets": 38,
+    "negative_controls": 9,
+    "families": {
+      "retained_mailbox": {
+        "states": 458,
+        "transitions": 2313,
+        "coverage": {
+          "two_commands_consumed": true,
+          "old_completion_retained_during_reset": true,
+          "accepted_after_source_reset_before_STOP_observation": true,
+          "vetoed_after_destination_STOP_observation": true,
+          "reset_during_request_settling_wait": true,
+          "reset_during_reply_settling_wait": true,
+          "CPU_reset_phase_0": true,
+          "CPU_reset_phase_1": true,
+          "CPU_reset_phase_2": true,
+          "CPU_reset_phase_3": true,
+          "CPU_reset_phase_4": true
+        }
+      },
+      "record_fifo": {
+        "states": 962,
+        "transitions": 3331,
+        "coverage": {
+          "five_records_delivered_with_wrap": true,
+          "new_link_record_delivered": true,
+          "park_with_live_records": true,
+          "writer_parked_reader_live": true,
+          "reader_parked_writer_live": true,
+          "writer_ready_before_peer": true,
+          "reader_ready_before_peer": true
+        }
+      },
+      "epoch_binding": {
+        "states": 48,
+        "transitions": 128,
+        "coverage": {
+          "prepared_without_epoch": true,
+          "outcome_waits_for_metadata": true,
+          "first_outcome_precedes_metadata": true,
+          "reset_before_any_ARM": true,
+          "reset_disposes_unread_old_outcome": true,
+          "new_epoch_with_stale_metadata_in_flight": true,
+          "both_sessions_deliver_bound_records": true
+        }
+      },
+      "ownership": {
+        "states": 134,
+        "transitions": 686,
+        "coverage": {
+          "CPU_reset_with_exposed_request": true,
+          "CPU_reset_with_accepted_request": true,
+          "late_response_keeps_quarantine": true,
+          "lease_survives_acquisition_reset": true,
+          "reset_with_exposed_publication": true,
+          "reset_with_accepted_publication": true,
+          "visible_commit_remains_quarantined": true,
+          "fully_retired_reuse": true
+        }
+      },
+      "stop": {
+        "states": 82,
+        "transitions": 595,
+        "coverage": {
+          "stop_due_placeholder": true,
+          "inhibited_frame_still_pending": true,
+          "CPU_reset_with_pending_frame": true,
+          "captured_tail_closes": true,
+          "reset_suppresses_old_acknowledgments": true
+        }
+      }
+    },
+    "negative_counterexample_properties": {
+      "one_sided_fifo_reset": "duplicate record from stale FIFO cell",
+      "stale_lease_free": "unowned release fabricated free allocation",
+      "unowned_stop_ack": "phantom or premature closure acknowledgment",
+      "reset_toggle_ack": "reset toggle created phantom response",
+      "reset_withdraws_exposed_request": "CPU reset discarded external ownership",
+      "reset_invents_slot_and_record": "reset or acknowledgment fabricated a scheduled slot",
+      "read_before_ARM_metadata": "FIFO read preceded matching ARM metadata",
+      "stale_ARM_metadata": "reset or preparation invented ACE1",
+      "reset_invents_ARM_and_epoch": "reset or metadata delivery manufactured an ARM"
+    }
+  },
+  "definition_coverage": {
+    "domains": [
+      "A fixed80MHz",
+      "S qualified system clock and retained owners",
+      "W independent10MHz",
+      "CPU execution enable/reset subset",
+      "explicit additional PHY bridge only if qualified"
+    ],
+    "crossings": [
+      "command/admission/completion",
+      "status snapshot",
+      "whole records",
+      "closure watermark",
+      "STOP inhibition and terminal receipts",
+      "IRQ level and coherent clear",
+      "BUSY asynchronous observation",
+      "DOUT constrained capture",
+      "memory requests/responses and leases",
+      "independent clock-progress challenges"
+    ],
+    "reset_scopes": [
+      "CPU-only retained-stop reset",
+      "acquisition destructive reset/new session",
+      "system reset/external containment/new session",
+      "FPGA reconfiguration/external pin isolation/new session",
+      "ADC RESET service pulse distinct from logic reset"
+    ],
+    "properties": [
+      "only actual ARM/due/service acceptance creates triggers",
+      "only matched complete outcomes or defined placeholders enter owned record prefix",
+      "reset/clock restoration cannot create requests or acknowledgments",
+      "reset/timeout cannot free leases or cancel potentially live writes",
+      "stale metadata and identities cannot authorize new work"
+    ]
+  },
+  "arithmetic": {
+    "method": "exact rational tolerance corners; conditional design allocations, not physical measurements",
+    "nanoseconds": {
+      "ace_normal_ns_max": {
+        "exact_numerator": 1000000,
+        "exact_denominator": 3333,
+        "decimal": 300.03000300030004
+      },
+      "ace_deadline_ns_min": {
+        "exact_numerator": 4000000,
+        "exact_denominator": 10001,
+        "decimal": 399.9600039996
+      },
+      "ace_normal_margin_ns_conservative": {
+        "exact_numerator": 3331000000,
+        "exact_denominator": 33333333,
+        "decimal": 99.9300009993
+      },
+      "first_transfer_normal_ns_max": {
+        "exact_numerator": 7000000,
+        "exact_denominator": 9999,
+        "decimal": 700.0700070007001
+      },
+      "normal_handoff_ns_min": {
+        "exact_numerator": 8000000,
+        "exact_denominator": 10001,
+        "decimal": 799.9200079992
+      },
+      "normal_margin_ns_conservative": {
+        "exact_numerator": 9985000000,
+        "exact_denominator": 99999999,
+        "decimal": 99.85000099850001
+      },
+      "accepted_boundary_transfer_ns_max": {
+        "exact_numerator": 8000000,
+        "exact_denominator": 9999,
+        "decimal": 800.0800080008
+      },
+      "handoff_timeout_ns_min": {
+        "exact_numerator": 10000000,
+        "exact_denominator": 10001,
+        "decimal": 999.9000099990001
+      },
+      "accepted_boundary_margin_ns_conservative": {
+        "exact_numerator": 19982000000,
+        "exact_denominator": 99999999,
+        "decimal": 199.8200019982
+      },
+      "last_clock_response_allowance_ns": {
+        "exact_numerator": 1000,
+        "exact_denominator": 1,
+        "decimal": 1000.0
+      },
+      "detection_isolation_allowance_ns": {
+        "exact_numerator": 500,
+        "exact_denominator": 1,
+        "decimal": 500.0
+      },
+      "clock_loss_bound_ns_max": {
+        "exact_numerator": 94998500,
+        "exact_denominator": 9999,
+        "decimal": 9500.800080008
+      },
+      "clock_loss_margin_ns": {
+        "exact_numerator": 4991500,
+        "exact_denominator": 9999,
+        "decimal": 499.1999199919992
+      },
+      "normal_probe_response_spacing_ns_max": {
+        "exact_numerator": 20000000,
+        "exact_denominator": 9999,
+        "decimal": 2000.2000200020002
+      }
+    },
+    "fifo_entries": 256,
+    "entry_bytes": 56,
+    "payload_bytes": 14336,
+    "metadata_staging_allowance_bytes": 2048,
+    "ingress_budget_bytes": 16384,
+    "maximum_unresolved_records_unchanged": 514
+  },
+  "comment_audit": {
+    "file": "comments.json",
+    "sha256": "8b88a96395ad4e833c6115c4a4b88296632cdc861caad67cd0a867fcf7757766",
+    "active_files": 217,
+    "comment_blocks": 7264,
+    "python_files_syntax_checked": 99,
+    "all_findings_empty": true,
+    "historical_attempts": [
+      {
+        "file": "comments-model-r1.json",
+        "sha256": "fd61b18fef08ed584f6fc9f868b2d1d5139cf9a99987e776798b5876700d328f",
+        "findings": {
+          "unexpected_mixed_case": [
+            [
+              "microcontroller/acquisition/check_lifecycle.py",
+              142,
+              "Gray"
+            ]
+          ]
+        }
+      },
+      {
+        "file": "comments-model-r2.json",
+        "sha256": "15fe0ba3378aa922ac21c6a689fa10b93070221d7b7d38ba07340dd8b8b05b04",
+        "findings": {}
+      },
+      {
+        "file": "comments-model-r3.json",
+        "sha256": "aa4a942c6f89061b181a38a4f9649032b8d859aaee909b0b7295a7820bbdc265",
+        "findings": {}
+      },
+      {
+        "file": "comments-model-r4.json",
+        "sha256": "3a208635fd80228a56b3d55d4bfcd8f76f46217eef58987f26c4958e5254335e",
+        "findings": {}
+      },
+      {
+        "file": "comments-model-r5.json",
+        "sha256": "8b88a96395ad4e833c6115c4a4b88296632cdc861caad67cd0a867fcf7757766",
+        "findings": {}
+      }
+    ],
+    "manual_scope": "new protocol state/edge functions, invariant and causal checks, BFS search, nonvacuity and deliberate-failure controls; existing active code unchanged"
+  },
+  "repository_checks": {
+    "existing_active_code_unchanged": true,
+    "new_active_code": "microcontroller/acquisition/check_lifecycle.py",
+    "historical_evidence_unchanged": true,
+    "frozen_format_bytes_and_code_unchanged": true,
+    "local_document_targets_checked": 191,
+    "tracked_diff_whitespace": "passed"
+  },
+  "documentation_sha256": {
+    "CHANGELOG.md": "6c980473b5f4f8aff77a241818fa7c8a15df392547aa678ede14da0ab441d8c6",
+    "docs/README.md": "b1611540f199dad9e1f4f2bea74885f940cf8f068c8052f92eb70ea8daab3341",
+    "microcontroller/acquisition/README.md": "aabe52c44058ac1c59b28e3fd6f61b8727486924f43e235c1481d3b29ed1472f",
+    "microcontroller/acquisition/contract.md": "b13640240eae25335c93bd2f50213f6989d4500a77fdc7e9b0353c7b31359a7e",
+    "microcontroller/acquisition/review.md": "411bc8375054f797e2cbd99031da395b9bab30760596c7719b903036079750e9",
+    "microcontroller/acquisition/timing-budget.md": "b524add5331c60e46887490b4c2a8940f6d10e4cb4e6dc1f11a443c1825f960d",
+    "microcontroller/memory/README.md": "87ed9da341e85f8af6d05cb4da0611a2c8b37b204cd429fb911e889b1d2c004e",
+    "microcontroller/acquisition/clock-reset-lifecycle.md": "ae2c9294862b100ce7bb7ed9fa4e885a0df9349f02f7f98e9fc0d417fcdfb4c0"
+  },
+  "primary_sources": [
+    {
+      "title": "Lattice ECP5 sysCLOCK guide",
+      "revision": "FPGA-TN-02200-1.4 September2025",
+      "url": "https://www.latticesemi.com/view_document?document_id=50465",
+      "used_for": "PLL reset, clock resources and live/sticky LOCK distinction"
+    },
+    {
+      "title": "Lattice ECP5 Memory guide",
+      "revision": "FPGA-TN-02204-1.6 November2023",
+      "url": "https://www.latticesemi.com/view_document?document_id=50466",
+      "used_for": "memory reset is not payload erasure; dual-clock FIFO flags lag remote activity"
+    },
+    {
+      "title": "nextpnr constraints documentation",
+      "url": "https://github.com/YosysHQ/nextpnr/blob/main/docs/constraints.md",
+      "used_for": "documented ECP5 LPF subset and clock constraints do not imply general CDC/external timing closure"
+    }
+  ],
+  "open_implementation_and_physical_gates": [
+    "complete RTL implementation and composition proof for actual depths/widths/resets",
+    "qualified bundled-data delays, Gray-pointer max delay/skew, reset recovery/removal and fence-before-reset visibility",
+    "synchronizer preservation, placement and quantified metastability target/MTBF",
+    "ACE1 metadata and complete-record end-to-end timing with remote observation compensation",
+    "independent per-target progress probes and external supervisor permit watchdog including stopped-clock injection",
+    "exact memory/PHY containment and concurrent PUB1/lease ordering",
+    "actual board pin/rail/reset isolation through configuration and power loss",
+    "concrete bounded MMIO envelopes and enumeration of all context/control/staging storage"
+  ],
+  "retained_sha256": {
+    "comments-model-r1.json": "fd61b18fef08ed584f6fc9f868b2d1d5139cf9a99987e776798b5876700d328f",
+    "comments-model-r2.json": "15fe0ba3378aa922ac21c6a689fa10b93070221d7b7d38ba07340dd8b8b05b04",
+    "comments-model-r3.json": "aa4a942c6f89061b181a38a4f9649032b8d859aaee909b0b7295a7820bbdc265",
+    "comments-model-r4.json": "3a208635fd80228a56b3d55d4bfcd8f76f46217eef58987f26c4958e5254335e",
+    "comments-model-r5.json": "8b88a96395ad4e833c6115c4a4b88296632cdc861caad67cd0a867fcf7757766",
+    "comments.json": "8b88a96395ad4e833c6115c4a4b88296632cdc861caad67cd0a867fcf7757766",
+    "r1/check_lifecycle.py": "a91720b8a283608d46fc4a8a164d33bc123814de1c676f404ecb5eb3cd511837",
+    "r1/summary.json": "22a413100a465779e58e531d30045e8335f79094860d2676766890447cdd46cb",
+    "r2/check_lifecycle.py": "10bf37492822dbac6a26eb8884d2575698c7bbc188194a779684d5affce3c9af",
+    "r2/summary.json": "547f86d1cf62937ec043689d530ee2e7af613208c98b1d9c86ae26a824272415",
+    "r3/check_lifecycle.py": "34ebc0e917d740e178b3c6154a6409e37d8c77366410d2c07291b11444219ed6",
+    "r3/summary.json": "1faf2734c7cdf3fbc1e8e9456f7eba850b6ac00f43b5723c0728cb01cf3667ef",
+    "r4/check_lifecycle.py": "d3546bf6d598512bd216e66c9ed2d8286891cf2db845b096419409761226de2b",
+    "r4/summary.json": "57ae1bb3fc2c08858724d006b44759f229009fb779723b15750f17655146c6c2",
+    "r5/check_lifecycle.py": "531ffdb1102ddf1ee56ad83c10b25d79b62a90a8a286ec562b1bf5582a04c2b9",
+    "r5/summary.json": "86a9e0742df26f7b4e37f467bfebfe99846222558e1139430e08f6a4a06d0cca"
+  }
+}

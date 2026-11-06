@@ -1,0 +1,770 @@
+{
+  "schema": "DRG5-LIFECYCLE-MODEL-1",
+  "status": "abstract-lifecycle-safety-pass",
+  "source_sha256": "d3546bf6d598512bd216e66c9ed2d8286891cf2db845b096419409761226de2b",
+  "hardware_exercised": false,
+  "rtl_verified": false,
+  "physical_cdc_qualified": false,
+  "scope": [
+    "finite abstract state exploration, not an RTL or analog CDC proof",
+    "two commands; retained endpoints and response sink; arbitrary CPU-reset interleavings",
+    "depth-two FIFO; five records; one coordinated replacement across two link identities",
+    "one allocation/transaction/lease plus offered/accepted/visible PUB1 phases",
+    "one symbolic scheduled slot; controlled STOP versus abrupt acquisition reset",
+    "coherent Gray-pointer samples and stable bundled data are assumed physical obligations",
+    "state exhaustion proves safety only for these finite abstractions; no fairness or deadline proof"
+  ],
+  "positive": {
+    "retained_mailbox": {
+      "states": 167,
+      "transitions": 847,
+      "action_counts": {
+        "CPU reset asserted": 167,
+        "CPU reset released": 167,
+        "STOP observed": 167,
+        "source edge": 167,
+        "destination edge": 167,
+        "offer coherent command": 5,
+        "consume retained completion": 7
+      },
+      "exhausted": true,
+      "expected_failure": false,
+      "counterexample": null,
+      "coverage": {
+        "two_commands_consumed": true,
+        "old_completion_retained_during_reset": true,
+        "CPU_reset_phase_0": true,
+        "CPU_reset_phase_1": true,
+        "CPU_reset_phase_2": true,
+        "CPU_reset_phase_3": true,
+        "CPU_reset_phase_4": true
+      }
+    },
+    "record_fifo": {
+      "states": 962,
+      "transitions": 3331,
+      "action_counts": {
+        "writer clock edge": 962,
+        "reader clock edge": 962,
+        "write complete record": 201,
+        "request bilateral isolation": 87,
+        "writer isolation confirmed": 348,
+        "reader isolation confirmed": 348,
+        "read complete record": 201,
+        "clear both isolated endpoints": 87,
+        "writer ready confirmed": 60,
+        "reader ready confirmed": 60,
+        "open new link identity": 15
+      },
+      "exhausted": true,
+      "expected_failure": false,
+      "counterexample": null,
+      "coverage": {
+        "five_records_delivered_with_wrap": true,
+        "new_link_record_delivered": true,
+        "park_with_live_records": true,
+        "writer_parked_reader_live": true,
+        "reader_parked_writer_live": true,
+        "writer_ready_before_peer": true,
+        "reader_ready_before_peer": true
+      }
+    },
+    "ownership": {
+      "states": 134,
+      "transitions": 686,
+      "action_counts": {
+        "CPU reset asserted": 134,
+        "CPU reset released": 134,
+        "acquisition reset asserted": 134,
+        "expose memory request": 2,
+        "reject stale lease key": 134,
+        "positive containment confirmed": 30,
+        "reconcile quarantined allocation": 32,
+        "memory request accepted": 6,
+        "transaction timeout": 10,
+        "retirement clear acknowledged": 32,
+        "matching memory response": 6,
+        "expose publication store": 2,
+        "publication store accepted": 6,
+        "publication store globally visible": 6,
+        "matching publication response": 6,
+        "acquire matching lease": 4,
+        "begin unleased retirement": 4,
+        "release matching lease": 4
+      },
+      "exhausted": true,
+      "expected_failure": false,
+      "counterexample": null,
+      "coverage": {
+        "CPU_reset_with_exposed_request": true,
+        "CPU_reset_with_accepted_request": true,
+        "late_response_keeps_quarantine": true,
+        "lease_survives_acquisition_reset": true,
+        "reset_with_exposed_publication": true,
+        "reset_with_accepted_publication": true,
+        "visible_commit_remains_quarantined": true,
+        "fully_retired_reuse": true
+      }
+    },
+    "stop": {
+      "states": 82,
+      "transitions": 595,
+      "action_counts": {
+        "request or join STOP": 82,
+        "CPU reset observed": 82,
+        "CPU reset released": 82,
+        "acquisition reset observed": 82,
+        "due edge triggers conversion": 1,
+        "reject unmatched frame result": 82,
+        "observe stop on idle acquisition edge": 56,
+        "due edge inhibited": 2,
+        "matching frame resolved": 7,
+        "acknowledge trigger inhibition": 48,
+        "seal terminal closure": 36,
+        "record work positively resolved": 11,
+        "acknowledge terminal closure": 24
+      },
+      "exhausted": true,
+      "expected_failure": false,
+      "counterexample": null,
+      "coverage": {
+        "stop_due_placeholder": true,
+        "inhibited_frame_still_pending": true,
+        "CPU_reset_with_pending_frame": true,
+        "captured_tail_closes": true,
+        "reset_suppresses_old_acknowledgments": true
+      }
+    }
+  },
+  "negative_controls": {
+    "one_sided_fifo_reset": {
+      "states": 158,
+      "transitions": 420,
+      "action_counts": {
+        "writer clock edge": 94,
+        "reader clock edge": 94,
+        "write complete record": 33,
+        "request bilateral isolation": 35,
+        "unsafe one-sided reader reset": 18,
+        "writer isolation confirmed": 54,
+        "reader isolation confirmed": 54,
+        "read complete record": 22,
+        "clear both isolated endpoints": 6,
+        "writer ready confirmed": 5,
+        "reader ready confirmed": 5
+      },
+      "exhausted": false,
+      "expected_failure": true,
+      "counterexample": {
+        "property": "duplicate record from stale FIFO cell",
+        "trace": [
+          {
+            "action": "initial",
+            "state": {
+              "mode": "online",
+              "writer_ready": true,
+              "reader_ready": true,
+              "epoch": 1,
+              "write_pointer": 0,
+              "read_pointer": 0,
+              "write_sync": [
+                0,
+                0
+              ],
+              "read_sync": [
+                0,
+                0
+              ],
+              "memory": [
+                [
+                  0,
+                  0
+                ],
+                [
+                  0,
+                  0
+                ]
+              ],
+              "next_id": 1,
+              "offered": [],
+              "queued": [],
+              "delivered": [],
+              "discarded": [],
+              "unsafe_reset_used": false
+            }
+          },
+          {
+            "action": "write complete record",
+            "state": {
+              "mode": "online",
+              "writer_ready": true,
+              "reader_ready": true,
+              "epoch": 1,
+              "write_pointer": 1,
+              "read_pointer": 0,
+              "write_sync": [
+                0,
+                0
+              ],
+              "read_sync": [
+                0,
+                0
+              ],
+              "memory": [
+                [
+                  1,
+                  1
+                ],
+                [
+                  0,
+                  0
+                ]
+              ],
+              "next_id": 2,
+              "offered": [
+                [
+                  1,
+                  1
+                ]
+              ],
+              "queued": [
+                [
+                  1,
+                  1
+                ]
+              ],
+              "delivered": [],
+              "discarded": [],
+              "unsafe_reset_used": false
+            }
+          },
+          {
+            "action": "reader clock edge",
+            "state": {
+              "mode": "online",
+              "writer_ready": true,
+              "reader_ready": true,
+              "epoch": 1,
+              "write_pointer": 1,
+              "read_pointer": 0,
+              "write_sync": [
+                1,
+                0
+              ],
+              "read_sync": [
+                0,
+                0
+              ],
+              "memory": [
+                [
+                  1,
+                  1
+                ],
+                [
+                  0,
+                  0
+                ]
+              ],
+              "next_id": 2,
+              "offered": [
+                [
+                  1,
+                  1
+                ]
+              ],
+              "queued": [
+                [
+                  1,
+                  1
+                ]
+              ],
+              "delivered": [],
+              "discarded": [],
+              "unsafe_reset_used": false
+            }
+          },
+          {
+            "action": "reader clock edge",
+            "state": {
+              "mode": "online",
+              "writer_ready": true,
+              "reader_ready": true,
+              "epoch": 1,
+              "write_pointer": 1,
+              "read_pointer": 0,
+              "write_sync": [
+                1,
+                1
+              ],
+              "read_sync": [
+                0,
+                0
+              ],
+              "memory": [
+                [
+                  1,
+                  1
+                ],
+                [
+                  0,
+                  0
+                ]
+              ],
+              "next_id": 2,
+              "offered": [
+                [
+                  1,
+                  1
+                ]
+              ],
+              "queued": [
+                [
+                  1,
+                  1
+                ]
+              ],
+              "delivered": [],
+              "discarded": [],
+              "unsafe_reset_used": false
+            }
+          },
+          {
+            "action": "read complete record",
+            "state": {
+              "mode": "online",
+              "writer_ready": true,
+              "reader_ready": true,
+              "epoch": 1,
+              "write_pointer": 1,
+              "read_pointer": 1,
+              "write_sync": [
+                1,
+                1
+              ],
+              "read_sync": [
+                0,
+                0
+              ],
+              "memory": [
+                [
+                  1,
+                  1
+                ],
+                [
+                  0,
+                  0
+                ]
+              ],
+              "next_id": 2,
+              "offered": [
+                [
+                  1,
+                  1
+                ]
+              ],
+              "queued": [],
+              "delivered": [
+                [
+                  1,
+                  1
+                ]
+              ],
+              "discarded": [],
+              "unsafe_reset_used": false
+            }
+          },
+          {
+            "action": "unsafe one-sided reader reset",
+            "state": {
+              "mode": "online",
+              "writer_ready": true,
+              "reader_ready": true,
+              "epoch": 1,
+              "write_pointer": 1,
+              "read_pointer": 0,
+              "write_sync": [
+                1,
+                1
+              ],
+              "read_sync": [
+                0,
+                0
+              ],
+              "memory": [
+                [
+                  1,
+                  1
+                ],
+                [
+                  0,
+                  0
+                ]
+              ],
+              "next_id": 2,
+              "offered": [
+                [
+                  1,
+                  1
+                ]
+              ],
+              "queued": [],
+              "delivered": [
+                [
+                  1,
+                  1
+                ]
+              ],
+              "discarded": [],
+              "unsafe_reset_used": true
+            }
+          },
+          {
+            "action": "read complete record",
+            "state": {
+              "mode": "online",
+              "writer_ready": true,
+              "reader_ready": true,
+              "epoch": 1,
+              "write_pointer": 1,
+              "read_pointer": 1,
+              "write_sync": [
+                1,
+                1
+              ],
+              "read_sync": [
+                0,
+                0
+              ],
+              "memory": [
+                [
+                  1,
+                  1
+                ],
+                [
+                  0,
+                  0
+                ]
+              ],
+              "next_id": 2,
+              "offered": [
+                [
+                  1,
+                  1
+                ]
+              ],
+              "queued": [],
+              "delivered": [
+                [
+                  1,
+                  1
+                ],
+                [
+                  1,
+                  1
+                ]
+              ],
+              "discarded": [],
+              "unsafe_reset_used": true
+            }
+          }
+        ]
+      },
+      "coverage": {}
+    },
+    "stale_lease_free": {
+      "states": 15,
+      "transitions": 26,
+      "action_counts": {
+        "CPU reset asserted": 4,
+        "CPU reset released": 4,
+        "acquisition reset asserted": 4,
+        "expose memory request": 2,
+        "reject stale lease key": 4,
+        "unsafe stale lease frees allocation": 4,
+        "positive containment confirmed": 1,
+        "reconcile quarantined allocation": 1,
+        "memory request accepted": 1,
+        "transaction timeout": 1
+      },
+      "exhausted": false,
+      "expected_failure": true,
+      "counterexample": {
+        "property": "unowned release fabricated free allocation",
+        "trace": [
+          {
+            "action": "initial",
+            "state": {
+              "owner": "capture",
+              "transaction": "none",
+              "publication": "none",
+              "cpu_reset": false,
+              "engine_reset": false,
+              "published": false,
+              "lease": false,
+              "contained": false,
+              "retirement_cleared": false,
+              "generation": 1
+            }
+          },
+          {
+            "action": "unsafe stale lease frees allocation",
+            "state": {
+              "owner": "free",
+              "transaction": "none",
+              "publication": "none",
+              "cpu_reset": false,
+              "engine_reset": false,
+              "published": false,
+              "lease": false,
+              "contained": false,
+              "retirement_cleared": false,
+              "generation": 2
+            }
+          }
+        ]
+      },
+      "coverage": {}
+    },
+    "unowned_stop_ack": {
+      "states": 20,
+      "transitions": 36,
+      "action_counts": {
+        "request or join STOP": 5,
+        "CPU reset observed": 5,
+        "CPU reset released": 5,
+        "acquisition reset observed": 5,
+        "due edge triggers conversion": 1,
+        "reject unmatched frame result": 5,
+        "unsafe reset default acknowledges STOP": 5,
+        "observe stop on idle acquisition edge": 2,
+        "due edge inhibited": 2,
+        "matching frame resolved": 1
+      },
+      "exhausted": false,
+      "expected_failure": true,
+      "counterexample": {
+        "property": "phantom or premature closure acknowledgment",
+        "trace": [
+          {
+            "action": "initial",
+            "state": {
+              "running": true,
+              "requested": false,
+              "inhibited": false,
+              "inhibit_ack": false,
+              "closed": false,
+              "closure_ack": false,
+              "cpu_reset": false,
+              "engine_reset": false,
+              "due_used": false,
+              "slots": [],
+              "triggers": [],
+              "records": [],
+              "pending": false,
+              "work": false
+            }
+          },
+          {
+            "action": "unsafe reset default acknowledges STOP",
+            "state": {
+              "running": true,
+              "requested": false,
+              "inhibited": false,
+              "inhibit_ack": false,
+              "closed": false,
+              "closure_ack": true,
+              "cpu_reset": false,
+              "engine_reset": false,
+              "due_used": false,
+              "slots": [],
+              "triggers": [],
+              "records": [],
+              "pending": false,
+              "work": false
+            }
+          }
+        ]
+      },
+      "coverage": {}
+    },
+    "reset_toggle_ack": {
+      "states": 3,
+      "transitions": 3,
+      "action_counts": {
+        "reset remote acknowledgment toggle": 2,
+        "decode toggle difference as reply": 1
+      },
+      "exhausted": false,
+      "expected_failure": true,
+      "counterexample": {
+        "property": "reset toggle created phantom response",
+        "trace": [
+          {
+            "action": "initial",
+            "state": {
+              "acknowledgment": 1,
+              "remembered": 1,
+              "outstanding": false,
+              "delivered": false
+            }
+          },
+          {
+            "action": "reset remote acknowledgment toggle",
+            "state": {
+              "acknowledgment": 0,
+              "remembered": 1,
+              "outstanding": false,
+              "delivered": false
+            }
+          },
+          {
+            "action": "decode toggle difference as reply",
+            "state": {
+              "acknowledgment": 0,
+              "remembered": 0,
+              "outstanding": false,
+              "delivered": true
+            }
+          }
+        ]
+      },
+      "coverage": {}
+    },
+    "reset_withdraws_exposed_request": {
+      "states": 11,
+      "transitions": 23,
+      "action_counts": {
+        "CPU reset asserted": 5,
+        "CPU reset released": 4,
+        "acquisition reset asserted": 4,
+        "expose memory request": 2,
+        "reject stale lease key": 4,
+        "positive containment confirmed": 1,
+        "reconcile quarantined allocation": 1,
+        "memory request accepted": 1,
+        "transaction timeout": 1
+      },
+      "exhausted": false,
+      "expected_failure": true,
+      "counterexample": {
+        "property": "CPU reset discarded external ownership",
+        "trace": [
+          {
+            "action": "initial",
+            "state": {
+              "owner": "capture",
+              "transaction": "none",
+              "publication": "none",
+              "cpu_reset": false,
+              "engine_reset": false,
+              "published": false,
+              "lease": false,
+              "contained": false,
+              "retirement_cleared": false,
+              "generation": 1
+            }
+          },
+          {
+            "action": "expose memory request",
+            "state": {
+              "owner": "capture",
+              "transaction": "offered",
+              "publication": "none",
+              "cpu_reset": false,
+              "engine_reset": false,
+              "published": false,
+              "lease": false,
+              "contained": false,
+              "retirement_cleared": false,
+              "generation": 1
+            }
+          },
+          {
+            "action": "CPU reset asserted",
+            "state": {
+              "owner": "capture",
+              "transaction": "none",
+              "publication": "none",
+              "cpu_reset": true,
+              "engine_reset": false,
+              "published": false,
+              "lease": false,
+              "contained": false,
+              "retirement_cleared": false,
+              "generation": 1
+            }
+          }
+        ]
+      },
+      "coverage": {}
+    },
+    "reset_invents_slot_and_record": {
+      "states": 5,
+      "transitions": 7,
+      "action_counts": {
+        "request or join STOP": 1,
+        "CPU reset observed": 1,
+        "CPU reset released": 1,
+        "acquisition reset observed": 1,
+        "due edge triggers conversion": 1,
+        "reject unmatched frame result": 1,
+        "unsafe reset invents slot and record": 1
+      },
+      "exhausted": false,
+      "expected_failure": true,
+      "counterexample": {
+        "property": "reset or acknowledgment fabricated a scheduled slot",
+        "trace": [
+          {
+            "action": "initial",
+            "state": {
+              "running": true,
+              "requested": false,
+              "inhibited": false,
+              "inhibit_ack": false,
+              "closed": false,
+              "closure_ack": false,
+              "cpu_reset": false,
+              "engine_reset": false,
+              "due_used": false,
+              "slots": [],
+              "triggers": [],
+              "records": [],
+              "pending": false,
+              "work": false
+            }
+          },
+          {
+            "action": "unsafe reset invents slot and record",
+            "state": {
+              "running": false,
+              "requested": false,
+              "inhibited": true,
+              "inhibit_ack": false,
+              "closed": false,
+              "closure_ack": false,
+              "cpu_reset": false,
+              "engine_reset": true,
+              "due_used": false,
+              "slots": [
+                1
+              ],
+              "triggers": [],
+              "records": [
+                [
+                  1,
+                  "placeholder"
+                ]
+              ],
+              "pending": false,
+              "work": false
+            }
+          }
+        ]
+      },
+      "coverage": {}
+    }
+  },
+  "states_explored": 1345,
+  "transitions_explored": 5459
+}
