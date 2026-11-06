@@ -1,0 +1,142 @@
+{
+  "schema": "DRG5-ACQUISITION-HARDWARE-REVIEW-1",
+  "review_date": "2026-11-05",
+  "baseline_commit": "584743d5df14cca3f873cea4a49fd63c108ad432",
+  "overall_pass": false,
+  "status": "host-qualified-physical-gates-open",
+  "user_hardware_availability": "No board available yet",
+  "physical_inspection_performed": false,
+  "electrical_interface_qualified": false,
+  "hardware_programming_performed": false,
+  "complete_acquisition_qualified": false,
+  "review_passes": [
+    {
+      "focus": "drawing and actual assembly distinction",
+      "corrections": [
+        "archive supplied research unchanged",
+        "keep physical markings, fitted population and measurements null",
+        "correct J1-J8 to positive/negative inputs for channels 1-4"
+      ]
+    },
+    {
+      "focus": "power and ownership",
+      "corrections": [
+        "identify VIN-pulled shared enable through R2/R7",
+        "independently correct initial visual R22 misread to R2",
+        "correct P3 contact 2 to FMC H19",
+        "require R77 absent and exclusive reference/power/control owners"
+      ]
+    },
+    {
+      "focus": "voltage and timing compatibility",
+      "corrections": [
+        "narrow ADC VDRIVE and FPGA VCCIO to 3.135-3.465 V",
+        "calculate both-direction DC margins",
+        "require rail tracking and unpowered isolation despite positive threshold margins",
+        "leave external ADC timing and adapter map unqualified"
+      ]
+    },
+    {
+      "focus": "tool execution and negative controls",
+      "corrections": [
+        "retain strict Verilator and GTK display failures",
+        "require actual GTK loaded traces",
+        "retain expected formal counterexample and missing-tool/wrong-archive failures",
+        "verify exact device primitives and bitstream part/IDCODE"
+      ]
+    },
+    {
+      "focus": "tool and source provenance",
+      "corrections": [
+        "match 201 archive files including common ECP5 tiledata",
+        "bind imported programming parser before use and verify stability",
+        "retain per-attempt source snapshots and all command logs"
+      ]
+    },
+    {
+      "focus": "complete CPU path and independent timing review",
+      "corrections": [
+        "build fresh IMC firmware and P25 CPU bitstream",
+        "inspect misleading nextpnr constraint-warning implementation and final timing report",
+        "separate host-only SRAM plan from hardware programming",
+        "document fixed GCC paths and raw-stream transport shortfall"
+      ]
+    },
+    {
+      "focus": "final comment and reproduction review",
+      "corrections": [
+        "add four missing local Tcl block explanations",
+        "repeat final run once for changed source bytes as r6",
+        "make documented suite extraction stop on existing directory or failed digest",
+        "verify all active comment/source hashes and Python syntax"
+      ]
+    }
+  ],
+  "host_tools": {
+    "final_evidence": "microcontroller/qualification/evidence/ubuntu-2026-11-05/r6/summary.json",
+    "summary_sha256": "644492122b8b966523190f8fa33c729d8dbf0fa238f833b39dbef8f66557388c",
+    "status": "host-tools-and-smoke-pass",
+    "commands_passed": 21,
+    "archive_members_matched": 201,
+    "current_source_files_matched": 7,
+    "parser_files_matched": 2,
+    "retained_artifacts_matched": 28,
+    "source_stable": true
+  },
+  "platform": {
+    "retention_sha256": "e749aa05b82622e40b091b6a4a7d5b55141f81947984b51049e4c888e4ed49a1",
+    "retained_artifacts_matched": 115,
+    "current_source_files_matched": 48,
+    "full_timing_report_hash_verified": true,
+    "fmax_mhz": {
+      "achieved": 28.55021858215332,
+      "constraint": 27.77777862548828
+    },
+    "bitstream_bytes": 596132,
+    "bitstream_sha256": "9111efbd680d9531475ae561394c4c3a509e0d5d417c1d36e03c51e27a88e1a9",
+    "sram_plan_only": true
+  },
+  "comments": {
+    "report_sha256": "80379623e631b07f6bcde9f29f752766a6757841564eef232b8b1379af664f52",
+    "active_files": 212,
+    "comment_blocks": 6922,
+    "nonempty_sv_begin_blocks": 2173,
+    "sv_declarations": 725,
+    "python_scopes": 1756,
+    "cpp_scopes": 520,
+    "python_files_syntax_checked": 94,
+    "limitations": "lexical coverage and case checks require manual semantic review; historical snapshots, generated outputs and third-party bytes remain unchanged"
+  },
+  "documentation": {
+    "local_file_links_checked": 217,
+    "source_sha256": {
+      "CHANGELOG.md": "7d3b3a564dc36ab2e21f37b4197b5ccc3efd2baf690206ed9ced26b8fb8952c9",
+      "docs/README.md": "2d36d83e943f9a389f29899ce89ea899faf8e294cf96316b373a0393187a2d8a",
+      "microcontroller/acquisition/README.md": "33371a7cf943ce71b5402e7e8ab0aec5edf561c4969426d1fab57ec0a2119483",
+      "microcontroller/acquisition/adc-profile.md": "b37811494b32421d89cc3bd30a4e60e97cf25c9c77903f3de506879e6ea271cc",
+      "microcontroller/acquisition/contract.md": "156cc323989f51b43646bbe4feb285473cc0dcdec4de9fef689b4634d0177510",
+      "microcontroller/acquisition/review.md": "2227f2bfd6f9869d56f2bc599dcfefbdef0895fa25193e772524a3aec44aa22a",
+      "microcontroller/acquisition/qualification.md": "24d79808dcdb144ce67f3c7132db93e0e60f8feb61053090ca02d705308c1a35",
+      "microcontroller/acquisition/board-qualification.md": "869ce59e022f4ff32fa40b431ba2b9f915c9bc9e2051a9418622bd06b8e63b9b",
+      "microcontroller/programming/README.md": "a79ce7bbf2a0820f2a24bc845f008b4a1d34049fb4e06fba7382dad0e068b12f",
+      "microcontroller/synth/README.md": "5250d98dd7914cc61b5d6119256fe6a530cae7b294292954ae2b40f3d6802d2d",
+      "microcontroller/qualification/README.md": "4eb7d3ebbe89571c820298449fe6e830ae60122f64e56c73fa61ca61aa4651d7"
+    },
+    "inventory_sha256": "00791529da4592926dbc526505698bccbd93aabf9aba28e2cbdc8b297533e31a",
+    "research_archive_sha256": "29ba60313797807f46c6fdbc20d97caea26ca35b261bb1b18e98b11bbcf09532",
+    "historical_definition_evidence_unchanged": true
+  },
+  "open_gates": [
+    "actual ADC/FPGA/flash assembly and fitted configuration inspection",
+    "approved adapter, pin map, LPF, isolation and power arrangement",
+    "physical rail, reference, logic-level and pin-timing measurements",
+    "SRAM programming, flash readback and power-cycle operation",
+    "complete acquisition RTL, 80 MHz system timing and sustained transport qualification"
+  ],
+  "whitespace_check": {
+    "active_code_and_documentation": "passed",
+    "raw_evidence_diagnostics": 2108,
+    "raw_evidence_files": 37,
+    "exception": "verbatim generated tool logs, compiler map and bundled license text retain trailing whitespace and blank final lines; normalization would change evidence hashes"
+  }
+}

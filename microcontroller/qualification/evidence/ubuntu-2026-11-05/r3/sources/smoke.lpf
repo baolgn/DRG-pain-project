@@ -1,0 +1,14 @@
+# bind the selected v316-compatible clock pin and its 25 MHz source constraint.
+LOCATE COMP "clk25_i" SITE "G2";
+IOBUF PORT "clk25_i" IO_TYPE=LVCMOS33 PULLMODE=NONE;
+FREQUENCY PORT "clk25_i" 25.000 MHZ;
+# drive only the eight diagnostic LEDs; ADC and expansion pins remain unused.
+LOCATE COMP "led_o[0]" SITE "B2";
+LOCATE COMP "led_o[1]" SITE "C2";
+LOCATE COMP "led_o[2]" SITE "C1";
+LOCATE COMP "led_o[3]" SITE "D2";
+LOCATE COMP "led_o[4]" SITE "D1";
+LOCATE COMP "led_o[5]" SITE "E2";
+LOCATE COMP "led_o[6]" SITE "E1";
+LOCATE COMP "led_o[7]" SITE "H3";
+IOBUF PORT "led_o[*]" IO_TYPE=LVCMOS33 DRIVE=4 PULLMODE=NONE;

@@ -12,6 +12,8 @@
 
 The synthesis tools measure whether the implemented RTL maps and routes for the selected ECP5 target. They generate reports and optional bitstreams; they do not program a board. A successful mapping establishes a particular source/tool result, while successful routing and packing remain hardware-unverified results.
 
+The [current electrical and Ubuntu qualification](../acquisition/qualification.md) links fresh tool/primitive and programmable-CPU builds, with exact target identity and physical limitations. The [tool qualification runner](../qualification/README.md) exercises the selected open-source tool suite without requiring an attached board.
+
 ## Instructions
 
 Use the Ubuntu/Linux x86-64 OSS CAD Suite layout required by [run_fpga.py](run_fpga.py). The runner invokes Yosys with the slang frontend, nextpnr-ecp5, ecppack and ecppll, and records tool and database hashes. It also invokes the suite's Linux dynamic loader and bundled libraries explicitly. Merely installing commands with matching names on `PATH` does not satisfy that layout. Windows, WSL and macOS are unverified; the explicit Linux loader prevents treating this runner as a native cross-platform script.

@@ -1,0 +1,205 @@
+{
+  "schema": "DRG5-UBUNTU-TOOLS-1",
+  "status": "failed",
+  "target": {
+    "board": "ULX3S v3.1.7 D&M",
+    "part": "LFE5U-85F-6BG381C",
+    "density": "85k",
+    "package": "CABGA381",
+    "speed": "6"
+  },
+  "host": {
+    "os_release": "PRETTY_NAME=\"Ubuntu 26.04.1 LTS\"\nNAME=\"Ubuntu\"\nVERSION_ID=\"26.04\"\nVERSION=\"26.04.1 LTS (Resolute Raccoon)\"\nVERSION_CODENAME=resolute\nID=ubuntu\nID_LIKE=debian\nHOME_URL=\"https://www.ubuntu.com/\"\nSUPPORT_URL=\"https://help.ubuntu.com/\"\nBUG_REPORT_URL=\"https://bugs.launchpad.net/ubuntu/\"\nPRIVACY_POLICY_URL=\"https://www.ubuntu.com/legal/terms-and-policies/privacy-policy\"\nUBUNTU_CODENAME=resolute\nLOGO=ubuntu-logo\n",
+    "machine": "x86_64",
+    "python": "3.13.13"
+  },
+  "source_sha256": {
+    "run.py": "b2426700c68622889fcf8e0a888ce188cbd628c605358028e77a5778d26d5d90",
+    "smoke_core.sv": "59d5f07335feb58edf004c37c09d6618d80c89b1d22fb1e50fdfcce999616738",
+    "smoke_tb.sv": "9dd0bd969bc55ecc5ca19a2be6fcfb4ebb13af9058e1e8f6677d64edc7dc991b",
+    "smoke_top.sv": "0bfaf553b3ef2a11c5192f9826c82ed95ee6bfba8170738fa26ee9a398174749",
+    "smoke.lpf": "9af0c393a2b17ccd761b61257a0b7c0095305351dd8be0ea5c4a65bd44809b9e",
+    "formal.sv": "726e87e5784abbb512f021f0cc2ad9c6756e91afc1da50b6fe7ac489e59c64ee",
+    "waveform.tcl": "e15a041a4e494324e826838052decdf017cf915d549cda5378df4426f3cf564e"
+  },
+  "commands": [
+    {
+      "name": "verilator-version",
+      "argv": [
+        "/home/bluto/Desktop/dorsalGanglionProject/.release-runs/bootstrap-final-r2/oss-cad-suite/bin/verilator",
+        "--version"
+      ],
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "timeout": false,
+      "seconds": 0.064,
+      "required_marker": null,
+      "passed": true,
+      "log_sha256": "03e8f0e456e1e0f517c066acf96960cda6c83d765d5ef9d7c99e143468dfba56"
+    },
+    {
+      "name": "yosys-version",
+      "argv": [
+        "/home/bluto/Desktop/dorsalGanglionProject/.release-runs/bootstrap-final-r2/oss-cad-suite/bin/yosys",
+        "-V"
+      ],
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "timeout": false,
+      "seconds": 0.016,
+      "required_marker": null,
+      "passed": true,
+      "log_sha256": "cc9c14390be91f49c003ea08afe074d827e65ca3de41a6c9a9b68cdb9335d138"
+    },
+    {
+      "name": "nextpnr-version",
+      "argv": [
+        "/home/bluto/Desktop/dorsalGanglionProject/.release-runs/bootstrap-final-r2/oss-cad-suite/lib/ld-linux-x86-64.so.2",
+        "--inhibit-cache",
+        "--inhibit-rpath",
+        "",
+        "--library-path",
+        "/home/bluto/Desktop/dorsalGanglionProject/.release-runs/bootstrap-final-r2/oss-cad-suite/lib",
+        "/home/bluto/Desktop/dorsalGanglionProject/.release-runs/bootstrap-final-r2/oss-cad-suite/libexec/nextpnr-ecp5",
+        "--version"
+      ],
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "timeout": false,
+      "seconds": 0.008,
+      "required_marker": null,
+      "passed": true,
+      "log_sha256": "f456f9f6daba01f3e5ea6049727b67262486bb911a65be22ea16fb0db2250b6d"
+    },
+    {
+      "name": "sby-version",
+      "argv": [
+        "/home/bluto/Desktop/dorsalGanglionProject/.release-runs/bootstrap-final-r2/oss-cad-suite/bin/sby",
+        "--version"
+      ],
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "timeout": false,
+      "seconds": 0.164,
+      "required_marker": null,
+      "passed": true,
+      "log_sha256": "1eef26e895717ef3f01c3ff53ef7280425ce6b7f45b2d75f2f0937db95162104"
+    },
+    {
+      "name": "z3-version",
+      "argv": [
+        "/home/bluto/Desktop/dorsalGanglionProject/.release-runs/bootstrap-final-r2/oss-cad-suite/bin/z3",
+        "--version"
+      ],
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "timeout": false,
+      "seconds": 0.016,
+      "required_marker": null,
+      "passed": true,
+      "log_sha256": "094fd53c158700cbf948038ecca553a997cb8117a02b0574c8fec54549051a55"
+    },
+    {
+      "name": "gtkwave-version",
+      "argv": [
+        "/home/bluto/Desktop/dorsalGanglionProject/.release-runs/bootstrap-final-r2/oss-cad-suite/lib/ld-linux-x86-64.so.2",
+        "--inhibit-cache",
+        "--inhibit-rpath",
+        "",
+        "--library-path",
+        "/home/bluto/Desktop/dorsalGanglionProject/.release-runs/bootstrap-final-r2/oss-cad-suite/lib",
+        "/home/bluto/Desktop/dorsalGanglionProject/.release-runs/bootstrap-final-r2/oss-cad-suite/libexec/gtkwave",
+        "--version"
+      ],
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "timeout": false,
+      "seconds": 0.064,
+      "required_marker": null,
+      "passed": true,
+      "log_sha256": "cf73a345c4c339462d0524a3648856b6de6209b50f44fc168fe0e19738706b47"
+    },
+    {
+      "name": "programmer-version",
+      "argv": [
+        "/home/bluto/Desktop/dorsalGanglionProject/.release-runs/bootstrap-final-r2/oss-cad-suite/bin/openFPGALoader",
+        "-V"
+      ],
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "timeout": false,
+      "seconds": 0.032,
+      "required_marker": null,
+      "passed": true,
+      "log_sha256": "f6b335e17f1dad4a8808829d0abaa90373932f36330481cbef1b4ce7e67edeb4"
+    },
+    {
+      "name": "verilator-build",
+      "argv": [
+        "/home/bluto/Desktop/dorsalGanglionProject/.release-runs/bootstrap-final-r2/oss-cad-suite/bin/verilator",
+        "--binary",
+        "--timing",
+        "--trace",
+        "--assert",
+        "-Wall",
+        "--top-module",
+        "smoke_tb",
+        "--Mdir",
+        "/tmp/acq-tools-build-r1/simulation",
+        "-j",
+        "2",
+        "/home/bluto/Desktop/DRG-pain-project-publication/microcontroller/qualification/smoke_core.sv",
+        "/home/bluto/Desktop/DRG-pain-project-publication/microcontroller/qualification/smoke_tb.sv"
+      ],
+      "exit_code": 1,
+      "expected_exit_code": 0,
+      "timeout": false,
+      "seconds": 0.064,
+      "required_marker": null,
+      "passed": false,
+      "log_sha256": "f1ea8c8c27794061ba4ec15aeb287a7f67f8e234bdbc61b385998fa4dda5962e"
+    }
+  ],
+  "hardware_programming_performed": false,
+  "physical_target_verified": false,
+  "complete_acquisition_qualified": false,
+  "archive": {
+    "name": "oss-cad-suite-linux-x64-20260301.tgz",
+    "sha256": "3558d8cf5b88ba224cf8bae872f83bed11cffdde163b130412e20352029c85f1",
+    "bytes": 705999427
+  },
+  "binary_sha256": {
+    "libexec/yosys": "4351b569c7f0b43e9beb2956890cc85760eb2e5e90122142a74b5ef6d7be60d9",
+    "libexec/yosys-abc": "b54fe8bba88010d50cb884292c1484082100fb675e3284c5fd179ed69f6fc306",
+    "libexec/nextpnr-ecp5": "402a9fbb03987ec32b52e565d9e69de4effbddc4b72a04a3014bd62776959c23",
+    "libexec/ecppack": "10fdf37466c470cf050d9d661940a4e279478620955ea8246b7f1f4bb4f14d04",
+    "libexec/ecppll": "f9836135fc70b50e5f1789e3223afeb633193c830ea2de0209d1cece31b810e6",
+    "libexec/verilator_bin": "6b6b60384cc154f29e308f0aed8a83cb49d24b8ab0ad501f8fd5d8b14d3b538d",
+    "libexec/sby": "98c4b1fa78d50d57f834b98db121b8b56e6a2b0a9a35aca89401975843ce0c1b",
+    "libexec/gtkwave": "97a9da395d614a6aa1deb1a14a3ac36ab492a42e6e9f66b76f72beed3243db1e",
+    "libexec/openFPGALoader": "210b005347e3f6d9124c7af0271150f20f6477a57998526b55c8052dcbbf0ca1",
+    "libexec/z3": "71adfb67a64a9929345e93b06f2d45df9140ec77cc6ce15e10ddfa575cb3a220"
+  },
+  "runtime_sha256": {
+    "lib/ld-linux-x86-64.so.2": "595bcdc306999711a5a9c787e5d01618f94eb92c4c09a178e875a324f1072d89",
+    "share/yosys/ecp5/cells_sim.v": "c1ddb9de055c6c2a2225215ffd6ded48c884d12d5c7321eaf1a2f417d4f23ce0",
+    "share/trellis/database/devices.json": "5a3869c1b6fe7ea195b6f3a2a6f467b1c430b2e120f09b832ed49f4db6f123ca"
+  },
+  "trellis_database_sha256": {
+    "share/trellis/database/ECP5/LFE5U-85F/globals.json": "13b220856a69a1b6e53a2e2cadfb1461720c56a6686e42466c40d966026de61e",
+    "share/trellis/database/ECP5/LFE5U-85F/iodb.json": "9b86d77e4b87b52639e2c2a2cb2eab7854a78dc922ae6ad1170db4e773735f6c",
+    "share/trellis/database/ECP5/LFE5U-85F/tilegrid.json": "ec9b7ad19e283e2b15026ced04430a51fe589741e1dddfb5769001e63588df02"
+  },
+  "error": "RuntimeError('verilator-build failed; inspect retained log')",
+  "source_stable": true,
+  "artifacts_sha256": {
+    "gtkwave-version.log": "cf73a345c4c339462d0524a3648856b6de6209b50f44fc168fe0e19738706b47",
+    "nextpnr-version.log": "f456f9f6daba01f3e5ea6049727b67262486bb911a65be22ea16fb0db2250b6d",
+    "programmer-version.log": "f6b335e17f1dad4a8808829d0abaa90373932f36330481cbef1b4ce7e67edeb4",
+    "sby-version.log": "1eef26e895717ef3f01c3ff53ef7280425ce6b7f45b2d75f2f0937db95162104",
+    "verilator-build.log": "f1ea8c8c27794061ba4ec15aeb287a7f67f8e234bdbc61b385998fa4dda5962e",
+    "verilator-version.log": "03e8f0e456e1e0f517c066acf96960cda6c83d765d5ef9d7c99e143468dfba56",
+    "yosys-version.log": "cc9c14390be91f49c003ea08afe074d827e65ca3de41a6c9a9b68cdb9335d138",
+    "z3-version.log": "094fd53c158700cbf948038ecca553a997cb8117a02b0574c8fec54549051a55"
+  }
+}

@@ -1,0 +1,12 @@
+%Warning-PROCASSINIT: /home/bluto/Desktop/DRG-pain-project-publication/microcontroller/qualification/smoke_tb.sv:5:15: Procedural assignment to declaration with initial value: 'clk'
+                                                                                                                     : ... note: In instance 'smoke_tb'
+                                                                                                                     : ... Location of variable initialization
+    5 |   logic clk = 0, reset = 1;
+      |               ^
+                      /home/bluto/Desktop/DRG-pain-project-publication/microcontroller/qualification/smoke_tb.sv:12:13: ... Location of variable process write
+                                                                                                                      : ... Perhaps should initialize instead using a reset in this process
+   12 |   always #5 clk = ~clk;
+      |             ^~~
+                      ... For warning description see https://verilator.org/warn/PROCASSINIT?v=5.047
+                      ... Use "/* verilator lint_off PROCASSINIT */" and lint_on around source to disable this message.
+%Error: Exiting due to 1 warning(s)

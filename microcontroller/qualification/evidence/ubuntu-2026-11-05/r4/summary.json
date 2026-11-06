@@ -1,0 +1,499 @@
+{
+  "schema": "DRG5-UBUNTU-TOOLS-1",
+  "status": "host-tools-and-smoke-pass",
+  "target": {
+    "board": "ULX3S v3.1.7 D&M",
+    "part": "LFE5U-85F-6BG381C",
+    "density": "85k",
+    "package": "CABGA381",
+    "speed": "6"
+  },
+  "host": {
+    "os_release": "PRETTY_NAME=\"Ubuntu 26.04.1 LTS\"\nNAME=\"Ubuntu\"\nVERSION_ID=\"26.04\"\nVERSION=\"26.04.1 LTS (Resolute Raccoon)\"\nVERSION_CODENAME=resolute\nID=ubuntu\nID_LIKE=debian\nHOME_URL=\"https://www.ubuntu.com/\"\nSUPPORT_URL=\"https://help.ubuntu.com/\"\nBUG_REPORT_URL=\"https://bugs.launchpad.net/ubuntu/\"\nPRIVACY_POLICY_URL=\"https://www.ubuntu.com/legal/terms-and-policies/privacy-policy\"\nUBUNTU_CODENAME=resolute\nLOGO=ubuntu-logo\n",
+    "machine": "x86_64",
+    "python": "3.13.13"
+  },
+  "source_sha256": {
+    "run.py": "af1553ec196e842e432c8b3f5551804ebb78c9838842fa3fb516ae07c14583f5",
+    "smoke_core.sv": "59d5f07335feb58edf004c37c09d6618d80c89b1d22fb1e50fdfcce999616738",
+    "smoke_tb.sv": "17c8bbb1711ac82e568ad6a113dd1db2b6d16aaae451885a28af598f048490f3",
+    "smoke_top.sv": "0bfaf553b3ef2a11c5192f9826c82ed95ee6bfba8170738fa26ee9a398174749",
+    "smoke.lpf": "9af0c393a2b17ccd761b61257a0b7c0095305351dd8be0ea5c4a65bd44809b9e",
+    "formal.sv": "726e87e5784abbb512f021f0cc2ad9c6756e91afc1da50b6fe7ac489e59c64ee",
+    "waveform.tcl": "922922dadd7947084d35ea1df56080bd916236949b917c1fa877e6895adb701f"
+  },
+  "commands": [
+    {
+      "name": "verilator-version",
+      "argv": [
+        "/home/bluto/Desktop/dorsalGanglionProject/.release-runs/bootstrap-final-r2/oss-cad-suite/bin/verilator",
+        "--version"
+      ],
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "timeout": false,
+      "seconds": 0.064,
+      "required_marker": null,
+      "passed": true,
+      "log_sha256": "03e8f0e456e1e0f517c066acf96960cda6c83d765d5ef9d7c99e143468dfba56"
+    },
+    {
+      "name": "yosys-version",
+      "argv": [
+        "/home/bluto/Desktop/dorsalGanglionProject/.release-runs/bootstrap-final-r2/oss-cad-suite/bin/yosys",
+        "-V"
+      ],
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "timeout": false,
+      "seconds": 0.016,
+      "required_marker": null,
+      "passed": true,
+      "log_sha256": "cc9c14390be91f49c003ea08afe074d827e65ca3de41a6c9a9b68cdb9335d138"
+    },
+    {
+      "name": "nextpnr-version",
+      "argv": [
+        "/home/bluto/Desktop/dorsalGanglionProject/.release-runs/bootstrap-final-r2/oss-cad-suite/lib/ld-linux-x86-64.so.2",
+        "--inhibit-cache",
+        "--inhibit-rpath",
+        "",
+        "--library-path",
+        "/home/bluto/Desktop/dorsalGanglionProject/.release-runs/bootstrap-final-r2/oss-cad-suite/lib",
+        "/home/bluto/Desktop/dorsalGanglionProject/.release-runs/bootstrap-final-r2/oss-cad-suite/libexec/nextpnr-ecp5",
+        "--version"
+      ],
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "timeout": false,
+      "seconds": 0.007,
+      "required_marker": null,
+      "passed": true,
+      "log_sha256": "f456f9f6daba01f3e5ea6049727b67262486bb911a65be22ea16fb0db2250b6d"
+    },
+    {
+      "name": "sby-version",
+      "argv": [
+        "/home/bluto/Desktop/dorsalGanglionProject/.release-runs/bootstrap-final-r2/oss-cad-suite/bin/sby",
+        "--version"
+      ],
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "timeout": false,
+      "seconds": 0.114,
+      "required_marker": null,
+      "passed": true,
+      "log_sha256": "1eef26e895717ef3f01c3ff53ef7280425ce6b7f45b2d75f2f0937db95162104"
+    },
+    {
+      "name": "z3-version",
+      "argv": [
+        "/home/bluto/Desktop/dorsalGanglionProject/.release-runs/bootstrap-final-r2/oss-cad-suite/bin/z3",
+        "--version"
+      ],
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "timeout": false,
+      "seconds": 0.016,
+      "required_marker": null,
+      "passed": true,
+      "log_sha256": "094fd53c158700cbf948038ecca553a997cb8117a02b0574c8fec54549051a55"
+    },
+    {
+      "name": "gtkwave-version",
+      "argv": [
+        "/home/bluto/Desktop/dorsalGanglionProject/.release-runs/bootstrap-final-r2/oss-cad-suite/lib/ld-linux-x86-64.so.2",
+        "--inhibit-cache",
+        "--inhibit-rpath",
+        "",
+        "--library-path",
+        "/home/bluto/Desktop/dorsalGanglionProject/.release-runs/bootstrap-final-r2/oss-cad-suite/lib",
+        "/home/bluto/Desktop/dorsalGanglionProject/.release-runs/bootstrap-final-r2/oss-cad-suite/libexec/gtkwave",
+        "-V"
+      ],
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "timeout": false,
+      "seconds": 0.032,
+      "required_marker": null,
+      "passed": true,
+      "log_sha256": "943465690fc3db9b291c28e2d1209d97d1ac2bc022e7dd5129c540fd5c489394"
+    },
+    {
+      "name": "programmer-version",
+      "argv": [
+        "/home/bluto/Desktop/dorsalGanglionProject/.release-runs/bootstrap-final-r2/oss-cad-suite/bin/openFPGALoader",
+        "-V"
+      ],
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "timeout": false,
+      "seconds": 0.016,
+      "required_marker": null,
+      "passed": true,
+      "log_sha256": "f6b335e17f1dad4a8808829d0abaa90373932f36330481cbef1b4ce7e67edeb4"
+    },
+    {
+      "name": "verilator-build",
+      "argv": [
+        "/home/bluto/Desktop/dorsalGanglionProject/.release-runs/bootstrap-final-r2/oss-cad-suite/bin/verilator",
+        "--binary",
+        "--timing",
+        "--trace",
+        "--assert",
+        "-Wall",
+        "--top-module",
+        "smoke_tb",
+        "--Mdir",
+        "/tmp/acq-tools-build-r4/simulation",
+        "-j",
+        "2",
+        "/home/bluto/Desktop/DRG-pain-project-publication/microcontroller/qualification/smoke_core.sv",
+        "/home/bluto/Desktop/DRG-pain-project-publication/microcontroller/qualification/smoke_tb.sv"
+      ],
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "timeout": false,
+      "seconds": 2.818,
+      "required_marker": null,
+      "passed": true,
+      "log_sha256": "0d7f46fefeeb5b59f259f2163c547a974b89ddf0cdf5cf521cd253fa042f7317"
+    },
+    {
+      "name": "verilator-simulation",
+      "argv": [
+        "/tmp/acq-tools-build-r4/simulation/Vsmoke_tb"
+      ],
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "timeout": false,
+      "seconds": 0.003,
+      "required_marker": "SMOKE_SIM_PASS cycles=2048",
+      "passed": true,
+      "log_sha256": "9f41d83540ad625e659571b46763251b70c07f03678db19410180bea55c3bfb1"
+    },
+    {
+      "name": "pll",
+      "argv": [
+        "/home/bluto/Desktop/dorsalGanglionProject/.release-runs/bootstrap-final-r2/oss-cad-suite/lib/ld-linux-x86-64.so.2",
+        "--inhibit-cache",
+        "--inhibit-rpath",
+        "",
+        "--library-path",
+        "/home/bluto/Desktop/dorsalGanglionProject/.release-runs/bootstrap-final-r2/oss-cad-suite/lib",
+        "/home/bluto/Desktop/dorsalGanglionProject/.release-runs/bootstrap-final-r2/oss-cad-suite/libexec/ecppll",
+        "-i",
+        "25",
+        "-o",
+        "80",
+        "-n",
+        "qualification_pll",
+        "-f",
+        "/tmp/acq-tools-build-r4/pll.v"
+      ],
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "timeout": false,
+      "seconds": 0.004,
+      "required_marker": null,
+      "passed": true,
+      "log_sha256": "fa30bd5b64a4e07ded20df62b4bc173a935f3b9f49e05bd75f4efa8acc2865c4"
+    },
+    {
+      "name": "yosys-synthesis",
+      "argv": [
+        "/home/bluto/Desktop/dorsalGanglionProject/.release-runs/bootstrap-final-r2/oss-cad-suite/bin/yosys",
+        "-p",
+        "read_verilog -sv /home/bluto/Desktop/DRG-pain-project-publication/microcontroller/qualification/smoke_core.sv /home/bluto/Desktop/DRG-pain-project-publication/microcontroller/qualification/smoke_top.sv /tmp/acq-tools-build-r4/pll.v; synth_ecp5 -top smoke_top -json /tmp/acq-tools-build-r4/smoke.json; check -assert; stat"
+      ],
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "timeout": false,
+      "seconds": 0.514,
+      "required_marker": "Found and reported 0 problems.",
+      "passed": true,
+      "log_sha256": "bc19df72467656f1c7dd59251d170c39f3836be31dfcee8edee8577c2cd55de9"
+    },
+    {
+      "name": "nextpnr-route",
+      "argv": [
+        "/home/bluto/Desktop/dorsalGanglionProject/.release-runs/bootstrap-final-r2/oss-cad-suite/lib/ld-linux-x86-64.so.2",
+        "--inhibit-cache",
+        "--inhibit-rpath",
+        "",
+        "--library-path",
+        "/home/bluto/Desktop/dorsalGanglionProject/.release-runs/bootstrap-final-r2/oss-cad-suite/lib",
+        "/home/bluto/Desktop/dorsalGanglionProject/.release-runs/bootstrap-final-r2/oss-cad-suite/libexec/nextpnr-ecp5",
+        "--85k",
+        "--package",
+        "CABGA381",
+        "--speed",
+        "6",
+        "--seed",
+        "1",
+        "--json",
+        "/tmp/acq-tools-build-r4/smoke.json",
+        "--lpf",
+        "/home/bluto/Desktop/DRG-pain-project-publication/microcontroller/qualification/smoke.lpf",
+        "--freq",
+        "80",
+        "--textcfg",
+        "/tmp/acq-tools-build-r4/smoke.config",
+        "--report",
+        "/home/bluto/Desktop/DRG-pain-project-publication/microcontroller/qualification/evidence/ubuntu-2026-11-05/r4/route-report.json"
+      ],
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "timeout": false,
+      "seconds": 0.915,
+      "required_marker": null,
+      "passed": true,
+      "log_sha256": "77359cfe5dc256ba4083d8fef9946bc4ee33551c7724c514fc70035c7ebd83d3"
+    },
+    {
+      "name": "bitstream",
+      "argv": [
+        "/home/bluto/Desktop/dorsalGanglionProject/.release-runs/bootstrap-final-r2/oss-cad-suite/lib/ld-linux-x86-64.so.2",
+        "--inhibit-cache",
+        "--inhibit-rpath",
+        "",
+        "--library-path",
+        "/home/bluto/Desktop/dorsalGanglionProject/.release-runs/bootstrap-final-r2/oss-cad-suite/lib",
+        "/home/bluto/Desktop/dorsalGanglionProject/.release-runs/bootstrap-final-r2/oss-cad-suite/libexec/ecppack",
+        "--db",
+        "/home/bluto/Desktop/dorsalGanglionProject/.release-runs/bootstrap-final-r2/oss-cad-suite/share/trellis/database",
+        "--compress",
+        "/tmp/acq-tools-build-r4/smoke.config",
+        "/home/bluto/Desktop/DRG-pain-project-publication/microcontroller/qualification/evidence/ubuntu-2026-11-05/r4/smoke.bit"
+      ],
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "timeout": false,
+      "seconds": 0.565,
+      "required_marker": null,
+      "passed": true,
+      "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "sby-prove",
+      "argv": [
+        "/home/bluto/Desktop/dorsalGanglionProject/.release-runs/bootstrap-final-r2/oss-cad-suite/bin/sby",
+        "-f",
+        "/tmp/acq-tools-build-r4/prove.sby"
+      ],
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "timeout": false,
+      "seconds": 0.214,
+      "required_marker": "DONE (PASS, rc=",
+      "passed": true,
+      "log_sha256": "2f83493039d99bb79dab6c92f4b288e3d627deb4e624a7537b8a3c4e8835d9de"
+    },
+    {
+      "name": "sby-cover",
+      "argv": [
+        "/home/bluto/Desktop/dorsalGanglionProject/.release-runs/bootstrap-final-r2/oss-cad-suite/bin/sby",
+        "-f",
+        "/tmp/acq-tools-build-r4/cover.sby"
+      ],
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "timeout": false,
+      "seconds": 0.214,
+      "required_marker": "DONE (PASS, rc=",
+      "passed": true,
+      "log_sha256": "82abd0b3182d1e3b370f2853220b57dfc1daa635c1358d13acd5eac4e4497ed1"
+    },
+    {
+      "name": "sby-negative",
+      "argv": [
+        "/home/bluto/Desktop/dorsalGanglionProject/.release-runs/bootstrap-final-r2/oss-cad-suite/bin/sby",
+        "-f",
+        "/tmp/acq-tools-build-r4/negative.sby"
+      ],
+      "exit_code": 2,
+      "expected_exit_code": 2,
+      "timeout": false,
+      "seconds": 0.214,
+      "required_marker": "DONE (FAIL, rc=",
+      "passed": true,
+      "log_sha256": "f33c22c9170466cc5ca2e14f7176258e31ae233b6b4a319ac49cb96f003ede53"
+    },
+    {
+      "name": "vcd-to-fst",
+      "argv": [
+        "/home/bluto/Desktop/dorsalGanglionProject/.release-runs/bootstrap-final-r2/oss-cad-suite/bin/vcd2fst",
+        "/tmp/acq-tools-build-r4/smoke.vcd",
+        "/home/bluto/Desktop/DRG-pain-project-publication/microcontroller/qualification/evidence/ubuntu-2026-11-05/r4/smoke.fst"
+      ],
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "timeout": false,
+      "seconds": 0.016,
+      "required_marker": null,
+      "passed": true,
+      "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "gtkwave-load",
+      "argv": [
+        "/home/bluto/Desktop/dorsalGanglionProject/.release-runs/bootstrap-final-r2/oss-cad-suite/lib/ld-linux-x86-64.so.2",
+        "--inhibit-cache",
+        "--inhibit-rpath",
+        "",
+        "--library-path",
+        "/home/bluto/Desktop/dorsalGanglionProject/.release-runs/bootstrap-final-r2/oss-cad-suite/lib",
+        "/home/bluto/Desktop/dorsalGanglionProject/.release-runs/bootstrap-final-r2/oss-cad-suite/libexec/gtkwave",
+        "/tmp/acq-tools-build-r4/smoke.vcd",
+        "--script=/home/bluto/Desktop/DRG-pain-project-publication/microcontroller/qualification/waveform.tcl"
+      ],
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "timeout": false,
+      "seconds": 0.114,
+      "required_marker": "GTKWAVE_LOAD_PASS",
+      "passed": true,
+      "log_sha256": "9a617eaecf14bb204c5869c053324cc58f7825d37b738fe05575c8ed29ab1c0b"
+    },
+    {
+      "name": "programmer-boards",
+      "argv": [
+        "/home/bluto/Desktop/dorsalGanglionProject/.release-runs/bootstrap-final-r2/oss-cad-suite/bin/openFPGALoader",
+        "--list-boards"
+      ],
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "timeout": false,
+      "seconds": 0.016,
+      "required_marker": "ulx3s",
+      "passed": true,
+      "log_sha256": "82e03ce3b4f5edcb949f63ca63646204f1c92f03414063acd23433771ce1f04e"
+    },
+    {
+      "name": "programmer-cables",
+      "argv": [
+        "/home/bluto/Desktop/dorsalGanglionProject/.release-runs/bootstrap-final-r2/oss-cad-suite/bin/openFPGALoader",
+        "--list-cables"
+      ],
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "timeout": false,
+      "seconds": 0.016,
+      "required_marker": "ft231X",
+      "passed": true,
+      "log_sha256": "02b973295fe07339771aaf7b3c8d5d4c8fa4191c96181595a8441c5413352139"
+    },
+    {
+      "name": "programmer-devices",
+      "argv": [
+        "/home/bluto/Desktop/dorsalGanglionProject/.release-runs/bootstrap-final-r2/oss-cad-suite/bin/openFPGALoader",
+        "--list-fpga"
+      ],
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "timeout": false,
+      "seconds": 0.016,
+      "required_marker": "41113043",
+      "passed": true,
+      "log_sha256": "38b91e84b5e998f8276eddc0fd735833f0ea2ed260edf63c10604ff8c9de006b"
+    }
+  ],
+  "hardware_programming_performed": false,
+  "physical_target_verified": false,
+  "complete_acquisition_qualified": false,
+  "archive": {
+    "name": "oss-cad-suite-linux-x64-20260301.tgz",
+    "sha256": "3558d8cf5b88ba224cf8bae872f83bed11cffdde163b130412e20352029c85f1",
+    "bytes": 705999427
+  },
+  "binary_sha256": {
+    "libexec/yosys": "4351b569c7f0b43e9beb2956890cc85760eb2e5e90122142a74b5ef6d7be60d9",
+    "libexec/yosys-abc": "b54fe8bba88010d50cb884292c1484082100fb675e3284c5fd179ed69f6fc306",
+    "libexec/nextpnr-ecp5": "402a9fbb03987ec32b52e565d9e69de4effbddc4b72a04a3014bd62776959c23",
+    "libexec/ecppack": "10fdf37466c470cf050d9d661940a4e279478620955ea8246b7f1f4bb4f14d04",
+    "libexec/ecppll": "f9836135fc70b50e5f1789e3223afeb633193c830ea2de0209d1cece31b810e6",
+    "libexec/verilator_bin": "6b6b60384cc154f29e308f0aed8a83cb49d24b8ab0ad501f8fd5d8b14d3b538d",
+    "libexec/sby": "98c4b1fa78d50d57f834b98db121b8b56e6a2b0a9a35aca89401975843ce0c1b",
+    "libexec/gtkwave": "97a9da395d614a6aa1deb1a14a3ac36ab492a42e6e9f66b76f72beed3243db1e",
+    "libexec/openFPGALoader": "210b005347e3f6d9124c7af0271150f20f6477a57998526b55c8052dcbbf0ca1",
+    "libexec/z3": "71adfb67a64a9929345e93b06f2d45df9140ec77cc6ce15e10ddfa575cb3a220"
+  },
+  "runtime_sha256": {
+    "lib/ld-linux-x86-64.so.2": "595bcdc306999711a5a9c787e5d01618f94eb92c4c09a178e875a324f1072d89",
+    "share/yosys/ecp5/cells_sim.v": "c1ddb9de055c6c2a2225215ffd6ded48c884d12d5c7321eaf1a2f417d4f23ce0",
+    "share/trellis/database/devices.json": "5a3869c1b6fe7ea195b6f3a2a6f467b1c430b2e120f09b832ed49f4db6f123ca"
+  },
+  "trellis_database_sha256": {
+    "share/trellis/database/ECP5/LFE5U-85F/globals.json": "13b220856a69a1b6e53a2e2cadfb1461720c56a6686e42466c40d966026de61e",
+    "share/trellis/database/ECP5/LFE5U-85F/iodb.json": "9b86d77e4b87b52639e2c2a2cb2eab7854a78dc922ae6ad1170db4e773735f6c",
+    "share/trellis/database/ECP5/LFE5U-85F/tilegrid.json": "ec9b7ad19e283e2b15026ced04430a51fe589741e1dddfb5769001e63588df02"
+  },
+  "archive_files_verified": [
+    "lib/ld-linux-x86-64.so.2",
+    "libexec/ecppack",
+    "libexec/ecppll",
+    "libexec/gtkwave",
+    "libexec/nextpnr-ecp5",
+    "libexec/openFPGALoader",
+    "libexec/sby",
+    "libexec/verilator_bin",
+    "libexec/yosys",
+    "libexec/yosys-abc",
+    "libexec/z3",
+    "share/trellis/database/ECP5/LFE5U-85F/globals.json",
+    "share/trellis/database/ECP5/LFE5U-85F/iodb.json",
+    "share/trellis/database/ECP5/LFE5U-85F/tilegrid.json",
+    "share/trellis/database/devices.json",
+    "share/yosys/ecp5/cells_sim.v"
+  ],
+  "mapped_cells": {
+    "$scopeinfo": 2,
+    "CCU2C": 16,
+    "DP16KD": 1,
+    "EHXPLLL": 1,
+    "L6MUX21": 6,
+    "LUT4": 89,
+    "MULT18X18D": 1,
+    "PFUMX": 29,
+    "TRELLIS_FF": 133,
+    "USRMCLK": 1
+  },
+  "programming_parser_sha256": {
+    "program_board.py": "0d1a77f54249925e49f8f8da52c873e58c2d6ccdb238155a30f6cea09cbb081d",
+    "image.py": "69e7420ba79fba693bb86fdb5efcc78f7355c7ad0e67cb33837785e9bb9aaf68"
+  },
+  "bitstream_part_and_idcode_checked": true,
+  "programmer_static_target_match": true,
+  "physical_programming_status": "not performed: user confirms no board is available",
+  "source_stable": true,
+  "artifacts_sha256": {
+    "bitstream.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "gtkwave-load.log": "9a617eaecf14bb204c5869c053324cc58f7825d37b738fe05575c8ed29ab1c0b",
+    "gtkwave-version.log": "943465690fc3db9b291c28e2d1209d97d1ac2bc022e7dd5129c540fd5c489394",
+    "nextpnr-route.log": "77359cfe5dc256ba4083d8fef9946bc4ee33551c7724c514fc70035c7ebd83d3",
+    "nextpnr-version.log": "f456f9f6daba01f3e5ea6049727b67262486bb911a65be22ea16fb0db2250b6d",
+    "pll.log": "fa30bd5b64a4e07ded20df62b4bc173a935f3b9f49e05bd75f4efa8acc2865c4",
+    "programmer-boards.log": "82e03ce3b4f5edcb949f63ca63646204f1c92f03414063acd23433771ce1f04e",
+    "programmer-cables.log": "02b973295fe07339771aaf7b3c8d5d4c8fa4191c96181595a8441c5413352139",
+    "programmer-devices.log": "38b91e84b5e998f8276eddc0fd735833f0ea2ed260edf63c10604ff8c9de006b",
+    "programmer-version.log": "f6b335e17f1dad4a8808829d0abaa90373932f36330481cbef1b4ce7e67edeb4",
+    "route-report.json": "1ca804f91d97184a50b791659cdb01cc3ec64a3d7ce398542916ff9bfd1d79b4",
+    "sby-cover-status.txt": "4d489b9bfaac73d73a64a4023bf4d947ca1d4216d9f72864c97bfb6a2bc07d56",
+    "sby-cover.log": "82abd0b3182d1e3b370f2853220b57dfc1daa635c1358d13acd5eac4e4497ed1",
+    "sby-negative-status.txt": "54c2862151d1efdbec1fb49edb5766e6e0c15c24e532866ac1305bd25dabc02c",
+    "sby-negative.log": "f33c22c9170466cc5ca2e14f7176258e31ae233b6b4a319ac49cb96f003ede53",
+    "sby-prove-status.txt": "4d489b9bfaac73d73a64a4023bf4d947ca1d4216d9f72864c97bfb6a2bc07d56",
+    "sby-prove.log": "2f83493039d99bb79dab6c92f4b288e3d627deb4e624a7537b8a3c4e8835d9de",
+    "sby-version.log": "1eef26e895717ef3f01c3ff53ef7280425ce6b7f45b2d75f2f0937db95162104",
+    "smoke.bit": "be3f0d438d284964b12465b75710f9433fd57b28edc82664d3ae9dc72997705e",
+    "smoke.fst": "43bc95a3c6db25e2a33bb8943de1db9f3a1ce8b0e44190589c5928e45d167b0c",
+    "smoke.vcd": "31d1c08b73ed4276d0878288d76be7d547f574186a58ab0d902568d4d6a62967",
+    "vcd-to-fst.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "verilator-build.log": "0d7f46fefeeb5b59f259f2163c547a974b89ddf0cdf5cf521cd253fa042f7317",
+    "verilator-simulation.log": "9f41d83540ad625e659571b46763251b70c07f03678db19410180bea55c3bfb1",
+    "verilator-version.log": "03e8f0e456e1e0f517c066acf96960cda6c83d765d5ef9d7c99e143468dfba56",
+    "yosys-synthesis.log": "bc19df72467656f1c7dd59251d170c39f3836be31dfcee8edee8577c2cd55de9",
+    "yosys-version.log": "cc9c14390be91f49c003ea08afe074d827e65ca3de41a6c9a9b68cdb9335d138",
+    "z3-version.log": "094fd53c158700cbf948038ecca553a997cb8117a02b0574c8fec54549051a55"
+  }
+}

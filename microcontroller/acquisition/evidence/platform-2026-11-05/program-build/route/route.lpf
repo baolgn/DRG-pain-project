@@ -1,0 +1,51 @@
+# use the pinned v316 mapping for ULX3S v3.1.7 D&M.
+# constrain the physical oscillator; the PLL supplies the core clock.
+LOCATE COMP "clk25_i" SITE "G2";
+IOBUF PORT "clk25_i" IO_TYPE=LVCMOS33 PULLMODE=NONE;
+FREQUENCY PORT "clk25_i" 25.000 MHZ;
+
+# FIRE1 restarts boot; FIRE2 requests the golden firmware bank during reset.
+LOCATE COMP "reset_btn_i" SITE "R1";
+IOBUF PORT "reset_btn_i" IO_TYPE=LVCMOS33 PULLMODE=DOWN;
+LOCATE COMP "event_btn_i" SITE "T1";
+IOBUF PORT "event_btn_i" IO_TYPE=LVCMOS33 PULLMODE=DOWN;
+
+# transmit console bytes to the onboard FT231X receiver.
+LOCATE COMP "uart_tx_o" SITE "L4";
+IOBUF PORT "uart_tx_o" IO_TYPE=LVCMOS33 PULLMODE=UP DRIVE=4;
+
+# LEDs expose local status without a synchronous external timing contract.
+LOCATE COMP "led_o[0]" SITE "B2";
+IOBUF PORT "led_o[0]" IO_TYPE=LVCMOS33 PULLMODE=NONE DRIVE=4;
+LOCATE COMP "led_o[1]" SITE "C2";
+IOBUF PORT "led_o[1]" IO_TYPE=LVCMOS33 PULLMODE=NONE DRIVE=4;
+LOCATE COMP "led_o[2]" SITE "C1";
+IOBUF PORT "led_o[2]" IO_TYPE=LVCMOS33 PULLMODE=NONE DRIVE=4;
+LOCATE COMP "led_o[3]" SITE "D2";
+IOBUF PORT "led_o[3]" IO_TYPE=LVCMOS33 PULLMODE=NONE DRIVE=4;
+LOCATE COMP "led_o[4]" SITE "D1";
+IOBUF PORT "led_o[4]" IO_TYPE=LVCMOS33 PULLMODE=NONE DRIVE=4;
+LOCATE COMP "led_o[5]" SITE "E2";
+IOBUF PORT "led_o[5]" IO_TYPE=LVCMOS33 PULLMODE=NONE DRIVE=4;
+LOCATE COMP "led_o[6]" SITE "E1";
+IOBUF PORT "led_o[6]" IO_TYPE=LVCMOS33 PULLMODE=NONE DRIVE=4;
+LOCATE COMP "led_o[7]" SITE "H3";
+IOBUF PORT "led_o[7]" IO_TYPE=LVCMOS33 PULLMODE=NONE DRIVE=4;
+
+# release configuration flash pins to user logic; foreground JTAG recovery clears SRAM first.
+SYSCONFIG CONFIG_IOVOLTAGE=3.3 MASTER_SPI_PORT=DISABLE SLAVE_SPI_PORT=DISABLE SLAVE_PARALLEL_PORT=DISABLE MCCLK_FREQ=2.4;
+
+# USRMCLK owns dedicated SCK U3; do not create a fabric output at that pin.
+LOCATE COMP "flash_cs_n_o" SITE "R2";
+IOBUF PORT "flash_cs_n_o" IO_TYPE=LVCMOS33 PULLMODE=UP DRIVE=4;
+LOCATE COMP "flash_mosi_o" SITE "W2";
+IOBUF PORT "flash_mosi_o" IO_TYPE=LVCMOS33 PULLMODE=UP DRIVE=4;
+LOCATE COMP "flash_miso_i" SITE "V2";
+IOBUF PORT "flash_miso_i" IO_TYPE=LVCMOS33 PULLMODE=UP;
+LOCATE COMP "flash_hold_n_o" SITE "W1";
+IOBUF PORT "flash_hold_n_o" IO_TYPE=LVCMOS33 PULLMODE=UP DRIVE=4;
+LOCATE COMP "flash_wp_n_o" SITE "Y2";
+IOBUF PORT "flash_wp_n_o" IO_TYPE=LVCMOS33 PULLMODE=UP DRIVE=4;
+
+# reserve 10% of the CPU period for implementation margin.
+FREQUENCY NET "clk_cpu" 27.777777778 MHZ;

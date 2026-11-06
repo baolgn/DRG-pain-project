@@ -1,0 +1,6 @@
+Pll parameters:
+Refclk divisor: 5
+Feedback divisor: 16
+clkout0 divisor: 7
+clkout0 frequency: 80 MHz
+VCO frequency: 560

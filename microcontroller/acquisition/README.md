@@ -2,10 +2,38 @@
 
 The acquisition engine will turn each scheduled eight-channel ADC conversion into a timestamped record, retain invalid intervals and move completed blocks into protected memory. The current implementation provides the digital slot, record and stop guard in [drg5_acquisition_guard.sv](../rtl/drg5_acquisition_guard.sv). It accepts synthetic completed frames and reports record ownership through ready/valid handshakes. It does not drive ADC pins, capture a serial frame or implement the external FIFO, capture DMA, ring or host transport.
 
+The **[ACQ-R1 contract](contract.md)** now freezes the first implementation's supported ADC tuple, configuration/command rejection, epochs, timing, validity, record format and all stop outcomes. The **[ADC profile](adc-profile.md)** fixes register bytes, serial edges, CRC conventions and startup. The **[review record](review.md)** records corrections and verification. These definitions are normative targets; the complete engine is not implemented by this commit.
+
+The **[timing budget](timing-budget.md)** separates ADC limits from controller choices before state-machine design. Revision 3 retains the nominal 14 µs read deadline because 13 µs cannot cover the entire accepted 2 µs BUSY-fall window. It allocates clock tolerance, FPGA/board capture paths, bounded service/storage waits and independent supervision; arithmetic passes do not establish physical timing closure.
+
+The **[binary formats](formats.md)** freeze revision 4's 48-byte records, 64-byte block headers and publication descriptors, immutable configuration/epoch bindings and exact loss intervals. Independent producer and host-parser code checks byte agreement, canonical validity, integrity, allocation generations and counter exhaustion. These offline format tools do not implement ADC control, DMA or concurrent memory publication.
+
+Reproduce the format check from the repository root with Python 3, choosing a new output directory for each attempt:
+
+```sh
+PYTHONDONTWRITEBYTECODE=1 python3 -O microcontroller/acquisition/check_formats.py --output /tmp/drg-acquisition-formats-check
+```
+
+The runner retains source snapshots, binary golden vectors and individual positive/negative results. Its predicates remain active under `-O`. See the [format review](evidence/formats-2026-11-05/review.json) for the retained revision history and current result.
+
+The **[clock/reset lifecycle](clock-reset-lifecycle.md)** fixes domain ownership, retained coherent mailboxes, complete-record FIFO crossings, STOP receipts and separate CPU/acquisition/system/reconfiguration scopes. ACQ-R1-CDC1 supplements the frozen revision-4 format without changing its bytes. Reset cannot create a trigger, record, acknowledgment or free allocation. Its [abstract protocol checker](check_lifecycle.py) explores reset/clock interleavings and unsafe counterexamples; physical CDC and reset qualification remain open.
+
+Run `python3 -O microcontroller/acquisition/check_lifecycle.py --output /tmp/drg-acquisition-lifecycle-check` from the repository root, using a fresh directory. The [lifecycle evidence](evidence/lifecycle-2026-11-05/review.json) records the finite models, assumptions and actual review revisions.
+
+The [board qualification](board-qualification.md) traces the documented ADC nets, power/reference selection and ownership. J1–J8 are the positive/negative connectors for channels 1–4, not eight independent channel sockets. The [electrical and Ubuntu qualification](qualification.md) separates fresh executable tool checks from physical gates. The user confirmed that no board is available; physical assembly inspection, rail/continuity measurements and programming remain unperformed.
+
 ## Table of contents
 
 | Section |
 | --- |
+| [First implementation contract](contract.md) |
+| [ADC profile](adc-profile.md) |
+| [Timing budget](timing-budget.md) |
+| [Frozen binary formats](formats.md) |
+| [Clock/reset lifecycle](clock-reset-lifecycle.md) |
+| [Definition review](review.md) |
+| [Board qualification](board-qualification.md) |
+| [Electrical and Ubuntu qualification](qualification.md) |
 | [Acquisition boundary](#acquisition-boundary) |
 | [Acquisition data path](#acquisition-data-path) |
 | [Acquisition control plane](#acquisition-control-plane) |
@@ -44,7 +72,7 @@ The physical recording connection remains undecided. Cultured DRG neurons provid
 | Storage and transport | [synthetic_cpu_sim.cpp](../tests/synthetic_cpu_sim.cpp) supplies modeled FIFO, capture DMA, arbitration and host behavior around real CPU and guard RTL. | Implement shared-memory ownership, bounded service, transport and a host archive. |
 | Verification | [run_acquisition_guard.py](../tests/run_acquisition_guard.py) drives [acquisition_guard_sim.cpp](../tests/acquisition_guard_sim.cpp); [run_synthetic_cpu.py](../tests/run_synthetic_cpu.py) exercises compiled firmware with the modeled platform. | Close pin-level, board, analog, continuous-recording and physical stop/recovery gates. |
 
-The proposed storage budget includes metadata. A full block contains 256 scheduled 48-byte records and a 64-byte header. Invalid slots retain their position; the scheduled count does not assert that every sample is valid. Header field packing and the production integrity format still require a frozen versioned definition. The synthetic CPU fixture's diagnostic headers do not establish that production format.
+The proposed storage budget includes metadata. A full block contains 256 scheduled 48-byte records and a 64-byte header. Invalid slots retain their position; the scheduled count does not assert that every sample is valid. The ACQ-R1 contract freezes header packing, record flags and CRC32C; implementation and qualification remain outstanding. The synthetic CPU fixture's diagnostic headers do not establish that production format.
 
 | Proposed quantity | Value | Interpretation |
 | --- | --- | --- |
@@ -54,7 +82,7 @@ The proposed storage budget includes metadata. A full block contains 256 schedul
 | Ring capacity | 64 blocks; 790,528 bytes | The nominal span is 327.68 ms before considering owned blocks and service deadlines. |
 | Host-stall admission | At least 24 truly free blocks | 122.88 ms of new block capacity provides margin for a 100 ms host stall; FIFO or memory-service failure remains a separate fault. |
 
-The following diagrams specify the complete proposed engine, including modules that have no RTL implementation yet. The implemented guard covers only the subset described above. The [memory design](../memory/README.md) defines storage ownership, and the [signal-processing design](../signal-processing/README.md) keeps optional analysis separate from mandatory raw retention.
+The following diagrams describe the broader proposed architecture, including modules that have no RTL implementation yet. ACQ-R1 admits only the contract's single tuple: diagram alternatives such as coalescing, external events, partial reset, another clock or pin voltage are not supported R1 modes. The implemented guard covers only the subset described above. The [memory design](../memory/README.md) defines storage ownership, and the [signal-processing design](../signal-processing/README.md) keeps optional analysis separate from mandatory raw retention.
 
 ## Acquisition boundary
 
@@ -108,6 +136,8 @@ flowchart TB
 
 ## Acquisition clocks, crossings and reset
 
+The [normative lifecycle supplement](clock-reset-lifecycle.md) supplies the reset matrix and protocol rules for this proposed diagram. The fixed acquisition clock uses enables; CPU reset preserves peripheral owners; destructive reset fences both crossing endpoints before clearing history. The record FIFO prepares static context before ARM and installs ARM-created ACE1 before system-side reads.
+
 ```mermaid
 %%{init: {"theme":"neutral","themeVariables":{"fontFamily":"Arial,sans-serif","fontSize":"14px"},"flowchart":{"htmlLabels":true,"minNodeWidth":0,"wrappingWidth":240,"nodeSpacing":28,"rankSpacing":32,"curve":"linear"}}}%%
 flowchart LR
@@ -150,15 +180,15 @@ flowchart TB
 flowchart TB
     OFF["Unqualified / outputs safe"] --> PWR{"Power and clock qualified?"}
     PWR -->|"no"| OFF
-    PWR -->|"yes"| WAIT["First-start wait >2 s after stable power<br/>also satisfies ≥10 ms before RESET"]
+    PWR -->|"yes"| WAIT["R1: wait 2.1 s after stable power<br/>also satisfies ≥10 ms before RESET"]
     WAIT --> PINS["OS2:0 = 111; PAR/SER = 1<br/>physical reference / VDRIVE qualified"]
-    PINS --> RESET["Full RESET high: proposed 10 µs<br/>ADC minimum 3.2 µs"]
-    RESET --> SETTLE["Post-reset wait: proposed 1 ms<br/>ADC ordinary minimum 274 µs"]
+    PINS --> RESET["Full RESET high: 10 µs<br/>ADC minimum 3.2 µs"]
+    RESET --> SETTLE["Post-reset wait: 1 ms<br/>ADC ordinary minimum 274 µs"]
     SETTLE --> CONFIG["Configure / read back / interface test"]
     CONFIG -->|"all configuration / test checks pass"| READY["READY · analog validity separate"]
     CONFIG -->|"failure"| BAD
-    BAD["Qualification loss / timeout<br/>bounded retry budget exhausted"] --> FAULT["FAULT · acquisition inhibited"]
-    MON["Qualified supervisor monitors<br/>all startup / active states"] -->|"loss / deadline / exhausted retries"| BAD
+    BAD["Qualification loss / timeout<br/>no automatic retry"] --> FAULT["FAULT · acquisition inhibited"]
+    MON["Qualified supervisor monitors<br/>all startup / active states"] -->|"loss / deadline"| BAD
     FAULT -->|"explicit retry / requalification"| OFF
     PART["Reset contract<br/>partial: 55–2000 ns, then ≥50 ns<br/>2 µs < pulse < 3.2 µs undefined<br/>either reset ends epoch"] -.-> RESET
 ```
@@ -178,7 +208,7 @@ flowchart TB
     TEST -->|"pass; transfer complete"| EXIT["Re-enter registers; disable test<br/>read/log STATUS, verify reset flag cleared<br/>verify image; zero write → ADC-data mode"]
     EXIT --> RELEASE["Release service ownership<br/>new epoch / scheduled arm boundary"]
     DIAG["Diagnostic service: capture reset evidence<br/>STATUS read clears RESET_DETECT<br/>error bits require W1C"] -.-> OWN
-    ERROR["Readback / framing / test failure"] --> STOP["Bounded retry or FAULT<br/>no valid recording release"]
+    ERROR["Readback / framing / test failure"] --> STOP["FAULT · no automatic retry<br/>no valid recording release"]
     IMAGE -->|"failure"| ERROR
     CRC -->|"failure"| ERROR
     FRAME -->|"failure"| ERROR
@@ -193,8 +223,8 @@ flowchart TB
 %%{init: {"theme":"neutral","themeVariables":{"fontFamily":"Arial,sans-serif","fontSize":"14px"},"flowchart":{"htmlLabels":true,"minNodeWidth":0,"wrappingWidth":240,"nodeSpacing":28,"rankSpacing":32,"curve":"linear"}}}%%
 flowchart TB
     CLK["Fixed clock"] --> TICK["64-bit free-running ticks<br/>12.5 ns nominal at 80 MHz"]
-    ARM["Qualified future arm tick / epoch / period<br/>initial slot counter explicitly supplied"] --> NEXT["Initialize next_tick = arm_tick<br/>64-bit scheduled-slot index"]
-    TICK --> DUE{"Tick versus next_tick<br/>defined wrap-safe comparison"}
+    ARM["R1: arm acceptance A; first tick A+1<br/>new epoch; slot counter starts at zero"] --> NEXT["Initialize next_tick = arm_tick<br/>64-bit scheduled-slot index"]
+    TICK --> DUE{"Tick versus next_tick<br/>checked arithmetic; no wrap"}
     NEXT --> DUE
     DUE -->|"earlier"| WAIT["Wait; no pulse"]
     WAIT --> DUE
@@ -203,7 +233,7 @@ flowchart TB
     SLOT --> READY{"Qualified, BUSY low,<br/>owner ready, staging reserved?"}
     READY -->|"yes"| TRIG["CONVST rising now<br/>latch emitted-trigger marker"]
     READY -->|"no"| WHY{"Failure policy"}
-    WHY -->|"skip permitted; sync + record credit retained"| GAP["Invalid placeholder<br/>never trigger late"]
+    WHY -->|"R1: same-edge stop; record credit retained"| GAP["Invalid placeholder<br/>never trigger late"]
     WHY -->|"capacity / lost sync / qualification"| STOP["Controlled stop / epoch end"]
     TRIG --> ADV["slot +=1; next_tick += period<br/>fixed grid; no bus-driven delay"]
     GAP --> ADV
@@ -216,12 +246,12 @@ flowchart TB
 ```mermaid
 %%{init: {"theme":"neutral","themeVariables":{"fontFamily":"Arial,sans-serif","fontSize":"14px"},"flowchart":{"htmlLabels":true,"minNodeWidth":0,"wrappingWidth":240,"nodeSpacing":28,"rankSpacing":32,"curve":"linear"}}}%%
 flowchart LR
-    T0["t = 0: scheduled CONVST↑<br/>100 ns high proposed"] --> BUSY["Normal conversion 0.5–0.65 µs<br/>then BUSY synchronization"]
+    T0["t = 0: scheduled CONVST↑<br/>8 ticks / 100 ns high nominal"] --> BUSY["Normal conversion 0.5–0.65 µs<br/>then BUSY synchronization"]
     BUSY --> READ["Read only after matched BUSY↓<br/>224 clocks / 20 MHz = 11.2 µs"]
-    READ --> DONE["Read completion deadline ≤13 µs<br/>includes CS guards / synchronization"]
-    DONE --> NEXT["Next slot at 20 µs<br/>1600 acquisition-clock ticks"]
-    LIMIT["ADC no-OS limits<br/>acquisition ≥0.35 µs; cycle ≥1 µs<br/>CONVST high / low each ≥10 ns"] -.-> BUSY
-    WATCH["Separate watchdogs from trigger<br/>BUSY rise 250 ns; fall 2 µs proposed"] -.-> BUSY
+    READ --> DONE["R1 read completion deadline: 1120 ticks<br/>14 µs nominal, including guards / synchronization"]
+    DONE --> NEXT["Next slot at 20 µs nominal<br/>1600 acquisition-clock ticks"]
+    LIMIT["ADC no-OS limits<br/>acquisition ≥0.35 µs<br/>CONVST high / low each ≥10 ns"] -.-> BUSY
+    WATCH["Separate watchdogs from trigger<br/>BUSY rise 20 ticks; fall 160 ticks"] -.-> BUSY
     GATE["Proposed budgets require board closure<br/>clock tolerance / I/O delays included"] -.-> DONE
 ```
 
@@ -230,8 +260,8 @@ flowchart LR
 ```mermaid
 %%{init: {"theme":"neutral","themeVariables":{"fontFamily":"Arial,sans-serif","fontSize":"14px"},"flowchart":{"htmlLabels":true,"minNodeWidth":0,"wrappingWidth":240,"nodeSpacing":28,"rankSpacing":32,"curve":"linear"}}}%%
 flowchart TB
-    IDLE["Idle · no outstanding conversion"] -->|"accepted on-time trigger + slot tag"| RISE["Expect synchronized BUSY rise<br/>deadline from trigger: 250 ns proposed"]
-    RISE -->|"matched rise"| FALL["Expect synchronized BUSY fall<br/>deadline from trigger: 2 µs proposed"]
+    IDLE["Idle · no outstanding conversion"] -->|"accepted on-time trigger + slot tag"| RISE["Expect synchronized BUSY rise<br/>deadline from trigger: 20 ticks"]
+    RISE -->|"matched rise"| FALL["Expect synchronized BUSY fall<br/>deadline from trigger: 160 ticks"]
     FALL -->|"matched fall"| READY["One conversion-ready token<br/>retain trigger / slot / epoch"]
     READY -->|"capture accepted"| IDLE
     RISE -->|"missing / invalid edge"| BAD["Report event; revoke readiness<br/>lost sync → quiesce / requalify"]
@@ -253,10 +283,10 @@ flowchart TB
     OWN{"Authorized transaction<br/>under exclusive pin lease"} -->|"service command"| REG["Register engine<br/>16 bits or 24 with CRC8"]
     OWN -->|"capture / interface test; matched token"| CS
     subgraph ACTIVE["Active transfer"]
-        CS["SCLK idle high; CS↓; SDI=1<br/>first MSB presented"] --> PRE["Proposed CS setup guard 100 ns<br/>first-bit enable / board delay satisfied"]
+        CS["SCLK idle high; CS↓; SDI=0<br/>first MSB presented"] --> PRE["R1 CS setup guard 50 ns<br/>first-bit enable / board delay satisfied"]
         PRE --> SHIFT["Capture DOUT on falling edges<br/>subsequent bits update after rising<br/>SDI meets falling-edge setup"]
         SHIFT --> COUNT["224 captured bits exactly<br/>8 × 26 + CRC16"]
-        COUNT --> POST["Proposed final hold guard 50 ns<br/>CS↑; restore idle without extra capture"]
+        COUNT --> POST["R1 final hold guard 50 ns<br/>CS↑; restore idle without extra capture"]
     end
     ACTIVE -->|"deadline / reset / abort in any phase"| ABORT["Bounded safe pin termination<br/>partial count / evidence + slot failure"]
     POST --> OUT["Whole frame + slot tag<br/>or explicit abort / short-frame fault"]
@@ -266,7 +296,7 @@ flowchart TB
     REG --> IDLE["Transaction idle<br/>retain lease until quiesce / mode restoration"]
     POST --> IDLE
     TIMING["20 MHz: 25 ns half-cycle<br/>3.3 V ADC tDOUT ≤15.7 ns<br/>remaining 9.3 ns must cover board + I/O"] -.-> SHIFT
-    VOLT["Below 2.7 V: tDOUT up to 25 ns<br/>slower SCLK / different capture phase"] -.-> TIMING
+    VOLT["R1 direct interface: VDRIVE / VCCIO 3.135–3.465 V<br/>paired rails / sequencing / overshoot qualified"] -.-> TIMING
 ```
 
 ## ACQ-05 · Pin lease transitions
@@ -326,7 +356,7 @@ flowchart TB
     CHECK -->|"no"| BAD["Whole frame invalid<br/>retain available raw evidence"]
     STAGE --> NUM["Every available sample: signed18 → signed32<br/>missing fields: flagged placeholders"]
     STAGE --> STATUS["Available raw status8 preserved<br/>b7 reset; b6 digital error; b5 open<br/>b4:3 reserved; b2:0 channel ID"]
-    STATUS --> FLAGS["Recording reset → end epoch / requalify<br/>digital error / open → validity policy<br/>test mode: expected-status checks"]
+    STATUS --> FLAGS["Recording reset → end epoch / requalify<br/>digital error / open → stop; invalid<br/>test mode: expected-status checks"]
     NUM --> OUT["Samples / status / received CRC<br/>integrity + validity causes"]
     PASS --> OUT
     BAD --> OUT
@@ -339,9 +369,9 @@ flowchart TB
 ```mermaid
 %%{init: {"theme":"neutral","themeVariables":{"fontFamily":"Arial,sans-serif","fontSize":"14px"},"flowchart":{"htmlLabels":true,"minNodeWidth":0,"wrappingWidth":240,"nodeSpacing":28,"rankSpacing":32,"curve":"linear"}}}%%
 flowchart TB
-    WIRE["One-lane payload<br/>208 data/status bits; exclude trailer"] --> CRC["CRC16 candidate: MSB-first, init = 0<br/>full divisor 0x1755B; taps 0x755B"]
+    WIRE["One-lane payload<br/>208 data/status bits; exclude trailer"] --> CRC["R1 CRC16: MSB-first, init = 0<br/>full divisor 0x1755B; taps 0x755B"]
     CRC --> MATCH["Compare received CRC16<br/>MSB-first trailer; retain received value"]
-    SPEC["Freeze reflection / final XOR<br/>augmentation / reset / coverage<br/>no double zero augmentation"] --> CRC
+    SPEC["No reflection / final XOR<br/>208-bit coverage; reset each frame<br/>direct recurrence; no extra zeros"] --> CRC
     EX["Table 28 mathematical check<br/>0x064E → 0x2137"] --> QUAL["Bench gate: built-in patterns<br/>vary status; reset / framing transitions"]
     MATCH --> QUAL
     QUAL -->|"qualified convention only"| PASS["Enable CRC-verified validity"]
@@ -361,8 +391,8 @@ flowchart TB
     LIVE -->|"no"| DROP["Discard / log duplicate or late result"]
     LIVE -->|"yes"| JOIN["Resolve once; freeze slot / epoch<br/>one record per retained scheduled slot"]
     AFE["Analog validity for this sampled slot<br/>snapshot or tagged invalid interval<br/>qualified monitor inputs only"] --> JOIN
-    JOIN --> RECORD["48-byte record<br/>8 signed32 + 8 raw status bytes<br/>received CRC16 + reserved16=0 + flags32"]
-    RECORD --> FLAGS["Per-channel validity / near-rail<br/>frame CRC / framing / reset / digital error<br/>missing / settling / interface test"]
+    JOIN --> RECORD["48-byte record<br/>8 signed32 + 8 raw status bytes<br/>received CRC16 + present8<br/>reserved8=0 + flags32"]
+    RECORD --> FLAGS["Per-channel validity / exact rail<br/>frame CRC / framing / reset / digital error<br/>missing / settling / interface test"]
     FLAGS --> VALID["Valid = present AND qualified integrity<br/>AND slot-analog-valid AND channel health<br/>AND recording mode; frame fault clears all"]
     VALID --> FIFO["Complete record + sideband metadata"]
     JOIN -.->|"accepted missing outcome only"| ZERO["Deterministic placeholders + invalid flags<br/>zeros never imply measured zero"]
@@ -375,12 +405,12 @@ flowchart TB
 ```mermaid
 %%{init: {"theme":"neutral","themeVariables":{"fontFamily":"Arial,sans-serif","fontSize":"14px"},"flowchart":{"htmlLabels":true,"minNodeWidth":0,"wrappingWidth":240,"nodeSpacing":28,"rankSpacing":32,"curve":"linear"}}}%%
 flowchart LR
-    SESSION["Versioned configuration record<br/>source / channel map / gain / filter<br/>range / clock calibration / CRC convention"] --> HEADER["64-byte header budget<br/>format / epoch / stream block sequence<br/>first slot / first tick / period / count<br/>length / flags / integrity"]
+    SESSION["Versioned configuration record<br/>source / channel map / gain / filter<br/>range / clock calibration / CRC convention"] --> HEADER["R1 64-byte header<br/>format / epoch / stream block sequence<br/>first slot / first tick / period / count<br/>length / flags / integrity"]
     HEADER --> PAY["256 consecutive scheduled slots<br/>256 × 48 = 12,288 payload bytes"]
     PAY --> TOTAL["12,352 bytes / full block<br/>5.12 ms; 2,412,500 bytes/s"]
     TIME["Record ordinal n: first_tick + n × period<br/>slot index = first_slot + n; gaps retain spacing"] -.-> PAY
     PART["Final partial: actual count / length<br/>never mix epochs or silently pad"] -.-> PAY
-    FORMAT["Packed byte order / field widths<br/>flag allocation / block CRC: freeze before RTL"] -.-> HEADER
+    FORMAT["R1: little-endian packed fields<br/>fixed flags and CRC32C in contract"] -.-> HEADER
 ```
 
 ## ACQ-08 · Elastic capture FIFO
@@ -389,7 +419,7 @@ flowchart LR
 %%{init: {"theme":"neutral","themeVariables":{"fontFamily":"Arial,sans-serif","fontSize":"14px"},"flowchart":{"htmlLabels":true,"minNodeWidth":0,"wrappingWidth":240,"nodeSpacing":28,"rankSpacing":32,"curve":"linear"}}}%%
 flowchart TB
     IN["Complete record + slot / epoch metadata"] --> PUSH["Enqueue exactly once<br/>consume associated reservation"]
-    PUSH --> FIFO["Illustrative 256-record FIFO<br/>12,288 bytes + metadata<br/>5.12 ms ingress when empty"]
+    PUSH --> FIFO["R1: 256-record FIFO<br/>12,288 bytes + metadata<br/>5.12 ms ingress when empty"]
     FIFO --> POP["Dequeue only on DMA acceptance<br/>hold data stable while blocked"]
     POP --> DMA["DMA-owned staging"]
     FIFO --> OCC["Occupancy / high-water / overflow"]
@@ -506,7 +536,7 @@ flowchart TB
 ```mermaid
 %%{init: {"theme":"neutral","themeVariables":{"fontFamily":"Arial,sans-serif","fontSize":"14px"},"flowchart":{"htmlLabels":true,"minNodeWidth":0,"wrappingWidth":240,"nodeSpacing":28,"rankSpacing":32,"curve":"linear"}}}%%
 flowchart LR
-    BLOCK["Published blocks<br/>≈195.3125/s at baseline"] --> COAL["Normal notifications<br/>block count / bounded-delay coalescing"]
+    BLOCK["Published blocks<br/>≈195.3125/s at baseline"] --> COAL["R1: each block notification<br/>coalescing unsupported"]
     WATER["FIFO / ring watermarks"] --> PEND["Latched pending causes"]
     COAL --> PEND
     FAULT["Critical hardware fault"] -->|"bypass coalescing"| PEND
@@ -527,8 +557,8 @@ flowchart TB
     QUIET --> APPLY["Apply actual hardware setting<br/>readback / acknowledge where available"]
     APPLY --> OK{"Setting confirmed?"}
     OK -->|"no / timeout"| FAIL["Remain invalid / fault"]
-    OK -->|"yes"| EPOCH["New epoch + immutable configuration ID<br/>record measured gain / filter / timing model"]
-    EPOCH --> ARM["Arm new fixed schedule<br/>settling slots explicitly invalid"]
+    OK -->|"yes"| EPOCH["R1: requalify while stopped<br/>new epoch only on explicit ARM"]
+    EPOCH --> ARM["Arm qualified fixed schedule<br/>bounded recovery slots explicitly invalid"]
     ARM --> INVALID["Revoke analog-valid permission<br/>retain invalid-slot interval"]
     INVALID --> SETTLE{"Characterized settling / recovery<br/>criterion satisfied?"}
     SETTLE -->|"no; within bound"| INVALID
@@ -540,6 +570,8 @@ flowchart TB
 ```
 
 ## Reserved timestamped event input
+
+This is a future extension. R1 rejects external trigger/event mode requests and does not expose this input as a supported recording interface.
 
 ```mermaid
 %%{init: {"theme":"neutral","themeVariables":{"fontFamily":"Arial,sans-serif","fontSize":"14px"},"flowchart":{"htmlLabels":true,"minNodeWidth":0,"wrappingWidth":240,"nodeSpacing":28,"rankSpacing":32,"curve":"linear"}}}%%

@@ -54,7 +54,9 @@ The fabric checks full addresses before indexing memory, enforces supported acce
 | Integrity and reset | Local access checks and isolated reset exist. | Add external-memory fault containment, quarantine, optional parity/ECC and ownership-aware cross-domain reset. |
 | Capacity evidence | The local ROM and RAM arrays total 104 KiB before other logic and storage. | Keep the broader on-chip allocation and external working-memory budget separate from this implemented capacity. |
 
-The external envelope allocates 772 KiB to the 64-block ring, 256 KiB to image/staging storage, 128 KiB to noncritical data and 256 KiB to DSP scratch or derived streams. Those allocations total 1,412 KiB and leave 636 KiB within 2 MiB. External image storage does not increase the implemented 64 KiB executable local RAM. Capture writes require 2.4125 MB/s; one complete export read raises shared traffic to 4.825 MB/s before extra service overhead. A 5 MB/s export drain overlaps capture at 7.4125 MB/s. Capacity alone cannot prove these service deadlines.
+The external envelope allocates 772 KiB to the 64-block raw ring, **4 KiB to its separate publication-descriptor table**, 256 KiB to image/staging storage, 128 KiB to noncritical data and 256 KiB to DSP scratch or derived streams. Those allocations total 1,416 KiB and leave 632 KiB within 2 MiB. The [frozen acquisition formats](../acquisition/formats.md) specify each 48-byte record, 64-byte block header and 64-byte publication descriptor. Raw slots plus descriptors occupy 794,624 bytes; the descriptor table must not overlap raw allocations. External image storage does not increase the implemented 64 KiB executable local RAM. Capture writes require 2.4125 MB/s; one complete export read raises shared traffic to 4.825 MB/s before extra service overhead. A 5 MB/s export drain overlaps capture at 7.4125 MB/s. Capacity alone cannot prove these service deadlines.
+
+Capture writes at most 64 descriptor bytes per published block, and transport reads at most 64. A separate four-byte PUB1 retirement-clear store belongs to the allocation-control master within its qualified 4 MB/s reservation, with normal acknowledgement ≤80 µs and timeout/action by 100 µs. At +100 ppm this retirement traffic is at most 781.328125 B/s. No credit becomes free before the clear is globally visible and all old leases/accesses are retired or contained. Descriptor CRC or a double-read publication word cannot replace the full session/index/generation lease. Configuration/epoch bindings and closure metadata are separate control/archive objects, not hidden raw-block padding.
 
 The following diagrams describe the broader proposed subsystem. Their complete persistent-storage policies, DMA, external-memory and optional ECC requirements extend beyond the current local fabric and read-only SPI boot path. The existing boot logic checks bank headers, commit markers and payload integrity; it does not implement the proposed trial-confirmation or settings-journal policies. An exposed request retains an owner until completion or positive containment; timeout and reset never authorize silent replay. [Acquisition](../acquisition/README.md) supplies records, while [signal processing](../signal-processing/README.md) consumes admitted read leases without modifying raw blocks.
 
@@ -91,12 +93,13 @@ flowchart TB
 flowchart TB
     PLAN["Separate 2 MiB external envelope<br/>numeric capacity limits fixed; device unselected"] --> RING["64 × 12,352 B = 790,528 B · 772 KiB<br/>256 × 48 B + 64 B per block"]
     PLAN --> ALLOW["Image / staging 256 KiB · noncritical data 128 KiB<br/>DSP scratch / derived streams 256 KiB<br/>not executable local-code capacity"]
-    PLAN --> REST["Allocated 1,445,888 B · 1,412 KiB<br/>remainder 651,264 B · 636 KiB"]
+    PLAN --> DESCRIPTORS["64 × 64 B = 4,096 B descriptor table<br/>separate from raw block allocations"]
+    PLAN --> REST["Allocated 1,449,984 B · 1,416 KiB<br/>remainder 647,168 B · 632 KiB"]
     REST --> EXTRA["External queues / alignment / permitted growth<br/>backing copies count both external + local storage"]
     LOCAL["Separate on-chip ledger: 160 KiB allocated + 32 KiB reserve<br/>live code 64 KiB · CPU data / stack 32 KiB<br/>FIFO 16 KiB total; complete logical ceiling 192 KiB"] -.-> PLAN
     RING --> STALL["327.68 ms nominal ring span<br/>100 ms host stall requires ≥24 truly free blocks<br/>budget service envelope; restore reserve≤110 ms"]
     RING --> BW["Capture 2.4125 MB/s<br/>capture + one export read 4.825 MB/s<br/>5 MB/s export drain + capture 7.4125 MB/s"]
-    BW --> MARGIN["Capture / transport metadata≤64 extra B per block each<br/>fixed per-master service and retry caps<br/>memory deadline breach is a fault, not host stall"]
+    BW --> MARGIN["Capture / transport metadata≤64 extra B per block each<br/>allocation-control retirement: 4 B per block<br/>bounded service / containment; deadline breach is a fault"]
 ```
 
 ## MEM-01 · Address map and access guards
@@ -287,7 +290,7 @@ flowchart TB
     ACCESS -->|"stale / out-of-range"| ERR["Reject access; latch fault"]
     PUB --> RELEASE["Release only matching allocation once<br/>retention satisfied; every reader drained"]
     RELEASE --> FREE
-    GEN["Generation wrap: drain and reinitialize before reuse<br/>no old token / response may match a new allocation"] -.-> ALLOC
+    GEN["R1 generations never wrap within a session<br/>exhaustion: contain, archive, then new unique session<br/>no old token / response may match a new allocation"] -.-> ALLOC
 ```
 
 ## MEM-07 · Block visibility and leases
@@ -561,6 +564,8 @@ flowchart TB
 
 ## MEM-15 · Reset scopes and ownership
 
+The acquisition-specific [reset matrix and crossing rules](../acquisition/clock-reset-lifecycle.md) require retained mailbox/response/lease managers through CPU-only reset, bilateral fences before destructive FIFO or handshake reset, and new-session recovery when acquisition timing/accounting is erased. An unacknowledged PUB1 store may still commit; preserve its old owner and quarantine until visibility/containment is established. Surviving RAM bytes do not recreate erased ownership. The ingress allocation holds 256 internal 56-byte entries (14 KiB), leaving 2 KiB within its 16 KiB allowance for declared context/control/staging state; no additional queue expands the 514-record tail.
+
 ```mermaid
 %%{init: {"theme":"neutral","fontFamily":"Arial,sans-serif","themeVariables":{"fontFamily":"Arial,sans-serif","fontSize":"14px"},"flowchart":{"htmlLabels":true,"minNodeWidth":0,"wrappingWidth":240,"nodeSpacing":28,"rankSpacing":32,"curve":"linear"}}}%%
 flowchart TB
@@ -573,7 +578,7 @@ flowchart TB
     SCOPE -->|"memory / fabric / system reset"| STOP["Revoke capture validity; close / fault epoch<br/>block new traffic; preserve evidence where possible"]
     STOP --> OLD["Keep offered valid and accepted records owned<br/>drain or positively isolate; then reset target / CDC state<br/>quarantine uncertain writes"]
     OLD --> TEST["Reconcile affected state; test RAM if retention unproven<br/>reset ownership only after no further old effects possible"]
-    TEST --> START["New generation / epoch; explicit re-arm"]
+    TEST --> START["Fresh link generation; explicit requalification / arm<br/>erased acquisition timing or ownership: new session"]
     SCOPE -->|"FPGA reconfiguration / power loss"| BOOT["No assumed volatile record retention<br/>record cold start + unknown prior completion<br/>fence / reconcile external targets before ROM execution"]
     CLK["Failed domain cannot acknowledge reset<br/>independent working supervisor isolates it"] -.-> OLD
 ```

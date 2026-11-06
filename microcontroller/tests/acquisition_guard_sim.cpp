@@ -12,9 +12,11 @@
 #include <utility>
 #include <vector>
 
+/* use the F-80 clock unless the runner selects a rejected-profile test. */
 #ifndef TEST_CLOCK_HZ
 #define TEST_CLOCK_HZ 80000000
 #endif
+/* zero selects full counters; reduced limits exercise saturation separately. */
 #ifndef TEST_COUNTER_LIMIT
 #define TEST_COUNTER_LIMIT 0
 #endif

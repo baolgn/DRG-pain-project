@@ -1,0 +1,65 @@
+$ /tmp/drg5-arch-tools/gcc/xpack-riscv-none-elf-gcc-15.2.0-1/bin/riscv-none-elf-objdump -d -M no-aliases,numeric /tmp/acq-hw-p25-20261105/firmware/start.o
+
+/tmp/acq-hw-p25-20261105/firmware/start.o:     file format elf32-littleriscv
+
+
+Disassembly of section .text.boot:
+
+00000000 <_start>:
+   0:	30405073          	csrrwi	x0,mie,0
+   4:	30047073          	csrrci	x0,mstatus,8
+   8:	00000117          	auipc	x2,0x0
+   c:	00010113          	addi	x2,x2,0 # 8 <_start+0x8>
+  10:	00000197          	auipc	x3,0x0
+  14:	00018193          	addi	x3,x3,0 # 10 <_start+0x10>
+  18:	00000213          	addi	x4,x0,0
+  1c:	00000297          	auipc	x5,0x0
+  20:	00028293          	addi	x5,x5,0 # 1c <_start+0x1c>
+  24:	30529073          	csrrw	x0,mtvec,x5
+  28:	00000297          	auipc	x5,0x0
+  2c:	00028293          	addi	x5,x5,0 # 28 <_start+0x28>
+  30:	00028067          	jalr	x0,0(x5)
+
+Disassembly of section .text.startup.entry:
+
+00000000 <_start_iram>:
+   0:	00000297          	auipc	x5,0x0
+   4:	00028293          	addi	x5,x5,0 # 0 <_start_iram>
+   8:	00000317          	auipc	x6,0x0
+   c:	00030313          	addi	x6,x6,0 # 8 <_start_iram+0x8>
+  10:	00000397          	auipc	x7,0x0
+  14:	00038393          	addi	x7,x7,0 # 10 <_start_iram+0x10>
+  18:	00730963          	beq	x6,x7,2a <_start_iram+0x2a>
+  1c:	0002ae03          	lw	x28,0(x5)
+  20:	01c32023          	sw	x28,0(x6)
+  24:	0291                	c.addi	x5,4
+  26:	0311                	c.addi	x6,4
+  28:	bfc5                	c.j	18 <_start_iram+0x18>
+  2a:	00000297          	auipc	x5,0x0
+  2e:	00028293          	addi	x5,x5,0 # 2a <_start_iram+0x2a>
+  32:	00000317          	auipc	x6,0x0
+  36:	00030313          	addi	x6,x6,0 # 32 <_start_iram+0x32>
+  3a:	00628663          	beq	x5,x6,46 <_start_iram+0x46>
+  3e:	0002a023          	sw	x0,0(x5)
+  42:	0291                	c.addi	x5,4
+  44:	bfdd                	c.j	3a <_start_iram+0x3a>
+  46:	00000297          	auipc	x5,0x0
+  4a:	00028293          	addi	x5,x5,0 # 46 <_start_iram+0x46>
+  4e:	6b8b4337          	lui	x6,0x6b8b4
+  52:	56730313          	addi	x6,x6,1383 # 6b8b4567 <startup_complete+0x6b8b44ef>
+  56:	0062a023          	sw	x6,0(x5)
+  5a:	0062a223          	sw	x6,4(x5)
+  5e:	0062a423          	sw	x6,8(x5)
+  62:	0062a623          	sw	x6,12(x5)
+  66:	00000297          	auipc	x5,0x0
+  6a:	00028293          	addi	x5,x5,0 # 66 <_start_iram+0x66>
+  6e:	b007d337          	lui	x6,0xb007d
+  72:	0335                	c.addi	x6,13 # b007d00d <startup_complete+0xb007cf95>
+  74:	0062a023          	sw	x6,0(x5)
+
+00000078 <startup_complete>:
+  78:	00000097          	auipc	x1,0x0
+  7c:	000080e7          	jalr	x1,0(x1) # 78 <startup_complete>
+  80:	0ee00593          	addi	x11,x0,238
+  84:	00000097          	auipc	x1,0x0
+  88:	000080e7          	jalr	x1,0(x1) # 84 <startup_complete+0xc>

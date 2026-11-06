@@ -1,0 +1,8 @@
+
+GTKWave Analyzer v3.4.0 (w)1999-2022 BSI
+
+[0] start time.
+[20500000] end time.
+GTKWAVE | Executing Tcl script '/home/bluto/Desktop/DRG-pain-project-publication/microcontroller/qualification/waveform.tcl'
+GTKWAVE_LOAD_PASS facilities=11 traces=5
+Exiting.

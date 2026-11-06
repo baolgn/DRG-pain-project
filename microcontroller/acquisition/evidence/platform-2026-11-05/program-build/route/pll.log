@@ -1,0 +1,7 @@
+$ /home/bluto/Desktop/dorsalGanglionProject/.release-runs/bootstrap-final-r2/oss-cad-suite/lib/ld-linux-x86-64.so.2 --inhibit-cache --inhibit-rpath '' --library-path /home/bluto/Desktop/dorsalGanglionProject/.release-runs/bootstrap-final-r2/oss-cad-suite/lib /home/bluto/Desktop/dorsalGanglionProject/.release-runs/bootstrap-final-r2/oss-cad-suite/libexec/ecppll -i 25 -o 25.0 -n drg5_board_pll --clkin_name clk25_i --clkout0_name clk_cpu_o -f /tmp/acq-hw-p25-20261105/program-build/route/drg5_board_pll.v
+Pll parameters:
+Refclk divisor: 1
+Feedback divisor: 1
+clkout0 divisor: 24
+clkout0 frequency: 25 MHz
+VCO frequency: 600

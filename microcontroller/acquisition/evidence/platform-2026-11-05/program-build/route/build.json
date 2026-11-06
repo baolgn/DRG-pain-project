@@ -1,0 +1,708 @@
+{
+  "status": "built",
+  "profile": "imc",
+  "negative": "none",
+  "march": "rv32i2p1_m2p0_c2p0_zicsr2p0_zifencei2p0",
+  "abi": "ilp32",
+  "flags": [
+    "-march=rv32i2p1_m2p0_c2p0_zicsr2p0_zifencei2p0",
+    "-mabi=ilp32",
+    "-mstrict-align",
+    "-mno-relax",
+    "-mcmodel=medany",
+    "-msmall-data-limit=0",
+    "-Wa,-mpriv-spec=1.13,-mcsr-check",
+    "-ffreestanding",
+    "-fno-builtin",
+    "-fno-pic",
+    "-fno-common",
+    "-fno-stack-protector",
+    "-fno-tree-loop-distribute-patterns",
+    "-fno-omit-frame-pointer",
+    "-fno-optimize-sibling-calls",
+    "-ffunction-sections",
+    "-fdata-sections",
+    "-O2",
+    "-g3",
+    "-Wall",
+    "-Wextra",
+    "-Werror",
+    "-DFW_COMPRESSED=1",
+    "-I/home/bluto/Desktop/DRG-pain-project-publication/microcontroller/firmware"
+  ],
+  "commands": [
+    {
+      "command": [
+        "/tmp/drg5-arch-tools/gcc/xpack-riscv-none-elf-gcc-15.2.0-1/bin/riscv-none-elf-gcc",
+        "-march=rv32i2p1_m2p0_c2p0_zicsr2p0_zifencei2p0",
+        "-mabi=ilp32",
+        "-mstrict-align",
+        "-mno-relax",
+        "-mcmodel=medany",
+        "-msmall-data-limit=0",
+        "-Wa,-mpriv-spec=1.13,-mcsr-check",
+        "-ffreestanding",
+        "-fno-builtin",
+        "-fno-pic",
+        "-fno-common",
+        "-fno-stack-protector",
+        "-fno-tree-loop-distribute-patterns",
+        "-fno-omit-frame-pointer",
+        "-fno-optimize-sibling-calls",
+        "-ffunction-sections",
+        "-fdata-sections",
+        "-O2",
+        "-g3",
+        "-Wall",
+        "-Wextra",
+        "-Werror",
+        "-DFW_COMPRESSED=1",
+        "-I/home/bluto/Desktop/DRG-pain-project-publication/microcontroller/firmware",
+        "-c",
+        "/home/bluto/Desktop/DRG-pain-project-publication/microcontroller/firmware/start.S",
+        "-o",
+        "/tmp/acq-hw-p25-20261105/firmware/start.o"
+      ],
+      "exit_code": 0,
+      "log": "compile-start.log"
+    },
+    {
+      "command": [
+        "/tmp/drg5-arch-tools/gcc/xpack-riscv-none-elf-gcc-15.2.0-1/bin/riscv-none-elf-gcc",
+        "-march=rv32i2p1_m2p0_c2p0_zicsr2p0_zifencei2p0",
+        "-mabi=ilp32",
+        "-mstrict-align",
+        "-mno-relax",
+        "-mcmodel=medany",
+        "-msmall-data-limit=0",
+        "-Wa,-mpriv-spec=1.13,-mcsr-check",
+        "-ffreestanding",
+        "-fno-builtin",
+        "-fno-pic",
+        "-fno-common",
+        "-fno-stack-protector",
+        "-fno-tree-loop-distribute-patterns",
+        "-fno-omit-frame-pointer",
+        "-fno-optimize-sibling-calls",
+        "-ffunction-sections",
+        "-fdata-sections",
+        "-O2",
+        "-g3",
+        "-Wall",
+        "-Wextra",
+        "-Werror",
+        "-DFW_COMPRESSED=1",
+        "-I/home/bluto/Desktop/DRG-pain-project-publication/microcontroller/firmware",
+        "-c",
+        "/home/bluto/Desktop/DRG-pain-project-publication/microcontroller/firmware/trap.S",
+        "-o",
+        "/tmp/acq-hw-p25-20261105/firmware/trap.o"
+      ],
+      "exit_code": 0,
+      "log": "compile-trap.log"
+    },
+    {
+      "command": [
+        "/tmp/drg5-arch-tools/gcc/xpack-riscv-none-elf-gcc-15.2.0-1/bin/riscv-none-elf-gcc",
+        "-march=rv32i2p1_m2p0_c2p0_zicsr2p0_zifencei2p0",
+        "-mabi=ilp32",
+        "-mstrict-align",
+        "-mno-relax",
+        "-mcmodel=medany",
+        "-msmall-data-limit=0",
+        "-Wa,-mpriv-spec=1.13,-mcsr-check",
+        "-ffreestanding",
+        "-fno-builtin",
+        "-fno-pic",
+        "-fno-common",
+        "-fno-stack-protector",
+        "-fno-tree-loop-distribute-patterns",
+        "-fno-omit-frame-pointer",
+        "-fno-optimize-sibling-calls",
+        "-ffunction-sections",
+        "-fdata-sections",
+        "-O2",
+        "-g3",
+        "-Wall",
+        "-Wextra",
+        "-Werror",
+        "-DFW_COMPRESSED=1",
+        "-I/home/bluto/Desktop/DRG-pain-project-publication/microcontroller/firmware",
+        "-c",
+        "/home/bluto/Desktop/DRG-pain-project-publication/microcontroller/firmware/probes.S",
+        "-o",
+        "/tmp/acq-hw-p25-20261105/firmware/probes.o"
+      ],
+      "exit_code": 0,
+      "log": "compile-probes.log"
+    },
+    {
+      "command": [
+        "/tmp/drg5-arch-tools/gcc/xpack-riscv-none-elf-gcc-15.2.0-1/bin/riscv-none-elf-gcc",
+        "-march=rv32i2p1_m2p0_c2p0_zicsr2p0_zifencei2p0",
+        "-mabi=ilp32",
+        "-mstrict-align",
+        "-mno-relax",
+        "-mcmodel=medany",
+        "-msmall-data-limit=0",
+        "-Wa,-mpriv-spec=1.13,-mcsr-check",
+        "-ffreestanding",
+        "-fno-builtin",
+        "-fno-pic",
+        "-fno-common",
+        "-fno-stack-protector",
+        "-fno-tree-loop-distribute-patterns",
+        "-fno-omit-frame-pointer",
+        "-fno-optimize-sibling-calls",
+        "-ffunction-sections",
+        "-fdata-sections",
+        "-O2",
+        "-g3",
+        "-Wall",
+        "-Wextra",
+        "-Werror",
+        "-DFW_COMPRESSED=1",
+        "-I/home/bluto/Desktop/DRG-pain-project-publication/microcontroller/firmware",
+        "-c",
+        "/home/bluto/Desktop/DRG-pain-project-publication/microcontroller/firmware/main.c",
+        "-o",
+        "/tmp/acq-hw-p25-20261105/firmware/main.o"
+      ],
+      "exit_code": 0,
+      "log": "compile-main.log"
+    },
+    {
+      "command": [
+        "/tmp/drg5-arch-tools/gcc/xpack-riscv-none-elf-gcc-15.2.0-1/bin/riscv-none-elf-gcc",
+        "-march=rv32i2p1_m2p0_c2p0_zicsr2p0_zifencei2p0",
+        "-mabi=ilp32",
+        "-mstrict-align",
+        "-mno-relax",
+        "-mcmodel=medany",
+        "-msmall-data-limit=0",
+        "-Wa,-mpriv-spec=1.13,-mcsr-check",
+        "-ffreestanding",
+        "-fno-builtin",
+        "-fno-pic",
+        "-fno-common",
+        "-fno-stack-protector",
+        "-fno-tree-loop-distribute-patterns",
+        "-fno-omit-frame-pointer",
+        "-fno-optimize-sibling-calls",
+        "-ffunction-sections",
+        "-fdata-sections",
+        "-O2",
+        "-g3",
+        "-Wall",
+        "-Wextra",
+        "-Werror",
+        "-DFW_COMPRESSED=1",
+        "-I/home/bluto/Desktop/DRG-pain-project-publication/microcontroller/firmware",
+        "-c",
+        "/home/bluto/Desktop/DRG-pain-project-publication/microcontroller/firmware/runtime.c",
+        "-o",
+        "/tmp/acq-hw-p25-20261105/firmware/runtime.o"
+      ],
+      "exit_code": 0,
+      "log": "compile-runtime.log"
+    },
+    {
+      "command": [
+        "/tmp/drg5-arch-tools/gcc/xpack-riscv-none-elf-gcc-15.2.0-1/bin/riscv-none-elf-ar",
+        "rcsD",
+        "/tmp/acq-hw-p25-20261105/firmware/libdrg5rt.a",
+        "/tmp/acq-hw-p25-20261105/firmware/runtime.o"
+      ],
+      "exit_code": 0,
+      "log": "archive.log"
+    },
+    {
+      "command": [
+        "/tmp/drg5-arch-tools/gcc/xpack-riscv-none-elf-gcc-15.2.0-1/bin/riscv-none-elf-ar",
+        "t",
+        "/tmp/acq-hw-p25-20261105/firmware/libdrg5rt.a"
+      ],
+      "exit_code": 0,
+      "log": "archive-members.log"
+    },
+    {
+      "command": [
+        "/tmp/drg5-arch-tools/gcc/xpack-riscv-none-elf-gcc-15.2.0-1/bin/riscv-none-elf-gcc",
+        "-E",
+        "-P",
+        "-x",
+        "c",
+        "-DFW_COMPRESSED=1",
+        "/home/bluto/Desktop/DRG-pain-project-publication/microcontroller/firmware/link.ld",
+        "-o",
+        "/tmp/acq-hw-p25-20261105/firmware/link-profile.ld"
+      ],
+      "exit_code": 0,
+      "log": "link-script.log"
+    },
+    {
+      "command": [
+        "/tmp/drg5-arch-tools/gcc/xpack-riscv-none-elf-gcc-15.2.0-1/bin/riscv-none-elf-gcc",
+        "-march=rv32i2p1_m2p0_c2p0_zicsr2p0_zifencei2p0",
+        "-mabi=ilp32",
+        "-mstrict-align",
+        "-mno-relax",
+        "-mcmodel=medany",
+        "-msmall-data-limit=0",
+        "-Wa,-mpriv-spec=1.13,-mcsr-check",
+        "-ffreestanding",
+        "-fno-builtin",
+        "-fno-pic",
+        "-fno-common",
+        "-fno-stack-protector",
+        "-fno-tree-loop-distribute-patterns",
+        "-fno-omit-frame-pointer",
+        "-fno-optimize-sibling-calls",
+        "-ffunction-sections",
+        "-fdata-sections",
+        "-O2",
+        "-g3",
+        "-Wall",
+        "-Wextra",
+        "-Werror",
+        "-DFW_COMPRESSED=1",
+        "-I/home/bluto/Desktop/DRG-pain-project-publication/microcontroller/firmware",
+        "-nostdlib",
+        "-nostartfiles",
+        "-nodefaultlibs",
+        "-Wl,--no-relax,--gc-sections,--no-undefined,-Map=/tmp/acq-hw-p25-20261105/firmware/firmware.map",
+        "-T",
+        "/tmp/acq-hw-p25-20261105/firmware/link-profile.ld",
+        "/tmp/acq-hw-p25-20261105/firmware/start.o",
+        "/tmp/acq-hw-p25-20261105/firmware/trap.o",
+        "/tmp/acq-hw-p25-20261105/firmware/probes.o",
+        "/tmp/acq-hw-p25-20261105/firmware/main.o",
+        "/tmp/acq-hw-p25-20261105/firmware/libdrg5rt.a",
+        "-o",
+        "/tmp/acq-hw-p25-20261105/firmware/firmware.elf"
+      ],
+      "exit_code": 0,
+      "log": "link.log"
+    },
+    {
+      "command": [
+        "/tmp/drg5-arch-tools/gcc/xpack-riscv-none-elf-gcc-15.2.0-1/bin/riscv-none-elf-nm",
+        "-u",
+        "/tmp/acq-hw-p25-20261105/firmware/firmware.elf"
+      ],
+      "exit_code": 0,
+      "log": "undefined.log"
+    },
+    {
+      "command": [
+        "/tmp/drg5-arch-tools/gcc/xpack-riscv-none-elf-gcc-15.2.0-1/bin/riscv-none-elf-readelf",
+        "-h",
+        "-A",
+        "/tmp/acq-hw-p25-20261105/firmware/start.o"
+      ],
+      "exit_code": 0,
+      "log": "attributes-start.o.log"
+    },
+    {
+      "command": [
+        "/tmp/drg5-arch-tools/gcc/xpack-riscv-none-elf-gcc-15.2.0-1/bin/riscv-none-elf-objdump",
+        "-d",
+        "-M",
+        "no-aliases,numeric",
+        "/tmp/acq-hw-p25-20261105/firmware/start.o"
+      ],
+      "exit_code": 0,
+      "log": "disassembly-start.o.log"
+    },
+    {
+      "command": [
+        "/tmp/drg5-arch-tools/gcc/xpack-riscv-none-elf-gcc-15.2.0-1/bin/riscv-none-elf-readelf",
+        "-h",
+        "-A",
+        "/tmp/acq-hw-p25-20261105/firmware/trap.o"
+      ],
+      "exit_code": 0,
+      "log": "attributes-trap.o.log"
+    },
+    {
+      "command": [
+        "/tmp/drg5-arch-tools/gcc/xpack-riscv-none-elf-gcc-15.2.0-1/bin/riscv-none-elf-objdump",
+        "-d",
+        "-M",
+        "no-aliases,numeric",
+        "/tmp/acq-hw-p25-20261105/firmware/trap.o"
+      ],
+      "exit_code": 0,
+      "log": "disassembly-trap.o.log"
+    },
+    {
+      "command": [
+        "/tmp/drg5-arch-tools/gcc/xpack-riscv-none-elf-gcc-15.2.0-1/bin/riscv-none-elf-readelf",
+        "-h",
+        "-A",
+        "/tmp/acq-hw-p25-20261105/firmware/probes.o"
+      ],
+      "exit_code": 0,
+      "log": "attributes-probes.o.log"
+    },
+    {
+      "command": [
+        "/tmp/drg5-arch-tools/gcc/xpack-riscv-none-elf-gcc-15.2.0-1/bin/riscv-none-elf-objdump",
+        "-d",
+        "-M",
+        "no-aliases,numeric",
+        "/tmp/acq-hw-p25-20261105/firmware/probes.o"
+      ],
+      "exit_code": 0,
+      "log": "disassembly-probes.o.log"
+    },
+    {
+      "command": [
+        "/tmp/drg5-arch-tools/gcc/xpack-riscv-none-elf-gcc-15.2.0-1/bin/riscv-none-elf-readelf",
+        "-h",
+        "-A",
+        "/tmp/acq-hw-p25-20261105/firmware/main.o"
+      ],
+      "exit_code": 0,
+      "log": "attributes-main.o.log"
+    },
+    {
+      "command": [
+        "/tmp/drg5-arch-tools/gcc/xpack-riscv-none-elf-gcc-15.2.0-1/bin/riscv-none-elf-objdump",
+        "-d",
+        "-M",
+        "no-aliases,numeric",
+        "/tmp/acq-hw-p25-20261105/firmware/main.o"
+      ],
+      "exit_code": 0,
+      "log": "disassembly-main.o.log"
+    },
+    {
+      "command": [
+        "/tmp/drg5-arch-tools/gcc/xpack-riscv-none-elf-gcc-15.2.0-1/bin/riscv-none-elf-readelf",
+        "-h",
+        "-A",
+        "/tmp/acq-hw-p25-20261105/firmware/runtime.o"
+      ],
+      "exit_code": 0,
+      "log": "attributes-runtime.o.log"
+    },
+    {
+      "command": [
+        "/tmp/drg5-arch-tools/gcc/xpack-riscv-none-elf-gcc-15.2.0-1/bin/riscv-none-elf-objdump",
+        "-d",
+        "-M",
+        "no-aliases,numeric",
+        "/tmp/acq-hw-p25-20261105/firmware/runtime.o"
+      ],
+      "exit_code": 0,
+      "log": "disassembly-runtime.o.log"
+    },
+    {
+      "command": [
+        "/tmp/drg5-arch-tools/gcc/xpack-riscv-none-elf-gcc-15.2.0-1/bin/riscv-none-elf-readelf",
+        "-h",
+        "-A",
+        "/tmp/acq-hw-p25-20261105/firmware/libdrg5rt.a"
+      ],
+      "exit_code": 0,
+      "log": "attributes-libdrg5rt.a.log"
+    },
+    {
+      "command": [
+        "/tmp/drg5-arch-tools/gcc/xpack-riscv-none-elf-gcc-15.2.0-1/bin/riscv-none-elf-objdump",
+        "-d",
+        "-M",
+        "no-aliases,numeric",
+        "/tmp/acq-hw-p25-20261105/firmware/libdrg5rt.a"
+      ],
+      "exit_code": 0,
+      "log": "disassembly-libdrg5rt.a.log"
+    },
+    {
+      "command": [
+        "/tmp/drg5-arch-tools/gcc/xpack-riscv-none-elf-gcc-15.2.0-1/bin/riscv-none-elf-readelf",
+        "-h",
+        "-A",
+        "/tmp/acq-hw-p25-20261105/firmware/firmware.elf"
+      ],
+      "exit_code": 0,
+      "log": "attributes-firmware.elf.log"
+    },
+    {
+      "command": [
+        "/tmp/drg5-arch-tools/gcc/xpack-riscv-none-elf-gcc-15.2.0-1/bin/riscv-none-elf-objdump",
+        "-d",
+        "-M",
+        "no-aliases,numeric",
+        "/tmp/acq-hw-p25-20261105/firmware/firmware.elf"
+      ],
+      "exit_code": 0,
+      "log": "disassembly-firmware.elf.log"
+    },
+    {
+      "command": [
+        "/tmp/drg5-arch-tools/gcc/xpack-riscv-none-elf-gcc-15.2.0-1/bin/riscv-none-elf-nm",
+        "-n",
+        "--defined-only",
+        "/tmp/acq-hw-p25-20261105/firmware/firmware.elf"
+      ],
+      "exit_code": 0,
+      "log": "symbols.log"
+    },
+    {
+      "command": [
+        "/home/bluto/Desktop/dorsalGanglionProject/.release-runs/bootstrap-final-r2/arch/gcc/xpack-riscv-none-elf-gcc-15.2.0-1/bin/riscv-none-elf-gcc",
+        "--version"
+      ],
+      "exit_code": 0,
+      "log": "version-gcc.log"
+    },
+    {
+      "command": [
+        "/home/bluto/Desktop/dorsalGanglionProject/.release-runs/bootstrap-final-r2/arch/gcc/xpack-riscv-none-elf-gcc-15.2.0-1/bin/riscv-none-elf-ar",
+        "--version"
+      ],
+      "exit_code": 0,
+      "log": "version-ar.log"
+    },
+    {
+      "command": [
+        "/home/bluto/Desktop/dorsalGanglionProject/.release-runs/bootstrap-final-r2/arch/gcc/xpack-riscv-none-elf-gcc-15.2.0-1/bin/riscv-none-elf-readelf",
+        "--version"
+      ],
+      "exit_code": 0,
+      "log": "version-readelf.log"
+    },
+    {
+      "command": [
+        "/home/bluto/Desktop/dorsalGanglionProject/.release-runs/bootstrap-final-r2/arch/gcc/xpack-riscv-none-elf-gcc-15.2.0-1/bin/riscv-none-elf-objdump",
+        "--version"
+      ],
+      "exit_code": 0,
+      "log": "version-objdump.log"
+    },
+    {
+      "command": [
+        "/home/bluto/Desktop/dorsalGanglionProject/.release-runs/bootstrap-final-r2/arch/gcc/xpack-riscv-none-elf-gcc-15.2.0-1/bin/riscv-none-elf-nm",
+        "--version"
+      ],
+      "exit_code": 0,
+      "log": "version-nm.log"
+    },
+    {
+      "command": [
+        "/tmp/drg5-arch-tools/gcc/xpack-riscv-none-elf-gcc-15.2.0-1/bin/riscv-none-elf-gcc",
+        "-print-prog-name=cc1"
+      ],
+      "exit_code": 0,
+      "log": "tool-cc1.log"
+    },
+    {
+      "command": [
+        "/tmp/drg5-arch-tools/gcc/xpack-riscv-none-elf-gcc-15.2.0-1/bin/riscv-none-elf-gcc",
+        "-print-prog-name=as"
+      ],
+      "exit_code": 0,
+      "log": "tool-as.log"
+    },
+    {
+      "command": [
+        "/tmp/drg5-arch-tools/gcc/xpack-riscv-none-elf-gcc-15.2.0-1/bin/riscv-none-elf-gcc",
+        "-print-prog-name=ld"
+      ],
+      "exit_code": 0,
+      "log": "tool-ld.log"
+    },
+    {
+      "command": [
+        "/tmp/drg5-arch-tools/gcc/xpack-riscv-none-elf-gcc-15.2.0-1/bin/riscv-none-elf-gcc",
+        "-print-prog-name=collect2"
+      ],
+      "exit_code": 0,
+      "log": "tool-collect2.log"
+    }
+  ],
+  "source_sha256": {
+    "microcontroller/firmware/platform.h": "a7912d9f10809f3bee2166daee40f77cee08a39dbead046c2323e0139d304f97",
+    "microcontroller/firmware/link.ld": "2926fbee6540196bd10ee077a5ca9ae9fce3e69cb0e07c3680633dc212dc218e",
+    "microcontroller/firmware/start.S": "747df07b209a87ba0c919bf5c37721974885fddff0cf0de088c4666774eef744",
+    "microcontroller/firmware/trap.S": "5257a824e4695536c3007e1b1e32ab0142383b03a524ec9842cc960975fe07b3",
+    "microcontroller/firmware/probes.S": "309ea22df0fbdd340c188855904dd766fb21e40f808778ad1103f56cafeb6994",
+    "microcontroller/firmware/main.c": "02ebd0e0042721bd064fa32e74fef4d9dbc4703a7a6da270ab1c8e548d3c8d58",
+    "microcontroller/firmware/runtime.c": "bc85fe15253b2de4f5533596476a48a89811a1293674c29122b01e783ac7ed0d",
+    "microcontroller/firmware/build.py": "cd000f0abfd81edc939ba34b38f7b702c94e1f73aa86a086bed8c1779749efa3"
+  },
+  "tool_sha256": {
+    "/home/bluto/Desktop/dorsalGanglionProject/.release-runs/bootstrap-final-r2/arch/gcc/xpack-riscv-none-elf-gcc-15.2.0-1/bin/riscv-none-elf-gcc": "f0aeb21d7c8aeac5dbbccbcdc2b3c80ecff615a1d7f7f3db3b507836b1c1c398",
+    "/home/bluto/Desktop/dorsalGanglionProject/.release-runs/bootstrap-final-r2/arch/gcc/xpack-riscv-none-elf-gcc-15.2.0-1/bin/riscv-none-elf-ar": "fb1e83f5d12db7aed2f6506fc82276d237bd1dd4539230cd5fe3dc8bcdad9d13",
+    "/home/bluto/Desktop/dorsalGanglionProject/.release-runs/bootstrap-final-r2/arch/gcc/xpack-riscv-none-elf-gcc-15.2.0-1/bin/riscv-none-elf-readelf": "c2d6bfe196d7d2ccda84c88abe5e6893cd2bc87402a2c8c4a75f64ad20198b73",
+    "/home/bluto/Desktop/dorsalGanglionProject/.release-runs/bootstrap-final-r2/arch/gcc/xpack-riscv-none-elf-gcc-15.2.0-1/bin/riscv-none-elf-objdump": "b67ab572f7c3806067447dfaca085407b53e7ac51cabed4ba9b7127c1b6d8944",
+    "/home/bluto/Desktop/dorsalGanglionProject/.release-runs/bootstrap-final-r2/arch/gcc/xpack-riscv-none-elf-gcc-15.2.0-1/bin/riscv-none-elf-nm": "161c8e5fa3ed259b538048dfcd842a765a078c5286c4269ee74d8bcc746fc965",
+    "/home/bluto/Desktop/dorsalGanglionProject/.release-runs/bootstrap-final-r2/arch/gcc/xpack-riscv-none-elf-gcc-15.2.0-1/libexec/gcc/riscv-none-elf/15.2.0/cc1": "0febdad785ec5379f1731ed0f6c3fc46e926903aa57d179a1afe0d02ac8ccb23",
+    "/home/bluto/Desktop/dorsalGanglionProject/.release-runs/bootstrap-final-r2/arch/gcc/xpack-riscv-none-elf-gcc-15.2.0-1/riscv-none-elf/bin/as": "55ecd2e8859aed135935a62fec7f58558873d29c123884e2f761c77770ae65d5",
+    "/home/bluto/Desktop/dorsalGanglionProject/.release-runs/bootstrap-final-r2/arch/gcc/xpack-riscv-none-elf-gcc-15.2.0-1/riscv-none-elf/bin/ld": "6d5a22d59eaf4bfba6bd803188633a8af6d093cdd9cd94235eb29539812734ca",
+    "/home/bluto/Desktop/dorsalGanglionProject/.release-runs/bootstrap-final-r2/arch/gcc/xpack-riscv-none-elf-gcc-15.2.0-1/libexec/gcc/riscv-none-elf/15.2.0/collect2": "e06c681e5591bb9dd5af95c4e375ea7c2a06b629b438a4cdc623c955ecdb9679"
+  },
+  "versions": {
+    "gcc": "riscv-none-elf-gcc (xPack GNU RISC-V Embedded GCC x86_64) 15.2.0",
+    "ar": "GNU ar (xPack GNU RISC-V Embedded GCC x86_64) 2.45",
+    "readelf": "GNU readelf (xPack GNU RISC-V Embedded GCC x86_64) 2.45",
+    "objdump": "GNU objdump (xPack GNU RISC-V Embedded GCC x86_64) 2.45",
+    "nm": "GNU nm (xPack GNU RISC-V Embedded GCC x86_64) 2.45"
+  },
+  "elf": "/tmp/acq-hw-p25-20261105/firmware/firmware.elf",
+  "map": "/tmp/acq-hw-p25-20261105/firmware/firmware.map",
+  "linker_script": "/tmp/acq-hw-p25-20261105/firmware/link-profile.ld",
+  "symbols": {
+    "_start": 0,
+    "__text_start": 65536,
+    "_start_iram": 65536,
+    "startup_complete": 65656,
+    "trap_entry": 65676,
+    "fault_ecall": 65868,
+    "resume_ecall": 65872,
+    "fault_ebreak": 65876,
+    "resume_ebreak": 65880,
+    "fault_illegal": 65884,
+    "resume_illegal": 65888,
+    "fault_misload": 65892,
+    "resume_misload": 65896,
+    "fault_misstore": 65900,
+    "resume_misstore": 65904,
+    "fault_load": 65908,
+    "resume_load": 65912,
+    "fault_store": 65916,
+    "resume_store": 65920,
+    "fault_compressed": 65924,
+    "resume_compressed": 65926,
+    "irq_register_probe": 65928,
+    "recursive_sum": 66428,
+    "sort.constprop.0": 66542,
+    "firmware_finish": 66602,
+    "check": 66764,
+    "recover": 66802,
+    "await_count": 66898,
+    "trap_dispatch": 66940,
+    "main": 67348,
+    "memcpy": 69608,
+    "memset": 69646,
+    "memcmp": 69680,
+    "runtime_udiv": 69736,
+    "__umodsi3": 69806,
+    "__divsi3": 69866,
+    "__modsi3": 69982,
+    "__mulsi3": 70070,
+    "__text_end": 70120,
+    "__data_load": 70228,
+    "__data_start": 536870912,
+    "unsigned_right": 536870912,
+    "unsigned_left": 536870916,
+    "signed_right": 536870920,
+    "signed_left": 536870924,
+    "initialized_bytes": 536870928,
+    "initialized_words": 536870936,
+    "__bss_start": 536870956,
+    "__data_end": 536870956,
+    "failure_reason": 536870956,
+    "expected_armed": 536870960,
+    "expected_mtval": 536870964,
+    "expected_resume": 536870968,
+    "expected_pc": 536870972,
+    "expected_cause": 536870976,
+    "zero_words": 536870980,
+    "stack_low_water": 536871128,
+    "exception_count": 536871132,
+    "pin_count": 536871136,
+    "ext_count": 536871140,
+    "timer_count": 536871144,
+    "sw_count": 536871148,
+    "fw_signature": 536871152,
+    "fw_checks": 536871156,
+    "fw_phase": 536871160,
+    "boot_initialized": 536871164,
+    "__bss_end": 536871168,
+    "__heap_start": 536871168,
+    "__global_pointer$": 536872960,
+    "__heap_end": 536899568,
+    "__stack_guard": 536899568,
+    "__stack_bottom": 536899584,
+    "__stack_top": 536903680
+  },
+  "objects": [
+    "/tmp/acq-hw-p25-20261105/firmware/start.o",
+    "/tmp/acq-hw-p25-20261105/firmware/trap.o",
+    "/tmp/acq-hw-p25-20261105/firmware/probes.o",
+    "/tmp/acq-hw-p25-20261105/firmware/main.o",
+    "/tmp/acq-hw-p25-20261105/firmware/runtime.o"
+  ],
+  "archive": "/tmp/acq-hw-p25-20261105/firmware/libdrg5rt.a",
+  "archive_members": [
+    "runtime.o"
+  ],
+  "image": {
+    "entry": 0,
+    "elf_flags": 1,
+    "loads": [
+      {
+        "vaddr": 0,
+        "paddr": 0,
+        "filesz": 52,
+        "memsz": 52,
+        "flags": 5,
+        "align": 4096
+      },
+      {
+        "vaddr": 65536,
+        "paddr": 65536,
+        "filesz": 4692,
+        "memsz": 4692,
+        "flags": 5,
+        "align": 4096
+      },
+      {
+        "vaddr": 536870912,
+        "paddr": 70228,
+        "filesz": 44,
+        "memsz": 44,
+        "flags": 6,
+        "align": 4096
+      },
+      {
+        "vaddr": 536870956,
+        "paddr": 70272,
+        "filesz": 0,
+        "memsz": 212,
+        "flags": 6,
+        "align": 4096
+      }
+    ],
+    "initialized_bytes": 4788,
+    "rom": "/tmp/acq-hw-p25-20261105/firmware/rom.hex",
+    "iram": "/tmp/acq-hw-p25-20261105/firmware/iram.hex"
+  },
+  "attributes": {
+    "start.o": "ELF Header:\n  Magic:   7f 45 4c 46 01 01 01 00 00 00 00 00 00 00 00 00 \n  Class:                             ELF32\n  Data:                              2's complement, little endian\n  Version:                           1 (current)\n  OS/ABI:                            UNIX - System V\n  ABI Version:                       0\n  Type:                              REL (Relocatable file)\n  Machine:                           RISC-V\n  Version:                           0x1\n  Entry point address:               0x0\n  Start of program headers:          0 (bytes into file)\n  Start of section headers:          4560 (bytes into file)\n  Flags:                             0x1, RVC, soft-float ABI\n  Size of this header:               52 (bytes)\n  Size of program headers:           0 (bytes)\n  Number of program headers:         0\n  Size of section headers:           40 (bytes)\n  Number of section headers:         23\n  Section header string table index: 22\nAttribute Section: riscv\nFile Attributes\n  Tag_RISCV_stack_align: 16-bytes\n  Tag_RISCV_arch: \"rv32i2p1_m2p0_c2p0_zicsr2p0_zifencei2p0_zmmul1p0_zca1p0\"\n  Tag_RISCV_priv_spec: 1\n  Tag_RISCV_priv_spec_minor: 13\n",
+    "trap.o": "ELF Header:\n  Magic:   7f 45 4c 46 01 01 01 00 00 00 00 00 00 00 00 00 \n  Class:                             ELF32\n  Data:                              2's complement, little endian\n  Version:                           1 (current)\n  OS/ABI:                            UNIX - System V\n  ABI Version:                       0\n  Type:                              REL (Relocatable file)\n  Machine:                           RISC-V\n  Version:                           0x1\n  Entry point address:               0x0\n  Start of program headers:          0 (bytes into file)\n  Start of section headers:          5524 (bytes into file)\n  Flags:                             0x1, RVC, soft-float ABI\n  Size of this header:               52 (bytes)\n  Size of program headers:           0 (bytes)\n  Number of program headers:         0\n  Size of section headers:           40 (bytes)\n  Number of section headers:         19\n  Section header string table index: 18\nAttribute Section: riscv\nFile Attributes\n  Tag_RISCV_stack_align: 16-bytes\n  Tag_RISCV_arch: \"rv32i2p1_m2p0_c2p0_zicsr2p0_zifencei2p0_zmmul1p0_zca1p0\"\n  Tag_RISCV_priv_spec: 1\n  Tag_RISCV_priv_spec_minor: 13\n",
+    "probes.o": "ELF Header:\n  Magic:   7f 45 4c 46 01 01 01 00 00 00 00 00 00 00 00 00 \n  Class:                             ELF32\n  Data:                              2's complement, little endian\n  Version:                           1 (current)\n  OS/ABI:                            UNIX - System V\n  ABI Version:                       0\n  Type:                              REL (Relocatable file)\n  Machine:                           RISC-V\n  Version:                           0x1\n  Entry point address:               0x0\n  Start of program headers:          0 (bytes into file)\n  Start of section headers:          11008 (bytes into file)\n  Flags:                             0x1, RVC, soft-float ABI\n  Size of this header:               52 (bytes)\n  Size of program headers:           0 (bytes)\n  Number of program headers:         0\n  Size of section headers:           40 (bytes)\n  Number of section headers:         21\n  Section header string table index: 20\nAttribute Section: riscv\nFile Attributes\n  Tag_RISCV_stack_align: 16-bytes\n  Tag_RISCV_arch: \"rv32i2p1_m2p0_c2p0_zicsr2p0_zifencei2p0_zmmul1p0_zca1p0\"\n  Tag_RISCV_priv_spec: 1\n  Tag_RISCV_priv_spec_minor: 13\n",
+    "main.o": "ELF Header:\n  Magic:   7f 45 4c 46 01 01 01 00 00 00 00 00 00 00 00 00 \n  Class:                             ELF32\n  Data:                              2's complement, little endian\n  Version:                           1 (current)\n  OS/ABI:                            UNIX - System V\n  ABI Version:                       0\n  Type:                              REL (Relocatable file)\n  Machine:                           RISC-V\n  Version:                           0x1\n  Entry point address:               0x0\n  Start of program headers:          0 (bytes into file)\n  Start of section headers:          125524 (bytes into file)\n  Flags:                             0x1, RVC, soft-float ABI\n  Size of this header:               52 (bytes)\n  Size of program headers:           0 (bytes)\n  Number of program headers:         0\n  Size of section headers:           40 (bytes)\n  Number of section headers:         80\n  Section header string table index: 79\nAttribute Section: riscv\nFile Attributes\n  Tag_RISCV_stack_align: 16-bytes\n  Tag_RISCV_arch: \"rv32i2p1_m2p0_c2p0_zicsr2p0_zifencei2p0_zmmul1p0_zca1p0\"\n  Tag_RISCV_priv_spec: 1\n  Tag_RISCV_priv_spec_minor: 13\n",
+    "runtime.o": "ELF Header:\n  Magic:   7f 45 4c 46 01 01 01 00 00 00 00 00 00 00 00 00 \n  Class:                             ELF32\n  Data:                              2's complement, little endian\n  Version:                           1 (current)\n  OS/ABI:                            UNIX - System V\n  ABI Version:                       0\n  Type:                              REL (Relocatable file)\n  Machine:                           RISC-V\n  Version:                           0x1\n  Entry point address:               0x0\n  Start of program headers:          0 (bytes into file)\n  Start of section headers:          75520 (bytes into file)\n  Flags:                             0x1, RVC, soft-float ABI\n  Size of this header:               52 (bytes)\n  Size of program headers:           0 (bytes)\n  Number of program headers:         0\n  Size of section headers:           40 (bytes)\n  Number of section headers:         48\n  Section header string table index: 47\nAttribute Section: riscv\nFile Attributes\n  Tag_RISCV_stack_align: 16-bytes\n  Tag_RISCV_arch: \"rv32i2p1_m2p0_c2p0_zicsr2p0_zifencei2p0_zmmul1p0_zca1p0\"\n",
+    "libdrg5rt.a": "\nFile: /tmp/acq-hw-p25-20261105/firmware/libdrg5rt.a(runtime.o)\nELF Header:\n  Magic:   7f 45 4c 46 01 01 01 00 00 00 00 00 00 00 00 00 \n  Class:                             ELF32\n  Data:                              2's complement, little endian\n  Version:                           1 (current)\n  OS/ABI:                            UNIX - System V\n  ABI Version:                       0\n  Type:                              REL (Relocatable file)\n  Machine:                           RISC-V\n  Version:                           0x1\n  Entry point address:               0x0\n  Start of program headers:          0 (bytes into file)\n  Start of section headers:          75520 (bytes into file)\n  Flags:                             0x1, RVC, soft-float ABI\n  Size of this header:               52 (bytes)\n  Size of program headers:           0 (bytes)\n  Number of program headers:         0\n  Size of section headers:           40 (bytes)\n  Number of section headers:         48\n  Section header string table index: 47\nAttribute Section: riscv\nFile Attributes\n  Tag_RISCV_stack_align: 16-bytes\n  Tag_RISCV_arch: \"rv32i2p1_m2p0_c2p0_zicsr2p0_zifencei2p0_zmmul1p0_zca1p0\"\n",
+    "firmware.elf": "ELF Header:\n  Magic:   7f 45 4c 46 01 01 01 00 00 00 00 00 00 00 00 00 \n  Class:                             ELF32\n  Data:                              2's complement, little endian\n  Version:                           1 (current)\n  OS/ABI:                            UNIX - System V\n  ABI Version:                       0\n  Type:                              EXEC (Executable file)\n  Machine:                           RISC-V\n  Version:                           0x1\n  Entry point address:               0x0\n  Start of program headers:          52 (bytes into file)\n  Start of section headers:          65732 (bytes into file)\n  Flags:                             0x1, RVC, soft-float ABI\n  Size of this header:               52 (bytes)\n  Size of program headers:           32 (bytes)\n  Number of program headers:         5\n  Size of section headers:           40 (bytes)\n  Number of section headers:         20\n  Section header string table index: 19\nAttribute Section: riscv\nFile Attributes\n  Tag_RISCV_stack_align: 16-bytes\n  Tag_RISCV_arch: \"rv32i2p1_m2p0_c2p0_zicsr2p0_zifencei2p0_zmmul1p0_zca1p0\"\n  Tag_RISCV_priv_spec: 1\n  Tag_RISCV_priv_spec_minor: 13\n"
+  },
+  "artifact_sha256": {
+    "start.o": "72441eccff888df987516e06ae7470e9307d26450fcdf5974617caf4285dac2c",
+    "trap.o": "645c1911c3ec4197cccbfd4fadee73069bc0f54430191d1de554e8571e4f3a37",
+    "probes.o": "1c83dde2c85227968b4ba562324a97fd5e3f29543aebda9e698643385e0eed4c",
+    "main.o": "4dda29ddc46917d9f3f346b7f67fc9ef286b2266022eba9a2eff4d6915a70e41",
+    "runtime.o": "cec10af85695acd51598a7e51e4d42206b9da9ac8c1e23d91154e39189856bcf",
+    "libdrg5rt.a": "b59a2286492b85e90ad62cca187ae7ce0efb7d84a5808d6cc22d35b1261b0931",
+    "firmware.elf": "378109d6b746bcfe80fd445cdb172783d44237cee76214b3590a62ac92e3d71c",
+    "firmware.map": "b0a126287a4af95848ef76814271f031b60a46e97160e16778d3e21dfb7977e6",
+    "link-profile.ld": "a2740d4856b65cca78f982f3755b9854950bc265323e5b7672e79c856456bc99",
+    "rom.hex": "b120fb201f9e2d4470e4b7f8e9d80a26c7e1c08c945a996ba9afb04c77aa1770",
+    "iram.hex": "dab2ed04675b35fefd97f345ba4d3b7cff33a1cd890b6e79d4d10e2574ab82c2",
+    "symbols.json": "235a2aea76edae23bf65bb39cc52e898ab9c948d4ee9aa1679cfb769745e2e35"
+  },
+  "contract": "ROM/IRAM initialization only; startup copies data and clears BSS; no external memory or default libraries"
+}

@@ -1,0 +1,36 @@
+$ /home/bluto/Desktop/dorsalGanglionProject/.release-runs/bootstrap-final-r2/oss-cad-suite/lib/ld-linux-x86-64.so.2 --inhibit-cache --inhibit-rpath '' --library-path /home/bluto/Desktop/dorsalGanglionProject/.release-runs/bootstrap-final-r2/oss-cad-suite/lib /home/bluto/Desktop/dorsalGanglionProject/.release-runs/bootstrap-final-r2/oss-cad-suite/libexec/ecppll --help
+Project Trellis - Open Source Tools for ECP5 FPGAs
+/home/bluto/Desktop/dorsalGanglionProject/.release-runs/bootstrap-final-r2/oss-cad-suite/libexec/ecppll: ECP5 PLL Configuration Calculator
+Version 1.4-76-g73bd411
+
+This tool is experimental! Use at your own risk!
+
+Copyright (C) 2018-2019 gatecat <gatecat@ds0.me>
+
+Allowed options:
+  -h [ --help ]             show help
+  -n [ --module ] arg       module name
+  --clkin_name arg          Input signal name
+  -i [ --clkin ] arg        Input frequency in MHz
+  --clkout0_name arg        Primary Output(0) signal name
+  -o [ --clkout0 ] arg      Primary Output(0) frequency in MHz
+  --clkout1_name arg        Secondary Output(1) signal name
+  --clkout1 arg             Secondary Output(1) frequency in MHz
+  --phase1 arg (=0)         Secondary Output(1) phase in degrees
+  --clkout2_name arg        Secondary Output(2) signal name
+  --clkout2 arg             Secondary Output(2) frequency in MHz
+  --phase2 arg (=0)         Secondary Output(2) phase in degrees
+  --clkout3_name arg        Secondary Output(3) signal name
+  --clkout3 arg             Secondary Output(3) frequency in MHz
+  --phase3 arg (=0)         Secondary Output(3) phase in degrees
+  -f [ --file ] arg         Output to file
+  --highres                 Use secondary PLL output for higher frequency 
+                            resolution
+  --dynamic                 Use dynamic clock control
+  --reset                   Enable reset input
+  --standby                 Enable standby input
+  --feedback_clkout arg     Use Nth Output as feedback signal
+  --internal_feedback       Use internal feedback (instead of external)
+  --internal_feedback_wake  Wake internal feedback
+  --xo2                     Generate MachXO2/3 PLL
+

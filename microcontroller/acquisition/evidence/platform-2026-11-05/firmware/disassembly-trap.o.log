@@ -1,0 +1,92 @@
+$ /tmp/drg5-arch-tools/gcc/xpack-riscv-none-elf-gcc-15.2.0-1/bin/riscv-none-elf-objdump -d -M no-aliases,numeric /tmp/acq-hw-p25-20261105/firmware/trap.o
+
+/tmp/acq-hw-p25-20261105/firmware/trap.o:     file format elf32-littleriscv
+
+
+Disassembly of section .text.trap:
+
+00000000 <trap_entry>:
+   0:	7135                	c.addi16sp	x2,-160
+   2:	c002                	c.swsp	x0,0(x2)
+   4:	c206                	c.swsp	x1,4(x2)
+   6:	c60e                	c.swsp	x3,12(x2)
+   8:	c812                	c.swsp	x4,16(x2)
+   a:	ca16                	c.swsp	x5,20(x2)
+   c:	cc1a                	c.swsp	x6,24(x2)
+   e:	ce1e                	c.swsp	x7,28(x2)
+  10:	d022                	c.swsp	x8,32(x2)
+  12:	d226                	c.swsp	x9,36(x2)
+  14:	d42a                	c.swsp	x10,40(x2)
+  16:	d62e                	c.swsp	x11,44(x2)
+  18:	d832                	c.swsp	x12,48(x2)
+  1a:	da36                	c.swsp	x13,52(x2)
+  1c:	dc3a                	c.swsp	x14,56(x2)
+  1e:	de3e                	c.swsp	x15,60(x2)
+  20:	c0c2                	c.swsp	x16,64(x2)
+  22:	c2c6                	c.swsp	x17,68(x2)
+  24:	c4ca                	c.swsp	x18,72(x2)
+  26:	c6ce                	c.swsp	x19,76(x2)
+  28:	c8d2                	c.swsp	x20,80(x2)
+  2a:	cad6                	c.swsp	x21,84(x2)
+  2c:	ccda                	c.swsp	x22,88(x2)
+  2e:	cede                	c.swsp	x23,92(x2)
+  30:	d0e2                	c.swsp	x24,96(x2)
+  32:	d2e6                	c.swsp	x25,100(x2)
+  34:	d4ea                	c.swsp	x26,104(x2)
+  36:	d6ee                	c.swsp	x27,108(x2)
+  38:	d8f2                	c.swsp	x28,112(x2)
+  3a:	daf6                	c.swsp	x29,116(x2)
+  3c:	dcfa                	c.swsp	x30,120(x2)
+  3e:	defe                	c.swsp	x31,124(x2)
+  40:	0a010293          	addi	x5,x2,160
+  44:	c416                	c.swsp	x5,8(x2)
+  46:	341022f3          	csrrs	x5,mepc,x0
+  4a:	c116                	c.swsp	x5,128(x2)
+  4c:	300022f3          	csrrs	x5,mstatus,x0
+  50:	c316                	c.swsp	x5,132(x2)
+  52:	342022f3          	csrrs	x5,mcause,x0
+  56:	c516                	c.swsp	x5,136(x2)
+  58:	343022f3          	csrrs	x5,mtval,x0
+  5c:	c716                	c.swsp	x5,140(x2)
+  5e:	00000197          	auipc	x3,0x0
+  62:	00018193          	addi	x3,x3,0 # 5e <trap_entry+0x5e>
+  66:	4201                	c.li	x4,0
+  68:	850a                	c.mv	x10,x2
+  6a:	00000097          	auipc	x1,0x0
+  6e:	000080e7          	jalr	x1,0(x1) # 6a <trap_entry+0x6a>
+  72:	428a                	c.lwsp	x5,128(x2)
+  74:	34129073          	csrrw	x0,mepc,x5
+  78:	429a                	c.lwsp	x5,132(x2)
+  7a:	30029073          	csrrw	x0,mstatus,x5
+  7e:	4092                	c.lwsp	x1,4(x2)
+  80:	41b2                	c.lwsp	x3,12(x2)
+  82:	4242                	c.lwsp	x4,16(x2)
+  84:	42d2                	c.lwsp	x5,20(x2)
+  86:	4362                	c.lwsp	x6,24(x2)
+  88:	43f2                	c.lwsp	x7,28(x2)
+  8a:	5402                	c.lwsp	x8,32(x2)
+  8c:	5492                	c.lwsp	x9,36(x2)
+  8e:	5522                	c.lwsp	x10,40(x2)
+  90:	55b2                	c.lwsp	x11,44(x2)
+  92:	5642                	c.lwsp	x12,48(x2)
+  94:	56d2                	c.lwsp	x13,52(x2)
+  96:	5762                	c.lwsp	x14,56(x2)
+  98:	57f2                	c.lwsp	x15,60(x2)
+  9a:	4806                	c.lwsp	x16,64(x2)
+  9c:	4896                	c.lwsp	x17,68(x2)
+  9e:	4926                	c.lwsp	x18,72(x2)
+  a0:	49b6                	c.lwsp	x19,76(x2)
+  a2:	4a46                	c.lwsp	x20,80(x2)
+  a4:	4ad6                	c.lwsp	x21,84(x2)
+  a6:	4b66                	c.lwsp	x22,88(x2)
+  a8:	4bf6                	c.lwsp	x23,92(x2)
+  aa:	5c06                	c.lwsp	x24,96(x2)
+  ac:	5c96                	c.lwsp	x25,100(x2)
+  ae:	5d26                	c.lwsp	x26,104(x2)
+  b0:	5db6                	c.lwsp	x27,108(x2)
+  b2:	5e46                	c.lwsp	x28,112(x2)
+  b4:	5ed6                	c.lwsp	x29,116(x2)
+  b6:	5f66                	c.lwsp	x30,120(x2)
+  b8:	5ff6                	c.lwsp	x31,124(x2)
+  ba:	4122                	c.lwsp	x2,8(x2)
+  bc:	30200073          	mret

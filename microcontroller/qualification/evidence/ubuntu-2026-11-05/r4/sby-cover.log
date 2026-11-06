@@ -1,0 +1,42 @@
+SBY 17:57:50 [/tmp/acq-tools-build-r4/cover] Removing directory '/tmp/acq-tools-build-r4/cover'.
+SBY 17:57:50 [/tmp/acq-tools-build-r4/cover] Copy '/home/bluto/Desktop/DRG-pain-project-publication/microcontroller/qualification/formal.sv' to '/tmp/acq-tools-build-r4/cover/src/formal.sv'.
+SBY 17:57:50 [/tmp/acq-tools-build-r4/cover] engine_0: smtbmc z3
+SBY 17:57:50 [/tmp/acq-tools-build-r4/cover] base: starting process "cd /tmp/acq-tools-build-r4/cover/src; yosys -ql ../model/design.log ../model/design.ys"
+SBY 17:57:50 [/tmp/acq-tools-build-r4/cover] base: finished (returncode=0)
+SBY 17:57:50 [/tmp/acq-tools-build-r4/cover] prep: starting process "cd /tmp/acq-tools-build-r4/cover/model; yosys -ql design_prep.log design_prep.ys"
+SBY 17:57:50 [/tmp/acq-tools-build-r4/cover] prep: finished (returncode=0)
+SBY 17:57:50 [/tmp/acq-tools-build-r4/cover] smt2: starting process "cd /tmp/acq-tools-build-r4/cover/model; yosys -ql design_smt2.log design_smt2.ys"
+SBY 17:57:50 [/tmp/acq-tools-build-r4/cover] smt2: finished (returncode=0)
+SBY 17:57:50 [/tmp/acq-tools-build-r4/cover] engine_0: starting process "cd /tmp/acq-tools-build-r4/cover; yosys-smtbmc -s z3 --presat -c --noprogress -t 20  --append 0 --dump-vcd engine_0/trace%.vcd --dump-yw engine_0/trace%.yw --dump-vlogtb engine_0/trace%_tb.v --dump-smtc engine_0/trace%.smtc model/design_smt2.smt2"
+SBY 17:57:50 [/tmp/acq-tools-build-r4/cover] engine_0: ##   0:00:00  Solver: z3
+SBY 17:57:50 [/tmp/acq-tools-build-r4/cover] engine_0: ##   0:00:00  Checking cover reachability in step 0..
+SBY 17:57:50 [/tmp/acq-tools-build-r4/cover] engine_0: ##   0:00:00  Checking cover reachability in step 1..
+SBY 17:57:50 [/tmp/acq-tools-build-r4/cover] engine_0: ##   0:00:00  Checking cover reachability in step 2..
+SBY 17:57:50 [/tmp/acq-tools-build-r4/cover] engine_0: ##   0:00:00  Checking cover reachability in step 3..
+SBY 17:57:50 [/tmp/acq-tools-build-r4/cover] engine_0: ##   0:00:00  Checking cover reachability in step 4..
+SBY 17:57:50 [/tmp/acq-tools-build-r4/cover] engine_0: ##   0:00:00  Checking cover reachability in step 5..
+SBY 17:57:50 [/tmp/acq-tools-build-r4/cover] engine_0: ##   0:00:00  Checking cover reachability in step 6..
+SBY 17:57:50 [/tmp/acq-tools-build-r4/cover] engine_0: ##   0:00:00  Checking cover reachability in step 7..
+SBY 17:57:50 [/tmp/acq-tools-build-r4/cover] engine_0: ##   0:00:00  Checking cover reachability in step 8..
+SBY 17:57:50 [/tmp/acq-tools-build-r4/cover] engine_0: ##   0:00:00  Checking cover reachability in step 9..
+SBY 17:57:50 [/tmp/acq-tools-build-r4/cover] engine_0: ##   0:00:00  Checking cover reachability in step 10..
+SBY 17:57:50 [/tmp/acq-tools-build-r4/cover] engine_0: ##   0:00:00  Checking cover reachability in step 11..
+SBY 17:57:50 [/tmp/acq-tools-build-r4/cover] engine_0: ##   0:00:00  Checking cover reachability in step 12..
+SBY 17:57:50 [/tmp/acq-tools-build-r4/cover] engine_0: ##   0:00:00  Checking cover reachability in step 13..
+SBY 17:57:50 [/tmp/acq-tools-build-r4/cover] engine_0: ##   0:00:00  Checking cover reachability in step 14..
+SBY 17:57:50 [/tmp/acq-tools-build-r4/cover] engine_0: ##   0:00:00  Checking cover reachability in step 15..
+SBY 17:57:50 [/tmp/acq-tools-build-r4/cover] engine_0: ##   0:00:00  Checking cover reachability in step 16..
+SBY 17:57:50 [/tmp/acq-tools-build-r4/cover] engine_0: ##   0:00:00  Reached cover statement in step 16 at formal: formal.sv:13.5-13.24 (_witness_.check_cover_formal_sv_13_8)
+SBY 17:57:50 [/tmp/acq-tools-build-r4/cover] engine_0: ##   0:00:00  Writing trace to VCD file: engine_0/trace0.vcd
+SBY 17:57:50 [/tmp/acq-tools-build-r4/cover] engine_0: ##   0:00:00  Writing trace to Verilog testbench: engine_0/trace0_tb.v
+SBY 17:57:50 [/tmp/acq-tools-build-r4/cover] engine_0: ##   0:00:00  Writing trace to constraints file: engine_0/trace0.smtc
+SBY 17:57:50 [/tmp/acq-tools-build-r4/cover] engine_0: ##   0:00:00  Writing trace to Yosys witness file: engine_0/trace0.yw
+SBY 17:57:50 [/tmp/acq-tools-build-r4/cover] engine_0: ##   0:00:00  Status: passed
+SBY 17:57:50 [/tmp/acq-tools-build-r4/cover] engine_0: finished (returncode=0)
+SBY 17:57:50 [/tmp/acq-tools-build-r4/cover] engine_0: Status returned by engine: pass
+SBY 17:57:50 [/tmp/acq-tools-build-r4/cover] summary: Elapsed clock time [H:MM:SS (secs)]: 0:00:00 (0)
+SBY 17:57:50 [/tmp/acq-tools-build-r4/cover] summary: Elapsed process time [H:MM:SS (secs)]: 0:00:00 (0)
+SBY 17:57:50 [/tmp/acq-tools-build-r4/cover] summary: engine_0 (smtbmc z3) returned pass
+SBY 17:57:50 [/tmp/acq-tools-build-r4/cover] summary: cover trace: /tmp/acq-tools-build-r4/cover/engine_0/trace0.vcd
+SBY 17:57:50 [/tmp/acq-tools-build-r4/cover] summary:   reached cover statement formal._witness_.check_cover_formal_sv_13_8 at formal.sv:13.5-13.24 step 16
+SBY 17:57:50 [/tmp/acq-tools-build-r4/cover] DONE (PASS, rc=0)

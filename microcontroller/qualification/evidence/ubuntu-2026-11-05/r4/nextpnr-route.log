@@ -1,0 +1,200 @@
+Info: constraining clock net 'clk25_i' to 25.00 MHz
+
+Info: Logic utilisation before packing:
+Info:     Total LUT4s:       121/83640     0%
+Info:         logic LUTs:     89/83640     0%
+Info:         carry LUTs:     32/83640     0%
+Info:           RAM LUTs:      0/10455     0%
+Info:          RAMW LUTs:      0/20910     0%
+
+Info:      Total DFFs:       133/83640     0%
+
+Info: Packing IOs..
+Info: pin 'led_o[7]$tr_io' constrained to Bel 'X0/Y41/PIOD'.
+Info: pin 'led_o[6]$tr_io' constrained to Bel 'X0/Y38/PIOD'.
+Info: pin 'led_o[5]$tr_io' constrained to Bel 'X0/Y44/PIOD'.
+Info: pin 'led_o[4]$tr_io' constrained to Bel 'X0/Y38/PIOB'.
+Info: pin 'led_o[3]$tr_io' constrained to Bel 'X0/Y38/PIOC'.
+Info: pin 'led_o[2]$tr_io' constrained to Bel 'X0/Y38/PIOA'.
+Info: pin 'led_o[1]$tr_io' constrained to Bel 'X0/Y35/PIOD'.
+Info: pin 'led_o[0]$tr_io' constrained to Bel 'X0/Y35/PIOC'.
+Info: pin 'clk25_i$tr_io' constrained to Bel 'X0/Y47/PIOA'.
+Info: Packing constants..
+Info: Packing carries...
+Info: Packing LUTs...
+Info: Packing LUT5-7s...
+Info: Packing FFs...
+Info:     33 FFs paired with LUTs.
+Info: Generating derived timing constraints...
+Info:     Input frequency of PLL 'pll.pll_i' is constrained to 25.0 MHz
+Info:     Derived frequency constraint of 80.0 MHz for net clk80
+Info: Promoting globals...
+Info:     promoting clock net clk80 to global network
+Info: Checksum: 0x16fe8c1d
+
+Info: Device utilisation:
+Info: 	          TRELLIS_IO:       9/    365     2%
+Info: 	                DCCA:       1/     56     1%
+Info: 	              DP16KD:       1/    208     0%
+Info: 	          MULT18X18D:       1/    156     0%
+Info: 	              ALU54B:       0/     78     0%
+Info: 	             EHXPLLL:       1/      4    25%
+Info: 	             EXTREFB:       0/      2     0%
+Info: 	                DCUA:       0/      2     0%
+Info: 	           PCSCLKDIV:       0/      2     0%
+Info: 	             IOLOGIC:       0/    224     0%
+Info: 	            SIOLOGIC:       0/    141     0%
+Info: 	                 GSR:       0/      1     0%
+Info: 	               JTAGG:       0/      1     0%
+Info: 	                OSCG:       0/      1     0%
+Info: 	               SEDGA:       0/      1     0%
+Info: 	                 DTR:       0/      1     0%
+Info: 	             USRMCLK:       1/      1   100%
+Info: 	             CLKDIVF:       0/      4     0%
+Info: 	           ECLKSYNCB:       0/     10     0%
+Info: 	             DLLDELD:       0/      8     0%
+Info: 	              DDRDLL:       0/      4     0%
+Info: 	             DQSBUFM:       0/     14     0%
+Info: 	     TRELLIS_ECLKBUF:       0/      8     0%
+Info: 	        ECLKBRIDGECS:       0/      2     0%
+Info: 	                DCSC:       0/      2     0%
+Info: 	          TRELLIS_FF:     133/  83640     0%
+Info: 	        TRELLIS_COMB:     127/  83640     0%
+Info: 	        TRELLIS_RAMW:       0/  10455     0%
+
+Info: Placed 10 cells based on constraints.
+Info: Creating initial analytic placement for 160 cells, random placement wirelen = 21238.
+Info:     at initial placer iter 0, wirelen = 299
+Info:     at initial placer iter 1, wirelen = 278
+Info:     at initial placer iter 2, wirelen = 274
+Info:     at initial placer iter 3, wirelen = 274
+Info: Running main analytical placer, max placement attempts per cell = 10000.
+Info:     at iteration #1, type ALL: wirelen solved = 274, spread = 1008, legal = 1709; time = 0.01s
+Info:     at iteration #2, type ALL: wirelen solved = 293, spread = 938, legal = 2053; time = 0.01s
+Info:     at iteration #3, type ALL: wirelen solved = 421, spread = 1054, legal = 2314; time = 0.01s
+Info:     at iteration #4, type ALL: wirelen solved = 329, spread = 1116, legal = 2093; time = 0.01s
+Info:     at iteration #5, type ALL: wirelen solved = 393, spread = 1123, legal = 1980; time = 0.01s
+Info:     at iteration #6, type ALL: wirelen solved = 410, spread = 1077, legal = 2484; time = 0.01s
+Info: HeAP Placer Time: 0.11s
+Info:   of which solving equations: 0.01s
+Info:   of which spreading cells: 0.02s
+Info:   of which strict legalisation: 0.00s
+
+Info: Running simulated annealing placer for refinement.
+Info:   at iteration #1: temp = 0.000000, timing cost = 50, wirelen = 1709
+Info:   at iteration #5: temp = 0.000000, timing cost = 50, wirelen = 1451
+Info:   at iteration #10: temp = 0.000000, timing cost = 49, wirelen = 1402
+Info:   at iteration #15: temp = 0.000000, timing cost = 43, wirelen = 1365
+Info:   at iteration #19: temp = 0.000000, timing cost = 43, wirelen = 1347 
+Info: SA placement time 0.06s
+
+Info: Max frequency for clock '$glbnet$clk80': 156.94 MHz (PASS at 80.00 MHz)
+
+Info: Max delay posedge $glbnet$clk80 -> <async>: 11.21 ns
+
+Info: Slack histogram:
+Info:  legend: * represents 1 endpoint(s)
+Info:          + represents [1,1) endpoint(s)
+Info: [  6128,   6409) |***************************** 
+Info: [  6409,   6690) |******* 
+Info: [  6690,   6971) | 
+Info: [  6971,   7252) | 
+Info: [  7252,   7533) | 
+Info: [  7533,   7814) | 
+Info: [  7814,   8095) | 
+Info: [  8095,   8376) | 
+Info: [  8376,   8657) |* 
+Info: [  8657,   8938) | 
+Info: [  8938,   9219) | 
+Info: [  9219,   9500) |*** 
+Info: [  9500,   9781) |************** 
+Info: [  9781,  10062) |*********** 
+Info: [ 10062,  10343) |*************************************** 
+Info: [ 10343,  10624) |************************************* 
+Info: [ 10624,  10905) |*************** 
+Info: [ 10905,  11186) |************** 
+Info: [ 11186,  11467) |**** 
+Info: [ 11467,  11748) |********* 
+Info: Checksum: 0xb06cbde7
+Info: Routing globals...
+Info:     routing clock net $glbnet$clk80 using global 0
+
+Info: Routing..
+Info: Setting up routing queue.
+Info: Routing 674 arcs.
+Info:            |   (re-)routed arcs  |   delta    | remaining|       time spent     |
+Info:    IterCnt |  w/ripup   wo/ripup |  w/r  wo/r |      arcs| batch(sec) total(sec)|
+Info:        895 |      207        641 |  207   641 |         0|       0.24       0.24|
+Info: Routing complete.
+Info: Router1 time 0.24s
+Info: Checksum: 0xdf01bcaf
+
+Info: Critical path report for clock '$glbnet$clk80' (posedge -> posedge):
+Info:       type curr  total name
+Info:   clk-to-q  0.52  0.52 Source core.count_o_TRELLIS_FF_Q_25.Q
+Info:    routing  1.26  1.79 Net count[10] (4,33) -> (4,34)
+Info:                          Sink core.product_o_TRELLIS_FF_Q_DI_MULT18X18D_P9.A10
+Info:                          Defined in:
+Info:                               /home/bluto/Desktop/DRG-pain-project-publication/microcontroller/qualification/smoke_top.sv:4.15-4.20
+Info:      logic  3.93  5.72 Source core.product_o_TRELLIS_FF_Q_DI_MULT18X18D_P9.P33
+Info:    routing  1.42  7.14 Net core.product_o_TRELLIS_FF_Q_DI[33] (4,34) -> (3,35)
+Info:                          Sink core.product_o_TRELLIS_FF_Q_16.M
+Info:                          Defined in:
+Info:                               /home/bluto/Desktop/DRG-pain-project-publication/microcontroller/qualification/smoke_core.sv:16.18-16.47
+Info:                               /home/bluto/Desktop/dorsalGanglionProject/.release-runs/bootstrap-final-r2/oss-cad-suite/lib/../share/yosys/mul2dsp.v:65.23-65.24
+Info:      setup  0.00  7.14 Source core.product_o_TRELLIS_FF_Q_16.M
+Info: 4.45 ns logic, 2.69 ns routing
+
+Info: Critical path report for cross-domain path 'posedge $glbnet$clk80' -> '<async>':
+Info:       type curr  total name
+Info:   clk-to-q  5.61  5.61 Source core.memory.0.0.DOA15
+Info:    routing  1.40  7.01 Net core.memory.0.0_DOB17[15] (4,46) -> (4,43)
+Info:                          Sink core.memory.0.0_DOB5_LUT4_D_1.D
+Info:                          Defined in:
+Info:                               /home/bluto/Desktop/dorsalGanglionProject/.release-runs/bootstrap-final-r2/oss-cad-suite/lib/../share/yosys/lattice/cells_map_trellis.v:108.23-108.24
+Info:      logic  0.40  7.41 Source core.memory.0.0_DOB5_LUT4_D_1.OFX
+Info:    routing  1.42  8.83 Net led_o_PFUMX_Z_1_C0[3] (4,43) -> (4,40)
+Info:                          Sink led_o_PFUMX_Z_1_ALUT_LUT4_Z.D
+Info:                          Defined in:
+Info:                               /home/bluto/Desktop/dorsalGanglionProject/.release-runs/bootstrap-final-r2/oss-cad-suite/lib/../share/yosys/lattice/cells_map_trellis.v:108.23-108.24
+Info:      logic  0.24  9.07 Source led_o_PFUMX_Z_1_ALUT_LUT4_Z.F
+Info:    routing  0.00  9.07 Net led_o_PFUMX_Z_1_ALUT (4,40) -> (4,40)
+Info:                          Sink led_o_PFUMX_Z_1_BLUT_LUT4_Z.F1
+Info:                          Defined in:
+Info:                               /home/bluto/Desktop/dorsalGanglionProject/.release-runs/bootstrap-final-r2/oss-cad-suite/lib/../share/yosys/lattice/cells_map_trellis.v:133.22-133.24
+Info:      logic  0.17  9.23 Source led_o_PFUMX_Z_1_BLUT_LUT4_Z.OFX
+Info:    routing  1.18  10.41 Net led_o[7]$TRELLIS_IO_OUT (4,40) -> (0,41)
+Info:                          Sink led_o[7]$tr_io.I
+Info:                          Defined in:
+Info:                               /home/bluto/Desktop/DRG-pain-project-publication/microcontroller/qualification/smoke_top.sv:2.57-2.62
+Info: 6.41 ns logic, 4.00 ns routing
+
+Info: Max frequency for clock '$glbnet$clk80': 140.10 MHz (PASS at 80.00 MHz)
+
+Info: Max delay posedge $glbnet$clk80 -> <async>: 10.41 ns
+
+Info: Slack histogram:
+Info:  legend: * represents 1 endpoint(s)
+Info:          + represents [1,1) endpoint(s)
+Info: [  5362,   5672) |************** 
+Info: [  5672,   5982) |******************* 
+Info: [  5982,   6292) |* 
+Info: [  6292,   6602) |** 
+Info: [  6602,   6912) | 
+Info: [  6912,   7222) | 
+Info: [  7222,   7532) | 
+Info: [  7532,   7842) | 
+Info: [  7842,   8152) | 
+Info: [  8152,   8462) | 
+Info: [  8462,   8772) |* 
+Info: [  8772,   9082) |****** 
+Info: [  9082,   9392) |********** 
+Info: [  9392,   9702) |********* 
+Info: [  9702,  10012) |********* 
+Info: [ 10012,  10322) |*************** 
+Info: [ 10322,  10632) |**************************** 
+Info: [ 10632,  10942) |*********************************** 
+Info: [ 10942,  11252) |***************** 
+Info: [ 11252,  11562) |***************** 
+
+Info: Program finished normally.

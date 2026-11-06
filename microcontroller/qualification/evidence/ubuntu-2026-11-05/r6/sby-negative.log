@@ -1,0 +1,32 @@
+SBY 18:04:51 [/tmp/acq-tools-build-r6/negative] Removing directory '/tmp/acq-tools-build-r6/negative'.
+SBY 18:04:51 [/tmp/acq-tools-build-r6/negative] Copy '/home/bluto/Desktop/DRG-pain-project-publication/microcontroller/qualification/formal.sv' to '/tmp/acq-tools-build-r6/negative/src/formal.sv'.
+SBY 18:04:51 [/tmp/acq-tools-build-r6/negative] engine_0: smtbmc z3
+SBY 18:04:51 [/tmp/acq-tools-build-r6/negative] base: starting process "cd /tmp/acq-tools-build-r6/negative/src; yosys -ql ../model/design.log ../model/design.ys"
+SBY 18:04:51 [/tmp/acq-tools-build-r6/negative] base: finished (returncode=0)
+SBY 18:04:51 [/tmp/acq-tools-build-r6/negative] prep: starting process "cd /tmp/acq-tools-build-r6/negative/model; yosys -ql design_prep.log design_prep.ys"
+SBY 18:04:51 [/tmp/acq-tools-build-r6/negative] prep: finished (returncode=0)
+SBY 18:04:51 [/tmp/acq-tools-build-r6/negative] smt2: starting process "cd /tmp/acq-tools-build-r6/negative/model; yosys -ql design_smt2.log design_smt2.ys"
+SBY 18:04:51 [/tmp/acq-tools-build-r6/negative] smt2: finished (returncode=0)
+SBY 18:04:51 [/tmp/acq-tools-build-r6/negative] engine_0: starting process "cd /tmp/acq-tools-build-r6/negative; yosys-smtbmc -s z3 --presat --noprogress -t 20  --append 0 --dump-vcd engine_0/trace.vcd --dump-yw engine_0/trace.yw --dump-vlogtb engine_0/trace_tb.v --dump-smtc engine_0/trace.smtc model/design_smt2.smt2"
+SBY 18:04:51 [/tmp/acq-tools-build-r6/negative] engine_0: ##   0:00:00  Solver: z3
+SBY 18:04:51 [/tmp/acq-tools-build-r6/negative] engine_0: ##   0:00:00  Checking assumptions in step 0..
+SBY 18:04:51 [/tmp/acq-tools-build-r6/negative] engine_0: ##   0:00:00  Checking assertions in step 0..
+SBY 18:04:51 [/tmp/acq-tools-build-r6/negative] engine_0: ##   0:00:00  Checking assumptions in step 1..
+SBY 18:04:51 [/tmp/acq-tools-build-r6/negative] engine_0: ##   0:00:00  Checking assertions in step 1..
+SBY 18:04:51 [/tmp/acq-tools-build-r6/negative] engine_0: ##   0:00:00  Checking assumptions in step 2..
+SBY 18:04:51 [/tmp/acq-tools-build-r6/negative] engine_0: ##   0:00:00  Checking assertions in step 2..
+SBY 18:04:51 [/tmp/acq-tools-build-r6/negative] engine_0: ##   0:00:00  BMC failed!
+SBY 18:04:51 [/tmp/acq-tools-build-r6/negative] engine_0: ##   0:00:00  Assert failed in formal: formal.sv:16.5-16.24 (_witness_.check_assert_formal_sv_16_10)
+SBY 18:04:51 [/tmp/acq-tools-build-r6/negative] engine_0: ##   0:00:00  Writing trace to VCD file: engine_0/trace.vcd
+SBY 18:04:51 [/tmp/acq-tools-build-r6/negative] engine_0: ##   0:00:00  Writing trace to Verilog testbench: engine_0/trace_tb.v
+SBY 18:04:51 [/tmp/acq-tools-build-r6/negative] engine_0: ##   0:00:00  Writing trace to constraints file: engine_0/trace.smtc
+SBY 18:04:51 [/tmp/acq-tools-build-r6/negative] engine_0: ##   0:00:00  Writing trace to Yosys witness file: engine_0/trace.yw
+SBY 18:04:51 [/tmp/acq-tools-build-r6/negative] engine_0: ##   0:00:00  Status: failed
+SBY 18:04:51 [/tmp/acq-tools-build-r6/negative] engine_0: finished (returncode=1)
+SBY 18:04:51 [/tmp/acq-tools-build-r6/negative] engine_0: Status returned by engine: FAIL
+SBY 18:04:51 [/tmp/acq-tools-build-r6/negative] summary: Elapsed clock time [H:MM:SS (secs)]: 0:00:00 (0)
+SBY 18:04:51 [/tmp/acq-tools-build-r6/negative] summary: Elapsed process time [H:MM:SS (secs)]: 0:00:00 (0)
+SBY 18:04:51 [/tmp/acq-tools-build-r6/negative] summary: engine_0 (smtbmc z3) returned FAIL
+SBY 18:04:51 [/tmp/acq-tools-build-r6/negative] summary: counterexample trace: /tmp/acq-tools-build-r6/negative/engine_0/trace.vcd
+SBY 18:04:51 [/tmp/acq-tools-build-r6/negative] summary:   failed assertion formal._witness_.check_assert_formal_sv_16_10 at formal.sv:16.5-16.24 step 2
+SBY 18:04:51 [/tmp/acq-tools-build-r6/negative] DONE (FAIL, rc=2)

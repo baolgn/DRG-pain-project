@@ -1,0 +1,507 @@
+$ /tmp/drg5-arch-tools/gcc/xpack-riscv-none-elf-gcc-15.2.0-1/bin/riscv-none-elf-objdump -d -M no-aliases,numeric /tmp/acq-hw-p25-20261105/firmware/runtime.o
+
+/tmp/acq-hw-p25-20261105/firmware/runtime.o:     file format elf32-littleriscv
+
+
+Disassembly of section .text.memcpy:
+
+00000000 <memcpy>:
+   0:	1141                	c.addi	x2,-16
+   2:	c422                	c.swsp	x8,8(x2)
+   4:	c606                	c.swsp	x1,12(x2)
+   6:	0800                	c.addi4spn	x8,x2,16
+
+00000008 <.LM8>:
+   8:	ca19                	c.beqz	x12,1e <.LM17>
+   a:	962e                	c.add	x12,x11
+
+0000000c <.LM9>:
+   c:	87aa                	c.mv	x15,x10
+
+0000000e <.LM10>:
+   e:	0005c703          	lbu	x14,0(x11)
+
+00000012 <.LM12>:
+  12:	0585                	c.addi	x11,1
+
+00000014 <.LM13>:
+  14:	0785                	c.addi	x15,1
+
+00000016 <.LM14>:
+  16:	fee78fa3          	sb	x14,-1(x15)
+
+0000001a <.LM15>:
+  1a:	fec59ae3          	bne	x11,x12,e <.LM10>
+
+0000001e <.LM17>:
+  1e:	40b2                	c.lwsp	x1,12(x2)
+  20:	4422                	c.lwsp	x8,8(x2)
+  22:	0141                	c.addi	x2,16
+  24:	8082                	c.jr	x1
+
+Disassembly of section .text.memset:
+
+00000000 <memset>:
+   0:	1141                	c.addi	x2,-16
+   2:	c422                	c.swsp	x8,8(x2)
+   4:	c606                	c.swsp	x1,12(x2)
+   6:	0800                	c.addi4spn	x8,x2,16
+   8:	00c50733          	add	x14,x10,x12
+
+0000000c <.LM25>:
+   c:	c619                	c.beqz	x12,1a <.LM31>
+   e:	87aa                	c.mv	x15,x10
+
+00000010 <.LM26>:
+  10:	00b78023          	sb	x11,0(x15)
+
+00000014 <.LM28>:
+  14:	0785                	c.addi	x15,1
+
+00000016 <.LM30>:
+  16:	fee79de3          	bne	x15,x14,10 <.LM26>
+
+0000001a <.LM31>:
+  1a:	40b2                	c.lwsp	x1,12(x2)
+  1c:	4422                	c.lwsp	x8,8(x2)
+  1e:	0141                	c.addi	x2,16
+  20:	8082                	c.jr	x1
+
+Disassembly of section .text.memcmp:
+
+00000000 <memcmp>:
+   0:	1141                	c.addi	x2,-16
+   2:	c422                	c.swsp	x8,8(x2)
+   4:	c606                	c.swsp	x1,12(x2)
+   6:	0800                	c.addi4spn	x8,x2,16
+
+00000008 <.LM39>:
+   8:	c21d                	c.beqz	x12,2e <.LM55>
+   a:	962a                	c.add	x12,x10
+
+0000000c <.LM40>:
+   c:	a019                	c.j	12 <.LM42>
+
+0000000e <.LM41>:
+   e:	02c50063          	beq	x10,x12,2e <.LM55>
+
+00000012 <.LM42>:
+  12:	00054783          	lbu	x15,0(x10)
+
+00000016 <.LM46>:
+  16:	0005c703          	lbu	x14,0(x11)
+
+0000001a <.LM47>:
+  1a:	0505                	c.addi	x10,1
+
+0000001c <.LM48>:
+  1c:	0585                	c.addi	x11,1
+
+0000001e <.LM49>:
+  1e:	fee788e3          	beq	x15,x14,e <.LM41>
+
+00000022 <.LM50>:
+  22:	40b2                	c.lwsp	x1,12(x2)
+  24:	4422                	c.lwsp	x8,8(x2)
+
+00000026 <.LM52>:
+  26:	40e78533          	sub	x10,x15,x14
+
+0000002a <.LM53>:
+  2a:	0141                	c.addi	x2,16
+  2c:	8082                	c.jr	x1
+
+0000002e <.LM55>:
+  2e:	40b2                	c.lwsp	x1,12(x2)
+  30:	4422                	c.lwsp	x8,8(x2)
+
+00000032 <.LM56>:
+  32:	4501                	c.li	x10,0
+
+00000034 <.LM57>:
+  34:	0141                	c.addi	x2,16
+  36:	8082                	c.jr	x1
+
+Disassembly of section .text.runtime_udiv:
+
+00000000 <runtime_udiv>:
+   0:	1141                	c.addi	x2,-16
+   2:	c422                	c.swsp	x8,8(x2)
+   4:	c606                	c.swsp	x1,12(x2)
+   6:	0800                	c.addi4spn	x8,x2,16
+   8:	832a                	c.mv	x6,x10
+
+0000000a <.LBB15>:
+   a:	02000793          	addi	x15,x0,32
+
+0000000e <.LM68>:
+   e:	4501                	c.li	x10,0
+
+00000010 <.LM69>:
+  10:	4701                	c.li	x14,0
+
+00000012 <.LBB18>:
+  12:	4885                	c.li	x17,1
+
+00000014 <.LM71>:
+  14:	17fd                	c.addi	x15,-1
+
+00000016 <.LM75>:
+  16:	00f356b3          	srl	x13,x6,x15
+
+0000001a <.LM76>:
+  1a:	8a85                	c.andi	x13,1
+
+0000001c <.LM77>:
+  1c:	00171613          	slli	x12,x14,0x1
+
+00000020 <.LM78>:
+  20:	01f75813          	srli	x16,x14,0x1f
+
+00000024 <.LM79>:
+  24:	00c6e733          	or	x14,x13,x12
+
+00000028 <.LM81>:
+  28:	00f896b3          	sll	x13,x17,x15
+
+0000002c <.LM83>:
+  2c:	00b77963          	bgeu	x14,x11,3e <.LM91>
+  30:	00081763          	bne	x16,x0,3e <.LM91>
+
+00000034 <.LM84>:
+  34:	f3e5                	c.bnez	x15,14 <.LM71>
+
+00000036 <.LM86>:
+  36:	40b2                	c.lwsp	x1,12(x2)
+  38:	4422                	c.lwsp	x8,8(x2)
+  3a:	0141                	c.addi	x2,16
+  3c:	8082                	c.jr	x1
+
+0000003e <.LM91>:
+  3e:	8f0d                	c.sub	x14,x11
+
+00000040 <.LM92>:
+  40:	8d55                	c.or	x10,x13
+
+00000042 <.LM94>:
+  42:	fbe9                	c.bnez	x15,14 <.LM71>
+  44:	bfcd                	c.j	36 <.LM86>
+
+Disassembly of section .text.__udivsi3:
+
+00000000 <__udivsi3>:
+   0:	1141                	c.addi	x2,-16
+   2:	c422                	c.swsp	x8,8(x2)
+   4:	c606                	c.swsp	x1,12(x2)
+   6:	0800                	c.addi4spn	x8,x2,16
+   8:	832a                	c.mv	x6,x10
+   a:	02000793          	addi	x15,x0,32
+   e:	4501                	c.li	x10,0
+  10:	4701                	c.li	x14,0
+  12:	4885                	c.li	x17,1
+  14:	17fd                	c.addi	x15,-1
+  16:	00f356b3          	srl	x13,x6,x15
+  1a:	8a85                	c.andi	x13,1
+  1c:	00171613          	slli	x12,x14,0x1
+  20:	01f75813          	srli	x16,x14,0x1f
+  24:	00c6e733          	or	x14,x13,x12
+  28:	00f896b3          	sll	x13,x17,x15
+  2c:	00b77963          	bgeu	x14,x11,3e <__udivsi3+0x3e>
+  30:	00081763          	bne	x16,x0,3e <__udivsi3+0x3e>
+  34:	f3e5                	c.bnez	x15,14 <__udivsi3+0x14>
+  36:	40b2                	c.lwsp	x1,12(x2)
+  38:	4422                	c.lwsp	x8,8(x2)
+  3a:	0141                	c.addi	x2,16
+  3c:	8082                	c.jr	x1
+  3e:	8f0d                	c.sub	x14,x11
+  40:	8d55                	c.or	x10,x13
+  42:	fbe9                	c.bnez	x15,14 <__udivsi3+0x14>
+  44:	bfcd                	c.j	36 <__udivsi3+0x36>
+
+Disassembly of section .text.__umodsi3:
+
+00000000 <__umodsi3>:
+   0:	1141                	c.addi	x2,-16
+   2:	c422                	c.swsp	x8,8(x2)
+   4:	c606                	c.swsp	x1,12(x2)
+   6:	0800                	c.addi4spn	x8,x2,16
+
+00000008 <.LM106>:
+   8:	02000713          	addi	x14,x0,32
+
+0000000c <.LM107>:
+   c:	4781                	c.li	x15,0
+
+0000000e <.LBB35>:
+   e:	177d                	c.addi	x14,-1
+
+00000010 <.LM112>:
+  10:	00e556b3          	srl	x13,x10,x14
+
+00000014 <.LM113>:
+  14:	8a85                	c.andi	x13,1
+
+00000016 <.LM114>:
+  16:	00179613          	slli	x12,x15,0x1
+
+0000001a <.LM115>:
+  1a:	01f7d813          	srli	x16,x15,0x1f
+
+0000001e <.LM116>:
+  1e:	00c6e7b3          	or	x15,x13,x12
+
+00000022 <.LM118>:
+  22:	00b7fa63          	bgeu	x15,x11,36 <.LM129>
+  26:	00081863          	bne	x16,x0,36 <.LM129>
+
+0000002a <.LM120>:
+  2a:	f375                	c.bnez	x14,e <.LBB35>
+
+0000002c <.LM122>:
+  2c:	40b2                	c.lwsp	x1,12(x2)
+  2e:	4422                	c.lwsp	x8,8(x2)
+  30:	853e                	c.mv	x10,x15
+
+00000032 <.LM128>:
+  32:	0141                	c.addi	x2,16
+  34:	8082                	c.jr	x1
+
+00000036 <.LM129>:
+  36:	8f8d                	c.sub	x15,x11
+
+00000038 <.LM130>:
+  38:	fb79                	c.bnez	x14,e <.LBB35>
+  3a:	bfcd                	c.j	2c <.LM122>
+
+Disassembly of section .text.__divsi3:
+
+00000000 <__divsi3>:
+   0:	1141                	c.addi	x2,-16
+   2:	c422                	c.swsp	x8,8(x2)
+   4:	c606                	c.swsp	x1,12(x2)
+   6:	0800                	c.addi4spn	x8,x2,16
+
+00000008 <.LM138>:
+   8:	c5a5                	c.beqz	x11,70 <.LM184>
+
+0000000a <.LM139>:
+   a:	41f55713          	srai	x14,x10,0x1f
+
+0000000e <.LM141>:
+   e:	41f5d793          	srai	x15,x11,0x1f
+
+00000012 <.LM142>:
+  12:	00a74e33          	xor	x28,x14,x10
+
+00000016 <.LM143>:
+  16:	00b7c8b3          	xor	x17,x15,x11
+
+0000001a <.LM144>:
+  1a:	40ee0e33          	sub	x28,x28,x14
+
+0000001e <.LM145>:
+  1e:	40f888b3          	sub	x17,x17,x15
+
+00000022 <.LBB50>:
+  22:	4301                	c.li	x6,0
+
+00000024 <.LM152>:
+  24:	02000793          	addi	x15,x0,32
+
+00000028 <.LM153>:
+  28:	4701                	c.li	x14,0
+
+0000002a <.LBB53>:
+  2a:	4e85                	c.li	x29,1
+
+0000002c <.LM155>:
+  2c:	17fd                	c.addi	x15,-1
+
+0000002e <.LM158>:
+  2e:	00fe56b3          	srl	x13,x28,x15
+
+00000032 <.LM159>:
+  32:	8a85                	c.andi	x13,1
+
+00000034 <.LM160>:
+  34:	00171613          	slli	x12,x14,0x1
+
+00000038 <.LM161>:
+  38:	01f75813          	srli	x16,x14,0x1f
+
+0000003c <.LM162>:
+  3c:	00c6e733          	or	x14,x13,x12
+
+00000040 <.LM164>:
+  40:	00fe96b3          	sll	x13,x29,x15
+
+00000044 <.LM166>:
+  44:	03177063          	bgeu	x14,x17,64 <.LM179>
+  48:	00081e63          	bne	x16,x0,64 <.LM179>
+
+0000004c <.LM167>:
+  4c:	f3e5                	c.bnez	x15,2c <.LM155>
+
+0000004e <.LM169>:
+  4e:	00b547b3          	xor	x15,x10,x11
+
+00000052 <.LM175>:
+  52:	851a                	c.mv	x10,x6
+
+00000054 <.LM176>:
+  54:	0007d463          	bge	x15,x0,5c <.LM178>
+
+00000058 <.LM177>:
+  58:	40600533          	sub	x10,x0,x6
+
+0000005c <.LM178>:
+  5c:	40b2                	c.lwsp	x1,12(x2)
+  5e:	4422                	c.lwsp	x8,8(x2)
+  60:	0141                	c.addi	x2,16
+  62:	8082                	c.jr	x1
+
+00000064 <.LM179>:
+  64:	41170733          	sub	x14,x14,x17
+
+00000068 <.LM180>:
+  68:	00d36333          	or	x6,x6,x13
+
+0000006c <.LM182>:
+  6c:	f3e1                	c.bnez	x15,2c <.LM155>
+  6e:	b7c5                	c.j	4e <.LM169>
+
+00000070 <.LM184>:
+  70:	557d                	c.li	x10,-1
+
+00000072 <.LM186>:
+  72:	b7ed                	c.j	5c <.LM178>
+
+Disassembly of section .text.__modsi3:
+
+00000000 <__modsi3>:
+   0:	41f55713          	srai	x14,x10,0x1f
+
+00000004 <.LM192>:
+   4:	41f5d793          	srai	x15,x11,0x1f
+
+00000008 <.LM193>:
+   8:	1141                	c.addi	x2,-16
+
+0000000a <.LM194>:
+   a:	00a748b3          	xor	x17,x14,x10
+
+0000000e <.LM195>:
+   e:	8dbd                	c.xor	x11,x15
+
+00000010 <.LM196>:
+  10:	c422                	c.swsp	x8,8(x2)
+  12:	c606                	c.swsp	x1,12(x2)
+  14:	0800                	c.addi4spn	x8,x2,16
+
+00000016 <.LM197>:
+  16:	40e888b3          	sub	x17,x17,x14
+
+0000001a <.LM198>:
+  1a:	8d9d                	c.sub	x11,x15
+
+0000001c <.LBB64>:
+  1c:	02000713          	addi	x14,x0,32
+
+00000020 <.LM205>:
+  20:	4781                	c.li	x15,0
+
+00000022 <.LBB67>:
+  22:	177d                	c.addi	x14,-1
+
+00000024 <.LM210>:
+  24:	00e8d6b3          	srl	x13,x17,x14
+
+00000028 <.LM211>:
+  28:	8a85                	c.andi	x13,1
+
+0000002a <.LM212>:
+  2a:	00179613          	slli	x12,x15,0x1
+
+0000002e <.LM213>:
+  2e:	01f7d813          	srli	x16,x15,0x1f
+
+00000032 <.LM214>:
+  32:	00c6e7b3          	or	x15,x13,x12
+
+00000036 <.LM216>:
+  36:	00b7fe63          	bgeu	x15,x11,52 <.LM229>
+  3a:	00081c63          	bne	x16,x0,52 <.LM229>
+
+0000003e <.LM218>:
+  3e:	f375                	c.bnez	x14,22 <.LBB67>
+
+00000040 <.LM220>:
+  40:	00055463          	bge	x10,x0,48 <.LM227>
+
+00000044 <.LM226>:
+  44:	40f007b3          	sub	x15,x0,x15
+
+00000048 <.LM227>:
+  48:	40b2                	c.lwsp	x1,12(x2)
+  4a:	4422                	c.lwsp	x8,8(x2)
+  4c:	853e                	c.mv	x10,x15
+
+0000004e <.LM228>:
+  4e:	0141                	c.addi	x2,16
+  50:	8082                	c.jr	x1
+
+00000052 <.LM229>:
+  52:	8f8d                	c.sub	x15,x11
+
+00000054 <.LM230>:
+  54:	f779                	c.bnez	x14,22 <.LBB67>
+  56:	b7ed                	c.j	40 <.LM220>
+
+Disassembly of section .text.__mulsi3:
+
+00000000 <__mulsi3>:
+   0:	1141                	c.addi	x2,-16
+   2:	c422                	c.swsp	x8,8(x2)
+   4:	c606                	c.swsp	x1,12(x2)
+   6:	0800                	c.addi4spn	x8,x2,16
+
+00000008 <.LM238>:
+   8:	c185                	c.beqz	x11,28 <.LM249>
+   a:	872a                	c.mv	x14,x10
+
+0000000c <.LM239>:
+   c:	4501                	c.li	x10,0
+
+0000000e <.LM240>:
+   e:	01f59693          	slli	x13,x11,0x1f
+  12:	41f6d793          	srai	x15,x13,0x1f
+  16:	8ff9                	c.and	x15,x14
+
+00000018 <.LM242>:
+  18:	8185                	c.srli	x11,0x1
+
+0000001a <.LM243>:
+  1a:	953e                	c.add	x10,x15
+
+0000001c <.LM244>:
+  1c:	0706                	c.slli	x14,0x1
+
+0000001e <.LM246>:
+  1e:	f9e5                	c.bnez	x11,e <.LM240>
+
+00000020 <.LM248>:
+  20:	40b2                	c.lwsp	x1,12(x2)
+  22:	4422                	c.lwsp	x8,8(x2)
+  24:	0141                	c.addi	x2,16
+  26:	8082                	c.jr	x1
+
+00000028 <.LM249>:
+  28:	40b2                	c.lwsp	x1,12(x2)
+  2a:	4422                	c.lwsp	x8,8(x2)
+
+0000002c <.LM250>:
+  2c:	4501                	c.li	x10,0
+
+0000002e <.LM251>:
+  2e:	0141                	c.addi	x2,16
+  30:	8082                	c.jr	x1
