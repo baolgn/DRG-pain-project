@@ -1,7 +1,5 @@
 # Changelog
 
-Development dates follow the project schedule. Verification results retain the execution dates and source hashes of their captured runs, including checks performed after the corresponding development date. A historical result applies to its recorded configuration and source revision.
-
 ## 2026-11-05
 
 The [clock/reset lifecycle specification](microcontroller/acquisition/clock-reset-lifecycle.md) adds ACQ-R1-CDC1 to the revision-4 acquisition contract without changing the binary formats. It defines a fixed acquisition clock with clock enables, coherent command and status crossings, complete-record FIFO transfers, and separate CPU, acquisition, system and FPGA-reconfiguration reset scopes. CPU-only reset must retain peripheral requests and ownership while stopping acquisition; reset that erases timing or accounting requires containment and a new recording session. These are implementation requirements, with physical clock-domain-crossing and reset qualification still open. The `explore()` function in [check_lifecycle.py](microcontroller/acquisition/check_lifecycle.py) checks finite abstract models rather than the complete RTL, including delayed stop observation, FIFO isolation and epoch-metadata delivery. The retained run exhausted 1,684 states and 7,053 transitions across five models, reached 38 coverage targets and detected all nine deliberately unsafe variants.
