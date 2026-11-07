@@ -1,0 +1,6 @@
+$ vvp /tmp/drg-acquisition-scheduler-r2/four-state.vvp +seed=1 +mutate_unknown
+TEST free-running timebase and saturation
+TEST destructive reset inhibits ARM and a due launch
+TEST idle service isolation can release after qualified containment
+FATAL: /home/bluto/Desktop/DRG-pain-project-publication/microcontroller/tests/drg5_acquisition_scheduler_tb.sv:69: case=idle service isolation can release after qualified containment seed=1 edge=27: decision comparator: triggered slot identity
+       Time: 351000  Scope: drg5_acquisition_scheduler_tb.check

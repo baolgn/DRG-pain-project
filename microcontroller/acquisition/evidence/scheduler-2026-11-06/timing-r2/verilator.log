@@ -1,0 +1,16 @@
+$ /tmp/drg-acquisition-timing-r2/obj/Vdrg5_acquisition_timing_tb +verilator+seed+1 +wave=verilator.vcd
+TEST MMIO response backpressure cannot move the grid
+TEST short downstream stall preserves retained decision and next slot
+TEST STOP on first due edge creates missing slot zero
+TEST early scheduler receipt cannot bypass controller terminal sealing
+TEST ordinary STOP preserves the complete eight-tick pulse
+TEST long stall retains owner and cannot downgrade uncertainty
+TEST scheduler acknowledgment cannot replace control terminal acknowledgment
+TEST CPU reset stops capture while retaining the free-running timebase
+TEST failed startup recovery does not strand idle isolation
+TEST same-edge stale response cannot orphan an ARM binding
+PASS acquisition-timing cases=10 checks=30400 bindings=10 launches=13
+- /home/bluto/Desktop/DRG-pain-project-publication/microcontroller/tests/drg5_acquisition_timing_tb.sv:487: Verilog $finish
+- S i m u l a t i o n   R e p o r t: Verilator 5.055 devel
+- Verilator: $finish at 118us; walltime 0.159 s; speed 737.707 us/s
+- Verilator: cpu 0.159 s on 1 threads; allocated 10 MB

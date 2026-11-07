@@ -2,6 +2,8 @@
 
 The RTL implements a custom, single-hart, five-stage RISC-V processor and several platform wrappers. The CPU operates in machine mode and provides an integer datapath, tagged instruction and data interfaces, precise architectural retirement, configurable M and C execution, machine interrupts, instruction synchronization and optional debug. The broader microcontroller adds local memory, boot and diagnostic interfaces around this core.
 
+The [acquisition control peripheral](drg5_acquisition_control.sv) implements lifecycle commands, configuration publication, coherent snapshots and retained fault evidence. Its [register and backend interface](../acquisition/control-foundation.md) defines the component boundary. [drg5_acquisition_timing.sv](drg5_acquisition_timing.sv) connects it to the shared [timebase](drg5_acquisition_timebase.sv) and [slot scheduler](drg5_acquisition_scheduler.sv). The CPU wrappers do not instantiate this connected path yet; the existing synthetic acquisition guard remains a separate component.
+
 ## Table of contents
 
 | Section |
@@ -86,7 +88,7 @@ flowchart TB
     ADC["Proposed ADC + sample timer"] --> CAP["Proposed capture / CRC / DMA"]
     CAP <-->|"DMA request / completion"| BUS
     CAP -.->|"block / fault IRQ"| IRQ
-    TIME["Proposed acquisition timebase"] --> CAP
+    TIME["Implemented acquisition timebase<br/>CPU connection pending"] --> CAP
 ```
 
 ## Five-stage pipeline
@@ -525,7 +527,7 @@ flowchart LR
     CYC --> READ["RV32 software reads<br/>high-low-high retry"]
     INST --> READ
     TRACE --> OBS["Verification observation only<br/>cannot stall execution<br/>no on-chip trace RAM"]
-    TIME["Proposed separate acquisition timebase<br/>not mcycle"] --> ADC["Sample / event timestamps"]
+    TIME["Implemented separate acquisition timebase<br/>CPU connection pending; not mcycle"] --> ADC["Sample / event timestamps"]
     ABSENT -.-> READ
 ```
 

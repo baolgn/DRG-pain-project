@@ -1,0 +1,38 @@
+[
+  {
+    "path": "four-state.vcd",
+    "bytes": 3666421,
+    "sha256": "7a932b6fc888adb6e7f63bd65ddfcc91dfb583f84138920991a4c21a6babce4c",
+    "retained": true,
+    "gzip_path": "four-state.vcd.gz",
+    "gzip_bytes": 498540,
+    "gzip_sha256": "dd07436adf9a38d6247a63fdcf2628c4ad05af216c7600a678fdf457c549e052"
+  },
+  {
+    "path": "verilator-seed-1.vcd",
+    "bytes": 3028132,
+    "sha256": "f4bf5327b1bf85dc806b09cfa3ac57222bdba556973565af20e6c8e84f29bdfc",
+    "retained": true,
+    "gzip_path": "verilator-seed-1.vcd.gz",
+    "gzip_bytes": 364109,
+    "gzip_sha256": "3db4177d733a8956b5e046d6d8a847b9f90471fc95ec9f3a49ed089d84f6663d"
+  },
+  {
+    "path": "verilator-seed-305419896.vcd",
+    "bytes": 3029114,
+    "sha256": "f0b4588567e67bcafde8f39d0efaa8c2278f7131ae64fcd8e19a412c585d3ce3",
+    "retained": true,
+    "gzip_path": "verilator-seed-305419896.vcd.gz",
+    "gzip_bytes": 364471,
+    "gzip_sha256": "fe35ad1ede8278d1faba887d5628c3047b07409a1211cfa6e90ff51be518d8cc"
+  },
+  {
+    "path": "verilator-seed-3735928559.vcd",
+    "bytes": 3037121,
+    "sha256": "88d70900bcc83c022d6fb42727e8381c1554c95c24dce778381e017def31340e",
+    "retained": true,
+    "gzip_path": "verilator-seed-3735928559.vcd.gz",
+    "gzip_bytes": 365361,
+    "gzip_sha256": "ff32abd3d6fa946c643ce998f74187d28d4c9320818920638de85e80384c2201"
+  }
+]

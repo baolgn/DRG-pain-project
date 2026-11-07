@@ -1,0 +1,5 @@
+$ /tmp/drg-acquisition-timing-r1/obj/Vdrg5_acquisition_timing_tb +verilator+seed+1 +mutate_binding
+TEST MMIO response backpressure cannot move the grid
+[932000] %Fatal: drg5_acquisition_timing_tb.sv:91: Assertion failed in drg5_acquisition_timing_tb.check: case=MMIO response backpressure cannot move the grid edge=74: binding comparator: future tick A+1
+%Error: /home/bluto/Desktop/DRG-pain-project-publication/microcontroller/tests/drg5_acquisition_timing_tb.sv:91: Verilog $stop
+Aborting...

@@ -1,0 +1,108 @@
+{
+  "created_utc": "2026-11-07T01:48:47.339526+00:00",
+  "limits": [
+    "capture idle, record credit and qualification are modeled integration inputs",
+    "no ADC capture, DMA, physical CDC, board programming or pin timing closure",
+    "directed and seeded simulation are not exhaustive formal verification",
+    "nominal 1600-tick grid and 8-tick pulse are exercised; physical marker-to-pin offset is not measured",
+    "detectors validate selected comparators, not every possible implementation mutation"
+  ],
+  "results": {
+    "detector-decision": {
+      "exit": 1,
+      "expected_comparator": "decision comparator"
+    },
+    "detector-grid": {
+      "exit": 1,
+      "expected_comparator": "grid comparator"
+    },
+    "detector-pulse": {
+      "exit": 1,
+      "expected_comparator": "pulse comparator"
+    },
+    "detector-terminal": {
+      "exit": 1,
+      "expected_comparator": "terminal comparator"
+    },
+    "detector-unknown": {
+      "exit": 1,
+      "expected_comparator": "decision comparator"
+    },
+    "four-state": {
+      "exit": 0,
+      "terminal": "PASS acquisition-scheduler seed=1 checks=669641 cases=30 random=80",
+      "wave_bytes": 53741011,
+      "wave_sha256": "4542c26967854b9d24c3b9b82693ac503f3d5bc0d0e8fa5b3aa2a7ce927736c7"
+    },
+    "small-counter": {
+      "exit": 0,
+      "limit": 7,
+      "terminal": "PASS acquisition-scheduler-small checks=48248 cases=1"
+    },
+    "structure": {
+      "exit": 0,
+      "reviewed_warnings": [],
+      "scope": "default-parameter generic scheduler synthesis and no inferred latches"
+    },
+    "timebase-structure": {
+      "exit": 0,
+      "reviewed_warnings": [
+        "ABC: Warning: The network is combinational (run \"fraig\" or \"fraig_sweep\")."
+      ],
+      "scope": "default zero-origin timebase synthesis and no inferred latches"
+    },
+    "verilator-seed-1": {
+      "exit": 0,
+      "terminal": "PASS acquisition-scheduler seed=1 checks=669641 cases=30 random=80",
+      "wave_bytes": 36727060,
+      "wave_sha256": "21369123086d58ecb92463ef6110aaa603a1e9de7a04091ce4ca0cf409e88bee"
+    },
+    "verilator-seed-305419896": {
+      "exit": 0,
+      "terminal": "PASS acquisition-scheduler seed=305419896 checks=669245 cases=30 random=80",
+      "wave_bytes": 36714948,
+      "wave_sha256": "cdc29bf43ed7c6f1a5f8a1207f872271676d04b8b20762c4a4878f06cb154618"
+    },
+    "verilator-seed-3735928559": {
+      "exit": 0,
+      "terminal": "PASS acquisition-scheduler seed=3735928559 checks=669413 cases=30 random=80",
+      "wave_bytes": 36724302,
+      "wave_sha256": "c8ebfeb4411c49383abee8a1e407743fd81a2e36528a1fc03598701ec39b72d3"
+    }
+  },
+  "scope": "single-clock acquisition timebase and slot scheduler RTL",
+  "seeds": [
+    1,
+    305419896,
+    3735928559
+  ],
+  "source_sha256": {
+    "microcontroller/acquisition/slot-scheduler.md": "b52cd15fb2b56b10fdb1c653c34f9bc6e7fe186fa80910863da2a9427776ffd0",
+    "microcontroller/rtl/drg5_acquisition_scheduler.sv": "eca1d0b6b06d478c632d2e39788a85b6a37ad90ba2b599aa83f2e673ea506990",
+    "microcontroller/rtl/drg5_acquisition_timebase.sv": "4d74b2d02df633521f4af6bf62c096e95c197269c2a36adfd59a9af8ef05b362",
+    "microcontroller/tests/drg5_acquisition_scheduler_tb.sv": "b466e8e872b052566fa0e50c24084e19022c3ca3bf542c42264d648a7eb87936",
+    "microcontroller/tests/run_acquisition_scheduler.py": "a75e360299d3e784a4d8f56ee50eb7d59bd56a86d912e5b32da18a25dd9fa169"
+  },
+  "tools": {
+    "iverilog": {
+      "path": "/home/bluto/.local/opt/oss-cad-suite-2026-11-05/bin/iverilog",
+      "sha256": "6d84be4052a92cf7184c7149506f5db6ac251f99e438a96ae3ce33f326e2ff9d",
+      "version": "Icarus Verilog version 14.0 (devel) (s20260301-812-g9f2605013-dirty)\n\nCopyright (c) 2000-2026 Stephen Williams (steve@icarus.com)\n\n  This program is free software; you can redistribute it and/or modify\n  it under the terms of the GNU General Public License as published by\n  the Free Software Foundation; either version 2 of the License, or\n  (at your option) any later version.\n\n  This program is distributed in the hope that it will be useful,\n  but WITHOUT ANY WARRANTY; without even the implied warranty of\n  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the\n  GNU General Public License for more details.\n\n  You should have received a copy of the GNU General Public License along\n  with this program; if not, write to the Free Software Foundation, Inc.,\n  51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.\n\nIcarus Verilog Preprocessor version 14.0 (devel) (s20260301-812-g9f2605013-dirty)\n\nCopyright (c) 1999-2026 Stephen Williams (steve@icarus.com)\n\n  This program is free software; you can redistribute it and/or modify\n  it under the terms of the GNU General Public License as published by\n  the Free Software Foundation; either version 2 of the License, or\n  (at your option) any later version.\n\n  This program is distributed in the hope that it will be useful,\n  but WITHOUT ANY WARRANTY; without even the implied warranty of\n  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the\n  GNU General Public License for more details.\n\n  You should have received a copy of the GNU General Public License along\n  with this program; if not, write to the Free Software Foundation, Inc.,\n  51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.\n\nIcarus Verilog Parser/Elaborator version 14.0 (devel) (s20260301-812-g9f2605013-dirty)\n\nCopyright (c) 1998-2026 Stephen Williams (steve@icarus.com)\n\n  This program is free software; you can redistribute it and/or modify\n  it under the terms of the GNU General Public License as published by\n  the Free Software Foundation; either version 2 of the License, or\n  (at your option) any later version.\n\n  This program is distributed in the hope that it will be useful,\n  but WITHOUT ANY WARRANTY; without even the implied warranty of\n  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the\n  GNU General Public License for more details.\n\n  You should have received a copy of the GNU General Public License along\n  with this program; if not, write to the Free Software Foundation, Inc.,\n  51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.\n\n FLAGS DLL vvp.tgt\nvvp.tgt: Icarus Verilog VVP Code Generator 14.0 (devel) (s20260301-812-g9f2605013-dirty)\n\nCopyright (c) 2001-2026 Stephen Williams (steve@icarus.com)\n\n  This program is free software; you can redistribute it and/or modify\n  it under the terms of the GNU General Public License as published by\n  the Free Software Foundation; either version 2 of the License, or\n  (at your option) any later version.\n\n  This program is distributed in the hope that it will be useful,\n  but WITHOUT ANY WARRANTY; without even the implied warranty of\n  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the\n  GNU General Public License for more details.\n\n  You should have received a copy of the GNU General Public License along\n  with this program; if not, write to the Free Software Foundation, Inc.,\n  51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA."
+    },
+    "verilator": {
+      "path": "/home/bluto/.local/opt/oss-cad-suite-2026-11-05/bin/verilator",
+      "sha256": "d74a5f9cbe9665135fcdcfe2415894e26951d98eb5f01621c38955e6845003d9",
+      "version": "Verilator 5.055 devel rev v5.054-63-g57bbb293d (mod)"
+    },
+    "vvp": {
+      "path": "/home/bluto/.local/opt/oss-cad-suite-2026-11-05/bin/vvp",
+      "sha256": "9f6d770762b5e77d81216e5f21a634028a9ee062a724eeb116980bdb6cb110cc",
+      "version": "Icarus Verilog runtime version 14.0 (devel) (s20260301-812-g9f2605013-dirty)\n\nCopyright (c) 2001-2026 Stephen Williams (steve@icarus.com)\n\n  This program is free software; you can redistribute it and/or modify\n  it under the terms of the GNU General Public License as published by\n  the Free Software Foundation; either version 2 of the License, or\n  (at your option) any later version.\n\n  This program is distributed in the hope that it will be useful,\n  but WITHOUT ANY WARRANTY; without even the implied warranty of\n  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the\n  GNU General Public License for more details.\n\n  You should have received a copy of the GNU General Public License along\n  with this program; if not, write to the Free Software Foundation, Inc.,\n  51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA."
+    },
+    "yosys": {
+      "path": "/home/bluto/.local/opt/oss-cad-suite-2026-11-05/bin/yosys",
+      "sha256": "7c3e3396b38c129dd7485be5a0a0f0da8e495a94c8fd486059e3bea043a588d6",
+      "version": "Yosys 0.70+336 (git sha1 8f3cc3d0c, Release, Clang /usr/bin/clang++ 21.1.8)"
+    }
+  }
+}

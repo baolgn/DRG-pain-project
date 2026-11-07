@@ -1,0 +1,7 @@
+$ /tmp/drg-acquisition-scheduler-r3/obj/Vdrg5_acquisition_scheduler_tb +verilator+seed+1 +seed=1 +mutate_terminal
+TEST free-running timebase and saturation
+TEST destructive reset inhibits ARM and a due launch
+TEST idle service isolation can release after qualified containment
+[464000] %Fatal: drg5_acquisition_scheduler_tb.sv:69: Assertion failed in drg5_acquisition_scheduler_tb.check: case=idle service isolation can release after qualified containment seed=1 edge=36: terminal comparator: slot accounting
+%Error: /home/bluto/Desktop/DRG-pain-project-publication/microcontroller/tests/drg5_acquisition_scheduler_tb.sv:69: Verilog $stop
+Aborting...

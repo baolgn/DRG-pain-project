@@ -1,0 +1,20 @@
+[
+  {
+    "path": "four-state.vcd",
+    "bytes": 3982102,
+    "sha256": "4937ffe75d31834e824cece86e6bc9fd80d4179687318edb23d6ff7913f0f975",
+    "retained": true,
+    "gzip_path": "four-state.vcd.gz",
+    "gzip_bytes": 492072,
+    "gzip_sha256": "f82c25ee1423b607d4065e4e0450e7eb78c9f63cd3819c4d2dce85987c9a12f5"
+  },
+  {
+    "path": "verilator.vcd",
+    "bytes": 1801843,
+    "sha256": "2ac2bd3b3f50b9b08b14bb1ebffe508d1963b1a5cb4d88e846ee21aa51a47b6b",
+    "retained": true,
+    "gzip_path": "verilator.vcd.gz",
+    "gzip_bytes": 274656,
+    "gzip_sha256": "79945e54a482fb2889840d21f777f8554a8d9351475e385986fd04773a585152"
+  }
+]

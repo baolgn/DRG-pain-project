@@ -1,0 +1,6 @@
+$ vvp /tmp/drg-acquisition-control-r4/small.vvp +small +seed=1
+TEST counter exhaustion remains visible
+TEST snapshot exhaustion leaves atomic fault evidence readable
+TEST exhausted event identity counts loss even with an empty queue
+PASS acquisition-control-small checks=653 cases=3
+/home/bluto/Desktop/DRG-pain-project-publication/microcontroller/tests/drg5_acquisition_control_tb.sv:386: $finish called at 2110000 (1ps)

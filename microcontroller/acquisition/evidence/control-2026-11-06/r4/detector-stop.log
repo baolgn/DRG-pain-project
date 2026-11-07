@@ -1,0 +1,12 @@
+$ /tmp/drg-acquisition-control-r4/obj/Vdrg5_acquisition_control_tb +verilator+seed+1 +seed=1 +mutate_stop
+TEST MMIO shape and response ownership
+TEST configuration validation and command precedence
+TEST accepted service is independent of bus and shadow edits
+TEST fault closure proceeds while the ARM bus response is stalled
+TEST coherent frozen snapshots through live changes
+TEST ARM independently validates metadata capacity ownership and identity
+TEST STOP vetoes ARM and cancels service completion
+TEST first latest overflow evidence survives CPU reset
+[10651000] %Fatal: drg5_acquisition_control_tb.sv:63: Assertion failed in drg5_acquisition_control_tb.check: case=first latest overflow evidence survives CPU reset seed=1 edge=1064: stop comparator: CPU-independent critical inhibit
+%Error: /home/bluto/Desktop/DRG-pain-project-publication/microcontroller/tests/drg5_acquisition_control_tb.sv:63: Verilog $stop
+Aborting...

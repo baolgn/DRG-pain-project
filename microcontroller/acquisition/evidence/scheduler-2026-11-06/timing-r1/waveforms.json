@@ -1,0 +1,14 @@
+[
+  {
+    "path": "four-state.vcd",
+    "bytes": 3981217,
+    "sha256": "d07d66205c070a6624c9756acf1ef3c6fcd59a3364fe5376b911b74f832f295d",
+    "retained": false
+  },
+  {
+    "path": "verilator.vcd",
+    "bytes": 1801861,
+    "sha256": "0d4da218cc29303dddc6ff86242e39bca7ce7cc574a45fb8e8996e4eb97935de",
+    "retained": false
+  }
+]
