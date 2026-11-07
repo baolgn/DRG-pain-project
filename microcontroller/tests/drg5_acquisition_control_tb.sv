@@ -15,9 +15,12 @@ module drg5_acquisition_control_tb #(parameter logic [63:0] TEST_COUNTER_LIMIT =
   logic [31:0] qualification_manifest_length_i = 128;
   logic [255:0] qualification_digest_i = 256'h12345678;
   logic physical_ready_i = 0, metadata_archived_i = 0, ownership_clear_i = 1, pins_idle_i = 1;
+  logic arm_ready_i = 1, arm_commit_o;
+  logic [63:0] tick_o, arm_commit_epoch_o, arm_commit_first_tick_o;
   logic [6:0] free_blocks_i = 64;
   logic emergency_stop_i = 0;
   logic [31:0] fault_i = 0;
+  logic [15:0] fault_occurrence_i = 0;
   logic supervisor_fault_i = 0;
   logic backend_valid_i = 0, backend_ok_i = 1;
   logic [1:0] backend_phase_i = 0;
@@ -29,7 +32,7 @@ module drg5_acquisition_control_tb #(parameter logic [63:0] TEST_COUNTER_LIMIT =
   logic close_valid_i = 0;
   logic [63:0] close_epoch_i = 0;
   logic [1:0] close_result_i = 0;
-  logic close_request_o;
+  logic close_request_o, terminal_sealed_o;
   logic [63:0] epoch_o, first_tick_o;
   logic arm_o, run_permit_o, stop_o, isolate_o, irq_o;
   logic [3:0] state_o;
@@ -80,6 +83,8 @@ module drg5_acquisition_control_tb #(parameter logic [63:0] TEST_COUNTER_LIMIT =
                       service_valid_o, service_cancel_o, service_phase_o, service_command_id_o,
                       service_config_o, close_request_o, epoch_o, first_tick_o,
                       arm_o, run_permit_o, stop_o, isolate_o, irq_o, state_o}), "unknown DUT output");
+    check(!$isunknown({tick_o, arm_commit_o, arm_commit_epoch_o, arm_commit_first_tick_o, terminal_sealed_o}),
+          "unknown shared timebase or ARM binding");
     @(negedge clk_i);
   endtask
 
@@ -101,11 +106,12 @@ module drg5_acquisition_control_tb #(parameter logic [63:0] TEST_COUNTER_LIMIT =
     system_reset_i = 1;
     req_valid_i = 0; rsp_ready_i = 0;
     cpu_reset_i = 0; cpu_halt_i = 0; emergency_stop_i = 0;
-    fault_i = 0; supervisor_fault_i = 0; backend_valid_i = 0; close_valid_i = 0;
+    fault_i = 0; fault_occurrence_i = 0; supervisor_fault_i = 0; backend_valid_i = 0; close_valid_i = 0;
     backend_ok_i = 1; backend_phase_i = 0; backend_command_id_i = 0;
     qualification_valid_i = 1; session_verified_i = 1;
     qualification_config_id_i = 1; qualification_digest_i = 256'h12345678;
     physical_ready_i = 1; metadata_archived_i = 1; ownership_clear_i = 1; pins_idle_i = 1;
+    arm_ready_i = 1;
     free_blocks_i = 64;
     cycles(2);
     system_reset_i = 0;
@@ -480,8 +486,9 @@ module drg5_acquisition_control_tb #(parameter logic [63:0] TEST_COUNTER_LIMIT =
     free_blocks_i = 23; command_id(3); write_word('h020, 2, 8); free_blocks_i = 24;
     ownership_clear_i = 0; command_id(4); write_word('h020, 2, 7); ownership_clear_i = 1;
     object_id(2); command_id(5); write_word('h020, 2, 7);
+    object_id(1); arm_ready_i = 0; command_id(6); write_word('h020, 2, 7); arm_ready_i = 1;
     check(state_o === 3 && epoch_o === 0 && !run_permit_o, "rejected ARM requests create no epoch");
-    arm(6, 1);
+    arm(7, 1);
 
     begin_case("STOP vetoes ARM and cancels service completion");
     reset_controller(); configure(1);
@@ -523,6 +530,17 @@ module drg5_acquisition_control_tb #(parameter logic [63:0] TEST_COUNTER_LIMIT =
     cpu_reset_i = 0;
     closure(1, 0);
     check(!run_permit_o, "CPU resume cannot restart");
+
+    begin_case("adjacent fault occurrences retain overflow accounting");
+    reset_controller();
+    fault_occurrence_i = 1;
+    cycles(2);
+    fault_occurrence_i = 0;
+    tick();
+    snapshot(snap);
+    snapshot_word(16, 2); snapshot_word(18, 2); snapshot_word(20, 1);
+    snapshot_word(32, 1); snapshot_word(48, 2);
+    release_snapshot(snap);
 
     begin_case("CPU reset preserves completion and an already frozen snapshot");
     reset_controller(); shadow_configuration(1); command_id(1); write_word('h020, 1, 1);

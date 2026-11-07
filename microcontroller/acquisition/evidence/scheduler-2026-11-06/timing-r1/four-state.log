@@ -1,0 +1,14 @@
+$ vvp /tmp/drg-acquisition-timing-r1/four-state.vvp +wave=four-state.vcd
+VCD info: dumpfile four-state.vcd opened for output.
+TEST MMIO response backpressure cannot move the grid
+TEST short downstream stall preserves retained decision and next slot
+TEST STOP on first due edge creates missing slot zero
+TEST early scheduler receipt cannot bypass controller terminal sealing
+TEST ordinary STOP preserves the complete eight-tick pulse
+TEST long stall retains owner and cannot downgrade uncertainty
+TEST scheduler acknowledgment cannot replace control terminal acknowledgment
+TEST CPU reset stops capture while retaining the free-running timebase
+TEST failed startup recovery does not strand idle isolation
+TEST same-edge stale response cannot orphan an ARM binding
+PASS acquisition-timing cases=10 checks=30400 bindings=10 launches=13
+/home/bluto/Desktop/DRG-pain-project-publication/microcontroller/tests/drg5_acquisition_timing_tb.sv:487: $finish called at 117587500 (1ps)

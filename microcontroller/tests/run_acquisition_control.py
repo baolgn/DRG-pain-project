@@ -52,7 +52,8 @@ def main():
     sources = ['microcontroller/rtl/drg5_acquisition_control.sv',
                'microcontroller/tests/drg5_acquisition_control_tb.sv',
                'microcontroller/tests/run_acquisition_control.py',
-               'microcontroller/acquisition/control-foundation.md']
+               'microcontroller/acquisition/control-foundation.md',
+               'microcontroller/rtl/drg5_acquisition_timebase.sv']
     before = {name: digest(root / name) for name in sources}
     # failed revisions retain their exact pre-build inputs, not later edited working files.
     for name in sources:
@@ -72,11 +73,12 @@ def main():
         tools[name] = {'path': str(executable), 'sha256': digest(executable),
                        'version': version.stdout.strip()}
     rtl, bench = [str(root / name) for name in sources[:2]]
+    timebase = str(root / 'microcontroller/rtl/drg5_acquisition_timebase.sv')
     timescale = output / 'timescale.sv'
     timescale.write_text('`timescale 1ns/1ps\n')
     build = execute([args.verilator, '--binary', '--timing', '--assert', '--trace', '--timescale-override', '1ns/1ps', '-Wall',
                      '-j', '2', '-CFLAGS', '-O0', '--top-module', 'drg5_acquisition_control_tb',
-                     '--Mdir', str(output / 'obj'), rtl, bench], output / 'build.log', root)
+                     '--Mdir', str(output / 'obj'), timebase, rtl, bench], output / 'build.log', root)
     # Verilator lint warnings are failures rather than globally suppressed diagnostics.
     if build.returncode or '%Warning' in build.stdout:
         raise RuntimeError('control build failed: ' + str(output / 'build.log'))
@@ -113,7 +115,7 @@ def main():
         results[name] = {'exit': result.returncode, 'expected_comparator': label}
         print(name + ': expected comparator failure', flush=True)
     four = execute([args.iverilog, '-g2012', '-D', 'SYNTHESIS', '-s', 'drg5_acquisition_control_tb',
-                    '-o', str(output / 'four-state.vvp'), str(timescale), rtl, bench],
+                    '-o', str(output / 'four-state.vvp'), str(timescale), timebase, rtl, bench],
                    output / 'four-state-build.log', root)
     # SYNTHESIS selects hardware logic; procedural test checks remain active.
     if four.returncode:
@@ -139,7 +141,7 @@ def main():
     results['detector-unknown'] = {'exit': unknown.returncode, 'expected_comparator': 'snapshot comparator'}
     small = execute([args.iverilog, '-g2012', '-D', 'SYNTHESIS',
                      '-Pdrg5_acquisition_control_tb.TEST_COUNTER_LIMIT=7',
-                     '-s', 'drg5_acquisition_control_tb', '-o', str(output / 'small.vvp'), str(timescale), rtl, bench],
+                     '-s', 'drg5_acquisition_control_tb', '-o', str(output / 'small.vvp'), str(timescale), timebase, rtl, bench],
                     output / 'small-build.log', root)
     # a reduced elaborated limit reaches saturation through public fault inputs only.
     if small.returncode:
@@ -152,7 +154,7 @@ def main():
     if small_run.returncode or not small_match:
         raise RuntimeError('small-counter simulation failed')
     results['small-counter'] = {'exit': small_run.returncode, 'terminal': small_match.group(), 'limit': 7}
-    script = (f'read_verilog -sv -D SYNTHESIS {rtl}; hierarchy -check -top drg5_acquisition_control; '
+    script = (f'read_verilog -sv -D SYNTHESIS {timebase} {rtl}; hierarchy -check -top drg5_acquisition_control; '
               'proc; check -assert; select -assert-none t:$dlatch t:$adlatch; '
               'synth -top drg5_acquisition_control; check -assert; '
               'select -assert-none t:$dlatch t:$adlatch; stat')

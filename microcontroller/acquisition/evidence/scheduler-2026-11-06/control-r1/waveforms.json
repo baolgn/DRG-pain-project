@@ -1,0 +1,26 @@
+[
+  {
+    "path": "four-state.vcd",
+    "bytes": 3666421,
+    "sha256": "f519c386943ef22fb2b90d38e47a6942be7e82cdc6543440f343d918574fa9f8",
+    "retained": false
+  },
+  {
+    "path": "verilator-seed-1.vcd",
+    "bytes": 3028132,
+    "sha256": "f4bf5327b1bf85dc806b09cfa3ac57222bdba556973565af20e6c8e84f29bdfc",
+    "retained": false
+  },
+  {
+    "path": "verilator-seed-305419896.vcd",
+    "bytes": 3029114,
+    "sha256": "f0b4588567e67bcafde8f39d0efaa8c2278f7131ae64fcd8e19a412c585d3ce3",
+    "retained": false
+  },
+  {
+    "path": "verilator-seed-3735928559.vcd",
+    "bytes": 3037121,
+    "sha256": "88d70900bcc83c022d6fb42727e8381c1554c95c24dce778381e017def31340e",
+    "retained": false
+  }
+]

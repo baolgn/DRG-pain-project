@@ -25,6 +25,15 @@ PYTHONDONTWRITEBYTECODE=1 python3 microcontroller/tests/run_acquisition_control.
 
 The [retained control evidence](../acquisition/evidence/control-2026-11-06/README.md) distinguishes simulation and generic synthesis from the ADC, CPU fabric, CDC and physical supervision work that remains outside this component.
 
+The [scheduler runner](run_acquisition_scheduler.py) exercises [drg5_acquisition_scheduler_tb.sv](drg5_acquisition_scheduler_tb.sv), including fixed-grid timing, pulse widths, stalls and counter boundaries. The [connected timing runner](run_acquisition_timing.py) exercises [drg5_acquisition_timing_tb.sv](drg5_acquisition_timing_tb.sv) through MMIO, checking shared ARM timing and the separate scheduler/control closure owners. Both use Verilator, Icarus Verilog and Yosys, retain waveforms, and require a fresh output directory. The [scheduler evidence](../acquisition/evidence/scheduler-2026-11-06/README.md) also retains the affected control regression.
+
+```sh
+PYTHONDONTWRITEBYTECODE=1 python3 microcontroller/tests/run_acquisition_scheduler.py \
+  --output /tmp/drg-acquisition-scheduler-check
+PYTHONDONTWRITEBYTECODE=1 python3 microcontroller/tests/run_acquisition_timing.py \
+  --output /tmp/drg-acquisition-timing-check
+```
+
 Available captures identify Ubuntu/Linux tools, including Verilator `5.047 devel rev v5.046-19-ge9dd6eaaf (mod)` and more than one Yosys revision. This is evidence for those recorded tool builds, not a claim that every current package release works. Select executable paths explicitly and retain a new run's versions and hashes. Windows, WSL and macOS have not been qualified.
 
 The standalone CSR runner is a compact example of the complete pattern:

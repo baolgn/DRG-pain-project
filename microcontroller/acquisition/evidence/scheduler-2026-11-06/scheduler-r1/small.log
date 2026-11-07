@@ -1,0 +1,4 @@
+$ vvp /tmp/drg-acquisition-scheduler-r1/small.vvp +small +seed=1
+TEST slot count saturates without wrap
+PASS acquisition-scheduler-small checks=28958 cases=1
+/home/bluto/Desktop/DRG-pain-project-publication/microcontroller/tests/drg5_acquisition_scheduler_tb.sv:282: $finish called at 120576000 (1ps)

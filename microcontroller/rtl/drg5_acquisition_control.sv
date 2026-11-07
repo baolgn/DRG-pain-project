@@ -23,10 +23,11 @@ module drg5_acquisition_control #(
   input logic [255:0] qualification_digest_i,
   input logic [63:0] qualification_timebase_id_i,
   input logic [31:0] qualification_manifest_length_i,
-  input logic physical_ready_i, metadata_archived_i, ownership_clear_i, pins_idle_i,
+  input logic physical_ready_i, metadata_archived_i, ownership_clear_i, pins_idle_i, arm_ready_i,
   input logic [6:0] free_blocks_i,
   input logic emergency_stop_i,
   input logic [31:0] fault_i,
+  input logic [15:0] fault_occurrence_i,
   input logic supervisor_fault_i,
   input logic backend_valid_i, backend_ok_i,
   input logic [1:0] backend_phase_i,
@@ -38,8 +39,10 @@ module drg5_acquisition_control #(
   input logic close_valid_i,
   input logic [63:0] close_epoch_i,
   input logic [1:0] close_result_i,
-  output logic close_request_o,
+  output logic close_request_o, terminal_sealed_o,
   output logic [63:0] epoch_o, first_tick_o,
+  output logic [63:0] tick_o, arm_commit_epoch_o, arm_commit_first_tick_o,
+  output logic arm_commit_o,
   output logic arm_o, run_permit_o, stop_o, isolate_o, irq_o,
   output logic [3:0] state_o
 );
@@ -70,7 +73,8 @@ module drg5_acquisition_control #(
   logic operation_busy_q, operation_busy_d, completion_valid_q, completion_valid_d;
   logic cancelling_q, cancelling_d, fault_latched_q, fault_latched_d;
   logic isolate_q, isolate_d, exhausted_q, exhausted_d, epoch_open_q, epoch_open_d;
-  logic [63:0] tick_q, tick_d, epoch_q, epoch_d, first_tick_q, first_tick_d;
+  logic [63:0] tick_q, epoch_q, epoch_d, first_tick_q, first_tick_d;
+  logic timebase_exhausted;
   logic [31:0] service_age_q, service_age_d, cancel_age_q, cancel_age_d, close_age_q, close_age_d;
   logic terminal_pending_q, terminal_pending_d, terminal_valid_q, terminal_valid_d;
   logic [63:0] terminal_epoch_q, terminal_epoch_d;
@@ -97,6 +101,11 @@ module drg5_acquisition_control #(
   logic fault_occurrence, count_exhaustion, sequence_known, software_stop;
   integer word_index;
 
+  /* the shared timestamp has no CPU enable, halt or reset path. */
+  drg5_acquisition_timebase timebase (
+    .clk_i, .system_reset_i, .tick_o(tick_q), .exhausted_o(timebase_exhausted)
+  );
+
   /* profile one names the entire fixed ADC tuple; all alternate selectors are rejected. */
   function automatic logic supported(input logic [223:0] cfg);
     supported = cfg[31:0] == 1 && cfg[63:32] == 1600 &&
@@ -118,6 +127,11 @@ module drg5_acquisition_control #(
   assign state_o = state_q;
   assign epoch_o = epoch_q;
   assign first_tick_o = first_tick_q;
+  assign tick_o = tick_q;
+  /* a sibling scheduler commits this future binding on the command acceptance edge. */
+  assign arm_commit_o = arm_d && !system_reset_i;
+  assign arm_commit_epoch_o = epoch_d;
+  assign arm_commit_first_tick_o = first_tick_d;
   assign session_binding = session_verified_i && session_id_i != 0 &&
     (!session_valid_q || session_id_i == session_q);
   assign selected_config = req_wdata_i == 3 ? candidate_q : shadow_q;
@@ -138,7 +152,7 @@ module drg5_acquisition_control #(
   assign stop_level = emergency_stop_i || cpu_reset_i || cpu_halt_i;
   assign software_stop = accept && shape_ok && req_write_i && req_addr_i == 12'h028 && req_wdata_i == 1;
   assign stop_request = stop_level || software_stop;
-  assign fatal_level = supervisor_fault_i || fault_i != 0 || exhausted_q ||
+  assign fatal_level = supervisor_fault_i || fault_i != 0 || fault_occurrence_i != 0 || exhausted_q ||
     ((state_q == READY || state_q == RUNNING) && (!physical_ready_i || !active_binding)) ||
     ((state_q == STARTUP || state_q == CONFIGURATION) && !candidate_binding);
   /* these vetoes remain effective with a stalled CPU response or full event queue. */
@@ -154,6 +168,8 @@ module drg5_acquisition_control #(
   assign service_command_id_o = operation_q;
   assign service_config_o = candidate_q;
   assign close_request_o = state_q == CLOSING && epoch_open_q;
+  /* a retained terminal qualifies only the current closed epoch, never an earlier run. */
+  assign terminal_sealed_o = terminal_valid_q && terminal_epoch_q == epoch_q && !epoch_open_q;
   assign irq_o = |(pending_q & irq_mask_q);
 
   /* one combinational transition owns all command, service and evidence arbitration. */
@@ -168,7 +184,7 @@ module drg5_acquisition_control #(
     operation_busy_d = operation_busy_q; completion_valid_d = completion_valid_q;
     cancelling_d = cancelling_q; fault_latched_d = fault_latched_q;
     isolate_d = isolate_q; exhausted_d = exhausted_q; epoch_open_d = epoch_open_q;
-    tick_d = tick_q; epoch_d = epoch_q; first_tick_d = first_tick_q;
+    epoch_d = epoch_q; first_tick_d = first_tick_q;
     service_age_d = service_age_q; cancel_age_d = cancel_age_q; close_age_d = close_age_q;
     terminal_pending_d = terminal_pending_q; terminal_valid_d = terminal_valid_q;
     terminal_epoch_d = terminal_epoch_q; terminal_code_d = terminal_code_q;
@@ -190,15 +206,14 @@ module drg5_acquisition_control #(
     close_match = state_q == CLOSING && epoch_open_q && close_epoch_i == epoch_q;
 
     /* the timestamp saturates; CPU reset never resets this timebase. */
-    if (&tick_q) begin
+    if (timebase_exhausted) begin
       if (!exhausted_q) reasons |= COUNTER_FULL;
       exhausted_d = 1;
-    /* ordinary clocks advance even when the CPU cannot service the engine. */
-    end else begin
-      tick_d = tick_q + 1'b1;
     end
     /* external fault levels create one occurrence per newly asserted cause. */
     reasons |= (fault_i & ~fault_history_q) & 32'h0000ffff;
+    /* each asserted beat is a new occurrence, including consecutive beats from one source. */
+    reasons |= {16'b0, fault_occurrence_i};
     if (|(fault_i & ~fault_history_q & 32'hffff0000)) reasons |= INTERNAL;
     if (supervisor_fault_i && !supervisor_q) reasons |= SUPERVISOR;
     if (cpu_reset_i && !cpu_reset_q) reasons |= CPU_RESET;
@@ -252,7 +267,7 @@ module drg5_acquisition_control #(
               else if (req_wdata_i == 1 && selected_config[63:0] <= high_config_q) result = STALE_COMMAND;
               else if (req_wdata_i == 2 && (!active_valid_q || !active_binding || !physical_ready_i ||
                        !metadata_archived_i || object_q != active_q[63:0] || event_valid_q ||
-                       fault_latched_q || epoch_q == COUNTER_LIMIT || &tick_q)) result = NOT_QUALIFIED;
+                       fault_latched_q || epoch_q == COUNTER_LIMIT || &tick_q || !arm_ready_i)) result = NOT_QUALIFIED;
               else if (req_wdata_i == 2 && free_blocks_i < 24) result = NO_CAPACITY;
               else result = ACCEPTED;
               admission_id_d = command_q; admission_code_d = result; mmio_data = result;
@@ -592,7 +607,7 @@ module drg5_acquisition_control #(
       admission_id_q <= 0; admission_code_q <= EMPTY; completion_id_q <= 0; completion_code_q <= EMPTY;
       operation_busy_q <= 0; completion_valid_q <= 0; cancelling_q <= 0; fault_latched_q <= 0;
       isolate_q <= 0; exhausted_q <= 0; epoch_open_q <= 0;
-      tick_q <= 0; epoch_q <= 0; first_tick_q <= 0;
+      epoch_q <= 0; first_tick_q <= 0;
       service_age_q <= 0; cancel_age_q <= 0; close_age_q <= 0;
       terminal_pending_q <= 0; terminal_valid_q <= 0; terminal_epoch_q <= 0; terminal_code_q <= EMPTY;
       stop_busy_q <= 0; stop_valid_q <= 0; stop_epoch_q <= 0; stop_id_q <= 0; stop_code_q <= EMPTY;
@@ -617,7 +632,7 @@ module drg5_acquisition_control #(
       operation_busy_q <= operation_busy_d; completion_valid_q <= completion_valid_d;
       cancelling_q <= cancelling_d; fault_latched_q <= fault_latched_d;
       isolate_q <= isolate_d; exhausted_q <= exhausted_d; epoch_open_q <= epoch_open_d;
-      tick_q <= tick_d; epoch_q <= epoch_d; first_tick_q <= first_tick_d;
+      epoch_q <= epoch_d; first_tick_q <= first_tick_d;
       service_age_q <= service_age_d; cancel_age_q <= cancel_age_d; close_age_q <= close_age_d;
       terminal_pending_q <= terminal_pending_d; terminal_valid_q <= terminal_valid_d;
       terminal_epoch_q <= terminal_epoch_d; terminal_code_q <= terminal_code_d;

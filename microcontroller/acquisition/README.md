@@ -2,9 +2,9 @@
 
 The acquisition engine will turn each scheduled eight-channel ADC conversion into a timestamped record, retain invalid intervals and move completed blocks into protected memory. The current implementation provides the digital slot, record and stop guard in [drg5_acquisition_guard.sv](../rtl/drg5_acquisition_guard.sv). It accepts synthetic completed frames and reports record ownership through ready/valid handshakes. It does not drive ADC pins, capture a serial frame or implement the external FIFO, capture DMA, ring or host transport.
 
-The separate [control and fault foundation](control-foundation.md) adds a synchronous MMIO peripheral in [drg5_acquisition_control.sv](../rtl/drg5_acquisition_control.sv). It retains command results, configuration and fault evidence through CPU reset and event backpressure. Its eight lifecycle states distinguish unqualified, startup, configuration, ready, running, closing, stopped and fault. The peripheral still requires integration with the CPU fabric, service sequencer, capture logic and independently supervised closure backend.
+The [control and fault foundation](control-foundation.md) provides a synchronous MMIO peripheral in [drg5_acquisition_control.sv](../rtl/drg5_acquisition_control.sv). It retains command results, configuration and fault evidence through CPU reset and event backpressure. Its eight lifecycle states distinguish unqualified, startup, configuration, ready, running, closing, stopped and fault. The [timing wrapper](timing-integration.md) connects it to the [timebase and slot scheduler](slot-scheduler.md), which issue on-time CONVST register pulses or explicitly retain missing/lost slot decisions. CPU fabric, ADC service/capture and independently supervised storage closure remain external.
 
-[run_acquisition_control.py](../tests/run_acquisition_control.py) builds the independent [control testbench](../tests/drg5_acquisition_control_tb.sv) with Verilator and Icarus Verilog, then checks generic synthesis with Yosys. Run it with `--output` naming a fresh directory. The [retained evidence](evidence/control-2026-11-06/README.md) binds the checked revisions, tool versions, logs and waveforms to source hashes.
+[run_acquisition_control.py](../tests/run_acquisition_control.py) builds the independent [control testbench](../tests/drg5_acquisition_control_tb.sv) with Verilator and Icarus Verilog, then checks generic synthesis with Yosys. Run it with `--output` naming a fresh directory. The [initial control evidence](evidence/control-2026-11-06/README.md) preserves its original checked revisions. The [scheduler and integration evidence](evidence/scheduler-2026-11-06/README.md) retains the current control, scheduler and wrapper campaigns, with tool versions, logs, waveforms and source hashes.
 
 The **[ACQ-R1 contract](contract.md)** now freezes the first implementation's supported ADC tuple, configuration/command rejection, epochs, timing, validity, record format and all stop outcomes. The **[ADC profile](adc-profile.md)** fixes register bytes, serial edges, CRC conventions and startup. The **[review record](review.md)** records corrections and verification. These definitions are normative targets; the complete engine is not implemented by this commit.
 
@@ -36,6 +36,8 @@ The [board qualification](board-qualification.md) traces the documented ADC nets
 | [Frozen binary formats](formats.md) |
 | [Clock/reset lifecycle](clock-reset-lifecycle.md) |
 | [Control and fault foundation](control-foundation.md) |
+| [Timebase and slot scheduler](slot-scheduler.md) |
+| [Control and scheduler integration](timing-integration.md) |
 | [Definition review](review.md) |
 | [Board qualification](board-qualification.md) |
 | [Electrical and Ubuntu qualification](qualification.md) |
@@ -71,7 +73,8 @@ The physical recording connection remains undecided. Cultured DRG neurons provid
 
 | Area | Current implementation or verification boundary | Proposed extension |
 | --- | --- | --- |
-| Control and faults | [Control peripheral](../rtl/drg5_acquisition_control.sv) with separate MMIO acceptance/completion, shadow and active configuration, lifecycle states, coherent snapshots and retained fault evidence. See its [component contract](control-foundation.md). | Connect the CPU fabric, coherent domain bridges, ADC service sequencer, capture guard and ownership/closure backend; qualify independent supervision. |
+| Control and faults | [Control peripheral](../rtl/drg5_acquisition_control.sv) with separate MMIO acceptance/completion, configuration, snapshots and fault evidence, connected to the scheduler by [drg5_acquisition_timing.sv](../rtl/drg5_acquisition_timing.sv). | Connect the CPU fabric, coherent domain bridges, ADC service/capture and ownership/closure backend; qualify independent supervision. |
+| Timebase and slot grid | [Timebase](../rtl/drg5_acquisition_timebase.sv) and [scheduler](../rtl/drg5_acquisition_scheduler.sv) implement fixed 1600-tick slots, eight-tick CONVST pulses, typed missing decisions and retained end accounting. | Qualify the routed launch path and physical ADC-pin offset; connect capture and record assembly. |
 | Cadence and identity | The guard admits the 80 MHz, 1600-clock slot profile and tracks slot, tick and epoch identity. Its clock continues through CPU halt/reset. These are logical simulation timings. | Qualify a physical sample clock and its tolerance, conversion timing and external pin delays. |
 | Records and faults | The guard accepts matching synthetic frames, marks invalid or missing completion, rejects stale identity and retains records until handshake. It records stop reasons and bounded counters. | Decode actual samples, status and CRC after qualified serial capture; preserve per-slot analog validity. |
 | Stop and closure | The guard stops trigger admission and accepts explicit external drain completion or loss accounting. | Implement FIFO, DMA and publication logic that proves the reported drain outcome. |
@@ -229,22 +232,24 @@ flowchart TB
 %%{init: {"theme":"neutral","themeVariables":{"fontFamily":"Arial,sans-serif","fontSize":"14px"},"flowchart":{"htmlLabels":true,"minNodeWidth":0,"wrappingWidth":240,"nodeSpacing":28,"rankSpacing":32,"curve":"linear"}}}%%
 flowchart TB
     CLK["Fixed clock"] --> TICK["64-bit free-running ticks<br/>12.5 ns nominal at 80 MHz"]
-    ARM["R1: arm acceptance A; first tick A+1<br/>new epoch; slot counter starts at zero"] --> NEXT["Initialize next_tick = arm_tick<br/>64-bit scheduled-slot index"]
+    ARM["R1: arm acceptance A; first tick A+1<br/>new epoch; slot counter starts at zero"] --> NEXT["Initialize next_tick = first_tick (A+1)<br/>64-bit scheduled-slot index"]
     TICK --> DUE{"Tick versus next_tick<br/>checked arithmetic; no wrap"}
     NEXT --> DUE
     DUE -->|"earlier"| WAIT["Wait; no pulse"]
     WAIT --> DUE
     DUE -->|"overdue"| LATE["Schedule fault; stop / account gap<br/>no catch-up pulse with old timestamp"]
     DUE -->|"equal"| SLOT["Latch slot / scheduled tick / epoch<br/>one decision per period"]
-    SLOT --> READY{"Qualified, BUSY low,<br/>owner ready, staging reserved?"}
+    SLOT --> READY{"Qualified, capture idle,<br/>no stop; record credit reserved?"}
     READY -->|"yes"| TRIG["CONVST rising now<br/>latch emitted-trigger marker"]
     READY -->|"no"| WHY{"Failure policy"}
-    WHY -->|"R1: same-edge stop; record credit retained"| GAP["Invalid placeholder<br/>never trigger late"]
+    WHY -->|"R1: same-edge stop; record credit retained"| GAP["Retained missing-slot decision<br/>never trigger late"]
     WHY -->|"capacity / lost sync / qualification"| STOP["Controlled stop / epoch end"]
-    TRIG --> ADV["slot +=1; next_tick += period<br/>fixed grid; no bus-driven delay"]
-    GAP --> ADV
+    TRIG --> LIMIT{"Representable successor?"}
+    LIMIT -->|"yes"| ADV["slot +=1; next_tick += period<br/>fixed grid; no bus-driven delay"]
+    LIMIT -->|"no"| STOP
+    GAP --> STOP
     ADV --> DUE
-    TRIG --> OFFSET["Marker-to-pin delay characterized<br/>BUSY / DMA / IRQ are later events"]
+    TRIG --> OFFSET["Marker-to-pin delay unmeasured<br/>physical qualification required<br/>BUSY / DMA / IRQ are later events"]
 ```
 
 ## Acquisition baseline timing budget

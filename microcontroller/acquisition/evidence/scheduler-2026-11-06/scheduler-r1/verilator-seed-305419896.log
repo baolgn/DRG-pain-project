@@ -1,0 +1,36 @@
+$ /tmp/drg-acquisition-scheduler-r1/obj/Vdrg5_acquisition_scheduler_tb +verilator+seed+1 +seed=305419896 +wave=verilator-seed-305419896.vcd
+TEST free-running timebase and saturation
+TEST destructive reset inhibits ARM and a due launch
+TEST idle service isolation can release after qualified containment
+TEST future ARM validation has no scheduling side effects
+TEST ARM qualification and capacity gates
+TEST first future tick launches once with an eight-tick pulse
+TEST maximum epoch identity has no wrapped successor
+TEST terminal acknowledgment waits for capture ownership
+TEST normal stop completes the emitted pulse
+TEST CPU reset retains the emitted pulse and timebase
+TEST STOP on first due edge retains a missing slot
+TEST CPU halt on a due edge retains the grid timestamp
+TEST no due credit produces exact loss rather than a late pulse
+TEST busy capture before due suppresses the conversion
+TEST ordinary busy and credit gaps between slots do not retime the grid
+TEST FIFO high water on due cannot be rescued by later dequeue
+TEST storage failure between slots stops without inventing another slot
+TEST short downstream stalls preserve outcome and next grid edge
+TEST handoff exactly at its deadline is accepted
+TEST handoff timeout ends the grid but retains the offered owner
+TEST qualification loss stops without CPU or consumer service
+TEST independent isolation is explicit uncertainty
+TEST tick jump across due never produces a catch-up conversion
+TEST backward tick change cannot replay an earlier slot
+TEST repeated tick cannot silently pause the sampling grid
+TEST supervisor fault cannot disappear when its input pulse ends
+TEST future comparison crosses bit63 without signed ordering
+TEST last frame-safe tick is accepted without next-due wrap
+TEST insufficient frame horizon rejects ARM
+TEST seeded downstream stalls preserve every accepted grid edge
+PASS acquisition-scheduler seed=305419896 checks=402448 cases=30 random=80
+- /home/bluto/Desktop/DRG-pain-project-publication/microcontroller/tests/drg5_acquisition_scheduler_tb.sv:539: Verilog $finish
+- S i m u l a t i o n   R e p o r t: Verilator 5.055 devel
+- Verilator: $finish at 2ms; walltime 1.475 s; speed 1.130 ms/s
+- Verilator: cpu 1.475 s on 1 threads; allocated 7 MB
