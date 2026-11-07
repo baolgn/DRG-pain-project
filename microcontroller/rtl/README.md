@@ -2,6 +2,8 @@
 
 The RTL implements a custom, single-hart, five-stage RISC-V processor and several platform wrappers. The CPU operates in machine mode and provides an integer datapath, tagged instruction and data interfaces, precise architectural retirement, configurable M and C execution, machine interrupts, instruction synchronization and optional debug. The broader microcontroller adds local memory, boot and diagnostic interfaces around this core.
 
+The standalone [acquisition control peripheral](drg5_acquisition_control.sv) implements lifecycle commands, configuration publication, coherent snapshots and retained fault evidence. Its [register and backend interface](../acquisition/control-foundation.md) defines the component boundary. The CPU wrappers do not instantiate it yet; the existing synthetic acquisition guard remains a separate component.
+
 ## Table of contents
 
 | Section |

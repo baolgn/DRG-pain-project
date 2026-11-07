@@ -1,0 +1,5 @@
+$ /tmp/drg-acquisition-control-r3/obj/Vdrg5_acquisition_control_tb +verilator+seed+1 +seed=1 +mutate_response
+TEST MMIO shape and response ownership
+[50000] %Fatal: drg5_acquisition_control_tb.sv:63: Assertion failed in drg5_acquisition_control_tb.check: case=MMIO shape and response ownership seed=1 edge=4: response comparator: transaction tag
+%Error: /home/bluto/Desktop/DRG-pain-project-publication/microcontroller/tests/drg5_acquisition_control_tb.sv:63: Verilog $stop
+Aborting...

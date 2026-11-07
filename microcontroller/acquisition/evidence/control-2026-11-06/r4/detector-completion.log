@@ -1,0 +1,7 @@
+$ /tmp/drg-acquisition-control-r4/obj/Vdrg5_acquisition_control_tb +verilator+seed+1 +seed=1 +mutate_completion
+TEST MMIO shape and response ownership
+TEST configuration validation and command precedence
+TEST accepted service is independent of bus and shadow edits
+[2530000] %Fatal: drg5_acquisition_control_tb.sv:63: Assertion failed in drg5_acquisition_control_tb.check: case=accepted service is independent of bus and shadow edits seed=1 edge=252: completion comparator: final operation result
+%Error: /home/bluto/Desktop/DRG-pain-project-publication/microcontroller/tests/drg5_acquisition_control_tb.sv:63: Verilog $stop
+Aborting...

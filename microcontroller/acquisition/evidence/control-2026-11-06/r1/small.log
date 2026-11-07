@@ -1,0 +1,4 @@
+$ vvp /tmp/drg-acquisition-control-r1/small.vvp +small +seed=1
+TEST counter exhaustion remains visible
+PASS acquisition-control-small checks=107 cases=1
+/home/bluto/Desktop/DRG-pain-project-publication/microcontroller/tests/drg5_acquisition_control_tb.sv:364: $finish called at 460000 (1ps)

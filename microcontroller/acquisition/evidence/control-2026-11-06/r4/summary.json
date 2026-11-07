@@ -1,0 +1,102 @@
+{
+  "created_utc": "2026-11-07T01:29:07.983204+00:00",
+  "limits": [
+    "backend completions and qualification inputs are modeled attestations",
+    "no ADC, CPU integration, DMA, physical CDC, board programming or timing closure",
+    "directed and seeded simulation are not exhaustive formal verification",
+    "reduced deadlines exercise edge ordering without simulating three real seconds",
+    "detectors validate selected comparators, not every possible implementation mutation"
+  ],
+  "results": {
+    "detector-completion": {
+      "exit": 1,
+      "expected_comparator": "completion comparator"
+    },
+    "detector-response": {
+      "exit": 1,
+      "expected_comparator": "response comparator"
+    },
+    "detector-snapshot": {
+      "exit": 1,
+      "expected_comparator": "snapshot comparator"
+    },
+    "detector-stop": {
+      "exit": 1,
+      "expected_comparator": "stop comparator"
+    },
+    "detector-unknown": {
+      "exit": 1,
+      "expected_comparator": "snapshot comparator"
+    },
+    "four-state": {
+      "exit": 0,
+      "terminal": "PASS acquisition-control seed=1 checks=27939 cases=52 random=160",
+      "wave_bytes": 3350861,
+      "wave_sha256": "9330f75188af971ed1906c1ff4304a61b8a435522977ca2095af1f7f965d8760"
+    },
+    "small-counter": {
+      "exit": 0,
+      "limit": 7,
+      "terminal": "PASS acquisition-control-small checks=653 cases=3"
+    },
+    "structure": {
+      "exit": 0,
+      "reviewed_warnings": [
+        "Warning: Replacing memory \\snapshot_q with list of registers. See /home/bluto/Desktop/DRG-pain-project-publication/microcontroller/rtl/drg5_acquisition_control.sv:607"
+      ],
+      "scope": "default-parameter generic synthesis and no inferred latches"
+    },
+    "verilator-seed-1": {
+      "exit": 0,
+      "terminal": "PASS acquisition-control seed=1 checks=27939 cases=52 random=160",
+      "wave_bytes": 3170422,
+      "wave_sha256": "7e960817856466e971f35074802f69c8093f9e14005618e9e400854ae1bc62ad"
+    },
+    "verilator-seed-305419896": {
+      "exit": 0,
+      "terminal": "PASS acquisition-control seed=305419896 checks=27969 cases=52 random=160",
+      "wave_bytes": 3171625,
+      "wave_sha256": "2df21f612c3d5da25863b21bcd623957bfc95e7869aa1b68d8d89b22536b27f1"
+    },
+    "verilator-seed-3735928559": {
+      "exit": 0,
+      "terminal": "PASS acquisition-control seed=3735928559 checks=28105 cases=52 random=160",
+      "wave_bytes": 3179801,
+      "wave_sha256": "68c9240b2f9446bd08da600dc639c7501990e83f9b526edb09c3b33990f12489"
+    }
+  },
+  "scope": "single-clock acquisition control foundation RTL",
+  "seeds": [
+    1,
+    305419896,
+    3735928559
+  ],
+  "source_sha256": {
+    "microcontroller/acquisition/control-foundation.md": "d1a476f0255c74eb0a184004cc4eadd44580076e2705424fca14c84f73a36452",
+    "microcontroller/rtl/drg5_acquisition_control.sv": "2173267c1ad8ebbef8c825c6bc3b95dde3fb411c4b1a1211dd4a43e488377fe5",
+    "microcontroller/tests/drg5_acquisition_control_tb.sv": "65f2ed3db83e6257fbd124eb3fef9f8dbacefbf85d1eda98535a561ab6eb788b",
+    "microcontroller/tests/run_acquisition_control.py": "e0d71ad35ddd090afa27dedf99c73464aad3096af0daab15c08a7d77326bc0b9"
+  },
+  "tools": {
+    "iverilog": {
+      "path": "/home/bluto/.local/opt/oss-cad-suite-2026-11-05/bin/iverilog",
+      "sha256": "6d84be4052a92cf7184c7149506f5db6ac251f99e438a96ae3ce33f326e2ff9d",
+      "version": "Icarus Verilog version 14.0 (devel) (s20260301-812-g9f2605013-dirty)\n\nCopyright (c) 2000-2026 Stephen Williams (steve@icarus.com)\n\n  This program is free software; you can redistribute it and/or modify\n  it under the terms of the GNU General Public License as published by\n  the Free Software Foundation; either version 2 of the License, or\n  (at your option) any later version.\n\n  This program is distributed in the hope that it will be useful,\n  but WITHOUT ANY WARRANTY; without even the implied warranty of\n  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the\n  GNU General Public License for more details.\n\n  You should have received a copy of the GNU General Public License along\n  with this program; if not, write to the Free Software Foundation, Inc.,\n  51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.\n\nIcarus Verilog Preprocessor version 14.0 (devel) (s20260301-812-g9f2605013-dirty)\n\nCopyright (c) 1999-2026 Stephen Williams (steve@icarus.com)\n\n  This program is free software; you can redistribute it and/or modify\n  it under the terms of the GNU General Public License as published by\n  the Free Software Foundation; either version 2 of the License, or\n  (at your option) any later version.\n\n  This program is distributed in the hope that it will be useful,\n  but WITHOUT ANY WARRANTY; without even the implied warranty of\n  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the\n  GNU General Public License for more details.\n\n  You should have received a copy of the GNU General Public License along\n  with this program; if not, write to the Free Software Foundation, Inc.,\n  51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.\n\nIcarus Verilog Parser/Elaborator version 14.0 (devel) (s20260301-812-g9f2605013-dirty)\n\nCopyright (c) 1998-2026 Stephen Williams (steve@icarus.com)\n\n  This program is free software; you can redistribute it and/or modify\n  it under the terms of the GNU General Public License as published by\n  the Free Software Foundation; either version 2 of the License, or\n  (at your option) any later version.\n\n  This program is distributed in the hope that it will be useful,\n  but WITHOUT ANY WARRANTY; without even the implied warranty of\n  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the\n  GNU General Public License for more details.\n\n  You should have received a copy of the GNU General Public License along\n  with this program; if not, write to the Free Software Foundation, Inc.,\n  51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.\n\n FLAGS DLL vvp.tgt\nvvp.tgt: Icarus Verilog VVP Code Generator 14.0 (devel) (s20260301-812-g9f2605013-dirty)\n\nCopyright (c) 2001-2026 Stephen Williams (steve@icarus.com)\n\n  This program is free software; you can redistribute it and/or modify\n  it under the terms of the GNU General Public License as published by\n  the Free Software Foundation; either version 2 of the License, or\n  (at your option) any later version.\n\n  This program is distributed in the hope that it will be useful,\n  but WITHOUT ANY WARRANTY; without even the implied warranty of\n  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the\n  GNU General Public License for more details.\n\n  You should have received a copy of the GNU General Public License along\n  with this program; if not, write to the Free Software Foundation, Inc.,\n  51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA."
+    },
+    "verilator": {
+      "path": "/home/bluto/.local/opt/oss-cad-suite-2026-11-05/bin/verilator",
+      "sha256": "d74a5f9cbe9665135fcdcfe2415894e26951d98eb5f01621c38955e6845003d9",
+      "version": "Verilator 5.055 devel rev v5.054-63-g57bbb293d (mod)"
+    },
+    "vvp": {
+      "path": "/home/bluto/.local/opt/oss-cad-suite-2026-11-05/bin/vvp",
+      "sha256": "9f6d770762b5e77d81216e5f21a634028a9ee062a724eeb116980bdb6cb110cc",
+      "version": "Icarus Verilog runtime version 14.0 (devel) (s20260301-812-g9f2605013-dirty)\n\nCopyright (c) 2001-2026 Stephen Williams (steve@icarus.com)\n\n  This program is free software; you can redistribute it and/or modify\n  it under the terms of the GNU General Public License as published by\n  the Free Software Foundation; either version 2 of the License, or\n  (at your option) any later version.\n\n  This program is distributed in the hope that it will be useful,\n  but WITHOUT ANY WARRANTY; without even the implied warranty of\n  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the\n  GNU General Public License for more details.\n\n  You should have received a copy of the GNU General Public License along\n  with this program; if not, write to the Free Software Foundation, Inc.,\n  51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA."
+    },
+    "yosys": {
+      "path": "/home/bluto/.local/opt/oss-cad-suite-2026-11-05/bin/yosys",
+      "sha256": "7c3e3396b38c129dd7485be5a0a0f0da8e495a94c8fd486059e3bea043a588d6",
+      "version": "Yosys 0.70+336 (git sha1 8f3cc3d0c, Release, Clang /usr/bin/clang++ 21.1.8)"
+    }
+  }
+}

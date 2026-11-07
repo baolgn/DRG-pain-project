@@ -1,0 +1,6 @@
+$ /tmp/drg-acquisition-control-r2/obj/Vdrg5_acquisition_control_tb +verilator+seed+1 +seed=1 +mutate_snapshot
+TEST MMIO shape and response ownership
+TEST configuration validation and command precedence
+[1290000] %Fatal: drg5_acquisition_control_tb.sv:63: Assertion failed in drg5_acquisition_control_tb.check: case=configuration validation and command precedence seed=1 edge=128: snapshot comparator: index=16 value=00000001 expected=00000000
+%Error: /home/bluto/Desktop/DRG-pain-project-publication/microcontroller/tests/drg5_acquisition_control_tb.sv:63: Verilog $stop
+Aborting...

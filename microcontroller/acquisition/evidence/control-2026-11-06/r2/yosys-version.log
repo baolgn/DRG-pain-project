@@ -1,0 +1,2 @@
+$ /home/bluto/.local/opt/oss-cad-suite-2026-11-05/bin/yosys -V
+Yosys 0.70+336 (git sha1 8f3cc3d0c, Release, Clang /usr/bin/clang++ 21.1.8)

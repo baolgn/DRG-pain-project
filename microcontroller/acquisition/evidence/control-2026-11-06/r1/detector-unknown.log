@@ -1,0 +1,5 @@
+$ vvp /tmp/drg-acquisition-control-r1/four-state.vvp +seed=1 +mutate_unknown
+TEST MMIO shape and response ownership
+TEST configuration validation and command precedence
+FATAL: /home/bluto/Desktop/DRG-pain-project-publication/microcontroller/tests/drg5_acquisition_control_tb.sv:63: case=configuration validation and command precedence seed=1 edge=128: snapshot comparator: index=16 value=xxxxxxxx expected=00000000
+       Time: 1290000  Scope: drg5_acquisition_control_tb.check

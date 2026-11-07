@@ -2,6 +2,10 @@
 
 The acquisition engine will turn each scheduled eight-channel ADC conversion into a timestamped record, retain invalid intervals and move completed blocks into protected memory. The current implementation provides the digital slot, record and stop guard in [drg5_acquisition_guard.sv](../rtl/drg5_acquisition_guard.sv). It accepts synthetic completed frames and reports record ownership through ready/valid handshakes. It does not drive ADC pins, capture a serial frame or implement the external FIFO, capture DMA, ring or host transport.
 
+The separate [control and fault foundation](control-foundation.md) adds a synchronous MMIO peripheral in [drg5_acquisition_control.sv](../rtl/drg5_acquisition_control.sv). It retains command results, configuration and fault evidence through CPU reset and event backpressure. Its eight lifecycle states distinguish unqualified, startup, configuration, ready, running, closing, stopped and fault. The peripheral still requires integration with the CPU fabric, service sequencer, capture logic and independently supervised closure backend.
+
+[run_acquisition_control.py](../tests/run_acquisition_control.py) builds the independent [control testbench](../tests/drg5_acquisition_control_tb.sv) with Verilator and Icarus Verilog, then checks generic synthesis with Yosys. Run it with `--output` naming a fresh directory. The [retained evidence](evidence/control-2026-11-06/README.md) binds the checked revisions, tool versions, logs and waveforms to source hashes.
+
 The **[ACQ-R1 contract](contract.md)** now freezes the first implementation's supported ADC tuple, configuration/command rejection, epochs, timing, validity, record format and all stop outcomes. The **[ADC profile](adc-profile.md)** fixes register bytes, serial edges, CRC conventions and startup. The **[review record](review.md)** records corrections and verification. These definitions are normative targets; the complete engine is not implemented by this commit.
 
 The **[timing budget](timing-budget.md)** separates ADC limits from controller choices before state-machine design. Revision 3 retains the nominal 14 µs read deadline because 13 µs cannot cover the entire accepted 2 µs BUSY-fall window. It allocates clock tolerance, FPGA/board capture paths, bounded service/storage waits and independent supervision; arithmetic passes do not establish physical timing closure.
@@ -31,6 +35,7 @@ The [board qualification](board-qualification.md) traces the documented ADC nets
 | [Timing budget](timing-budget.md) |
 | [Frozen binary formats](formats.md) |
 | [Clock/reset lifecycle](clock-reset-lifecycle.md) |
+| [Control and fault foundation](control-foundation.md) |
 | [Definition review](review.md) |
 | [Board qualification](board-qualification.md) |
 | [Electrical and Ubuntu qualification](qualification.md) |
@@ -66,6 +71,7 @@ The physical recording connection remains undecided. Cultured DRG neurons provid
 
 | Area | Current implementation or verification boundary | Proposed extension |
 | --- | --- | --- |
+| Control and faults | [Control peripheral](../rtl/drg5_acquisition_control.sv) with separate MMIO acceptance/completion, shadow and active configuration, lifecycle states, coherent snapshots and retained fault evidence. See its [component contract](control-foundation.md). | Connect the CPU fabric, coherent domain bridges, ADC service sequencer, capture guard and ownership/closure backend; qualify independent supervision. |
 | Cadence and identity | The guard admits the 80 MHz, 1600-clock slot profile and tracks slot, tick and epoch identity. Its clock continues through CPU halt/reset. These are logical simulation timings. | Qualify a physical sample clock and its tolerance, conversion timing and external pin delays. |
 | Records and faults | The guard accepts matching synthetic frames, marks invalid or missing completion, rejects stale identity and retains records until handshake. It records stop reasons and bounded counters. | Decode actual samples, status and CRC after qualified serial capture; preserve per-slot analog validity. |
 | Stop and closure | The guard stops trigger admission and accepts explicit external drain completion or loss accounting. | Implement FIFO, DMA and publication logic that proves the reported drain outcome. |
