@@ -1,0 +1,4 @@
+$ /home/bluto/.local/opt/oss-cad-suite-2026-11-05/bin/vvp /tmp/drg-acquisition-records-r1/small-counter.vvp +small +seed=1
+TEST reservation generation exhaustion
+PASS acquisition-records-small checks=261 cases=1
+/home/bluto/Desktop/DRG-pain-project-publication/microcontroller/tests/drg5_acquisition_records_tb.sv:341: $finish called at 276000 (1ps)

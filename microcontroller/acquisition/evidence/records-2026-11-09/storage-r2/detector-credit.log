@@ -1,0 +1,5 @@
+$ /tmp/drg-acquisition-storage-r2/obj/Vdrg5_acquisition_storage_tb +verilator+seed+1 +poison=2 +wave=detector-credit.vcd
+TEST 1 on-time grid with DMA response stalls
+[57000] %Fatal: drg5_acquisition_storage_tb.sv:68: Assertion failed in drg5_acquisition_storage_tb.check: credit comparator case=1 tick=2
+%Error: /home/bluto/Desktop/DRG-pain-project-publication/microcontroller/tests/drg5_acquisition_storage_tb.sv:68: Verilog $stop
+Aborting...

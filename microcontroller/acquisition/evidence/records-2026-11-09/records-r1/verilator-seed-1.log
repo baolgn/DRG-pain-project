@@ -1,0 +1,29 @@
+$ /tmp/drg-acquisition-records-r1/obj/Vdrg5_acquisition_records_tb +verilator+seed+1 +seed=1 +wave=verilator-seed-1.vcd
+TEST reset and idle ownership
+TEST reserve before epoch binding
+TEST unsupported and stale bindings
+TEST inhibit blocks allocation without erasing owners
+TEST complete record remains stable under backpressure
+TEST request acceptance alone cannot retire DMA ownership
+TEST missing placeholder without a trigger
+TEST capture cancellation retains a triggered placeholder
+TEST simultaneous cancellation wins over completion
+TEST later placeholder cannot pass unresolved older capture
+TEST stale completion cannot overwrite current capture
+TEST unused release defeats simultaneous admission
+TEST released reservation identity cannot acquire a later owner
+TEST wrong admission identity and tick preserve reservation
+TEST binding cannot replace admitted owners
+TEST binding defeats simultaneous reservation commands
+TEST full ring refuses speculative same-edge DMA credit
+TEST ring wrap preserves records through repeated reuse
+TEST wrong and early DMA completions preserve the head
+TEST cancellation cannot rewrite assembled or DMA-owned bytes
+TEST checked scheduled tick cannot wrap
+TEST isolated reset cannot create acknowledgments or records
+TEST seeded stalls and simultaneous stage transfers
+PASS acquisition-records seed=1 checks=32618 cases=23 random=160
+- /home/bluto/Desktop/DRG-pain-project-publication/microcontroller/tests/drg5_acquisition_records_tb.sv:513: Verilog $finish
+- S i m u l a t i o n   R e p o r t: Verilator 5.055 devel
+- Verilator: $finish at 24us; walltime 0.035 s; speed 684.180 us/s
+- Verilator: cpu 0.035 s on 1 threads; allocated 10 MB

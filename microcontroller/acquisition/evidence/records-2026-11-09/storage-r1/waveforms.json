@@ -1,0 +1,32 @@
+[
+  {
+    "path": "detector-credit.vcd",
+    "bytes": 26262,
+    "sha256": "0bced966f44067f22b39a285f94eecd28c44625a23ec5a619efa97c30629536a",
+    "retained": false
+  },
+  {
+    "path": "detector-payload.vcd",
+    "bytes": 30052,
+    "sha256": "5a94a825a7b11d7e3ee3bcee78e3d63057e3126721ce4e794cd58dd09555993e",
+    "retained": false
+  },
+  {
+    "path": "four-state.vcd",
+    "bytes": 4119164,
+    "sha256": "b6759b35362330bd748a03a7478e42cdd898f0c4476732743b0e6786b471bf08",
+    "retained": false
+  },
+  {
+    "path": "unknown.vcd",
+    "bytes": 33520,
+    "sha256": "f5ca1fd56d73d2b09716d18d7199b3eb7f6c9c4e053f0b22cb9d2fdd2d134833",
+    "retained": false
+  },
+  {
+    "path": "verilator.vcd",
+    "bytes": 1965841,
+    "sha256": "9a90226bb5d3c43a6dcc24942941bef3fd4e9e8184deeabf884f0b13814dc2b8",
+    "retained": false
+  }
+]

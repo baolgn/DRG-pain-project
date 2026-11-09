@@ -1,0 +1,9 @@
+$ /tmp/drg-acquisition-records-r2/obj/Vdrg5_acquisition_records_tb +verilator+seed+1 +seed=1 +mutate_record
+TEST reset and idle ownership
+TEST reserve before epoch binding
+TEST unsupported and stale bindings
+TEST inhibit blocks allocation without erasing owners
+TEST complete record remains stable under backpressure
+[282000] %Fatal: drg5_acquisition_records_tb.sv:72: Assertion failed in drg5_acquisition_records_tb.check: case=complete record remains stable under backpressure seed=1 edge=22: record comparator: all 48 bytes
+%Error: /home/bluto/Desktop/DRG-pain-project-publication/microcontroller/tests/drg5_acquisition_records_tb.sv:72: Verilog $stop
+Aborting...

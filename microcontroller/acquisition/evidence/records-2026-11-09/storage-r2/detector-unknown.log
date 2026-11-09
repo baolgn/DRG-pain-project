@@ -1,0 +1,5 @@
+$ /home/bluto/.local/opt/oss-cad-suite-2026-11-05/bin/vvp /tmp/drg-acquisition-storage-r2/four-state.vvp +poison=3 +wave=unknown.vcd
+VCD info: dumpfile unknown.vcd opened for output.
+TEST 1 on-time grid with DMA response stalls
+FATAL: /home/bluto/Desktop/DRG-pain-project-publication/microcontroller/tests/drg5_acquisition_storage_tb.sv:68: payload comparator case=1 tick=10
+       Time: 168750  Scope: drg5_acquisition_storage_tb.check

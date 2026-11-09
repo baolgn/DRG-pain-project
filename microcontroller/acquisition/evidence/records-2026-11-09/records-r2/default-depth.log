@@ -1,0 +1,30 @@
+$ /home/bluto/.local/opt/oss-cad-suite-2026-11-05/bin/vvp /tmp/drg-acquisition-records-r2/default-depth.vvp +seed=1 +wave=default-depth.vcd
+VCD info: dumpfile default-depth.vcd opened for output.
+TEST reset and idle ownership
+TEST reserve before epoch binding
+TEST unsupported and stale bindings
+TEST inhibit blocks allocation without erasing owners
+TEST complete record remains stable under backpressure
+TEST request acceptance alone cannot retire DMA ownership
+TEST missing placeholder without a trigger
+TEST capture cancellation retains a triggered placeholder
+TEST simultaneous cancellation wins over completion
+TEST later placeholder cannot pass unresolved older capture
+TEST assembler stall holds the complete producer tuple
+TEST stale completion cannot overwrite current capture
+TEST unused release defeats simultaneous admission
+TEST simultaneous release or admission cannot allocate replacement credit
+TEST released reservation identity cannot acquire a later owner
+TEST wrong admission identity and tick preserve reservation
+TEST binding cannot replace admitted owners
+TEST binding defeats simultaneous reservation commands
+TEST simultaneous assembler enqueue and DMA dequeue preserve both owners
+TEST full ring refuses speculative same-edge DMA credit
+TEST ring wrap preserves records through repeated reuse
+TEST wrong and early DMA completions preserve the head
+TEST cancellation cannot rewrite assembled or DMA-owned bytes
+TEST checked scheduled tick cannot wrap
+TEST isolated reset cannot create acknowledgments or records
+TEST seeded stalls and simultaneous stage transfers
+PASS acquisition-records seed=1 checks=129796 cases=26 random=160
+/home/bluto/Desktop/DRG-pain-project-publication/microcontroller/tests/drg5_acquisition_records_tb.sv:545: $finish called at 106113500 (1ps)

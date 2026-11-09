@@ -1,0 +1,32 @@
+[
+  {
+    "path": "default-depth.vcd",
+    "bytes": 6145501,
+    "sha256": "1e29abc6ff70b06271c3619c5f8b428a65d5b1b8591cd17643fe6df3ebf2f56b",
+    "retained": false
+  },
+  {
+    "path": "four-state.vcd",
+    "bytes": 1177784,
+    "sha256": "726449f48ff53c0c0d7b4357254e4d2dd51e460f0360d9c3d0c585865db7edd8",
+    "retained": false
+  },
+  {
+    "path": "verilator-seed-1.vcd",
+    "bytes": 865928,
+    "sha256": "f1a02cd2bb210452ad9271b27da05b7a967bdef48ff9c9f414e3d2a744f25326",
+    "retained": false
+  },
+  {
+    "path": "verilator-seed-305419896.vcd",
+    "bytes": 900017,
+    "sha256": "e2397a4a356e8ba2d3061b15bf0fb5329f5056a32e75fa2ff9ef30f569f16ed1",
+    "retained": false
+  },
+  {
+    "path": "verilator-seed-3735928559.vcd",
+    "bytes": 873216,
+    "sha256": "5c78179509279911faacbb4b70dd620d468640567b2e321df67ec667855e17f9",
+    "retained": false
+  }
+]

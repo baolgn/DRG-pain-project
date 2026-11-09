@@ -1,0 +1,6 @@
+$ /tmp/drg-acquisition-records-r1/obj/Vdrg5_acquisition_records_tb +verilator+seed+1 +seed=1 +mutate_ledger
+TEST reset and idle ownership
+TEST reserve before epoch binding
+[107000] %Fatal: drg5_acquisition_records_tb.sv:72: Assertion failed in drg5_acquisition_records_tb.check: case=reserve before epoch binding seed=1 edge=8: ledger comparator: allocated minus released and retired
+%Error: /home/bluto/Desktop/DRG-pain-project-publication/microcontroller/tests/drg5_acquisition_records_tb.sv:72: Verilog $stop
+Aborting...
