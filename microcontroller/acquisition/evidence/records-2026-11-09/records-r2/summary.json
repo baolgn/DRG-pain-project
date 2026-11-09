@@ -1,0 +1,151 @@
+{
+  "created_utc": "2026-11-09T05:14:42.096661+00:00",
+  "limits": [
+    "single clock only; no asynchronous FIFO or physical CDC qualification",
+    "synthetic opaque 48-byte complete payloads test byte transport, not ADC validity or CRC computation",
+    "DMA completion is modeled positive retirement, not implemented memory writes or publication",
+    "reset assumes prior external isolation and containment",
+    "simulation and generic structure checks are not exhaustive formal proof or routed device timing",
+    "negative controls validate selected comparators, not every possible implementation mutation"
+  ],
+  "results": {
+    "default-depth": {
+      "depth": 256,
+      "exit": 0,
+      "terminal": "PASS acquisition-records seed=1 checks=129796 cases=26 random=160",
+      "wave_bytes": 6100859,
+      "wave_sha256": "0f70642ae2ef81983063610fec6cc247b8be8671a47de87a591e5f6eb121e160"
+    },
+    "detector-ledger": {
+      "exit": 1,
+      "expected_comparator": "ledger comparator"
+    },
+    "detector-order": {
+      "exit": 1,
+      "expected_comparator": "order comparator"
+    },
+    "detector-record": {
+      "exit": 1,
+      "expected_comparator": "record comparator"
+    },
+    "detector-unknown": {
+      "exit": 1,
+      "expected_comparator": "record comparator"
+    },
+    "four-state": {
+      "depth": 4,
+      "exit": 0,
+      "terminal": "PASS acquisition-records seed=1 checks=33269 cases=26 random=160",
+      "wave_bytes": 1197031,
+      "wave_sha256": "f586958d789c16648d0340ec88f7101adc3f1af9190ffe7e41632d06d67373e2"
+    },
+    "memory-structure": {
+      "exit": 0,
+      "reviewed_warnings": [
+        "Warning: Replacing memory \\state_q with list of registers. See /home/bluto/Desktop/DRG-pain-project-publication/microcontroller/rtl/drg5_acquisition_records.sv:323",
+        "Warning: Replacing memory \\state_d with list of registers. See /home/bluto/Desktop/DRG-pain-project-publication/microcontroller/rtl/drg5_acquisition_records.sv:207"
+      ],
+      "scope": "default depth 256 process lowering, memory collection and no inferred latches"
+    },
+    "small-counter": {
+      "depth": 4,
+      "exit": 0,
+      "terminal": "PASS acquisition-records-small checks=261 cases=1"
+    },
+    "small-structure": {
+      "exit": 0,
+      "reviewed_warnings": [
+        "Warning: Replacing memory \\state_q with list of registers. See /home/bluto/Desktop/DRG-pain-project-publication/microcontroller/rtl/drg5_acquisition_records.sv:323",
+        "Warning: Replacing memory \\state_d with list of registers. See /home/bluto/Desktop/DRG-pain-project-publication/microcontroller/rtl/drg5_acquisition_records.sv:207",
+        "Warning: Replacing memory \\state_q with list of registers. See /home/bluto/Desktop/DRG-pain-project-publication/microcontroller/rtl/drg5_acquisition_records.sv:323",
+        "Warning: Replacing memory \\state_d with list of registers. See /home/bluto/Desktop/DRG-pain-project-publication/microcontroller/rtl/drg5_acquisition_records.sv:207",
+        "ABC: Warning: The network is combinational (run \"fraig\" or \"fraig_sweep\").",
+        "ABC: Warning: The network is combinational (run \"fraig\" or \"fraig_sweep\").",
+        "ABC: Warning: The network is combinational (run \"fraig\" or \"fraig_sweep\").",
+        "ABC: Warning: The network is combinational (run \"fraig\" or \"fraig_sweep\").",
+        "ABC: Warning: The network is combinational (run \"fraig\" or \"fraig_sweep\").",
+        "ABC: Warning: The network is combinational (run \"fraig\" or \"fraig_sweep\").",
+        "ABC: Warning: The network is combinational (run \"fraig\" or \"fraig_sweep\").",
+        "ABC: Warning: The network is combinational (run \"fraig\" or \"fraig_sweep\").",
+        "ABC: Warning: The network is combinational (run \"fraig\" or \"fraig_sweep\").",
+        "ABC: Warning: The network is combinational (run \"fraig\" or \"fraig_sweep\").",
+        "ABC: Warning: The network is combinational (run \"fraig\" or \"fraig_sweep\").",
+        "ABC: Warning: The network is combinational (run \"fraig\" or \"fraig_sweep\").",
+        "ABC: Warning: The network is combinational (run \"fraig\" or \"fraig_sweep\").",
+        "ABC: Warning: The network is combinational (run \"fraig\" or \"fraig_sweep\").",
+        "ABC: Warning: The network is combinational (run \"fraig\" or \"fraig_sweep\").",
+        "ABC: Warning: The network is combinational (run \"fraig\" or \"fraig_sweep\").",
+        "ABC: Warning: The network is combinational (run \"fraig\" or \"fraig_sweep\").",
+        "ABC: Warning: The network is combinational (run \"fraig\" or \"fraig_sweep\").",
+        "ABC: Warning: The network is combinational (run \"fraig\" or \"fraig_sweep\").",
+        "ABC: Warning: The network is combinational (run \"fraig\" or \"fraig_sweep\").",
+        "ABC: Warning: The network is combinational (run \"fraig\" or \"fraig_sweep\").",
+        "ABC: Warning: The network is combinational (run \"fraig\" or \"fraig_sweep\").",
+        "ABC: Warning: The network is combinational (run \"fraig\" or \"fraig_sweep\").",
+        "ABC: Warning: The network is combinational (run \"fraig\" or \"fraig_sweep\").",
+        "ABC: Warning: The network is combinational (run \"fraig\" or \"fraig_sweep\").",
+        "ABC: Warning: The network is combinational (run \"fraig\" or \"fraig_sweep\").",
+        "ABC: Warning: The network is combinational (run \"fraig\" or \"fraig_sweep\").",
+        "ABC: Warning: The network is combinational (run \"fraig\" or \"fraig_sweep\").",
+        "ABC: Warning: The network is combinational (run \"fraig\" or \"fraig_sweep\").",
+        "ABC: Warning: The network is combinational (run \"fraig\" or \"fraig_sweep\").",
+        "ABC: Warning: The network is combinational (run \"fraig\" or \"fraig_sweep\")."
+      ],
+      "scope": "depth 4 generic synthesis and no inferred latches"
+    },
+    "verilator-seed-1": {
+      "depth": 4,
+      "exit": 0,
+      "terminal": "PASS acquisition-records seed=1 checks=33269 cases=26 random=160",
+      "wave_bytes": 882497,
+      "wave_sha256": "0175d8bc7ebd9020f24c07450d5fbd254ff4c38f77b490f447b6853928771262"
+    },
+    "verilator-seed-305419896": {
+      "depth": 4,
+      "exit": 0,
+      "terminal": "PASS acquisition-records seed=305419896 checks=32504 cases=26 random=160",
+      "wave_bytes": 916537,
+      "wave_sha256": "c8674a557d38f2f10b4cfe9693459437e28da03f8cb308139cc0b32839efdd6a"
+    },
+    "verilator-seed-3735928559": {
+      "depth": 4,
+      "exit": 0,
+      "terminal": "PASS acquisition-records seed=3735928559 checks=33115 cases=26 random=160",
+      "wave_bytes": 889767,
+      "wave_sha256": "09c540a34b32276ffc083ce0a722cb5272fcb5d64fdb10f3926107749d25489c"
+    }
+  },
+  "scope": "single-clock complete-record reservations with synthetic producer and DMA backend",
+  "seeds": [
+    1,
+    305419896,
+    3735928559
+  ],
+  "source_sha256": {
+    "microcontroller/rtl/drg5_acquisition_records.sv": "7011488fce7a13110b451051fc0ce261eb1a02d35439bd72e1b1923553af5b6e",
+    "microcontroller/tests/drg5_acquisition_records_tb.sv": "1ee41973adcf2011b92f67d7fa9139937ae1de4e219284b50ce2ecd2c5531b35",
+    "microcontroller/tests/run_acquisition_records.py": "66363a9a0a068f27b8b2c067010b8b2c015997c51b1b79ba5d47dda21685cd0e"
+  },
+  "tools": {
+    "iverilog": {
+      "path": "/home/bluto/.local/opt/oss-cad-suite-2026-11-05/bin/iverilog",
+      "sha256": "6d84be4052a92cf7184c7149506f5db6ac251f99e438a96ae3ce33f326e2ff9d",
+      "version": "Icarus Verilog version 14.0 (devel) (s20260301-812-g9f2605013-dirty)\n\nCopyright (c) 2000-2026 Stephen Williams (steve@icarus.com)\n\n  This program is free software; you can redistribute it and/or modify\n  it under the terms of the GNU General Public License as published by\n  the Free Software Foundation; either version 2 of the License, or\n  (at your option) any later version.\n\n  This program is distributed in the hope that it will be useful,\n  but WITHOUT ANY WARRANTY; without even the implied warranty of\n  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the\n  GNU General Public License for more details.\n\n  You should have received a copy of the GNU General Public License along\n  with this program; if not, write to the Free Software Foundation, Inc.,\n  51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.\n\nIcarus Verilog Preprocessor version 14.0 (devel) (s20260301-812-g9f2605013-dirty)\n\nCopyright (c) 1999-2026 Stephen Williams (steve@icarus.com)\n\n  This program is free software; you can redistribute it and/or modify\n  it under the terms of the GNU General Public License as published by\n  the Free Software Foundation; either version 2 of the License, or\n  (at your option) any later version.\n\n  This program is distributed in the hope that it will be useful,\n  but WITHOUT ANY WARRANTY; without even the implied warranty of\n  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the\n  GNU General Public License for more details.\n\n  You should have received a copy of the GNU General Public License along\n  with this program; if not, write to the Free Software Foundation, Inc.,\n  51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.\n\nIcarus Verilog Parser/Elaborator version 14.0 (devel) (s20260301-812-g9f2605013-dirty)\n\nCopyright (c) 1998-2026 Stephen Williams (steve@icarus.com)\n\n  This program is free software; you can redistribute it and/or modify\n  it under the terms of the GNU General Public License as published by\n  the Free Software Foundation; either version 2 of the License, or\n  (at your option) any later version.\n\n  This program is distributed in the hope that it will be useful,\n  but WITHOUT ANY WARRANTY; without even the implied warranty of\n  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the\n  GNU General Public License for more details.\n\n  You should have received a copy of the GNU General Public License along\n  with this program; if not, write to the Free Software Foundation, Inc.,\n  51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.\n\n FLAGS DLL vvp.tgt\nvvp.tgt: Icarus Verilog VVP Code Generator 14.0 (devel) (s20260301-812-g9f2605013-dirty)\n\nCopyright (c) 2001-2026 Stephen Williams (steve@icarus.com)\n\n  This program is free software; you can redistribute it and/or modify\n  it under the terms of the GNU General Public License as published by\n  the Free Software Foundation; either version 2 of the License, or\n  (at your option) any later version.\n\n  This program is distributed in the hope that it will be useful,\n  but WITHOUT ANY WARRANTY; without even the implied warranty of\n  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the\n  GNU General Public License for more details.\n\n  You should have received a copy of the GNU General Public License along\n  with this program; if not, write to the Free Software Foundation, Inc.,\n  51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA."
+    },
+    "verilator": {
+      "path": "/home/bluto/.local/opt/oss-cad-suite-2026-11-05/bin/verilator",
+      "sha256": "d74a5f9cbe9665135fcdcfe2415894e26951d98eb5f01621c38955e6845003d9",
+      "version": "Verilator 5.055 devel rev v5.054-63-g57bbb293d (mod)"
+    },
+    "vvp": {
+      "path": "/home/bluto/.local/opt/oss-cad-suite-2026-11-05/bin/vvp",
+      "sha256": "9f6d770762b5e77d81216e5f21a634028a9ee062a724eeb116980bdb6cb110cc",
+      "version": "Icarus Verilog runtime version 14.0 (devel) (s20260301-812-g9f2605013-dirty)\n\nCopyright (c) 2001-2026 Stephen Williams (steve@icarus.com)\n\n  This program is free software; you can redistribute it and/or modify\n  it under the terms of the GNU General Public License as published by\n  the Free Software Foundation; either version 2 of the License, or\n  (at your option) any later version.\n\n  This program is distributed in the hope that it will be useful,\n  but WITHOUT ANY WARRANTY; without even the implied warranty of\n  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the\n  GNU General Public License for more details.\n\n  You should have received a copy of the GNU General Public License along\n  with this program; if not, write to the Free Software Foundation, Inc.,\n  51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA."
+    },
+    "yosys": {
+      "path": "/home/bluto/.local/opt/oss-cad-suite-2026-11-05/bin/yosys",
+      "sha256": "7c3e3396b38c129dd7485be5a0a0f0da8e495a94c8fd486059e3bea043a588d6",
+      "version": "Yosys 0.70+336 (git sha1 8f3cc3d0c, Release, Clang /usr/bin/clang++ 21.1.8)"
+    }
+  }
+}

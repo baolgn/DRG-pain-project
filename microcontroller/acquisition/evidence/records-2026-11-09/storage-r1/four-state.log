@@ -1,0 +1,11 @@
+$ /home/bluto/.local/opt/oss-cad-suite-2026-11-05/bin/vvp /tmp/drg-acquisition-storage-r1/four-state.vvp +wave=four-state.vcd
+VCD info: dumpfile four-state.vcd opened for output.
+TEST 1 on-time grid with DMA response stalls
+TEST 2 first due STOP retains one missing record
+TEST 3 placeholder cannot pass an unresolved older conversion
+TEST 4 full ring has no speculative same-edge credit
+TEST 5 CPU reset and cancellation retain a triggered placeholder
+TEST 6 pending confirmation rejects a second launch
+TEST 7 missing notification rejects a colliding launch
+PASS acquisition-storage cases=7 checks=40596
+/home/bluto/Desktop/DRG-pain-project-publication/microcontroller/tests/drg5_acquisition_storage_tb.sv:303: $finish called at 141819750 (1ps)

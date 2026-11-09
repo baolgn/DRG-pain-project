@@ -34,6 +34,15 @@ PYTHONDONTWRITEBYTECODE=1 python3 microcontroller/tests/run_acquisition_timing.p
   --output /tmp/drg-acquisition-timing-check
 ```
 
+The [record runner](run_acquisition_records.py) checks the stimulus and scoreboard in [drg5_acquisition_records_tb.sv](drg5_acquisition_records_tb.sv). The [storage integration runner](run_acquisition_storage.py) connects the real scheduler and reservation adapter in [drg5_acquisition_storage_tb.sv](drg5_acquisition_storage_tb.sv). Synthetic capture results and positive DMA completions exercise complete payloads, ordering, cancellation, full capacity, and simultaneous transfers. Default-depth structural checks preserve memories; full generic synthesis uses depth four. The [retained results](../acquisition/evidence/records-2026-11-09/README.md) state the tested configurations and remaining CDC and hardware limits.
+
+```sh
+PYTHONDONTWRITEBYTECODE=1 python3 microcontroller/tests/run_acquisition_records.py \
+  --output /tmp/drg-acquisition-records-check
+PYTHONDONTWRITEBYTECODE=1 python3 microcontroller/tests/run_acquisition_storage.py \
+  --output /tmp/drg-acquisition-storage-check
+```
+
 Available captures identify Ubuntu/Linux tools, including Verilator `5.047 devel rev v5.046-19-ge9dd6eaaf (mod)` and more than one Yosys revision. This is evidence for those recorded tool builds, not a claim that every current package release works. Select executable paths explicitly and retain a new run's versions and hashes. Windows, WSL and macOS have not been qualified.
 
 The standalone CSR runner is a compact example of the complete pattern:

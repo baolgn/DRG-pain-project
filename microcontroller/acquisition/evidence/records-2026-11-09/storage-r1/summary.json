@@ -1,0 +1,90 @@
+{
+  "created_utc": "2026-11-09T05:14:12.811934+00:00",
+  "limits": [
+    "capture results and positive DMA completions are synthetic inputs",
+    "CPU reset is an input stimulus, not CPU-core execution",
+    "no ADC, actual DMA writes, asynchronous FIFO, board programming or routed timing qualification",
+    "generic synthesis and directed simulation are not exhaustive formal proof",
+    "default memory-preserving structural checks do not establish device mapping or timing",
+    "sampled-value negative controls validate selected comparators only"
+  ],
+  "randomness": "no random stimulus; fixed public-interface scenarios",
+  "results": {
+    "detector-credit": {
+      "exit": 1,
+      "expected_comparator": "credit comparator"
+    },
+    "detector-payload": {
+      "exit": 1,
+      "expected_comparator": "payload comparator"
+    },
+    "detector-unknown": {
+      "exit": 1,
+      "expected_comparator": "payload comparator"
+    },
+    "four-state": {
+      "exit": 0,
+      "terminal": "PASS acquisition-storage cases=7 checks=40596",
+      "wave_bytes": 4119164,
+      "wave_sha256": "b6759b35362330bd748a03a7478e42cdd898f0c4476732743b0e6786b471bf08"
+    },
+    "small-synthesis": {
+      "exit": 0,
+      "reviewed_warnings": [
+        "Warning: Replacing memory \\state_q with list of registers. See /home/bluto/Desktop/DRG-pain-project-publication/microcontroller/rtl/drg5_acquisition_records.sv:323",
+        "Warning: Replacing memory \\state_d with list of registers. See /home/bluto/Desktop/DRG-pain-project-publication/microcontroller/rtl/drg5_acquisition_records.sv:207",
+        "Warning: Replacing memory \\state_q with list of registers. See /home/bluto/Desktop/DRG-pain-project-publication/microcontroller/rtl/drg5_acquisition_records.sv:323",
+        "Warning: Replacing memory \\state_d with list of registers. See /home/bluto/Desktop/DRG-pain-project-publication/microcontroller/rtl/drg5_acquisition_records.sv:207"
+      ],
+      "scope": "DEPTH=4 full generic synthesis; no inferred latches"
+    },
+    "structure": {
+      "exit": 0,
+      "reviewed_warnings": [
+        "Warning: Replacing memory \\state_q with list of registers. See /home/bluto/Desktop/DRG-pain-project-publication/microcontroller/rtl/drg5_acquisition_records.sv:323",
+        "Warning: Replacing memory \\state_d with list of registers. See /home/bluto/Desktop/DRG-pain-project-publication/microcontroller/rtl/drg5_acquisition_records.sv:207",
+        "Warning: Replacing memory \\state_q with list of registers. See /home/bluto/Desktop/DRG-pain-project-publication/microcontroller/rtl/drg5_acquisition_records.sv:323",
+        "Warning: Replacing memory \\state_d with list of registers. See /home/bluto/Desktop/DRG-pain-project-publication/microcontroller/rtl/drg5_acquisition_records.sv:207"
+      ],
+      "scope": "default memory-preserving structural check"
+    },
+    "verilator": {
+      "exit": 0,
+      "terminal": "PASS acquisition-storage cases=7 checks=40596",
+      "wave_bytes": 1965841,
+      "wave_sha256": "9a90226bb5d3c43a6dcc24942941bef3fd4e9e8184deeabf884f0b13814dc2b8"
+    }
+  },
+  "scope": "single-clock scheduler, reservations and complete-record storage",
+  "seed": 1,
+  "source_sha256": {
+    "microcontroller/rtl/drg5_acquisition_records.sv": "7011488fce7a13110b451051fc0ce261eb1a02d35439bd72e1b1923553af5b6e",
+    "microcontroller/rtl/drg5_acquisition_scheduler.sv": "eca1d0b6b06d478c632d2e39788a85b6a37ad90ba2b599aa83f2e673ea506990",
+    "microcontroller/rtl/drg5_acquisition_storage.sv": "a3bc93febe736c2a790ab6191f5b29ca9312cd076fa1835f06338a537f7c98a1",
+    "microcontroller/rtl/drg5_acquisition_timebase.sv": "4d74b2d02df633521f4af6bf62c096e95c197269c2a36adfd59a9af8ef05b362",
+    "microcontroller/tests/drg5_acquisition_storage_tb.sv": "27b54d5fa63e5296d1d93b3fef21115237dd2e792876f4299c0bd0c339dfa6b7",
+    "microcontroller/tests/run_acquisition_storage.py": "382c66e80f04de0ea78dea5e5a63155683cb38c1b141c37162e0d842c1ab6b5d"
+  },
+  "tools": {
+    "iverilog": {
+      "path": "/home/bluto/.local/opt/oss-cad-suite-2026-11-05/bin/iverilog",
+      "sha256": "6d84be4052a92cf7184c7149506f5db6ac251f99e438a96ae3ce33f326e2ff9d",
+      "version": "Icarus Verilog version 14.0 (devel) (s20260301-812-g9f2605013-dirty)\n\nCopyright (c) 2000-2026 Stephen Williams (steve@icarus.com)\n\n  This program is free software; you can redistribute it and/or modify\n  it under the terms of the GNU General Public License as published by\n  the Free Software Foundation; either version 2 of the License, or\n  (at your option) any later version.\n\n  This program is distributed in the hope that it will be useful,\n  but WITHOUT ANY WARRANTY; without even the implied warranty of\n  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the\n  GNU General Public License for more details.\n\n  You should have received a copy of the GNU General Public License along\n  with this program; if not, write to the Free Software Foundation, Inc.,\n  51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.\n\nIcarus Verilog Preprocessor version 14.0 (devel) (s20260301-812-g9f2605013-dirty)\n\nCopyright (c) 1999-2026 Stephen Williams (steve@icarus.com)\n\n  This program is free software; you can redistribute it and/or modify\n  it under the terms of the GNU General Public License as published by\n  the Free Software Foundation; either version 2 of the License, or\n  (at your option) any later version.\n\n  This program is distributed in the hope that it will be useful,\n  but WITHOUT ANY WARRANTY; without even the implied warranty of\n  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the\n  GNU General Public License for more details.\n\n  You should have received a copy of the GNU General Public License along\n  with this program; if not, write to the Free Software Foundation, Inc.,\n  51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.\n\nIcarus Verilog Parser/Elaborator version 14.0 (devel) (s20260301-812-g9f2605013-dirty)\n\nCopyright (c) 1998-2026 Stephen Williams (steve@icarus.com)\n\n  This program is free software; you can redistribute it and/or modify\n  it under the terms of the GNU General Public License as published by\n  the Free Software Foundation; either version 2 of the License, or\n  (at your option) any later version.\n\n  This program is distributed in the hope that it will be useful,\n  but WITHOUT ANY WARRANTY; without even the implied warranty of\n  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the\n  GNU General Public License for more details.\n\n  You should have received a copy of the GNU General Public License along\n  with this program; if not, write to the Free Software Foundation, Inc.,\n  51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.\n\n FLAGS DLL vvp.tgt\nvvp.tgt: Icarus Verilog VVP Code Generator 14.0 (devel) (s20260301-812-g9f2605013-dirty)\n\nCopyright (c) 2001-2026 Stephen Williams (steve@icarus.com)\n\n  This program is free software; you can redistribute it and/or modify\n  it under the terms of the GNU General Public License as published by\n  the Free Software Foundation; either version 2 of the License, or\n  (at your option) any later version.\n\n  This program is distributed in the hope that it will be useful,\n  but WITHOUT ANY WARRANTY; without even the implied warranty of\n  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the\n  GNU General Public License for more details.\n\n  You should have received a copy of the GNU General Public License along\n  with this program; if not, write to the Free Software Foundation, Inc.,\n  51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA."
+    },
+    "verilator": {
+      "path": "/home/bluto/.local/opt/oss-cad-suite-2026-11-05/bin/verilator",
+      "sha256": "d74a5f9cbe9665135fcdcfe2415894e26951d98eb5f01621c38955e6845003d9",
+      "version": "Verilator 5.055 devel rev v5.054-63-g57bbb293d (mod)"
+    },
+    "vvp": {
+      "path": "/home/bluto/.local/opt/oss-cad-suite-2026-11-05/bin/vvp",
+      "sha256": "9f6d770762b5e77d81216e5f21a634028a9ee062a724eeb116980bdb6cb110cc",
+      "version": "Icarus Verilog runtime version 14.0 (devel) (s20260301-812-g9f2605013-dirty)\n\nCopyright (c) 2001-2026 Stephen Williams (steve@icarus.com)\n\n  This program is free software; you can redistribute it and/or modify\n  it under the terms of the GNU General Public License as published by\n  the Free Software Foundation; either version 2 of the License, or\n  (at your option) any later version.\n\n  This program is distributed in the hope that it will be useful,\n  but WITHOUT ANY WARRANTY; without even the implied warranty of\n  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the\n  GNU General Public License for more details.\n\n  You should have received a copy of the GNU General Public License along\n  with this program; if not, write to the Free Software Foundation, Inc.,\n  51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA."
+    },
+    "yosys": {
+      "path": "/home/bluto/.local/opt/oss-cad-suite-2026-11-05/bin/yosys",
+      "sha256": "7c3e3396b38c129dd7485be5a0a0f0da8e495a94c8fd486059e3bea043a588d6",
+      "version": "Yosys 0.70+336 (git sha1 8f3cc3d0c, Release, Clang /usr/bin/clang++ 21.1.8)"
+    }
+  }
+}

@@ -1,0 +1,8 @@
+$ /home/bluto/.local/opt/oss-cad-suite-2026-11-05/bin/vvp /tmp/drg-acquisition-records-r1/four-state.vvp +seed=1 +mutate_unknown
+TEST reset and idle ownership
+TEST reserve before epoch binding
+TEST unsupported and stale bindings
+TEST inhibit blocks allocation without erasing owners
+TEST complete record remains stable under backpressure
+FATAL: /home/bluto/Desktop/DRG-pain-project-publication/microcontroller/tests/drg5_acquisition_records_tb.sv:72: case=complete record remains stable under backpressure seed=1 edge=22: record comparator: all 48 bytes
+       Time: 282250  Scope: drg5_acquisition_records_tb.check

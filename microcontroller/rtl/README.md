@@ -4,6 +4,8 @@ The RTL implements a custom, single-hart, five-stage RISC-V processor and severa
 
 The [acquisition control peripheral](drg5_acquisition_control.sv) implements lifecycle commands, configuration publication, coherent snapshots and retained fault evidence. Its [register and backend interface](../acquisition/control-foundation.md) defines the component boundary. [drg5_acquisition_timing.sv](drg5_acquisition_timing.sv) connects it to the shared [timebase](drg5_acquisition_timebase.sv) and [slot scheduler](drg5_acquisition_scheduler.sv). The CPU wrappers do not instantiate this connected path yet; the existing synthetic acquisition guard remains a separate component.
 
+The [record ledger](drg5_acquisition_records.sv) and [storage adapter](drg5_acquisition_storage.sv) add reserved, ordered complete-record storage with synthetic capture and DMA peers. They run on one acquisition clock and preserve owners through backpressure and cancellation. Their [integration contract](../acquisition/storage-integration.md) leaves asynchronous FIFO qualification, actual DMA writes and CPU board connection open.
+
 ## Table of contents
 
 | Section |

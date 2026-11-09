@@ -1,0 +1,47 @@
+[
+  {
+    "path": "default-depth.vcd",
+    "bytes": 6100859,
+    "sha256": "0f70642ae2ef81983063610fec6cc247b8be8671a47de87a591e5f6eb121e160",
+    "retained": true,
+    "gzip_path": "default-depth.vcd.gz",
+    "gzip_bytes": 573815,
+    "gzip_sha256": "67b3bc595b637fdf5014be8f7ea599647b1b7548c80afd0c1ae14ce114f53443"
+  },
+  {
+    "path": "four-state.vcd",
+    "bytes": 1197031,
+    "sha256": "f586958d789c16648d0340ec88f7101adc3f1af9190ffe7e41632d06d67373e2",
+    "retained": true,
+    "gzip_path": "four-state.vcd.gz",
+    "gzip_bytes": 134153,
+    "gzip_sha256": "0715b2f3ee1028bc189cc895ad9d4338447e59a5e0d56a6f642297dca59370e3"
+  },
+  {
+    "path": "verilator-seed-1.vcd",
+    "bytes": 882497,
+    "sha256": "0175d8bc7ebd9020f24c07450d5fbd254ff4c38f77b490f447b6853928771262",
+    "retained": true,
+    "gzip_path": "verilator-seed-1.vcd.gz",
+    "gzip_bytes": 118097,
+    "gzip_sha256": "731547b25844722ec2eca5eeb3b74502ead777ab4dcf377c8a1972140e97e15a"
+  },
+  {
+    "path": "verilator-seed-305419896.vcd",
+    "bytes": 916537,
+    "sha256": "c8674a557d38f2f10b4cfe9693459437e28da03f8cb308139cc0b32839efdd6a",
+    "retained": true,
+    "gzip_path": "verilator-seed-305419896.vcd.gz",
+    "gzip_bytes": 118656,
+    "gzip_sha256": "b87996c52a7838caca3e8d9b798b4461547d10513274aca684a8e6bf2a17cf1f"
+  },
+  {
+    "path": "verilator-seed-3735928559.vcd",
+    "bytes": 889767,
+    "sha256": "09c540a34b32276ffc083ce0a722cb5272fcb5d64fdb10f3926107749d25489c",
+    "retained": true,
+    "gzip_path": "verilator-seed-3735928559.vcd.gz",
+    "gzip_bytes": 118178,
+    "gzip_sha256": "6bde21a3a3a59c84db1efbb61d61e343d45f6e8fd9a18bc6865787eeb8d0d4a8"
+  }
+]

@@ -19,7 +19,7 @@ The intended system keeps acquisition timing independent of CPU execution. That 
 | Area | Current implementation | Detailed description |
 | --- | --- | --- |
 | CPU | Five-stage in-order RTL with configurable integer multiply/divide, compressed instructions, machine interrupts and debug. | [CPU and RTL](rtl/README.md) |
-| Acquisition | A connected control/timebase/slot scheduler, a separate synthetic guard, and capture models. | [Acquisition](acquisition/README.md) |
+| Acquisition | Connected control/timebase/slot scheduling, single-clock record reservations, a separate synthetic guard, and capture models. | [Acquisition](acquisition/README.md) |
 | Memory | Local synchronous ROM, instruction RAM, data RAM and memory-mapped peripherals. | [Memory](memory/README.md) |
 | Signal processing | A deterministic firmware workload for CPU and data-integrity checks. | [Signal processing](signal-processing/README.md) |
 | Firmware | Startup, trap handling, local platform checks and synthetic processing programs. | [Firmware sources](firmware/) |
@@ -58,6 +58,7 @@ The guard receives frame and storage-status inputs from its environment. Its clo
 | Responsibility | Responsible source | Current boundary |
 | --- | --- | --- |
 | Lifecycle, configuration and timing | [Timing wrapper](rtl/drg5_acquisition_timing.sv), [control peripheral](rtl/drg5_acquisition_control.sv) and [scheduler](rtl/drg5_acquisition_scheduler.sv) | Connected synchronous RTL; CPU fabric, ADC service/capture and memory backends remain external. |
+| Record reservations and DMA staging | [Record ledger](rtl/drg5_acquisition_records.sv) and [storage adapter](rtl/drg5_acquisition_storage.sv) | Complete-record ownership with synthetic peers; asynchronous crossing and actual DMA remain external. |
 | Slot identity and stop accounting | [Acquisition guard](rtl/drg5_acquisition_guard.sv) | Implemented RTL with an explicit synthetic profile. |
 | Guard verification | [Guard runner](tests/run_acquisition_guard.py) and [simulation driver](tests/acquisition_guard_sim.cpp) | Tests modeled frame and storage responses. |
 | Capture and transport stress | [Stress model](synthetic/stress.cpp) and [runner](synthetic/run_stress.py) | Software modeling is distinct from executing the complete acquisition path in RTL. |

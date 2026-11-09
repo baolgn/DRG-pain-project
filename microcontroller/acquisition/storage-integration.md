@@ -1,0 +1,43 @@
+# Scheduler and synthetic record storage
+
+[drg5_acquisition_storage.sv](../rtl/drg5_acquisition_storage.sv) connects the scheduler's ARM, launch, notification and end interfaces to the [record reservation ledger](record-reservations.md). It instantiates [drg5_acquisition_records.sv](../rtl/drg5_acquisition_records.sv), which supplies the ordered ring, assembler and DMA holding stage. The integration test connects this adapter to the actual [scheduler](../rtl/drg5_acquisition_scheduler.sv) and [timebase](../rtl/drg5_acquisition_timebase.sv). Synthetic capture and DMA peers exercise the connection without a serial receiver or memory bus.
+
+All ports use the same fixed acquisition clock. This component does not introduce a generated clock or an asynchronous FIFO. It does not replace the [future dual-clock/reset protocol](clock-reset-lifecycle.md), qualify ADC record contents, or instantiate the CPU fabric, MMIO controller, physical supervisor or actual DMA writes. The existing control/timing wrapper exposes the needed scheduler ports but does not instantiate this storage adapter. A parent integration must connect them coherently and bind the remaining session, configuration, timebase and link-generation context before publication.
+
+## Reserve before admitting the slot
+
+`prepare_i` allows the adapter to preallocate one anonymous entry before ARM and replenish that spare during a running epoch. `stop_i`, a held scheduler end receipt and retained faults prevent new allocation. `record_credit_o` asserts only for an already owned unused reservation and an available trigger-confirmation slot. It never predicts a same-edge release, FIFO movement or DMA completion.
+
+`arm_ready_o` requires exactly that one spare, no pending scheduler notification or trigger confirmation, and no retained fault. A parent must include this readiness in ARM admission. The scheduler/control ARM commit reaches `arm_i` on the same acceptance edge, with the accepted epoch and first tick. The ledger binds that context without consuming or replacing the spare. Slot zero remains due on the next edge; no storage handshake delays it.
+
+`occupancy_o` counts every charged ring entry, including the anonymous spare, capture, pending placeholders, assembler, queued records and DMA stage. Connect this conservative count to the scheduler's occupancy input. `capture_idle_o` reports the separate conversion owner. Completed FIFO occupancy alone would conceal capacity held in the other stages.
+
+A successful scheduler launch consumes the existing reservation on that exact edge. `capture_start_o` confirms this installation, and the synthetic producer must latch `capture_id_o` on that edge. The token output can change when the next spare is allocated. A producer must return its latched original token through the completion interface; attaching a newer token to a delayed result would misidentify the conversion.
+
+## Notifications, cancellation and output ownership
+
+A triggered scheduler notification confirms the already installed `(epoch, slot, tick)`. It does not allocate another entry or wait for conversion completion. The adapter keeps that confirmation identity independently, so even a fast synthetic completion cannot erase it before acknowledgment. A malformed second launch cannot overwrite an unacknowledged confirmation.
+
+An untriggered notification consumes the spare as a missing-slot reservation. Its ready signal depends only on pre-edge binding, reservation and exact next-slot facts. It does not depend on the scheduler's combinational launch signal, which itself depends on notification readiness. This avoids a feedback loop. If a malformed launch collides with a valid missing notification, the older missing notification takes priority and the launch is rejected with retained fault evidence.
+
+Stopping the scheduler does not immediately release an apparently unused spare. A missing notification can become visible after scheduler activity falls. The adapter waits until the scheduler is inactive and no notification or trigger confirmation remains, then releases the spare when the scheduler end receipt is held or preparation has been withdrawn. It cannot release that spare on the same edge as ARM or a launch. A held end receipt also blocks automatic replenishment, preventing allocation/release churn before acknowledgment.
+
+Capture completion, cancellation and DMA completion follow the ledger's [explicit precedence rules](record-reservations.md#results-and-simultaneous-operations). Cancellation of an unresolved synthetic conversion retains its triggered, zero-received-bit missing record. It is an assertion of synthetic producer containment, not implementation of ADC abort or serial recovery. Once a complete record reaches assembly, FIFO or DMA ownership, cancellation cannot alter or withdraw it.
+
+The DMA request carries all 48 record bytes plus epoch and slot. Acceptance transfers the request to the modeled DMA peer without returning capacity. The matching positive completion must arrive after a previously accepted request and attests that the peer has completed the transfer into its reserved destination and retired the associated access ownership. It is not proof of block publication or archival durability. A stalled or silent peer leaves the entire owner visible and charged. External supervision must stop scheduling and resolve or contain such owners within the previously specified service and closure bounds; no timeout silently frees them.
+
+`drained_o` requires zero charged entries and no pending scheduler notification or confirmation. It describes only this component's local retirement. A closure backend must also establish capture containment, actual memory/publication outcomes and the matching scheduler/control receipts. Before ARM, an ownership check may permit the one unused anonymous reservation; during final drain, it must wait for that reservation's release. Neither empty FIFO status nor a CPU acknowledgment establishes those external conditions.
+
+## Fault and reset behavior
+
+Record-ledger faults remain in `record_faults_o`. The adapter separately retains `link_faults_o`: bit 0 is a rejected ARM binding; bit 1 is a rejected launch; bit 2 is a rejected or colliding missing notification; bit 3 is a mismatched triggered notification; bit 4 is a launch behind an unacknowledged confirmation; bit 5 is failed spare release; bit 6 is exhausted reservation identity; and bit 7 is an unexpected rejected reserve. Other bits remain zero. A malformed event cannot erase an older owner. The adapter reports the first observation of each link cause as a pulse; ledger occurrence pulses remain separately forwarded.
+
+`stop_request_o` asserts from retained faults independently of CPU execution and event-queue service. It must feed the scheduler/control stop path. This foundation does not provide a fault-clear command: after local protocol or identity exhaustion faults, a new recording requires externally contained system reset and a fresh session/timebase. Existing owners may still drain while faults remain set.
+
+Only coherent synchronous `system_reset_i` clears the adapter and ledger. CPU reset must instead inhibit scheduling and new preparation while preserving their clock and storage. A parent must contain old producer and DMA activity before destructive reset. Reset creates neither a successful completion nor reclaimed external memory.
+
+## Storage and verification scope
+
+The default ledger uses 14,336 bytes for 256 frozen 56-byte entries and 2,255 bits of metadata and stage registers. The adapter adds 226 bits: a confirmation-valid bit, three 64-bit confirmation fields, 32 sticky link causes and one fault pulse. The combined logical allocation is therefore 14,647 bytes after rounding, leaving 1,737 bytes of the existing 16 KiB ingress allocation for future context and crossing integration. Every staging record stays charged to its original entry. This is source-level bit accounting, not measured EBR utilization or timing closure.
+
+[run_acquisition_records.py](../tests/run_acquisition_records.py) executes the independent [ledger testbench](../tests/drg5_acquisition_records_tb.sv). [run_acquisition_storage.py](../tests/run_acquisition_storage.py) executes the [scheduler/storage testbench](../tests/drg5_acquisition_storage_tb.sv). Both retain source snapshots, tool versions, logs and waveforms. The synthetic inputs test complete-record ownership; they do not validate ADC status, CRC generation, analog permissions or serial capture. The retained [record-storage evidence](evidence/records-2026-11-09/README.md) distinguishes reduced-depth full generic synthesis from default-depth memory-preserving structural checks and simulation.
