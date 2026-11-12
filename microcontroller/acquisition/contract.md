@@ -6,18 +6,16 @@ The normative [ACQ-R1-CDC1 lifecycle supplement](clock-reset-lifecycle.md) defin
 
 ## Contents
 
-| Section |
-| --- |
-| [Input boundary and supported profile](#input-boundary-and-supported-profile) |
-| [Configuration and commands](#configuration-and-commands) |
-| [States and transitions](#states-and-transitions) |
-| [Epochs and identity](#epochs-and-identity) |
-| [Cadence and timestamp meaning](#cadence-and-timestamp-meaning) |
-| [Conversion outcomes and validity](#conversion-outcomes-and-validity) |
-| [Records and block publication](#records-and-block-publication) |
-| [Stop, loss and restart](#stop-loss-and-restart) |
-| [Events, interrupts and CPU responsibilities](#events-interrupts-and-cpu-responsibilities) |
-| [Existing implementation and release gates](#existing-implementation-and-release-gates) |
+1. [Input boundary and supported profile](#input-boundary-and-supported-profile)
+2. [Configuration and commands](#configuration-and-commands)
+3. [States and transitions](#states-and-transitions)
+4. [Epochs and identity](#epochs-and-identity)
+5. [Cadence and timestamp meaning](#cadence-and-timestamp-meaning)
+6. [Conversion outcomes and validity](#conversion-outcomes-and-validity)
+7. [Records and block publication](#records-and-block-publication)
+8. [Stop, loss and restart](#stop-loss-and-restart)
+9. [Events, interrupts and CPU responsibilities](#events-interrupts-and-cpu-responsibilities)
+10. [Existing implementation and release gates](#existing-implementation-and-release-gates)
 
 ## Input boundary and supported profile
 

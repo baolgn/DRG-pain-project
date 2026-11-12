@@ -1,19 +1,17 @@
 # Electrical interface and Ubuntu qualification
 
-Reviewed 2026-11-05 on `feature/acquisition-engine`, starting from `584743d`. **Overall electrical/build/programming pass condition: NOT PASSED.** The user confirmed that no board is available yet. The electrical interface has a documented candidate design and explicit constraints; the host tools can build exact-device bitstreams. Actual assembly identity, an approved ADC adapter, physical timing and programming/operation remain unqualified.
+Reviewed 2026-11-05 on `feature/acquisition-engine`, starting from `584743d`. **Overall electrical/build/programming pass condition: NOT PASSED.** No board was available for physical inspection or testing. The electrical interface has a documented candidate design and explicit constraints; the host tools can build exact-device bitstreams. Actual assembly identity, an approved ADC adapter, physical timing and programming/operation remain unqualified.
 
 This result must not be promoted to a physical pass because a schematic, example inventory, successful compiler or programmable file exists. The [inspection record](board-inventory.json) retains unknown physical observations as null. Acquisition remains unavailable until its physical gates close.
 
 ## Contents
 
-| Section |
-| --- |
-| [Qualification ledger](#qualification-ledger) |
-| [Electrical findings and corrections](#electrical-findings-and-corrections) |
-| [Fresh complete CPU build](#fresh-complete-cpu-build) |
-| [Reproducing the Ubuntu path](#reproducing-the-ubuntu-path) |
-| [Programming and physical acceptance](#programming-and-physical-acceptance) |
-| [Review and comment verification](#review-and-comment-verification) |
+1. [Qualification ledger](#qualification-ledger)
+2. [Electrical findings and corrections](#electrical-findings-and-corrections)
+3. [Complete CPU build](#complete-cpu-build)
+4. [Reproducing the Ubuntu path](#reproducing-the-ubuntu-path)
+5. [Programming and physical acceptance](#programming-and-physical-acceptance)
+6. [Verification records](#verification-records)
 
 ## Qualification ledger
 
@@ -22,10 +20,10 @@ This result must not be promoted to a physical pass because a schematic, example
 | ADC assembly, U4 marking, connectors and actual links | **Not performed: no board.** [Drawing-level board review](board-qualification.md) distinguishes intended parts from fitted observations. |
 | Analog channels, control routing and ownership | Drawing-level routes documented, including channels 1–8, digital control/data contacts, power/reference and unused signal ownership. No FPGA-to-ADC adapter or physical continuity pass. |
 | Power and static voltage compatibility | Constraints and worst-case calculations documented. VIN-pulled enable, rail tracking, absolute pin limits and unpowered isolation remain physical gates. |
-| Verilator | Fresh strict timed simulation checks 2,048 active cycles and generates a waveform. [Tool qualification](../qualification/README.md). |
-| Yosys and required device primitives | Fresh `synth_ecp5` maps PLL, block RAM, DSP, carry and USRMCLK smoke; a separate full P25 build uses the slang frontend and active flash-clock path. |
+| Verilator | Strict timed simulation checks 2,048 active cycles and generates a waveform. [Tool qualification](../qualification/README.md). |
+| Yosys and required device primitives | `synth_ecp5` maps PLL, block RAM, DSP, carry and USRMCLK smoke; a separate full P25 build uses the slang frontend and active flash-clock path. |
 | nextpnr and bitstream generation | Exact `--85k --package CABGA381 --speed 6` smoke route and `ecppack` pass; full programmable P25 build also routes and packs. No ignored timing-failure or unconstrained-pin bypass is used. |
-| SymbiYosys | Fresh proof and cover pass; the deliberately false assertion produces a counterexample, not a timeout/tool error relabeled as success. |
+| SymbiYosys | Proof and cover pass; the deliberately false assertion produces a counterexample, not a timeout/tool error relabeled as success. |
 | GTKWave | Actual GUI process loads the generated VCD, finds 11 facilities and adds five expected traces. VCD/FST conversion is a separate check. |
 | Open-source programmer | Pinned openFPGALoader reports the selected ULX3S/FT231X/FPGA support; generated bitstreams pass part/IDCODE parsing; full P25 SRAM plan passes without hardware access. |
 | Physical SRAM programming, flash/readback and power-cycle boot | **Not performed: no board.** No detection or hardware programming command ran; no target was selected, programmed or erased. |
@@ -45,11 +43,11 @@ The [board review](board-qualification.md) uses the supplied research, UG-1870 R
 
 The [ADC profile](adc-profile.md) and [contract](contract.md) incorporate the corrected electrical envelope. Earlier definition evidence remains bound to commit `584743d`; its hashes are not rewritten to imply these later checks existed then. The input boundary remains conditioned analog voltages at the ADC. No Abbott recording interface is inferred.
 
-## Fresh complete CPU build
+## Complete CPU build
 
-The fresh [P25 evidence](evidence/platform-2026-11-05/retention.json) extends the small primitive smoke with the existing programmable CPU/boot design, built from the current repository sources. The host is Ubuntu 26.04.1 LTS x86-64. Firmware uses xPack RISC-V GCC 15.2.0-1, the exact IMC architecture/ILP32 flags in [build.json](evidence/platform-2026-11-05/firmware/build.json), private runtime and canonical boot ROM. Synthesis uses OSS CAD Suite 2026-03-01 and its open-source slang plugin; exact tools, database, source and firmware hashes are retained.
+The [P25 evidence](evidence/platform-2026-11-05/retention.json) extends the small primitive smoke with the existing programmable CPU/boot design, built from the current repository sources. The host is Ubuntu 26.04.1 LTS x86-64. Firmware uses xPack RISC-V GCC 15.2.0-1, the exact IMC architecture/ILP32 flags in [build.json](evidence/platform-2026-11-05/firmware/build.json), private runtime and canonical boot ROM. Synthesis uses OSS CAD Suite 2026-03-01 and its open-source slang plugin; exact tools, database, source and firmware hashes are retained.
 
-| Fresh result | Recorded value |
+| Build result | Recorded value |
 | --- | --- |
 | Profile/top | `P25-SPI-BOOT-1`, stage 2, `drg5_ulx3s_programmable` |
 | Physical clock selected by PLL parameters | 25 MHz nominal; not 80 MHz |
@@ -70,9 +68,9 @@ Large derived mapped/routed netlists and text configuration were excluded from t
 
 Use the exact archive digest, native dependencies and commands in the [tool guide](../qualification/README.md). The supported host for this qualification is Ubuntu/Linux x86-64; it does not establish native Windows, macOS or an arbitrary newer bundle. The route is Verilator simulation, Yosys/slang plus `synth_ecp5`, nextpnr-ecp5 plus the Trellis device database, `ecppack`, then openFPGALoader. SymbiYosys and GTKWave provide separate verification/inspection steps. No proprietary FPGA suite, solver, programming executable or IP generator is required by the tested host path.
 
-For the existing complete CPU path, install the pinned GCC and suite in the documented locations or use fresh, verified compatibility symlinks. Existing paths must be inspected, never silently overwritten. `run_programmable.py` and the image validator still use `/tmp/drg5-arch-tools/gcc/xpack-riscv-none-elf-gcc-15.2.0-1/bin/riscv-none-elf-`; the programmer defaults to the pinned suite path under `/tmp/drg5-control-tools-20260301`. An explicit `--prefix` on the firmware builder alone does not change the other validators' fixed prefix.
+For the existing complete CPU path, install the pinned GCC and suite in the documented locations or use verified compatibility symlinks. Existing paths must be inspected, never silently overwritten. `run_programmable.py` and the image validator still use `/tmp/drg5-arch-tools/gcc/xpack-riscv-none-elf-gcc-15.2.0-1/bin/riscv-none-elf-`; the programmer defaults to the pinned suite path under `/tmp/drg5-control-tools-20260301`. An explicit `--prefix` on the firmware builder alone does not change the other validators' fixed prefix.
 
-The compiler archive is [xPack RISC-V GCC 15.2.0-1 Linux x64](https://github.com/xpack-dev-tools/riscv-none-elf-gcc-xpack/releases/tag/v15.2.0-1), 433,494,794 bytes, SHA-256 `aaaa8060c914851a3e5ee1ba82cc3d6f80972f90638a05c6e823a37557a33758`. After the tool guide's suite installation, this fresh-layout recipe supplies both compatibility paths. Its subshell stops on an existing directory or failed checksum; on an already configured host, verify and reuse the existing installation instead of running it again.
+The compiler archive is [xPack RISC-V GCC 15.2.0-1 Linux x64](https://github.com/xpack-dev-tools/riscv-none-elf-gcc-xpack/releases/tag/v15.2.0-1), 433,494,794 bytes, SHA-256 `aaaa8060c914851a3e5ee1ba82cc3d6f80972f90638a05c6e823a37557a33758`. After the tool guide's suite installation, this installation recipe supplies both compatibility paths. Its subshell stops on an existing directory or failed checksum; on an already configured host, verify and reuse the existing installation instead of running it again.
 
 ```sh
 # prepare verified tools without replacing an existing installation.
@@ -91,7 +89,7 @@ The compiler archive is [xPack RISC-V GCC 15.2.0-1 Linux x64](https://github.com
 )
 ```
 
-From the repository root, with those prerequisites satisfied and fresh output directories:
+From the repository root, with those prerequisites satisfied and new output directories:
 
 ```sh
 python3 microcontroller/firmware/build.py --profile imc \
@@ -108,7 +106,7 @@ python3 microcontroller/programming/program_board.py config-sram \
   --output /tmp/drg5-qualified-sram-plan
 ```
 
-The last command is a **host-only plan** using an explicitly unverified example. It neither selects a board nor proves that hardware can be programmed. The retained run used the same tools from the original workspace's verified bootstrap installation, with a fresh compatibility symlink for the fixed GCC prefix; retained command logs preserve those actual paths.
+The last command is a **host-only plan** using an explicitly unverified example. It neither selects a board nor proves that hardware can be programmed. The retained command logs identify the tested tool paths and the compatibility symlink used for the fixed GCC prefix.
 
 The pinned nextpnr ECP5 flow does not establish general external `set_input_delay`, `set_output_delay`, uncertainty or arbitrary SDC false-path support. Unsupported/ignored constraints cannot be counted as timing closure. ADC and memory interfaces need separately reviewed I/O budgets, constraints actually understood by the selected tools, CDC checks and physical captures before activation. The full raw stream also needs a separately qualified high-throughput host link: the onboard FT231X 3 Mbaud 8N1 UART is at most 0.3 MB/s, below the 2.4125 MB/s raw-block rate. US1 programming/control success would not qualify acquisition transport.
 
@@ -120,10 +118,10 @@ Only after those prerequisites pass may a hardware operator execute the reviewed
 
 The ADC gate separately requires the [board inspection matrix](board-qualification.md#inspection-and-release-record), an approved adapter/LPF, runtime ADC ID and configuration readback, pattern/status/CRC captures and measured pin timing. It cannot be closed by the FPGA programmer identifying its own JTAG device. The conditioned analog chain and sustained recording/transport acceptance remain distinct gates.
 
-## Review and comment verification
+## Verification records
 
-Review proceeded through source/drawing inspection, exact-target/tool provenance, executable positive and failure controls, voltage/ownership correction, and independent reinspection of route and waveform evidence. The corrections above include findings that changed the prior specification; failures and failed tool-run attempts are retained rather than replaced by only a passing report.
+The verification records include source and drawing inspections, target and tool identities, positive and failure controls, voltage and ownership corrections, and route and waveform results. Failed checks and tool runs remain available alongside passing results.
 
-The existing active code already passed the comment audit at task start. New qualification sources use concise lowercase comments with proper names/acronyms retained and block explanations before logical scopes. The final [audit record](evidence/hardware-review-2026-11-05/review.json) and [comment report](evidence/hardware-review-2026-11-05/comments.json) cover all current active source/build files, syntax, source stability and evidence hashes. Historical snapshots, generated outputs and third-party sources preserve their original bytes; they are not relabeled as current implementations.
+The final [audit record](evidence/hardware-review-2026-11-05/review.json) and [comment report](evidence/hardware-review-2026-11-05/comments.json) cover all current active source/build files, syntax, source stability and evidence hashes. Historical snapshots, generated outputs and third-party sources preserve their original bytes; they are not relabeled as current implementations.
 
-The result is a reproducible host build/tool qualification and a concrete electrical review with identified blockers. It is **not** an assertion that the actual assembly or complete recording/programming system is qualified. The user-confirmed absence of hardware and the unapproved adapter are material open gates, not defects that further document-only revisions can remove.
+The result is a reproducible host build/tool qualification and a concrete electrical review with identified blockers. It is **not** an assertion that the actual assembly or complete recording/programming system is qualified. Physical hardware testing and adapter qualification remain required.

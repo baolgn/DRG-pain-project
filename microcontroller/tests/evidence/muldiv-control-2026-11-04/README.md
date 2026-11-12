@@ -4,12 +4,10 @@ The [summary](summary.json) binds the passing executable runs to exact productio
 
 ## Table of contents
 
-| Section |
-| --- |
-| [Configurations](#configurations) |
-| [Independent checks](#independent-checks) |
-| [Timing endpoints and assumptions](#timing-endpoints-and-assumptions) |
-| [Review revisions](#review-revisions) |
+1. [Configurations](#configurations)
+2. [Independent checks](#independent-checks)
+3. [Timing endpoints and assumptions](#timing-endpoints-and-assumptions)
+4. [Review revisions](#review-revisions)
 
 Final result: **15 passing runs**, **3,513 cases**, **315,996 clocks**, **167,511,445 comparisons**, and **four correctly detected corruptions**. The ledgers account for 4,389 arithmetic starts as 4,377 consumed completions plus 12 isolated cold-reset cancellations; 852 completions belonged to obsolete or contained instructions. There are 3,525 M retirements, 4,242 memory offers and responses, and 4,224 permitted memory effects.
 

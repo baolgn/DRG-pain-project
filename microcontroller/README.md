@@ -4,15 +4,13 @@ DRG5 is a custom RISC-V microcontroller implementation intended to support a fut
 
 ## Table of contents
 
-| Section |
-| --- |
-| [CPU](#cpu) |
-| [Acquisition](#acquisition) |
-| [Memory](#memory) |
-| [Signal processing](#signal-processing) |
-| [Firmware](#firmware) |
-| [Programming and debug](#programming-and-debug) |
-| [Verification and tools](#verification-and-tools) |
+1. [CPU](#cpu)
+2. [Acquisition](#acquisition)
+3. [Memory](#memory)
+4. [Signal processing](#signal-processing)
+5. [Firmware](#firmware)
+6. [Programming and debug](#programming-and-debug)
+7. [Verification and tools](#verification-and-tools)
 
 The intended system keeps acquisition timing independent of CPU execution. That separation is required to preserve sample timing when software stalls or enters an interrupt handler, and to retain timing and stop evidence when debug requests a controlled recording stop. The current acquisition supervisor exercises this boundary with synthetic inputs. It does not contain an AD7606C-18 serial receiver or a complete recording DMA engine.
 

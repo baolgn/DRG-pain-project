@@ -40,7 +40,7 @@ Final campaign VCDs are retained as lossless `.vcd.gz` files. Each `waveforms.js
 
 The wrappers [run_acquisition_records.py](../../../tests/run_acquisition_records.py) and [run_acquisition_storage.py](../../../tests/run_acquisition_storage.py) select tools and retain results. The comparisons reside in [drg5_acquisition_records_tb.sv](../../../tests/drg5_acquisition_records_tb.sv) and [drg5_acquisition_storage_tb.sv](../../../tests/drg5_acquisition_storage_tb.sv). The hardware implementations are [drg5_acquisition_records.sv](../../../rtl/drg5_acquisition_records.sv) and [drg5_acquisition_storage.sv](../../../rtl/drg5_acquisition_storage.sv), connected to unchanged [scheduler](../../../rtl/drg5_acquisition_scheduler.sv) and [timebase](../../../rtl/drg5_acquisition_timebase.sv) sources.
 
-With the recorded OSS CAD Suite binaries on PATH, run from the repository root with fresh output directories:
+With the recorded OSS CAD Suite binaries on PATH, run from the repository root with new output directories:
 
 ```sh
 PYTHONDONTWRITEBYTECODE=1 python3 microcontroller/tests/run_acquisition_records.py --output /tmp/drg-records-replay

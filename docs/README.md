@@ -4,12 +4,10 @@ This directory describes the requirements and qualification work that connect th
 
 ## Table of contents
 
-| Section |
-| --- |
-| [Installation](#installation) |
-| [First simulation check](#first-simulation-check) |
-| [Documentation map](#documentation-map) |
-| [Recording and biological scope](#recording-and-biological-scope) |
+1. [Installation](#installation)
+2. [First simulation check](#first-simulation-check)
+3. [Documentation map](#documentation-map)
+4. [Recording and biological scope](#recording-and-biological-scope)
 
 ## Installation
 
@@ -35,7 +33,7 @@ Some runners accept executable paths, while others use the fixed layouts documen
 
 ## First simulation check
 
-The `fetch-buffer` target in the [test Makefile](../microcontroller/tests/Makefile) calls [run_fetch_buffer.py](../microcontroller/tests/run_fetch_buffer.py). That runner compiles [drg5_fetch_buffer_tb.sv](../microcontroller/tests/drg5_fetch_buffer_tb.sv) with [drg5_fetch_buffer.sv](../microcontroller/rtl/drg5_fetch_buffer.sv) and checks parcel assembly behavior. From the repository root, select a fresh build directory and run the following command after activating Verilator and the C++ build tools.
+The `fetch-buffer` target in the [test Makefile](../microcontroller/tests/Makefile) calls [run_fetch_buffer.py](../microcontroller/tests/run_fetch_buffer.py). That runner compiles [drg5_fetch_buffer_tb.sv](../microcontroller/tests/drg5_fetch_buffer_tb.sv) with [drg5_fetch_buffer.sv](../microcontroller/rtl/drg5_fetch_buffer.sv) and checks parcel assembly behavior. From the repository root, select a new build directory and run the following command after activating Verilator and the C++ build tools.
 
 ```sh
 make -C microcontroller/tests fetch-buffer \

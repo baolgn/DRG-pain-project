@@ -4,11 +4,9 @@ This directory retains the manufacturer PDFs used to evaluate the proposed recor
 
 ## Table of contents
 
-| Section |
-| --- |
-| [Converter and evaluation board](#converter-and-evaluation-board) |
-| [Amplifiers](#amplifiers) |
-| [Supporting application notes](#supporting-application-notes) |
+1. [Converter and evaluation board](#converter-and-evaluation-board)
+2. [Amplifiers](#amplifiers)
+3. [Supporting application notes](#supporting-application-notes)
 
 ## Converter and evaluation board
 

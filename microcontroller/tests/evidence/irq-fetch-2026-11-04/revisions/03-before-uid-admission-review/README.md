@@ -2,9 +2,7 @@
 
 ## Table of contents
 
-| Section |
-| --- |
-| [Evidence record](#evidence-record) |
+1. [Evidence record](#evidence-record)
 
 ## Evidence record
 
@@ -75,8 +73,7 @@ in the accompanying logs. This remains a non-C verification bridge, not a
 production frontend, formal proof, physical FPGA qualification or full-system
 latency measurement under all memory-contention cases.
 
-Actual review history is retained rather than manufactured: the first fixture
-failed strict lint because it initialized signals also driven by `always_comb`
+The first fixture failed strict lint because it initialized signals also driven by `always_comb`
 and left diagnostic bits unconsumed (`revisions/01-initial-fixture/`). Those were
 corrected without warning suppression. The first executable fixture then reached
 the handler but incorrectly expected D tag zero; the existing manager allocates

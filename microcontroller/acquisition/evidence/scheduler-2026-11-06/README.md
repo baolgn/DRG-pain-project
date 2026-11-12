@@ -41,7 +41,7 @@ The reviewed Yosys messages are limited to expansion of the controller's snapsho
 
 Each directory contains exact pre-build sources, tool/version output and command logs. Final scheduler-r3, timing-r2 and control-r2 waveforms are losslessly compressed as `.vcd.gz`; their `waveforms.json` files bind both compressed and original bytes and sizes. Earlier directories retain original waveform hashes and sizes without duplicating those waveforms. Build executables, generated object trees and `.vvp` binaries are omitted. The original temporary run directories were not modified by this retention step.
 
-With the pinned OSS CAD Suite binaries on PATH, run from the repository root using fresh output directories:
+With the pinned OSS CAD Suite binaries on PATH, run from the repository root using new output directories:
 
 ```sh
 PYTHONDONTWRITEBYTECODE=1 python3 microcontroller/tests/run_acquisition_scheduler.py --output /tmp/drg-scheduler-replay

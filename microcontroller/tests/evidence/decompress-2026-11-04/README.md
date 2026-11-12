@@ -4,9 +4,7 @@ Qualified 4 November 2026 against the pinned [C extension, version 2.0, ISA rele
 
 ## Table of contents
 
-| Section |
-| --- |
-| [Review revisions](#review-revisions) |
+1. [Review revisions](#review-revisions)
 
 `drg5_decompress` accepts one 16-bit `instr_i` and combinationally returns `expanded_o[31:0]`, `legal_o`, `hint_o` and `class_o[1:0]`. Class 0 is illegal, class 1 is an ordinary instruction, class 2 is HINT and class 3 is a noncompressed prefix with low bits `11`. Canonical `C.NOP` (`0x0001`) is ordinary. All HINTs expand to `ADDI x0,x0,0`; illegal and wide inputs expand to zero and are not legal. The surrounding pipeline must preserve original bits and instruction length separately; an expanded JAL/JALR must still use the original two-byte length for its link.
 

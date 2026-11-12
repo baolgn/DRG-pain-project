@@ -2,17 +2,15 @@
 
 ## Table of contents
 
-| Section |
-| --- |
-| [Purpose](#purpose) |
-| [Instructions](#instructions) |
-| [Implementation](#implementation) |
+1. [Purpose](#purpose)
+2. [Instructions](#instructions)
+3. [Implementation](#implementation)
 
 ## Purpose
 
 This directory separates FPGA configuration from CPU firmware. A configuration bitstream defines the hardware and boot ROM; an application bank supplies instruction-memory contents for that compatible boot design. The current programming contract names ULX3S v3.1.7 D&M, LFE5U-85F-6BG381C and W25Q128JVSIQ. Those source constants do not establish the identity or readiness of an attached board.
 
-The [current qualification](../acquisition/qualification.md) records the user-confirmed absence of a board. A fresh build or a successful host-only programming plan cannot replace assembly inspection, IDCODE/readback checks and observed physical operation. The ADC evaluation board also needs its separate [electrical review](../acquisition/board-qualification.md) before any adapter is connected.
+The [current qualification](../acquisition/qualification.md) records that no board was available for physical testing. A new build or a successful host-only programming plan cannot replace assembly inspection, IDCODE/readback checks and observed physical operation. The ADC evaluation board also needs its separate [electrical review](../acquisition/board-qualification.md) before any adapter is connected.
 
 ## Instructions
 

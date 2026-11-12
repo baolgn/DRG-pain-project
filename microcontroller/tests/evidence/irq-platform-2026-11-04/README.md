@@ -9,11 +9,9 @@ execution, firmware saving, CDC, FPGA routing and real acquisition remain separa
 
 ## Table of contents
 
-| Section |
-| --- |
-| [Exact component contract](#exact-component-contract) |
-| [Requirement-to-test matrix](#requirement-to-test-matrix) |
-| [Actual review and revisions](#actual-review-and-revisions) |
+1. [Exact component contract](#exact-component-contract)
+2. [Requirement-to-test matrix](#requirement-to-test-matrix)
+3. [Review and revisions](#review-and-revisions)
 
 `summary.json` records source SHA-256 values, tool entrypoint hashes, exact versions,
 PASS terminals and expected negative failures. `sources/` contains that source set.
@@ -129,7 +127,7 @@ also be exercised by the separate encoded-core tests. Acquisition clock continui
 descriptor durability, overload containment, CDC and bus response timing remain
 explicit system integration obligations.
 
-## Actual review and revisions
+## Review and revisions
 
 1. Initial module review found that reset discarded a command while its combinational
    preview could appear successful. `revisions/01-reset-review/` preserves that

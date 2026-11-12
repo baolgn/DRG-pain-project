@@ -4,12 +4,10 @@ The final result is recorded in `summary.json` and `aggregate.json`. This fixtur
 
 ## Table of contents
 
-| Section |
-| --- |
-| [Reproduction and scope](#reproduction-and-scope) |
-| [Requirement-to-test matrix](#requirement-to-test-matrix) |
-| [Trace format and replay](#trace-format-and-replay) |
-| [Review and revision record](#review-and-revision-record) |
+1. [Reproduction and scope](#reproduction-and-scope)
+2. [Requirement-to-test matrix](#requirement-to-test-matrix)
+3. [Trace format and replay](#trace-format-and-replay)
+4. [Review and revision record](#review-and-revision-record)
 
 Final revision 10 passed 12 configuration/seed runs containing 216 programs, 138,817 checked clock edges and 6,880,296 assertions. Independent execution records contain 5,727 successful retirements, including 171 compressed instructions, plus 216 synchronous traps and 12 interrupt entries. All three runtime and five offline negative controls failed at their intended detectors. These totals include only the final positive matrix, not earlier revisions or deliberately corrupted runs.
 

@@ -2,11 +2,9 @@
 
 ## Table of contents
 
-| Section |
-| --- |
-| [Purpose](#purpose) |
-| [Instructions](#instructions) |
-| [Implementation](#implementation) |
+1. [Purpose](#purpose)
+2. [Instructions](#instructions)
+3. [Implementation](#implementation)
 
 ## Purpose
 
@@ -24,7 +22,7 @@ python3 microcontroller/verification/formal/run_formal.py \
   --build /tmp/drg5-formal-new
 ```
 
-The separate admission check requires its own fresh directory:
+The separate admission check requires its own new directory:
 
 ```sh
 python3 microcontroller/verification/formal/run_admission_formal.py \

@@ -2,11 +2,9 @@
 
 ## Table of contents
 
-| Section |
-| --- |
-| [Purpose](#purpose) |
-| [Instructions](#instructions) |
-| [Implementation](#implementation) |
+1. [Purpose](#purpose)
+2. [Instructions](#instructions)
+3. [Implementation](#implementation)
 
 ## Purpose
 

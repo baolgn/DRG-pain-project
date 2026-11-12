@@ -1,17 +1,15 @@
 # Evaluation-board electrical qualification
 
-Reviewed 2026-11-05 for ACQ-R1 and the selected ULX3S v3.1.7 D&M target, LFE5U-85F-6BG381C. **Physical qualification has not passed: the user confirmed that no board is available yet.** This document verifies drawing-level routes, identifies a feasible integration direction and records the measurements needed before approving a connection. It is not a verified cable pinout or an instruction to power an uninspected assembly.
+Reviewed 2026-11-05 for ACQ-R1 and the selected ULX3S v3.1.7 D&M target, LFE5U-85F-6BG381C. **Physical qualification has not passed: no board was available for inspection or testing.** This document verifies drawing-level routes, identifies a feasible integration direction and records the measurements needed before approving a connection. It is not a verified cable pinout or an instruction to power an uninspected assembly.
 
 ## Contents
 
-| Section |
-| --- |
-| [Evidence and actual-assembly status](#evidence-and-actual-assembly-status) |
-| [Analog input routing](#analog-input-routing) |
-| [Power, enable and reference ownership](#power-enable-and-reference-ownership) |
-| [Digital routes and exclusive owners](#digital-routes-and-exclusive-owners) |
-| [Voltage and timing compatibility](#voltage-and-timing-compatibility) |
-| [Inspection and release record](#inspection-and-release-record) |
+1. [Evidence and actual-assembly status](#evidence-and-actual-assembly-status)
+2. [Analog input routing](#analog-input-routing)
+3. [Power, enable and reference ownership](#power-enable-and-reference-ownership)
+4. [Digital routes and exclusive owners](#digital-routes-and-exclusive-owners)
+5. [Voltage and timing compatibility](#voltage-and-timing-compatibility)
+6. [Inspection and release record](#inspection-and-release-record)
 
 ## Evidence and actual-assembly status
 
@@ -25,7 +23,7 @@ The supplied [board research](evidence/board-research-2026-11-03.md) was used an
 | [Layout](../../datasheets/eval-ad7606c18fmcz-layout.pdf) | 08-057655 Rev. A film set, ten films/four copper layers | `f78b9d5c525b8de3adaaace75b7b5591dbaa5af613a226d2b91ee579886fe173` |
 | [ADC datasheet](../../datasheets/ad7606c-18.pdf) | AD7606C-18 Rev. B; electrical limits, pin functions and serial timing | `73b8892ab44ca4291b8c145df3e0d5d1abee2149c962be3a88e381c3e3e4f007` |
 
-Schematic sheets 2–4 and primary silkscreen film 1 were inspected visually, with enlarged power and control-routing views. The guide's generic product photograph and layout artwork are not photographs of a user-owned assembly. A project-tree search found no actual-board photographs or completed physical inventory. The existing [FPGA inventory example](../programming/inventory.example.json) explicitly has `physical_inspection_verified=false` and a placeholder USB serial. The new [inspection record](board-inventory.json) preserves unknown observations as null and qualification as false.
+Schematic sheets 2–4 and primary silkscreen film 1 were inspected visually, with enlarged power and control-routing views. The product photograph and layout artwork do not establish the identity or condition of a physical assembly. No assembly photographs or completed physical inventory are available. The existing [FPGA inventory example](../programming/inventory.example.json) explicitly has `physical_inspection_verified=false` and a placeholder USB serial. The new [inspection record](board-inventory.json) preserves unknown observations as null and qualification as false.
 
 The PCB legend `EVAL-AD7606CFMCZ` does not distinguish an 18-bit from a 16-bit assembly. The selected ordering identity is EVAL-AD7606C18FMCZ; schematic U4 is AD7606C-18BSTZ. The future inspection must record actual U4 top marking, assembly/BOM revision, serial/asset ID, connector population, link/resistor population and photographs of both sides. ACQ-R1 additionally requires register ID `0x33`; that readback is not available now. The exact FPGA marking, speed grade, package, flash marking and board revision likewise remain unobserved despite their selected values in source files.
 
@@ -143,4 +141,4 @@ All physical rows below are pending because no board is available. “Drawing ch
 | Analog | Qualified conditioned synthetic signals, per-channel continuity/order, input range, gain/filter/settling and endpoint behavior | Not performed |
 | Runtime identity | Device ID `0x33`, complete configuration readback, interface pattern/status/CRC checks, reset/recovery outcomes | Not performed |
 
-Review corrected the connector interpretation, exposed the VIN-level enable path, independently corrected its pull designator from an initial visual misread to **R2**, required R77 absence, and rejected a nominal-voltage-only compatibility claim. The electrical interface is documented to a concrete design-review boundary; **the requested physical-inspection/electrical pass condition remains open** until these observations and the adapter design exist. Acquisition must remain unavailable while this record is incomplete.
+Review corrected the connector interpretation, exposed the VIN-level enable path, independently corrected its pull designator from an initial visual misread to **R2**, required R77 absence, and rejected a nominal-voltage-only compatibility claim. The electrical interface is documented to a concrete design-review boundary; **physical inspection and electrical qualification remain incomplete** until these observations and the adapter design exist. Acquisition must remain unavailable while this record is incomplete.

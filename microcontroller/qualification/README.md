@@ -1,16 +1,14 @@
 # Ubuntu tool and FPGA qualification
 
-Fresh host qualification on 2026-11-05 passed for the selected **ULX3S v3.1.7 D&M / LFE5U-85F-6BG381C** build target. The user has no board available: physical assembly identity, JTAG access, configuration, flash readback, power-cycle boot and ADC electrical measurements are **not performed**. A successful bitstream build is not a physical programming result. See the [electrical review](../acquisition/board-qualification.md) and [overall acquisition qualification](../acquisition/qualification.md) for the separate interface and full-platform gates.
+Ubuntu tool qualification on 2026-11-05 passed for the selected **ULX3S v3.1.7 D&M / LFE5U-85F-6BG381C** build target. No board was available, so assembly inspection, JTAG access, configuration, flash readback, power-cycle boot and ADC electrical measurements are **not performed**. A successful bitstream build is not a physical programming result. See the [electrical review](../acquisition/board-qualification.md) and [overall acquisition qualification](../acquisition/qualification.md) for the separate interface and full-platform gates.
 
 ## Contents
 
-| Section |
-| --- |
-| [Exact target and tools](#exact-target-and-tools) |
-| [Executed checks](#executed-checks) |
-| [Ubuntu reproduction](#ubuntu-reproduction) |
-| [Programming path](#programming-path) |
-| [Evidence and review](#evidence-and-review) |
+1. [Exact target and tools](#exact-target-and-tools)
+2. [Executed checks](#executed-checks)
+3. [Ubuntu reproduction](#ubuntu-reproduction)
+4. [Programming path](#programming-path)
+5. [Evidence and review](#evidence-and-review)
 
 ## Exact target and tools
 
@@ -59,11 +57,11 @@ The final [r6 summary](evidence/ubuntu-2026-11-05/r6/summary.json) has `host-too
 | User flash clock | 1 USRMCLK preserved through route/packing, held high impedance | This smoke tests primitive availability only. Active SPI clock ownership belongs to the separate programmable CPU build and still needs physical readback. |
 | DDR/SERDES/SDRAM | Not used by this smoke | Separate implementation and electrical/timing qualification; unavailable by implication |
 
-The full CPU's previous 80 MHz route failed and its P25 profile has a separate fresh route/packing record in the [overall qualification](../acquisition/qualification.md). A small primitive smoke passing 80 MHz does not repair that failure or implement the 80 MHz acquisition engine.
+The full CPU's previous 80 MHz route failed and its P25 profile has a separate route/packing record in the [overall qualification](../acquisition/qualification.md). A small primitive smoke passing 80 MHz does not repair that failure or implement the 80 MHz acquisition engine.
 
 ## Ubuntu reproduction
 
-Use a normal Ubuntu desktop session for the GTKWave stage. The commands below create new directories and do not change hardware. Tested on the existing Ubuntu host; an independently provisioned clean machine has not been demonstrated by this run. Install native host prerequisites using the distribution package manager:
+The GTKWave stage requires access to a graphical display. The commands below create new directories and do not change hardware. Independent installation reproducibility remains unverified. Install the Ubuntu prerequisites using the distribution package manager:
 
 ```sh
 sudo apt update
@@ -85,7 +83,7 @@ Download the exact asset from the pinned release, verify it before extraction, a
 )
 ```
 
-From the repository root, choose fresh paths for every attempt. The runner refuses existing build/output directories, records failed attempts and never retries a device:
+From the repository root, choose new paths for every attempt. The runner refuses existing build/output directories, records failed attempts and never retries a device:
 
 ```sh
 python3 microcontroller/qualification/run.py \
@@ -97,7 +95,7 @@ python3 microcontroller/qualification/run.py \
 
 Success requires exit zero **and** summary `host-tools-and-smoke-pass`, `source_stable=true`, all command checks passed and matching retained hashes. Individual proof status files distinguish positive PASS from expected negative FAIL. The GUI Tcl script checks real loaded facilities, not the version banner. A display failure leaves the run failed; do not relabel it a complete GTKWave pass.
 
-The full firmware/P25 flow additionally needs the matching RV32 compiler and its runtime libraries. [The overall qualification](../acquisition/qualification.md) records the fresh current-source firmware, route and programming-plan commands. The existing `run_programmable.py` and image validation expect the pinned xPack GCC at `/tmp/drg5-arch-tools/gcc/xpack-riscv-none-elf-gcc-15.2.0-1/bin/riscv-none-elf-`; `--tools` does not change that compiler prefix. Set up that documented compiler location, or explicitly qualify a code change that makes it configurable. Do not silently substitute a compiler or claim the portable smoke compiled CPU firmware.
+The full firmware/P25 flow additionally needs the matching RV32 compiler and its runtime libraries. [The overall qualification](../acquisition/qualification.md) records the current-source firmware, route and programming-plan commands. The existing `run_programmable.py` and image validation expect the pinned xPack GCC at `/tmp/drg5-arch-tools/gcc/xpack-riscv-none-elf-gcc-15.2.0-1/bin/riscv-none-elf-`; `--tools` does not change that compiler prefix. Set up that documented compiler location, or explicitly qualify a code change that makes it configurable. Do not silently substitute a compiler or claim the portable smoke compiled CPU firmware.
 
 ## Programming path
 
@@ -114,11 +112,11 @@ US1 is suitable for programming/control, not the required raw acquisition stream
 | Attempt | Result and retained correction |
 | --- | --- |
 | [r1](evidence/ubuntu-2026-11-05/r1/summary.json) | Strict Verilator rejected declaration/process clock initialization. Corrected the fixture, without disabling the warning. |
-| [r2](evidence/ubuntu-2026-11-05/r2/summary.json) | Simulation, synthesis, 80 MHz route, bitstream, formal and conversion checks passed; GTK could not access the display inside the restricted process. The run remains failed. |
+| [r2](evidence/ubuntu-2026-11-05/r2/summary.json) | Simulation, synthesis, 80 MHz route, bitstream, formal and conversion checks passed; GTK could not access the display. The run remains failed. |
 | [r3](evidence/ubuntu-2026-11-05/r3/summary.json) | Same hardware-free flow with display access passed. Review added archive-member checks, unconditional admission checks, explicit JSON failure on source changes, exact bitstream identity and per-output GUI assertions. |
 | [r4](evidence/ubuntu-2026-11-05/r4/summary.json) | Comment/provenance corrections passed all stages; bitstream identical to r3. |
 | [r5](evidence/ubuntu-2026-11-05/r5/summary.json) | Provenance pass additionally binds the imported production parser before use and checks its stability, plus all common ECP5 tiledata against the pinned archive; bitstream remains identical. |
 | [r6](evidence/ubuntu-2026-11-05/r6/summary.json) | Final pass adds four local Tcl block comments found by manual review; executable statements and bitstream remain identical, and all 21 commands pass. |
 | [Missing tools](evidence/ubuntu-2026-11-05/missing-tools/summary.json), [bad archive](evidence/ubuntu-2026-11-05/bad-archive/summary.json) | Expected failure controls preserve failed JSON with no tool launched; wrong-archive rejection also remains active under `python3 -O`. |
 
-Source snapshots retain each attempt's actual inputs. The generated C++/objects, technology netlist and place/route configuration stay in the build directory; retained logs, route report, waveforms, bitstream and hashes establish what was exercised. This avoids conflating fresh evidence with historical CPU release snapshots. Native tool/version and checked-fixture results support Ubuntu feasibility; the user's absence of hardware leaves the physical electrical/programming pass condition open.
+Source snapshots retain each attempt's actual inputs. The generated C++/objects, technology netlist and place/route configuration stay in the build directory; retained logs, route report, waveforms, bitstream and hashes establish what was exercised. The records distinguish this qualification from historical CPU release snapshots. Native tool/version and checked-fixture results support Ubuntu feasibility; physical electrical and programming tests remain outstanding.

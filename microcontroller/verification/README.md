@@ -2,21 +2,19 @@
 
 ## Table of contents
 
-| Section |
-| --- |
-| [Purpose](#purpose) |
-| [Instructions](#instructions) |
-| [Implementation](#implementation) |
+1. [Purpose](#purpose)
+2. [Instructions](#instructions)
+3. [Implementation](#implementation)
 
 ## Purpose
 
-This directory coordinates checks across the CPU, platform, reference model and evidence ledger. It distinguishes a fresh execution against current source from replay of an existing capture and from an audit of a complete campaign. The public source and selected captured records do not constitute a fully qualified CPU release.
+This directory coordinates checks across the CPU, platform, reference model and evidence ledger. It distinguishes a new execution against current source from replay of an existing capture and from an audit of a complete campaign. The public source and selected captured records do not constitute a fully qualified CPU release.
 
 ## Instructions
 
 Start with a focused [test runner](../tests/README.md), then expand to directed families or the [release acceptance planner](../release/README.md). Run commands from the repository root using the Ubuntu/Linux tool environment. Python orchestration alone does not install Verilator, Yosys, solvers, RISC-V GCC, Sail or ACT4. Windows, WSL and macOS execution remains unverified.
 
-[run_directed.py](run_directed.py) is the fresh-source aggregate for existing directed runners. It creates isolated source workspaces, retains each attempt and invokes the original checker with its original negative controls. Supply explicit tools and new build/evidence destinations:
+[run_directed.py](run_directed.py) runs the existing directed checks against current source. It creates isolated source workspaces, retains each attempt and invokes the original checker with its original negative controls. Supply explicit tools and new build/evidence destinations:
 
 ```sh
 python3 microcontroller/verification/run_directed.py \
@@ -30,7 +28,7 @@ Use `--help` to select particular families. This wrapper executes the selected d
 
 [run_verification.py](run_verification.py) is a campaign coordinator whose collection path requires earlier audit inputs, source-comparison records and evidence catalogs. It also updates [requirements.json](requirements.json) during selected campaigns. The publication does not contain all of those prior inputs. Consequently, neither its default run nor `--collect` is a turnkey publication verification command. The ledger retains scoped historical claims and references to absent records; a missing record remains an unverified claim in this copy.
 
-The same dependency distinction applies to [audit.py](audit.py), [run_reuse_audit.py](run_reuse_audit.py) and [replay_archives.py](replay_archives.py). They inspect particular retained campaigns. They cannot manufacture missing evidence, renew stale source attribution or promote an incomplete collection to a pass.
+The same dependency distinction applies to [audit.py](audit.py), [run_reuse_audit.py](run_reuse_audit.py) and [replay_archives.py](replay_archives.py). They inspect particular retained campaigns. A passing audit requires the complete campaign records and matching source identities.
 
 ## Implementation
 
@@ -48,7 +46,7 @@ The same dependency distinction applies to [audit.py](audit.py), [run_reuse_audi
 
 ```mermaid
 flowchart TD
-  S[Current RTL and declared configuration] --> D[Fresh directed checks]
+  S[Current RTL and declared configuration] --> D[Current-source directed checks]
   S --> F[Bounded formal checks]
   S --> R[Reference and architectural checks]
   D --> E[Logs, traces, source hashes and scoped results]

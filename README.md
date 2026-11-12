@@ -4,12 +4,10 @@ This project studies how dorsal root ganglion signals can be recorded and analyz
 
 ## Table of contents
 
-| Section |
-| --- |
-| [Installation](#installation) |
-| [Microcontroller](#microcontroller) |
-| [Development and recording requirements](#development-and-recording-requirements) |
-| [Hardware references](#hardware-references) |
+1. [Installation](#installation)
+2. [Microcontroller](#microcontroller)
+3. [Development and recording requirements](#development-and-recording-requirements)
+4. [Hardware references](#hardware-references)
 
 Extracellular recordings from cultured neurons provide the provisional source model. The physical recording connection remains undecided. Current work implements the microcontroller and synthetic verification infrastructure; biological recording, biomarker validation and therapeutic modulation have not been demonstrated.
 

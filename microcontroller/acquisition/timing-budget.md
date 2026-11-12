@@ -6,21 +6,19 @@ The arithmetic fits the allocations below; **physical timing closure has not pas
 
 ## Contents
 
-| Section |
-| --- |
-| [ADC requirements](#adc-requirements) |
-| [Controller clock and event budget](#controller-clock-and-event-budget) |
-| [Exact transfer edges](#exact-transfer-edges) |
-| [Pin timing and capture closure](#pin-timing-and-capture-closure) |
-| [BUSY synchronization](#busy-synchronization) |
-| [Startup and register service](#startup-and-register-service) |
-| [Storage and closure](#storage-and-closure) |
-| [Independent supervision and every wait](#independent-supervision-and-every-wait) |
-| [Acceptance and repeated review](#acceptance-and-repeated-review) |
+1. [ADC requirements](#adc-requirements)
+2. [Controller clock and event budget](#controller-clock-and-event-budget)
+3. [Exact transfer edges](#exact-transfer-edges)
+4. [Pin timing and capture closure](#pin-timing-and-capture-closure)
+5. [BUSY synchronization](#busy-synchronization)
+6. [Startup and register service](#startup-and-register-service)
+7. [Storage and closure](#storage-and-closure)
+8. [Independent supervision and every wait](#independent-supervision-and-every-wait)
+9. [Acceptance and repeated review](#acceptance-and-repeated-review)
 
 ## ADC requirements
 
-Source: the pinned [AD7606C-18 Rev. B](../../datasheets/ad7606c-18.pdf), SHA-256 `73b8892ab44ca4291b8c145df3e0d5d1abee2149c962be3a88e381c3e3e4f007`; the user's original-workspace PDF has identical bytes. Printed pp. 9–10, Table 3, and p. 12, Table 5/Figure 6 were checked against the [official datasheet](https://www.analog.com/media/en/technical-documentation/data-sheets/ad7606c-18.pdf). These are silicon limits, distinct from the controller choices below.
+Source: the pinned [AD7606C-18 Rev. B](../../datasheets/ad7606c-18.pdf), SHA-256 `73b8892ab44ca4291b8c145df3e0d5d1abee2149c962be3a88e381c3e3e4f007`. Printed pp. 9–10, Table 3, and p. 12, Table 5/Figure 6 were checked against the [official datasheet](https://www.analog.com/media/en/technical-documentation/data-sheets/ad7606c-18.pdf). These are silicon limits, distinct from the controller choices below.
 
 | ADC requirement | Limit used | Applicability |
 | --- | --- | --- |
@@ -102,7 +100,7 @@ For the repeated DOUT setup path, the complete inequality is:
 
 `2*Tmin − (FPGA SCLK output + forward route + forward translator + ADC access + return route + return translator + FPGA input/setup + relative uncertainty) > 0`.
 
-The ADC alone leaves `24.997500−15.7 = 9.297500 ns` at the fastest clock, approximately the user's nominal **9.3 ns**. The direct-path allocation consumes another `2+.75+.75+2+1=6.5 ns`, leaving **2.797500 ns**. It must be verified in timing reports and pin captures. A translator cannot be silently assigned zero: both directions, propagation asymmetry, loading and minimum delay must be re-budgeted. A combined added delay of 3 ns already fails this allocation. Qualify shared/tracking supplies and unpowered isolation as described in the [board review](board-qualification.md); do not parallel regulator outputs to avoid translation.
+The ADC alone leaves `24.997500−15.7 = 9.297500 ns` at the fastest clock, approximately **9.3 ns**. The direct-path allocation consumes another `2+.75+.75+2+1=6.5 ns`, leaving **2.797500 ns**. It must be verified in timing reports and pin captures. A translator cannot be silently assigned zero: both directions, propagation asymmetry, loading and minimum delay must be re-budgeted. A combined added delay of 3 ns already fails this allocation. Qualify shared/tracking supplies and unpowered isolation as described in the [board review](board-qualification.md); do not parallel regulator outputs to avoid translation.
 
 | Other path | Conservative inequality and allocated margin |
 | --- | --- |
@@ -222,8 +220,8 @@ An acknowledgement/host wait can be indefinite **only while passive and independ
 
 The [ACQ-R1-CDC1 supplement](clock-reset-lifecycle.md) keeps these deadline allocations. It assigns ARM-created ACE1 delivery ≤24 acquisition ticks normal/32 fault action and ≤32 further ticks for FIFO visibility/read transfer, all inside the existing 64-tick normal/80-tick timeout handoff window. Its per-target progress watchdog uses the existing 80 supervisor ticks plus 1.5 µs total last-response/detection/isolation allowance; A and S have independent timers. Reset/link setup is disarmed and consumes the existing 500 ms startup allocation, not extra configuration time. These are qualification suballocations; prior timing evidence is not physical proof of these crossings.
 
-Run `python3 microcontroller/acquisition/check_timing.py --output <fresh-output.json>` for exact arithmetic, exhaustive BUSY-fall edge placement and rejection controls. The enumeration includes ticks 0..160 as a conservative superset; it does not admit an early/unmatched BUSY sequence. The final [r4 arithmetic](evidence/timing-2026-11-05/arithmetic-r4.json), [comment audit](evidence/timing-2026-11-05/comments.json) and [review record](evidence/timing-2026-11-05/review.json) identify their actual sources. Four successive calculation revisions and their exact source snapshots are retained; passing an older arithmetic revision did not cover later-discovered omissions. Previous definition and hardware-review evidence remains historical; it is not rewritten to appear to validate revision 3.
+Run `python3 microcontroller/acquisition/check_timing.py --output <new-output.json>` for exact arithmetic, exhaustive BUSY-fall edge placement and rejection controls. The enumeration includes ticks 0..160 as a conservative superset; it does not admit an early/unmatched BUSY sequence. The final [r4 arithmetic](evidence/timing-2026-11-05/arithmetic-r4.json), [comment audit](evidence/timing-2026-11-05/comments.json) and [review record](evidence/timing-2026-11-05/review.json) identify their actual sources. Four successive calculation revisions and their exact source snapshots are retained; passing an older arithmetic revision did not cover later-discovered omissions. Previous definition and hardware-review evidence remains historical; it is not rewritten to appear to validate revision 3.
 
-Review separates ADC limits from allocations, rejects 13 µs for the full admitted window, removes the first/last-edge ambiguity, charges clock tolerance and waveform distortion, adds setup/hold/SDI/turnaround paths, bounds service/storage/cancellation waits, and checks independent watchdog clock failure. It also corrected swapped STBY/PAR-SER U4 pin numbers in the board table against both schematic and datasheet. Independent reviewers recheck the final equations and outcome coverage; retained failed checks document corrections.
+Review separates ADC limits from allocations, rejects 13 µs for the full admitted window, removes the first/last-edge ambiguity, charges clock tolerance and waveform distortion, adds setup/hold/SDI/turnaround paths, bounds service/storage/cancellation waits, and checks independent watchdog clock failure. It also corrected swapped STBY/PAR-SER U4 pin numbers in the board table against both schematic and datasheet. The retained arithmetic and coverage checks include the failures that led to these corrections.
 
 Specification arithmetic passes only if every admitted operation fits its allocation with positive margin and every wait is bounded or explicitly passive with independent supervision. **Actual implementation/physical acceptance remains open** until routed I/O min/max reports, qualified clocks/CDC/load/board/translator bounds, measured pin captures, memory service/containment tests and clock-loss/cancellation fault injections demonstrate those requirements. A document or offline checker cannot supply the missing measurements.

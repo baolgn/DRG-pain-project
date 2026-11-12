@@ -6,9 +6,9 @@ The [control and fault foundation](control-foundation.md) provides a synchronous
 
 The [record reservation ledger](record-reservations.md) now reserves complete-record capacity before slot admission and retains it through capture, placeholder construction, assembly, FIFO waiting and DMA ownership. The [storage adapter](storage-integration.md) connects these reservations to scheduler launches and missing notifications. It uses one acquisition clock and synthetic capture/DMA peers; asynchronous crossing, actual recording-memory writes and CPU board integration remain outstanding.
 
-[run_acquisition_control.py](../tests/run_acquisition_control.py) builds the independent [control testbench](../tests/drg5_acquisition_control_tb.sv) with Verilator and Icarus Verilog, then checks generic synthesis with Yosys. Run it with `--output` naming a fresh directory. The [initial control evidence](evidence/control-2026-11-06/README.md) preserves its original checked revisions. The [scheduler and integration evidence](evidence/scheduler-2026-11-06/README.md) retains the current control, scheduler and wrapper campaigns, with tool versions, logs, waveforms and source hashes.
+[run_acquisition_control.py](../tests/run_acquisition_control.py) builds the independent [control testbench](../tests/drg5_acquisition_control_tb.sv) with Verilator and Icarus Verilog, then checks generic synthesis with Yosys. Run it with `--output` naming a new directory. The [initial control evidence](evidence/control-2026-11-06/README.md) preserves its original checked revisions. The [scheduler and integration evidence](evidence/scheduler-2026-11-06/README.md) retains the current control, scheduler and wrapper campaigns, with tool versions, logs, waveforms and source hashes.
 
-The **[ACQ-R1 contract](contract.md)** now freezes the first implementation's supported ADC tuple, configuration/command rejection, epochs, timing, validity, record format and all stop outcomes. The **[ADC profile](adc-profile.md)** fixes register bytes, serial edges, CRC conventions and startup. The **[review record](review.md)** records corrections and verification. These definitions are normative targets; the complete engine is not implemented by this commit.
+The **[ACQ-R1 contract](contract.md)** now freezes the first implementation's supported ADC tuple, configuration/command rejection, epochs, timing, validity, record format and all stop outcomes. The **[ADC profile](adc-profile.md)** fixes register bytes, serial edges, CRC conventions and startup. The **[review record](review.md)** records corrections and verification. These definitions are normative targets; the complete engine remains unimplemented.
 
 The **[timing budget](timing-budget.md)** separates ADC limits from controller choices before state-machine design. Revision 3 retains the nominal 14 µs read deadline because 13 µs cannot cover the entire accepted 2 µs BUSY-fall window. It allocates clock tolerance, FPGA/board capture paths, bounded service/storage waits and independent supervision; arithmetic passes do not establish physical timing closure.
 
@@ -24,54 +24,55 @@ The runner retains source snapshots, binary golden vectors and individual positi
 
 The **[clock/reset lifecycle](clock-reset-lifecycle.md)** fixes domain ownership, retained coherent mailboxes, complete-record FIFO crossings, STOP receipts and separate CPU/acquisition/system/reconfiguration scopes. ACQ-R1-CDC1 supplements the frozen revision-4 format without changing its bytes. Reset cannot create a trigger, record, acknowledgment or free allocation. Its [abstract protocol checker](check_lifecycle.py) explores reset/clock interleavings and unsafe counterexamples; physical CDC and reset qualification remain open.
 
-Run `python3 -O microcontroller/acquisition/check_lifecycle.py --output /tmp/drg-acquisition-lifecycle-check` from the repository root, using a fresh directory. The [lifecycle evidence](evidence/lifecycle-2026-11-05/review.json) records the finite models, assumptions and actual review revisions.
+Run `python3 -O microcontroller/acquisition/check_lifecycle.py --output /tmp/drg-acquisition-lifecycle-check` from the repository root, using a new directory. The [lifecycle evidence](evidence/lifecycle-2026-11-05/review.json) records the finite models, assumptions and revision history.
 
-The [board qualification](board-qualification.md) traces the documented ADC nets, power/reference selection and ownership. J1–J8 are the positive/negative connectors for channels 1–4, not eight independent channel sockets. The [electrical and Ubuntu qualification](qualification.md) separates fresh executable tool checks from physical gates. The user confirmed that no board is available; physical assembly inspection, rail/continuity measurements and programming remain unperformed.
+The [board qualification](board-qualification.md) traces the documented ADC nets, power/reference selection and ownership. J1–J8 are the positive/negative connectors for channels 1–4, not eight independent channel sockets. The [electrical and Ubuntu qualification](qualification.md) separates executable tool checks from physical gates. Physical assembly inspection, rail/continuity measurements and programming remain unperformed because no board was available.
 
 ## Table of contents
 
-| Section |
-| --- |
-| [First implementation contract](contract.md) |
-| [ADC profile](adc-profile.md) |
-| [Timing budget](timing-budget.md) |
-| [Frozen binary formats](formats.md) |
-| [Clock/reset lifecycle](clock-reset-lifecycle.md) |
-| [Control and fault foundation](control-foundation.md) |
-| [Timebase and slot scheduler](slot-scheduler.md) |
-| [Control and scheduler integration](timing-integration.md) |
-| [Synthetic record reservations](record-reservations.md) |
-| [Scheduler and storage integration](storage-integration.md) |
-| [Definition review](review.md) |
-| [Board qualification](board-qualification.md) |
-| [Electrical and Ubuntu qualification](qualification.md) |
-| [Acquisition boundary](#acquisition-boundary) |
-| [Acquisition data path](#acquisition-data-path) |
-| [Acquisition control plane](#acquisition-control-plane) |
-| [Acquisition clocks, crossings and reset](#acquisition-clocks-crossings-and-reset) |
-| [ACQ-01 · Control and register bank](#acq-01--control-and-register-bank) |
-| [ACQ-02 · Power and startup](#acq-02--power-and-startup) |
-| [ACQ-02 · Configuration and service sequence](#acq-02--configuration-and-service-sequence) |
-| [ACQ-03 · Timebase and scheduled slots](#acq-03--timebase-and-scheduled-slots) |
-| [Acquisition baseline timing budget](#acquisition-baseline-timing-budget) |
-| [ACQ-04 · Conversion monitor](#acq-04--conversion-monitor) |
-| [ACQ-05 · Serial ownership and capture](#acq-05--serial-ownership-and-capture) |
-| [ACQ-05 · Pin lease transitions](#acq-05--pin-lease-transitions) |
-| [ACQ-05 · Pipelined register access](#acq-05--pipelined-register-access) |
-| [ACQ-06 · Frame decoder and status](#acq-06--frame-decoder-and-status) |
-| [ACQ-06 · CRC qualification gate](#acq-06--crc-qualification-gate) |
-| [ACQ-07 · Record and validity assembler](#acq-07--record-and-validity-assembler) |
-| [Acquisition records and blocks](#acquisition-records-and-blocks) |
-| [ACQ-08 · Elastic capture FIFO](#acq-08--elastic-capture-fifo) |
-| [ACQ-08 · Ordered epoch closure](#acq-08--ordered-epoch-closure) |
-| [ACQ-09 · Block assembler and capture DMA](#acq-09--block-assembler-and-capture-dma) |
-| [ACQ-09 · Ring ownership](#acq-09--ring-ownership) |
-| [ACQ-10 · Fault and event recorder](#acq-10--fault-and-event-recorder) |
-| [Acquisition controlled stop and tail accounting](#acquisition-controlled-stop-and-tail-accounting) |
-| [ACQ-11 · Interrupts and coalescing](#acq-11--interrupts-and-coalescing) |
-| [ACQ-12 · Analog controls and configuration epochs](#acq-12--analog-controls-and-configuration-epochs) |
-| [Reserved timestamped event input](#reserved-timestamped-event-input) |
-| [Acquisition verification and release gates](#acquisition-verification-and-release-gates) |
+1. Design and qualification
+    1. [First implementation contract](contract.md)
+    2. [ADC profile](adc-profile.md)
+    3. [Timing budget](timing-budget.md)
+    4. [Frozen binary formats](formats.md)
+    5. [Clock/reset lifecycle](clock-reset-lifecycle.md)
+    6. [Control and fault foundation](control-foundation.md)
+    7. [Timebase and slot scheduler](slot-scheduler.md)
+    8. [Control and scheduler integration](timing-integration.md)
+    9. [Synthetic record reservations](record-reservations.md)
+    10. [Scheduler and storage integration](storage-integration.md)
+    11. [Definition review](review.md)
+    12. [Board qualification](board-qualification.md)
+    13. [Electrical and Ubuntu qualification](qualification.md)
+2. Acquisition architecture
+    1. [Acquisition boundary](#acquisition-boundary)
+    2. [Acquisition data path](#acquisition-data-path)
+    3. [Acquisition control plane](#acquisition-control-plane)
+    4. [Acquisition clocks, crossings and reset](#acquisition-clocks-crossings-and-reset)
+3. Acquisition components
+    1. [ACQ-01 · Control and register bank](#acq-01--control-and-register-bank)
+    2. [ACQ-02 · Power and startup](#acq-02--power-and-startup)
+        1. [ACQ-02 · Configuration and service sequence](#acq-02--configuration-and-service-sequence)
+    3. [ACQ-03 · Timebase and scheduled slots](#acq-03--timebase-and-scheduled-slots)
+        1. [Acquisition baseline timing budget](#acquisition-baseline-timing-budget)
+    4. [ACQ-04 · Conversion monitor](#acq-04--conversion-monitor)
+    5. [ACQ-05 · Serial ownership and capture](#acq-05--serial-ownership-and-capture)
+        1. [ACQ-05 · Pin lease transitions](#acq-05--pin-lease-transitions)
+        2. [ACQ-05 · Pipelined register access](#acq-05--pipelined-register-access)
+    6. [ACQ-06 · Frame decoder and status](#acq-06--frame-decoder-and-status)
+        1. [ACQ-06 · CRC qualification gate](#acq-06--crc-qualification-gate)
+    7. [ACQ-07 · Record and validity assembler](#acq-07--record-and-validity-assembler)
+        1. [Acquisition records and blocks](#acquisition-records-and-blocks)
+    8. [ACQ-08 · Elastic capture FIFO](#acq-08--elastic-capture-fifo)
+        1. [ACQ-08 · Ordered epoch closure](#acq-08--ordered-epoch-closure)
+    9. [ACQ-09 · Block assembler and capture DMA](#acq-09--block-assembler-and-capture-dma)
+        1. [ACQ-09 · Ring ownership](#acq-09--ring-ownership)
+    10. [ACQ-10 · Fault and event recorder](#acq-10--fault-and-event-recorder)
+        1. [Acquisition controlled stop and tail accounting](#acquisition-controlled-stop-and-tail-accounting)
+    11. [ACQ-11 · Interrupts and coalescing](#acq-11--interrupts-and-coalescing)
+    12. [ACQ-12 · Analog controls and configuration epochs](#acq-12--analog-controls-and-configuration-epochs)
+        1. [Reserved timestamped event input](#reserved-timestamped-event-input)
+4. [Acquisition verification and release gates](#acquisition-verification-and-release-gates)
 
 The physical recording connection remains undecided. Cultured DRG neurons provide the provisional extracellular target; the initial electrical qualification uses synthetic sources. The proposed analog path combines the [INA819](../../datasheets/ina819.pdf), [OPA2140](../../datasheets/opa2140.pdf) and [AD7606C-18](../../datasheets/ad7606c-18.pdf). The [evaluation-board guide](../../datasheets/eval-ad7606c-fmcz-ug-1870.pdf), [schematic](../../datasheets/eval-ad7606c18fmcz-schematic.pdf) and [layout](../../datasheets/eval-ad7606c18fmcz-layout.pdf) define board constraints. The implementation includes no physical ADC connection or biological recording, and the source interface does not identify a documented neural-sample output from an Abbott system.
 

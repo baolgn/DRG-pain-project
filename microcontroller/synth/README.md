@@ -2,17 +2,15 @@
 
 ## Table of contents
 
-| Section |
-| --- |
-| [Purpose](#purpose) |
-| [Instructions](#instructions) |
-| [Implementation](#implementation) |
+1. [Purpose](#purpose)
+2. [Instructions](#instructions)
+3. [Implementation](#implementation)
 
 ## Purpose
 
 The synthesis tools measure whether the implemented RTL maps and routes for the selected ECP5 target. They generate reports and optional bitstreams; they do not program a board. A successful mapping establishes a particular source/tool result, while successful routing and packing remain hardware-unverified results.
 
-The [current electrical and Ubuntu qualification](../acquisition/qualification.md) links fresh tool/primitive and programmable-CPU builds, with exact target identity and physical limitations. The [tool qualification runner](../qualification/README.md) exercises the selected open-source tool suite without requiring an attached board.
+The [current electrical and Ubuntu qualification](../acquisition/qualification.md) links tool/primitive and programmable-CPU builds, with exact target identity and physical limitations. The [tool qualification runner](../qualification/README.md) exercises the selected open-source tool suite without requiring an attached board.
 
 ## Instructions
 

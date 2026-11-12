@@ -2,11 +2,9 @@
 
 ## Table of contents
 
-| Section |
-| --- |
-| [Purpose](#purpose) |
-| [Instructions](#instructions) |
-| [Implementation](#implementation) |
+1. [Purpose](#purpose)
+2. [Instructions](#instructions)
+3. [Implementation](#implementation)
 
 ## Purpose
 
@@ -24,11 +22,11 @@ python3 microcontroller/synthetic/run_stress.py \
   --skip-endurance
 ```
 
-Use a different fresh output directory and omit `--skip-endurance` to request the full virtual-duration campaign. The runner rejects an existing output directory. It copies source inputs before compilation, retains build and case logs, records exact commands and hashes, and independently reconstructs the binary block ledger before compressing it.
+Use a new output directory and omit `--skip-endurance` to request the full virtual-duration campaign. The runner rejects an existing output directory. It copies source inputs before compilation, retains build and case logs, records exact commands and hashes, and independently reconstructs the binary block ledger before compressing it.
 
 Read `summary.json` and each case's result. Expected containment, a detected deliberate corruption and healthy uninterrupted service are distinct outcomes. A detector passes only when the corresponding ordinary checker emits its expected failure. The full model case accounts for 90 million frames over 1,800 simulated seconds; the declared 64,000-cycle firmware time is an input assumption rather than a measured CPU execution time.
 
-[audit_synthetic.py](audit_synthetic.py) performs a broader evidence audit. It requires an explicitly selected model cohort, CPU cohort, guard simulation and synthesis records, provenance/contract records and replay reports. A fresh `run_stress.py` directory alone does not contain that complete bundle. The complete earlier campaign is not distributed here, so this audit must not be presented as a ready-to-run publication acceptance command. [test_audit_synthetic.py](test_audit_synthetic.py) calibrates that auditor using supplied evidence and deliberate record damage; it does not replace DUT verification.
+[audit_synthetic.py](audit_synthetic.py) performs a broader evidence audit. It requires an explicitly selected model cohort, CPU cohort, guard simulation and synthesis records, provenance/contract records and replay reports. A `run_stress.py` output directory alone does not contain that complete bundle. The complete earlier campaign is not distributed here, so this audit must not be presented as a ready-to-run publication acceptance command. [test_audit_synthetic.py](test_audit_synthetic.py) calibrates that auditor using supplied evidence and deliberate record damage; it does not replace DUT verification.
 
 ## Implementation
 

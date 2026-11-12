@@ -2,11 +2,9 @@
 
 ## Table of contents
 
-| Section |
-| --- |
-| [Purpose](#purpose) |
-| [Instructions](#instructions) |
-| [Implementation](#implementation) |
+1. [Purpose](#purpose)
+2. [Instructions](#instructions)
+3. [Implementation](#implementation)
 
 ## Purpose
 
@@ -25,11 +23,11 @@ python3 microcontroller/release/acceptance.py \
   --output /tmp/drg5-acceptance-units-new
 ```
 
-The output location must be new, must not overlap a sealed evidence directory, and must satisfy the runner's restricted path syntax. A location inside the checkout is permitted only under `.release-runs/`. Execution copies the selected current source into a separate workspace, runs the planned software checks with timeouts and retains logs, hashes and a summary. Review the printed plan before adding `--execute`; select another fresh output for another attempt.
+The output location must be new, must not overlap a sealed evidence directory, and must satisfy the runner's restricted path syntax. A location inside the checkout is permitted only under `.release-runs/`. Execution copies the selected current source into a separate workspace, runs the planned software checks with timeouts and retains logs, hashes and a summary. Review the printed plan before adding `--execute`; use a new output directory for each attempt.
 
 The suite names cover smoke, units, firmware, directed, formal, reference, architectural, synthetic, debug, debug-host and route checks. `all` combines their jobs; it does not turn open architectural omissions or untested physical behavior into a release pass. Several child runners fix the GCC, architectural-tool or OSS CAD Suite location. The planner rejects incompatible overrides for affected suites. Its default smoke suite includes compiler, boot and modeled-acquisition dependencies, so it is not a Python-only self-test.
 
-[bootstrap_tools.py](bootstrap_tools.py) requires `--root` and an explicit `--manifest`. The complete dependency manifest is not distributed here. Consequently, this checkout cannot independently reproduce that installer from a documented download command alone. A supplied manifest must define the expected archive/package hashes and installation layout; the bootstrap checks those inputs, uses a fresh installation root, and retains success or failure logs. `--cache` selects existing downloads and `--download` permits network retrieval. It does not infer substitute versions when inputs are absent.
+[bootstrap_tools.py](bootstrap_tools.py) requires `--root` and an explicit `--manifest`. The complete dependency manifest is not distributed here. Consequently, this checkout cannot independently reproduce that installer from a documented download command alone. A supplied manifest must define the expected archive/package hashes and installation layout; the bootstrap checks those inputs, uses a new installation root, and retains success or failure logs. `--cache` selects existing downloads and `--download` permits network retrieval. It does not infer substitute versions when inputs are absent.
 
 [package_release.py](package_release.py) can create and verify an archive independently of compiler installation. The following commands package host files only:
 
@@ -47,7 +45,7 @@ The package contains the `microcontroller/` and `docs/` trees with a determinist
 | Source | Responsibility |
 | --- | --- |
 | [acceptance.py](acceptance.py) | Builds a fixed software-only command plan, snapshots sources and supervises isolated jobs. |
-| [bootstrap_tools.py](bootstrap_tools.py) | Installs and checks an explicit dependency set under a fresh chosen root. |
+| [bootstrap_tools.py](bootstrap_tools.py) | Installs and checks an explicit dependency set under a new installation root. |
 | [package_release.py](package_release.py) | Implements deterministic packaging, inventory validation and optional verified extraction. |
 | [test_acceptance.py](test_acceptance.py) | Checks acceptance planning, source isolation and supervision behavior. |
 | [test_bootstrap_tools.py](test_bootstrap_tools.py) | Checks dependency-bootstrap handling without supplying a complete install manifest. |

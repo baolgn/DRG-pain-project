@@ -2,9 +2,7 @@
 
 ## Table of contents
 
-| Section |
-| --- |
-| [Evidence record](#evidence-record) |
+1. [Evidence record](#evidence-record)
 
 ## Evidence record
 

@@ -2,9 +2,7 @@
 
 ## Table of contents
 
-| Section |
-| --- |
-| [Evidence record](#evidence-record) |
+1. [Evidence record](#evidence-record)
 
 ## Evidence record
 
@@ -24,7 +22,7 @@ The four detector cases must fail at their named ordinary comparison or contract
 
 The observation adapter has no output feeding CPU execution, no ready/backpressure path and no hardware trace FIFO or circular buffer. A consumer must sample every settled valid record; gaps, overflow and incomplete capture invalidate reconstruction. The real execution runner separately verifies the file-capture schema, contiguous records and mandatory end footer.
 
-Actual review revisions are retained:
+The retained revisions record these changes:
 
 1. Four independent exhaustion/default profiles and all four detectors passed.
 2. Review added coincident exhaustion coverage and concise missing block context. Strict lint rejected a 32-bit logical-negation operand in the new fixture schedule; no warning was waived.

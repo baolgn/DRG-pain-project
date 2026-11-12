@@ -4,12 +4,10 @@ Final revision **04** passes three reproducible schedules, each checking C-disab
 
 ## Table of contents
 
-| Section |
-| --- |
-| [Scope and event model](#scope-and-event-model) |
-| [Requirement-to-test matrix](#requirement-to-test-matrix) |
-| [Proof and structural checks](#proof-and-structural-checks) |
-| [Actual revisions and reassessment](#actual-revisions-and-reassessment) |
+1. [Scope and event model](#scope-and-event-model)
+2. [Requirement-to-test matrix](#requirement-to-test-matrix)
+3. [Proof and structural checks](#proof-and-structural-checks)
+4. [Actual revisions and reassessment](#actual-revisions-and-reassessment)
 
 [summary.json](summary.json) records exact commands, source hashes, simulator/proof outcomes and mapping counts. [aggregate.json](aggregate.json) records totals and their scope. The complete source, seed logs, compressed CSV ledgers, proof logs and compressed mapped netlists remain in [revisions/04-qualification](revisions/04-qualification/). Earlier attempts are retained separately.
 
@@ -51,7 +49,7 @@ Separate native component maps use the pinned open-source tools and classic ABC 
 ## Actual revisions and reassessment
 
 1. Revision 01 passed a directed/seeded smoke run and Python edge replay. Review then added a separate full-wrap write collision for each of the four counter halves and modeled invalid architectural alias probes as traps.
-2. Revision 02 passed the first full simulation, detector, proof and mapping matrix. Self-review found that low LCG bits sampled every four draws left random debug controls repetitive; directed coverage remained valid, but the randomized active-count claim was weak.
+2. Revision 02 passed the first full simulation, detector, proof and mapping matrix. Low LCG bits sampled every four draws left random debug controls repetitive; directed coverage remained valid, but the randomized active-count claim was weak.
 3. Revision 03 changed to xorshift, made the high-low-high driver consume checked DUT data, corrected comment style, and added mandatory active-count coverage. The coverage gate correctly rejected the schedule: frequent resets continually restored inhibited counters, making random counting nearly vacuous. The failed log and complete event CSV remain retained.
 4. Revision 04 uses rare reset and periodic explicit inhibition release, excluding setup edges from random-active coverage. All three schedules, independent replays, five detectors, both inductive proofs, the formal detector and both maps pass with unchanged final sources.
 

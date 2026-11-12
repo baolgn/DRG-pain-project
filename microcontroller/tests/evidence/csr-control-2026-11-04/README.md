@@ -4,9 +4,7 @@ This evidence qualifies the `OP_MACHINE` raw32 packet-entry prototype, not a com
 
 ## Table of contents
 
-| Section |
-| --- |
-| [Genuine review history](#genuine-review-history) |
+1. [Revision history](#revision-history)
 
 The fixture independently decodes supplied instruction bits, reconstructs operand intent, maintains GPR definedness and machine state, and compares the complete terminal packet and trace. It computes CSR read/write permission and suppression from encoded indices, not source values, and models dynamic CSR values from its own pre-edge state. Every accepted identity must have exactly one stage owner. A separate target ledger checks each accepted MMIO effect; memory completion must already be registered before the retirement edge begins.
 
@@ -28,9 +26,9 @@ The final random-address masks are `0xffff`, `0xbfff` and `0xfed7` for seeds 0, 
 
 The pinned simulator is Verilator 5.047 (`v5.046-19-ge9dd6eaaf (mod)`) from OSS CAD Suite 2026-03-01. Tool and bundle hashes are in `tool-binaries.json`. Reproduce with `python3 microcontroller/tests/run_csr_control.py --verilator /path/to/oss-cad-suite/bin/verilator --build /tmp/drg5-csr-control-tests`; the runner always uses the three recorded seeds and strict flags.
 
-## Genuine review history
+## Revision history
 
-1. `revisions/01-resumed/` preserves the inherited incomplete fixture at resumption. Earlier temporary development snapshots were lost when the environment was recreated and are not reconstructed here.
+1. `revisions/01-resumed/` preserves the earliest available incomplete fixture. Earlier development snapshots are unavailable.
 2. `revisions/02-reviewed-fixture/` removes obsolete unused ports, adds a pre-edge registered-response prerequisite, counter write-suppression cases, a fault at a returned-to target, fatal/MRET collision, and initial random cases. The retained preliminary lint log precedes the final ordinary comment additions in this snapshot; the executable build logs bind the compiled revision. This variant's low-bit LCG selection was subsequently found to repeat only two address choices per seed. Its six behavioral runs and fourteen calibrated detector runs passed; the source-bound results remain intermediate because of the subsequently identified coverage weakness.
 
 3. `revisions/03-random-coverage/` preserves the corrected high-bit generator selection, explicit coverage bins/guards, and fuller failure context. It changes test quality without changing production RTL.

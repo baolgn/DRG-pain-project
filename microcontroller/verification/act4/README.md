@@ -2,11 +2,9 @@
 
 ## Table of contents
 
-| Section |
-| --- |
-| [Purpose](#purpose) |
-| [Instructions](#instructions) |
-| [Implementation](#implementation) |
+1. [Purpose](#purpose)
+2. [Instructions](#instructions)
+3. [Implementation](#implementation)
 
 ## Purpose
 
@@ -26,7 +24,7 @@ The runner requires an externally prepared Linux x86-64 tool directory with the 
 
 The source archives originate from [ACT4](https://github.com/riscv/riscv-arch-test/tree/e7fe80bfcea852562e6561e14fca2e4010cfb5ad), [Sail 0.16](https://github.com/riscv/sail-riscv/releases/tag/0.16) and [xPack 15.2.0-1](https://github.com/xpack-dev-tools/riscv-none-elf-gcc-xpack/releases/tag/v15.2.0-1). The [release bootstrap](../../release/README.md) additionally requires a dependency manifest that is not distributed here; the publication therefore does not provide a complete one-command tool installation.
 
-After constructing and validating the required layout, run from the repository root with fresh work, build and evidence directories:
+After constructing and validating the required layout, run from the repository root with new work, build and evidence directories:
 
 ```sh
 python3 microcontroller/verification/act4/run_campaign.py \

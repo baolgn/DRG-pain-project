@@ -4,13 +4,11 @@ This fixture connects the production frontend, fetch engine, compressed buffer a
 
 ## Table of contents
 
-| Section |
-| --- |
-| [Qualified result](#qualified-result) |
-| [Assumptions and limits](#assumptions-and-limits) |
-| [Requirement-to-test matrix](#requirement-to-test-matrix) |
-| [Detector calibration](#detector-calibration) |
-| [Revisions and reassessment](#revisions-and-reassessment) |
+1. [Qualified result](#qualified-result)
+2. [Assumptions and limits](#assumptions-and-limits)
+3. [Requirement-to-test matrix](#requirement-to-test-matrix)
+4. [Detector calibration](#detector-calibration)
+5. [Revisions and reassessment](#revisions-and-reassessment)
 
 The test runner is `microcontroller/tests/run_fence_execution.py`; the testbench is `microcontroller/tests/drg5_fence_execution_tb.sv`. Run `make -C microcontroller/tests fence-execution` with the project's qualified Verilator path, or invoke the runner with `--verilator` and `--build`. The runner retains exact commands, tool output and source SHA-256 values. `+seed=0`, `+seed=1` and `+seed=305419896` drive local reproducible generators. `+debug_owners` adds edge-by-edge physical-owner observations.
 
@@ -25,7 +23,7 @@ Revision 09 passed strict warning-free elaboration for six profiles and three se
 - The fixture models an 8 KiB reset ROM and an 8 KiB writable executable region beginning at `0x00010000`. MMIO lies at `0x40000000`; the external writer's completion register is at `0x40000010`. Instruction fetches into MMIO are rejected by the independently checked offer-range invariant.
 - Ordinary MMIO effects occur exactly once at acceptance. The effect ledger includes reads targeting x0. The separate retirement ledger must account for every effect. A guaranteed rejection returns status 1 and changes no bytes or effect counters.
 - Directed old I offers wait 70 cycles before acceptance. Selected accepted responses wait 70 cycles, or 100 cycles for the two-halfword straddled patch. Ordinary service is seeded independently; D acceptance and response delays are separate. Stress watchdogs are 128 cycles. These are verification schedules, not production real-time budgets.
-- A DMA writer continues on the fixture clock independently of CPU stalls. Its completion flag becomes visible only after the executable write becomes globally visible. The CPU polls that flag, performs FENCE, then FENCE.I. A separate counterexample executes FENCE.I before an unrelated delayed DMA write; old code executes legally while DMA is still pending. This demonstrates why a CPU fence cannot establish another agent's completion.
+- A DMA writer continues on the fixture clock independently of CPU stalls. Its completion flag becomes visible only after the executable write becomes globally visible. The CPU polls that flag, performs FENCE, then FENCE.I. A separate counterexample executes FENCE.I before an unrelated delayed DMA write; old code executes legally while DMA is still pending. This demonstrates why a CPU fence cannot establish the DMA writer's completion.
 - Self-modifying programs have independent metadata specifying the expected new instruction image, while initial physical memory contains old encodings. The oracle never derives expected decoded semantics from RTL expansion. Old buffered bytes and snapshots must be discarded even when their old data happen to represent legal instructions.
 - C-enabled tests include 16-to-16 changes, 32-to-32 changes at a halfword start, and both 16/32-bit width transitions. Non-C tests use word-aligned 32-bit instructions. M is disabled in this fixture; divider/fence composition is covered separately by the event fixture. There is no ACT4/Sail, formal, FPGA timing, programmer or acquisition qualification claim here.
 - This is finite directed and seeded simulation. It does not establish all possible schedules. Early raw FENCE.I serialization prevents allocation of younger architectural pipeline instructions; the reachable stale state tested here is frontend output, parcel buffering and physical fetch ownership.

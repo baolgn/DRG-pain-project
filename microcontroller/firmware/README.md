@@ -2,11 +2,9 @@
 
 ## Table of contents
 
-| Section |
-| --- |
-| [Purpose](#purpose) |
-| [Instructions](#instructions) |
-| [Implementation](#implementation) |
+1. [Purpose](#purpose)
+2. [Instructions](#instructions)
+3. [Implementation](#implementation)
 
 ## Purpose
 
@@ -16,7 +14,7 @@ This directory contains freestanding firmware for the local DRG5 CPU platform. T
 
 Run commands from the repository root. Use Python 3 and a RISC-V GCC/binutils installation that supports the exact architecture attributes checked by [build.py](build.py). The recorded compiler family is xPack RISC-V GCC 15.2.0-1, with GCC 15.2.0 and binutils 2.45. The default installation prefix is `/tmp/drg5-arch-tools/gcc/xpack-riscv-none-elf-gcc-15.2.0-1/bin/riscv-none-elf-`; pass `--prefix` to select another installation. A different toolchain requires a new successful build and audit rather than inheriting earlier results.
 
-The following command creates files in a fresh, empty output directory. It does not program hardware.
+The following command creates files in a new, empty output directory. It does not program hardware.
 
 ```sh
 python3 microcontroller/firmware/build.py \
