@@ -2,13 +2,6 @@
 
 This project studies how dorsal root ganglion signals can be recorded and analyzed to characterize neural activity associated with pain. The immediate goal is a signal-processing platform that preserves raw recordings, sample timing, configuration and data-quality information. Later work will develop recording protocols, investigate candidate biomarkers and evaluate whether controlled modulation can change those signals. Natural oscillations, pathological changes and therapeutic effects remain questions to investigate.
 
-## Table of contents
-
-1. [Installation](#installation)
-2. [Microcontroller](#microcontroller)
-3. [Development and recording requirements](#development-and-recording-requirements)
-4. [Hardware references](#hardware-references)
-
 Extracellular recordings from cultured neurons provide the provisional source model. The physical recording connection remains undecided. Current work implements the microcontroller and synthetic verification infrastructure; biological recording, biomarker validation and therapeutic modulation have not been demonstrated.
 
 ## [Installation](docs/README.md#installation)

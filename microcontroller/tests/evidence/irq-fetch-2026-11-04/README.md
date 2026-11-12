@@ -1,9 +1,5 @@
 # Real-fetch interrupt boundary qualification
 
-## Table of contents
-
-1. [Evidence record](#evidence-record)
-
 ## Evidence record
 
 The actual `drg5_fetch` manager and `drg5_control` machine decoder passed offered

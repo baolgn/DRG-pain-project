@@ -1,9 +1,5 @@
 # Observation adapter qualification
 
-## Table of contents
-
-1. [Evidence record](#evidence-record)
-
 ## Evidence record
 
 Final revision 03 passes **18 schedules, 792 sampled edges and 2,373 checks**, plus four required detector failures. The six elaborations cover default 64-bit identities; separate sequence, epoch and normal-retirement exhaustion; simultaneous sequence/retirement exhaustion; and simultaneous exhaustion of all three. Each runs seeds 0, 1 and 305419896.

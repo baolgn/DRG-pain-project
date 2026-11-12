@@ -1,11 +1,5 @@
 # Configuration and firmware image preparation
 
-## Table of contents
-
-1. [Purpose](#purpose)
-2. [Instructions](#instructions)
-3. [Implementation](#implementation)
-
 ## Purpose
 
 This directory separates FPGA configuration from CPU firmware. A configuration bitstream defines the hardware and boot ROM; an application bank supplies instruction-memory contents for that compatible boot design. The current programming contract names ULX3S v3.1.7 D&M, LFE5U-85F-6BG381C and W25Q128JVSIQ. Those source constants do not establish the identity or readiness of an attached board.

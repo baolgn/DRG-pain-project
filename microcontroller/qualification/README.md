@@ -2,14 +2,6 @@
 
 Ubuntu tool qualification on 2026-11-05 passed for the selected **ULX3S v3.1.7 D&M / LFE5U-85F-6BG381C** build target. No board was available, so assembly inspection, JTAG access, configuration, flash readback, power-cycle boot and ADC electrical measurements are **not performed**. A successful bitstream build is not a physical programming result. See the [electrical review](../acquisition/board-qualification.md) and [overall acquisition qualification](../acquisition/qualification.md) for the separate interface and full-platform gates.
 
-## Contents
-
-1. [Exact target and tools](#exact-target-and-tools)
-2. [Executed checks](#executed-checks)
-3. [Ubuntu reproduction](#ubuntu-reproduction)
-4. [Programming path](#programming-path)
-5. [Evidence and review](#evidence-and-review)
-
 ## Exact target and tools
 
 Host: Ubuntu 26.04.1 LTS, x86-64; host Python 3.13.13. [Native prerequisite identities](evidence/ubuntu-2026-11-05/host-tools.json) record the resolved C++ compiler, Make and Python bytes/version probes. The selected archive is [OSS CAD Suite Linux x64 2026-03-01](https://github.com/YosysHQ/oss-cad-suite-build/releases/tag/2026-03-01), `oss-cad-suite-linux-x64-20260301.tgz`, **705,999,427 bytes**, SHA-256 **`3558d8cf5b88ba224cf8bae872f83bed11cffdde163b130412e20352029c85f1`**. A date tag or command name alone is insufficient. [OSS CAD Suite](https://github.com/YosysHQ/oss-cad-suite-build) supplies the bundled runtime; [nextpnr](https://github.com/YosysHQ/nextpnr) and [Project Trellis](https://github.com/YosysHQ/prjtrellis) provide ECP5 implementation and bitstream support.

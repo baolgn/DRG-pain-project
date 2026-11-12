@@ -2,16 +2,6 @@
 
 DRG5 is a custom RISC-V microcontroller implementation intended to support a future dorsal root ganglion signal processor. The current source provides a five-stage CPU, local memories and peripherals, firmware, simulation and formal verification tools, and FPGA programming support. The complete ADC acquisition engine, recording memory subsystem and biological signal-processing chain remain development targets. Extracellular cultures provide the starting assumption for the eventual recording source; the electrical connection and recording protocol remain unresolved.
 
-## Table of contents
-
-1. [CPU](#cpu)
-2. [Acquisition](#acquisition)
-3. [Memory](#memory)
-4. [Signal processing](#signal-processing)
-5. [Firmware](#firmware)
-6. [Programming and debug](#programming-and-debug)
-7. [Verification and tools](#verification-and-tools)
-
 The intended system keeps acquisition timing independent of CPU execution. That separation is required to preserve sample timing when software stalls or enters an interrupt handler, and to retain timing and stop evidence when debug requests a controlled recording stop. The current acquisition supervisor exercises this boundary with synthetic inputs. It does not contain an AD7606C-18 serial receiver or a complete recording DMA engine.
 
 | Area | Current implementation | Detailed description |

@@ -1,11 +1,5 @@
 # CPU and platform tests
 
-## Table of contents
-
-1. [Purpose](#purpose)
-2. [Instructions](#instructions)
-3. [Implementation](#implementation)
-
 ## Purpose
 
 This directory contains executable testbenches, simulator drivers, proof harnesses and Python orchestration for the DRG5 implementation. A runner selects tools, configurations, seeds and expected outcomes. The SystemVerilog or C++ fixture supplies stimuli and independent checks; the hardware under test remains in [RTL](../rtl/README.md). Keeping those roles separate makes a reported pass traceable to the actual implementation and checker.

@@ -1,9 +1,5 @@
 # Independent forwarding selector evidence
 
-## Table of contents
-
-1. [Evidence record](#evidence-record)
-
 ## Evidence record
 
 `drg5_forward` is a combinational selector for two register operands. It does not decode instructions, determine producer completion, own pipeline tokens, read a register file or authorize architectural effects. The caller supplies source indices/use flags/RF values and three producer descriptors ordered from newest X through M to oldest W.

@@ -2,47 +2,6 @@
 
 Signal processing will derive calibrated traces, quality indicators, spectra and optional event statistics from preserved extracellular recordings. The current implementation exercises the CPU with a small deterministic arithmetic workload. [main.c](../firmware/synthetic/main.c) reads sixteen channel-zero values at frame indices 0, 16, …, 240 from a test-only aperture; [kernel.h](../firmware/synthetic/kernel.h) applies the three-tap second difference `[1, -2, 1]` with zero history at each block boundary. It accumulates squared values and a position-weighted signature modulo 2³², then divides the wrapped square sum by a runtime divisor. These outputs are diagnostic arithmetic values, not physical energy, RMS or a validated neural feature.
 
-## Table of contents
-
-1. Signal-processing architecture
-    1. [Signal-processing boundary](#signal-processing-boundary)
-    2. [Signal-processing data paths](#signal-processing-data-paths)
-2. Processing stages
-    1. [DSP-01 · Raw preservation and analysis ingress](#dsp-01--raw-preservation-and-analysis-ingress)
-    2. [DSP-02 · Validity and provenance gate](#dsp-02--validity-and-provenance-gate)
-        1. [DSP-02 · Streaming state and discontinuities](#dsp-02--streaming-state-and-discontinuities)
-    3. [DSP-03 · Calibration and physical units](#dsp-03--calibration-and-physical-units)
-    4. [DSP-04 · Quality monitor](#dsp-04--quality-monitor)
-    5. [DSP-05 · Fixed-point numerical contract](#dsp-05--fixed-point-numerical-contract)
-        1. [DSP-05 · IIR second-order sections · reference](#dsp-05--iir-second-order-sections--reference)
-    6. [DSP-06 · Coefficients, configuration and state banks](#dsp-06--coefficients-configuration-and-state-banks)
-    7. [DSP-07 · Slow-voltage branch and anti-alias stages](#dsp-07--slow-voltage-branch-and-anti-alias-stages)
-        1. [DSP-07 · Causal polyphase state and timing · reference](#dsp-07--causal-polyphase-state-and-timing--reference)
-    8. [DSP-08 · Spike-band filter](#dsp-08--spike-band-filter)
-    9. [DSP-09 · Optional spike-event detector](#dsp-09--optional-spike-event-detector)
-        1. [DSP-09 · Waveform context and event queues](#dsp-09--waveform-context-and-event-queues)
-    10. [DSP-10 · Segments, overlap and windowing](#dsp-10--segments-overlap-and-windowing)
-        1. [DSP-10 · Observation length and workspace budget](#dsp-10--observation-length-and-workspace-budget)
-    11. [DSP-11 · FFT engine · firmware baseline · reference](#dsp-11--fft-engine--firmware-baseline--reference)
-        1. [DSP-11 · Spectral normalization · reference](#dsp-11--spectral-normalization--reference)
-        2. [DSP-11 · Welch averaging · reference](#dsp-11--welch-averaging--reference)
-        3. [DSP-11 · Spectral summaries](#dsp-11--spectral-summaries)
-    12. [DSP-12 · Event timing, exposure and firing-pattern statistics](#dsp-12--event-timing-exposure-and-firing-pattern-statistics)
-    13. [DSP-13 · Derived-result publication](#dsp-13--derived-result-publication)
-    14. [DSP-14 · Processing scheduler and overload](#dsp-14--processing-scheduler-and-overload)
-        1. [DSP-14 · Workload and memory-service budget](#dsp-14--workload-and-memory-service-budget)
-3. [DSP-15 · Optional FIR / decimation accelerator](#dsp-15--optional-fir--decimation-accelerator)
-    1. [DSP-15 / ACC-01 · Job registers and admission](#dsp-15--acc-01--job-registers-and-admission)
-    2. [DSP-15 / ACC-02 · Coefficient storage](#dsp-15--acc-02--coefficient-storage)
-    3. [DSP-15 / ACC-03 · Channel history and state checkpoints](#dsp-15--acc-03--channel-history-and-state-checkpoints)
-    4. [DSP-15 / ACC-04 · Bounded job sequencer](#dsp-15--acc-04--bounded-job-sequencer)
-    5. [DSP-15 / ACC-05 · Signed multiply-accumulate datapath](#dsp-15--acc-05--signed-multiply-accumulate-datapath)
-    6. [DSP-15 / ACC-06 · Output scaling and numerical status](#dsp-15--acc-06--output-scaling-and-numerical-status)
-    7. [DSP-15 / ACC-07 · DMA adapters and elastic buffers](#dsp-15--acc-07--dma-adapters-and-elastic-buffers)
-    8. [DSP-15 / ACC-08 · Atomic commit and terminal arbitration](#dsp-15--acc-08--atomic-commit-and-terminal-arbitration)
-        1. [DSP-15 / ACC-08 · Cancellation, containment and reset](#dsp-15--acc-08--cancellation-containment-and-reset)
-4. [Signal-processing verification and release gates](#signal-processing-verification-and-release-gates)
-
 | Area | Current implementation or verification | Proposed extension |
 | --- | --- | --- |
 | Firmware workload | Compiled RV32IMC firmware performs integer loads, filtering, multiplication and division. The foreground owns arithmetic; the trap handler queues block identity. | Process admitted full-channel workloads with explicit numerical, timing and workspace budgets. |

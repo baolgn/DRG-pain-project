@@ -4,15 +4,6 @@ Reviewed 2026-11-05 on `feature/acquisition-engine`, starting from `584743d`. **
 
 This result must not be promoted to a physical pass because a schematic, example inventory, successful compiler or programmable file exists. The [inspection record](board-inventory.json) retains unknown physical observations as null. Acquisition remains unavailable until its physical gates close.
 
-## Contents
-
-1. [Qualification ledger](#qualification-ledger)
-2. [Electrical findings and corrections](#electrical-findings-and-corrections)
-3. [Complete CPU build](#complete-cpu-build)
-4. [Reproducing the Ubuntu path](#reproducing-the-ubuntu-path)
-5. [Programming and physical acceptance](#programming-and-physical-acceptance)
-6. [Verification records](#verification-records)
-
 ## Qualification ledger
 
 | Gate | Result and evidence |

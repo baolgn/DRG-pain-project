@@ -1,9 +1,5 @@
 # Complete debug-wrapper qualification, 4 November 2026
 
-## Table of contents
-
-1. [Evidence record](#evidence-record)
-
 ## Evidence record
 
 The final revision exercises the actual JTAG transport, Debug Module, CPU, frontend and wrapper guards. Debug operations enter only through public JTAG pins. Independent synchronous instruction, CPU-data and SBA targets retain their own descriptors and count effects at acceptance. No hierarchical DMI injection or internal-state modification is used.

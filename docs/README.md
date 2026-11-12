@@ -2,13 +2,6 @@
 
 This directory describes the requirements and qualification work that connect the implemented digital platform to the intended DRG recording system. The [development workflow](pre-coding-workflow.md) covers source definition, analog feasibility, acquisition timing, memory ownership and staged integration. Cultured extracellular sources remain provisional, and biological protocols, biomarker validation and modulation remain future work.
 
-## Table of contents
-
-1. [Installation](#installation)
-2. [First simulation check](#first-simulation-check)
-3. [Documentation map](#documentation-map)
-4. [Recording and biological scope](#recording-and-biological-scope)
-
 ## Installation
 
 Clone the repository as described in the [project overview](../README.md#installation). Development uses free and open-source tools on Ubuntu. The source can be obtained on Windows or macOS, but the current build helpers include POSIX process handling and fixed Linux tool paths. Native Windows, WSL and macOS execution remain unverified; an Ubuntu environment needs its own validation when hosted on another operating system.

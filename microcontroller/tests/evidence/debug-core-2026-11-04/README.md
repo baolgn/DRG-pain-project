@@ -1,9 +1,5 @@
 # CPU debug qualification, 4 November 2026
 
-## Table of contents
-
-1. [Evidence record](#evidence-record)
-
 ## Evidence record
 
 The final matrix checks the Debug 1.0 CPU controls through public halt/resume and abstract-register ports. Four C/diagnostic configurations each pass seeds 0, 1 and 305419896. Each run executes twenty directed scenarios with seeded request-acceptance and response delays. The [summary](summary.json) binds exact sources and commands; [aggregate](aggregate.json) separates simulation totals from detector calibration.

@@ -1,9 +1,5 @@
 # RV32M unit qualification, 2026-11-04
 
-## Table of contents
-
-1. [Evidence record](#evidence-record)
-
 ## Evidence record
 
 The standalone unit passes the three seeded runs, five detector calibrations, strict Verilator build, and ECP5 synthesis recorded in `summary.json`. This is component evidence; pipeline dependency, exception, and interrupt ordering require the separate integrated-core tests.

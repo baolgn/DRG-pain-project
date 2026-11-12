@@ -1,11 +1,5 @@
 # Synthetic acquisition and processing stress model
 
-## Table of contents
-
-1. [Purpose](#purpose)
-2. [Instructions](#instructions)
-3. [Implementation](#implementation)
-
 ## Purpose
 
 This directory contains a native C++ event model for acquisition records, buffer ownership, host backpressure and a deterministic integer workload. It complements the [RTL CPU workload](../firmware/synthetic/README.md). Its 1,800-second case advances simulated time and uses an assumed firmware service time; it does not execute thirty minutes of CPU RTL or validate a physical recording system.

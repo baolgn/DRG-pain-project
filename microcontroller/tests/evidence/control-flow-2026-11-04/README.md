@@ -1,9 +1,5 @@
 # Control-flow integration evidence
 
-## Table of contents
-
-1. [Evidence record](#evidence-record)
-
 ## Evidence record
 
 This qualification executes the packet-control prototype with real branch/JAL/JALR decode, immediate extraction, register-bank source reads, dependency stalls, X execution and W-only architectural commitment. It is not full CPU or ISA conformance. Ordinary non-control packets still supply precomputed operations. Two-byte control packets carry trusted externally expanded instructions; there is no compressed decoder in this integration.

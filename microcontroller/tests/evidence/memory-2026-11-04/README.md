@@ -1,9 +1,5 @@
 # Decoded-memory integration evidence
 
-## Table of contents
-
-1. [Evidence record](#evidence-record)
-
 ## Evidence record
 
 This qualification exercises real raw-32 OP_MEMORY load/store decode, real RF operand capture and dependency handling, X effective-address/lane formation, pre-offer permission checks, and a surviving single-request manager through terminal disposition or containment. It remains a packet-control prototype, not a complete CPU or ISA-conformance result. C_ENABLED stays 0 in this fixture; C1 mapping and migrated control/event tests have separate evidence. Non-memory/control setup operations remain explicit synthetic packets.

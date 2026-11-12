@@ -6,35 +6,6 @@ The [acquisition control peripheral](drg5_acquisition_control.sv) implements lif
 
 The [record ledger](drg5_acquisition_records.sv) and [storage adapter](drg5_acquisition_storage.sv) add reserved, ordered complete-record storage with synthetic capture and DMA peers. They run on one acquisition clock and preserve owners through backpressure and cancellation. Their [integration contract](../acquisition/storage-integration.md) leaves asynchronous FIFO qualification, actual DMA writes and CPU board connection open.
 
-## Table of contents
-
-1. CPU architecture
-    1. [CPU boundary](#cpu-boundary)
-    2. [Five-stage pipeline](#five-stage-pipeline)
-    3. [Pipeline control and retirement](#pipeline-control-and-retirement)
-    4. [Elastic stage transfer](#elastic-stage-transfer)
-2. CPU components
-    1. [CPU-01 · Reset, PC and redirects](#cpu-01--reset-pc-and-redirects)
-    2. [CPU-02 · Fetch adapter and buffer](#cpu-02--fetch-adapter-and-buffer)
-    3. [CPU-03 · Alignment and compressed instructions](#cpu-03--alignment-and-compressed-instructions)
-    4. [CPU-04 · Decoder and immediates](#cpu-04--decoder-and-immediates)
-    5. [CPU-05 · Register file](#cpu-05--register-file)
-    6. [CPU-06 · Forwarding and hazards](#cpu-06--forwarding-and-hazards)
-    7. [CPU-07 · ALU and shifter](#cpu-07--alu-and-shifter)
-    8. [CPU-08 · Branches and jumps](#cpu-08--branches-and-jumps)
-    9. [CPU-09 · Multiplier](#cpu-09--multiplier)
-    10. [CPU-10 · Divide and remainder](#cpu-10--divide-and-remainder)
-    11. [CPU-11 · Load/store unit](#cpu-11--loadstore-unit)
-        1. [CPU-11 · First-valid MMIO obligation](#cpu-11--first-valid-mmio-obligation)
-    12. [CPU-12 · Retirement and precise traps](#cpu-12--retirement-and-precise-traps)
-    13. [CPU-13 · CSR and system instructions](#cpu-13--csr-and-system-instructions)
-    14. [CPU-14 · Interrupts and idle](#cpu-14--interrupts-and-idle)
-    15. [CPU-15 · FENCE and FENCE.I](#cpu-15--fence-and-fencei)
-    16. [CPU-16 · Counters and trace](#cpu-16--counters-and-trace)
-    17. [CPU-17 · Debug integration](#cpu-17--debug-integration)
-        1. [CPU-17 · Halt, resume and single-step](#cpu-17--halt-resume-and-single-step)
-3. [CPU verification boundaries](#cpu-verification-boundaries)
-
 The source distinguishes feature availability from a particular instantiated profile. [drg5_control.sv](drg5_control.sv) disables M, C, interrupts, debug and Zifencei by default and enables its diagnostic single-instruction mode by default. [drg5_soc.sv](drg5_soc.sv) selects overlapping execution, enables M and C by default, and explicitly enables interrupts, the timer and Zifencei. It leaves CPU debug disabled. [drg5_debug_system.sv](drg5_debug_system.sv) supplies a separate debug integration path. A successful test of one profile does not qualify another configuration.
 
 The implementation has real F, D, X, M and W token ownership. The external [frontend](drg5_frontend.sv) fetches and assembles original instruction bytes before presenting a packet to F. Compressed expansion and decode occur in D. Branch targets are calculated in X and carried to W; the current control commits branch and jump redirects at W. No early X-stage branch redirect is implemented.

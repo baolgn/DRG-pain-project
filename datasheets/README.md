@@ -2,12 +2,6 @@
 
 This directory retains the manufacturer PDFs used to evaluate the proposed recording electronics. The selected chain combines the AD7606C-18 evaluation system, INA819 instrumentation amplifier and OPA2140 operational amplifier. The [development workflow](../docs/pre-coding-workflow.md) applies these documents to source loading, gain, noise, headroom, filtering and interface requirements. Component specifications do not establish the performance of an assembled recording system.
 
-## Table of contents
-
-1. [Converter and evaluation board](#converter-and-evaluation-board)
-2. [Amplifiers](#amplifiers)
-3. [Supporting application notes](#supporting-application-notes)
-
 ## Converter and evaluation board
 
 The converter datasheet defines device behavior, while the evaluation-board documents describe the supplied board and its connections. Board revision, population, power and logic-level compatibility require inspection before electrical integration.

@@ -4,19 +4,6 @@ Contract **ACQ-R1, revision 4**, 2026-11-05. MUST, MUST NOT and REJECT are norma
 
 The normative [ACQ-R1-CDC1 lifecycle supplement](clock-reset-lifecycle.md) defines fixed clock domains, coherent crossings, retained ownership and distinct reset scopes. It preserves revision 4's byte encoding; qualification metadata additionally binds the supplement and implemented crossing/reset design. Reset release and link readiness never imply ARM, completion or free storage.
 
-## Contents
-
-1. [Input boundary and supported profile](#input-boundary-and-supported-profile)
-2. [Configuration and commands](#configuration-and-commands)
-3. [States and transitions](#states-and-transitions)
-4. [Epochs and identity](#epochs-and-identity)
-5. [Cadence and timestamp meaning](#cadence-and-timestamp-meaning)
-6. [Conversion outcomes and validity](#conversion-outcomes-and-validity)
-7. [Records and block publication](#records-and-block-publication)
-8. [Stop, loss and restart](#stop-loss-and-restart)
-9. [Events, interrupts and CPU responsibilities](#events-interrupts-and-cpu-responsibilities)
-10. [Existing implementation and release gates](#existing-implementation-and-release-gates)
-
 ## Input boundary and supported profile
 
 **Conditioned analog voltages enter the ADC.** The digital engine begins at the ADC control/data pins. The source, protection, amplification, reference arrangement, DC management, anti-alias filtering and ADC drive belong to the qualified external analog chain. A digital-valid record is not proof of electrode continuity, biological meaning, analog headroom or safe biological connection. The undecided Abbott connection supplies **no assumed recording interface, sample stream, connector, protocol or timing source**. Initial qualification uses synthetic electrical sources.

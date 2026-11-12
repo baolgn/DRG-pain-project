@@ -1,9 +1,5 @@
 # Control-flow event evidence
 
-## Table of contents
-
-1. [Evidence record](#evidence-record)
-
 ## Evidence record
 
 This follow-up executes previously source-reviewed event interactions of the existing packet-control prototype. It does not add production RTL or establish full CPU/ISA conformance. Branch/JAL instructions use actual decode and X execution. CSR, MRET, load and ordinary result operations are explicit synthetic packets; no CSR instruction decoder, compressed decoder or production CPU top is claimed.

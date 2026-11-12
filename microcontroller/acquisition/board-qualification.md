@@ -2,15 +2,6 @@
 
 Reviewed 2026-11-05 for ACQ-R1 and the selected ULX3S v3.1.7 D&M target, LFE5U-85F-6BG381C. **Physical qualification has not passed: no board was available for inspection or testing.** This document verifies drawing-level routes, identifies a feasible integration direction and records the measurements needed before approving a connection. It is not a verified cable pinout or an instruction to power an uninspected assembly.
 
-## Contents
-
-1. [Evidence and actual-assembly status](#evidence-and-actual-assembly-status)
-2. [Analog input routing](#analog-input-routing)
-3. [Power, enable and reference ownership](#power-enable-and-reference-ownership)
-4. [Digital routes and exclusive owners](#digital-routes-and-exclusive-owners)
-5. [Voltage and timing compatibility](#voltage-and-timing-compatibility)
-6. [Inspection and release record](#inspection-and-release-record)
-
 ## Evidence and actual-assembly status
 
 The supplied [board research](evidence/board-research-2026-11-03.md) was used and rechecked against the repository PDFs. The archived copy preserves the exact bytes supplied at `/home/bluto/Desktop/dorsalGanglionProject/docs/research/evaluation-board.md`; its old `microcontrollerProject` source links are historical paths. Use the portable PDF links below. The drawing revisions are different and must be matched to a future physical assembly, not silently treated as one inspected revision.

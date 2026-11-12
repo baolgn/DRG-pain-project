@@ -1,9 +1,5 @@
 # Fetch-to-control verification bridge
 
-## Table of contents
-
-1. [Evidence record](#evidence-record)
-
 ## Evidence record
 
 This non-C fixture connects the existing instruction manager and assembly buffer to `OP_CONTROL` packets using the original fetched PC, raw bytes, byte-valid mask, original length and fetch-fault metadata. Control's registered redirect feeds fetch's restart input. This is a verification bridge, not production frontend integration or a complete CPU.

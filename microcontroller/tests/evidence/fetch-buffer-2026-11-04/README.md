@@ -1,9 +1,5 @@
 # Fetch assembly buffer evidence
 
-## Table of contents
-
-1. [Evidence record](#evidence-record)
-
 ## Evidence record
 
 The focused behavioral test covers the independent `drg5_fetch_buffer` component. The positive run passed **622,653 edges, 1,015,909 checks and 196,608 prefix cases**: every 16-bit prefix in the default non-C configuration and at both halfword positions with `C_FETCH=1`. The latter enables instruction framing only; no compressed decoder or C ISA implementation is claimed.

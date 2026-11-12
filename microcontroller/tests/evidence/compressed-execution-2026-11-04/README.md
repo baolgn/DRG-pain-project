@@ -1,9 +1,5 @@
 # Mixed-width execution qualification, 4 November 2026
 
-## Table of contents
-
-1. [Evidence record](#evidence-record)
-
 ## Evidence record
 
 The real `drg5_frontend` and `drg5_control` pass six configurations × three seeds, with four calibrated negative controls. [summary.json](summary.json) binds the actual RTL, fixture, runner and Makefile. [aggregate.json](aggregate.json) independently totals the positive results.

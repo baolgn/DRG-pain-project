@@ -1,9 +1,5 @@
 # IRQ/WFI integration qualification
 
-## Table of contents
-
-1. [Evidence record](#evidence-record)
-
 ## Evidence record
 
 `summary.json` binds each passing run to exact source hashes, the Verilator version, full commands and the final source snapshot. `c0/` and `c1/` retain complete compilation, simulation and calibrated failure logs. C1 changes alignment configuration only; the tested instruction stream remains raw RV32I/Zicsr. This is not ACT4/Sail or complete-core qualification.

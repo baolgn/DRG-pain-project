@@ -1,11 +1,5 @@
 # Synthetic CPU firmware
 
-## Table of contents
-
-1. [Purpose](#purpose)
-2. [Instructions](#instructions)
-3. [Implementation](#implementation)
-
 ## Purpose
 
 This workload runs compiled RV32IMC firmware on the implemented CPU while a simulation supplies acquisition, shared-memory and host-service traffic. Its `SYNTH80` profile uses a nominal 80 MHz time scale. That name does not establish a physical FPGA frequency, an ADC interface, external-memory qualification or an end-to-end recording result.

@@ -2,40 +2,6 @@
 
 The memory subsystem supplies executable storage, CPU data, peripheral access and eventual acquisition buffering. The current [drg5_local_fabric.sv](../rtl/drg5_local_fabric.sv) implements synchronous local ROM/RAM and MMIO with separate instruction and data request paths. The [drg5_irq_platform.sv](../rtl/drg5_irq_platform.sv) supplies timer and retained interrupt registers. The `dram` array in the local fabric means local data RAM; it is not an external DRAM controller.
 
-## Table of contents
-
-1. Memory architecture
-    1. [Memory topology](#memory-topology)
-    2. [Memory planning budget](#memory-planning-budget)
-2. Memory components
-    1. [MEM-01 · Address map and access guards](#mem-01--address-map-and-access-guards)
-    2. [MEM-02 · Request and response ownership](#mem-02--request-and-response-ownership)
-        1. [MEM-02 · RV32 byte lanes](#mem-02--rv32-byte-lanes)
-        2. [MEM-02 · Optional Wishbone Classic bridge](#mem-02--optional-wishbone-classic-bridge)
-    3. [MEM-03 · Bounded arbitration](#mem-03--bounded-arbitration)
-    4. [MEM-04 · Boot ROM and independent recovery](#mem-04--boot-rom-and-independent-recovery)
-    5. [MEM-05 · Local instruction RAM](#mem-05--local-instruction-ram)
-        1. [MEM-05 · Executable-memory publication](#mem-05--executable-memory-publication)
-    6. [MEM-06 · Local data RAM](#mem-06--local-data-ram)
-    7. [MEM-07 · Shared working-memory regions](#mem-07--shared-working-memory-regions)
-        1. [MEM-07 · Descriptor and allocation guard](#mem-07--descriptor-and-allocation-guard)
-        2. [MEM-07 · Block visibility and leases](#mem-07--block-visibility-and-leases)
-    8. [MEM-08 · External working-RAM adapter](#mem-08--external-working-ram-adapter)
-    9. [MEM-09 · Optional parity or ECC](#mem-09--optional-parity-or-ecc)
-        1. [MEM-09 · Partial-codeword writes](#mem-09--partial-codeword-writes)
-    10. [MEM-10 · Register and peripheral bridge](#mem-10--register-and-peripheral-bridge)
-    11. [MEM-11 · Persistent flash controller](#mem-11--persistent-flash-controller)
-    12. [MEM-12 · Boot and recovery policy · firmware](#mem-12--boot-and-recovery-policy--firmware)
-        1. [MEM-12 · Trial execution and confirmation · firmware](#mem-12--trial-execution-and-confirmation--firmware)
-    13. [MEM-13 · Firmware update policy · firmware](#mem-13--firmware-update-policy--firmware)
-    14. [MEM-14 · Configuration and calibration journal · firmware](#mem-14--configuration-and-calibration-journal--firmware)
-        1. [MEM-14 · Journal reclamation · firmware](#mem-14--journal-reclamation--firmware)
-    15. [MEM-15 · Memory-domain crossings](#mem-15--memory-domain-crossings)
-        1. [MEM-15 · Timeout and late-effect containment](#mem-15--timeout-and-late-effect-containment)
-        2. [MEM-15 · Reset scopes and ownership](#mem-15--reset-scopes-and-ownership)
-    16. [MEM-16 · Initialization, tests and telemetry](#mem-16--initialization-tests-and-telemetry)
-3. [Memory verification and release gates](#memory-verification-and-release-gates)
-
 | Current region | Address span | Capacity and behavior |
 | --- | --- | --- |
 | Boot ROM | `0x00000000`–`0x00001fff` | 8 KiB; instruction fetch and data reads, with writes rejected. |

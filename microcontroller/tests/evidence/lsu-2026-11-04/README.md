@@ -1,9 +1,5 @@
 # Independent data-access helper evidence
 
-## Table of contents
-
-1. [Evidence record](#evidence-record)
-
 ## Evidence record
 
 `drg5_lsu` is a combinational permission and byte-lane helper. It does not decode instructions, own bus requests, interpret response status, retire instructions, implement a timer or publish modified code.

@@ -1,9 +1,5 @@
 # Encoded base execution and forwarding evidence
 
-## Table of contents
-
-1. [Evidence record](#evidence-record)
-
 ## Evidence record
 
 This evidence qualifies raw RV32I execution through the packet prototype and compares its architectural behavior with diagnostic scheduling, conservative overlap and forwarding. It does not qualify a production CPU top, a complete B0 milestone, Sail comparison or ACT4 execution. The instruction producer is an immutable testbench program adapter; instruction-access faults are supplied by that adapter.

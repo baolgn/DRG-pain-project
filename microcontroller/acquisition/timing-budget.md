@@ -4,18 +4,6 @@ This timing allocation was introduced by **ACQ-R1 revision 3** and remains requi
 
 The arithmetic fits the allocations below; **physical timing closure has not passed**. There is no inspected board, approved adapter, routed acquisition receiver, characterized translator or independent supervisor. Unknown physical delays are release blockers, not zero-delay paths. `ACQ-R1_AVAILABLE` remains false. No ADC state machine or new hardware behavior is implemented here.
 
-## Contents
-
-1. [ADC requirements](#adc-requirements)
-2. [Controller clock and event budget](#controller-clock-and-event-budget)
-3. [Exact transfer edges](#exact-transfer-edges)
-4. [Pin timing and capture closure](#pin-timing-and-capture-closure)
-5. [BUSY synchronization](#busy-synchronization)
-6. [Startup and register service](#startup-and-register-service)
-7. [Storage and closure](#storage-and-closure)
-8. [Independent supervision and every wait](#independent-supervision-and-every-wait)
-9. [Acceptance and repeated review](#acceptance-and-repeated-review)
-
 ## ADC requirements
 
 Source: the pinned [AD7606C-18 Rev. B](../../datasheets/ad7606c-18.pdf), SHA-256 `73b8892ab44ca4291b8c145df3e0d5d1abee2149c962be3a88e381c3e3e4f007`. Printed pp. 9–10, Table 3, and p. 12, Table 5/Figure 6 were checked against the [official datasheet](https://www.analog.com/media/en/technical-documentation/data-sheets/ad7606c-18.pdf). These are silicon limits, distinct from the controller choices below.

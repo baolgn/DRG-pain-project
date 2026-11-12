@@ -1,9 +1,5 @@
 # Independent branch unit evidence
 
-## Table of contents
-
-1. [Evidence record](#evidence-record)
-
 ## Evidence record
 
 `drg5_branch` is a combinational decoded-operation unit. It implements BEQ, BNE, BLT, BGE, BLTU, BGEU, JAL and JALR calculations; it does not decode instruction bits, read/write a register file, publish a redirect, retire an instruction or implement traps.
