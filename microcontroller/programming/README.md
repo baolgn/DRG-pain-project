@@ -8,6 +8,8 @@ The [current qualification](../acquisition/qualification.md) records that no boa
 
 ## Instructions
 
+For the pinned tool layout below, use an Ubuntu x86-64 shell through [Windows WSL2](../../docs/README.md#windows-powershell-and-wsl) or a [VM or remote host from macOS](../../docs/README.md#linux-only-toolchains). Executing hardware operations also requires the device to be attached to that Linux host and visible through its USB interfaces; entering the shell alone does not provide device access.
+
 [image.py](image.py) validates a completed `imc` firmware build and creates a bank file using the canonical [boot-rom.hex](boot-rom.hex). It checks ELF and image provenance, ROM compatibility, sizes, entry points, CRCs and generation fields. This operation writes host files only. Obtain the exact input paths from the new [firmware build](../firmware/README.md), then inspect the image builder's interface:
 
 ```sh

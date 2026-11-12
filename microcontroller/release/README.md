@@ -6,7 +6,7 @@ These tools prepare isolated acceptance runs, install tools from an explicit dep
 
 ## Instructions
 
-Run commands from the repository root using Python 3 in the Ubuntu/Linux environment. Acceptance execution also needs the tools required by each selected suite. Process supervision, the isolated Ruby setup and several child runners use Linux-specific paths and facilities. Native Windows, WSL and macOS have not been validated.
+Run commands from the repository root using Python 3 in the Ubuntu/Linux environment. Acceptance execution also needs the tools required by each selected suite. Process supervision, the isolated Ruby setup and several child runners use Linux-specific paths and facilities. On Windows, enter [Ubuntu WSL2](../../docs/README.md#windows-powershell-and-wsl); on macOS, use an Ubuntu x86-64 VM or [remote Linux host](../../docs/README.md#linux-only-toolchains). WSL and VM runs must establish their own results.
 
 [acceptance.py](acceptance.py) prints a plan unless `--execute` is supplied. Planning exposes the exact child commands, tool paths, selected scope and output workspace without launching hardware operations:
 

@@ -6,6 +6,8 @@ This workload runs compiled RV32IMC firmware on the implemented CPU while a simu
 
 ## Instructions
 
+Run these commands in an Ubuntu Linux x86-64 shell: [enter WSL2 on Windows](../../../docs/README.md#windows-powershell-and-wsl), or use an Ubuntu x86-64 VM or [remote host from macOS](../../../docs/README.md#linux-only-toolchains).
+
 The [build wrapper](build.py) reuses the parent firmware builder's image-extraction and command-logging helpers. It requires the fixed xPack compiler prefix documented in [firmware setup](../README.md); this wrapper has no compiler-prefix option. Use a new output directory:
 
 ```sh

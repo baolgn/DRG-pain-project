@@ -53,6 +53,8 @@ The full CPU's previous 80 MHz route failed and its P25 profile has a separate r
 
 ## Ubuntu reproduction
 
+Run this Linux x86-64 workflow inside [Ubuntu WSL2 on Windows](../../docs/README.md#windows-powershell-and-wsl), or an Ubuntu x86-64 VM or [remote host from macOS](../../docs/README.md#linux-only-toolchains). The pinned archive cannot run in native PowerShell, macOS, or an ARM Linux guest.
+
 The GTKWave stage requires access to a graphical display. The commands below create new directories and do not change hardware. Independent installation reproducibility remains unverified. Install the Ubuntu prerequisites using the distribution package manager:
 
 ```sh

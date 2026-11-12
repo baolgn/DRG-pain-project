@@ -17,8 +17,10 @@ The **[binary formats](formats.md)** freeze revision 4's 48-byte records, 64-byt
 Reproduce the format check from the repository root with Python 3, choosing a new output directory for each attempt:
 
 ```sh
-PYTHONDONTWRITEBYTECODE=1 python3 -O microcontroller/acquisition/check_formats.py --output /tmp/drg-acquisition-formats-check
+python3 -B -O microcontroller/acquisition/check_formats.py --output /tmp/drg-acquisition-formats-check
 ```
+
+The [cross-platform Python instructions](../../docs/README.md#python-only-checks) provide Linux, macOS and native Windows PowerShell commands for the format, timing and lifecycle checks.
 
 The runner retains source snapshots, binary golden vectors and individual positive/negative results. Its predicates remain active under `-O`. See the [format review](evidence/formats-2026-11-05/review.json) for the retained revision history and current result.
 

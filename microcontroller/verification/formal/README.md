@@ -6,7 +6,7 @@ These runners check production controller and fetch RTL under explicit harness a
 
 ## Instructions
 
-Use an Ubuntu/Linux OSS CAD Suite installation containing Yosys with the slang plugin, SymbiYosys (`sby`) and `yices-smt2`. The controller runners explicitly load slang; a Yosys build without that plugin is insufficient. The fetch runner also uses the selected suite. Native Windows, WSL and macOS execution has not been validated.
+Use an Ubuntu/Linux OSS CAD Suite installation containing Yosys with the slang plugin, SymbiYosys (`sby`) and `yices-smt2`. The controller runners explicitly load slang; a Yosys build without that plugin is insufficient. The fetch runner also uses the selected suite. On Windows, enter [Ubuntu WSL2](../../../docs/README.md#windows-powershell-and-wsl); on macOS, use an Ubuntu x86-64 VM or [remote Linux host](../../../docs/README.md#linux-only-toolchains). Run the commands below in that Linux shell and retain its own proof results.
 
 Run from the repository root and provide a build directory that does not exist:
 

@@ -8,7 +8,7 @@ The [current electrical and Ubuntu qualification](../acquisition/qualification.m
 
 ## Instructions
 
-Use the Ubuntu/Linux x86-64 OSS CAD Suite layout required by [run_fpga.py](run_fpga.py). The runner invokes Yosys with the slang frontend, nextpnr-ecp5, ecppack and ecppll, and records tool and database hashes. It also invokes the suite's Linux dynamic loader and bundled libraries explicitly. Merely installing commands with matching names on `PATH` does not satisfy that layout. Windows, WSL and macOS are unverified; the explicit Linux loader prevents treating this runner as a native cross-platform script.
+Use the Ubuntu/Linux x86-64 OSS CAD Suite layout required by [run_fpga.py](run_fpga.py). The runner invokes Yosys with the slang frontend, nextpnr-ecp5, ecppack and ecppll, and records tool and database hashes. It also invokes the suite's Linux dynamic loader and bundled libraries explicitly. Merely installing commands with matching names on `PATH` does not satisfy that layout. On Windows, run these commands inside [Ubuntu WSL2](../../docs/README.md#windows-powershell-and-wsl); on macOS, use an Ubuntu x86-64 VM or [remote Linux host](../../docs/README.md#linux-only-toolchains). The explicit Linux loader excludes native PowerShell and macOS execution, and each WSL or VM run requires its own successful checks.
 
 Build firmware first using [firmware/build.py](../firmware/README.md). The generic runner requires `rom.hex`, `iram.hex` and `firmware.elf`, plus the selected board wrapper, LPF constraints, top module, clock and tool directory. Inspect its arguments before selecting a new target:
 

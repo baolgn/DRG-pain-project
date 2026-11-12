@@ -6,7 +6,7 @@ This directory contains a native C++ event model for acquisition records, buffer
 
 ## Instructions
 
-Use Python 3, a C++20-capable `g++`, zlib development files and the Linux `ldd` utility. Ubuntu supplies these through its Python, build-essential and zlib development packages. The wrapper locates `g++` on `PATH`, records its identity and links the model against zlib. Captured execution supports the Ubuntu/Linux environment; native Windows, WSL and macOS remain unverified, and the runtime-linkage recording explicitly uses Linux tooling.
+Use Python 3, a C++20-capable `g++`, zlib development files and the Linux `ldd` utility. Ubuntu supplies these through its Python, build-essential and zlib development packages. The wrapper locates `g++` on `PATH`, records its identity and links the model against zlib. Run the commands below in [Ubuntu WSL2 on Windows](../../docs/README.md#windows-powershell-and-wsl), or an Ubuntu x86-64 VM or [remote host from macOS](../../docs/README.md#linux-only-toolchains). The runtime-linkage recording requires Linux tooling; retained results do not validate a new WSL or VM installation.
 
 A short campaign executes the normal service, containment and deliberately corrupted cases while omitting the 1,800-second case:
 

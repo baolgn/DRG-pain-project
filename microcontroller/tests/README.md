@@ -8,6 +8,8 @@ This directory contains executable testbenches, simulator drivers, proof harness
 
 Run examples from the repository root with Python 3, a host C++ toolchain and Verilator. Checks that include synthesis or proof also require the appropriate Yosys frontend and solver. The [formal guide](../verification/formal/README.md) describes the slang/SymbiYosys/Yices flow; it differs from the built-in Yosys SAT induction used by some unit runners. The Makefile also uses `rg` for named failure detection. C++ trace and synthetic drivers may require zlib development files.
 
+The [first simulation check](../../docs/README.md#first-simulation-check) includes Linux, Windows/WSL and native macOS command examples for the configurable fetch-buffer runner. For the pinned tool paths and larger campaigns below, use [Ubuntu WSL2 on Windows](../../docs/README.md#windows-powershell-and-wsl) or an Ubuntu x86-64 VM or [remote host from macOS](../../docs/README.md#linux-only-toolchains).
+
 The acquisition control [runner](run_acquisition_control.py) builds [drg5_acquisition_control_tb.sv](drg5_acquisition_control_tb.sv) against the standalone [control peripheral](../rtl/drg5_acquisition_control.sv). It requires Verilator, Icarus Verilog (`iverilog` and `vvp`) and Yosys. The testbench drives inputs while the clock is low and samples after rising-edge nonblocking updates, uses bounded waits, and rejects unknown results. The runner records deterministic seeds, source hashes, named cases, detector failures and waveforms in a new output directory:
 
 ```sh
